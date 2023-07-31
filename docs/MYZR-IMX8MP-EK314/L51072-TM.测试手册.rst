@@ -1,0 +1,964 @@
+测试手册
+========
+
+测试概览
+--------
+
++----------+----------+-----+----------+----------+-----+----------+----------+
+| 测试项   | 测试结果 |     | 测试项   | 测试结果 |     | 测试项   | 测试结果 |
++==========+==========+=====+==========+==========+=====+==========+==========+
+| 电源按键 | Pass     |     | 复位按键 | Pass     |     | 指示灯   | Pass     |
++----------+----------+-----+----------+----------+-----+----------+----------+
+| Watchdog | Pass     |     | 休眠唤醒 | Pass     |     | RTC      | PASS     |
++----------+----------+-----+----------+----------+-----+----------+----------+
+| 网口     | Pass     |     | CAN      | Pass     |     | I2C      | Pass     |
++----------+----------+-----+----------+----------+-----+----------+----------+
+| UART     | Pass     |     | GPIO     | Pass     |     | PWM      | Pass     |
++----------+----------+-----+----------+----------+-----+----------+----------+
+| SPI      | \--\--   |     | QSPI     | Pass     |     | 音频     | Pass     |
++----------+----------+-----+----------+----------+-----+----------+----------+
+| USB WiFi | Pass     |     | TF卡     | Pass     |     | USB 3.0  | Pass     |
++----------+----------+-----+----------+----------+-----+----------+----------+
+| HDMI     | Pass     |     | LVDS     | 等屏幕   |     | MIPI DSI |          |
++----------+----------+-----+----------+----------+-----+----------+----------+
+| MIPI CSI | Pass     |     | PCIe     | Pass     |     | M2 5G    | Pass     |
++----------+----------+-----+----------+----------+-----+----------+----------+
+
+电源按键
+--------
+
++ 接口丝印：SW2
+
+**功能测试**
+
++ **关闭电源**
+
+  1）说明：长按电源按键可以关闭设备电源。
+
+  2）操作：在接通设备主电源并打开主电源开关的情况下，按住 SW2 按键约 5 秒左右即可关闭设备电源。
+
+  3）结果：看到主板指示灯灭掉即功能正常。
+
++ **开启电源**
+
+  1）说明：短按电源按键可以开启设备电源。
+
+  2）操作：在前面电源关闭的情况下，按住 SW2 按键约 1 秒左右即可开启设备电源。
+
+  3）结果：看到主板指示灯亮起来即功能正常。
+
+复位按键
+--------
+
++ 接口丝印：SW1
+
+**功能测试**
+
+  1）说明：短按复位按键可以使设备电源复位。
+
+  2）操作：在主板电源开启的情况下，短按 SW1 即可使设备电源复位。
+
+  3）结果：按下时可以看到主板指示灯灭，松开时可以看到主板指示灯亮起，即功能正常。
+
+指示灯
+------
+
+**系统接口**：
+
+  核心板指示灯：/sys/class/leds/core_board_heartbeat
+
+  主板指示灯：/sys/class/pwm/pwmchip0
+
+**功能测试**
+
++ **核心板指示灯**
+
+  1）说明：通过核心板指示灯用于观察系统是否运行。
+
+  2）操作：无
+
+  3）结果：设备上电后，10秒钟内核心板的 LED 灯会闪烁，表示系统运行中，此功能正常。
+
+  .. note::
+
++ **主板指示灯**
+
+  1）说明：主板指示灯通过 CPU 的 PWM 脚输出来控制 LED。
+
+  2）操作：参照后面的 PWM 测试。
+
+  3）结果：配置不同的参数后，可以看到主板指示灯亮的规律不同，即功能正常。
+
+  .. note:: 主板指示灯用户可配置，配置方法可参考后面 PWM 测试。
+
+Watchdog
+--------
+
++ 系统设备：/dev/watchdog
+
+**功能测试**
+
++ **看门狗超时复位**
+
+  1）说明：设置看门狗喂狗间隔时间少于休眠时间，看门狗将会超时复位。
+
+  2）操作：在命令行界面输入下面指令，并观察设备：
+
+  .. code-block:: shell
+
+     /unit_tests/Watchdog/wdt_driver_test.out 5 10 0 &
+
+  3）结果：执行指令 5 秒后设备重启，即功能正常。
+
++ **看门狗喂狗保持**
+
+  1）说明：设置看门狗喂狗时间大于休眠时间，设备将会正常运行。
+
+  2）操作：在命令行界面输入下面指令：
+
+  .. code-block:: shell
+
+     /unit_tests/Watchdog/wdt_driver_test.out 2 1 0
+
+  3）结果：系统继续运行而不重启，即功能正常。
+
+  .. note:: 按 *Ctrl+C* 中止看门狗程序后，2秒内设备重启（说明：硬件看门狗开启后，不会关闭，关闭程序会停止喂狗，导致超时重启）。
+
+休眠唤醒
+--------
+
++ 系统接口：/sys/power/state
+
+**功能测试**
+
++ **freeze（S0）模式休眠**
+
+  1）说明：通过系统接口可以使设备进入休眠。
+
+  2）操作
+
+  + 在命令行界面输入下面指令：
+
+  .. code-block:: shell
+
+     echo freeze > /sys/power/state
+
+  + 输出信息：
+
+  .. code-block:: text
+
+     PM: suspend entry (s2idle)
+     ...
+     Freezing user space processes ... (elapsed 0.000 seconds) done.
+     ...
+     Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+     ...
+
+  3）结果：执行指令后的输出信息基本匹配，同时看到核心板指示灯灭掉，即功能正常。
+
++ **mem（S2）模式休眠**
+
+  1）说明：mem（S2）模式下，设备进入低功耗模式。
+
+  2）操作
+
+  + 在命令行界面输入下面指令：
+
+  .. code-block:: shell
+
+     echo mem > /sys/power/state
+
+  + 输出信息：
+
+  .. code-block:: text
+
+     PM: suspend entry (s2idle)
+     ...
+     Freezing user space processes ... (elapsed 0.000 seconds) done.
+     ...
+     Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+     ...
+
+  3）结果：执行指令后的输出信息基本匹配，同时看到核心板指示灯灭掉，即功能正常。
+
+  .. note:: 进入休眠后可以通过短按 SW2 唤醒。
+
+RTC
+---
+
++ 设备接口：/dev/rtc
+
++ 测试说明：RTC 测试需要安装纽扣电池，电池位置在丝印 BT1。
+
+**功能测试**
+
++ **RTC时间**
+
+  1）说明：先读取RTC时间，再设置RTC时间，之后断电重启后再核对RTC时间
+
+  2）操作
+
+    a）读取 RTC 时间，具体操作如下：
+
+    + 输入指令：
+
+    .. code-block:: shell
+
+       hwclock -f /dev/rtc
+
+    + 可以看到RTC存储的时间，类似如下：
+
+    .. code-block:: text
+
+      1970-01-01 00:00:21.530265+00:00
+
+    b）设置 RTC 时间，具体操作如下：
+
+    + 输入指令更新系统时间：
+
+    .. code-block:: shell
+
+       date -s "2023-02-06 12:34:56"
+
+    + 可以看到系统当前时间更新为设置的时间：
+
+    .. code-block:: text
+
+      Mon Feb  6 12:34:56 UTC 2023
+
+    + 输入指令设置系统时间到 RTC：
+
+    .. code-block:: shell
+
+      hwclock -w -f /dev/rtc
+
+    c）断电重启设备。
+
+    d）核对 RTC 时间，具体操作如下：
+
+    + 输入指令：
+
+    .. code-block:: shell
+
+       hwclock -f /dev/rtc
+
+    + 可以看到RTC存储的时间与我们设置的时间基本相同，类似如下：
+
+    .. code-block:: text
+
+      2023-02-06 12:35:34.485664+00:00
+
+  3）结果：执行操作后，核对 RTC 时间基本没有问题，且操作过程中的输出符合预期即功能正常。
+
++ **wakealarm 功能**
+
+  1）说明：设备的 RTC 可以产生 wakealarm，可用于唤醒设备休眠。
+
+  2）操作
+
+    a）设置 10 秒后产生一个 wakealarm 信号，输入下面指令：
+
+    .. code-block:: shell
+
+       echo +10 > /sys/class/rtc/rtc1/wakealarm
+
+    b）使系统进入休眠模式，输入下面指令：
+
+    .. code-block:: shell
+
+       echo freeze > /sys/power/state
+
+  3）结果：上面两条指令执行完后，系统将不响应串口终端输入。等 wakealarm 唤醒系统后，串口终端可以继续操作即测试正常。
+
+网口
+----
+
+  + 接口丝印：U12（网口一），U9（网口二）
+  + 系统接口：eth0（网口一），eth0（网口二）
+
+**功能测试**
+
++ **网口一**
+
+  1）说明：采用开发板向PC发送ICMP报文的方式进行测试
+
+  2）操作
+
+    a）配置电脑有线网卡IP为 192.168.137.99。
+
+    b）把开发板的这个网口用网线跟电脑网口连接起来。
+
+    c）配置开发板网口IP，具体配置命令如下：
+
+    .. code-block:: shell
+
+      ifconfig eth1 down
+      ifconfig eth0 up
+      ifconfig eth0 192.168.137.81
+
+    d）执行网口测试命令
+
+    + 输入指令：
+
+    .. code-block:: shell
+
+      ping 192.168.137.99 -c 2 -w 4
+
+    + 输出信息：
+
+    .. code-block:: text
+
+      PING 192.168.137.99 (192.168.137.99) 56(84) bytes of data.
+      64 bytes from 192.168.137.99: icmp_seq-1 ttl-64 time-1.35 ms
+      64 bytes from 192.168.137.99: icmp_seq-2 ttl-64 time-1.35 ms
+
+      --- 192.168.137.99 ping statistics ---
+      2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+      rtt min/avg/max/mdev - 1.347/1.347/1.348/0.000 ms
+
+  3）结果：“0% packet loss”表示测试通过。
+
++ **网口二**
+
+  1）说明：采用开发板向PC发送ICMP报文的方式进行测试
+
+  2）操作
+
+    a）配置电脑有线网卡IP为 192.168.137.99。
+
+    b）把开发板的这个网口用网线跟电脑网口连接起来。
+
+    c）配置开发板网口IP，具体配置命令如下：
+
+    .. code-block:: shell
+
+      ifconfig eth0 down
+      ifconfig eth1 up
+      ifconfig eth1 192.168.137.82
+
+    d）执行网口测试命令
+
+    + 输入指令：
+
+    .. code-block:: shell
+
+      ping 192.168.137.99 -c 2 -w 4
+
+    + 输出信息：
+
+    .. code-block:: text
+
+      PING 192.168.137.99 (192.168.137.99) 56(84) bytes of data.
+      64 bytes from 192.168.137.99: icmp_seq-1 ttl-64 time-0.595 ms
+      64 bytes from 192.168.137.99: icmp_seq-2 ttl-64 time-0.843 ms
+
+      --- 192.168.137.99 ping statistics ---
+      2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+      rtt min/avg/max/mdev - 0.595/0.719/0.843/0.124 ms
+
+  3）结果：“0% packet loss”表示测试通过。
+
+CAN
+---
+
+  +----------+-----------+--------------+
+  | 管脚位置 | 管脚配置  | 系统接口     |
+  +----------+-----------+--------------+
+  | J14:1    | CAN1H     | can0         |
+  +----------+-----------+              +
+  | J14:3    | CAN1L     |              |
+  +----------+-----------+--------------+
+  | J14:4    | CAN2H     | can1         |
+  +----------+-----------+              +
+  | J14:6    | CAN2L     |              |
+  +----------+-----------+--------------+
+
+**功能测试**
+
+  1）说明：使用两组 CAN 总线对方对收的方式进行测试。
+
+  2）操作
+
+    a）使用杜邦线将 J14:1 与 J14:4 连接，J14:3 与 J14:6 连接。
+
+    b）在串口终端输入命令配置 CAN 接口并 UP：
+
+    .. code-block:: shell
+
+      ip link set can0 type can bitrate 500000
+      ip link set can0 up
+      ip link set can1 type can bitrate 500000
+      ip link set can1 up
+
+    .. note:: 可以看到终端输出类似信息：link becomes ready
+
+    c）在串口终端输入命令使 CAN1(can0) 后台接收：
+
+    .. code-block:: shell
+
+       candump can0 &
+
+    d）在串口终端输入命令使 CAN2(can1) 发送测试数据：
+
+    + 输入命令：
+
+    .. code-block:: shell
+
+       cansend can1 1F334455#1122334455667788
+
+    + 输出信息：
+
+    .. code-block:: text
+
+      can0  1F334455   [8]  11 22 33 44 55 66 77 88
+
+  3）结果：“d）”操作时输出信息正确，即功能正常。
+
+I2C
+---
+
+**功能测试**
+
+  1）说明：执行 I2C 检测指令并观察结果。
+
+  2）操作
+
+    a）检测系统的 I2C 总线
+
+    + 输入命令：
+
+    .. code-block:: shell
+
+        i2cdetect -l
+
+    + 输出信息类似如下，表示检测到 I2C 0、1、2 和 HDMI 的适配器。
+
+    .. code-block:: text
+
+      i2c-1	i2c       	30a30000.i2c                    	I2C adapter
+      i2c-6	i2c       	DesignWare HDMI                 	I2C adapter
+      i2c-2	i2c       	30a40000.i2c                    	I2C adapter
+      i2c-0	i2c       	30a20000.i2c                    	I2C adapter
+
+    b）检测总线上的 I2C 设备
+
+    + 输入命令：
+    .. code-block:: shell
+
+      i2cdetect -y 2
+
+    .. note:: i2cdetect 带的参数 2 可以是上一步检测出的总线序号，如 0、1、6。
+
+    + 输出有类似如下信息，非 “\--” 表示在 I2C 总线对应地址检测到设备。
+
+    .. code-block:: text
+
+           0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+      00:                         -- -- -- -- -- -- -- --
+      10: -- -- -- -- -- -- -- -- -- -- UU -- -- -- -- --
+      20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+      30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+      40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+      50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+      60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 6f
+      70: -- -- -- -- -- -- -- --
+
+  3）结果：操作过程中的输出信息与预期基本一致，即功能正常。
+
+UART
+----
+
+  +----------+-----------+--------------+
+  | 管脚位置 | 管脚配置  | 系统接口     |
+  +----------+-----------+--------------+
+  | J14:8    | UART1_TXD | /dev/ttymxc0 |
+  +----------+-----------+              +
+  | J14:9    | UART1_RXD |              |
+  +----------+-----------+              +
+  | J14:10   | UART1_CTS |              |
+  +----------+-----------+              +
+  | J14:11   | UART1_RTS |              |
+  +----------+-----------+--------------+
+
+**功能测试**
+
+  1）说明：使用串口自发自收的方式进行测试。
+
+  2）操作
+
+    a）使用杜邦线连接 J14:8 和 J14:9。
+
+    b）运行测试程序：
+
+    + 输入命令：
+
+    .. code-block:: shell
+
+      ./serial_test.out /dev/ttymxc0 "www.myzr.com.cn"
+
+    + 输出信息：
+
+    .. code-block:: text
+
+      Starting send data...finish
+      Starting receive data:
+      ASCII: 0x77 	 Character: w
+      ASCII: 0x77 	 Character: w
+      ASCII: 0x77 	 Character: w
+      ASCII: 0x2e 	 Character: .
+      ASCII: 0x6d 	 Character: m
+      ASCII: 0x79 	 Character: y
+      ASCII: 0x7a 	 Character: z
+      ASCII: 0x72 	 Character: r
+      ASCII: 0x2e 	 Character: .
+      ASCII: 0x63 	 Character: c
+      ASCII: 0x6f 	 Character: o
+      ASCII: 0x6d 	 Character: m
+      ASCII: 0x2e 	 Character: .
+      ASCII: 0x63 	 Character: c
+      ASCII: 0x6e 	 Character: n
+      ASCII: 0x0 	 Character:
+
+  3）结果：执行测试操作后，输入信息符合正确预期即功能正常。
+
+GPIO
+----
+
++------------+------------+--------+--+------------+------------+--------+
+| 管脚位置   | 管脚配置   | IO 号  |  | 管脚位置   | 管脚配置   | IO 号  |
++------------+------------+--------+--+------------+------------+--------+
+| J13:13     | GPIO4_IO18 | 114    |  | J13:26     | GPIO4_IO01 | 97     |
++------------+------------+--------+  +------------+------------+--------+
+| J13:15     | GPIO4_IO19 | 115    |  | J13:28     | GPIO4_IO00 | 96     |
++------------+------------+--------+  +------------+------------+--------+
+| J13:16     | GPIO2_IO20 | 52     |  | J13:32     | GPIO4_IO20 | 116    |
++------------+------------+--------+--+------------+------------+--------+
+
+**功能测试**
+
++ GPIO 输出测试
+
+  1）说明：通过系统的接口控制 GPIO 的输出电平。
+
+  2）操作
+
+    a）输入命令导出 IO 操作接口并配置为输出：
+
+    .. code-block:: shell
+
+      export OUT_IO_OUT_NUM-52
+      echo ${OUT_IO_OUT_NUM} > /sys/class/gpio/export
+      echo "out" > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/direction
+
+    b）输入命令控制 IO 输出高电平：
+
+    .. code-block:: shell
+
+       echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+
+    .. note:: 这时用万用表测试 J13:16，电压应当是 3.3V。
+
+    c）控制 IO 输出低电平：
+
+    .. code-block:: shell
+
+       echo 0 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+
+    .. note:: 这时用万用表测试 J13:16，电压应当是 3.3V。
+
+  3）结果：在测试操作中控制IO电平时，测得的电压与预期符合即正常。
+
++ GPIO 输入测试
+
+  1）说明：通过系统的接口配置并读取GPIO的输入电平。
+
+  2）操作
+
+    a）用杜邦线或跳线帽连接 J13 的 15 和 16 脚。
+
+    b）输入命令导出 IO 操作接口并配置为输入：
+
+    .. code-block:: shell
+
+       export OUT_IO_IN_NUM-115
+       echo ${OUT_IO_IN_NUM} > /sys/class/gpio/export
+       echo "in" > /sys/class/gpio/gpio${OUT_IO_IN_NUM}/direction
+
+    c）输入命令控制 J13:16 输出高电平并读取 J13:15 的输入电平：
+
+    .. code-block:: shell
+
+       # 注释：控制 J13:16 IO 输出高电平
+       echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+       # 注释：读取 IO 的输入电平
+       cat /sys/class/gpio/gpio${OUT_IO_IN_NUM}/value
+
+    .. note:: 这时命令行界面终端应当输出字符“1”（表示高电平）。
+
+    d）输入命令控制 J13:16 输出低电平并读取 J13:15 的输入电平：
+
+    .. code-block:: shell
+
+       # 注释：控制 J13:16 IO 输出低电平
+       echo 0 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+       # 注释：读取 IO 的输入电平
+       cat /sys/class/gpio/gpio${OUT_IO_IN_NUM}/value
+
+    .. note:: 这时命令行界面终端应当输出字符“0”（表示低电平）。
+
+  3）结果：在测试操作中，读取到的电平符合正确预期，即功能正常。
+
+PWM
+---
+
++ 接口位置：J13:27
+
++ 系统接口：/sys/class/pwm/pwmchip0
+
+**功能测试**
+
+  1）说明：配置 PWM 并观察。
+
+  2）操作
+
+    a）输入命令配置 PWM：
+
+    .. code-block:: shell
+
+      # 注释：导出 PWM（PWM1） 的操作接口
+      echo 0 > /sys/class/pwm/pwmchip0/export
+      # 注释：配置 PWM 的周期，单位是纳秒
+      echo 1000000000 > /sys/class/pwm/pwmchip0/pwm0/period
+      # 注释：配置 PWM 的占空比，单位是纳秒，必须少于周期
+      echo 500000000 > /sys/class/pwm/pwmchip0/pwm0/duty_cycle
+      # 注释：使能 PWM
+      echo 1 > /sys/class/pwm/pwmchip0/pwm0/enable
+
+    b）使用示波器检测 J13:27，可以看到电平周期性的变化。
+
+  3）结果：使用示波器检测 J13:27 时，可以看到电平周期性的变化，即功能正常。
+
+SPI
+---
+
+**功能测试**
+
+  1）说明：通过 SPI 接口发送字符串。
+
+  2）操作
+
+  + 输入命令运行测试程序：
+
+  .. code-block:: shell
+
+     .spidev_test -D /dev/spidev1.0 -v -p my_spi_test_string
+
+  .. note:: “my_spi_test_string” 是通过 spi 发送的字符串。
+
+  + 可以看到输出信息类似如下：
+
+  .. code-block:: text
+
+     spi mode: 0x4
+     bits per word: 8
+     max speed: 500000 Hz (500 kHz)
+     TX | 6D 79 5F 73 70 69 5F 74 65 73 74 5F 73 74 72 69 6E 67 __ __ __ __ __ __ __ __ __ __ __ __ __ __  |my_spi_test_string|
+     RX | 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 __ __ __ __ __ __ __ __ __ __ __ __ __ __  |..................|
+
+  3）结果：看到的输出信息符合正确预期，表示发送成功。
+
+QSPI
+----
+
++ 设备接口：/dev/mtd0
+
+**功能测试**
+
+  1）说明：通过写文件并读取来验证功能。
+
+  2）操作
+
+    a）输入命令准备 QSPI Flash 设备：
+
+    .. code-block:: shell
+
+      # 注释：格式化 QSPI Flash 设备
+      flash_erase /dev/mtd0 0 0
+      # 注释：挂载 Flash 设备
+      mount -t jffs2 /dev/mtdblock0 /mnt
+      # 注释：检查挂载设备
+      df -h
+
+    .. note:: 可以看到包含类似输出信息：
+
+      /dev/mtdblock0   32M  904K   32M   3% /mnt
+
+    b）输入命令写文件并读取：
+
+    .. code-block:: shell
+
+      # 注释：往 Flash 写文件
+      echo "Flash Test" > /mnt/test.txt
+      # 注释：数据同步
+      sync
+      # 注释：读文件
+      cat /mnt/test.txt
+
+    .. note:: 可以看到输出信息：Flash Test
+
+  3）结果：执行命令后的输出信息符合正确预期，即功能正常。
+
+音频
+----
+
++ 系统接口：wm8960-audio
+
+**功能测试**
+
+  1）说明：播放音频文件进行测试。
+
+  2）操作
+
+    a）把耳机或喇叭插入丝印 P1 对应的接口。
+
+    b）输入命令进行测试：
+
+    .. code-block:: shell
+
+      aplay -D hw:0 /unit_tests/ASRC/audio8k16S.wav
+
+  3）结果：执行测试命令时，耳机可以听到声音，即功能正常。
+
+USB WiFi
+--------
+
++ 接口丝印：U21
+
+**功能测试**
+
+  1）说明：
+
+  2）操作：
+
+  3）现象：
+
+TF卡
+----
+
++ 接口丝印：J10
+
+**功能测试**
+
+  .. note:: 设备的 TF 卡接口支持热插拔，TF 卡座是自弹式。
+
++ TF卡插入测试
+
+  1）说明：插入 TF 卡，观察设备能否正确识别到卡。
+
+  2）操作
+
+    a）用一张 TF 卡，插入到设备的 TF 卡接口。
+
+    b）输出信息类似如下：
+
+    .. code-block:: text
+
+      ...
+      mmc1: new ultra high speed SDR104 SDHC card at address 0001
+      mmcblk1: mmc1:0001 SD16G 14.9 GiB
+      ...
+
+  3）结果：操作后输出信息符合正确预期，表示正确识别到 TF 卡。
+
++ TF卡弹出测试
+
+  1）弹出 TF 卡，观察设备能否正确响应。
+
+  2）操作
+
+    a）往 TF 卡插入方向往里按（听到“咔”一声松手，TF卡会弹出）。
+
+    b）输出信息类似如下：
+
+    .. code-block:: text
+
+      ...
+      mmc1: card 0001 removed
+      ...
+
+  3）结果：操作时的现象符合正确预期，表示 TF 热插拔正常。
+
+USB 3.0
+-------
+
++ 接口丝印：J3
+
+**功能测试**
+
+  1）说明：
+
+  2）操作：
+
+  3）现象：
+
+HDMI
+----
+
++ 接口丝印：J4
+
+**功能测试**
+
+  1）说明：设备会识别到 HDMI 显示设备并启用，不支持转接（如HDMI转VGA）。
+
+  2）操作：连接 HDMI 显示屏，并为设备重新上电。
+
+  3）结果：设备启动过程中，HDMI显示屏会有显示，即表示功能正常。
+
+LVDS
+----
+
++ 接口丝印：J8（LVDS0），J9（LVDS1）
+
+**功能测试**
+
+  1）说明：
+
+  2）操作：
+
+  3）现象：
+
+MIPI DSI
+--------
+
++ 接口丝印：J5
+
+**功能测试**
+
+  1）说明：
+
+  2）操作：
+
+  3）现象：
+
+MIPI CSI
+--------
+
++ 接口丝印：J6（CSI1），J7（CSI2）
+
+**功能测试**
+
++ MIPI CSI1
+
+  1）说明：
+
+  2）操作
+
+    a）查看摄像头设备
+
+    + 输入命令：
+
+    .. code-block:: shell
+
+       v4l2-ctl --list-devices
+
+    b）摄像头采集图像并显示
+
+    + 输入命令：
+
+    .. code-block:: shell
+
+       gst-launch-1.0 -e v4l2src device-/dev/video3 ! video/x-raw ! autovideosink
+
+    + 输出信息类似如下：
+
+    .. code-block:: text
+
+       Setting pipeline to PAUSED ...
+       Pipeline is live and does not need PREROLL ...
+       Pipeline is PREROLLED ...
+       Setting pipeline to PLAYING ...
+       New clock: GstSystemClock
+       [   71.873621] bypass csc
+       [   71.876047] input fmt YUV4
+       [   71.878792] output fmt YUYV
+
+  3）结果：执行操作后，显示屏实时显示摄像头采集到的图像，即功能正常。
+
++ MIPI CSI2
+
+  1）说明：
+
+  2）操作
+
+    a）切换设备树文件
+
+    .. code-block:: shell
+
+       setenv fdtfile myimx8mpek314-ov2775-ov5640.dtb; boot
+
+    b）查看摄像头设备
+
+    + 输入命令：
+
+    .. code-block:: shell
+
+       v4l2-ctl --list-devices
+
+    c）摄像头采集图像并显示
+
+    + 输入命令：
+
+    .. code-block:: shell
+
+       gst-launch-1.0 -e v4l2src device-/dev/video2 ! video/x-raw ! autovideosink
+
+    + 输出信息类似如下：
+
+    .. code-block:: text
+
+       Setting pipeline to PAUSED ...
+       Pipeline is live and does not need PREROLL ...
+       Pipeline is PREROLLED ...
+       Setting pipeline to PLAYING ...
+       New clock: GstSystemClock
+       [   27.643936] bypass csc
+       [   27.646359] input fmt YUV4
+       [   27.649107] output fmt YUYV
+
+PCIe
+----
+
++ 接口丝印：J11
+
+**功能测试**
+
+  1）说明：
+
+  2）操作：
+
+  3）现象：
+
+M2 5G
+-----
+
++ 接口丝印：J12
+
+**功能测试**
+
+  1）说明：
+
+  2）操作：
+
+  3）现象：
+
+--------------------------------------------------------------------------------
+
+::
+
+   --------------------------------------------------------------------------------
+   * 珠海明远智睿科技有限公司
+   * ZhuHai MYZR Technology CO.,LTD.
+   * Latest Update: 2023/4/26
+   * Supporter: Zhong JiaYi
+   --------------------------------------------------------------------------------
+
