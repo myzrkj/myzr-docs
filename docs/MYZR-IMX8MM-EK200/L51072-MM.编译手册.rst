@@ -1,0 +1,268 @@
+编译手册
+========
+
+准备编译环境
+------------
+
+安装依赖包
+~~~~~~~~~~
+
+.. code:: shell
+
+    # =====> Input:
+    sudo apt install libssh-dev
+
+安装 gcc-linaro 交叉编译工具
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. 准备交叉编译工具文件
+
+　　可以网盘下载或在线下载。
+
+-  网盘下载方式：
+
+　　在网盘下载“gcc-linaro-7.5.0-2019.12-x86\_64\_aarch64-linux-gnu.tar.xz”后，把文件传输到 x86_64 Linux 主机中。
+
+-  在线下载方式：
+
+.. code:: shell
+
+    # =====> Input:
+    wget https://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/aarch64-linux-gnu/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz
+
+2. 执行安装
+
+.. code:: shell
+
+    # =====> Input:
+
+    # 创建安装目录
+    mkdir ~/work/toolchain/gcc-linaro -p
+
+    # 安装指令
+    tar xf gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz -C ~/work/toolchain/gcc-linaro
+
+3. 创建交叉编译工具配置文件
+
+.. code:: shell
+
+    # =====> Input:
+    # 创建配置文件
+    cat << EOF > ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
+    #!/bin/sh
+    export PATH=${HOME}/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin:${PATH}
+    export ARCH=arm64
+    export CROSS_COMPILE=aarch64-linux-gnu-
+    EOF
+
+    # 配置可执行权限
+    chmod +x ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
+
+4. 配置工具环境变量
+
+.. code:: shell
+
+    # =====> Input:
+    source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
+
+5. 检查安装
+
+.. code:: shell
+
+    # =====> Input:
+    ${CROSS_COMPILE}gcc -v
+
+6. 工具信息
+
+.. code:: text
+
+    使用内建 specs。
+    COLLECT_GCC=aarch64-linux-gnu-gcc
+    COLLECT_LTO_WRAPPER=/home/tangbin/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper
+    目标：aarch64-linux-gnu
+    配置为：'/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-7.5-2019.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/aarch64-linux-gnu --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/aarch64-linux-gnu/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=aarch64-linux-gnu --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu
+    线程模型：posix
+    gcc 版本 7.5.0 (Linaro GCC 7.5-2019.12) 
+
+编译 Boot 文件
+--------------
+
+编译 U-Boot 文件
+~~~~~~~~~~~~~~~~
+
+1. 准备 U-Boot 源码包文件
+
+| 　　① 打开网盘到 “3.2_OS_Linux-5.10.72 -> 02_source”，下载 “uboot-2021.04\*.tar.bz2"。
+| 　　② 把文件 "uboot-2021.04\*.tar.bz2" 传输到 x86_64 Linux 主机中。
+
+2. 解压源码包
+
+.. code:: shell
+
+    # =====> Input:
+    tar xf uboot-2021.04*.tar.bz2 -C ~/work/linux/imx-linux-5.10.72
+
+3. 配置编译工具环境变量
+
+.. code:: shell
+
+    # =====> Input:
+    source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
+
+4. 目标文件编译
+
+.. code:: shell
+
+    cd ~/work/linux/imx-linux-5.10.72/uboot-2021.04
+    make myimx8mmek200_defconfig O=build
+    cd build
+    make -j24
+
+5. 目标文件说明
+
+　　u-boot-nodtb.bin, spl/u-boot-spl.bin, arch/arm/dts/myimx8mmek200.dtb 即目标文件，在下一步骤编译 Boot 文件时会依赖这些文件。
+
+编译 Boot 文件
+~~~~~~~~~~~~~~
+
+1. 准备 Boot 编译工具
+
+  把文件 "mkimage-5.10.72\*.tar.bz2" 传输到 x86\_64 Linux 主机中。
+
+2. 解压 Boot 编译工具
+
+.. code:: shell
+
+    # =====> Input:
+    tar xf mkimage-5.10.72*.tar.bz2 -C ~/work/linux/imx-linux-5.10.72
+
+3. 编译 Boot 文件
+
+.. code:: shell
+
+    cd ~/work/linux/imx-linux-5.10.72/mkimage-5.10.72
+    make SOC=iMX8MM dtbs=myimx8mmek200.dtb flash_ddr4_evk OUTIMG=boot-myimx8mmek200.bin
+
+4. 目标文件说明
+
+　　iMX8M/boot-myimx8mmek200.bin 即目标文件，可以用编译出来的目标文件替换烧录工具的同名文件。  
+
+编译 Linux 内核
+---------------
+
+1. 准备 Linux 源码包文件
+
+　　把文件 "imx-linux-5.10.72\*.tar.bz2" 传输到 x86\_64 Linux 主机中。
+
+2. 解压源码包
+
+.. code:: shell
+
+    # =====> Input:
+    tar xf linux-5.10.72*.tar.bz2 -C ~/work/linux/imx-linux-5.10.72
+
+3. 配置编译工具环境变量
+
+.. code:: shell
+
+    # =====> Input:
+    source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
+
+4. Linux Image 文件编译
+
+-  执行编译
+
+.. code:: shell
+
+    # =====> Input:
+
+    cd ~/work/linux/imx-linux-5.10.72/linux-5.10.72
+    make imx_v8_defconfig
+    make Image -j24
+
+-  Image 编译过程中输出信息类似如下：
+
+.. code:: text
+
+    WRAP    arch/arm64/include/generated/uapi/asm/kvm_para.h
+    WRAP    arch/arm64/include/generated/uapi/asm/errno.h
+    ......
+    KSYMS   .tmp_vmlinux.kallsyms2.S
+    AS      .tmp_vmlinux.kallsyms2.S
+    LD      vmlinux
+    SORTTAB vmlinux
+    SYSMAP  System.map
+    OBJCOPY arch/arm64/boot/Image
+
+5. Linux 设备树文件编译
+
+-  执行编译
+
+.. code:: shell
+
+    # =====> Input:
+    make myzr/myimx8mmek200.dtb
+
+-  设备树首次编译成功时，输出信息类似如下：
+
+.. code:: text
+
+    DTC     arch/arm64/boot/dts/myzr/myimx8mmek200.dtb
+
+6. Linux 模块编译
+
+-  执行编译
+
+.. code:: shell
+
+    # =====> Input:
+    make modules -j24
+
+-  模块编译成功输出信息类似如下：
+
+.. code:: text
+
+    ......
+    LD [M]  sound/usb/snd-usb-audio.ko
+    LD [M]  sound/usb/snd-usbmidi-lib.ko
+
+-  安装内核模块到指定目录
+
+.. code:: shell
+
+    # =====> Input:
+    if [ -d modules ]; then rm -rf modules; fi; mkdir modules
+    make modules_install INSTALL_MOD_PATH=./modules
+
+-  模块安装输出信息类似如下：
+
+.. code:: text
+
+    ......
+    INSTALL sound/usb/snd-usbmidi-lib.ko
+    DEPMOD  5.10.72-g5a70c7927261
+
+-  打包内核模块文件
+
+.. code:: shell
+
+    # =====> Input:
+    tar cjf kernel-modules.tar.bz2 -C modules lib
+
+7. 目标文件说明
+
+　　Image, myimx8mmek200.dtb, kernel-modules.tar.bz2 即目标文件，可以用编译出来的目标文件替换烧录工具的同名文件。
+
+--------------------------------------------------------------------------------
+
+..
+    20230726 唐斌检查
+
+::
+
+   --------------------------------------------------------------------------------
+   * 珠海明远智睿科技有限公司
+   * ZhuHai MYZR Technology CO.,LTD.
+   * Latest Update: 2023/7/26
+   * Supporter: Zhong JiaYi
+   --------------------------------------------------------------------------------
