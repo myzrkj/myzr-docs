@@ -1,0 +1,126 @@
+
+启动手册
+========
+
+开发板连接
+----------
+
+检查电源开关
+~~~~~~~~~~~~
+
+| 　　把开发板的电源开关“J2”的“o”按下，以确保开发板电源开关处于断开状态。
+
+串口线的连接
+~~~~~~~~~~~~
+
+| 　　1. 把串口线的一端连接到开发板的“P2”口，另一端连接到电脑的串口或USB口。                                                                     
+| 　　2. 参考  :doc:`《Xshell 参考手册》 <../COMMON/Xshell.RM.参考手册>`  新建串口会话并打开会话。      
+
+网线的连接
+~~~~~~~~~~
+
+| 　　把网线的一端连接到“ETH1”或“ETH2”，另一端连接到电脑的网口。
+
+下载线的连接
+~~~~~~~~~~~~
+
+| 　　把typeC线的一端连接J5，另一端连接到电脑的后置USB口。
+
+电源线的连接
+~~~~~~~~~~~~
+
+| 　　把电源适配器的一端连接到开发板的“J1”，另一端插入到市电（220V的交流电）插座。
+         
+
+启动开发板
+----------
+
+检查开发板的启动模式拨码
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+| 　　把开发板的“SW3”拨码开关拨到 *启动模式*。
+
+========== ========== ========== ========== ========== 
+BOOT_MODE3 BOOT_MODE2 BOOT_MODE1 BOOT_MODE0 描述 
+========== ========== ========== ========== ========== 
+0          0          0          0          刷机模式
+0          0          1          0          启动模式
+========== ========== ========== ========== ========== 
+
+| 　　注：拨码开关的ON (1) 是字母那一边，OFF (0) 是数字的那一边。
+
+为开发板上电
+~~~~~~~~~~~~
+
+| 　　把开发板的电源开关“SWITCH”的“-”按下，以使开发板电源开关打开。
+
+开发板的启动信息解读
+--------------------
+
+| 　　开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
+
+::
+
+   U-Boot 2021.10-stm32mp-r2 (Aug 24 2023 - 18:17:43 +0800)
+
+   CPU: STM32MP135D Rev.Y
+   Model: MYZR STM32MP13 Discovery Board
+   Board: stm32mp1 in trusted mode (myzr,myzr-stm32mp13)
+   DRAM:  512 MiB
+   optee optee: OP-TEE: revision 3.16
+   Clocks:
+   - MPU : 1000 MHz
+   - AXI : 266.500 MHz
+   - PER : 24 MHz
+   - DDR : 533 MHz
+   ........
+   Starting kernel ...
+   [    0.000000] Booting Linux on physical CPU 0x0
+   [    0.000000] Linux version 5.15.67 (kuangwh@myzr-7a9b) (arm-ostl-linux-gnueabi-gcc (GCC) 11.3.0, GNU ld (GNU Binutils) 2.38.20220708) #4 PREEMPT Fri Aug 25 10:55:19 CST 2023
+   [    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+   [    0.000000] CPU: div instructions available: patching division code
+   [    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+   [    0.000000] OF: fdt: Machine model: MYZR STM32MP13 Discovery Board
+   ............
+   ST OpenSTLinux - Weston - (A Yocto Project Based Distro) 4.0.4-openstlinux-5.15-yocto-kirkstone-mp1-v22.11.23 stm32mp1 ttySTM0
+
+   stm32mp1 login: root (automatic login)
+
+   root@stm32mp1:~# 
+
+U-Boot 信息
+~~~~~~~~~~~
+
+| 　　启动信息中 ``U-Boot 2021.10-stm32mp-r2 (Aug 24 2023 - 18:17:43 +0800)`` 包含以下信息：
+| 　　【u-boot版本】 ：2021.10；
+| 　　【源码的版本号】 ：stm32mp-r2；
+| 　　【u-boot文件的编译时间】 ：Aug 24 2023 - 18:17:43 +0800。
+
+内核信息
+~~~~~~~~
+
+| 　　启动信息中 ``Linux version 5.15.67 (kuangwh@myzr-7a9b) (arm-ostl-linux-gnueabi-gcc (GCC) 11.3.0, GNU ld (GNU Binutils) 2.38.20220708) #4 PREEMPT Fri Aug 25 10:55:19 CST 2023`` 包含以下信息：
+| 　　【内核版本】 ：Linux- 5.15.67；
+| 　　【编译内核的GCC版本】 ： 11.3；
+| 　　【内核文件的编译时间】 ：Fri Aug 25 10:55:19 CST 2023。
+ 
+
+开发板登录
+----------
+
+| 　　启动系统完后输出 ``stm32mp1 login:`` 时，可以登录：
+| 　　【用户名】 ：root
+| 　　【密码】 ：无
+|     ``注：出厂系统自动登录，无需输入用户名和密码``
+| 　　**提示**：登录后可以通过“passwd”命令来设置和修改密码。
+
+--------------------------------------------------------------------------------
+
+::
+
+   --------------------------------------------------------------------------------
+   * 珠海明远智睿科技有限公司  
+   * ZhuHai MYZR Technology CO.,LTD.
+   * Latest Update: 2023/9/11  
+   * Supporter: kuangwh
+   --------------------------------------------------------------------------------
