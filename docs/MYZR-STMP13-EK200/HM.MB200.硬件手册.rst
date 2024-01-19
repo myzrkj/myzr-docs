@@ -61,7 +61,7 @@ OTG
    :alt: image-MYZR-STMP13-MB200-OTG
 
 Ethernet
-~~~~
+~~~~~~~~
 
 丝印：U8,U12
 
