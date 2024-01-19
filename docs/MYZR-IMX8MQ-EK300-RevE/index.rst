@@ -2,11 +2,11 @@
 MYZR-IMX8MQ-EK300-RevE
 ======================
 
-.. include:: FS.产品简介.rst
+.. To be added
+   FS.产品简介.rst
 
 .. toctree:: 
    :maxdepth: 1
-   :hidden:
 
    QSG.快速开始
    HM.硬件手册
