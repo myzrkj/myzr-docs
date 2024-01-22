@@ -5,8 +5,11 @@
 核心板视图
 ----------
 
-.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-CB200.png
-   :alt: image-MYZR-STMP13-CB200
+.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-CB200-front.png
+   :alt: image-MYZR-STMP13-CB200-front
+
+.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-CB200-back.png
+   :alt: image-MYZR-STMP13-CB200-back   
 
 工作温度
 --------

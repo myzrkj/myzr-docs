@@ -8,14 +8,20 @@
 正面图
 ~~~~~~
 
-.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-EK200.png
-   :alt: image-MYZR-STMP13-EK200
+.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-EK200-font.png
+   :alt: image-MYZR-STMP13-EK200-font
+
+反面图
+~~~~~~
+
+.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-EK200-back.png
+   :alt: image-MYZR-STMP13-EK200-back
 
 正面标识图
 ~~~~~~~~~~~~
 
-.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-EK200.正面标识.png
-   :alt: image-MYZR-STMP13-EK200正面标识
+.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-EK200-interface.png
+   :alt: image-MYZR-STMP13-EK200-interface.png
 
 接口功能
 --------
@@ -67,16 +73,6 @@ Ethernet
 
 .. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-MB200-ETH.png
    :alt: image-MYZR-STMP13-MB200-ETH
-
-DSI
-~~~
-
-丝印：J5
-
-引脚及信号定义如下:
-
-.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-MB200-DSI.png
-   :alt: image-MYZR-STMP13-MB200-DSI
 
 调试串口
 ~~~~~~~~
