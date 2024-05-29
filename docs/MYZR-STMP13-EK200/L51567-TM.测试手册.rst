@@ -291,7 +291,7 @@ UART
 
     .. code-block:: shell
 
-      ./serial_test.out /dev/ttymxc7 "www.myzr.com.cn"
+      /usr/local/my-demo/serial_test.out /dev/ttySTM7 "www.myzr.com.cn"
 
     + 输出信息：
 
@@ -352,7 +352,7 @@ RS232
 
     .. code-block:: shell
 
-      ./serial_test.out /dev/ttymxc2 "www.myzr.com.cn"
+      /usr/local/my-demo/serial_test.out /dev/ttySTM2 "www.myzr.com.cn"
 
     + 输出信息：
 
@@ -523,7 +523,7 @@ SPI
 
     .. code-block:: shell
 
-      ./spidev_test.out -D /dev/spidev0.0
+      /usr/local/my-demo/spidev_test.out -D /dev/spidev0.0
 
     b）输出如下信息表示，SPI收发正常：
 
