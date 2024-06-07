@@ -10,6 +10,7 @@
    :maxdepth: 1
    :caption: MYZR-IMX8M 系列
 
+   docs/MYZR-AI-V2H/index
    docs/MYZR-IMX8MP-EK314/index
    docs/MYZR-IMX8MM-EK200/index
    docs/MYZR-IMX8MQ-EK300-RevE/index
