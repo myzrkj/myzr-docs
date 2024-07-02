@@ -14,9 +14,22 @@
    docs/MYZR-IMX8MP-EK314/index
    docs/MYZR-IMX8MM-EK200/index
    docs/MYZR-IMX8MQ-EK300-RevE/index
-   docs/MYZR-STMP13-EK200/index
+   
 
 .. docs/MYZR-IMX8MN-EK200/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-ST 系列
+
+   docs/MYZR-STMP13-EK200/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-ROCKCHIP 系列
+
+   docs/MYZR-RK3568-EK314/index
+   docs/MYZR-RK3588-EK314/index
 
 Indices and tables
 ==================
