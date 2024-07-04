@@ -31,6 +31,29 @@
    docs/MYZR-RK3568-EK314/index
    docs/MYZR-RK3588-EK314/index
 
+.. toctree::
+   :maxdepth: 1
+   :caption: 国产系列
+
+   docs/Rockchip平台/index
+   docs/Allwinner平台/index
+   docs/SigmaStar平台/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: NXP系列
+
+   docs/NXP平台/index
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: 瑞萨系列
+
+   docs/瑞萨平台/index
+
+
+
 Indices and tables
 ==================
 
