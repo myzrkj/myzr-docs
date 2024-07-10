@@ -5,8 +5,11 @@
 核心板视图
 ----------
 
-.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-CB200.png
-   :alt: image-MYZR-STMP13-CB200
+.. figure:: ../../image/MYZR-RK3588-EK314/RK3588的正面背面图片/MYZR-RK3588-CB314-font.jpg
+   :alt: image-MYZR-STMP13-CB200-front
+
+.. figure:: ../../image/MYZR-RK3588-EK314/RK3588的正面背面图片/MYZR-RK3588-CB314-back.jpg
+   :alt: image-MYZR-STMP13-CB200-back   
 
 工作温度
 --------
@@ -22,7 +25,7 @@
 供电电源
 --------
 
--  3.6V输入
+-  12V输入
 
 操作系统支持
 ------------
@@ -70,7 +73,7 @@
 管脚定义&详细功能说明
 ---------------------
 
-.. include:: HM.CB200-PinMux.rst
+.. include:: HM.CB314-PinMux.rst
 
 --------------------------------------------------------------------------------
 

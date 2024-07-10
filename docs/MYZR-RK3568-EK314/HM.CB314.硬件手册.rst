@@ -5,8 +5,8 @@
 核心板视图
 ----------
 
-.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-STMP13-CB200.png
-   :alt: image-MYZR-STMP13-CB200
+.. figure:: ../../image/MYZR-STMP13-EK200/MYZR-RK3568-CB314.png
+   :alt: image-MYZR-RK3568-CB314
 
 工作温度
 --------
@@ -22,7 +22,7 @@
 供电电源
 --------
 
--  3.6V输入
+-  12V输入
 
 操作系统支持
 ------------
@@ -70,7 +70,7 @@
 管脚定义&详细功能说明
 ---------------------
 
-.. include:: HM.CB200-PinMux.rst
+.. include:: HM.CB314-PinMux.rst
 
 --------------------------------------------------------------------------------
 
