@@ -21,7 +21,7 @@
 ~~~~~~~~~~~~
 
 .. figure:: ../../image/MYZR-RK3588-EK314/RK3588的正面背面图片/MYZR-RK3588-EK314-interface.jpg
-   :alt: image-MYZR-STMP13-EK200-interface
+   :alt: image-MYZR-RK3588-EK314-interface
 
 
 接口功能

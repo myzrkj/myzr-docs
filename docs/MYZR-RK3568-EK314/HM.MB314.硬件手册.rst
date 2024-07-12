@@ -2,6 +2,27 @@
 底板硬件手册
 ============
 
+接口概览
+--------
+
+正面图
+~~~~~~
+
+.. figure:: ../../image/MYZR-RK3568-EK314/RK3568的正面背面图片/MYZR-RK3568-EK314-font.jpg
+   :alt: image-MYZR-RK3568-EK314-font
+
+反面图
+~~~~~~
+
+.. figure:: ../../image/MYZR-RK3568-EK314/RK3568的正面背面图片/MYZR-RK3568-EK314-back.jpg
+   :alt: image-MYZR-RK3568-EK314-back
+
+正面标识图
+~~~~~~~~~~~~
+
+.. figure:: ../../image/MYZR-RK3568-EK314/RK3568的正面背面图片/MYZR-RK3568-EK314-interface.jpg
+   :alt: image-MYZR-RK3568-EK314-interface
+
 
 接口功能
 --------

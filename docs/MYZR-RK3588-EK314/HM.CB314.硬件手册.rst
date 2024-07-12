@@ -6,10 +6,10 @@
 ----------
 
 .. figure:: ../../image/MYZR-RK3588-EK314/RK3588的正面背面图片/MYZR-RK3588-CB314-font.jpg
-   :alt: image-MYZR-STMP13-CB200-front
+   :alt: MYZR-RK3588-CB314-font
 
 .. figure:: ../../image/MYZR-RK3588-EK314/RK3588的正面背面图片/MYZR-RK3588-CB314-back.jpg
-   :alt: image-MYZR-STMP13-CB200-back   
+   :alt: MYZR-RK3588-CB314-back   
 
 工作温度
 --------
