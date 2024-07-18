@@ -97,16 +97,15 @@
    :maxdepth: 1
    :caption: MYZR-其他
 
-   docs/其他/index
-
-   .. docs/其他/MYZR-IMX28-EK142/MYZR-IMX28-EK142
+   docs/其他/MYZR-IMX28-EK142/MYZR-IMX28-EK142
 
    .. docs/其他/MYZR-IMX28-EK142(EN)/MYZR-IMX28-EK142(EN)
 
-   .. docs/其他/MYZR-LS1012A-EK200/MYZR-LS1012A-EK200
+   docs/其他/MYZR-LS1012A-EK200/MYZR-LS1012A-EK200
 
    .. docs/其他/MYZR-LS1012A-EK200(EN)/MYZR-LS1012A-EK200(EN)
 
+   docs/其他/index
 
 Indices and tables
 ==================
