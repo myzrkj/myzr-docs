@@ -9,55 +9,103 @@
 
 .. toctree::
    :maxdepth: 1
-   :caption: MYZR-RENESAS 系列
+   :caption: MYZR-瑞星微系列
 
-   docs/MYZR-AI-V2H/index
+   docs/MYZR-瑞星微系列/MYZR-RK3568-EK314/index
+   docs/MYZR-瑞星微系列/MYZR-RK3588-EK314/index
 
-.. toctree::
-   :maxdepth: 1
-   :caption: MYZR-IMX8M 系列
+   docs/MYZR-瑞星微系列/MYZR-RK3288-EK314/MYZR-RK3288-EK314
 
-   docs/MYZR-IMX8MP-EK314/index
-   docs/MYZR-IMX8MM-EK200/index
-   docs/MYZR-IMX8MQ-EK300-RevE/index
+   .. docs/MYZR-瑞星微系列/MYZR-RK3288-EK314(EN)/MYZR-RK3288-EK314(EN)
    
-
-.. docs/MYZR-IMX8MN-EK200/index
-
-.. toctree::
-   :maxdepth: 1
-   :caption: MYZR-ST 系列
-
-   docs/MYZR-STMP13-EK200/index
-
-.. toctree::
-   :maxdepth: 1
-   :caption: MYZR-ROCKCHIP 系列
-
-   docs/MYZR-RK3568-EK314/index
-   docs/MYZR-RK3588-EK314/index
-
-.. toctree::
-   :maxdepth: 1
-   :caption: 国产系列
-
-   docs/Rockchip平台/index
-   docs/Allwinner平台/index
-   docs/SigmaStar平台/index
-
-.. toctree::
-   :maxdepth: 1
-   :caption: NXP系列
-
-   docs/NXP平台/index
+   docs/MYZR-瑞星微系列/MYZR-RK3399-EK314/MYZR-RK3399-EK314
+   
+   .. docs/MYZR-瑞星微系列/MYZR-RK3399-EK314(EN)/MYZR-RK3399-EK314(EN)
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: 瑞萨系列
+   :caption: MYZR-国产系列
 
-   docs/瑞萨平台/index
+   docs/MYZR-国产系列/Allwinner平台/index
+   docs/MYZR-国产系列/SigmaStar平台/index
 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-iMX8系列
+
+   docs/MYZR-iMX8系列/MYZR-IMX8MP-EK314/index
+   docs/MYZR-iMX8系列/MYZR-IMX8MM-EK200/index
+   docs/MYZR-iMX8系列/MYZR-IMX8MQ-EK300-RevE/index
+
+   docs/MYZR-iMX8系列/MYZR-IMX8M-EK300/MYZR-IMX8M-EK300
+   docs/MYZR-iMX8系列/MYZR-IMX8M-EVK/MYZR-IMX8M-EVK
+   docs/MYZR-iMX8系列/MYZR-IMX8Mmini-EK240/MYZR-IMX8Mmini-EK240
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-瑞萨系列
+
+   docs/MYZR-瑞萨系列/MYZR-AI-V2H/index
+   
+   docs/MYZR-瑞萨系列/MYZR-RZFIVE/MYZR-RZFIVE
+   docs/MYZR-瑞萨系列/MYZR-RZG2L/MYZR-RZG2L
+   docs/MYZR-瑞萨系列/MYZR-RZG2UL/MYZR-RZG2UL
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-ST系列
+
+   docs/MYZR-ST系列/MYZR-STMP13-EK200/index
+   docs/MYZR-ST系列/MYZR-STM32-EK152/index
+
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-iMX6系列
+
+   docs/MYZR-iMX6系列/MYZR-IMX6-EK140/MYZR-IMX6-EK140
+
+   .. docs/MYZR-iMX6系列/MYZR-IMX6-EK140(EN)/MYZR-IMX6-EK140(EN)
+
+   docs/MYZR-iMX6系列/MYZR-IMX6-EK140P/MYZR-IMX6-EK140P
+
+   .. docs/MYZR-iMX6系列/MYZR-IMX6-EK140P(EN)/MYZR-IMX6-EK140P(EN)
+
+   docs/MYZR-iMX6系列/MYZR-IMX6-EK200/MYZR-IMX6-EK200
+
+   .. docs/MYZR-iMX6系列/MYZR-IMX6-EK200(EN)/MYZR-IMX6-EK200(EN)
+
+   docs/MYZR-iMX6系列/MYZR-IMX6-EK314/MYZR-IMX6-EK314
+
+   .. docs/MYZR-iMX6系列/MYZR-IMX6-EK314(EN)/MYZR-IMX6-EK314(EN)
+
+   docs/MYZR-iMX6系列/MYZR-IMX6-EK336/MYZR-IMX6-EK336
+   
+   .. docs/MYZR-iMX6系列/MYZR-IMX6-EK336(EN)/MYZR-IMX6-EK336(EN)
+
+
+
+
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-其他
+
+   docs/其他/index
+
+   .. docs/其他/MYZR-IMX28-EK142/MYZR-IMX28-EK142
+
+   .. docs/其他/MYZR-IMX28-EK142(EN)/MYZR-IMX28-EK142(EN)
+
+   .. docs/其他/MYZR-LS1012A-EK200/MYZR-LS1012A-EK200
+
+   .. docs/其他/MYZR-LS1012A-EK200(EN)/MYZR-LS1012A-EK200(EN)
 
 
 Indices and tables
