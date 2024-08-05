@@ -157,6 +157,7 @@ I2C
     b）检测总线上的 I2C 设备
 
     + 输入命令：
+    
     .. code-block:: shell
 
       i2cdetect -y 2

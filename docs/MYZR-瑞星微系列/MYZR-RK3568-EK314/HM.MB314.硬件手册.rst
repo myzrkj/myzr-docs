@@ -78,6 +78,7 @@ RTC
 
 | 丝印:U5
 | 接口属性：I2C通信的实时时钟
+
 .. figure:: ../../../image/MYZR-瑞星微系列/MYZR-RK3568-EK314/MYZR-RK3568-MB314-RTC.png
    :alt: image-MYZR-RK3568-MB314-RTC
 
@@ -108,6 +109,7 @@ MIPI摄像头接口
 
 | 丝印:J14、J13 
 | 接口属性：以太网标准RJ45接口
+
 .. figure:: ../../../image/MYZR-瑞星微系列/MYZR-RK3568-EK314/MYZR-RK3568-MB314-1000MEthernet.png
    :alt: image-MYZR-RK3568-MB314-1000MEthernet
 

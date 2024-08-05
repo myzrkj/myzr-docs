@@ -3,7 +3,8 @@
 
 
 编译环境要求
------------
+----------------
+
 1. 编译主机需在ubuntu系统中进行，且版本需Ubuntu 18.04以上，本人主机系统为Ubuntu 18.04
 
 2. 主机需可连接外网，因为编译系统过程需要下载某些文件。
@@ -33,6 +34,7 @@
 1. 首次编译可能需要安装某些依赖，下面给出主机可能需要安装的某些依赖：
 
 .. code:: shell
+    
     sudo apt-get install repo git ssh make gcc libssl-dev liblz4-tool \
     expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support \
     qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib \

@@ -147,22 +147,22 @@ U盘连接
 
 **功能测试**
 
-  1）说明：采用插拔USB存储设备（U盘）的方式进行测试
+1）说明：采用插拔USB存储设备（U盘）的方式进行测试
 
-  2）操作：
+2）操作：
 
-    a）将U盘插入底板USB接口
+  a）将U盘插入底板USB接口
 
-    b）下拉框通知信息出现U盘信息
+  b）下拉框通知信息出现U盘信息
 
-  .. figure:: ../../../image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-android11-USB-1.jpg
-   :alt: image-RK3568-android11-USB-1.jpg    
+.. figure:: ../../../image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-android11-USB-1.jpg
+  :alt: image-RK3568-android11-USB-1.jpg    
 
-    c）需要拔出U盘点击弹出按钮即可。
+  c）需要拔出U盘点击弹出按钮即可。
 
 
 鼠标键盘连接
--------
+-------------
 
 + 接口丝印：P4/J2
 
@@ -241,18 +241,18 @@ TF卡
 
 **功能测试**
 
-  1）说明：插入 TF 卡，观察设备能否正确识别到卡。
+1）说明：插入 TF 卡，观察设备能否正确识别到卡。
 
-  2）操作：
+2）操作：
 
-    a）用一张 TF 卡，插入到设备的 TF 卡接口。
+  a）用一张 TF 卡，插入到设备的 TF 卡接口。
 
-    b）下拉框通知信息出现TF卡信息
+  b）下拉框通知信息出现TF卡信息
 
-  .. figure:: ../../../image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-android11-TFcard-1.jpg
-   :alt: image-RK3568-android11-TFcard-1.jpg   
+.. figure:: ../../../image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-android11-TFcard-1.jpg
+  :alt: image-RK3568-android11-TFcard-1.jpg   
 
-    c）需要拔出TF卡点击弹出按钮即可。
+  c）需要拔出TF卡点击弹出按钮即可。
 
 
 红外

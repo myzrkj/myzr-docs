@@ -1,11 +1,11 @@
-终端软件XShell参考手册  
+终端软件XShell参考手册
 ======================
 
 软件下载及安装
 --------------
 
 | 　之所以选择 XShell，是因为XShell有 “Free License” ，并且功能够使用。  
-| 　软件可以从官方下载：https://www.xshell.com/  
+| 　软件可以从官方下载： `https://www.xshell.com <https://www.xshell.com>`_
 | 　1. 点击 “Xshell” ，点击 “Download” 。  
 | 　2. 填写好 “Evaluation user / Home & School user” 带 “*” 的表项后，点击 “Submit” 。  
 | 　3. 会在所填写的邮箱中收到来自软件官方包含下载地址的链接。  
@@ -60,11 +60,11 @@
 .. figure:: ../../image/Xshell/Xshell6_Sessions_Dialog_Box.png
    :alt: Xshell6_New_Session_Properties_SSH.png
 
-| 　**4. 如果没有新建过目标会话，则点击本页面右侧目录中的 “新建串口会话” 或 “新建SSH会话” 来新建会话。**  
+| 　4. 如果没有新建过目标会话，则点击本页面右侧目录中的 “新建串口会话” 或 “新建SSH会话” 来新建会话。
 
 **串口会话连接示例** 
 
-　串口会话连接无特别操作，通常选中会话后点击 “连接” 即可。  
+| 　串口会话连接无特别操作，通常选中会话后点击 “连接” 即可。  
 
 **SSH 会话连接示例**  
 
@@ -93,7 +93,7 @@
 .. figure:: ../../image/Xshell/Xshell6_ZMODEL_Recv.png
    :alt: Xshell6_ZMODEL_Recv.png
   
-　**使用 ZMODE 由开发板向 Windows PC 向发送文件**
+**使用 ZMODE 由开发板向 Windows PC 向发送文件**
 
 | 　1. 开发板上执行 sz <FileName>。  
 | 　2. 在 Windows PC 弹出的对话框中选择文件的保存位置。  
@@ -104,7 +104,7 @@
 
 **其它说明**  
 
-| 　**SSH 终端下的 ZMODEM 的传输速度可以达到2MB/秒。**  
+| 　SSH 终端下的 ZMODEM 的传输速度可以达到2MB/秒。
 | 　串口终端下的 ZMODEM 的传输速度在20KB/秒左右。  
 
 --------------------------------------------------------------------------------

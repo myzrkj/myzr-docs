@@ -7,3 +7,4 @@ MYZR-AI-V2H
    :hidden:
 
    DS.Datasheet
+   测试手册
