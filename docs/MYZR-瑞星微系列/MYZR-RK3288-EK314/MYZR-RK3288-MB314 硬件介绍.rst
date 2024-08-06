@@ -6,12 +6,12 @@ MYZR-RK3288-MB314 硬件介绍
 
 **正面图**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.1.0.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.1.0.1.jpg
    :alt: 1500px-Myrk3288_mb314_1.1.0.1.jpg
 
 **背面图**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.2.0.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.2.0.1.jpg
    :alt: 1500px-Myrk3288_mb314_1.2.0.1.jpg
 
 
@@ -30,7 +30,7 @@ MYZR-RK3288-MB314 硬件介绍
 +------+----------+------------------+
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.1.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.1.0.1.png
    :alt: 963px-Myrk3288_mb314_2.1.0.1.png
 
 **U20**
@@ -55,7 +55,7 @@ GPS
 | 模块型号：NEO-6M
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.2.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.2.0.1.png
    :alt: 963px-Myrk3288_mb314_2.2.0.1.png
 
 ======  ============  =========  ============
@@ -80,7 +80,7 @@ TF卡座
 | 接口属性：标准TF卡座
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.3.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.3.0.1.png
    :alt: 963px-Myrk3288_mb314_2.3.0.1.png
 
 ======  ============  ======  ============
@@ -102,7 +102,7 @@ HDMI
 | 接口属性：HDMI-1.4标准接口
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.4.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.4.0.1.png
    :alt: 963px-Myrk3288_mb314_2.4.0.1.png
 
 ======  ============  ======  ============
@@ -127,7 +127,7 @@ CIF
 | 接口属性：CIF摄像头接口
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.5.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.5.0.1.png
    :alt: 963px-Myrk3288_mb314_2.5.0.1.png
 
 ======  ============  ======  ============
@@ -154,7 +154,7 @@ MIPI-CSI
 | 接口属性：MIPI-CSI摄像头接口
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.6.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.6.0.1.png
    :alt: 963px-Myrk3288_mb314_2.6.0.1.png
 
 ======  ============  ======  ============
@@ -183,7 +183,7 @@ SINGEL LVDS
 | 接口属性：单路LVDS接口，用于连接MYZR-LCD_LVDS液晶板
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.7.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.7.0.1.png
    :alt: Myrk3288_mb314_2.7.0.1.png
 
 =====  ============  ========  ============
@@ -211,7 +211,7 @@ EDP
 | 接口属性：EDP屏接口，用于连接15.6寸EDP显示屏
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.8.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.8.0.1.png
    :alt: Myrk3288_mb314_2.8.0.1.png
 
 =====  ============  =====  ============
@@ -242,7 +242,7 @@ BL
 | 接口属性：背光12V输出，用于给设备外接屏供给12V背光电压
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.9.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.9.0.1.png
    :alt: Myrk3288_mb314_2.9.0.1.png
 
 ====  ============  ====  ============
@@ -260,7 +260,7 @@ DUAL LVDS
 | 接口属性：双路LVDS接口
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.10.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.10.0.1.png
    :alt: 963px-Myrk3288_mb314_2.10.0.1.png
 
 +-------+--------------+-------+--------------+
@@ -305,7 +305,7 @@ HP JACK
 | 接口属性：音频接口，用于耳机音频输出以及MIC输入
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.11.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.11.0.1.png
    :alt: 963px-Myrk3288_mb314_2.11.0.1.png
 
 U32
@@ -328,7 +328,7 @@ OTG
 | 接口属性：USB OTG接口
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.12.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.12.0.1.png
    :alt: 963px-Myrk3288_mb314_2.12.0.1.png
 
 ====  ============  ====  ============
@@ -349,7 +349,7 @@ USB HOST
 | 接口属性：双层USB接口，通过LAN9514扩展出来的host接口
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.13.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.13.0.1.png
    :alt: 963px-Myrk3288_mb314_2.13.0.1.png
 
 
@@ -372,7 +372,7 @@ J10-6  USBSN_DM2_B   J10-12  GND
 | 接口属性：标准百兆网接口，通过LAB9514扩展出来的以太网接口，10M/100M自适应
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.14.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.14.0.1.png
    :alt: 963px-Myrk3288_mb314_2.14.0.1.png
 
 ====  ============  =====  ===============
@@ -395,7 +395,7 @@ USB to WIFI
 | 模块描述：USB转WIFI
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.15.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.15.0.1.png
    :alt: 963px-Myrk3288_mb314_2.15.0.1.png
 
 =====  ============  =====  ============
@@ -413,7 +413,7 @@ U26-3  GEN_3V3       U26-6  GND
 | 接口属性：千兆以太网接口，10M/100M/1000M自适应
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.16.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.16.0.1.png
    :alt: 963px-Myrk3288_mb314_2.16.0.1.png
 
 =====  ============  ======  ============
@@ -435,7 +435,7 @@ U13-7  RGMI_B_N      U13-14  RGMI_3V3_A
 | 接口属性：标准mini-PCIE接口
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.17.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.17.0.1.png
    :alt: 963px-Myrk3288_mb314_2.17.0.1.png
 
 =======  ============  ======  =============
@@ -475,7 +475,7 @@ J13-51   NC            J13-52  GEN_3V3
 | 丝印：J15
 | 接口属性：5V/3.3V跳线
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.18.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.18.0.1.png
    :alt: 963px-Myrk3288_mb314_2.18.0.1.png
 
 USB to UART
@@ -485,7 +485,7 @@ USB to UART
 | 接口属性：USB扩展UART接口
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.19.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.19.0.1.png
    :alt: 963px-Myrk3288_mb314_2.19.0.1.png
 
 ======  ============  ======  ============
@@ -508,7 +508,7 @@ WIFI
 | 丝印: E1
 | 接口属性：标准WIFI天线座
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.20.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.20.0.1.png
    :alt: 963px-Myrk3288_mb314_2.20.0.1.png
 
 DC IN
@@ -517,7 +517,7 @@ DC IN
 | 丝印: J3
 | 接口属性：外部5V主电源输入，2.5A
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.21.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.21.0.1.png
    :alt: Myrk3288_mb314_2.21.0.1.png
 
 电源开关
@@ -527,7 +527,7 @@ DC IN
 | 接口属性：主电源开关
 | 状态属性：—，闭合，O，断开
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.22.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.22.0.1.png
    :alt: Myrk3288_mb314_2.22.0.1.png
 
 12V IN
@@ -537,7 +537,7 @@ DC IN
 | 接口属性：外部12V输入
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.23.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.23.0.1.png
    :alt: 963px-Myrk3288_mb314_2.23.0.1.png
 
 ====  ============  ====  ============
@@ -553,7 +553,7 @@ RESET
 | 丝印: SW4
 | 按键属性：复位按键
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.24.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.24.0.1.png
    :alt: 963px-Myrk3288_mb314_2.24.0.1.png
 
 SLEEP WAKE
@@ -562,7 +562,7 @@ SLEEP WAKE
 | 丝印: SW3
 | 按键属性：系统开关机按键，长按1秒开机，长按3秒关机
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.25.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.25.0.1.png
    :alt: 963px-Myrk3288_mb314_2.25.0.1.png
 
 VOL +
@@ -571,7 +571,7 @@ VOL +
 | 丝印: SW2
 | 按键属性：控制音量（音量加）
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.26.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.26.0.1.png
    :alt: 963px-Myrk3288_mb314_2.26.0.1.png
 
 VOL –
@@ -580,7 +580,7 @@ VOL –
 丝印: SW1
 按键属性：控制音量（音量减）
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.27.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.27.0.1.png
    :alt: 963px-Myrk3288_mb314_2.27.0.1.png
 
 RECOVER
@@ -589,7 +589,7 @@ RECOVER
 | 丝印: SW5
 | 按键属性：烧写按键，与开机键(SW3)同时按下，进入烧写模式
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.28.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.28.0.1.png
    :alt: 963px-Myrk3288_mb314_2.28.0.1.png
 
 
@@ -600,7 +600,7 @@ RECOVER
 | 接口属性：空闲管脚，用于扩展应用
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.29.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.29.0.1.png
    :alt: 963px-Myrk3288_mb314_2.29.0.1.png
 
 ======  =============  ======  ============
@@ -644,7 +644,7 @@ JTAG
 | 接口属性：JTAG接口
 | 引脚及信号定义：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.30.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.30.0.1.png
    :alt: 963px-Myrk3288_mb314_2.30.0.1.png
 
 =====  ========  ============  ======  ====  ========
@@ -664,7 +664,7 @@ RTC电池座
 | 丝印:BT1
 | 接口属性：RTC纽扣电池接口
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.31.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.31.0.1.png
    :alt: 963px-Myrk3288_mb314_2.31.0.1.png
 
 

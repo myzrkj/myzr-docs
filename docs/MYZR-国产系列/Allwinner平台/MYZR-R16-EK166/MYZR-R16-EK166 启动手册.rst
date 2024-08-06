@@ -32,7 +32,7 @@ MYZR-R16-EK166 启动手册
 
 **MYZR-R16-EK166 正面图**
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/1500px-MY-R16-EK166_front2.1.0.1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/1500px-MY-R16-EK166_front2.1.0.1.png
    :alt: 1500px-MY-R16-EK166_front2.1.0.1.png
 
 快速启动开发板
@@ -44,7 +44,7 @@ MYZR-R16-EK166 启动手册
 
 |  SecureCRT & USB串口3 示例配置如下：
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.0.0.1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.0.0.1.png
    :alt: MY-R16-EK166_3.0.0.1.png
 
 4. 网线连接，将网线一端连接到开发板的j12，网线另一端插入计算机的网口。
@@ -58,12 +58,12 @@ MYZR-R16-EK166 启动手册
 |  串口终端动态，会看到计算机的串口终端有开发板启动过程中输出的启动过程信息。
 |  启动后串口打印信息如下:
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.1.0.2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.1.0.2.png
    :alt: MY-R16-EK166_3.1.0.2.png
 
 |  启动后UI界面如下:
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.1.0.1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.1.0.1.png
    :alt: MY-R16-EK166_3.1.0.1.png
 
 ::

@@ -16,7 +16,7 @@ Wifi测试
 |  password是要连接的wifi的密码
 |  例：
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test1.png
    :alt: MY-R16-CB166_linux-34_test1.png
 
 USB测试
@@ -24,14 +24,14 @@ USB测试
 
 |  插入U盘
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-1.png
    :alt: MY-R16-CB166_linux-34_test2-1.png
 
 .. code:: shell
    
    $ ls /dev/sda*
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-2.png
    :alt: MY-R16-CB166_linux-34_test2-2.png
 
 
@@ -41,7 +41,7 @@ USB测试
    
    $ mount /dev/sda4 /mnt
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-3.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-3.png
    :alt: MY-R16-CB166_linux-34_test2-3.png
 
 
@@ -51,7 +51,7 @@ USB测试
 
    $ ls /mnt
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-4.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-4.png
    :alt: MY-R16-CB166_linux-34_test2-4.png
 
 |  卸载U盘
@@ -60,7 +60,7 @@ USB测试
    
    $ umount /mnt
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-5.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-5.png
    :alt: MY-R16-CB166_linux-34_test2-5.png
 
 SD卡测试
@@ -68,29 +68,29 @@ SD卡测试
 
 | 插入SD卡
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-1.png
    :alt: MY-R16-CB166_linux-34_test3-1.png
 
 .. code:: shell
    
    $ ls /dev/mmcblk1
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-2.png
    :alt: MY-R16-CB166_linux-34_test3-2.png
 
 | 挂载SD卡
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-3.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-3.png
    :alt: MY-R16-CB166_linux-34_test3-3.png
 
 | 查看SD卡内容
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-4.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-4.png
    :alt: MY-R16-CB166_linux-34_test3-4.png
 
 | 卸载SD卡
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-5.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-5.png
    :alt: MY-R16-CB166_linux-34_test3-5.png
 
 SPI测试
@@ -107,7 +107,7 @@ SPI测试
 
 |  如果spi正常会输出如下结果
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4.png
    :alt: MY-R16-CB166_linux-34_test4.png
 
 音频测试
@@ -122,7 +122,7 @@ SPI测试
    $ cd /
    $ tinyplayer music.mp3
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-1.png
    :alt: MY-R16-CB166_linux-34_test4-1.png
 
 | 音量调整
@@ -131,7 +131,7 @@ SPI测试
 
    $ amixer controls
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-2.png
    :alt: MY-R16-CB166_linux-34_test4-2.png
 
 | 找到numid=3,iface=MIXER,name='speaker volume control'
@@ -141,7 +141,7 @@ SPI测试
    
    $ amixer cget numid=3,iface=MIXER,name='speaker volume control'
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-3.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-3.png
    :alt: MY-R16-CB166_linux-34_test4-3.png
 
 | 设置音量大小为50
@@ -150,7 +150,7 @@ SPI测试
    
    $ amixer cset numid=3,iface=MIXER,name='speaker volume control' 50
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-4.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-4.png
    :alt: MY-R16-CB166_linux-34_test4-4.png
 
 录音测试
@@ -162,7 +162,7 @@ SPI测试
    
    $ arecord -d 10 -D plughw:0 demo.wav
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test5-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test5-1.png
    :alt: MY-R16-CB166_linux-34_test5-1.png
 
 | 播放录音
@@ -171,7 +171,7 @@ SPI测试
    
    $ aplay -Dplug:dmix demo.wav
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test5-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test5-2.png
    :alt: MY-R16-CB166_linux-34_test5-2.png
 
 串口测试
@@ -188,7 +188,7 @@ SPI测试
 |  ttyS3要测试的串口
 |  "Hello"要发送的信息内容
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test6-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test6-1.png
    :alt: MY-R16-CB166_linux-34_test6-1.png
 
 网口测试
@@ -201,7 +201,7 @@ SPI测试
    $ ifconfig eth0 192.168.18.36
    $ ping 192.168.18.18
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test7-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test7-1.png
    :alt: MY-R16-CB166_linux-34_test7-1.png
 
 4G测试
@@ -216,7 +216,7 @@ SPI测试
    
    $ pppd call gprsdial &
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test8-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test8-1.png
    :alt: MY-R16-CB166_linux-34_test8-1.png
 
 | 查看IP
@@ -225,7 +225,7 @@ SPI测试
    
    $ ifconfig ppp0
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test8-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test8-2.png
    :alt: MY-R16-CB166_linux-34_test8-2.png
 
 

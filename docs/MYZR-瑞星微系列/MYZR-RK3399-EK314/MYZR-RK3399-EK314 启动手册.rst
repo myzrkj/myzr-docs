@@ -43,7 +43,7 @@ MYZR-RK3399-EK314 启动手册
 
 - | SecureCRT & USB串口3 示例配置如下：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_EK314_3.2.0.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_EK314_3.2.0.1.jpg
    :alt: Myrk3288_EK314_3.2.0.1.jpg
 
 网线的连接

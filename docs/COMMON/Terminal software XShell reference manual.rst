@@ -20,7 +20,7 @@ New serial session example
 | 　2. Select "SERIAL" from the "Protocol" list.
 | 　3. Enter a session name in the Name.
 
-.. figure:: ../../image/Xshell/Xshell6_New_Session_Properties_Serial01.png
+.. figure:: /image/Xshell/Xshell6_New_Session_Properties_Serial01.png
    :alt: Xshell6_New_Session_Properties_Serial01.png
  
 | 　4. Select "SERIAL" from the category.
@@ -33,7 +33,7 @@ New serial session example
 | 　11. Click OK to create a new session. 
 | 　12. Create a connection according to the description in "Connect to Session" using the session you created.
 
-.. figure:: ../../image/Xshell/Xshell6_New_Session_Properties_Serial02.png
+.. figure:: /image/Xshell/Xshell6_New_Session_Properties_Serial02.png
    :alt: Xshell6_New_Session_Properties_Serial02.png
  
 
@@ -48,7 +48,7 @@ New SSH Session Example
 | 　6. Click "ok" to create a new session.
 | 　7. Create a connection according to the description in "Connect to Session" using the session you created.
 
-.. figure:: ../../image/Xshell/Xshell6_New_Session_Properties_SSH.png
+.. figure:: /image/Xshell/Xshell6_New_Session_Properties_SSH.png
    :alt: Xshell6_New_Session_Properties_SSH.png
 
 Connect to Session
@@ -58,7 +58,7 @@ Connect to Session
 | 　2. Select the session that you want to connect to.
 | 　3. Click "Connect".
   
-.. figure:: ../../image/Xshell/Xshell6_Sessions_Dialog_Box.png
+.. figure:: /image/Xshell/Xshell6_Sessions_Dialog_Box.png
    :alt: Xshell6_New_Session_Properties_SSH.png
 
 | 　4. If no new target session has been created, click "New serial session" or "New SSH session" in the directory on the right side of this page to create a new session. 
@@ -72,12 +72,12 @@ Connect to Session
 | 　1. Select the target SSH session in the session dialogue box and click on the connection.
 | 　2. Possible pop-up query "accept this host key? ", select" Accept and save ".
 
-.. figure:: ../../image/Xshell/Xshell6_Dialog_SSH_MD5.png
+.. figure:: /image/Xshell/Xshell6_Dialog_SSH_MD5.png
    :alt: Xshell6_Dialog_SSH_MD5.png
 
 | 　3. Enter the user name of the target host as required in the popup dialog.
 
-.. figure:: ../../image/Xshell/Xshell6_Dialog_SSH_User.png
+.. figure:: /image/Xshell/Xshell6_Dialog_SSH_User.png
    :alt: Xshell6_Dialog_SSH_User.png
   
 | 　4. If the target host needs a password, a dialogue box will pop up and enter the user password of the target host.
@@ -91,7 +91,7 @@ File Transfer
 | 　2. Drag the file and place it on the corresponding development board terminal window in the Xshell.
 | 　3. File transfer is automatically executed.
 
-.. figure:: ../../image/Xshell/Xshell6_ZMODEL_Recv.png
+.. figure:: /image/Xshell/Xshell6_ZMODEL_Recv.png
    :alt: Xshell6_ZMODEL_Recv.png
   
 **Use ZMODE to send files from the development board to Windows PC**
@@ -100,7 +100,7 @@ File Transfer
 | 　2. Select the saving location of the file in the dialog box where the Windows PC pops up.
 | 　3. Waiting for file transfer to be completed.
 
-.. figure:: ../../image/Xshell/Xshell6_ZMODEL_Send.png
+.. figure:: /image/Xshell/Xshell6_ZMODEL_Send.png
    :alt: Xshell6_ZMODEL_Send.png
 
 **Other Notes**  

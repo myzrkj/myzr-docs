@@ -38,7 +38,7 @@ MYZR-RK3288-EK314 Android-5.1 测试手册
 - 连接网线：将评估板“eth0”对应的接口与网络路由器用网线相连接
 - 附图
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.1.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.1.2.png
    :alt: My-rk32-ek314_android_test_2.1.2.png
 
 |   3） Eth1连接测试
@@ -53,7 +53,7 @@ MYZR-RK3288-EK314 Android-5.1 测试手册
 
 - 附图
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.1.3.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.1.3.png
    :alt: My-rk32-ek314_android_test_2.1.3.png
 
 
@@ -77,7 +77,7 @@ USB测试
 
 **附图**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.2.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.2.1.png
    :alt: My-rk32-ek314_android_test_2.2.1.png
 
 SD卡测试
@@ -100,7 +100,7 @@ SD卡测试
 
 **附图**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.3.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.3.1.png
    :alt: My-rk32-ek314_android_test_2.3.1.png
 
 背光测试
@@ -110,7 +110,7 @@ SD卡测试
 
 **附图**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.4.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.4.1.png
    :alt: My-rk32-ek314_android_test_2.4.1.png
 
 音频测试
@@ -129,7 +129,7 @@ SD卡测试
 
 **附图**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.5.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.5.1.png
    :alt: My-rk32-ek314_android_test_2.5.1.png
 
 
@@ -179,7 +179,7 @@ SD卡测试
     ＃ echo 1 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.6.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.6.1.png
    :alt: My-rk32-ek314_android_test_2.6.1.png
 
 |   2）GPIO输入测试
@@ -207,7 +207,7 @@ SD卡测试
 
     cat /sys/class/gpio/gpio${IN_IO_NUMBER}/value
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.5.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.5.2.png
    :alt: My-rk32-ek314test_2.5.2.png
 
 
@@ -239,7 +239,7 @@ GPIO-KEY测试
 **附图**
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.7.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.7.1.png
    :alt: My-rk32-ek314_android_test_2.7.1.png
 
 
@@ -267,7 +267,7 @@ GPIO-KEY测试
 - 安装串口软件APK
 - 附图
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.8.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.8.1.png
    :alt: My-rk32-ek314_android_test_2.8.1.png
 
 
@@ -285,14 +285,14 @@ RTC测试
 
 - 附图
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.9.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.9.1.png
    :alt: My-rk32-ek314_android_test_2.9.1.png
 
 |   2）关机后，等一会儿再开机：
 
 - 附图
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.9.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.9.2.png
    :alt: My-rk32-ek314_android_test_2.9.2.png
 
 SPI测试
@@ -343,7 +343,7 @@ SPI测试
 
 **附图**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.10.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.10.1.png
    :alt: My-rk32-ek314_android_test_2.10.1.png
 
 摄像头OV13850测试
@@ -354,7 +354,7 @@ SPI测试
 - 附图
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.11.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.11.1.png
    :alt: My-rk32-ek314_android_test_2.11.1.png
 
 WIFI测试
@@ -364,17 +364,17 @@ WIFI测试
 |   1）步骤一
 |   点击“Settings”->“Wi-Fi”，打开WIFI的开关
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.1.png
    :alt: My-rk32-ek314_android_test_2.12.1.png
 
 |   2）步骤二
 |   输入WIFI密码,并连接成功
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.2.png
    :alt: My-rk32-ek314_android_test_2.12.2.png
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.3.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.3.png
    :alt: My-rk32-ek314_android_test_2.12.3.png
 
 
@@ -385,22 +385,22 @@ WIFI测试
 |   1）步骤一
 |   点击“Settings”->“Bluetooth”，打开蓝牙
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.1.png
    :alt: My-rk32-ek314_android_test_2.13.1.png
 
 |   2）步骤二
 |   匹配
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.2.png
    :alt: My-rk32-ek314_android_test_2.13.2.png
 
 |   3）步骤三
 |   发送和接收文件
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.3.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.3.png
    :alt: My-rk32-ek314_android_test_2.13.3.png
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.4.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.4.png
    :alt: My-rk32-ek314_android_test_2.13.4.png
 
 
@@ -415,7 +415,7 @@ WIFI测试
 
 - 接上模块，开机，显示3G标志
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.14.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.14.1.png
    :alt: My-rk32-ek314_android_test_2.14.1.png
 
 

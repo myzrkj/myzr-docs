@@ -10,7 +10,7 @@ MYZR-RK3399-EK314 烧录手册
 
 |   下载烧录工具压缩包：AndroidTool_Release_v2.58.zip 解压AndroidTool_Release_v2.58.zip
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.1.png
    :alt: My-rk3399-ek314_download_3.1.1.png
 
 下载usb驱动
@@ -18,12 +18,12 @@ MYZR-RK3399-EK314 烧录手册
 
 |   下载usb驱动压缩包：DriverAssitant_v4.5.rar 安装解压DriverAssitant_v4.5.rar
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.2.png
    :alt: My-rk3399-ek314_download_3.1.2.png
 
 |   双击红色箭头文件打开烧录工具
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.3.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.3.png
    :alt: My-rk3399-ek314_download_3.1.3.png
 
 烧写说明
@@ -41,7 +41,7 @@ MYZR-RK3399-EK314 烧录手册
 - 长按开发板的vol+按键，打开开发板电源，在烧写工具出现“发现一个LOADER设备”时松开vol+按键
 - 点击升级进行烧写
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.4.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.4.png
    :alt: My-rk3399-ek314_download_3.1.4.png
 
 **注意**
@@ -69,5 +69,5 @@ MYZR-RK3399-EK314 烧录手册
 - 长按开发板的vol+按键，打开开板电源，直到烧写工具出现“发现一个LOADER设备”时松开vol+按键
 - 点击执行开始烧写
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.5.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.5.png
    :alt: My-rk3399-ek314_download_3.1.5.png

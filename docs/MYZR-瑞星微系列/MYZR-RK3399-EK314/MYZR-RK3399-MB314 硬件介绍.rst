@@ -9,14 +9,14 @@ MYZR-RK3399-MB314 硬件介绍
 MYZR-RK3399-MB314 正面图
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/1275px-RK3399-front.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/1275px-RK3399-front.png
    :alt: 1275px-RK3399-front.png
 
 
 MYZR-RK3399-MB314 背面图
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/1275px-RK3399-back.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/1275px-RK3399-back.png
    :alt: 1275px-RK3399-back.png
 
 

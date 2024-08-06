@@ -5,7 +5,7 @@
 核心板视图
 ----------
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-CB200.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-CB200.png
    :alt: image-MYZR-IMX8MM-CB200
 
 工作温度

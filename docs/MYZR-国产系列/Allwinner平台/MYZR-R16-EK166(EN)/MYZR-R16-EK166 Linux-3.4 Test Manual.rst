@@ -15,7 +15,7 @@ Wifi Test
 | "password" is the password of the wifi to connect to
 | For Example:
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test1.png
    :alt: MY-R16-CB166_linux-34_test1.png
 
 USB Test
@@ -23,14 +23,14 @@ USB Test
 
 1. Insert U disk
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-1.png
    :alt: MY-R16-CB166_linux-34_test2-1.png
 
 .. code:: shell
    
    $ ls /dev/sda*
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-2.png
    :alt: MY-R16-CB166_linux-34_test2-2.png
 
 2. Mount the U disk
@@ -39,7 +39,7 @@ USB Test
    
    $ mount /dev/sda4 /mnt
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-3.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-3.png
    :alt: MY-R16-CB166_linux-34_test2-3.png
 
 3. View the contents of the USB flash drive
@@ -49,7 +49,7 @@ USB Test
    $ ls /mnt
 
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-4.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-4.png
    :alt: MY-R16-CB166_linux-34_test2-4.png
 
 4. Uninstall the U disk
@@ -58,7 +58,7 @@ USB Test
    
    $ umount /mnt
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-5.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-5.png
    :alt: MY-R16-CB166_linux-34_test2-5.png
 
 SD card Test
@@ -66,29 +66,29 @@ SD card Test
 
 1. Insert SD card
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-1.png
    :alt: MY-R16-CB166_linux-34_test3-1.png
  
 .. code:: shell
    
    $ ls /dev/mmcblk1
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-2.png
    :alt: MY-R16-CB166_linux-34_test3-2.png
 
 2. Mount the SD card
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-3.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-3.png
    :alt: MY-R16-CB166_linux-34_test3-3.png
 
 3. View the contents of the SD card
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-4.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-4.png
    :alt: MY-R16-CB166_linux-34_test3-4.png
 
 4. Uninstall the SD card
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-5.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-5.png
    :alt: MY-R16-CB166_linux-34_test3-5.png
 
 Audio Test
@@ -103,7 +103,7 @@ Audio Test
    $ cd /
    $ tinyplayer music.mp3
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-1.png
    :alt: MY-R16-CB166_linux-34_test4-1.png
 
 2. Volume adjustment
@@ -112,7 +112,7 @@ Audio Test
 
    $ amixer controls
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-2.png
    :alt: MY-R16-CB166_linux-34_test4-2.png
 
 |  Find out numid=3,iface=MIXER,name='speaker volume control'
@@ -123,7 +123,7 @@ Audio Test
 
    $ amixer cget numid=3,iface=MIXER,name='speaker volume control'
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-3.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test4-3.png
    :alt: MY-R16-CB166_linux-34_test4-3.png
 
 4. Set the volume to 50
@@ -141,7 +141,7 @@ Record Test
 
    $ arecord -d 10 -D plughw:0 demo.wav
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test5-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test5-1.png
    :alt: MY-R16-CB166_linux-34_test5-1.png
 
 2. Play recording
@@ -150,7 +150,7 @@ Record Test
    
    $ aplay -Dplug:dmix demo.wav
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test5-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test5-2.png
    :alt: MY-R16-CB166_linux-34_test5-2.png
 
 Serial port test
@@ -168,7 +168,7 @@ Serial port test
  | "ttyS3" serial port to be tested
  | "Hello" message content to be sent
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test6-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test6-1.png
    :alt: MY-R16-CB166_linux-34_test6-1.png
 
 Network port test
@@ -181,7 +181,7 @@ Network port test
    $ ifconfig eth0 192.168.18.36
    $ ping 192.168.18.18
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test7-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test7-1.png
    :alt: MY-R16-CB166_linux-34_test7-1.png
 
 4G Test
@@ -196,7 +196,7 @@ Network port test
 
    $ pppd call gprsdial &
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test8-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test8-1.png
    :alt: MY-R16-CB166_linux-34_test8-1.png
 
 - Check the IP
@@ -205,7 +205,7 @@ Network port test
 
    $ ifconfig ppp0
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test8-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test8-2.png
    :alt: MY-R16-CB166_linux-34_test8-2.png
 
 

@@ -12,13 +12,13 @@ MYZR-R16-CB166视图
 
 **正面**
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/540px-MY-R16-CB166_1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/540px-MY-R16-CB166_1.png
    :alt: 540px-MY-R16-CB166_1.png
 
 
 **背面**
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/540px-MY-R16-CB166_2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/540px-MY-R16-CB166_2.png
    :alt: 540px-MY-R16-CB166_2.png
 
 
@@ -27,7 +27,7 @@ MYZR-R16-CB166尺寸
 
 |  42.4mm * 45.4mm
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/840px-MY-R16-CB166_3.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/840px-MY-R16-CB166_3.png
    :alt: 840px-MY-R16-CB166_3.png
 
 
@@ -39,7 +39,7 @@ R16处理器介绍
 
 **框图**
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/840px-MY-R16-CB166_4.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/840px-MY-R16-CB166_4.png
    :alt: 840px-MY-R16-CB166_4.png
 
 

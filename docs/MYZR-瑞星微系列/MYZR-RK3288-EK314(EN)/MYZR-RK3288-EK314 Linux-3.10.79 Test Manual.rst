@@ -33,7 +33,7 @@ Network inferface test
 |   1） Test instruction
 |   Set wired network card IP of computer as 192.168.18.18
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.1.png
    :alt: My-rk32-ek314test_2.1.1.png
 
 
@@ -63,7 +63,7 @@ Network inferface test
 |   Test result：“0% packet loss”represent test passing.
 |   Figure
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.2.png
    :alt: My-rk32-ek314test_2.1.2.png
 
 |   3） Eth1 connect test
@@ -97,7 +97,7 @@ Network inferface test
 |   Test result：“0% packet loss”represent test passing
 |   Figures
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.3.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.3.png
    :alt: My-rk32-ek314test_2.1.3.png
 
 
@@ -131,7 +131,7 @@ USB test
 
 **Figure**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.2.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.2.1.png
    :alt: My-rk32-ek314test_2.2.1.png
 
 
@@ -160,7 +160,7 @@ SD card test
 
 **Figures**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.3.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.3.1.png
    :alt: My-rk32-ek314test_2.3.1.png
 
 
@@ -191,7 +191,7 @@ Audio test
 
 **Figures**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.4.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.4.1.png
    :alt: My-rk32-ek314test_2.4.1.png
 
 
@@ -241,7 +241,7 @@ Standard GPIO test
     ＃ echo 1 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.5.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.5.1.png
    :alt: My-rk32-ek314test_2.5.1.png
 
 
@@ -305,7 +305,7 @@ GPIO-KEY test
 |   Select the device event number [0-2]: 2
 |   Enter order number corrsponding with“gpio-keys”，here it is 2
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.6.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.6.1.png
    :alt: My-rk32-ek314test_2.6.1.png
 
 
@@ -321,7 +321,7 @@ GPIO-KEY test
 |   Message of“value 1”is outputed with press of key，message of“value 0”is outputed with release of key.
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.6.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.6.2.png
    :alt: My-rk32-ek314test_2.6.2.png
 
 |   4）End test
@@ -370,7 +370,7 @@ Serial port test
 
 |   Figures for test result
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.7.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.7.1.png
    :alt: My-rk32-ek314test_2.7.1.png
 
 
@@ -431,12 +431,12 @@ RTC test
 
 |   Figure 1:
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.8.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.8.1.png
    :alt: My-rk32-ek314test_2.8.1.png
 
 |   Figure 2:
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.8.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.8.2.png
    :alt: My-rk32-ek314test_2.8.2.png
 
 
@@ -491,7 +491,7 @@ SPI test
 
 **Figures**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.9.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.9.1.png
    :alt: My-rk32-ek314test_2.9.1.png
 
 WIFI test
@@ -501,13 +501,13 @@ WIFI test
 |   1）Step 1
 |   Select the SSID, such as: Honor V9
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.10.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.10.1.png
    :alt: My-rk32-ek314test_2.10.1.png
 
 |   2）Step 2
 |   Enter WIFI password and connect successfully
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.10.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.10.2.png
    :alt: My-rk32-ek314test_2.10.2.png
 
 
@@ -518,14 +518,14 @@ Bluetooth test
 |   1）Step 1
 |   Turn on Bluetooth, click on "Prefrences" -> "Bluetooth Manager"
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.11.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.11.1.png
    :alt: My-rk32-ek314test_2.11.1.png
 
 |   2）Step 2
 |   Search Bluetooth, click "Search"
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.11.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.11.2.png
    :alt: My-rk32-ek314test_2.11.2.png
 
 4G internet module test
@@ -564,7 +564,7 @@ Bluetooth test
     Password = cmnet
     New PPPD = yes
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.12.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.12.1.png
    :alt: My-rk32-ek314test_2.12.1.png
 
 |   Dial
@@ -573,7 +573,7 @@ Bluetooth test
     
     ＃ wvdial &
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.12.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.12.2.png
    :alt: My-rk32-ek314test_2.12.2.png
 
 

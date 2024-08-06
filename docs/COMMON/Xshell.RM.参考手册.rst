@@ -19,7 +19,7 @@
 | 　2. 从 “协议” 列表中选择 “SERIAL” 。  
 | 　3. 在 “名称” 中输入会话名称。 
 
-.. figure:: ../../image/Xshell/Xshell6_New_Session_Properties_Serial01.png
+.. figure:: /image/Xshell/Xshell6_New_Session_Properties_Serial01.png
    :alt: Xshell6_New_Session_Properties_Serial01.png
  
 | 　4. 从 “类别” 中选择 “SERIAL” 。  
@@ -32,7 +32,7 @@
 | 　11. 单击 “确定” 创建新会话。  
 | 　12. 使用创建的会话按照 “与会话连接” 中的描述建立连接。  
 
-.. figure:: ../../image/Xshell/Xshell6_New_Session_Properties_Serial02.png
+.. figure:: /image/Xshell/Xshell6_New_Session_Properties_Serial02.png
    :alt: Xshell6_New_Session_Properties_Serial02.png
  
 
@@ -47,7 +47,7 @@
 | 　6. 单击 “确定” 创建新会话。  
 | 　7. 使用创建的会话按照 “与会话连接” 中的描述建立连接。  
 
-.. figure:: ../../image/Xshell/Xshell6_New_Session_Properties_SSH.png
+.. figure:: /image/Xshell/Xshell6_New_Session_Properties_SSH.png
    :alt: Xshell6_New_Session_Properties_SSH.png
 
 与会话连接
@@ -57,7 +57,7 @@
 | 　2. 选择要连接的会话。  
 | 　3. 单击 “连接” 。
   
-.. figure:: ../../image/Xshell/Xshell6_Sessions_Dialog_Box.png
+.. figure:: /image/Xshell/Xshell6_Sessions_Dialog_Box.png
    :alt: Xshell6_New_Session_Properties_SSH.png
 
 | 　4. 如果没有新建过目标会话，则点击本页面右侧目录中的 “新建串口会话” 或 “新建SSH会话” 来新建会话。
@@ -71,12 +71,12 @@
 | 　1. 在会话对话框选择目标SSH会话并单击连接。  
 | 　2. 可能弹出询问 “接受此主机密钥吗？” 的对话框，选择 “接受并保存” 。 
 
-.. figure:: ../../image/Xshell/Xshell6_Dialog_SSH_MD5.png
+.. figure:: /image/Xshell/Xshell6_Dialog_SSH_MD5.png
    :alt: Xshell6_Dialog_SSH_MD5.png
 
 | 　3. 在弹出的对话框中按要求输入目标主机的用户名。
 
-.. figure:: ../../image/Xshell/Xshell6_Dialog_SSH_User.png
+.. figure:: /image/Xshell/Xshell6_Dialog_SSH_User.png
    :alt: Xshell6_Dialog_SSH_User.png
   
 | 　4. 如果目标主机需要密码，则会弹出对话框，输入目标主机的用户密码。  
@@ -90,7 +90,7 @@
 | 　2. 拖动文件并将其放在Xshell中对应的开发板终端窗口上。  
 | 　3. 文件传输自动执行。  
 
-.. figure:: ../../image/Xshell/Xshell6_ZMODEL_Recv.png
+.. figure:: /image/Xshell/Xshell6_ZMODEL_Recv.png
    :alt: Xshell6_ZMODEL_Recv.png
   
 **使用 ZMODE 由开发板向 Windows PC 向发送文件**
@@ -99,7 +99,7 @@
 | 　2. 在 Windows PC 弹出的对话框中选择文件的保存位置。  
 | 　3. 等待文件传输完成。  
 
-.. figure:: ../../image/Xshell/Xshell6_ZMODEL_Send.png
+.. figure:: /image/Xshell/Xshell6_ZMODEL_Send.png
    :alt: Xshell6_ZMODEL_Send.png
 
 **其它说明**  

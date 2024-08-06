@@ -37,7 +37,7 @@ Prepare source code
 
     $ mkdir ~/my-rk3288
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.1.1.jpg
    :alt: My-rk32-ek314build_2.1.1.1.jpg
 
 |   Ceate ~/my-rk3288/02_source as source code directory.
@@ -46,7 +46,7 @@ Prepare source code
 
     $ mkdir ~/my-rk3288/02_source
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.1.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.1.2.jpg
    :alt: My-rk32-ek314build_2.1.1.2.jpg
 
 |   Ceate ~/my-rk3288/03_tools as tool directory.
@@ -71,7 +71,7 @@ Prepare source code
     $ tar jxf rk32-myzr_uboot_2014.10_201803028.tar.bz2
     $ tar jxf rk32-myzr_kernel_3.10_201803028.tar.bz2
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.2.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.2.1.jpg
    :alt: My-rk32-ek314build_2.1.2.1.jpg
 
 |   2）Decompress cross compiler tool
@@ -81,7 +81,7 @@ Prepare source code
     $ cd ~/my-rk3288/03_tools/
     $ tar jxf gcc-arm-eabi-4.6.tar.bz2
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.2.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.2.2.jpg
    :alt: MMy-rk32-ek314build_2.1.2.2.jpg
 
 
@@ -96,12 +96,12 @@ Development environment configuration
 
     $ sudo apt-get update
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.1.jpg
    :alt: My-rk32-ek314build_2.2.1.1.jpg
 
 |   After update,it will look like below：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.2.jpg
    :alt: My-rk32-ek314build_2.2.1.2.jpg
 
 |   2）Install aptitude package management tool and ia32-libs
@@ -114,7 +114,7 @@ Development environment configuration
 
     $ sudo apt-get -y install aptitude
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.3.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.3.jpg
    :alt: My-rk32-ek314build_2.2.1.3.jpg
 
 - Install ia32-libs with aptitude
@@ -125,7 +125,7 @@ Development environment configuration
 
 `Tips：following is the screenshots with re-execution of installation command after installation of aptitude and ia32-libs is finished.`
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.4.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.4.jpg
    :alt: My-rk32-ek314build_2.2.1.4.jpg
 
 
@@ -137,7 +137,7 @@ Development environment configuration
 
 `Tips：following is the screenshots with re-execution of installation command after installation of mkimage tool is finished.`
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.5.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.5.jpg
    :alt: My-rk32-ek314build_2.2.1.5.jpg
 
 |   4）Install ncurses-dev
@@ -149,7 +149,7 @@ Development environment configuration
 
 `Tips：following is the screenshots with re-execution of installation command after installation of ncurses-dev tool is finished.`
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.6.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.6.jpg
    :alt: My-rk32-ek314build_2.2.1.6.jpg
 
 
@@ -163,7 +163,7 @@ Enter u-boot source code directory
 
     $ cd ~/my-rk3288/02_source/rk32-myzr_uboot_2014.10/
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.1.1.jpg
    :alt: My-rk32-ek314build_3.1.1.jpg
 
 Validate configured file
@@ -175,7 +175,7 @@ Validate configured file
 
     $ source ~/my-rk3288/03_tools/gcc-arm-eabi-4.6-env
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.1.jpg
    :alt: My-rk32-ek314build_3.2.1.jpg
 
 - View compiler configuration
@@ -187,7 +187,7 @@ Validate configured file
 
 `Tips：you can see that ARCH和CROSS_COMPILE is configured`
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.2.jpg
    :alt: My-rk32-ek314build_3.2.2.jpg
 
 - Verify cross compiler tool configuration
@@ -198,7 +198,7 @@ Validate configured file
 
 `Tips：you can see version information of cross compiler tool shown on terminal after execution of command.as below：`
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.3.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.3.jpg
    :alt: My-rk32-ek314build_3.2.3.jpg
 
 
@@ -209,7 +209,7 @@ Remove u-boot configuration
 
     $ make distclean
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.3.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.3.1.jpg
    :alt: My-rk32-ek314build_3.3.1.jpg
 
 
@@ -231,7 +231,7 @@ u-boot configuration
     $ make rk3288_defconfig
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.4.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.4.1.jpg
    :alt: My-rk32-ek314build_3.4.1.jpg
 
 
@@ -246,14 +246,14 @@ Compilation
 
 `Tips：To speed up the compilation，add "-j4" after make.The Linux host used to compile is dual-core ,4 threads .So "-j" is followed by 4, which takes 4 threads to compile. The number behind "-j" is allocated based on system resources,but It should not exceed the maximum threads the host support.`
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.5.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.5.1.jpg
    :alt: My-rk32-ek314build_3.5.1.jpg
 
 - Complete compilation
 
 `Tips：u-boot compilation process will take a few minustes or so`
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.5.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.5.2.jpg
    :alt: My-rk32-ek314build_3.5.2.jpg
 
 Target file
@@ -265,7 +265,7 @@ Target file
 
     $ ls
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.6.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.6.1.jpg
    :alt: My-rk32-ek314build_3.6.1.jpg
 
 Compile kernel
@@ -278,7 +278,7 @@ Enter kernel source directory
 
     $ cd ~/my-rk3288/02_source/rk32-myzr_kernel_3.10/
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.1.1.jpg
    :alt: My-rk32-ek314build_4.1.1.jpg
 
 
@@ -291,7 +291,7 @@ Validate configured file
 
     $ source ~/my-rk3288/03_tools/gcc-arm-eabi-4.6-env
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.1.jpg
    :alt: My-rk32-ek314build_4.2.1.jpg
 
 - View compiler configuration
@@ -303,7 +303,7 @@ Validate configured file
 
 `Tips：you can see that ARCH和CROSS_COMPILE is configured`
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.2.jpg
    :alt: My-rk32-ek314build_4.2.2.jpg
 
 - Verify cross compiler tool configuration
@@ -314,7 +314,7 @@ Validate configured file
 
 `Tips：you can see version information of cross compiler tool shown on terminal after execution of command.as below：`
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.3.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.3.jpg
    :alt: My-rk32-ek314build_4.2.3.jpg
 
 
@@ -327,7 +327,7 @@ Prepare for kernel configuration
 
     $ make distclean
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.3.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.3.1.jpg
    :alt: My-rk32-ek314build_4.3.1.jpg
 
 - Generated.config file
@@ -339,7 +339,7 @@ Prepare for kernel configuration
     $ make rk3288-myzr-linux_defconfig
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.3.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.3.2.jpg
    :alt: My-rk32-ek314build_4.3.2.jpg
 
 
@@ -364,12 +364,12 @@ Compile kernel zImage and device tree dtb
 
 `Instruction：8 threads compilation is used in the screenshots.`
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.1.jpg
    :alt: My-rk32-ek314build_4.4.1.jpg
 
 - Complete compilation
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.2.jpg
    :alt: My-rk32-ek314build_4.4.2.jpg
 
 - Target file
@@ -380,7 +380,7 @@ Compile kernel zImage and device tree dtb
 
     $ ls arch/arm/boot/zImage -la
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.3.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.3.jpg
    :alt: My-rk32-ek314build_4.4.3.jpg
 
 
@@ -395,12 +395,12 @@ Compile module
 
 `Instruction：4 threads compilation is used in the screenshots.`
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.1.jpg
    :alt: My-rk32-ek314build_4.5.1.jpg
 
 - Complete compilation
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.2.jpg
    :alt: My-rk32-ek314build_4.5.2.jpg
 
 - Target file
@@ -411,7 +411,7 @@ Compile module
 
     $ find -name *.ko
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.3.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.3.jpg
    :alt: My-rk32-ek314build_4.5.3.jpg
 
 
@@ -428,7 +428,7 @@ Compile rockchip-mkbootimg
     $ mkdir ~/my-rk3288/01_application
     $ cd ~/my-rk3288/01_application
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.1.1.jpg
    :alt: My-rk32-ek314build_5.1.1.jpg
 
 |   2) Unpack and compile rockchip-mkbootimg
@@ -439,7 +439,7 @@ Compile rockchip-mkbootimg
     $ cd rockchip-mkbootimg/
     $ make && sudo make install
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.1.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.1.2.jpg
    :alt: My-rk32-ek314build_5.1.2.jpg
 
 
@@ -454,12 +454,12 @@ Pack initrd.img
     $ tar jxf initrd.tar.bz2
     $ make -C initrd/
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.2.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.2.1.jpg
    :alt: My-rk32-ek314build_5.2.1.jpg
 
 |   2) Show results
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.2.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.2.2.jpg
    :alt: My-rk32-ek314build_5.2.2.jpg
 
 Pack linux-boot.img
@@ -470,7 +470,7 @@ Pack linux-boot.img
     $ mkbootimg --kernel ../02_source/rk32-myzr_kernel_3.10/arch/arm/boot/zImage --ramdisk initrd.img \ 
     --second ../02_source/rk32-myzr_kernel_3.10/resource.img -o linux-boot.img
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.3.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.3.1.jpg
    :alt: My-rk32-ek314build_5.3.1.jpg
 
 
@@ -494,7 +494,7 @@ Compile packaging tools
     $ make -j4
     $ sudo cp afptool img_unpack img_maker mkkrnlimg /usr/local/bin/
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.1.1.jpg
    :alt: My-rk32-ek314build_7.1.1.jpg
 
 
@@ -503,7 +503,7 @@ New folder and copy image
 
 |   The file of "test/Image/" corresponds to the file of "Image\linux", rk3288box-3.10-uboot-ubuntu.parameter.txt is renamed to parameter, RESERVED is the empty file, RK3288UbootLoader_V2.30.10.bin corresponds to RKLoader.bin, update-script and The recover-script is copied by the burning tool. The contents of the package-file are renamed according to the corresponding file, as follows:
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.2.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.2.1.jpg
    :alt: My-rk32-ek314build_7.2.1.jpg
 
 .. code:: shell
@@ -515,7 +515,7 @@ New folder and copy image
     $ cp ubuntu/Image/RKLoader.bin ubuntu/
     $ cd ubuntu/
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.2.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.2.2.jpg
    :alt: My-rk32-ek314build_7.2.2.jpg
 
 Pack relase_update.img
@@ -528,5 +528,5 @@ Pack relase_update.img
     $ cd ..
     $ img_maker -rk32 RKLoader.bin update.img relase_update.img
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.3.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.3.1.jpg
    :alt: My-rk32-ek314build_7.3.1.jpg

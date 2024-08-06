@@ -15,7 +15,7 @@ Download usb driver
 
 |   Download the usb driver archive:DriverAssitant_v4.5.rar Install and extract DriverAssitant_v4.5.rar
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.1.png
    :alt: My-rk3399-ek314_download_3.1.1.png
 
 |   Double-click the red arrow file to install
@@ -23,12 +23,12 @@ Download usb driver
 Open burning tool
 ~~~~~~~~~~~~~~~~~~
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.2.png
    :alt: My-rk3399-ek314_download_3.1.2.png
 
 |   Double-click the red arrow file to open the burning tool
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.3.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.3.png
    :alt: My-rk3399-ek314_download_3.1.3.png
 
 Programming instructions
@@ -46,7 +46,7 @@ Flash unified firmware
 - Press and hold the vol + button of the development board, turn on the power of the development board, and release the vol + button when the programming tool appears "发现一个LOADER设备"
 - Click “升级” to flash
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.4.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.4.png
    :alt: My-rk3399-ek314_download_3.1.4.png
 
 **note**
@@ -73,5 +73,5 @@ Write the kernel separately, u-boot or file system
 - Press and hold the vol + button of the development board, turn on the power of the board, and release the vol + button when the programming tool displays“发现一个LOADER设备”
 - Click execute to start programming
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.5.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_download_3.1.5.png
    :alt: My-rk3399-ek314_download_3.1.5.png

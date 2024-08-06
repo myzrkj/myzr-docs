@@ -47,7 +47,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
 
 | java version "1.6.0_45"能看到版本为1.6.0_45就表示安装成功。
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android2-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android2-1.png
    :alt: MY-R16-CB166_Android2-1.png
 
 安装编译Android系统需要的库
@@ -110,13 +110,13 @@ MYZR-R16-EK166 Android-4.4 编译手册
    5. sc3813r
    Choice: 3
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-1.png
    :alt: MY-R16-CB166_Android4-1.png
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-2.png
    :alt: MY-R16-CB166_Android4-2.png
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-3.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-3.png
    :alt: MY-R16-CB166_Android4-3.png
 
 
@@ -128,7 +128,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
    $ cd ~/R16/lichee
    $ ./build.sh
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-4.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-4.png
    :alt: MY-R16-CB166_Android4-4.png
 
 
@@ -142,13 +142,13 @@ MYZR-R16-EK166 Android-4.4 编译手册
    $ make sun8iw5p1_config
    $ make
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-5.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-5.png
    :alt: MY-R16-CB166_Android4-5.png
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-6.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-6.png
    :alt: MY-R16-CB166_Android4-6.png
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-7.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android4-7.png
    :alt: MY-R16-CB166_Android4-7.png
 
 
@@ -161,10 +161,10 @@ MYZR-R16-EK166 Android-4.4 编译手册
    $ extract-bsp
    $ make
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android5-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android5-1.png
    :alt: MY-R16-CB166_Android5-1.png
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android5-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android5-2.png
    :alt: MY-R16-CB166_Android5-2.png
 
 
@@ -176,7 +176,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
    $ cd ~/R16/android
    $ pack
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android5-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_Android5-2.png
    :alt: MY-R16-CB166_Android5-2.png
 
 | 打包的最终文件在~/R16/lichee/tools/pack下的sun8iw5p1_android_evb-30_uart0.img

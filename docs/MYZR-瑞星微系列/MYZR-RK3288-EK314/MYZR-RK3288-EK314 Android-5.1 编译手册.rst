@@ -33,7 +33,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
 
 |   （看到版本为1.7.0_121就表示成功）
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_2.1.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_2.1.1.png
    :alt: My-rk32-ek314_android_2.1.1.png
 
 
@@ -51,7 +51,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
      python-markdown libxml2-utils xsltproc zlib1g-dev:i386 \ 
      lzop libssl1.0.0 libssl-dev
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_3.1.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_3.1.1.png
    :alt: My-rk32-ek314_android_3.1.1.png
 
 下载源码并解压源码
@@ -72,7 +72,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
     $ tar jxvf rk32-myzr_android5.1_20180328.tar.bz2 -C ~/rk3288-myzr/
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_5.1.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_5.1.1.png
    :alt: My-rk32-ek314_android_5.1.1.png
 
 
@@ -87,14 +87,14 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
     $ export ARCH=arm
     $ export CROSS_COMPILE=~/rk3288-myzr/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin/arm-eabi-
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.1.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.1.1.png
    :alt: My-rk32-ek314_android_6.1.1.png
 
 .. code:: shell
 
     $ ${CROSS_COMPILE}gcc -v
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.1.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.1.2.png
    :alt: My-rk32-ek314_android_6.1.2.png
 
 编译uboot
@@ -118,12 +118,12 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
 
     $ make
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.2.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.2.1.png
    :alt: My-rk32-ek314_android_6.2.1.png
 
 - 目标文件
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.2.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.2.2.png
    :alt: My-rk32-ek314_android_6.2.2.png
 
 编译kernel
@@ -153,7 +153,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
 
     $ make distclean
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.1.png
    :alt: My-rk32-ek314_android_6.3.1.png
 
 - 设置配置文件
@@ -162,7 +162,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
 
     $ make rk3288-myzr_defconfig
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.2.png
    :alt: My-rk32-ek314_android_6.3.2.png
 
 - 编译(以LVDS为例)
@@ -173,12 +173,12 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
 
 |   说明：截图中使用了8线程编译。
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.3.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.3.png
    :alt: My-rk32-ek314_android_6.3.3.png
 
 - 编译完成
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.4.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.4.png
    :alt: My-rk32-ek314_android_6.3.4.png
 
 - 目标文件
@@ -189,7 +189,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
 
     $ ls
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.5.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.5.png
    :alt: My-rk32-ek314_android_6.3.5.png
 
 
@@ -203,7 +203,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
     $ cd ~/rk3288-myzr/
     $ source build.sh
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.1.png
    :alt: My-rk32-ek314_android_6.4.1.png
 
 - 设置android版本配置
@@ -212,7 +212,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
 
     $ lunch rk3288_box-userdebug
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.2.png
    :alt: My-rk32-ek314_android_6.4.2.png
 
 - 编译
@@ -223,12 +223,12 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
 
 |   说明：截图中使用了16线程编译。
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.3.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.3.png
    :alt: My-rk32-ek314_android_6.4.3.png
 
 - 编译完成
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.4.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.4.png
    :alt: My-rk32-ek314_android_6.4.4.png
 
 
@@ -241,7 +241,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
     $ ./mkimage.sh
     $ ls rockdev/Image-rk3288_box/
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.5.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.5.png
    :alt: My-rk32-ek314_android_6.4.5.png
 
 
@@ -263,7 +263,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
     $ sudo cp afptool img_unpack img_maker mkkrnlimg /usr/local/bin/
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.1.1.jpg
    :alt: My-rk32-ek314build_7.1.1.jpg
 
 
@@ -272,7 +272,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
 
 |   rockdev/Image-rk3288_box/的文件对应烧写工具Image\android文件夹中，rk3288box-3.10-uboot-ubuntu.parameter.txt重命名为parameter，RK3288UbootLoader_V2.30.10.bin对应RKLoader.bin，update-script和recover-script在烧写工具里面复制。package-file的内容重新按对应的文件重命名，如下：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.1.png
    :alt: My-rk32-ek314_android_7.1.1.png
 
 .. code:: shell
@@ -283,7 +283,7 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
     $ rm pc*
     $ $ ls
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.2.png
    :alt: My-rk32-ek314_android_7.1.2.png
 
 打包relase_android_update.img文件
@@ -294,5 +294,5 @@ MYZR-RK3288-EK314 Android-5.1 编译手册
     $ afptool -pack . ../update.img
     $ img_maker -rk32 RKLoader.bin update.img relase_android_update.img
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.3.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.3.png
    :alt: My-rk32-ek314_android_7.1.3.png

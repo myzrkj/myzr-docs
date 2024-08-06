@@ -37,16 +37,16 @@ MYZR-R16-EK166 linux-3.4 编译手册
    $ make kernel_menuconfig
    ### make kernel_menuconfig打开后退出即可，会自动生成.config文件。
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-1.png
    :alt: MY-R16-CB166_linux-34_d&d4-1.png
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-2.png
    :alt: MY-R16-CB166_linux-34_d&d4-2.png
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-3.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-3.png
    :alt: MY-R16-CB166_linux-34_d&d4-3.png
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-4.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-4.png
    :alt: MY-R16-CB166_linux-34_d&d4-4.png
 
 
@@ -60,13 +60,13 @@ MYZR-R16-EK166 linux-3.4 编译手册
    $ make sun8iw5p1_config
    $ make
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-5.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-5.png
    :alt: MY-R16-CB166_linux-34_d&d4-5.png
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-6.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-6.png
    :alt: MY-R16-CB166_linux-34_d&d4-6.png
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-7.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-7.png
    :alt: MY-R16-CB166_linux-34_d&d4-7.png
 
 
@@ -78,7 +78,7 @@ MYZR-R16-EK166 linux-3.4 编译手册
    $ cd ~/tinaV2.1/
    $ make
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-8.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d4-8.png
    :alt: MY-R16-CB166_linux-34_d&d4-8.png
 
 打包
@@ -89,7 +89,7 @@ MYZR-R16-EK166 linux-3.4 编译手册
    $ cd ~/tinaV2.1
    $ pack
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d5-1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_d&d5-1.png
    :alt: MY-R16-CB166_linux-34_d&d5-1.png
 
 | 打包生成的最终文件在 ``~/tinaV2.1/out/astar-parrot/`` 目录下的 ``tina_astar-parrot_uart0.img``

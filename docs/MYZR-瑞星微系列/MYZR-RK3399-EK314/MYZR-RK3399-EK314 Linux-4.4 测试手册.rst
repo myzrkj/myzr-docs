@@ -48,7 +48,7 @@ MYZR-RK3399-EK314 Linux-4.4 测试手册
 
 |   “0% packet loss”表示测试通过。
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.1.png
    :alt: My-rk3399-ek314_test2.1.1.png
 
 USB接口测试
@@ -75,7 +75,7 @@ USB接口测试
 
 **测试结果**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.2.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.2.png
    :alt: My-rk3399-ek314_test2.1.2.png
 
 SD接口测试
@@ -99,7 +99,7 @@ SD接口测试
 
 **测试结果**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.3.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.3.png
    :alt: My-rk3399-ek314_test2.1.3.png
 
 标准GPIO测试
@@ -145,7 +145,7 @@ SD接口测试
     ＃ echo 0 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
     ＃ echo 1 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.4.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.4.png
    :alt: My-rk3399-ek314_test2.1.4.png
 
 |   用万用表测试管脚P8-3
@@ -205,7 +205,7 @@ ADC-KEY测试
 
 **测试结果**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.5.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.5.png
    :alt: My-rk3399-ek314_test2.1.5.png
 
 **结束测试**
@@ -280,7 +280,7 @@ RTC测试
 
 **测试结果**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.6.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.6.png
    :alt: My-rk3399-ek314_test2.1.6.png
 
 第三部分 显示功能测试
@@ -353,7 +353,7 @@ WIFI模块测试
     Password = cmnet 
     New PPPD = yes
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.7.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.7.png
    :alt: My-rk3399-ek314_test2.1.7.png
 
 |   拨号
@@ -363,5 +363,5 @@ WIFI模块测试
     =====> 输入指令:
     #wvdial &
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.8.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.8.png
    :alt: My-rk3399-ek314_test2.1.8.png

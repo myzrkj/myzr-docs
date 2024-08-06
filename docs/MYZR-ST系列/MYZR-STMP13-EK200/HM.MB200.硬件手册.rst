@@ -8,19 +8,19 @@
 正面图
 ~~~~~~
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-EK200-font.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-EK200-font.png
    :alt: image-MYZR-STMP13-EK200-font
 
 反面图
 ~~~~~~
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-EK200-back.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-EK200-back.png
    :alt: image-MYZR-STMP13-EK200-back
 
 正面标识图
 ~~~~~~~~~~~~
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-EK200-interface.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-EK200-interface.png
    :alt: image-MYZR-STMP13-EK200-interface.png
 
 接口功能
@@ -31,7 +31,7 @@ RTC
 
 丝印:U25 接口属性：I2C通信的实时时钟
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-RTC.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-RTC.png
    :alt: image-MYZR-STMP13-MB200-RTC
 
 WIFI
@@ -39,7 +39,7 @@ WIFI
 
 丝印:U21 模块型号：UM12BS
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-WIFI.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-WIFI.png
    :alt: image-MYZR-STMP13-MB200-WIFI
 
 SD
@@ -47,7 +47,7 @@ SD
 
 丝印:J10 接口属性：标准SD卡座
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-SD.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-SD.png
    :alt: image-MYZR-STMP13-MB200-SD
 
 USB
@@ -55,7 +55,7 @@ USB
 
 丝印:J3
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-USB.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-USB.png
    :alt: image-MYZR-STMP13-MB200-USB
 
 OTG
@@ -63,7 +63,7 @@ OTG
 
 丝印:J5
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-OTG.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-OTG.png
    :alt: image-MYZR-STMP13-MB200-OTG
 
 Ethernet
@@ -71,7 +71,7 @@ Ethernet
 
 丝印：U8,U12
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-ETH.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-ETH.png
    :alt: image-MYZR-STMP13-MB200-ETH
 
 调试串口
@@ -79,7 +79,7 @@ Ethernet
 
 丝印：P2
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-DEBUG.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-DEBUG.png
    :alt: image-MYZR-STMP13-MB200-DEBUG
 
 主电源开关
@@ -87,7 +87,7 @@ Ethernet
 
 丝印：J1
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-SWITCH.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-SWITCH.png
    :alt: image-MYZR-STMP13-MB200-SWITCH
 
 RS232,RS485和CAN
@@ -95,7 +95,7 @@ RS232,RS485和CAN
 
 丝印：J8
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-UARTCAN.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-UARTCAN.png
    :alt: image-MYZR-STMP13-MB200-UARTCAN
 
 JTAG
@@ -103,7 +103,7 @@ JTAG
 
 丝印：J9
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-JTAG.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-JTAG.png
    :alt: image-MYZR-STMP13-MB200-JTAG
 
 RESET
@@ -111,7 +111,7 @@ RESET
 
 丝印：SW1和SW2
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-RESET.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-RESET.png
    :alt: image-MYZR-STMP13-MB200-RESET
 
 BOOT
@@ -119,7 +119,7 @@ BOOT
 
 丝印：SW1
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-BOOT.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-BOOT.png
    :alt: image-MYZR-STMP13-MB200-BOOT
 
 
@@ -128,10 +128,10 @@ BOOT
 
 丝印：P1,P3
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-IO1.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-IO1.png
    :alt: image-MYZR-STMP13-MB200-IO1
 
-.. figure:: ../../../image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-IO2.png
+.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-IO2.png
    :alt: image-MYZR-STMP13-MB200-IO2
 
 ====== ========== ====== ===========

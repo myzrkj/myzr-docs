@@ -33,7 +33,7 @@ Overview of development board interface
 
 **MYZR-R16-EK166 Front view**
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_front2.1.0.1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_front2.1.0.1.png
    :alt: MY-R16-EK166_front2.1.0.1.png
 
 
@@ -46,7 +46,7 @@ Fast boot development board
 
  |  The SecureCRT & USB serial port 3 example configuration is as follows：
 
- .. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.0.0.1.png
+ .. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.0.0.1.png
     :alt: MY-R16-EK166_3.0.0.1.png
 
 4. Connect the network cable, connect one end of the network cable to the j12 of the development board, and insert the other end of the network cable into the network port of the computer.
@@ -60,12 +60,12 @@ Observe booting condition
 | When the serial port terminal is dynamic, it can be seen that the serial port terminal of the computer has the startup process information output during the startup of the development board.
 | After starting, the serial port printing information is as follows：
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.1.0.2.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.1.0.2.png
    :alt: MY-R16-EK166_3.1.0.2.png
 
 | After starting, the UI interface is as follows：
 
-.. image:: ../../../../image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.1.0.1.png
+.. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-EK166_3.1.0.1.png
    :alt: MY-R16-EK166_3.1.0.1.png
 
 

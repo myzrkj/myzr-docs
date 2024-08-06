@@ -8,12 +8,12 @@
 正面图
 ~~~~~~
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-EK200.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-EK200.png
    :alt: image-MYZR-IMX8MM-EK200
 
 正面标识
 ~~~~~~~~~
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-EK200.正面标识.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-EK200.正面标识.png
    :alt: image-MYZR-IMX8MM-EK200.正面标识
 
 接口功能
@@ -24,7 +24,7 @@ RTC
 
 丝印:U21 接口属性：I2C通信的实时时钟
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-RTC.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-RTC.png
    :alt: image-MYZR-IMX8MM-MB200-RTC
 
 WIFI
@@ -32,7 +32,7 @@ WIFI
 
 丝印:U17 模块型号：UM12BS 
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-WIFI.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-WIFI.png
    :alt: image-MYZR-IMX8MM-MB200-WIFI
 
 SD
@@ -40,7 +40,7 @@ SD
 
 丝印:j8 接口属性：标准SD卡座
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-SD.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-SD.png
    :alt: image-MYZR-IMX8MM-MB200-SD
 
 USB
@@ -48,7 +48,7 @@ USB
 
 丝印:j4
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-USB.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-USB.png
    :alt: image-MYZR-IMX8MM-MB200-USB
 
 DSI
@@ -58,7 +58,7 @@ DSI
 
 引脚及信号定义如下:
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-DSI.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-DSI.png
    :alt: image-MYZR-IMX8MM-MB200-DSI
 
 CSI
@@ -68,7 +68,7 @@ CSI
 
 引脚及信号定义如下:
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-CSI.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-CSI.png
    :alt: image-MYZR-IMX8MM-MB200-CSI
 
 Bootloader接口
@@ -76,7 +76,7 @@ Bootloader接口
 
 丝印：J14
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-Download.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-Download.png
    :alt: image-MYZR-IMX8MM-MB200-Download
 
 ========== ===========
@@ -91,7 +91,7 @@ USB1_DP    USB差分数据
 
 丝印：P2
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-DEBUG.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-DEBUG.png
    :alt: image-MYZR-IMX8MM-MB200-DEBUG
 
 主电源开关
@@ -99,7 +99,7 @@ USB1_DP    USB差分数据
 
 丝印：J1
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-SWITCH.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-SWITCH.png
    :alt: image-MYZR-IMX8MM-MB200-SWITCH
 
 UART - RS232和UART - RS485
@@ -107,7 +107,7 @@ UART - RS232和UART - RS485
 
 丝印：J12
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-UART.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-UART.png
    :alt: image-MYZR-IMX8MM-MB200-UART
 
 JTAG
@@ -115,7 +115,7 @@ JTAG
 
 丝印：J13
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-JTAG.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-JTAG.png
    :alt: image-MYZR-IMX8MM-MB200-JTAG
 
 RESET
@@ -123,7 +123,7 @@ RESET
 
 丝印：SW2
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-RESET.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-RESET.png
    :alt: image-MYZR-IMX8MM-MB200-RESET
 
 扩展IO接口
@@ -131,7 +131,7 @@ RESET
 
 丝印：J10
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-IO.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MM-EK200/MYZR-IMX8MM-MB200-IO.png
    :alt: image-MYZR-IMX8MM-MB200-IO.png
 
 +-------+---------------+-------+-----------+

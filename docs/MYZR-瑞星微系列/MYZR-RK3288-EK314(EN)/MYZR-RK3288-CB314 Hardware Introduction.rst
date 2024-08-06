@@ -7,17 +7,17 @@ MYZR-RK3288_CB314 view
 
 **Front view**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/MY-R3288-CB314_Front.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/MY-R3288-CB314_Front.jpg
    :alt: MY-R3288-CB314_Front.jpg
 
 **Rear view**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/MY-R3288-CB314-Back.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/MY-R3288-CB314-Back.jpg
    :alt: MY-R3288-CB314-Back.jpg
 
 **Size**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/384px-Myrk3288_cb314_1.2.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/384px-Myrk3288_cb314_1.2.0.1.png
    :alt: 384px-Myrk3288_cb314_1.2.0.1.png
 
 MYZR-RK3288_CB314 parameter

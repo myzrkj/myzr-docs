@@ -6,12 +6,12 @@ Overview of interfaces
 
 **Front view**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.1.0.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.1.0.1.jpg
    :alt: 1500px-Myrk3288_mb314_1.1.0.1.jpg
 
 **Rear view**
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.2.0.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.2.0.1.jpg
    :alt: 1500px-Myrk3288_mb314_1.2.0.1.jpg
 
 
@@ -31,7 +31,7 @@ Serial port
 
 |  Definition of pin & signal as below：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.1.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.1.0.1.png
    :alt: 963px-Myrk3288_mb314_2.1.0.1.png
 
 **U20**
@@ -57,7 +57,7 @@ GPS
 |  Module model：NEO-6M
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.2.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.2.0.1.png
    :alt: 963px-Myrk3288_mb314_2.2.0.1.png
 
 ======  ============  =========  ============
@@ -82,7 +82,7 @@ TF card cassette
 |  Interface property：standard TF card cassette
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.3.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.3.0.1.png
    :alt: 963px-Myrk3288_mb314_2.3.0.1.png
 
 ======  ============  ======  ============
@@ -104,7 +104,7 @@ HDMI
 |  Interface property：HDMI-1.4 standard interface
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.4.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.4.0.1.png
    :alt: 963px-Myrk3288_mb314_2.4.0.1.png
 
 ======  ============  ======  ============
@@ -129,7 +129,7 @@ CIF
 |  Interface property：CIF Camera interface
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.5.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.5.0.1.png
    :alt: 963px-Myrk3288_mb314_2.5.0.1.png
 
 ======  ============  ======  ============
@@ -157,7 +157,7 @@ MIPI-CSI
 |  Definition of pin & signal：
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.6.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.6.0.1.png
    :alt: 963px-Myrk3288_mb314_2.6.0.1.png
 
 ======  ============  ======  ============
@@ -186,7 +186,7 @@ SINGEL LVDS
 |  Interface property：Single way LVDS interface for connecting MY-LCD_LVDS LCD panel
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.7.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.7.0.1.png
    :alt: Myrk3288_mb314_2.7.0.1.png
 
 =====  ============  ========  ============
@@ -214,7 +214,7 @@ EDP
 |  Interface property：EDP screen interface for connecting the 15.6-inch EDP display
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.8.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.8.0.1.png
    :alt: Myrk3288_mb314_2.8.0.1.png
 
 =====  ============  =====  ============
@@ -245,7 +245,7 @@ BL
 |  Interface property：Backlight output of 12V, used to supply 12V backlight voltage to the external screen of equipment
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.9.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.9.0.1.png
    :alt: Myrk3288_mb314_2.9.0.1.png
 
 ====  ============  ====  ============
@@ -263,7 +263,7 @@ DUAL LVDS
 |  Interface property：LVDS Dual interface
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.10.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.10.0.1.png
    :alt: 963px-Myrk3288_mb314_2.10.0.1.png
 
 +-------+-------------+-------+-------------+
@@ -308,7 +308,7 @@ HP JACK
 |  Interface property：Audio interface for earphone audio output and MIC input
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.11.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.11.0.1.png
    :alt: 963px-Myrk3288_mb314_2.11.0.1.png
 
 
@@ -330,7 +330,7 @@ OTG
 |  Interface property：USB OTG Interface
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.12.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.12.0.1.png
    :alt: 963px-Myrk3288_mb314_2.12.0.1.png
 
 ====  ============  ====  ============
@@ -351,7 +351,7 @@ USB HOST
 |  Interface property：Dual USB interface, extended by LAN9514 host interface
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.13.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.13.0.1.png
    :alt: 963px-Myrk3288_mb314_2.13.0.1.png
 
 
@@ -374,7 +374,7 @@ J10-6  USBSN_DM2_B   J10-12  GND
 |  Interface property：Standard gigabit interface, extended Ethernet interface via LAB9514, 10M/100M self-adaption
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.14.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.14.0.1.png
    :alt: 963px-Myrk3288_mb314_2.14.0.1.png
 
 ====  ============  =====  ===============
@@ -397,7 +397,7 @@ USB to WIFI
 |  Module description: USB is used as USB-WIFI interface
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.15.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.15.0.1.png
    :alt: 963px-Myrk3288_mb314_2.15.0.1.png
 
 =====  ============  =====  ============
@@ -415,7 +415,7 @@ U26-3  GEN_3V3       U26-6  GND
 |  Interface property：Gigabit Ethernet interface, 10M/100M/1000M adaptive
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.16.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.16.0.1.png
    :alt: 963px-Myrk3288_mb314_2.16.0.1.png
 
 =====  ============  ======  ============
@@ -437,7 +437,7 @@ mini-PCIE
 |  Interface property：standard MINI-PCIE port
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.17.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.17.0.1.png
    :alt: 963px-Myrk3288_mb314_2.17.0.1.png
 
 =======  ============  ======  =============
@@ -477,7 +477,7 @@ Voltage jumper selection
 |  Silk screen：J15
 |  Interface property：5V/3.3V Voltage jumper selection
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.18.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.18.0.1.png
    :alt: 963px-Myrk3288_mb314_2.18.0.1.png
 
 USB to UART
@@ -487,7 +487,7 @@ USB to UART
 |  Interface property：USB expansion UART interface
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.19.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.19.0.1.png
    :alt: 963px-Myrk3288_mb314_2.19.0.1.png
 
 ======  ============  ======  ============
@@ -510,7 +510,7 @@ WIFI
 |  Silk screen： E1
 |  Interface property：standard antenna pedesta
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.20.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.20.0.1.png
    :alt: 963px-Myrk3288_mb314_2.20.0.1.png
 
 DC IN
@@ -519,7 +519,7 @@ DC IN
 |  Silk screen： J3
 |  Interface property：External 5V main power input, 2.5a
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.21.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.21.0.1.png
    :alt: Myrk3288_mb314_2.21.0.1.png
 
 Power switch
@@ -529,7 +529,7 @@ Power switch
 |  Interface property：main power switch
 |  Status attribute: --, close, O, break
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.22.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_mb314_2.22.0.1.png
    :alt: Myrk3288_mb314_2.22.0.1.png
 
 12V IN
@@ -539,7 +539,7 @@ Power switch
 |  Interface property：External 12V power input
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.23.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.23.0.1.png
    :alt: 963px-Myrk3288_mb314_2.23.0.1.png
 
 ====  ============  ====  ============
@@ -555,7 +555,7 @@ RESET
 |  Silk screen： SW4
 |  Key attributes：Reset
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.24.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.24.0.1.png
    :alt: 963px-Myrk3288_mb314_2.24.0.1.png
 
 SLEEP WAKE
@@ -564,7 +564,7 @@ SLEEP WAKE
 |  Silk screen： SW3
 |  Key attributes: system switch key, long press 1 second to start up, long press 3 seconds to shut down
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.25.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.25.0.1.png
    :alt: 963px-Myrk3288_mb314_2.25.0.1.png
 
 VOL +
@@ -573,7 +573,7 @@ VOL +
 |  Silk screen： SW2
 |  Key attributes: control volume (volume plus)
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.26.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.26.0.1.png
    :alt: 963px-Myrk3288_mb314_2.26.0.1.png
 
 VOL –
@@ -582,7 +582,7 @@ VOL –
 |  Silk screen： SW1
 |  Key attributes: control volume (volume reduction)
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.27.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.27.0.1.png
    :alt: 963px-Myrk3288_mb314_2.27.0.1.png
 
 RECOVER
@@ -591,7 +591,7 @@ RECOVER
 |  Silk screen： SW5
 |  Key attributes: burn the write button, press it at the same time as the start button (SW3), and enter the burn write mode
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.28.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.28.0.1.png
    :alt: 963px-Myrk3288_mb314_2.28.0.1.png
 
 
@@ -602,7 +602,7 @@ Extension interface
 |  Interface properties: free pins for extending applications
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.29.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.29.0.1.png
    :alt: 963px-Myrk3288_mb314_2.29.0.1.png
 
 ======  =============  ======  ============
@@ -646,7 +646,7 @@ JTAG
 |  Interface properties: JTAG interface
 |  Definition of pin & signal：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.30.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.30.0.1.png
    :alt: 963px-Myrk3288_mb314_2.30.0.1.png
 
 +-------+----------+---------------------+--------+--------+----------------+
@@ -670,7 +670,7 @@ RTC battery holder
 |  Silk screen: BT1
 |  Interface property: RTC button battery interface:
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.31.0.1.png
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-Myrk3288_mb314_2.31.0.1.png
    :alt: 963px-Myrk3288_mb314_2.31.0.1.png
 
 

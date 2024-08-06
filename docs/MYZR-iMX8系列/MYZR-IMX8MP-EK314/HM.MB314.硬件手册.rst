@@ -8,13 +8,13 @@
 正面图
 ~~~~~~
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-EK314.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-EK314.png
    :alt: image-MYZR-IMX8MP-EK314
 
 正面标识图
 ~~~~~~~~~~~~
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-EK314.正面标识.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-EK314.正面标识.png
    :alt: image-MYZR-IMX8MP-EK314正面标识
 
 接口功能
@@ -25,7 +25,7 @@ RTC
 
 丝印:U25 接口属性：I2C通信的实时时钟
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-RTC.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-RTC.png
    :alt: image-MYZR-IMX8MP-MB314-RTC
 
 WIFI
@@ -33,7 +33,7 @@ WIFI
 
 丝印:U21 模块型号：UM12BS
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-WIFI.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-WIFI.png
    :alt: image-MYZR-IMX8MP-MB314-WIFI
 
 SD
@@ -41,7 +41,7 @@ SD
 
 丝印:J10 接口属性：标准SD卡座
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-SD.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-SD.png
    :alt: image-MYZR-IMX8MP-MB314-SD
 
 USB
@@ -49,7 +49,7 @@ USB
 
 丝印:J3
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-USB.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-USB.png
    :alt: image-MYZR-IMX8MP-MB314-USB
 
 HDML
@@ -57,7 +57,7 @@ HDML
 
 丝印：J4
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-HDML.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-HDML.png
    :alt: image-MYZR-IMX8MP-MB314-HDML
 
 DSI
@@ -67,7 +67,7 @@ DSI
 
 引脚及信号定义如下:
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-DSI.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-DSI.png
    :alt: image-MYZR-IMX8MP-MB314-DSI
 
 CSI
@@ -77,10 +77,10 @@ CSI
 
 引脚及信号定义如下:
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-CSI1.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-CSI1.png
    :alt: image-MYZR-IMX8MP-MB314-CSI1
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-CSI2.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-CSI2.png
    :alt: image-MYZR-IMX8MP-MB314-CSI2
 
 LVDS
@@ -90,10 +90,10 @@ LVDS
 
 引脚及信号定义如下:
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-LVDS1.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-LVDS1.png
    :alt: image-MYZR-IMX8MP-MB314-LVDS1
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-LVDS2.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-LVDS2.png
    :alt: image-MYZR-IMX8MP-MB314-LVDS2
 
 调试串口
@@ -101,7 +101,7 @@ LVDS
 
 丝印：P2
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-DEBUG.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-DEBUG.png
    :alt: image-MYZR-IMX8MP-MB314-DEBUG
 
 主电源开关
@@ -109,7 +109,7 @@ LVDS
 
 丝印：J1
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-SWITCH.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-SWITCH.png
    :alt: image-MYZR-IMX8MP-MB314-SWITCH
 
 UART - RS232和UART - RS485
@@ -117,7 +117,7 @@ UART - RS232和UART - RS485
 
 丝印：J14
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-UART.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-UART.png
    :alt: image-MYZR-IMX8MP-MB314-UART
 
 JTAG
@@ -125,7 +125,7 @@ JTAG
 
 丝印：J15
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-JTAG.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-JTAG.png
    :alt: image-MYZR-IMX8MP-MB314-JTAG
 
 RESET
@@ -133,10 +133,10 @@ RESET
 
 丝印：SW1和SW2
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-RESET1.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-RESET1.png
    :alt: image-MYZR-IMX8MP-MB314-RESET1
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-RESET2.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-RESET2.png
    :alt: image-MYZR-IMX8MP-MB314-RESET2
 
 扩展IO接口
@@ -144,7 +144,7 @@ RESET
 
 丝印：J13
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-IO.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-MB314-IO.png
    :alt: image-MYZR-IMX8MP-MB314-IO
 
 ====== ========== ====== ===========

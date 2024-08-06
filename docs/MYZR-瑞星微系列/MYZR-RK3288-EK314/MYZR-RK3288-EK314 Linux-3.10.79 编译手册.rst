@@ -46,7 +46,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
     $ mkdir ~/my-rk3288
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.1.1.jpg
    :alt: My-rk32-ek314build_2.1.1.1.jpg
 
 |   创建 ~/my-rk3288/02_source 作为源码目录
@@ -55,7 +55,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
     $ mkdir ~/my-rk3288/02_source
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.1.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.1.2.jpg
    :alt: My-rk32-ek314build_2.1.1.2.jpg
 
 |   创建 ~/my-rk3288/03_tools 作为工具目录
@@ -80,7 +80,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
     $ tar jxf rk32-myzr_uboot_2014.10_201803028.tar.bz2
     $ tar jxf rk32-myzr_kernel_3.10_201803028.tar.bz2
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.2.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.2.1.jpg
    :alt: My-rk32-ek314build_2.1.2.1.jpg
 
 |   2）解压交叉编译工具
@@ -90,7 +90,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
     $ cd ~/my-rk3288/03_tools/
     $ tar jxf gcc-arm-eabi-4.6.tar.bz2
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.2.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.1.2.2.jpg
    :alt: MMy-rk32-ek314build_2.1.2.2.jpg
 
 开发环境配置
@@ -104,12 +104,12 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
     $ sudo apt-get update
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.1.jpg
    :alt: My-rk32-ek314build_2.2.1.1.jpg
 
 |   更新完成后如下图所示：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.2.jpg
    :alt: My-rk32-ek314build_2.2.1.2.jpg
 
 |   2）安装aptitude包管理工具和ia32-libs
@@ -122,7 +122,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
    $ sudo apt-get -y install aptitude
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.3.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.3.jpg
    :alt: My-rk32-ek314build_2.2.1.3.jpg
 
 - 使用aptitude安装ia32-libs
@@ -133,7 +133,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
 |  下图为安装过aptitude和ia32-libs后，再次执行安装命令的截图。
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.4.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.4.jpg
    :alt: My-rk32-ek314build_2.2.1.4.jpg
 
 
@@ -145,7 +145,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
 |  下图为安装过mkimage工具后，再次执行安装命令的截图。
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.5.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.5.jpg
    :alt: My-rk32-ek314build_2.2.1.5.jpg
 
 |   4）安装ncurses-dev
@@ -157,7 +157,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
 |  下图为安装过ncurses-dev工具后，再次执行安装命令的截图。
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.6.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_2.2.1.6.jpg
    :alt: My-rk32-ek314build_2.2.1.6.jpg
 
 编译u-boot
@@ -170,7 +170,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
    $ cd ~/my-rk3288/02_source/rk32-myzr_uboot_2014.10/
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.1.1.jpg
    :alt: My-rk32-ek314build_3.1.1.jpg
 
 使配置文件生效
@@ -182,7 +182,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
    $ source ~/my-rk3288/03_tools/gcc-arm-eabi-4.6-env
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.1.jpg
    :alt: My-rk32-ek314build_3.2.1.jpg
 
 - 查看编译配置
@@ -194,7 +194,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
 |  可看到ARCH和CROSS_COMPILE被设置
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.2.jpg
    :alt: My-rk32-ek314build_3.2.2.jpg
 
 - 验证交叉编译工具配置
@@ -205,7 +205,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
 |  执行命令后可以看到终端显示出交叉编译工具的版本信息。如下图：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.3.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.2.3.jpg
    :alt: My-rk32-ek314build_3.2.3.jpg
 
 
@@ -216,7 +216,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 编译手册
 
    $ make distclean
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.3.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.3.1.jpg
    :alt: My-rk32-ek314build_3.3.1.jpg
 
 
@@ -238,7 +238,7 @@ u-boot配置
     $ make rk3288_defconfig
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.4.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.4.1.jpg
    :alt: My-rk32-ek314build_3.4.1.jpg
 
 编译
@@ -252,14 +252,14 @@ u-boot配置
 
 |  这里为了提高编译速度，在make后面加了“-j4”。这里编译的Linux主机是双核4线程的，所以“-j”后面用了4，也就是采用4线程编译。“-j”后面的数字可以根据系统资源分配，但是不应该超过编译主机最大支持的线程数。
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.5.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.5.1.jpg
    :alt: My-rk32-ek314build_3.5.1.jpg
 
 - 编译完成
 
 |  u-boot编译过程大概需要十几秒钟的时间。
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.5.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.5.2.jpg
    :alt: My-rk32-ek314build_3.5.2.jpg
 
 目标文件
@@ -271,7 +271,7 @@ u-boot配置
 
     $ ls
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.6.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_3.6.1.jpg
    :alt: My-rk32-ek314build_3.6.1.jpg
 
 编译内核
@@ -284,7 +284,7 @@ u-boot配置
 
     $ cd ~/my-rk3288/02_source/rk32-myzr_kernel_3.10/
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.1.1.jpg
    :alt: My-rk32-ek314build_4.1.1.jpg
 
 
@@ -297,7 +297,7 @@ u-boot配置
 
     $ source ~/my-rk3288/03_tools/gcc-arm-eabi-4.6-env
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.1.jpg
    :alt: My-rk32-ek314build_4.2.1.jpg
 
 - 查看编译配置
@@ -309,7 +309,7 @@ u-boot配置
 
 |  可看到ARCH和CROSS_COMPILE被设置
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.2.jpg
    :alt: My-rk32-ek314build_4.2.2.jpg
 
 - 验证交叉编译工具配置
@@ -320,7 +320,7 @@ u-boot配置
 
 |  执行命令后可以看到终端显示出交叉编译工具的版本信息。如下图：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.3.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.2.3.jpg
    :alt: My-rk32-ek314build_4.2.3.jpg
 
 准备配置内核
@@ -332,7 +332,7 @@ u-boot配置
 
     $ make distclean
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.3.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.3.1.jpg
    :alt: My-rk32-ek314build_4.3.1.jpg
 
 - 生成.config文件
@@ -344,7 +344,7 @@ u-boot配置
     $ make rk3288-myzr-linux_defconfig
 
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.3.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.3.2.jpg
    :alt: My-rk32-ek314build_4.3.2.jpg
 
 编译内核zImage和设备树dtb
@@ -368,12 +368,12 @@ u-boot配置
 
 |  截图中使用了8线程编译。
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.1.jpg
    :alt: My-rk32-ek314build_4.4.1.jpg
 
 - 编译完成
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.2.jpg
    :alt: My-rk32-ek314build_4.4.2.jpg
 
 - 目标文件
@@ -384,7 +384,7 @@ u-boot配置
 
     $ ls arch/arm/boot/zImage -la
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.3.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.4.3.jpg
    :alt: My-rk32-ek314build_4.4.3.jpg
 
 编译模块
@@ -398,12 +398,12 @@ u-boot配置
 
 |  截图中使用了4线程编译。
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.1.jpg
    :alt: My-rk32-ek314build_4.5.1.jpg
 
 - 编译完成
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.2.jpg
    :alt: My-rk32-ek314build_4.5.2.jpg
 
 - 目标文件
@@ -414,7 +414,7 @@ u-boot配置
 
     $ find -name *.ko
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.3.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_4.5.3.jpg
    :alt: My-rk32-ek314build_4.5.3.jpg
 
 打包linux-boot.img
@@ -430,7 +430,7 @@ u-boot配置
     $ mkdir ~/my-rk3288/01_application
     $ cd ~/my-rk3288/01_application
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.1.1.jpg
    :alt: My-rk32-ek314build_5.1.1.jpg
 
 |   2) 解压和编译rockchip-mkbootimg
@@ -441,7 +441,7 @@ u-boot配置
     $ cd rockchip-mkbootimg/
     $ make && sudo make install
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.1.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.1.2.jpg
    :alt: My-rk32-ek314build_5.1.2.jpg
 
 
@@ -456,12 +456,12 @@ u-boot配置
     $ tar jxf initrd.tar.bz2
     $ make -C initrd/
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.2.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.2.1.jpg
    :alt: My-rk32-ek314build_5.2.1.jpg
 
 |   2) 显示结果
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.2.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.2.2.jpg
    :alt: My-rk32-ek314build_5.2.2.jpg
 
 
@@ -473,7 +473,7 @@ u-boot配置
     $ mkbootimg --kernel ../02_source/rk32-myzr_kernel_3.10/arch/arm/boot/zImage --ramdisk initrd.img \ 
     --second ../02_source/rk32-myzr_kernel_3.10/resource.img -o linux-boot.img
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.3.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_5.3.1.jpg
    :alt: My-rk32-ek314build_5.3.1.jpg
 
 
@@ -497,7 +497,7 @@ u-boot配置
     $ make -j4
     $ sudo cp afptool img_unpack img_maker mkkrnlimg /usr/local/bin/
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.1.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.1.1.jpg
    :alt: My-rk32-ek314build_7.1.1.jpg
 
 
@@ -506,7 +506,7 @@ u-boot配置
 
 |   test/Image/的文件对应烧写工具Image\linux文件，rk3288box-3.10-uboot-ubuntu.parameter.txt重命名为parameter，RESERVED是空文件，RK3288UbootLoader_V2.30.10.bin对应RKLoader.bin，update-script和recover-script在烧写工具复制，package-file的内容重新按对应的文件重命名，如下：
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.2.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.2.1.jpg
    :alt: My-rk32-ek314build_7.2.1.jpg
 
 .. code:: shell
@@ -518,7 +518,7 @@ u-boot配置
     $ cp ubuntu/Image/RKLoader.bin ubuntu/
     $ cd ubuntu/
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.2.2.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.2.2.jpg
    :alt: My-rk32-ek314build_7.2.2.jpg
 
 
@@ -532,5 +532,5 @@ u-boot配置
     $ cd ..
     $ img_maker -rk32 RKLoader.bin update.img relase_update.img
 
-.. image:: ../../../image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.3.1.jpg
+.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.3.1.jpg
    :alt: My-rk32-ek314build_7.3.1.jpg

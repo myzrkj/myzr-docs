@@ -5,7 +5,7 @@
 核心板视图
 ----------
 
-.. figure:: ../../../image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-CB314.png
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-CB314.png
    :alt: image-MYZR-IMX8MP-CB314
 
 工作温度

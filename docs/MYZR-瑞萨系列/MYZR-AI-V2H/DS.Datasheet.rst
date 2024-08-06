@@ -5,7 +5,7 @@ Datasheet
 Interfaces
 ----------
 
-.. figure:: ../../../image/MYZR-瑞萨系列/MYZR-AI-V2H/MYZR-AI-V2H.正面标识.jpg
+.. figure:: /image/MYZR-瑞萨系列/MYZR-AI-V2H/MYZR-AI-V2H.正面标识.jpg
    :alt: image-MYZR-AI-V2H.正面标识
 
 Tech Specs

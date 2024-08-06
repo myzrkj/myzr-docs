@@ -5,10 +5,10 @@
 核心板视图
 ----------
 
-.. figure:: ../../../image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568的正面背面图片/MYZR-RK3568-CB314-font.jpg
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568的正面背面图片/MYZR-RK3568-CB314-font.jpg
    :alt: image-MYZR-RK3568-CB314
 
-.. figure:: ../../../image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568的正面背面图片/MYZR-RK3568-CB314-back.jpg
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568的正面背面图片/MYZR-RK3568-CB314-back.jpg
    :alt: image-MYZR-RK3568-CB314
 
 
