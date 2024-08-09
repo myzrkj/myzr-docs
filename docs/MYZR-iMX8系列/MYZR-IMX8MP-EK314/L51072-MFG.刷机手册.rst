@@ -34,7 +34,7 @@ BOOT_MODE3 BOOT_MODE2 BOOT_MODE1 BOOT_MODE0 描述
 执行刷机
 --------
 
-　　给开发板上电，双击运行 “myimx8mpek314-ucp-full.bat” 文件，这时候Windows 命令行窗口会看到如下信息：
+　　给开发板上电，双击运行 “myimx8mpek314-wic-full.bat” 文件，这时候Windows 命令行窗口会看到如下信息：
 
 ::
 

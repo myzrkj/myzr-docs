@@ -44,14 +44,14 @@ MYZR-RK3288-EK314 Linux-3.10.79 测试手册
 
 .. code:: shell
 
-    ＃ ifconfig eth0 192.168.18.36 　　　　　＃ configure the eth0
+    ＃ ifconfig eth0 192.168.18.36      //configure the eth0
 
 |   执行测试命令：
 
 .. code:: shell
 
-    ＃ ifconfig eth1 down 　　　　　＃ eth1 to be shut down
-    ＃ ping 192.168.18.18 -c 2 -w 4 　　　　　＃ send ICMP to HOST
+    ＃ ifconfig eth1 down      //eth1 to be shut down
+    ＃ ping 192.168.18.18 -c 2 -w 4      //send ICMP to HOST
 
 
 |   观察测试结果：系统会输出类似如下信息：
@@ -85,7 +85,7 @@ MYZR-RK3288-EK314 Linux-3.10.79 测试手册
 
 .. code:: shell
 
-    ＃ ifconfig eth0 down ＃ eth0 to be shut down
+    ＃ ifconfig eth0 down      //eth0 to be shut down
     ＃ ping 192.168.18.18 -c 2 -w 4      //send ICMP to HOST
 
 |   观察测试结果：系统会输出类似如下信息：
