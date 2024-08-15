@@ -12,6 +12,14 @@
 .. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568的正面背面图片/MYZR-RK3568-CB314-back.jpg
    :alt: image-MYZR-RK3568-CB314
 
+尺寸
+------
+
+|  82mm*48mm
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-CB314_size.png
+   :alt: image-RK3568-CB314_size
+
 
 工作温度
 --------

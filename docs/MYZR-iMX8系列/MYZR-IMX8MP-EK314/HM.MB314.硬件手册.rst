@@ -17,6 +17,14 @@
 .. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-EK314.正面标识.png
    :alt: image-MYZR-IMX8MP-EK314正面标识
 
+尺寸
+~~~~~~~
+
+|  187.43mm*110
+
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP_MB314-size.png
+   :alt: image-RK3588-MB314-size
+
 接口功能
 --------
 

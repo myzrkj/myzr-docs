@@ -2,7 +2,7 @@
 MYZR-STM32-EK152
 ================
 
-.. include:: MYZR-STM32-EK152 ʹ�ü�����ָ��.rst
+.. include:: MYZR-STM32-EK152 使用及开发指导.rst
 
 
 .. toctree:: 
@@ -11,10 +11,10 @@ MYZR-STM32-EK152
 
 
 
-Ӳ������
+硬件介绍
 ---------
 
-���İ�
+核心板
 ~~~~~~~
 
 .. toctree::
@@ -22,57 +22,57 @@ MYZR-STM32-EK152
    
    MYZR-ST32MP157-CB152
 
-�װ�
+底板
 ~~~~~~
 
 .. toctree::
    :maxdepth: 1
 
-   MYZR-ST32MP157Ӳ������
+   MYZR-ST32MP157硬件介绍
 
 
-�ն�����
+终端软件
 ---------
 
 .. toctree::
    :maxdepth: 1
 
-   ../../COMMON/Xshell.RM.�ο��ֲ�
+   ../../COMMON/Xshell.RM.参考手册
 
 
-�����ֲ�
+启动手册
 ---------
 
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32-EK152�����ֲ�
+   MYZR-STM32-EK152启动手册
 
 
-��¼�ֲ�
+烧录手册
 ---------
 
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32CubeProgrammer��¼�ֲ�
+   MYZR-STM32CubeProgrammer烧录手册
 
 
-�����ֲ�
+编译手册
 ---------
 
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32-EK152����ο��ֲ�
+   MYZR-STM32-EK152编译参考手册
 
-�����ֲ�
+测试手册
 ---------
 
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32�����ֲ�
+   MYZR-STM32测试手册
 
 
 

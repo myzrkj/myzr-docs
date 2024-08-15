@@ -23,6 +23,14 @@
 .. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588的正面背面图片/MYZR-RK3588-EK314-interface.jpg
    :alt: image-MYZR-RK3588-EK314-interface
 
+尺寸
+~~~~~~
+
+|  180mm*120mm
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-MB314-size.png
+   :alt: image-RK3588-MB314-size
+
 
 接口功能
 --------
