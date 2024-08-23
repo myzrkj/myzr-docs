@@ -8,6 +8,14 @@
 .. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-CB314.png
    :alt: image-MYZR-IMX8MP-CB314
 
+尺寸
+------
+
+|  82mm*40mm
+
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-EK314/MYZR-IMX8MP-CB314-size.png
+   :alt: image-MYZR-IMX8MP-CB314-size
+
 工作温度
 --------
 

@@ -1,79 +1,29 @@
-
 MYZR-STM32-EK152
-================
+=================
 
-.. include:: MYZR-STM32-EK152 Ê¹ÓÃ¼°¿ª·¢Ö¸µ¼.rst
-
-
-.. toctree:: 
-   :maxdepth: 1
-   :hidden:
-
-
-
-Ó²¼þ½éÉÜ
----------
-
-ºËÐÄ°å
-~~~~~~~
-
-.. toctree::
-   :maxdepth: 1
-   
-   MYZR-ST32MP157-CB152
-
-µ×°å
-~~~~~~
+å¿«é€Ÿå¼€å§‹
+----------
 
 .. toctree::
    :maxdepth: 1
 
-   MYZR-ST32MP157Ó²¼þ½éÉÜ
+   QSG.å¿«é€Ÿå¼€å§‹
 
 
-ÖÕ¶ËÈí¼þ
+ç¡¬ä»¶æ‰‹å†Œ
 ---------
 
 .. toctree::
    :maxdepth: 1
 
-   ../../COMMON/Xshell.RM.²Î¿¼ÊÖ²á
+   MYZR-ST32MP157.CB152.ç¡¬ä»¶æ‰‹å†Œ
+   MYZR-ST32MP157.MB152.ç¡¬ä»¶æ‰‹å†Œ
 
 
-Æô¶¯ÊÖ²á
+è½¯ä»¶æ‰‹å†Œ
 ---------
 
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32-EK152Æô¶¯ÊÖ²á
-
-
-ÉÕÂ¼ÊÖ²á
----------
-
-.. toctree::
-   :maxdepth: 1
-
-   MYZR-STM32CubeProgrammerÉÕÂ¼ÊÖ²á
-
-
-±àÒëÊÖ²á
----------
-
-.. toctree::
-   :maxdepth: 1
-
-   MYZR-STM32-EK152±àÒë²Î¿¼ÊÖ²á
-
-²âÊÔÊÖ²á
----------
-
-.. toctree::
-   :maxdepth: 1
-
-   MYZR-STM32²âÊÔÊÖ²á
-
-
-
-   
+   SM.è½¯ä»¶æ‰‹å†Œ

@@ -1,6 +1,6 @@
 
-MYZR-ST32MP157 硬件介绍
-==========================
+底板硬件手册
+=============
 
 接口概览
 ~~~~~~~~~
@@ -18,7 +18,7 @@ MYZR-ST32MP157 硬件介绍
    :alt: 963px-Stm32_mp157_bei.jpg
 
 尺寸图
-~~~~~~~
+""""""""
 
 .. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/963px-Stm32_mp157_chicun.png
    :alt: 963px-Stm32_mp157_chicun.png
