@@ -281,6 +281,43 @@
       DTC     arch/arm64/boot/dts/myzr/myimx8mpek314.dtb
       DTC     arch/arm64/boot/dts/myzr/myimx8mpek314-ov2775-ov5640.dtb
 
+
+Linux MIPI屏设备树文件编译 
+
+- 执行编译
+
+.. code:: shell
+
+  # =====> Input:
+  make myzr/myimx8mpek314-mipi.dtb
+
+-  设备树首次编译成功时，输出信息类似如下：
+
+.. code:: text
+
+   DTC     arch/arm64/boot/dts/myzr/myimx8mpek314-mipi.dtb 
+
+- 在arm板上，将 `mmcblk2p1` 进行挂载，如下操作：
+
+.. code:: shell
+
+ mount /dev/mmcblk2p1 /mnt/
+
+- 将编译好的 `myimx8mpek314-mipi.dtb` 文件上传到arm板的 `/mnt` 下
+
+
+- 重新启动arm板，在启动过程中，按 `回车` 进入 `uboot`
+
+- 在 `uboot` 里输入如下命令：
+
+.. code:: shell
+
+  # =====> Input:
+  setenv fdtfile myimx8mpek314-mipi.dtb
+  saveenv
+  boot
+
+
 6. Linux 模块编译
 
 -  执行编译

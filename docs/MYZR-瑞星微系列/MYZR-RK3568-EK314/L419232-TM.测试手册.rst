@@ -105,7 +105,7 @@ RTC
 ----
 
   + 接口丝印：J13（ETH1），J14（ETH2）
-  + 系统接口：eth0（ETH1），eth1（ETH2）
+  + 系统接口：eth1（ETH1），eth0（ETH2）
 
 **功能测试**
 

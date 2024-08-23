@@ -7,7 +7,7 @@
 +----------+----------+-----+----------+----------+-----+----------+----------+
 | 测试项   | 测试结果 |     | 测试项   | 测试结果 |     | 测试项   | 测试结果 |
 +==========+==========+=====+==========+==========+=====+==========+==========+
-| 电源按键 | Pass     |     | 复位按键 | Pass     |     | 指示灯   | Pass     |
+| 电源按键 | Pass     |     | 复位按键 | Pass     |     | 指示灯   | Pass       |
 +----------+----------+-----+----------+----------+-----+----------+----------+
 | Watchdog | Pass     |     | 休眠唤醒 | Pass     |     | RTC      | PASS     |
 +----------+----------+-----+----------+----------+-----+----------+----------+
@@ -269,11 +269,14 @@ RTC
 
   3）结果：上面两条指令执行完后，系统将不响应串口终端输入。等 wakealarm 唤醒系统后，串口终端可以继续操作即测试正常。
 
+
+
+
 网口
 ----
 
   + 接口丝印：U12（网口一），U9（网口二）
-  + 系统接口：eth0（网口一），eth0（网口二）
+  + 系统接口：eth0（网口一），eth1（网口二）
 
 **功能测试**
 
@@ -494,7 +497,7 @@ UART
 
     .. code-block:: shell
 
-      ./serial_test.out /dev/ttymxc0 "www.myzr.com.cn"
+      ./serial_test_arm64.out /dev/ttymxc0 "www.myzr.com.cn"
 
     + 输出信息：
 
@@ -525,7 +528,7 @@ GPIO
 ----
 
 +------------+------------+--------+--+------------+------------+--------+
-| 管脚位置   | 管脚配置   | IO 号  |  | 管脚位置   | 管脚配置   | IO 号  |
+| 管脚位置   | 管脚配置   | IO 号    |  | 管脚位置   | 管脚配置    | IO 号  |
 +------------+------------+--------+--+------------+------------+--------+
 | J13:13     | GPIO4_IO18 | 114    |  | J13:26     | GPIO4_IO01 | 97     |
 +------------+------------+--------+  +------------+------------+--------+
@@ -546,7 +549,7 @@ GPIO
 
     .. code-block:: shell
 
-      export OUT_IO_OUT_NUM-52
+      export OUT_IO_OUT_NUM=114
       echo ${OUT_IO_OUT_NUM} > /sys/class/gpio/export
       echo "out" > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/direction
 
@@ -556,7 +559,7 @@ GPIO
 
        echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
 
-    .. note:: 这时用万用表测试 J13:16，电压应当是 3.3V。
+    .. note:: 这时用万用表测试 J13:13，电压应当是 3.3V。
 
     c）控制 IO 输出低电平：
 
@@ -564,9 +567,10 @@ GPIO
 
        echo 0 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
 
-    .. note:: 这时用万用表测试 J13:16，电压应当是 3.3V。
+    .. note:: 这时用万用表测试 J13:13，电压应当是 0V。
 
   3）结果：在测试操作中控制IO电平时，测得的电压与预期符合即正常。
+
 
 + GPIO 输入测试
 
@@ -574,32 +578,32 @@ GPIO
 
   2）操作
 
-    a）用杜邦线或跳线帽连接 J13 的 15 和 16 脚。
+    a）用杜邦线或跳线帽连接 J13 的 15 和 13 脚。
 
     b）输入命令导出 IO 操作接口并配置为输入：
 
     .. code-block:: shell
 
-       export OUT_IO_IN_NUM-115
-       echo ${OUT_IO_IN_NUM} > /sys/class/gpio/export
-       echo "in" > /sys/class/gpio/gpio${OUT_IO_IN_NUM}/direction
+        export OUT_IO_IN_NUM=115
+        echo ${OUT_IO_IN_NUM} > /sys/class/gpio/export
+        echo "in" > /sys/class/gpio/gpio${OUT_IO_IN_NUM}/direction
 
-    c）输入命令控制 J13:16 输出高电平并读取 J13:15 的输入电平：
+    c）输入命令控制 J13:13 输出高电平并读取 J13:15 的输入电平：
 
     .. code-block:: shell
 
-       # 注释：控制 J13:16 IO 输出高电平
+       # 注释：控制 J13:13 IO 输出高电平
        echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
        # 注释：读取 IO 的输入电平
        cat /sys/class/gpio/gpio${OUT_IO_IN_NUM}/value
 
     .. note:: 这时命令行界面终端应当输出字符“1”（表示高电平）。
 
-    d）输入命令控制 J13:16 输出低电平并读取 J13:15 的输入电平：
+    d）输入命令控制 J13:13 输出低电平并读取 J13:15 的输入电平：
 
     .. code-block:: shell
 
-       # 注释：控制 J13:16 IO 输出低电平
+       # 注释：控制 J13:13 IO 输出低电平
        echo 0 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
        # 注释：读取 IO 的输入电平
        cat /sys/class/gpio/gpio${OUT_IO_IN_NUM}/value
@@ -651,7 +655,7 @@ SPI
 
   .. code-block:: shell
 
-     .spidev_test -D /dev/spidev1.0 -v -p my_spi_test_string
+     ./spidev_test.gcc7_arm64.out -D /dev/spidev1.0 -v -p my_spi_test_string
 
   .. note:: “my_spi_test_string” 是通过 spi 发送的字符串。
 
@@ -729,18 +733,216 @@ QSPI
 
   3）结果：执行测试命令时，耳机可以听到声音，即功能正常。
 
-USB WiFi
+WiFi测试
 --------
 
 + 接口丝印：U21
 
 **功能测试**
 
-  1）说明：
+  1）说明：WIFI连接到AP后，开发板向外网发送ICMP报文来验证连接正常。
 
   2）操作：
 
-  3）现象：
+      a）把WIFI天线连接到“E3”接口上
+
+      b）生成 SSID 的 WPA PSK 文件
+
+      .. code-block:: shell
+
+        wpa_passphrase命令格式：wpa_passphrase + wifi名称 + wifi密码 > /etc/wpa_supplicant.conf
+
+      + 输入命令：
+
+      .. code-block:: shell
+
+        wpa_passphrase MYZR-WIFI-2.4G myzr2012 > /etc/wpa_supplicant.conf
+
+      c）连接：
+
+      + 输入命令：
+
+        .. code-block:: shell
+
+          wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+
+      d）获取IP：
+
+       + 输入命令：
+
+       .. code-block:: shell
+
+          udhcpc -i wlan0
+
+      输出有类似如下信息：
+
+       .. code-block:: text
+
+          udhcpc: started, v1.33.1
+          udhcpc: sending discover
+          udhcpc: sending select for 172.16.0.121
+          udhcpc: lease of 172.16.0.121 obtained, lease time 86940
+          /etc/udhcpc.d/50default: Adding DNS 114.114.114.114
+          /etc/udhcpc.d/50default: Adding DNS 8.8.8.8
+
+      e）测试连接：
+
+          在/etc/resolv.conf 添加下面的内容：
+
+       .. code-block:: text
+
+          nameserver 8.8.8.8
+          nameserver 114.114.114.114
+
+       + 输入命令：
+
+       .. code-block:: shell
+
+          ping -I wlan0 www.baidu.com
+
+
+       输出信息：
+
+       .. code-block:: text
+
+          PING www.a.shifen.com (157.148.69.80) from 172.16.0.121 wlan0: 56(84) bytes of data.
+          64 bytes from 157.148.69.80 (157.148.69.80): icmp_seq=1 ttl=54 time=9.08 ms
+          64 bytes from 157.148.69.80 (157.148.69.80): icmp_seq=2 ttl=54 time=7.94 ms
+          64 bytes from 157.148.69.80 (157.148.69.80): icmp_seq=3 ttl=54 time=8.10 ms
+          64 bytes from 157.148.69.80 (157.148.69.80): icmp_seq=4 ttl=54 time=8.15 ms
+          64 bytes from 157.148.69.80 (157.148.69.80): icmp_seq=5 ttl=54 time=9.94 ms
+          64 bytes from 157.148.69.80 (157.148.69.80): icmp_seq=6 ttl=54 time=11.7 ms
+          64 bytes from 157.148.69.80 (157.148.69.80): icmp_seq=7 ttl=54 time=9.75 ms
+          64 bytes from 157.148.69.80 (157.148.69.80): icmp_seq=8 ttl=54 time=9.03 ms
+          64 bytes from 157.148.69.80 (157.148.69.80): icmp_seq=9 ttl=54 time=8.29 ms
+          64 bytes from 157.148.69.80 (157.148.69.80): icmp_seq=10 ttl=54 time=8.92 ms
+          --- www.a.shifen.com ping statistics ---
+          10 packets transmitted, 10 received, 0% packet loss, time 9016ms
+          rtt min/avg/max/mdev = 7.944/9.092/11.733/1.095 ms
+    
+
+  3）结果：“0% packet loss”表示wifi连接正常
+
+
+蓝牙测试
+--------
++ 接口丝印：U21
+
+**功能测试**
+
+  1）说明：描到蓝牙设备后，发送L2CAP回应请求并接收回答。
+
+  2）操作：
+
+      a）把天线连接到“E3”接口上
+
+      b）启动蓝牙：
+
+      + 输入命令：
+
+      .. code-block:: shell
+
+        hciconfig hci0 up
+        hciconfig 
+
+      c）扫描外部蓝牙设备：
+
+      + 输入命令：
+
+      .. code-block:: shell
+
+        hcitool scan
+
+      输出信息类似如下：
+
+      .. code-block:: text
+
+        Scanning ...
+            88:46:04:4C:11:A7   Redmi K40
+
+
+      d）发送L2CAP包测试：
+
+      + 输入命令：
+
+      .. code-block:: shell
+
+        l2ping 88:46:04:4C:11:A7
+      
+
+      输出信息：
+
+        .. code-block:: text
+
+          Ping: 88:46:04:4C:11:A7 from B0:F1:EC:A7:E8:03 (data size 44) ...
+          44 bytes from 88:46:04:4C:11:A7 id 0 time 44.84ms
+          44 bytes from 88:46:04:4C:11:A7 id 1 time 28.58ms
+          44 bytes from 88:46:04:4C:11:A7 id 2 time 46.05ms
+          44 bytes from 88:46:04:4C:11:A7 id 3 time 44.86ms
+          44 bytes from 88:46:04:4C:11:A7 id 4 time 44.67ms
+          44 bytes from 88:46:04:4C:11:A7 id 5 time 52.32ms
+          44 bytes from 88:46:04:4C:11:A7 id 6 time 24.86ms
+          44 bytes from 88:46:04:4C:11:A7 id 7 time 59.71ms
+          ^C8 sent, 8 received, 0% loss
+
+
+  3）结果：“0% packet loss”表示蓝牙连接正常。
+
+
+
+
+4G模块(EC20)测试
+-----------------
++ 接口丝印：J11
+
+**功能测试**
+
+1）说明：4G连接成功后，开发板向外网发送ICMP报文来验证连接正常。
+
+2）操作：
+
+  a）获取ip
+
+    + 输入指令
+
+      .. code-block:: shell
+
+        udhcpc -i usb0
+
+  b）测试连接情况
+
+    在/etc/resolv.conf 添加下面的内容：
+
+      .. code-block:: text
+
+        nameserver 8.8.8.8
+        nameserver 114.114.114.114
+    
+    + 输入指令：
+
+      .. code-block:: shell
+
+        ping -I usb0 www.baidu.com
+  
+  输出有类似如下信息：
+
+    .. code-block:: text
+
+        PING www.baidu.com(240e:ff:e020:9ae:0:ff:b014:8e8b (240e:ff:e020:9ae:0:ff:b014:8e8b)) from 240e:47e:2228:19a:44f2:65ff:fe3e:7abe usb0: 56 data bytes
+        64 bytes from 240e:ff:e020:9ae:0:ff:b014:8e8b (240e:ff:e020:9ae:0:ff:b014:8e8b): icmp_seq=1 ttl=53 time=39.1 ms
+        64 bytes from 240e:ff:e020:9ae:0:ff:b014:8e8b (240e:ff:e020:9ae:0:ff:b014:8e8b): icmp_seq=2 ttl=53 time=27.6 ms
+        64 bytes from 240e:ff:e020:9ae:0:ff:b014:8e8b (240e:ff:e020:9ae:0:ff:b014:8e8b): icmp_seq=3 ttl=53 time=45.3 ms
+        64 bytes from 240e:ff:e020:9ae:0:ff:b014:8e8b (240e:ff:e020:9ae:0:ff:b014:8e8b): icmp_seq=4 ttl=53 time=43.9 ms
+        64 bytes from 240e:ff:e020:9ae:0:ff:b014:8e8b (240e:ff:e020:9ae:0:ff:b014:8e8b): icmp_seq=5 ttl=53 time=32.4 ms
+        64 bytes from 240e:ff:e020:9ae:0:ff:b014:8e8b (240e:ff:e020:9ae:0:ff:b014:8e8b): icmp_seq=6 ttl=53 time=40.3 ms
+        64 bytes from 240e:ff:e020:9ae:0:ff:b014:8e8b (240e:ff:e020:9ae:0:ff:b014:8e8b): icmp_seq=7 ttl=53 time=55.4 ms
+        --- www.baidu.com ping statistics ---
+        7 packets transmitted, 7 received, 0% packet loss, time 6011ms
+        rtt min/avg/max/mdev = 27.625/40.563/55.443/8.375 ms
+
+  
+3）结果：“0% packet loss”表示4G连接正常。
+
 
 TF卡
 ----
@@ -788,6 +990,8 @@ TF卡
 
   3）结果：操作时的现象符合正确预期，表示 TF 热插拔正常。
 
+
+
 USB 3.0
 -------
 
@@ -795,11 +999,156 @@ USB 3.0
 
 **功能测试**
 
-  1）说明：
+  1）说明：采用插拔USB存储设备（U盘）的方式进行测试
+
 
   2）操作：
 
-  3）现象：
+    a）将USB设备插入底板USB接口，系统会输出类似如下信息:
+
+      .. code-block:: text
+
+        [ 2649.580746] usb 2-1.1: new high-speed USB device number 3 using ehci-platform
+        [ 2649.735676] usb-storage 2-1.1:1.0: USB Mass Storage device detected
+        [ 2649.752030] scsi host0: usb-storage 2-1.1:1.0
+        [ 2649.951147] usbcore: registered new interface driver uas
+        [ 2650.801744] scsi 0:0:0:0: Direct-Access     aigo     U330             2.00 PQ: 0 ANSI: 4
+        [ 2650.822371] sd 0:0:0:0: [sda] 61440000 512-byte logical blocks: (31.5 GB/29.3 GiB)
+        [ 2650.830508] sd 0:0:0:0: Attached scsi generic sg0 type 0
+        [ 2650.851173] sd 0:0:0:0: [sda] Write Protect is off
+        [ 2650.871241] sd 0:0:0:0: [sda] No Caching mode page found
+        [ 2650.875217] sd 0:0:0:0: [sda] Assuming drive cache: write through
+        [ 2650.896991]  sda: sda1
+        [ 2650.916261] sd 0:0:0:0: [sda] Attached SCSI removable disk
+
+    b）将USB设备从底板拔出，系统会输出类似如下信息：
+
+      .. code-block:: text
+
+        [ 2690.764161] usb 2-1.1: USB disconnect, device number 3
+
+
+  3）现象：操作时的现象符合正确预期，表示正常
+
+
+
+usb识别为U盘
+-----------------
+
++ 接口丝印：J16
+
+**功能测试**
+
+  1）说明：通过usb线在PC识别开发板为U盘
+
+
+
+  2）操作：
+
+
+    a）创建一个10M大小的文件：
+
+    + 输入命令：
+
+     .. code-block:: shell
+
+      dd if=/dev/zero of=/dev/shm/disk bs=1024 count=10240
+
+    
+    输出类似如下信息：
+
+     .. code-block:: text
+
+       10240+0 records in
+       10240+0 records out
+
+    b）载入模块
+
+    + 输入指令：
+
+     .. code-block:: shell
+
+       modprobe g_mass_storage stall=0 file=/dev/shm/disk removable=1
+    
+    c）识别U盘
+
+      此时PC“我的电脑”会出现U盘的驱动器，将其格式化后，便可对其读写
+    
+    d）挂载
+
+    + 输入指令
+
+      .. code-block:: shell
+
+        mount /dev/shm/disk /mnt
+    
+
+  3）结果：
+
+    在电脑写入的文件，重新挂载后，在/mnt下可以看到，在开发板写入文件，重新插拔USB可在PC看到在开发板写入的新文件，即表示功能正常。
+
+
+usb识别为网口
+---------------
+
++ 接口丝印：J16
+
+**功能测试**
+
+1）说明：通过usb线将usb识别为网口
+
+2）操作：
+
+   a）载入模块:
+
+    + 输入命令：
+
+     .. code-block:: shell
+  
+       modprobe g_ether
+
+   b）设置IP:
+
+    + 输入命令：
+
+     .. code-block:: shell
+
+      ifconfig usb0 192.168.7.2
+    
+    将PC识别的rndis的本地连接IP设置为192.168.7.8
+
+  
+   C）测试网口:
+
+    + 输入指令：
+
+     .. code-block:: shell
+
+        ping 192.168.7.8 -c 2 -w 4
+      
+    输出信息：
+
+      .. code-block:: text
+
+        PING 192.168.7.8 (192.168.7.8) 56(84) bytes of data.
+        64 bytes from 192.168.7.8: icmp_seq=1 ttl=128 time=0.789 ms
+        64 bytes from 192.168.7.8: icmp_seq=2 ttl=128 time=0.505 ms
+
+        --- 192.168.7.8 ping statistics ---
+        2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+        rtt min/avg/max/mdev = 0.505/0.647/0.789/0.142 ms
+
+
+3）结果：
+
+  “0% packet loss”表示测试通过
+
+备注：若WIN10识别rndis为COM口，则需要下载驱动kindle_rndis.inf_amd64-v1.0.0.1.zip 解压后，以管理员权限执行5-runasadmin_register-CA-cer.cmd，然后在COM口处双击，在计算机中查找解压的驱动程序，这样就会有rndis网络了
+
+
+
+
+
 
 HDMI
 ----
@@ -810,9 +1159,19 @@ HDMI
 
   1）说明：设备会识别到 HDMI 显示设备并启用，不支持转接（如HDMI转VGA）。
 
-  2）操作：连接 HDMI 显示屏，并为设备重新上电。
+  2）操作：连接 HDMI 显示屏，并为设备重新上电，在开机过程中，按回车按键，进入u-boot命令行，输入如下命令:
+
+
+   .. code-block:: shell
+
+      setenv fdtfile myimx8mpek314.dtb
+      saveenv
+      boot
+
 
   3）结果：设备启动过程中，HDMI显示屏会有显示，即表示功能正常。
+  
+  备注：使用myimx8mpek314-mipi.dtb或者myimx8mpek314.dtb，HDMI显示屏均会正常显示
 
 LVDS
 ----
@@ -834,11 +1193,19 @@ MIPI DSI
 
 **功能测试**
 
-  1）说明：
+  1）说明：通过观察MIPI屏是否正常显示。
 
-  2）操作：
+  2）操作：连接 MIPI屏，并为设备重新上电在，开机过程中，按回车按键，进入u-boot命令行，输入如下命令:
+    
+    .. code-block:: shell
 
-  3）现象：
+      setenv fdtfile myimx8mpek314-mipi.dtb
+      saveenv
+      boot 
+
+  3）结果：设备启动过程中，MIPI屏会有显示，即表示功能正常。
+
+  备注：使用myimx8mpek314-mipi.dtb，MIPI屏会正常显示
 
 MIPI CSI
 --------
@@ -932,11 +1299,22 @@ PCIe
 
 **功能测试**
 
-  1）说明：
+  1）说明：插入 PCIe 模块，观察设备能否正确识别到模块
 
-  2）操作：
+  2）操作：将PCIe 模块插到设备上，正常开机后，输入命令进行测试：
 
-  3）现象：
+    .. code-block:: shell
+
+       lspci
+
+    + 输出信息类似如下：
+
+    .. code-block:: text
+
+       01:00.0 Multimedia controller: Intersil Techwell Device 6869 (rev 01)
+    
+
+  3）结果：操作后输出信息符合正确预期，表示正确识别到模块
 
 M2 5G
 -----
@@ -950,6 +1328,158 @@ M2 5G
   2）操作：
 
   3）现象：
+
+
+
+QT测试
+-------
+
+**功能测试**
+
+1）说明：观察qt是否能在设备在运行
+
+2）操作：输入命令进行测试：
+
+    .. code-block:: shell
+
+       /usr/share/qt5everywheredemo-1.0/QtDemo
+
+3）结果：屏幕上正常显示qt界面，表示功能正常
+
+
+
+
+复制更新镜像
+-------------
+
++ 接口丝印：J16
+
+**功能测试**
+
+  1）说明：可更新dtb、Image、内核模块
+
+  2）操作：
+
+    a）复制相应文件到开发板当前目录，以tftp为例
+
+    电脑端打开软件 tftpd 地址设置为需更换的文件所在的目录。把开发板的这个网口用网线跟电脑网口连接起来。
+
+    b）测试连接:
+
+     + 输入指令：
+
+      .. code-block:: shell
+
+        ping 192.168.137.99 -c 2 -w 4
+
+
+     输出信息：
+
+      .. code-block:: text
+
+        PING 192.168.137.99 (192.168.137.99): 56 data bytes
+        64 bytes from 192.168.137.99: seq=0 ttl=64 time=0.311 ms
+        64 bytes from 192.168.137.99: seq=1 ttl=64 time=0.510 ms
+        --- 192.168.137.99 ping statistics ---
+        2 packets transmitted, 2 packets received, 0% packet loss
+        round-trip min/avg/max = 0.311/0.410/0.510 ms
+        “0% packet loss”表示连接正常。
+
+    c）传输文件:
+
+     + 输入指令：
+
+      .. code-block:: shell
+
+        tftp -g 192.168.137.99 -r Image
+        tftp -g 192.168.137.99 -r myimx8mpek314.dtb
+        tftp -g 192.168.137.99 -r kernel-modules.tar.bz2
+      
+    d）查看系统是否自动挂载分区
+
+      + 输入指令:
+
+        .. code-block:: shell
+
+          ls /run/media/mmcblk2p1
+
+    e）系统自动挂载分区
+
+      复制相应的文件到/run/media/mmcblk2p1目录，将原文件替换
+
+      + 输入指令:
+
+        .. code-block:: shell
+
+          cp Image /run/media/mmcblk2p1
+          cp myimx8mpek314.dtb /run/media/mmcblk2p1
+          cp kernel-modules.tar.bz2 /run/media/mmcblk2p1
+
+    f）解压更新内核模块
+
+     + 输入指令:
+
+      .. code-block:: shell
+
+        tar xjvf kernel-modules.tar.bz2 -C /
+
+    g）保存并重启
+
+     + 输入指令:
+
+      .. code-block:: shell
+
+        reboot
+
+    h）若系统没有自动挂载分区 查看fat分区地址
+
+     + 输入指令:
+
+      .. code-block:: shell
+
+        fdisk -l
+
+     输出信息：
+
+      .. code-block:: text
+
+        ......
+        Device         Boot   Start      End  Sectors  Size Id Type
+        /dev/mmcblk2p1        20480  1044479  1024000  500M  c W95 FAT32 (LBA)
+        /dev/mmcblk2p2      1228800 30576639 29347840   14G 83 Linux
+        ......
+
+    i）手动挂载
+
+     + 输入指令：
+
+      .. code-block:: shell
+
+        mount /dev/mmcblk2p1 /mnt/
+
+    j）复制相应的文件到/mnt目录，将原文件替换
+
+     + 输入指令：
+
+      .. code-block:: shell
+
+        cp Image /mnt
+        cp myimx8mpek314-mipi.dtb /mnt
+        cp myimx8mpek314.dtb /mnt
+
+    k）保存并重启
+
+     + 输入指令：
+    
+      .. code-block:: shell
+        
+        reboot
+
+  3）结果：
+
+    操作时的现象符合正确预期，表示功能正常。
+
+
 
 --------------------------------------------------------------------------------
 
