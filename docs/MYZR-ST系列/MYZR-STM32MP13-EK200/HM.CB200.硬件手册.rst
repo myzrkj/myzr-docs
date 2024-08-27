@@ -5,11 +5,11 @@
 核心板视图
 ----------
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-CB200-front.png
-   :alt: image-MYZR-STMP13-CB200-front
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-CB200-front.png
+   :alt: image-MYZR-STM32MP13-CB200-front
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-CB200-back.png
-   :alt: image-MYZR-STMP13-CB200-back   
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-CB200-back.png
+   :alt: image-MYZR-STM32MP13-CB200-back   
 
 工作温度
 --------

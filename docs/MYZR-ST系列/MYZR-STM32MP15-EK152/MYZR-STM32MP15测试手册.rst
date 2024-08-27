@@ -1,11 +1,11 @@
 
-MYZR-STM32测试手册
-====================
+MYZR-STM32MP15测试手册
+=======================
 
 测试环境
 ~~~~~~~~~
 
-- 开发板型号：MYZR-STM32-EK152
+- 开发板型号：MYZR-STM32MP15-EK152
 - 内核版本：Linux-5.4.31
 - 文件系统：
 
@@ -17,10 +17,10 @@ MYZR-STM32测试手册
 接口标识图
 ~~~~~~~~~~~
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32mp1-Front-view.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32mp1-Front-view.png
    :alt: Stm32mp1-Front-view.png
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32mp1-Back-view.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32mp1-Back-view.png
    :alt: Stm32mp1-Back-view.png
 
 网口测试

@@ -8,20 +8,20 @@
 正面图
 ~~~~~~
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-EK200-font.png
-   :alt: image-MYZR-STMP13-EK200-font
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-EK200-font.png
+   :alt: image-MYZR-STM32MP13-EK200-font
 
 反面图
 ~~~~~~
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-EK200-back.png
-   :alt: image-MYZR-STMP13-EK200-back
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-EK200-back.png
+   :alt: image-MYZR-STM32MP13-EK200-back
 
 正面标识图
 ~~~~~~~~~~~~
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-EK200-interface.png
-   :alt: image-MYZR-STMP13-EK200-interface.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-EK200-interface.png
+   :alt: image-MYZR-STM32MP13-EK200-interface.png
 
 接口功能
 --------
@@ -31,96 +31,96 @@ RTC
 
 丝印:U25 接口属性：I2C通信的实时时钟
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-RTC.png
-   :alt: image-MYZR-STMP13-MB200-RTC
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-RTC.png
+   :alt: image-MYZR-STM32MP13-MB200-RTC
 
 WIFI
 ~~~~
 
 丝印:U21 模块型号：UM12BS
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-WIFI.png
-   :alt: image-MYZR-STMP13-MB200-WIFI
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-WIFI.png
+   :alt: image-MYZR-STM32MP13-MB200-WIFI
 
 SD
 ~~
 
 丝印:J10 接口属性：标准SD卡座
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-SD.png
-   :alt: image-MYZR-STMP13-MB200-SD
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-SD.png
+   :alt: image-MYZR-STM32MP13-MB200-SD
 
 USB
 ~~~
 
 丝印:J3
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-USB.png
-   :alt: image-MYZR-STMP13-MB200-USB
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-USB.png
+   :alt: image-MYZR-STM32MP13-MB200-USB
 
 OTG
 ~~~
 
 丝印:J5
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-OTG.png
-   :alt: image-MYZR-STMP13-MB200-OTG
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-OTG.png
+   :alt: image-MYZR-STM32MP13-MB200-OTG
 
 Ethernet
 ~~~~~~~~
 
 丝印：U8,U12
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-ETH.png
-   :alt: image-MYZR-STMP13-MB200-ETH
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-ETH.png
+   :alt: image-MYZR-STM32MP13-MB200-ETH
 
 调试串口
 ~~~~~~~~
 
 丝印：P2
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-DEBUG.png
-   :alt: image-MYZR-STMP13-MB200-DEBUG
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-DEBUG.png
+   :alt: image-MYZR-STM32MP13-MB200-DEBUG
 
 主电源开关
 ~~~~~~~~~~
 
 丝印：J1
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-SWITCH.png
-   :alt: image-MYZR-STMP13-MB200-SWITCH
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-SWITCH.png
+   :alt: image-MYZR-STM32MP13-MB200-SWITCH
 
 RS232,RS485和CAN
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 丝印：J8
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-UARTCAN.png
-   :alt: image-MYZR-STMP13-MB200-UARTCAN
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-UARTCAN.png
+   :alt: image-MYZR-STM32MP13-MB200-UARTCAN
 
 JTAG
 ~~~~
 
 丝印：J9
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-JTAG.png
-   :alt: image-MYZR-STMP13-MB200-JTAG
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-JTAG.png
+   :alt: image-MYZR-STM32MP13-MB200-JTAG
 
 RESET
 ~~~~~
 
 丝印：SW1和SW2
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-RESET.png
-   :alt: image-MYZR-STMP13-MB200-RESET
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-RESET.png
+   :alt: image-MYZR-STM32MP13-MB200-RESET
 
 BOOT
 ~~~~~
 
 丝印：SW1
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-BOOT.png
-   :alt: image-MYZR-STMP13-MB200-BOOT
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-BOOT.png
+   :alt: image-MYZR-STM32MP13-MB200-BOOT
 
 
 扩展IO接口
@@ -128,11 +128,11 @@ BOOT
 
 丝印：P1,P3
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-IO1.png
-   :alt: image-MYZR-STMP13-MB200-IO1
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-IO1.png
+   :alt: image-MYZR-STM32MP13-MB200-IO1
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/MYZR-STMP13-MB200-IO2.png
-   :alt: image-MYZR-STMP13-MB200-IO2
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/MYZR-STM32MP13-MB200-IO2.png
+   :alt: image-MYZR-STM32MP13-MB200-IO2
 
 ====== ========== ====== ===========
 引脚   信号       引脚   信号

@@ -16,7 +16,7 @@
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32-EK152编译参考手册
+   MYZR-STM32MP15-EK152编译参考手册
 
 驱动和设备手册
 ---------------
@@ -24,7 +24,7 @@
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32-EK152驱动和设备手册
+   MYZR-STM32MP15-EK152驱动和设备手册
 
 烧录手册
 ----------
@@ -32,7 +32,7 @@
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32CubeProgrammer烧录手册
+   MYZR-STM32MP15CubeProgrammer烧录手册
 
 启动手册
 ---------
@@ -40,7 +40,7 @@
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32-EK152启动手册
+   MYZR-STM32MP15-EK152启动手册
 
 测试手册
 ---------
@@ -48,4 +48,4 @@
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32测试手册
+   MYZR-STM32MP15测试手册

@@ -8,19 +8,19 @@
 正面图
 """"""""
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/963px-Stm32_mp157_zheng.jpg
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/963px-Stm32_mp157_zheng.jpg
    :alt: 963px-Stm32_mp157_zheng.jpg
 
 背面图
 """"""""
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/963px-Stm32_mp157_bei.jpg
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/963px-Stm32_mp157_bei.jpg
    :alt: 963px-Stm32_mp157_bei.jpg
 
 尺寸图
 """"""""
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/963px-Stm32_mp157_chicun.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/963px-Stm32_mp157_chicun.png
    :alt: 963px-Stm32_mp157_chicun.png
 
 图示模块
@@ -81,7 +81,7 @@
 |  电压：5V
 |  电流：2A及以上
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32_mp157_power.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32_mp157_power.png
    :alt: Stm32_mp157_power.png
 
 复位
@@ -108,7 +108,7 @@ RTC
 |  丝印:U3
 |  接口属性：I2C通信的实时时钟
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32_mp157_rtc.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32_mp157_rtc.png
    :alt: Stm32_mp157_rtc.png
 
 RTC_Batter
@@ -128,7 +128,7 @@ BOOT_MODE
 |  丝印：SW3
 |  定义：
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32_mp157_boot.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32_mp157_boot.png
    :alt: Stm32_mp157_boot.png
 
 10M/100M/1000M Ethernet
@@ -161,7 +161,7 @@ SIM卡座
 |  丝印：P6
 |  接口属性：标准的弹簧式SIM卡卡座
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32_mp157_sim.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32_mp157_sim.png
    :alt: Stm32_mp157_sim.png
 
 HDMI
@@ -177,7 +177,7 @@ HDMI
 |  RGB液晶是24bit模式，通过此接口可连接明远智睿公司生产的7寸RGB液晶屏。RGB液晶接口座采用了进口连接器，抛弃了国内便宜的抽屉式，采用的是对面按压式，保证安装更容易，性能，连接性更好。
 |  引脚及信号定义：
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32_mp157_rgb.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32_mp157_rgb.png
    :alt: Stm32_mp157_rgb.png
 
 ========  ============  =============
@@ -208,7 +208,7 @@ WIFI&蓝牙模块
 |  丝印：P10
 |  接口属性：音频信号输出，麦克风输入，3.5mm接口
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32_mp157_yin.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32_mp157_yin.png
    :alt: Stm32_mp157_yin.png
 
 外置麦克风
@@ -223,7 +223,7 @@ WIFI&蓝牙模块
 |  丝印：P12
 |  接口属性：音频信号输出
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32_mp157_spk.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32_mp157_spk.png
    :alt: Stm32_mp157_spk.png
 
 CAN
@@ -232,7 +232,7 @@ CAN
 |  丝印:P13
 |  接口属性：CAN
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32_mp157_can.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32_mp157_can.png
    :alt: Stm32_mp157_can.png
 
 RS-485串口
@@ -241,7 +241,7 @@ RS-485串口
 |  丝印：P17
 |  接口属性：UART线RS-485串口
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32_mp157_485.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32_mp157_485.png
    :alt: Stm32_mp157_485.png
 
 RS-485串口
@@ -250,7 +250,7 @@ RS-485串口
 |  丝印：P14、P16
 |  接口属性：UART线标准RS232接口，其中P14为Debug调试串口。
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32_mp157_232.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32_mp157_232.png
    :alt: Stm32_mp157_232.png
 
 GPIO、SPI、UART、ADC扩展排针
@@ -258,5 +258,5 @@ GPIO、SPI、UART、ADC扩展排针
 
 |  丝印：P21
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/Stm32_mp157_kuo.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/Stm32_mp157_kuo.png
    :alt: Stm32_mp157_kuo.png

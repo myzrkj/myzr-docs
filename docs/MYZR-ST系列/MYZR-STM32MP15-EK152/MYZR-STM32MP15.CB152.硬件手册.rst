@@ -7,22 +7,22 @@
 
 **正面**
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/576px-STM32MP157_2.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/576px-STM32MP157_2.png
    :alt: 576px-STM32MP157_2.png
 
 **背面**
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/576px-STM32MP157_1.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/576px-STM32MP157_1.png
    :alt: 576px-STM32MP157_1.png
 
 **尺寸**
 
 |  40mm * 42mm
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/576px-STM32MP157_4.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/576px-STM32MP157_4.png
    :alt: 576px-STM32MP157_4.png
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/576px-STM32MP157_3.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/576px-STM32MP157_3.png
    :alt: 576px-STM32MP157_3.png
 
 参数

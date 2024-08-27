@@ -13,18 +13,18 @@
 
 - 双击jdk-8u241-windows-x64.exe，如图，点击下一步
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/jdk-1.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/jdk-1.png
    :alt: image-jdk-1
 
 - 安装目录默认，点击下一步
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/jdk-2.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/jdk-2.png
    :alt: image-jdk-2
 
 - 再点击下一步进行安装
 - 安装完成，点击关闭
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/jdk-3.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/jdk-3.png
    :alt: image-jdk-3
 
 
@@ -33,30 +33,30 @@
 
 - 双击SetupSTM32CubeProgrammer_win64.exe，点击next
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/stm32cubeprog-1.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/stm32cubeprog-1.png
    :alt: image-stm32cubeprog-1
 
 - 点击next直到安装目录，安装目录默认（注意不能带有中文路径）。
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/stm32cubeprog-2.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/stm32cubeprog-2.png
    :alt: image-stm32cubeprog-2
 
 - 默认配置项
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/stm32cubeprog-3.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/stm32cubeprog-3.png
    :alt: image-stm32cubeprog-3
 
 - 弹出另一个窗口，点击下一步继续安装，点击完成，再回到stm32CubeProgrammer窗口点击next。
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/stm32cubeprog-4.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/stm32cubeprog-4.png
    :alt: image-stm32cubeprog-4
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/stm32cubeprog-5.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/stm32cubeprog-5.png
    :alt: image-stm32cubeprog-5
 
 - 点击Done完成安装
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/stm32cubeprog-6.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/stm32cubeprog-6.png
    :alt: image-stm32cubeprog-6
 
 
@@ -83,22 +83,22 @@ BOOT_MODE3 BOOT_MODE2 BOOT_MODE1 BOOT_MODE0 描述
 - 接上电源开发板上电
 - 按下图所示进行配置：先选择USB接口，再点击刷新（如果刷新不出USB Port按一下开发板复位按键），最后点击连接Connect。
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/download-1.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/download-1.png
    :alt: image-download-1
 
 - 连接成功后，点击Open file选择FlashLayout文件（在01_烧录 -> flashlayout_st-image-weston中），根据板子类型和需要进行选择
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/download-2.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/download-2.png
    :alt: image-download-2
 
 - 点击Browse选择镜像所在根目录
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/download-3.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/download-3.png
    :alt: image-download-3
 
 - 点击Download按键进行烧录
 
-.. figure:: /image/MYZR-ST系列/MYZR-STMP13-EK200/download-4.png
+.. figure:: /image/MYZR-ST系列/MYZR-STM32MP13-EK200/download-4.png
    :alt: image-download-4
 
 启动开发板

@@ -1,9 +1,9 @@
 
-MYZR-STM32-EK152启动手册
-=========================
+MYZR-STM32MP15-EK152启动手册
+=============================
 
-MYZR-STM32-EK152 包装清单
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+MYZR-STM32MP15-EK152 包装清单
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 标准件
 """"""""
@@ -27,11 +27,11 @@ MYZR-STM32-EK152 包装清单
 |  【液晶显示屏】
 |  【触摸屏】
 
-MYZR-STM32-EK152 主要接口
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+MYZR-STM32MP15-EK152 主要接口
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: /image/MYZR-ST系列/MYZR-STM32-EK152/1425px-MYZR-STM32-EK152-Front.png
-   :alt: 1425px-MYZR-STM32-EK152-Front.png
+.. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/1425px-MYZR-STM32MP15-EK152-Front.png
+   :alt: 1425px-MYZR-STM32MP15-EK152-Front.png
    
 开发板连接
 ~~~~~~~~~~~

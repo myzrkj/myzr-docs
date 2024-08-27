@@ -53,8 +53,8 @@
    :maxdepth: 1
    :caption: MYZR-ST系列
 
-   docs/MYZR-ST系列/MYZR-STMP13-EK200/index
-   docs/MYZR-ST系列/MYZR-STM32-EK152/index
+   docs/MYZR-ST系列/MYZR-STM32MP13-EK200/index
+   docs/MYZR-ST系列/MYZR-STM32MP15-EK152/index
 
 
 
