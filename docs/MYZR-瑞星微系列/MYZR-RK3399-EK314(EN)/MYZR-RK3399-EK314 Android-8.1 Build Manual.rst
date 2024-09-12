@@ -3,7 +3,7 @@ MYZR-RK3399-EK314 Android-8.1 Build Manual
 
 **Install ubuntu14.04**
 
-|   Development Environment Guide： :doc:`《Ubuntu14.04+Win10 (Recommended)》 <../../COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit dev env Manual>`
+|   Development Environment Guide： :doc:`《Ubuntu14.04+Win10 (Recommended)》 </docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit dev env Manual>`
 
 Configuring the compilation environment
 -----------------------------------------

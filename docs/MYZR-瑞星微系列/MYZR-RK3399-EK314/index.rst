@@ -21,7 +21,7 @@ MYZR-RK3399-EK314
 .. toctree::
    :maxdepth: 1
 
-   ../../COMMON/Xshell.RM.参考手册
+   /docs/COMMON/Xshell.RM.参考手册
 
 
 启动手册

@@ -30,9 +30,9 @@ MYZR-IMX6-EK314
 .. toctree::
    :maxdepth: 1
    
-   ../../COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64位开发环境指导
-   ../../COMMON/MYZR Windows-10 VirtualBox-5.1.18 Ubuntu-12.04.5 64位开发环境指导
-   ../../COMMON/MYZR Windows-7 VirtualBox-4.3.40 Ubutnu-12.04.5 64位开发环境指导
+   /docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64位开发环境指导
+   /docs/COMMON/MYZR Windows-10 VirtualBox-5.1.18 Ubuntu-12.04.5 64位开发环境指导
+   /docs/COMMON/MYZR Windows-7 VirtualBox-4.3.40 Ubutnu-12.04.5 64位开发环境指导
 
 
 驱动和设备手册

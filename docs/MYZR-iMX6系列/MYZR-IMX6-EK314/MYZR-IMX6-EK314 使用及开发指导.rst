@@ -19,9 +19,9 @@
   :doc:`《Android-5.1.1》 <./MYZR-IMX6-EK200 Android5.1.1 测试手册>`
 
 |   开发环境指导手册：
-  :doc:`《Ubuntu14.04+Win10 (推荐)》 <../../COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64位开发环境指导>`,
-  :doc:`《Ubuntu12.04+Win10》 <../../COMMON/MYZR Windows-10 VirtualBox-5.1.18 Ubuntu-12.04.5 64位开发环境指导>`,
-  :doc:`《Ubuntu12.04+Win7》 <../../COMMON/MYZR Windows-7 VirtualBox-4.3.40 Ubutnu-12.04.5 64位开发环境指导>`
+  :doc:`《Ubuntu14.04+Win10 (推荐)》 </docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64位开发环境指导>`,
+  :doc:`《Ubuntu12.04+Win10》 </docs/COMMON/MYZR Windows-10 VirtualBox-5.1.18 Ubuntu-12.04.5 64位开发环境指导>`,
+  :doc:`《Ubuntu12.04+Win7》 </docs/COMMON/MYZR Windows-7 VirtualBox-4.3.40 Ubutnu-12.04.5 64位开发环境指导>`
 
 |   编译手册：
   :doc:`《Linux-3.14.52》 <./MYZR-IMX6-A9 Linux-3.14.52 编译参考手册 v2.0>`,
@@ -45,7 +45,7 @@
 
 **这部分内容和操作，首次阅读和完成大概需要半天的时间**
 
-1. 拿到开发板后，第一件事是为使用开发板做准备，安装终端软件是必要的。打开 :doc:`《终端软件参考手册》 <../../COMMON/Xshell.RM.参考手册>` ，参照 软件下载及安装 把终端软件安装好。
+1. 拿到开发板后，第一件事是为使用开发板做准备，安装终端软件是必要的。打开 :doc:`《终端软件参考手册》 </docs/COMMON/Xshell.RM.参考手册>` ，参照 软件下载及安装 把终端软件安装好。
 2. 终端软件安装好之后，打开 :doc:`《启动手册》 <./MYZR-IMX6-EK314 启动手册>` ，参照文档启动开发板。
 3. 开发板启动成功后，参照 :doc:`《烧录手册》 <./MYZR-IMX6 MfgTool-v2.6 User Guide>` 进行一次烧录。目的是熟悉烧录操作以及准备下一步的功能验证。
 4. 开发板烧录完成后，打开对应的 **【测试手册】** 进行一遍测试以验证开发板各项功能正常。
