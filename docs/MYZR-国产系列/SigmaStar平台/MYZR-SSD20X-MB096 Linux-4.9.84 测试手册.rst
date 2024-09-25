@@ -95,7 +95,8 @@ wifi—client测试
 
 1. 把wifi天线连接到“E1”接口上
 2. 生成 SSID 的 WPA PSK 文件
-命令格式 : wpa_passphrase [passphrase]
+
+|  命令格式 : wpa_passphrase [passphrase]
 
 .. code:: shell
 

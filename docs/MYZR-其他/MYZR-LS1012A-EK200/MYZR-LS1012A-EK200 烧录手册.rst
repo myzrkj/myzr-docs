@@ -78,8 +78,8 @@ MYZR-LS1012A-EK200 烧录手册
 1. 网上下载tftpd64软件。
 2. 打开软件，打击Browse选择镜像文件所在的目录
 
-`注意：目录包含的文件：u-boot.bin，ppa.itb，rcw_800.bin.swapped
-      firmware-4.4.98.tar.bz2，kernel-4.4.98.tar.bz2，modules-4.4.98.tar.bz2，ramsys.itb，rootfs_jethro.tar.bz2，rootfs_jethro_config.tar.bz2，rootfs_jethro_update.tar.bz2和system_recovery.sh`
+`注意：目录包含的文件：u-boot.bin，ppa.itb，rcw_800.bin.swapped`
+`firmware-4.4.98.tar.bz2，kernel-4.4.98.tar.bz2，modules-4.4.98.tar.bz2，ramsys.itb，rootfs_jethro.tar.bz2，rootfs_jethro_config.tar.bz2，rootfs_jethro_update.tar.bz2和system_recovery.sh`
 
 **烧录ppa**
 
@@ -130,7 +130,7 @@ MYZR-LS1012A-EK200 烧录手册
    SF: 89027 bytes @ 0x500000 Written: OK
 
 更新内核，设备树，模块和文件系统
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 **tftp更新方法**
 
