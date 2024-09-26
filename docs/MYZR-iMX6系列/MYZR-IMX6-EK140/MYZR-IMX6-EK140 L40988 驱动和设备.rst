@@ -96,9 +96,9 @@ MYZR-IMX6-EK140 L40988 驱动和设备
 +--------------+----------------------------------------------------------------+-----------------------------------------+
 
 
-- 设备树主文件：arch/arm/boot/dts/myimx6ek***-emmc.dts(或者是arch/arm/boot/dts/myimx6ek***-nand.dts)(“***”表示 140p-6g-128m，140p-6g-256m，140p-6g-512m，140p-6y-128m，140p-6y-256m , 140p-6y-512m,140-6g-128m，140-6g-256m，140-6g-512m，140-6y-128m，140-6y-256m 和 140-6y-512m)
-- 设备树注册信息文件：arch/arm/boot/dts/myimx6ek***.dtsi (“***”表示 140，140p)
-- 设备树管脚配置文件：arch/arm/boot/dts/myimx6ek***-iomuxc.dtsi (“***”表示 140，140p)
+- 设备树主文件：arch/arm/boot/dts/myimx6ek\*\*\*-emmc.dts(或者是arch/arm/boot/dts/myimx6ek\*\*\*-nand.dts)("\*\*\*"表示 140p-6g-128m，140p-6g-256m，140p-6g-512m，140p-6y-128m，140p-6y-256m , 140p-6y-512m,140-6g-128m，140-6g-256m，140-6g-512m，140-6y-128m，140-6y-256m 和 140-6y-512m)
+- 设备树注册信息文件：arch/arm/boot/dts/myimx6ek\*\*\*.dtsi ("\*\*\*"表示 140，140p)
+- 设备树管脚配置文件：arch/arm/boot/dts/myimx6ek\*\*\*-iomuxc.dtsi ("\*\*\*"表示 140，140p)
 - 管脚功能预定义文件：arch/arm/boot/dts/imx6*-pinfunc.h(“*”表示 ul 或 ull)
 - 双以太网配置文件：arch/arm/boot/dts/myimx6a7-enet4enet.dtsi
 - 一个以太网与八个串口配置文件：arch/arm/boot/dts/myimx6a7-enet4uart.dtsi

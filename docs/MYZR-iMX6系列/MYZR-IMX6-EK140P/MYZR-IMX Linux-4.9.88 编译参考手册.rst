@@ -18,8 +18,8 @@ MYZR-IMX Linux-4.9.88 编译参考手册
 
 **源码**
 
-|  u-boot：打开网盘到 2.4_OS_Linux-4.9.88 -> 02_source，下载 u-boot-2016.03-*.tar.bz2。
-|  Kernel：打开网盘到 2.4_OS_Linux-4.9.88 -> 02_source，下载 linux-4.9.88-*.tar.bz2。
+|  u-boot：打开网盘到 2.4_OS_Linux-4.9.88 -> 02_source，下载 u-boot-2016.03-\*.tar.bz2。
+|  Kernel：打开网盘到 2.4_OS_Linux-4.9.88 -> 02_source，下载 linux-4.9.88-\*.tar.bz2。
 
 
 安装交叉编译工具链

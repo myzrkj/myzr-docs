@@ -78,7 +78,7 @@ USB测试
    scsi 0:0:0:0: Direct-Access     Generic  STORAGE DEVICE   1402 PQ: 0 ANSI: 6
    sd 0:0:0:0: [sda] 7774208 512-byte logical blocks: (3.98 GB/3.71 GiB)
    sd 0:0:0:0: [sda] Write Protect is off
-   sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+   sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn\'t support DPO or FUA
     sda: sda1
    sd 0:0:0:0: [sda] Attached SCSI removable disk
    FAT-fs (sda1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.

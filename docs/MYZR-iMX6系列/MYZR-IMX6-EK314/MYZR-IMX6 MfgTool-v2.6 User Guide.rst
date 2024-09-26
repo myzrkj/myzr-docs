@@ -86,7 +86,7 @@ MYZR-IMX6 MfgTool-v2.6 User Guide
 
 |   fsl-image-qt5-validation 包含 fsl-image-validation；
 |   core-image-sato 包含 core-image-base；
-|   文件系统清单见“Profiles/Linux/OS Firmware/image-*-rootfs”里对应的 manifest 文件。
+|   文件系统清单见“Profiles/Linux/OS Firmware/image-\*-rootfs”里对应的 manifest 文件。
 
 为开发板烧录系统
 -----------------

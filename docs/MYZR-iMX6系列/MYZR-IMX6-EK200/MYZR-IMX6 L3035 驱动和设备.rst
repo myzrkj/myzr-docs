@@ -110,8 +110,8 @@ MYZR-IMX6 L3035 驱动和设备
 +--------------+---------------------------------------+-----------------------+
 
 - 板级目录：arch/arm/mach-mx6/
-- 板级文件：arch/arm/mach-mx6/board-myimx6ek***.c (“***”表示200或314)
-- 管脚功能定义：arch/arm/mach-mx6/board-myimx6ek***-6*.h (“***”表示200或314，“*”表示q或u)
+- 板级文件：arch/arm/mach-mx6/board-myimx6ek\*\*\*.c ("\*\*\*"表示200或314)
+- 管脚功能定义：arch/arm/mach-mx6/board-myimx6ek***-6*.h ("\*\*\*"表示200或314，“*”表示q或u)
 - 管脚标号定义：arch/arm/plat-mxc/include/mach/iomux-mx6*.h (“*”表示q或dl)
 
 ``注意：如果想详细了解驱动的相关文件，请查看“i.MX_6Dual6Quad_Linux_Reference_Manual.pdf”文件；想详细查看寄存器，请查看“IMX6DQRM_201806.pdf”文件。``

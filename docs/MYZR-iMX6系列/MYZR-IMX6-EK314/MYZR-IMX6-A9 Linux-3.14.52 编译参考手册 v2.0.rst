@@ -10,8 +10,8 @@ Linux-3.14.52 编译参考手册 v2.0
 
 **源码**
 
-|   u-boot：打开网盘到 2.2_OS_Linux-3.14.52 -> 02_source，下载 u-boot-2016.03-*.tar.bz2 (源码包版本号需svn315及以上)。
-|   Kernel：打开网盘到 2.2_OS_Linux-3.14.52 -> 02_source，下载 linux-3.14.52-*.tar.bz2 (源码包版本号需svn369及以上) 。
+|   u-boot：打开网盘到 2.2_OS_Linux-3.14.52 -> 02_source，下载 u-boot-2016.03-\*.tar.bz2 (源码包版本号需svn315及以上)。
+|   Kernel：打开网盘到 2.2_OS_Linux-3.14.52 -> 02_source，下载 linux-3.14.52-\*.tar.bz2 (源码包版本号需svn369及以上) 。
 
 
 安装交叉编译工具链
@@ -174,6 +174,7 @@ u-boot编译
 **Note: 如果有提示 “cc1: error”，通常是交叉编译工具的配置没生效，可以按前面 “交叉编译工具链安装” 中的 “source 工具链配置文件” 操作一次后再执行此步骤。**
 
 - u-boot 目标文件
+
 **u-boot.imx** 即目标文件。
 
 **编译u-boot环境变量脚本**
@@ -467,7 +468,7 @@ Linux QT5程序编译
   =====> Input:
   mkdir ~/my-work/04_image -p
 
-- 将烧录工具上的文件系统 Profiles\Linux\OS Firmware\image-L3.14.52-rootfs\L31452-*-myimx6a9.tar.bz2 复制到 ~/my-work/04_image
+- 将烧录工具上的文件系统 Profiles\Linux\OS Firmware\image-L3.14.52-rootfs\L31452-\*-myimx6a9.tar.bz2 复制到 ~/my-work/04_image
 - 创建存放文件系统的目录
 
 .. code:: shell

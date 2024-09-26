@@ -64,7 +64,7 @@ MYZR-IMX6-EK200
    MYZR-IMX6-A9 Linux-3.0.35 编译参考手册 v3.0
    MYZR-I.MX6-DEMO Android5.1.1环境搭建
    MYZR-I.MX6-DEMO Android4.4.2环境搭建
-   MYZR-I.MX6-DEMO Android4.4.2环境搭建
+   MYZR-I.MX6-DEMO Android4.2.2环境搭建
 
 烧录手册
 ~~~~~~~~~

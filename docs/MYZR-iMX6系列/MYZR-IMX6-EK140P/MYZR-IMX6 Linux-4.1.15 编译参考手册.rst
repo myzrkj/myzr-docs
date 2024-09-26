@@ -11,8 +11,8 @@ Linux-4.1.15 编译参考手册
 
 **源码**
 
-|   u-boot：打开网盘到 2.3_OS_Linux-4.1.15 -> 02_source，下载 u-boot-2016.03-*.tar.bz2 (源码包版本号需svn315及以上)。
-|   Kernel：打开网盘到 2.3_OS_Linux-4.1.15 -> 02_source，下载 linux-4.1.15-*.tar.bz2 (源码包版本号需svn368及以上) 。
+|   u-boot：打开网盘到 2.3_OS_Linux-4.1.15 -> 02_source，下载 u-boot-2016.03-\*.tar.bz2 (源码包版本号需svn315及以上)。
+|   Kernel：打开网盘到 2.3_OS_Linux-4.1.15 -> 02_source，下载 linux-4.1.15-\*.tar.bz2 (源码包版本号需svn368及以上) 。
 
 
 安装交叉编译工具链
@@ -589,7 +589,7 @@ Linux QT5程序编译
     =====> Input:
     mkdir ~/my-work/04_image -p
 
-- 将烧录工具上的文件系统 Profiles/Linux/OS Firmware/image-L4.1.15-rootfs/L4115-*-myimx6a9.tar.bz2 复制到 ~/my-work/04_image
+- 将烧录工具上的文件系统 Profiles/Linux/OS Firmware/image-L4.1.15-rootfs/L4115-\*-myimx6a9.tar.bz2 复制到 ~/my-work/04_image
 - 创建存放文件系统的目录
 
 .. code:: shell

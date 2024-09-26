@@ -66,7 +66,7 @@ U-Boot 板级文件
 
 1. u-boot 板级文件位置：board/myzr
 2. u-boot 板级配置文件：include/configs/myimx*.h
-3. u-boot 极级编译配置文件：configs/<ek_name>-<cpu_type>-<mem_size>-*_defconfig
+3. u-boot 极级编译配置文件：configs/<ek_name>-<cpu_type>-<mem_size>-\*_defconfig
 
 Linux 内核板级文件
 ~~~~~~~~~~~~~~~~~~~

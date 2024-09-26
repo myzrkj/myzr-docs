@@ -111,8 +111,8 @@ Linux-3.0.35 驱动和设备
 
 
 |   板级目录：arch/arm/mach-mx6/
-|   板级文件：arch/arm/mach-mx6/board-myimx6ek***.c (“***”表示200或314)
-|   管脚功能定义：arch/arm/mach-mx6/board-myimx6ek***-6*.h (“***”表示200或314，“*”表示q或u)
+|   板级文件：arch/arm/mach-mx6/board-myimx6ek\*\*\*.c ("\*\*\*"表示200或314)
+|   管脚功能定义：arch/arm/mach-mx6/board-myimx6ek\*\*\*-6*.h ("\*\*\*"表示200或314，“*”表示q或u)
 |   管脚标号定义：arch/arm/plat-mxc/include/mach/iomux-mx6*.h (“*”表示q或dl)
 
 .. attention:: 

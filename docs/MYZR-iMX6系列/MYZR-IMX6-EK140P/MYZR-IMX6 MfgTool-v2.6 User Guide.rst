@@ -44,7 +44,7 @@
 
 **下载烧录工具**
 
-1. 根据需要的目标系统打开网盘对应的 **\*_OS_\*** 目录，再点开 **01_ManufacturingToolkit**。
+1. 根据需要的目标系统打开网盘对应的 **\*_OS_\*\** 目录，再点开 **01_ManufacturingToolkit**。
 |  MYZR-IMX6-EK140、MYZR-IMX6-EK140P 下载 **MY-IMX-A7** 目录。
 |  MYZR-IMX6-EK200、MYZR-IMX6-EK314、MYZR-IMX6-EK3336 下载 **MY-IMX-A9** 目录。
 
@@ -82,7 +82,7 @@
 
 |   fsl-image-qt5-validation 包含 fsl-image-validation；
 |   core-image-sato 包含 core-image-base；
-|   文件系统清单见“Profiles/Linux/OS Firmware/image-*-rootfs”里对应的 manifest 文件。
+|   文件系统清单见“Profiles/Linux/OS Firmware/image-\*-rootfs”里对应的 manifest 文件。
 
 为开发板烧录系统
 ~~~~~~~~~~~~~~~~

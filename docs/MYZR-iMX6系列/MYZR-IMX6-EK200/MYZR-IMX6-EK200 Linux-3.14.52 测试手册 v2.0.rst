@@ -124,7 +124,7 @@ USB接口测试
    scsi 1:0:0:0: Direct-Access     TOSHIBA  TransMemory      1.00 PQ: 0 ANSI: 4
    sd 1:0:0:0: [sda] 15148608 512-byte logical blocks: (7.75 GB/7.22 GiB)
    sd 1:0:0:0: [sda] Write Protect is off
-   sd 1:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+   sd 1:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn\'t support DPO or FUA
     sda: sda4
    sd 1:0:0:0: [sda] Attached SCSI removable disk
 

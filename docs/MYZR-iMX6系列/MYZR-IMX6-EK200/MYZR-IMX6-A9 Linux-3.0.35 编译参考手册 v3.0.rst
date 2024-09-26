@@ -10,8 +10,8 @@ Linux-3.0.35 编译参考手册 v3.0
 
 **源码**
 
-|   u-boot：打开网盘到 2.1_OS_Linux-3.0.35 -> 02_source，下载 u-boot-2016.03-*.tar.bz2 (源码包版本号需svn315及以上)。
-|   Kernel：打开网盘到 2.1_OS_Linux-3.0.35 -> 02_source，下载 linux-3.0.35-*.tar.bz2 (源码包版本号需svn31及以上)。
+|   u-boot：打开网盘到 2.1_OS_Linux-3.0.35 -> 02_source，下载 u-boot-2016.03-\*.tar.bz2 (源码包版本号需svn315及以上)。
+|   Kernel：打开网盘到 2.1_OS_Linux-3.0.35 -> 02_source，下载 linux-3.0.35-\*.tar.bz2 (源码包版本号需svn31及以上)。
 
 
 安装交叉编译工具链
