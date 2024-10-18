@@ -172,7 +172,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 **目标文件**
 
-|  out 目录中 Image、*.dtb 和 kernel-modules.tar.bz2 即编译得到的目标文件
+|  out 目录中 Image、\*.dtb 和 kernel-modules.tar.bz2 即编译得到的目标文件
 
 编译u-boot文件
 ---------------
@@ -219,7 +219,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 **目标文件**
 
-|  out目录中 *.bin 即编译得到的目标文件
+|  out目录中 \*.bin 即编译得到的目标文件
 
 编译所有目标文件
 ----------------

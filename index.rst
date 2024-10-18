@@ -81,7 +81,9 @@
 
    docs/MYZR-其他/MYZR-LS1012A-EK200/index
 
-   docs/MYZR-其他/index
+   docs/MYZR-其他/网关/index      
+
+   docs/MYZR-其他/index                                                                                
 
 Indices and tables
 ==================
