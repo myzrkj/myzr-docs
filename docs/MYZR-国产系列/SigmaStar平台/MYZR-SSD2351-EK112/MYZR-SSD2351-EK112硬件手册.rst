@@ -1,5 +1,5 @@
-MYZR-SD2351-EK112硬件手册
-=========================
+MYZR-SSD2351-EK112硬件手册
+==========================
 
 注意事项与维护
 ----------------
@@ -225,12 +225,12 @@ CPU性能
 
 **核心板正面**
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/核心板正面.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/核心板正面.png
    :alt: 核心板正面.png
 
 **核心板背面**
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/核心板背面.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/核心板背面.png
    :alt: 核心板背面.png
 
 1.2 核心板结构参数
@@ -238,7 +238,7 @@ CPU性能
 
 **核心板结构参数**
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/核心板结构参数.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/核心板结构参数.png
    :alt: 核心板结构参数.png
 
 
@@ -319,7 +319,7 @@ CPU性能
 
 |	注：表中参数为硬件设计或 CPU 理论值；
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/主板背面.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/主板背面.png
    :alt: 主板背面.png
 
 
@@ -334,13 +334,13 @@ CPU性能
 
 |	明远智睿MY-SD2351-MB112开发平台采用邮票孔核心板+底板结构，名字中的112指核心板管脚数非CPU后缀，开发板主要接口如下图所示：
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/主板正面A.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/主板正面A.png
    :alt: 主板正面A.png
 
 2.1.2底板参数
 ^^^^^^^^^^^^^^^
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/底板尺寸.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/底板尺寸.png
    :alt: 底板尺寸.png
 
 |	结构尺寸： 94mm×51mm 矩形 PCB。
@@ -383,14 +383,14 @@ CPU性能
 
 |	底板电源由直流 5V 电源提供。由 Type-C插座（U24）引入
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/底板电源.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/底板电源.png
    :alt: 底板电源.png
 
 |	5V电源经过电源IC分成两路3.3V分别给核心和其它设备供电。
 
 **BOOT Mode**
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/boot_mode.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/boot_mode.png
    :alt: boot_mode.png
 
 |	核心板启动时需要先读取BOOT模式（具体BOOT启动模式见原理图）。
@@ -398,7 +398,7 @@ CPU性能
 2.2.2复位电路
 ^^^^^^^^^^^^^^
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/复位电路.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/复位电路.png
    :alt: 复位电路.png
 
 |	本开发板只使用了图中的RESET22复位开关。
@@ -406,7 +406,7 @@ CPU性能
 2.2.3 外接TF卡电路
 ^^^^^^^^^^^^^^^^^^^
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/外接TF卡电路.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/外接TF卡电路.png
    :alt: 外接TF卡电路.png
 
 |	TF卡电路使用了SDIO总线接口。
@@ -415,7 +415,7 @@ CPU性能
 2.2.4 以太网接口电路
 ^^^^^^^^^^^^^^^^^^^^
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/以太网接口电路.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/以太网接口电路.png
    :alt: 以太网接口电路.png
 
 |	核心板内没有网口芯片，网口芯片在底板。需要注意的是RJ45接口两指示灯需要按照本原理图设计。
@@ -425,7 +425,7 @@ CPU性能
 2.2.5 DownLoad烧录系统USB口电路
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/USB口电路.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/USB口电路.png
    :alt: USB口电路.png
 
 |	此接口是Type-C接口，用来接上位PC机给本开发板烧录系统。USB线要求差分走线。
@@ -433,7 +433,7 @@ CPU性能
 2.2.6 USB HOST电路
 ^^^^^^^^^^^^^^^^^^^^
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/USB_HOST电路.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/USB_HOST电路.png
    :alt: USB_HOST电路.png
 
 |	PCB设计时每组USB信号线需要按照差分规则走线并做差分对内等长，差分对与其他网络尽量保持3倍线宽以上间距，差分对内要求等长误差范围在5mil以内。
@@ -442,7 +442,7 @@ CPU性能
 2.2.7 WIFI
 ^^^^^^^^^^^^
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/wifi.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/wifi.png
    :alt: wifi.png
 
 |	PCB设计时，要求网络组等长走线，线间距满足3W规则要求，整组包地处理；图中天线接口U12所在网络要求走线满足50Ω阻抗设计，走线尽量短且不可走折角，周围要求包地无信号干扰。
@@ -450,7 +450,7 @@ CPU性能
 2.2.8 Debug调试口
 ^^^^^^^^^^^^^^^^^^^
 
-.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SD2351/Debug调试口电路.png
+.. image:: /image/MYZR-国产系列/SigmaStar平台/MYZR-SSD2351/Debug调试口电路.png
    :alt: Debug调试口电路.png
 
 |	J3接口是开发板Debug调试口。
