@@ -70,8 +70,7 @@ MYZR-SSD2351-EK112编译手册
 .. code:: shell
 
    $ cd ~/ssd2351/source/project/
-   $ make dispcam_pcupid.spinand.uclibc-12.4.0-arm
-   squashfs.ssm001c.128.voip.qfn128_ddr3_defconfig
+   $ make dispcam_pcupid.spinand.uclibc-12.4.0-arm-squashfs.ssm001c.128.voip.qfn128_ddr3_defconfig
    $ make clean;make image -j8
 
 |  #编译完成后生成的images在project/image/output/images
