@@ -45,10 +45,10 @@ MYZR-SSD2351-EK112编译手册
 .. code:: shell
 
    $ mkdir ~/ssd2351/source -p
-   $ tar zxvf boot-Pcupid_DLD00V2.2.9.tar.gz -C ~/ssd2351/source 
-   $ tar zxvf kernel-Pcupid_DLD00V2.2.9.tar.gz -C ~/ssd2351/source
-   $ tar zxvf project-Pcupid_DLD00V2.2.9.tar.gz -C ~/ssd2351/source 
-   $ tar zxvf sdk-Pcupid_DLD00V2.2.9.tar.gz -C ~/ssd2351/source
+   $ tar zxvf boot-Pcupid_DLD00V2.2.9*.tar.gz -C ~/ssd2351/source 
+   $ tar zxvf kernel-Pcupid_DLD00V2.2.9*.tar.gz -C ~/ssd2351/source
+   $ tar zxvf project-Pcupid_DLD00V2.2.9*.tar.gz -C ~/ssd2351/source 
+   $ tar zxvf sdk-Pcupid_DLD00V2.2.9*.tar.gz -C ~/ssd2351/source
    $ mkdir ~/ssd2351/tool/toolchain -p
    $ tar -xvf ./arm-sigmastar-linux-gcc-12.4.0-uclibc-1.0.46-gnueabihf.tar.xz -C ~/ssd2351/tool/toolchain
 
@@ -60,7 +60,7 @@ MYZR-SSD2351-EK112编译手册
    $ export PATH=~/ssd2351/tool/toolchain/arm-sigmastar-linux-gcc-12.4.0-uclibc-1.0.46-gnueabihf/bin:$PATH
    $ export CROSS_COMPILE=arm-sigmastar-linux-uclibcgnueabihf-12.4.0-
    $ export ARCH=arm
-   $ {CROSS_COMPILE}gcc -v
+   $ ${CROSS_COMPILE}gcc -v
 
 全局编译
 ---------
