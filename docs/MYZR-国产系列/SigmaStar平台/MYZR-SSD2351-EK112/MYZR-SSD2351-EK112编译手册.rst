@@ -2,7 +2,7 @@ MYZR-SSD2351-EK112编译手册
 ============================
 
 安装软件包
-----------------
+~~~~~~~~~~~
 
 |  ubuntu版本：ubuntu20.04
 |  软件包安装：
@@ -34,7 +34,7 @@ MYZR-SSD2351-EK112编译手册
 |  python2与python3的语义有差别，SDK编译脚本使用的是python2的语义，因此需要将系统默认python版本设置为python2.x，修改方式请参考网络上的相关文档，比如使用update-alternatives工具来配置。
 
 解压源码和交叉编译
--------------------
+~~~~~~~~~~~~~~~~~~
 
 |  boot-Pcupid_DLD00V2.2.9.tar.gz: Uboot源码  
 |  kernel-Pcupid_DLD00V2.2.9.tar.gz: kernel源码  
@@ -53,7 +53,7 @@ MYZR-SSD2351-EK112编译手册
    $ tar -xvf ./arm-sigmastar-linux-gcc-12.4.0-uclibc-1.0.46-gnueabihf.tar.xz -C ~/ssd2351/tool/toolchain
 
 设置交叉编译工具
------------------
+~~~~~~~~~~~~~~~~
 
 .. code:: shell
 
@@ -63,7 +63,7 @@ MYZR-SSD2351-EK112编译手册
    $ ${CROSS_COMPILE}gcc -v
 
 全局编译
----------
+~~~~~~~~~~
 
 |  #全局编译，只要运行，会把boot,kernel，project，sdk编译
 
@@ -100,7 +100,7 @@ MYZR-SSD2351-EK112编译手册
 
 
 分立编译boot
---------------
+~~~~~~~~~~~~~
 
 |  #project下SDK编译已经添加boot编译选项，因此建议boot修改之后，直接在project下编译使用make boot编译boot，编译后不需要手动release到project下的路径，直接重新打包project即可
 
@@ -117,7 +117,7 @@ MYZR-SSD2351-EK112编译手册
    $ cp ~/ssd2351/source/boot/u-boot_spinand.xz.img.bin ~/ssd2351/source/project/board/uboot/u-boot.xz.img.bin
 
 分立编译kernel
------------------
+~~~~~~~~~~~~~~~~
 
 |  #project下SDK编译已经添加kernel编译选项，因此建议kernel修改之后，直接在project下编译使用make linux-kernel编译kernel，编译后不需要手动release到project下的路径，直接重新打包project即可
 
@@ -132,7 +132,7 @@ MYZR-SSD2351-EK112编译手册
 |  #修改路径：project/kbuild/customize/6.1/pcupid/dispcam/kernel_mod_list
 
 生成usb烧录镜像
------------------
+~~~~~~~~~~~~~~~~
 
 |  #按正常流程编译整包sdk，生成image升级文件。
 |  #整包sdk编译成功后，执行./image/makefiletools/script/make_usb_factory_sigmastar.sh 脚本

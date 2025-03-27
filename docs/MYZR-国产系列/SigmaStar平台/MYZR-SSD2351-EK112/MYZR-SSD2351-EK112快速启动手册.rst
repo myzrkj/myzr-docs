@@ -2,7 +2,7 @@ MYZR-SSD2351-EK112快速启动手册
 ================================
 
 准备工作
----------
+~~~~~~~~~
 
 | 开发板：1个
 | TYPEC数据线：1条
@@ -11,7 +11,7 @@ MYZR-SSD2351-EK112快速启动手册
 | 网线：1根
 
 串口软件设置
--------------
+~~~~~~~~~~~~~
 
 | 波特率：115200
 | 数据位：8bit
@@ -19,15 +19,15 @@ MYZR-SSD2351-EK112快速启动手册
 | 校验位：none
 
 拨码设置以及TTL串口模块
------------------------
+~~~~~~~~~~~~~~~~~~~~~~~
 
 拨码设置
-~~~~~~~~~
+---------
 
 | 启动拨码模式：1: on， 2: on， 3: off， 4 : off
 
 TTL串口模块接法
-~~~~~~~~~~~~~~~~
+----------------
 
 | 座子：J3
 | 按以下CPU的对应端和TTL模块的管脚连接起来
@@ -40,7 +40,7 @@ TTL串口模块接法
 
 
 串口启动
----------
+~~~~~~~~~~
 
 .. code:: shell
 
@@ -559,7 +559,7 @@ TTL串口模块接法
 
 
 adb连接登陆
-------------
+~~~~~~~~~~~~~
 
 .. code:: shell
 
@@ -590,7 +590,7 @@ adb连接登陆
   #可以看到文件，说明已经登录完成
 
 网线telnetd登录
-----------------
+~~~~~~~~~~~~~~~~~
 
 .. code:: shell
 
@@ -604,15 +604,24 @@ adb连接登陆
   #host设置为192.168.137.81
   #点击Connect连接
   #用户名是root，没有密码，直接敲回车登陆，如下
-  login: can't chdir to home directory '/home/root'
+  login: can\'t chdir to home directory '/home/root'
   / # ls
-  bin                                                                              misc
-  busybox-1.20.2-arm-buildroot-linux-uclibcgnueabihf-uclibc-12.4.0-dynamic.tar.gz  mnt
-  config                                                                           proc
-  customer                                                                         run
-  dev                                                                              sbin
-  etc                                                                              sys
-  home                                                                             tmp
-  lib                                                                              usr
-  linuxrc                                                                          var
+  bin
+  busybox-1.20.2-arm-buildroot-linux-uclibcgnueabihf-uclibc-12.4.0-dynamic.tar.gz
+  config
+  customer
+  dev
+  etc
+  home
+  lib
+  linuxrc
+  misc
+  mnt
+  proc
+  run
+  sbin
+  sys
+  tmp
+  usr
+  var
   / #
