@@ -439,7 +439,7 @@ WIFI测试
    
    #方法1；
    #a.配置文件：
-   $ vim /customer/wifi/wpa_supplicant.conf
+   $ vi /customer/wifi/wpa_supplicant.conf
    
    #修改ssid和psk
    ctrl_interface=/tmp/wifi/run/wpa_supplicant
@@ -450,7 +450,6 @@ WIFI测试
    }
    
    #保存
-   $ insmod rtl8723du.ko
    $ ifconfig wlan0 up
    $ mkdir -p /tmp/wifi/run
    
@@ -481,11 +480,11 @@ WIFI测试
    ##测试说明：描到蓝牙设备后，发送L2CAP回应请求并接收回答。
    #打开蓝牙
    $ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/customer/bt
-   $ hciconfig hci0 up
+   $ /customer/bt/hciconfig hci0 up
    
    #提示信息如下：
    rtk_btusb: btusb_open hdev->promisc ==0
-   $ hciconfig
+   $ /customer/bt/hciconfig
    
    #提示信息如下：
    hci0:  Type: Primary  Bus: USB
