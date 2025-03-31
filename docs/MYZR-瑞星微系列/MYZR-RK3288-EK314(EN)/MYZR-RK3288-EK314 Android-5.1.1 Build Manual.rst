@@ -13,7 +13,7 @@ Install openjdk1.7
 
 |   Execute command to install openjdk1.7
 
-.. code:: shell
+.. code-block:: shell
 
     sudo add-apt-repository "deb http://archive.canonical.com/ lucid partner"
     sudo apt-get update
@@ -22,7 +22,7 @@ Install openjdk1.7
 
 |   Add the following environment variables
 
-.. code:: shell
+.. code-block:: shell
 
     export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
     export JRE_HOME=$JAVA_HOME/jre
@@ -42,7 +42,7 @@ Install libraries needed to compile Android system
 
 |   (For detailed information, please visit http://source.android.com/source/initializing.html)
 
-.. code:: shell
+.. code-block:: shell
 
     sudo apt-get install git gnupg flex bison gperf build-essential \ 
      zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev \ 
@@ -67,7 +67,7 @@ Download source code
 Decompress source code
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir ~/rk3288-myzr
     $ tar jxvf rk32-myzr_android5.1_20180328.tar.bz2 -C ~/rk3288-myzr/
@@ -83,7 +83,7 @@ Compile source code(Android system)
 Set environment variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ export ARCH=arm
     $ export CROSS_COMPILE=~/rk3288-myzr/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin/arm-eabi-
@@ -91,7 +91,7 @@ Set environment variables
 .. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.1.1.png
    :alt: My-rk32-ek314_android_6.1.1.png
 
-.. code:: shell
+.. code-block:: shell
 
     $ ${CROSS_COMPILE}gcc -v
 
@@ -103,19 +103,19 @@ Compile uboot
 
 - Enter U-BOOT code directory
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/rk3288-myzr/u-boot/
 
 - Set up configuration file
 
-.. code:: shell
+.. code-block:: shell
 
     $ make rk3288_defconfig
 
 - Compile
 
-.. code:: shell
+.. code-block:: shell
 
     $ make
 
@@ -144,13 +144,13 @@ Compile kernetl
 
 - Enter kernel code directory
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/rk3288-myzr/kernel/
 
 - Clear kernel configuration
 
-.. code:: shell
+.. code-block:: shell
 
     $ make distclean
 
@@ -159,7 +159,7 @@ Compile kernetl
 
 - Set up configuration file
 
-.. code:: shell
+.. code-block:: shell
 
     $ make rk3288-myzr_defconfig
 
@@ -168,7 +168,7 @@ Compile kernetl
 
 - Compile(for example: LVDS)
 
-.. code:: shell
+.. code-block:: shell
 
     $ make -j8 rk3288-myzr_rh568_lvds.img
 
@@ -186,7 +186,7 @@ Compile kernetl
 
 |   Kernel.img and resource.img are the compiled target files. Use the ls command to view the file information.
 
-.. code:: shell
+.. code-block:: shell
 
     $ ls
 
@@ -199,7 +199,7 @@ Compile android code
 
 - Set android environment variables
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/rk3288-myzr/
     $ source build.sh
@@ -209,7 +209,7 @@ Compile android code
 
 - Set android version configuration
 
-.. code:: shell
+.. code-block:: shell
 
     $ lunch rk3288_box-userdebug
 
@@ -218,7 +218,7 @@ Compile android code
 
 - Compile
 
-.. code:: shell
+.. code-block:: shell
 
     $ make -j16
 
@@ -237,7 +237,7 @@ Compile android code
 
 |   boot.img，misc.img，kernel.img，resource.img，recovery.img，system.img即为编译得到的目标文件，使用ls命令可查看文件信息。
 
-.. code:: shell
+.. code-block:: shell
 
     $ ./mkimage.sh
     $ ls rockdev/Image-rk3288_box/
@@ -255,7 +255,7 @@ Compile packaging tools
 |   Note: If you have compiled rk2918_tools.tar.bz2, you do not need to recompile. You can skip this step.
 |   Copy rk2918_tools.tar.bz2 to directory ~/rk3288-myzr/rockdev by default
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/rk3288-myzr/rockdev
     $ tar jxf rk2918_tools.tar.bz2
@@ -276,7 +276,7 @@ New folder and copy image
 .. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.1.png
    :alt: My-rk32-ek314_android_7.1.1.png
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir -p rockdev/android/Image
     $ cd rockdev/android/Image/
@@ -290,7 +290,7 @@ New folder and copy image
 Pack relase_android_update.img
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ afptool -pack . ../update.img
     $ img_maker -rk32 RKLoader.bin update.img relase_android_update.img

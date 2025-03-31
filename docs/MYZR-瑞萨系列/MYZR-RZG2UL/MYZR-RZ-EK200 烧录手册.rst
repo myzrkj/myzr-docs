@@ -77,7 +77,7 @@ TF卡烧录
 
 |  将tf卡插入板子tf卡接口，启动板子进入uboot命令行模式：
 
-.. code:: shell
+.. code-block:: shell
 
    U-Boot 2021.10 (Feb 07 2023 - 11:36:41 +0800)
 
@@ -98,14 +98,14 @@ TF卡烧录
 
 |  输入如下命令从tf卡中启动系统：
 
-.. code:: shell
+.. code-block:: shell
 
    => setenv startup_mode sd
    => boot
 
 |  系统启动后输入命令进行镜像更新
 
-.. code:: shell
+.. code-block:: shell
 
    # ./sdupdate.sh
 
@@ -118,7 +118,7 @@ TF卡烧录
 
 1. 开发板启动后，输入如下命令对emmc的分区一进行挂载：
 
-.. code:: shell
+.. code-block:: shell
 
    # mount /dev/mmcblk0p1 /mnt/
 
@@ -126,6 +126,6 @@ TF卡烧录
 3. 再把新的镜像拷贝到此目录
 4. 使用命令卸载并重启即可
 
-.. code:: shell
+.. code-block:: shell
 
    # umount /mnt/

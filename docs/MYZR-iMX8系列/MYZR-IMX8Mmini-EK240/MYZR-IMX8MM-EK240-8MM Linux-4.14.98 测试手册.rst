@@ -14,20 +14,20 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 测试手册
 |  配置电脑有线网卡IP为 192.168.137.99。 用网线连接开发板的ETH1和电脑。 配置开发板网口：
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
       ifconfig eth0 192.168.137.81
 
 |  测试ETH1（eth0）
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    ping 192.168.137.99 -c 2 -w 4
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    PING 192.168.137.99 (192.168.137.99) 56(84) bytes of data.
    64 bytes from 192.168.137.99: icmp_seq=1 ttl=64 time=0.685 ms
@@ -52,7 +52,7 @@ USB测试
 |  将USB设备插入底板USB接口,系统输出类似如下信息。
 |  =====> 输出信息:
 
-.. code:: shell
+.. code-block:: shell
 
    usb 1-1.3: new high-speed USB device number 4 using ci_hdrc
    usb-storage 1-1.3:1.0: USB Mass Storage device detected
@@ -68,7 +68,7 @@ USB测试
 |  将USB设备从底板拔出。
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    usb 1-1.3: USB disconnect, device number 4
 
@@ -88,13 +88,13 @@ SD接口测试
 |  为开发板断电，把TF卡安装到SD接口。
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    df
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    /dev/mmcblk1p1   30379712  665216  29714496  3% /run/media/mmcblk1p1
 
@@ -114,7 +114,7 @@ SD接口测试
 
 |  配置 J7:15 为输出低电平的操作方法：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
 
@@ -132,7 +132,7 @@ SD接口测试
 |  配置 J7:15 为输出高电平的操作方法：
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
    
    <echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
 
@@ -140,7 +140,7 @@ SD接口测试
 |  控制 GPIO 为输入低电平方法：杜邦线连接J5:5和地脚
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    echo "in" > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/direction
 
@@ -149,7 +149,7 @@ SD接口测试
 |  控制 GPIO 为输入高电平方法：杜邦线连接J5:5和J5:1脚：
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    cat /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
 
@@ -166,13 +166,13 @@ CPU温度测试
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    echo $[$(cat /sys/class/thermal/thermal_zone0/temp)/1000]
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
    
    47
 
@@ -193,13 +193,13 @@ CPU温度测试
 |  执行测试指令：
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    aplay /unit_tests/ASRC/audio8k16S.wav
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    Playing WAVE '/unit_tests/ASRC/audio8k16S.wav' : Signed 16 bit Little Endian, Rate 8000 Hz, Stereo
 
@@ -236,7 +236,7 @@ Mipi-CSI显示测试
 
 |  为开发板断电，用fpc排线连接mipi摄像头和开发板。
 
-.. code:: shell
+.. code-block:: shell
 
    gst-launch-1.0 v4l2src ! video/x-raw,format=YUY2,width=640,height=480 ! queue max-size-time=0 ! waylandsink enable-tile=true sync=false
 
@@ -260,7 +260,7 @@ WIFI模块（RTL8723DU）测试
 |  命令格式: wpa_passphrase  [passphrase]
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    wpa_passphrase MYZR-WIFI myzr2012 > /etc/wpa_supplicant.conf
    pkill wpa_supplicant
@@ -269,13 +269,13 @@ WIFI模块（RTL8723DU）测试
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    wpa_supplicant -B -i wlan0 -D wext -c /etc/wpa_supplicant.conf
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    Successfully initialized wpa_supplicant
    rfkill: Cannot open RFKILL control device
@@ -285,13 +285,13 @@ WIFI模块（RTL8723DU）测试
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    udhcpc -i wlan0
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    udhcpc (v1.23.2) started
    Sending discover...
@@ -303,13 +303,13 @@ WIFI模块（RTL8723DU）测试
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    ping -I wlan0 www.baidu.com -c 2 -w 4
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    PING www.baidu.com (14.215.177.38): 56 data bytes
    64 bytes from 14.215.177.38: seq=0 ttl=49 time=15.753 ms
@@ -337,7 +337,7 @@ WIFI模块（RTL8723DU）测试
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    hciconfig hci0 up
    hciconfig hci0 piscan
@@ -345,7 +345,7 @@ WIFI模块（RTL8723DU）测试
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    hci0:   Type: Primary  Bus: UART
    BD Address: 76:5E:F9:C6:B5:86  ACL MTU: 1021:8  SCO MTU: 64:1
@@ -368,13 +368,13 @@ WIFI模块（RTL8723DU）测试
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    hcitool dev
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    Devices:
    hci0    76:5E:F9:C6:B5:86
@@ -383,13 +383,13 @@ WIFI模块（RTL8723DU）测试
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    hcitool scan
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    Scanning ...
    ......
@@ -399,13 +399,13 @@ WIFI模块（RTL8723DU）测试
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    l2ping E4:B2:FB:DA:39:1D -c 2
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    Ping: E4:B2:FB:DA:39:1D from 76:5E:F9:C6:B5:86 (data size 44) ...
    0 bytes from E4:B2:FB:DA:39:1D id 0 time 7.10ms
@@ -426,21 +426,21 @@ CAN 测试
 |  配置 CAN：
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    ip link set can0 up type can bitrate 125000
 
 |  设置CAN后台接收：
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    candump can0 &
 
 |  设置CAN发送数据：
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    cansend can0 1F334455#1122334455667788
 
@@ -451,13 +451,13 @@ CAN 测试
 
 |  串口线直接将TX1和RX1短接，执行以下命令：
 
-.. code:: shell
+.. code-block:: shell
 
    /unit_tests/UART/serial_test.out /dev/ttyXRUSB1 "www.myzr.com.cn"
 
 |  串口线直接将TX2和RX2短接，执行以下命令：
 
-.. code:: shell
+.. code-block:: shell
 
    /unit_tests/UART/serial_test.out /dev/ttyXRUSB2 "www.myzr.com.cn"
 
@@ -474,14 +474,14 @@ CAN 测试
 
 - 在SSH端执行发送命令，可以在电脑接受到串口发送过来的信息：
 
-.. code:: shell
+.. code-block:: shell
 
    echo “myzr” > /dev/ttyXRUSB3
 
 - 测试结果说明： 通过ssh客户端向串口发送字符串，串口可以收到字符串。
 - 在SSH端执行接收命令：
 
-.. code:: shell
+.. code-block:: shell
 
    cat /dev/ttyXRUSB3
 
@@ -502,14 +502,14 @@ CAN 测试
 
 - 在SSH端执行发送命令，可以在电脑接受到串口发送过来的信息：
 
-.. code:: shell
+.. code-block:: shell
 
    echo “myzr” > /dev/ttyXRUSB0
 
 - 测试结果说明： 通过ssh客户端向串口发送字符串，串口可以收到字符串。
 - 在SSH端执行接收命令：
 
-.. code:: shell
+.. code-block:: shell
 
    cat /dev/ttyXRUSB0
 
@@ -530,13 +530,13 @@ EC20 模块测试
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    udhcpc -i usb0
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    udhcpc: started, v1.27.2
    cdc_ether 1-1.1:1.4 usb0: kevent 12 may have been dropped
@@ -548,13 +548,13 @@ EC20 模块测试
 |  测试连接：
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    ping -I usb0 www.baidu.com -c 2 -w 4
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    PING www.a.shifen.com (163.177.151.109) from 192.168.225.52 usb0: 56(84) bytes of data.
    64 bytes from 163.177.151.109: icmp_seq=1 ttl=55 time=158 ms
@@ -581,7 +581,7 @@ tftp更新镜像
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    设置开发板IP：setenv ipaddr 192.168.137.9
    设置电脑IP：setenv serverip 192.168.137.99
@@ -590,7 +590,7 @@ tftp更新镜像
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    ethernet@30be0000 Waiting for PHY auto negotiation to complete.... done
    Using ethernet@30be0000 device
@@ -600,7 +600,7 @@ tftp更新镜像
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    setenv update_dtb   'if tftpboot ${loadaddr} ${fdt_file}; then '\
    'fatwrite mmc ${mmcdev}:${mmcpart} ${loadaddr} ${fdt_file} ${filesize}; fi;'
@@ -614,13 +614,13 @@ tftp更新镜像
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    run update_dtb
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    Using ethernet@30be0000 device
    TFTP from server 192.168.137.99; our IP address is 192.168.137.9
@@ -637,13 +637,13 @@ tftp更新镜像
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    run update_kern
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    Using ethernet@30be0000 device
    TFTP from server 192.168.137.99; our IP address is 192.168.137.9
@@ -692,13 +692,13 @@ tftp更新镜像
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    ping 192.168.137.99 -c 2 -w 4 
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    PING 192.168.137.99 (192.168.137.99) 56(84) bytes of data.
    64 bytes from 192.168.137.99: icmp_seq=1 ttl=64 time=0.522 ms
@@ -713,7 +713,7 @@ tftp更新镜像
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    tftp -g 192.168.137.99 -r Image
 
@@ -724,7 +724,7 @@ tftp更新镜像
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    cp Image /run/media/mmcblk1p1/
    cp myimx8mmek240-8mm.dtb /run/media/mmcblk1p1/
@@ -733,7 +733,7 @@ tftp更新镜像
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    tar xjvf kernel-modules.tar.bz2 -C /
 
@@ -741,6 +741,6 @@ tftp更新镜像
 
 |  =====> 输入指令:
 
-.. code:: shell
+.. code-block:: shell
 
    reboot

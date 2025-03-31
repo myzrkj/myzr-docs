@@ -12,7 +12,7 @@ i.Mx8mm android9.0编译手册
 
 **依赖包安装**
 
-.. code:: shell
+.. code-block:: shell
 
     sudo apt-get install uuid uuid-dev
     sudo apt-get install zlib1g-dev liblz-dev
@@ -30,7 +30,7 @@ i.Mx8mm android9.0编译手册
 
 **安装openjdk8**
 
-.. code:: shell
+.. code-block:: shell
 
     sudo add-apt-repository ppa:openjdk-r/ppa
     sudo apt-get update
@@ -38,14 +38,14 @@ i.Mx8mm android9.0编译手册
 
 - 编辑用户目录下的.profile文件中添加下面内容
 
-.. code:: shell
+.. code-block:: shell
 
     vim ~/.profile
 
 在文件未尾添加下面内容
 ----------------------
 
-.. code:: shell
+.. code-block:: shell
 
     export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
     export JRE_HOME=$JAVA_HOME/jre
@@ -54,14 +54,14 @@ i.Mx8mm android9.0编译手册
 
 - 重新加载.profile文件
 
-.. code:: shell
+.. code-block:: shell
 
     source ~/.profile
 
 查看jdk版本，验证安装
 ---------------------
 
-.. code:: shell
+.. code-block:: shell
 
     java -version
 
@@ -78,7 +78,7 @@ i.Mx8mm android9.0编译手册
 
 **解压源码**
 
-.. code:: shell
+.. code-block:: shell
 
     cat imx8mm_android9.tar.bz2* | tar xvj
 
@@ -87,7 +87,7 @@ i.Mx8mm android9.0编译手册
 
 **设置环境变量**
 
-.. code:: shell
+.. code-block:: shell
 
     export ANDROID_HOME=~/imx8mm_android
     export ARCH=arm64
@@ -99,21 +99,21 @@ i.Mx8mm android9.0编译手册
 
 - 开始编译
 
-.. code:: shell
+.. code-block:: shell
 
     cd $ANDROID_HOME
     make 2>&1 -j8 | tee build-log.txt
 
 **编译uboot**
 
-.. code:: shell
+.. code-block:: shell
 
     cd $ANDROID_HOME
     make bootloader -j8
 
 **编译内核**
 
-.. code:: shell
+.. code-block:: shell
 
     cd $ANDROID_HOME
     cd vendor/nxp-opensource/kernel_imx
@@ -122,21 +122,21 @@ i.Mx8mm android9.0编译手册
 
 **编译bootimage**
 
-.. code:: shell
+.. code-block:: shell
 
     cd $ANDROID_HOME
     make bootimage -j8
 
 **编译dtboimage**
 
-.. code:: shell
+.. code-block:: shell
 
     cd $ANDROID_HOME
     make dtboimage -j8
 
 **目标文件**
 
-.. code:: shell
+.. code-block:: shell
 
     cd $ANDROID_HOME
     cd out/target/product/evk_8mm

@@ -19,7 +19,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
 
 | 下载jdk-6u45-linux-x64.bin文件并安装
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd /usr
    $ sudo mkdir java
@@ -30,7 +30,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
 
 | 打开profile文件并添加环境变量
 
-.. code:: shell
+.. code-block:: shell
    
    $ sudo gedit /etc/profile
    export JAVA_HOME=/usr/java/jdk1.6.0_45
@@ -41,7 +41,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
 
 | 查看jdk版本
 
-.. code:: shell
+.. code-block:: shell
 
    $ java -version
 
@@ -53,7 +53,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
 安装编译Android系统需要的库
 ----------------------------
 
-.. code:: shell
+.. code-block:: shell
 
    sudo apt-get install git gnupg flex bison gperf build-essential \
    zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev \
@@ -67,7 +67,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
 
 | 下载android.tar.bz2.0 ，android.tar.bz2.1 ，android.tar.bz2.2三个文件。并用如下的命令解压
 
-.. code:: shell
+.. code-block:: shell
 
    $ cat android.tar.bz2.* | tar -jxv
 
@@ -80,7 +80,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
 配置平台信息
 ~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/R16/android
    $ source build/envsetup.sh
@@ -123,7 +123,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
 编译内核
 ~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/R16/lichee
    $ ./build.sh
@@ -135,7 +135,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
 编译Uboot
 ~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/R16/lichee/brandy/u-boot-2011.09/
    $ make distclean
@@ -155,7 +155,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
 编译android系统
 ~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/R16/android/
    $ extract-bsp
@@ -171,7 +171,7 @@ MYZR-R16-EK166 Android-4.4 编译手册
 打包
 ~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/R16/android
    $ pack

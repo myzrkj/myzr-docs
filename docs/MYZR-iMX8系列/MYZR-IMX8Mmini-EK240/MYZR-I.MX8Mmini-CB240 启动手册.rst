@@ -49,7 +49,7 @@ MYZR-I.MX8Mmini-CB240 启动手册
 
 |  开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
 
-.. code:: shell
+.. code-block:: shell
 
    U-Boot 2019.04-04784-g7666e4b (Dec 23 2019 - 10:15:13 +0800)
 

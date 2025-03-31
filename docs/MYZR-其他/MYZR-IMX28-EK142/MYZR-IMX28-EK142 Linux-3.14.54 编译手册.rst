@@ -61,7 +61,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 
 |  1）源码目录
 
-.. code:: shell
+.. code-block:: shell
 
    $ mkdir -p ~/my-imx28/02_source
 
@@ -70,7 +70,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 
 |  2）工具目录
 
-.. code:: shell
+.. code-block:: shell
 
    $ mkdir -p ~/my-imx28/03_tools
 
@@ -79,7 +79,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 
 |  3）镜像目录
 
-.. code:: shell
+.. code-block:: shell
 
    $ mkdir -p ~/my-imx28/04_image
 
@@ -88,7 +88,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 
 |  4）应用程序目录
 
-.. code:: shell
+.. code-block:: shell
 
    $ mkdir -p ~/my-imx28/01_application
 
@@ -101,7 +101,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 更新主机的源列表
 ~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get update
 
@@ -120,7 +120,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 
 **安装aptitude包管理工具**
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get -y install aptitude
 
@@ -131,7 +131,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 
 **使用aptitude安装ia32-libs**
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo aptitude -y install ia32-libs
 
@@ -143,7 +143,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 安装mkimage工具
 ~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get -y install uboot-mkimage
 
@@ -157,7 +157,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 
 |  make menuconfig对其具有依赖性质
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo aptitude -y install ncurses-dev
 
@@ -174,7 +174,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 
 |  1）进入交叉编译工具链目录
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/my-imx28/03_tools/
 
@@ -182,7 +182,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 |  将gcc-4.4.4-glibc-2.11.1-multilib-1.0.tar.bz2复制到“~/my-imx28/03_tools”，这一步自己采取相应的方式完成。
 |  3）解压Linux交叉编译工具
 
-.. code:: shell
+.. code-block:: shell
 
    $ tar jxf gcc-4.4.4-glibc-2.11.1-multilib-1.0.tar.bz2
 
@@ -193,7 +193,7 @@ MYZR-IMX28-EVK  Linux-3.14.54   u-boot-2015.04.tar.bz2  linux-3.14.54.tar.bz2
 |  将gcc-4.4.4-glibc-2.11.1-multilib-env复制到“~/my-imx28/03_tools”，这一步自己采取相应的方式完成。
 |  5）检查安装
 
-.. code:: shell
+.. code-block:: shell
 
    $ source gcc-4.4.4-glibc-2.11.1-multilib-env
    $ ${CROSS_COMPILE}gcc -v
@@ -214,7 +214,7 @@ U-Boot编译
 
 **解压u-boot源码包**
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/my-imx28/02_source/
    $ tar jxf u-boot-2015.04.tar.bz2
@@ -224,7 +224,7 @@ U-Boot编译
 
 **更新库libssl-dev**
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get install libssl-dev
 
@@ -236,7 +236,7 @@ U-Boot编译
 
 **使编译配置文件生效**
 
-.. code:: shell
+.. code-block:: shell
 
    $ source ~/my-imx28/03_tools/gcc-4.4.4-glibc-2.11.1-multilib-env
 
@@ -245,7 +245,7 @@ U-Boot编译
 
 **进入u-boot源码目录**
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/my-imx28/02_source/u-boot-2015.04
 
@@ -254,7 +254,7 @@ U-Boot编译
 
 **清除u-boot临时文件**
 
-.. code:: shell
+.. code-block:: shell
 
    $ make distclean
 
@@ -271,7 +271,7 @@ U-Boot编译
 
 - MYZR-IMX28-EVK配置示例：
 
-.. code:: shell
+.. code-block:: shell
 
    $ make mx28evk_nand_defconfig
 
@@ -280,7 +280,7 @@ U-Boot编译
 
 **执行编译**
 
-.. code:: shell
+.. code-block:: shell
 
    $ make u-boot.sb
 
@@ -303,7 +303,7 @@ U-Boot编译
 
 |  编译完成后通过ls命令即可看到编译得到的文件 u-boot.sb
 
-.. code:: shell
+.. code-block:: shell
 
    $ ls
 
@@ -333,7 +333,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 **解压linux源码包**
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/my-imx28/02_source/
    $ tar jxf linux-3.14.54.tar.bz2
@@ -346,7 +346,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 **使编译配置文件生效**
 
-.. code:: shell
+.. code-block:: shell
 
    $ source ~/my-imx28/03_tools/gcc-4.4.4-glibc-2.11.1-multilib-env
 
@@ -357,7 +357,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 - 进入linux源码目录
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/my-imx28/02_source/linux-3.14.54
 
@@ -366,7 +366,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 - 清除临时文件
 
-.. code:: shell
+.. code-block:: shell
 
    $ make distclean
 
@@ -375,7 +375,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 **内核配置**
 
-.. code:: shell
+.. code-block:: shell
 
    $ cp .mx28_config .config
 
@@ -387,7 +387,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 - 执行编译
 
-.. code:: shell
+.. code-block:: shell
 
    $ make zImage -j4
 
@@ -403,7 +403,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 |  arch/arm/boot/uImage即为编译得到的内核文件，使用ls命令可查看文件信息。
 
-.. code:: shell
+.. code-block:: shell
 
    $ ls arch/arm/boot/uImage -la
 
@@ -425,7 +425,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 - 以MYZR-IMX28-EVK为例
 
-.. code:: shell
+.. code-block:: shell
 
    $ make imx28-evk.dtb
 
@@ -436,7 +436,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 |  使用ls命令可查看编译得到的目标设备树文件信息：
 
-.. code:: shell
+.. code-block:: shell
 
    $ ls arch/arm/boot/dts/*.dtb
 
@@ -449,7 +449,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 - 编译模块命令
 
-.. code:: shell
+.. code-block:: shell
 
    $ make modules
 
@@ -458,7 +458,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 - 安装模块到指定目录
 
-.. code:: shell
+.. code-block:: shell
 
    $ make modules_install INSTALL_MOD_PATH=./modules
 
@@ -467,7 +467,7 @@ mx28evk_nand_defconfig  imx28_ivt_uboot.sb
 
 - 打包模块文件
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd modules
    $ tar cjf ../modules.tar.bz2 *
@@ -485,7 +485,7 @@ Linux应用程序编译
 
 - 进入工作目录
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/my-imx28/01_application/
 
@@ -494,7 +494,7 @@ Linux应用程序编译
 
 - 编写源代码
 
-.. code:: shell
+.. code-block:: shell
 
    $ vim hello.c
 
@@ -511,7 +511,7 @@ Linux应用程序编译
 
 - 查看代码
 
-.. code:: shell
+.. code-block:: shell
 
    $ cat hello.c
 
@@ -522,7 +522,7 @@ Linux应用程序编译
 
 - 配置环境变量
 
-.. code:: shell
+.. code-block:: shell
 
    $ source ~/my-imx28/03_tools/gcc-4.4.4-glibc-2.11.1-multilib-env
 
@@ -531,7 +531,7 @@ Linux应用程序编译
 
 - 编译
 
-.. code:: shell
+.. code-block:: shell
 
    $ ${CROSS_COMPILE}gcc hello.c -o hello.out
 
@@ -542,7 +542,7 @@ Linux应用程序编译
 
 - 目标文件
 
-.. code:: shell
+.. code-block:: shell
 
    $ file hello.out
 
@@ -597,21 +597,21 @@ Linux应用程序编译
 
 |  (1) Setup tftp server files （下载并安装tftp）
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get install tftpd tftp openbsd-inetd
 
 |  (2) make a tftp directory (新建tftp目录和改变其属性)
 |  Here we make /home/myzr/tftpt be a tftp directory.
 
-.. code:: shell
+.. code-block:: shell
 
    $ mkdir /home/myzr/tftp
    $ chmod 777 /home/myzr/tftp
 
 |  (3) Open /etc/inetd.conf and edit it (修改配置文件的tftp目录)
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo gedit /etc/inetd.conf
 
@@ -621,7 +621,7 @@ Linux应用程序编译
 |  tftp dgram udp wait nobody /usr/sbin/tcpd /usr/sbin/in.tftpd /home/myzr/tftp
 |  (4)Restarting tftp service （重启tftp）
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo /etc/init.d/openbsd-inetd restart
 
@@ -629,19 +629,19 @@ Linux应用程序编译
 
 |  (1) Install NFS server package （下载并安装nfs）
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get install nfs-kernel-server
 
 |  (2) Create NFS directory:/home/myzr/nfsroot (新建nfs目录)
 
-.. code:: shell
+.. code-block:: shell
 
    $ mkdir /home/myzr/nfsroot
 
 |  (3) Configure mounted directory and authority （修改配置文件的nfs目录）
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo gedit /etc/exports
 
@@ -649,7 +649,7 @@ Linux应用程序编译
 |  /home/myzr/nfsroot \*(rw,sync,no_root_squash)
 |  (4) Restart the NFS service （重启nfs）
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo /etc/init.d/portmap restart
    $ sudo /etc/init.d/nfs-kernel-server restart
@@ -659,28 +659,28 @@ Linux应用程序编译
 |  (1) 把“u-boot.sb”、“imx28-evk.dtb”、“zImage”、“filesystem.ubifs”复制到“/home/myzr/tftp”目录下。
 |  (2) 设置环境变量(板子和电脑网线直连)
 
-.. code:: shell
+.. code-block:: shell
 
    $ setenv ipaddr 192.168.3.104 （板子IP）
    $ setenv serverip 192.168.3.110 （电脑IP）
 
 |  (3) 烧写
 
-.. code:: shell
+.. code-block:: shell
 
    $ run update_nand_kernel (烧写zImage)
 
 .. figure:: /image/MYZR-其他/MYZR-IMX28-EK142/IMX28_31454_build_9.2.3.1.png
    :alt: IMX28_31454_build_9.2.3.1.png
 
-.. code:: shell
+.. code-block:: shell
 
    $ run update_nand_fdt (烧写fdt)
 
 .. figure:: /image/MYZR-其他/MYZR-IMX28-EK142/IMX28_31454_build_9.2.3.2.png
    :alt: IMX28_31454_build_9.2.3.2.png
 
-.. code:: shell
+.. code-block:: shell
 
    $ run update_nand_filesystem (烧写文件系统)
 

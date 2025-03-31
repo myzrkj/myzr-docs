@@ -19,7 +19,7 @@ Linux-3.14.52 编译参考手册 v2.0
 
 - 执行安装
 
-.. code:: shell
+.. code-block:: shell
 
     =====> Input:
     ./fsl-imx-fb-glibc-x86_64-meta-toolchain-qt5-cortexa9hf-vfp-neon-toolchain-3.14.52-1.1.1.sh 
@@ -39,14 +39,14 @@ Linux-3.14.52 编译参考手册 v2.0
 
 - source 工具链配置文件
 
-.. code:: shell
+.. code-block:: shell
 
     =====> Input:
     source /home/myzr/my-work/03_toolchain/fsl-imx-fb-glibc-x86_64-meta-toolchain-qt5-cortexa9hf-vfp-neon-toolchain-3.14.52-1.1.1/environment-setup-cortexa9hf-vfp-neon-poky-linux-gnueabi
 
 - 检验交叉编译工具安装
 
-.. code:: shell
+.. code-block:: shell
 
     =====> Input:
     $CC -v
@@ -87,14 +87,14 @@ u-boot编译
 
 - 创建编译工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   mkdir ~/my-work/02_source/ -p
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   tar xf u-boot-2016.03-svn*.tar.bz2 -C ~/my-work/02_source/
@@ -103,14 +103,14 @@ u-boot编译
 
 - 进入源码目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   cd ~/my-work/02_source/u-boot-2016.03
 
 - 生成目标开发板的 .config 文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make myimx6ek200-6q-1g_defconfig
@@ -129,7 +129,7 @@ u-boot编译
 
 | 【注意】：上面 **make** 后面的 **myimx6ek200-6q-1g_defconfig** 改为与开发板型号对应的配置文件。
 
-.. code:: shell
+.. code-block:: shell
 
   ********** MYZR-IMX6-EK200 **********
   myimx6ek200-6q-1g_defconfig     myimx6ek200-6q-2g_defconfig     myimx6ek200-6q-512m_defconfig  
@@ -148,7 +148,7 @@ u-boot编译
 
 - 执行编译
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make 
@@ -179,7 +179,7 @@ u-boot编译
 
 **编译u-boot环境变量脚本**
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   mkimage -A arm -O linux -T script -C none -a 0 -e 0 -n "myzr bootscripts" -d board/myzr/bootscripts/myimx6a9_l31452_script.cmd my_environment.scr
@@ -206,14 +206,14 @@ u-boot编译
 
 - 创建编译工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   mkdir ~/my-work/02_source/ -p
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   tar xf linux-3.14.52-svn*.tar.bz2 -C ~/my-work/02_source/
@@ -222,14 +222,14 @@ u-boot编译
 
 - 进入内核源码目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   cd ~/my-work/02_source/linux-3.14.52
 
 - 生成目标平台的 .config 文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make myimx6a9_defconfig
@@ -250,7 +250,7 @@ u-boot编译
 
 - 编译内核目标文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make zImage
@@ -274,7 +274,7 @@ u-boot编译
 
 - 执行编译命令
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make myimx6ek200-6q-1g.dtb
@@ -300,7 +300,7 @@ u-boot编译
 
 - 复制设备树目标文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   cp arch/arm/boot/dts/myimx6ek200-6q-1g.dtb ./
@@ -309,7 +309,7 @@ u-boot编译
 
 - 执行编译
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make modules
@@ -327,14 +327,14 @@ u-boot编译
 
 - 创建内核模块的保存目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   mkdir modules
 
 - 安装内核模块到指定目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make modules_install INSTALL_MOD_PATH=./modules
@@ -348,7 +348,7 @@ u-boot编译
 
 - 打包内核模块文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   tar cjf kernel-modules.tar.bz2 -C modules lib
@@ -367,7 +367,7 @@ Linux C程序编译
 
 **编译目标文件**
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   $CC hello.c -o hello.out
@@ -381,7 +381,7 @@ Linux C程序编译
 | 把编译得到的 hello.out 复制到开发板上
 | 在开发板上运行Linux C目标程序
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   chmod +x ./hello.out
@@ -406,7 +406,7 @@ Linux QT5程序编译
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   tar xf MY-Linux-QT5-Demo-AboutUs-svn*.tar.bz2 -C ~/my-work/02_source/
@@ -415,14 +415,14 @@ Linux QT5程序编译
 
 - 进入源码目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   cd ~/my-work/02_source/AboutUs/
 
 - 生成Makefile文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   qmake
@@ -431,7 +431,7 @@ Linux QT5程序编译
 
 **编译目标文件**
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make
@@ -446,7 +446,7 @@ Linux QT5程序编译
 | 把编译得到的 AboutUs 复制到开发板上
 | 在开发板上运行QT5目标程序
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   chmod +x ./AboutUs
@@ -463,7 +463,7 @@ Linux QT5程序编译
 
 - 创建编译工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   mkdir ~/my-work/04_image -p
@@ -471,14 +471,14 @@ Linux QT5程序编译
 - 将烧录工具上的文件系统 Profiles\Linux\OS Firmware\image-L3.14.52-rootfs\L31452-\*-myimx6a9.tar.bz2 复制到 ~/my-work/04_image
 - 创建存放文件系统的目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   mkdir  L31452-fsl-image-qt5-myimx6a9
 
 | 【注意】：上面的 L31452-fsl-image-qt5-myimx6a9 改为与文件系统压缩包对应的名称。
 
-.. code:: shell
+.. code-block:: shell
 
   L31452-fsl-image-qt5-myimx6a9
   L31452-fsl-image-machine-myimx6a9
@@ -486,7 +486,7 @@ Linux QT5程序编译
 
 | 解压文件系统压缩包并进入到解压目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   tar jxvf L31452-*-myimx6a9.tar.bz2 -C L31452-*-myimx6a9/
@@ -494,7 +494,7 @@ Linux QT5程序编译
 
 - 创建存放应用的目录并将应用复制到此目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   mkdir my-demo 
@@ -502,7 +502,7 @@ Linux QT5程序编译
 
 - 重新压缩文件系统
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   sudo tar cjvf ../L31452-fsl-image-qt5-myimx6a9.tar.bz2 *
@@ -510,7 +510,7 @@ Linux QT5程序编译
 
 | 【注意】：上面的 L31452-fsl-image-qt5-myimx6a9.tar.bz2 改为文件系统压缩包对应的名称。
 
-.. code:: shell
+.. code-block:: shell
 
   L31452-fsl-image-qt5-myimx6a9.tar.bz2
   L31452-fsl-image-machine-myimx6a9.tar.bz2

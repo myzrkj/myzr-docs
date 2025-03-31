@@ -10,13 +10,13 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    mkdir ~/my-work/03_toolchain -p
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
    
    cd ~/my-work/03_toolchain
 
@@ -24,7 +24,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
    
    wget https://releases.linaro.org/components/toolchain/binaries/7.3-2018.05/aarch64-linux-gnu/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz
 
@@ -32,7 +32,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    tar xf gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.tar.xz -C ~/my-work/03_toolchain
 
@@ -40,7 +40,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    cat << EOF > ~/my-work/03_toolchain/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.env
    #!/bin/sh
@@ -51,7 +51,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
    
    chmod +x ~/my-work/03_toolchain/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.env
 
@@ -59,7 +59,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    source ~/my-work/03_toolchain/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.env
 
@@ -67,13 +67,13 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
    
    ${CROSS_COMPILE}gcc -v
 
 |  =====> 输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    Using built-in specs.
    COLLECT_GCC=aarch64-linux-gnu-gcc
@@ -96,7 +96,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    sudo apt install zlib1g 
    sudo apt install zlib1g-dev 
@@ -111,7 +111,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    mkdir ~/my-work/02_source/ -p
 
@@ -122,7 +122,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    cd ~/my-work/02_source
    tar xf linux-4.14.98.*.tar.bz2
@@ -131,7 +131,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    cd ~/my-work/02_source/
 
@@ -139,7 +139,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    source ~/my-work/03_toolchain/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.env
 
@@ -147,7 +147,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    ./build.sh 8mmek240 2g kernel
 
@@ -158,7 +158,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    ./build.sh 8mmek240 2g dts
 
@@ -166,7 +166,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    ./build.sh 8mmek240 2g modules
 
@@ -185,7 +185,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 |  复制到虚拟机的 “~/my-work/02_source/”，并解压（解压命令如下）：
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    tar xf u-boot-2018.03..tar.bz2
    tar xf mkimage-imx_4.14.98..tar.bz2
@@ -194,7 +194,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    cd ~/my-work/02_source/
 
@@ -202,7 +202,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    source ~/my-work/03_toolchain/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.env
 
@@ -210,7 +210,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    ./build.sh 8mmek240 2g uboot
 
@@ -226,7 +226,7 @@ MYZR-IMX8MM-EK240-8MM Linux-4.14.98 编译参考手册
 
 |  =====> 输入指令：
 
-.. code:: shell
+.. code-block:: shell
 
    source ~/my-work/03_toolchain/gcc-linaro-7.3.1-2018.05-x86_64_aarch64-linux-gnu.env
    ./build.sh 8mmek240 2g all

@@ -15,7 +15,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  我们可以创建一个stm32mp157a专属的目录来存放相关的源码，编译工具和以后用到的一些东西。如我的目录为： **/home/kuangwh/my-work/stm32mp1** ，在此目录下我又创建了4个子目录：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ ls
@@ -35,14 +35,14 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  在03目录下运行此工具链脚本，输入如下命令：
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    $ ./st-image-weston-openstlinux-weston-stm32mp1-x86_64-toolchain-3.1-openstlinux-5.4-dunfell-mp1-20-06-24.sh
 
 |  输入安装目录/home/kuangwh/my-work/stm32mp1/03_sdk/
 
-.. code:: shell
+.. code-block:: shell
    
    ST OpenSTLinux - Weston - (A Yocto Project Based Distro) SDK installer version 3.1-openstlinux-5.4-dunfell-mp1-20-06-24
    =======================================================================================================================
@@ -50,13 +50,13 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  输入y
 
-.. code:: shell
+.. code-block:: shell
    
    You are about to install the SDK to "/home/kuangwh/my-work/stm32mp1/03_sdk". Proceed [Y/n]? y
 
 |  安装过程需要耐心等待，直达出现successfully安装成功
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Output:
    Extracting SDK......................................................................................................
@@ -71,14 +71,14 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  安装成功后，在03目录下有一个environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi脚本，输入如下命令：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ source environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi
 
 |  source后检查交叉编译工具版本等信息
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ $CC -v
@@ -106,7 +106,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  将源码包tf-a解压到当前目录下：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ tar xvf tf-a-stm32mp-2.2-Release.xxx.tar.bz2
@@ -115,7 +115,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  进入目录tf-a-stm32mp-2.2
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ cd tf-a-stm32mp-2.2/
@@ -124,28 +124,28 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  先配置交叉编译工具
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ source ~/my-work/stm32mp1/03_sdk/environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi 
 
 |  进入tf-a-stm32mp-2.2.r1目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ cd tf-a-stm32mp-2.2.r1/
 
 |  编译前先clean
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make -f ../Makefile.sdk clean
 
 |  make编译
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make -f ../Makefile.sdk all
@@ -161,7 +161,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  将源码包u-boot-stm32mp-2020.01-Release.xxx.tar.bz2解压
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ tar xvf u-boot-stm32mp-2020.01-Release.xxx.tar.bz2
@@ -170,28 +170,28 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  进入目录u-boot-stm32mp-2020.01
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ cd u-boot-stm32mp-2020.01/
 
 |  先配置交叉编译工具
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ source ~/my-work/stm32mp1/03_sdk/environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi 
 
 |  编译前先清除配置
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make distclean
 
 |  生成.config文件
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make myzrstm32mp15_defconfig
@@ -203,7 +203,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  make编译，512m内存的板子make DEVICE_TREE=myzr-stm32mp15-512m，256m的板子make DEVICE_TREE=myzr-stm32mp15-256m
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make DEVICE_TREE=myzr-stm32mp15-256m
@@ -224,7 +224,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  u-boot.stm32即为编译出的目标文件
 
-.. code:: shell
+.. code-block:: shell
 
    $ ls u-boot.stm32
    u-boot.stm32
@@ -238,7 +238,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  将源码包linux-5.4.31-Release.xxx.tar.bz2解压
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ tar xvf linux-5.4.31-Release.xxx.tar.bz2
@@ -247,7 +247,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  第一次编译内核时，需要在虚拟机ubuntu下安装相应的库
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get install libncurses5-dev libncursesw5-dev libyaml-dev
    $ sudo apt-get install u-boot-tools
@@ -257,21 +257,21 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  进入目录linux-5.4.31
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    ~/my-work/stm32mp1/02_sources$ cd linux-5.4.31/
 
 |  先配置交叉编译工具
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ source ~/my-work/stm32mp1/03_sdk/environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi 
 
 |  生成.config文件
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make myzrstm32mp15_defconfig
@@ -294,7 +294,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  编译内核目标文件
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make uImage LOADADDR=0xC2000040
@@ -316,7 +316,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  输入如下命令单独编译出设备树
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make myzr-stm32mp15.dtb
@@ -328,7 +328,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  编译使用hdmi显示的设备树：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make myzr-stm32mp15-hdmi.dts
@@ -340,7 +340,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  执行编译
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make modules
@@ -354,7 +354,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  安装内核模块到指定目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make INSTALL_MOD_PATH="$PWD/install_artifact" modules_install
@@ -368,7 +368,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  删除source和build目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ rm install_artifact/lib/modules/5.4.31/source
@@ -376,14 +376,14 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  strip内核模块
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ find install_artifact/ -name "*.ko" | xargs $STRIP --strip-debug --remove-section=.comment --remove-section=.note --preserve-dates
 
 |  打包内核模块
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ cd install_artifact
@@ -393,14 +393,14 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  将内核模块包复制到开发板中并解压到根目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # tar xvf modules.tar.bz2 -C /
 
 |  同步数据（256m ddr的板子不需同步）
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # depmod -a
@@ -414,21 +414,21 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  进入hello_world目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ cd hello_world/
 
 |  先配置交叉编译工具
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ source ~/my-work/stm32mp1/03_sdk/environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi 
 
 |  编译gtk_hello_world.c
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ make
@@ -437,7 +437,7 @@ MYZR-STM32MP15-EK152编译参考手册
 
 |  给以可执行权限并执行文件
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ chmod +x gtk_hello_world

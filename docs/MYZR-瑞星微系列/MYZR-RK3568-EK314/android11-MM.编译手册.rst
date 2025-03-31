@@ -17,13 +17,13 @@
 
 2. 创建编译目录：
 
-.. code:: shell
+.. code-block:: shell
 
     mkdir ~/my-work/rk3568/05_android -p
 
 3. 把源码放到此目录中，并进行解压：
 
-.. code:: shell
+.. code-block:: shell
 
     tar xvf MYZR-RK3568_Android11_20240109.tar.bz2 -C ~/my-work/rk3568/05_android/
 
@@ -38,19 +38,19 @@
 
 3. 输入如下命令配置java环境：
 
-.. code:: shell
+.. code-block:: shell
 
     source javaenv.sh
 
 4. 输入如下命令配置编译环境：
 
-.. code:: shell
+.. code-block:: shell
 
     source build/envsetup.sh
 
 5. 输入如下命令配置平台环境：
 
-.. code:: shell
+.. code-block:: shell
 
     lunch rk3568_r-userdebug
 
@@ -62,7 +62,7 @@
 
 2. 输入如下命令：
 
-.. code:: shell
+.. code-block:: shell
 
     ./build.sh -AUCKu
 
@@ -76,14 +76,14 @@
 
 1. 编译前可先清除生成文件
 
-.. code:: shell
+.. code-block:: shell
 
     cd u-boot/
     make clean
 
 2. 回到SDK主目录，并进行uboot单独编译
 
-.. code:: shell
+.. code-block:: shell
 
     cd ../
     ./build.sh -U
@@ -94,21 +94,21 @@
 
 1. 编译前可先清除生成文件
 
-.. code:: shell
+.. code-block:: shell
 
     cd kernel/
     make clean
 
 2. 回到SDK主目录，并进行kernel单独编译
 
-.. code:: shell
+.. code-block:: shell
 
     cd ../
     ./build.sh -CKA
 
 3. 或使用kernel脚本进行编译
 
-.. code:: shell
+.. code-block:: shell
 
     cd kernel/
     ./make.sh
@@ -120,7 +120,7 @@
 
 1. 在SDK主目录下
 
-.. code:: shell
+.. code-block:: shell
 
     ./build.sh -A
 
@@ -132,7 +132,7 @@
 
 2. 在SDK主目录下
 
-.. code:: shell
+.. code-block:: shell
 
     ./build.sh -u
 

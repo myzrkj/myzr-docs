@@ -41,13 +41,13 @@ Network inferface test
 |   Connect lan line: connect “eth0”on evaluation board with corresponding wired network card interface on computer with lan line.
 |   Set evaluation board IP：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ifconfig eth0 192.168.18.36 　　　　　＃ configure the eth0
 
 |   Execute test command：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ifconfig eth1 down 　　　　　＃ eth1 to be shut down
     ＃ ping 192.168.18.18 -c 2 -w 4 　　　　　＃ send ICMP to HOST
@@ -55,7 +55,7 @@ Network inferface test
 
 |   Observe test result：system will output message like following:
 
-.. code:: shell
+.. code-block:: shell
 
     --- 192.168.18.18 ping statistics ---
     2packets transmitted, 2 packets received, 0% packet loss
@@ -70,26 +70,26 @@ Network inferface test
 |   Connect lan line：insert one end of lan line into “eth1”on evaluation board and another end into wired network card interface on computer.
 |   Set the second network inter face IP：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ifconfig eth1 192.168.18.27 　　　　　＃ configure the eth1
 
 |   After setting the system will output message on working condition of second network interface，like following：
 
-.. code:: shell
+.. code-block:: shell
 
     smsc95xx 1-1.1:1.0 eth1: link up, 100Mbps, full-duplex, lpa 0x4DE1
 
 |   Execute test command：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ifconfig eth0 down ＃ eth0 to be shut down
     ＃ ping 192.168.18.18 -c 2 -w 4 　　　　　＃ send ICMP to HOST
 
 |   Observe test result：system will output message like following：
 
-.. code:: shell
+.. code-block:: shell
 
     --- 192.168.18.18 ping statistics ---
     2packets transmitted, 2 packets received, 0% packet loss
@@ -117,7 +117,7 @@ USB test
 |   1） Start test
 |   Insert USB device into USB port on base board，enter the following command：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ df
 
@@ -125,7 +125,7 @@ USB test
 |   Instruction：when plug in & out U disk from USB interface，enter the following command：
 
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ df
 
@@ -151,7 +151,7 @@ SD card test
 |   1） Insert device into SD card slot
 |   Insert SD card into SD card port on base board，enter the following command：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ df
 
@@ -179,7 +179,7 @@ Audio test
 |   2）Execute test
 |   Play a video with gplay，commanded as below：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ aplay /usr/share/sounds/alsa/Rear_Left.wav
 
@@ -217,25 +217,25 @@ Standard GPIO test
 |   1）GPIO output test
 |   Set IO order number for GPIO of which need to be tested.
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ OUT_IO_NUMBER=9
 
 |   Lead out GPIO
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo ${OUT_IO_NUMBER} > /sys/class/gpio/export
 
 |   Set GPIO direction
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo out > /sys/class/gpio/gpio${OUT_IO_NUMBER}/direction
 
 |   Control outputed electrical level
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo 0 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
     ＃ echo 1 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
@@ -248,25 +248,25 @@ Standard GPIO test
 |   2）GPIO input test
 |   Set IO order number for GPIO of which need to be tested
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ IN_IO_NUMBER=18
 
 |   Lead out GPIO
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo ${IN_IO_NUMBER} > /sys/class/gpio/export
 
 |   Set GPIO方向
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo in > /sys/class/gpio/gpio${IN_IO_NUMBER}/direction
 
 |   Check inputed electrical level
 
-.. code:: shell
+.. code-block:: shell
 
     cat /sys/class/gpio/gpio${IN_IO_NUMBER}/value
 
@@ -297,7 +297,7 @@ GPIO-KEY test
 |   1）Execute test program
 |   Enter command to execute on terminal,example as below：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ evtest
 
@@ -312,7 +312,7 @@ GPIO-KEY test
 |   3）Proceed with interactive test
 |   On terminal you can“Testing ... (interrupt to exit)”，this time press or release SW1、SW2。message like below will come out：
 
-.. code:: shell
+.. code-block:: shell
 
     Event: time 1452590477.115958, type 1 (EV_KEY), code 114 (KEY_VOLUMEDOWN), value 0
     Event: time 1452590477.115958, -------------- SYN_REPORT ------------
@@ -356,14 +356,14 @@ Serial port test
 |   Send charater string to serial port through ssh client, and the serial port can receive the charater string.
 |   2）Install ssh client
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ apt-get install ssh
 
 |   3）UART1 test
 |   Execute test command
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo “myzr” > /dev/ttyS1 (UART1 send charater string “myzr“)
     ＃ cat /dev/ttyS1 (UART1 receive charater string )
@@ -387,38 +387,38 @@ RTC test
 |   1）Power off then reboot device,to check the time of system and hardware.
 |   Command to check clock of current system as below:
 
-.. code:: shell
+.. code-block:: shell
     
     ＃ date
 
 |   Message outputed by system as below：
 
-.. code:: shell
+.. code-block:: shell
 
     Thu Aug 6 05:35:17 UTC 2012
 
 2）Command to check clock of RTC chip as below：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ hwclock
 
 |   Message outputed by system as below：
 
-.. code:: shell
+.. code-block:: shell
 
     Thu Aug 6 05:35:59 2012 0.000000 seconds
 
 |   3）Set system clock and synchronously set to RTC chip.
 |   Command to set system clock are with below reference：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ date -s "2013-03-28 12:30:30"
 
 |   Command to write system clock into hardware as below：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ hwclok –w
 
@@ -471,14 +471,14 @@ SPI test
 |
 |   Execute test
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ./spi_test -D /dev/spidev0.0
 
 |   3）Test result
 |   If SPI is normal,you can see following charaters on terminal：
 
-.. code:: shell
+.. code-block:: shell
 
     FF FF FF FF FF FF
     40 00 00 00 00 95
@@ -539,19 +539,19 @@ Bluetooth test
 
 - Install wvdial
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ sudo apt-get install wvdial
 
 |   Modify the configuration file /etc/wvdial.conf
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ vim /etc/wvdial.conf
 
 |   Add the following:
 
-.. code:: shell
+.. code-block:: shell
 
     [Dialer Defaults]
     Modem = /dev/ttyUSB2
@@ -569,7 +569,7 @@ Bluetooth test
 
 |   Dial
 
-.. code:: shell
+.. code-block:: shell
     
     ＃ wvdial &
 

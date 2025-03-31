@@ -7,7 +7,7 @@ UART测试
 UART4配置和测试
 -----------------
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/dev/ttyS4
    #测试说明：把J4:3(GPIOA_16_UART4_RX)管脚和J4:5(GPIOA_17_UART4_TX)管脚短接.
@@ -35,7 +35,7 @@ UART4配置和测试
 UART3配置和测试
 -----------------
 
-.. code:: shell
+.. code-block:: shell
 
    #配置(默认禁止，配置为MIPI接口，如果要用，需要打开配置,屏蔽)
    $ vim arch/arm/boot/dts/pcupid-ssm001c-s01a-voip-padmux.dtsi
@@ -71,7 +71,7 @@ UART3配置和测试
 UART2配置和测试
 -----------------
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/dev/ttyS2
    #测试说明：把J4:7(OUTP_RX0_CH2_FUART2_RX)管脚和J19:8(OUTN_RX0_CH2_FUART2_TX)管脚短接.
@@ -99,7 +99,7 @@ UART2配置和测试
 UART1配置和测试
 ----------------
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/dev/ttyS1
    #测试说明：把J4:9(OUTP_RX0_CH0_FUART1_RX)管脚和J4:10(OUTN_RX0_CH0_FUART1_TX)管脚短接.
@@ -127,7 +127,7 @@ UART1配置和测试
 UART5配置和测试
 -----------------
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/dev/ttyS5
    #测试说明：把J18:1(GPIOE_07_UART5_TX)管脚和J18:2(GPIOE_06_UART5_RX)管脚短接.
@@ -154,7 +154,7 @@ UART5配置和测试
 UART6配置和测试
 -----------------
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/dev/ttyS6
    #测试说明：把J4:35(UART0_TX)管脚和J4:38(UART0_RX)管脚短接.
@@ -181,7 +181,7 @@ UART6配置和测试
 UART7配置和测试
 -----------------
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/dev/ttyS7
    #测试说明：把J4:37(ADC_PWM_OUT01_UART7_TX)管脚和J4:40(ADC_PWM_OUT00_UART7_RX)管脚短接.
@@ -209,7 +209,7 @@ UART7配置和测试
 I2C2配置和测试
 ~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    #1.i2ctool测试
    #设备接口：/dev/i2c2
@@ -265,7 +265,7 @@ I2C2配置和测试
 SPI0配置和测试
 ~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/dev/spidev0.0
    #测试说明：把J18:16(GPIOA_15_MSPI0_MISO)管脚和J18:17(GPIOA_14_MSPI0_MOSI)管脚短接.
@@ -301,7 +301,7 @@ SPI0配置和测试
 PWM配置和测试
 ~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：
    # PAD_PM_PWM0_OUT：对应设备节点/sys/class/sstar/pwm/pwm18
@@ -329,7 +329,7 @@ GPIO配置和测试
 +--------------+------------+-------------+------------+-------------+------------+
 
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/sys/class/gpio
    #测试说明：以J18:10(EMMC_D1_GPIO)为例
@@ -347,7 +347,7 @@ GPIO配置和测试
 TF卡测试
 ~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/dev/mmcblk0
    #测试说明：插入TF卡
@@ -374,7 +374,7 @@ TF卡测试
 U盘测试
 ~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/dev/sd*
    #测试说明：插入U盘
@@ -407,7 +407,7 @@ U盘测试
 以太网测试
 ~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/dev/eth0
    ##测试说明：电脑设置为192.168.137.99，板子设置为192.168.137.81，通过ping测试
@@ -431,7 +431,7 @@ U盘测试
 WIFI测试
 ~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：/dev/wlan0
    ##测试说明：把WIFI天线接上，WIFI连接到AP后，开发板向外网发送ICMP报文来验证连接正常。
@@ -474,7 +474,7 @@ WIFI测试
 蓝牙测试
 ~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    #设备接口：hci0
    ##测试说明：描到蓝牙设备后，发送L2CAP回应请求并接收回答。

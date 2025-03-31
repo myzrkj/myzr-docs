@@ -42,7 +42,7 @@ TTL串口模块接法
 串口启动
 ~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
   #用TTL模块，把电脑和板子连接起来。插入TYPEC线，开机
   提示信息如下：
@@ -146,7 +146,7 @@ TTL串口模块接法
   CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
   early_atags_to_fdt() success
 
-.. code:: shell
+.. code-block:: shell
 
   OF: fdt: Machine model: PCUPID
   LXmem is 0x8000000 PHYS_OFFSET is 0x20000000
@@ -561,7 +561,7 @@ TTL串口模块接法
 adb连接登陆
 ~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
   #需要TYPEC线供电
   #打开win10电脑的cmd输入终端
@@ -592,7 +592,7 @@ adb连接登陆
 网线telnetd登录
 ~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
   #需要插上网线和配置IP地址，以及telnetd(我的电脑IP地址为192.168.137.99)
   $ ifconfig eth0 192.168.137.81

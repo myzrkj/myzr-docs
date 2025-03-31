@@ -15,7 +15,7 @@ SDK下载和安装
 |  SDK安转包在MYZR-RZ - > 03_SDK目录下，我们一般使用 **poky-glibc-x86_64-core-image-qt-aarch64-smarc-rzg2l-toolchain-3.1.17.sh** 来进行安装。
 |  我们可以在主机中创建一个rz专属的目录来存放相关的源码，编译工具和以后用到的一些东西。如我创建的目录为：/home/myzr/my-work/renesas，在此目录下我又创建了4个子目录：
 
-.. code:: shell
+.. code-block:: shell
 
    $ ls
    01_image  02_sources  03_sdk  04_app
@@ -30,14 +30,14 @@ SDK下载和安装
 
 |  在03目录下运行此工具链脚本，输入如下命令：
 
-.. code:: shell
+.. code-block:: shell
 
    $ chmod +x poky-glibc-x86_64-core-image-qt-aarch64-smarc-rzg2l-toolchain-3.1.17.sh 
    $ ./poky-glibc-x86_64-core-image-qt-aarch64-smarc-rzg2l-toolchain-3.1.17.sh
 
 |  输入安装目录/home/myzr/my_work/renesas/03_sdk
 
-.. code:: shell
+.. code-block:: shell
 
    Poky (Yocto Project Reference Distro) SDK installer version 3.1.17
    ==================================================================
@@ -45,7 +45,7 @@ SDK下载和安装
 
 |  输入y，等待安装，直到出现successfully安装成功
 
-.. code:: shell
+.. code-block:: shell
 
    You are about to install the SDK to "/home/myzr/my_work/renesas/03_sdk". Proceed [Y/n]? y
    Extracting SDK.......................
@@ -55,13 +55,13 @@ SDK下载和安装
 
 |  安装成功后在03目录下有一个environment-setup-aarch64-poky-linux脚本，输入如下命令：
 
-.. code:: shell
+.. code-block:: shell
 
    $ source environment-setup-aarch64-poky-linux
 
 |  source后检查交叉编译工具版本等信息
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ $CC -v
@@ -87,7 +87,7 @@ SDK下载和安装
 |  U-boot源码目录在 MYZR-RZ -> 02_源码 -> u-boot-Release.xxx.tar.bz2。（“Release.xxx”表示源码的版本）将源码拷贝到主机/home/myzr/my_work/renesas/02_sources目录下
 |  将源码包解压到02_sources目录下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ tar xvf u-boot-Release.xxx.tar.bz2
 
@@ -96,25 +96,25 @@ SDK下载和安装
 
 |  进入U-boot目录
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd u-boot/
 
 |  先配置交叉编译工具
 
-.. code:: shell
+.. code-block:: shell
 
    $ source ../../03_sdk/environment-setup-aarch64-poky-linux
 
 |  使用build.sh进行整个流程的配置和编译。
 
-.. code:: shell
+.. code-block:: shell
 
    $ ./build.sh rzg2l all
 
 |  第一个参数为板子cpu型号选择rzg2l或rzg2ul；第二个参数有如下选项：
 
-.. code:: shell
+.. code-block:: shell
 
    config--根据第一个参数rzg2l/rzg2ul生成对应的.config文件
    make--根据当前的配置文件.config进行编译
@@ -125,7 +125,7 @@ SDK下载和安装
 |  后期我们自己开发调试的时候，可以根据参数进行不同的编译配置。
 |  最后打包好的镜像文件在fpack目录下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ ls fpack/
    bin  bl31.bin  fip.bin  fip-myzr-rzg2l.srec  fip-myzr-rzg2ul.srec  lib
@@ -141,7 +141,7 @@ SDK下载和安装
 |  U-boot源码目录在 MYZR-RZ -> 02_源码 -> linux-5.10-Release.xxx.tar.bz2。（“Release.xxx”表示源码的版本）将源码拷贝到主机/home/myzr/my_work/renesas/02_sources目录下
 |  将源码包解压到02_sources目录下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ tar xvf linux-5.10-Release.xxx.tar.bz2
 
@@ -150,7 +150,7 @@ SDK下载和安装
 
 |  第一次编译内核时，需要在虚拟机ubuntu下安装相应的库
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get update
    $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib \
@@ -162,25 +162,25 @@ SDK下载和安装
 
 |  进入linu-5.10目录
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd linux-5.10/
 
 |  先配置交叉编译工具
 
-.. code:: shell
+.. code-block:: shell
 
    $ source ../../03_sdk/environment-setup-aarch64-poky-linux
 
 |  生成.config文件
 
-.. code:: shell
+.. code-block:: shell
 
    $ make myzr-rz_defconfig
 
 |  编译Image
 
-.. code:: shell
+.. code-block:: shell
 
    $ make Image -j24
 
@@ -191,7 +191,7 @@ SDK下载和安装
 
 |  输入如下命令编译出设备树文件：
 
-.. code:: shell
+.. code-block:: shell
 
    $ make renesas/myzr-rzg2l-dsi.dtb
 
@@ -203,45 +203,45 @@ SDK下载和安装
 
 |  执行编译
 
-.. code:: shell
+.. code-block:: shell
 
    $ make modules
 
 |  安装内核模块到指定目录
 
-.. code:: shell
+.. code-block:: shell
 
    make INSTALL_MOD_PATH="$PWD/install_modules" modules_install
 
 |  删除source和build目录
 
-.. code:: shell
+.. code-block:: shell
 
    $ rm install_modules/lib/modules/5.10.131-cip13-yocto-standard/source
    $ rm install_modules/lib/modules/5.10.131-cip13-yocto-standard/build
 
 |  strip内核模块
 
-.. code:: shell
+.. code-block:: shell
 
    $ find install_modules/ -name "*.ko" | xargs $STRIP --strip-debug --remove-section=.comment --remove-section=.note --preserve-dates
 
 |  打包内核模块
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd install_modules
    $ tar cjf modules.tar.bz2 *
 
 |  将内核模块包modules.tar.bz2复制到开发板中并解压到根目录
 
-.. code:: shell
+.. code-block:: shell
 
    # tar xvf modules.tar.bz2 -C /
 
 |  同步数据
 
-.. code:: shell
+.. code-block:: shell
 
    # depmod -a
    # sync

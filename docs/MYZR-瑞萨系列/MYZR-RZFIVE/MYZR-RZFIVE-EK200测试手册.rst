@@ -17,7 +17,7 @@ MYZR-RZFIVE-EK200测试手册
 |   把开发板的这个网口用网线跟电脑网口连接起来。
 |   配置开发板网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# ifconfig eth1 down
@@ -25,7 +25,7 @@ MYZR-RZFIVE-EK200测试手册
 
 |   测试网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.137.99 -c 2 -w 4 
@@ -56,7 +56,7 @@ MYZR-RZFIVE-EK200测试手册
 |   把开发板的这个网口用网线跟电脑网口连接起来。
 |   配置开发板网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# ifconfig eth0 down
@@ -68,7 +68,7 @@ MYZR-RZFIVE-EK200测试手册
 
 |   测试网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.137.99 -c 2 -w 4 
@@ -97,7 +97,7 @@ USB接口测试
 
 |   将USB设备插入底板USB接口，系统会输出类似如下信息:
 
-.. code:: shell
+.. code-block:: shell
 
     [  548.085779] usb 1-1.1: new high-speed USB device number 4 using ehci-platform
     [  548.762436] usb-storage 1-1.1:1.0: USB Mass Storage device detected
@@ -112,7 +112,7 @@ USB接口测试
 
 |   将USB设备从底板拔出，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
     [  582.421825] usb 1-1.1: USB disconnect, device number 4
 
@@ -131,7 +131,7 @@ SD卡接口测试
 
 |   把SD卡插入到这个接口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输出信息：
     [   28.038307] mmc1: new high speed SDHC card at address 0001
@@ -140,7 +140,7 @@ SD卡接口测试
 
 |   弹出SD卡：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输出信息：
     [  164.986044] mmc1: card 0001 removed
@@ -158,7 +158,7 @@ SD卡接口测试
 
 **MYZR-RZFIVE-MB200可用的IO**
 
-.. code:: shell
+.. code-block:: shell
 
     GPIO6_0(408),  GPIO11_0(448),  GPIO11_1(449), GPIO11_3(451),   GPIO13_0(464),   GPIO13_2(466)， GPIO13_4(468), GPIO0_3(363), GPIO10_1(441)
 
@@ -168,7 +168,7 @@ SD卡接口测试
 
 |   配置GPIO11_0为输出低电平的操作方法：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# OUT_IO_OUT_NUM=448
@@ -182,7 +182,7 @@ SD卡接口测试
 
 |   配置GPIO11_0为输出高电平的操作方法：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# OUT_IO_OUT_NUM=448
@@ -196,7 +196,7 @@ SD卡接口测试
 
 |   控制 GPIO 输入测试：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# OUT_IO_OUT_NUM=448
@@ -216,7 +216,7 @@ UART串口测试
 |   以串口3为例，短接串口3的发送发接收管脚（P2的8和10号管脚）
 |    执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:/# /my-demo/serial_test.out /dev/ttySC3 "www.myzr.com.cn" 
@@ -256,7 +256,7 @@ SPI测试
 
 |   短接U18的2和5管脚。 执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# /my-demo/spidev_test.out -D /dev/spidev1.0  
@@ -289,7 +289,7 @@ Watchdog 超时复位测试
 
 |   运行看门狗程序：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# /my-demo/wdt_driver_test.out 10 15 1 
@@ -304,7 +304,7 @@ Watchdog 超时复位测试
 
 |   运行测试命令10秒后，WatchDog超时，系统被复位。会在终端看到系统重新启动输出的信息类似如下：
 
-.. code:: shell
+.. code-block:: shell
 
     U-Boot SPL 2020.10 (Jan 11 2023 - 03:22:42 +0000)
     Trying to boot from MMC1
@@ -328,7 +328,7 @@ Watchdog 喂狗测试
 
 |   运行看门狗程序，并设置超时时间为4秒，喂狗间隔时间为2秒：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# /my-demo/wdt_driver_test.out 4 2 1 &  
@@ -351,7 +351,7 @@ RTC测试
 
 1. 断电重启设备，查看当前系统时间和硬件时间：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令: 
     root@myzr-rzfive:~# date
@@ -361,7 +361,7 @@ RTC测试
 
 2. 查看当前RTC芯片时钟：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令: 
     root@myzr-rzfive:~# date -s "2023-01-14 12:34:56"
@@ -371,7 +371,7 @@ RTC测试
 
 3. 设置系统时钟，并同步到RTC芯片
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令: 
     date -s "2023-01-14 12:34:56"  
@@ -381,7 +381,7 @@ RTC测试
 
 4. 将系统时钟写入硬件时钟
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# hwclock -w
@@ -390,7 +390,7 @@ RTC测试
 
 1. 断电重启评估板，查看当前系统时钟和硬件时钟
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# date
@@ -400,7 +400,7 @@ RTC测试
 
 2. 查看当前RTC芯片时钟
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# hwclock
@@ -422,7 +422,7 @@ RTC测试
 |   把耳机插入开发板的“EAR”口。
 |   执行测试命令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# aplay /my-demo/Rear_Center.wav   
@@ -446,7 +446,7 @@ RTC测试
 1. 把带MIC的耳机插入开发板的“MIC”口。
 2. 执行录音命令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# arecord -d 5 -c 2 -r 48000 -f S16_LE record.wav
@@ -456,7 +456,7 @@ RTC测试
 
 3. 播放录音
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# aplay record.wav
@@ -479,7 +479,7 @@ usb识别为网口测试
 
 1. 载入模块
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# modprobe g_ether
@@ -496,7 +496,7 @@ usb识别为网口测试
 
 2. 设置IP
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# ifconfig usb0 192.168.7.2
@@ -504,7 +504,7 @@ usb识别为网口测试
 
 3. 测试网口
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# ping 192.168.7.7 -c 2 -w 4
@@ -533,7 +533,7 @@ usb识别为U盘测试
 
 1. 创建一个10M大小的文件
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# dd if=/dev/zero of=/dev/shm/disk bs=1024 count=10240
@@ -545,7 +545,7 @@ usb识别为U盘测试
 
 2. 载入模块
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# modprobe g_mass_storage stall=0 file=/dev/shm/disk removable=1
@@ -565,7 +565,7 @@ usb识别为U盘测试
 
 4. 挂载
 
-.. code:: shell
+.. code-block:: shell
 
     root@myzr-rzfive:~# mount /dev/shm/disk /mnt
 
@@ -584,7 +584,7 @@ CPU温度测试
 
 ​|  输入命令
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo $[$(cat /sys/class/thermal/thermal_zone0/temp)/1000]
@@ -610,14 +610,14 @@ WIFI模块测试
 
 |   命令格式: `wpa_passphrase [passphrase]`
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# wpa_passphrase MYZR-WIFI myzr2012 > /etc/wpa_supplicant.conf 
 
 3. 连接：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf 
@@ -630,7 +630,7 @@ WIFI模块测试
 
 4. 获取IP：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# udhcpc -i wlan0
@@ -645,7 +645,7 @@ WIFI模块测试
 
 5. 测试连接：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# ping -I wlan0 www.baidu.com -c 2 -w 4
@@ -672,7 +672,7 @@ WIFI模块测试
 1. 把天线连接到“E1”接口上
 2. 启动蓝牙：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# hciconfig hci0 up
@@ -687,7 +687,7 @@ WIFI模块测试
 
 3. 扫描外部蓝牙设备：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~#  hcitool scan
@@ -699,7 +699,7 @@ WIFI模块测试
 
 4. 发送发送L2CAP包测试：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# l2ping 1C:D1:07:D7:65:EC
@@ -728,7 +728,7 @@ EC20 模块测试
 1. 开发板断电，接上4G模块，接上天线并插入SIM卡后启动评估板。
 2. 使用指令进行网络连接：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# /my-demo/quectel-CM &
@@ -766,7 +766,7 @@ EC20 模块测试
 
 **测试连接**
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     root@myzr-rzfive:~# ping -I usb0 www.baidu.com -c 2 -w 4
@@ -796,7 +796,7 @@ EC20 模块测试
 
 2. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.137.99 -c 2 -w 4 
@@ -814,7 +814,7 @@ EC20 模块测试
 
 3. 传输文件
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     tftp -gr kernel-image.tar.bz2 192.168.137.99
@@ -822,7 +822,7 @@ EC20 模块测试
 
 4. 查看系统是否自动挂载分区
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ls /run/media/mmcblk0p1/
@@ -832,7 +832,7 @@ EC20 模块测试
 
 5. 更新内核和dtb文件
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     tar jxvf kernel-image.tar.bz2 -C /run/media/mmcblk0p1/
@@ -843,7 +843,7 @@ EC20 模块测试
 
 6. 更新内核模块
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     tar jxvf kernel-modules.tar.bz2 -C /

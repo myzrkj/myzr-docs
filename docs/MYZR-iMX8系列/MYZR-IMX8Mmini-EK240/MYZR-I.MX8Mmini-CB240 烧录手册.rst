@@ -21,7 +21,7 @@ MYZR-I.MX8Mmini-CB240 烧录手册
 
 |  给开发板上电，双击运行 “myimx8mmek240-8mm.bat” 文件，这时候 Windows 命令行窗口会看到如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    <code>uuu (Universal Update Utility) for nxp imx chips -- libuuu_1.2.135-0-gacaf035
    Success 0    Failure 0
@@ -32,7 +32,7 @@ MYZR-I.MX8Mmini-CB240 烧录手册
 
 |  烧录完成后，Windows 命令行窗口信息如下：
 
-.. code:: shell
+.. code-block:: shell
 
    <code>uuu (Universal Update Utility) for nxp imx chips -- libuuu_1.2.135-0-gacaf035
    Success 1    Failure 0

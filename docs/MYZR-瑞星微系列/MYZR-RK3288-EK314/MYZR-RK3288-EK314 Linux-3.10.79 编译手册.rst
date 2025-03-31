@@ -41,7 +41,7 @@ Linux-3.10.79 编译手册
 |   1）创建工作目录
 |   创建 ~/my-rk3288 作为工作目录
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir ~/my-rk3288
 
@@ -50,7 +50,7 @@ Linux-3.10.79 编译手册
 
 |   创建 ~/my-rk3288/02_source 作为源码目录
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir ~/my-rk3288/02_source
 
@@ -59,7 +59,7 @@ Linux-3.10.79 编译手册
 
 |   创建 ~/my-rk3288/03_tools 作为工具目录
 
-.. code:: shell
+.. code-block:: shell
     
     $ mkdir ~/my-rk3288/03_tools
 
@@ -73,7 +73,7 @@ Linux-3.10.79 编译手册
 
 |   1）解压u-boot源码和内核源码
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/my-rk3288/02_source
     $ tar jxf rk32-myzr_uboot_2014.10_201803028.tar.bz2
@@ -84,7 +84,7 @@ Linux-3.10.79 编译手册
 
 |   2）解压交叉编译工具
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/my-rk3288/03_tools/
     $ tar jxf gcc-arm-eabi-4.6.tar.bz2
@@ -99,7 +99,7 @@ Linux-3.10.79 编译手册
 
 |   1）更新源列表
 
-.. code:: shell
+.. code-block:: shell
 
     $ sudo apt-get update
 
@@ -117,7 +117,7 @@ Linux-3.10.79 编译手册
 
 - 安装aptitude包管理工具
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get -y install aptitude
 
@@ -126,7 +126,7 @@ Linux-3.10.79 编译手册
 
 - 使用aptitude安装ia32-libs
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo aptitude -y install ia32-libs
 
@@ -138,7 +138,7 @@ Linux-3.10.79 编译手册
 
 |   3）安装mkimage工具
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get -y install uboot-mkimage
 
@@ -150,7 +150,7 @@ Linux-3.10.79 编译手册
 |   4）安装ncurses-dev
 |   说明：make menuconfig对其具有依赖性质。
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo aptitude -y install ncurses-dev
 
@@ -165,7 +165,7 @@ Linux-3.10.79 编译手册
 进入u-boot源码目录
 ~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/my-rk3288/02_source/rk32-myzr_uboot_2014.10/
 
@@ -177,7 +177,7 @@ Linux-3.10.79 编译手册
 
 - 执行source命令
 
-.. code:: shell
+.. code-block:: shell
 
    $ source ~/my-rk3288/03_tools/gcc-arm-eabi-4.6-env
 
@@ -186,7 +186,7 @@ Linux-3.10.79 编译手册
 
 - 查看编译配置
 
-.. code:: shell
+.. code-block:: shell
 
    $ echo $ARCH
    $ echo $CROSS_COMPILE
@@ -198,7 +198,7 @@ Linux-3.10.79 编译手册
 
 - 验证交叉编译工具配置
 
-.. code:: shell
+.. code-block:: shell
    
    $ ${CROSS_COMPILE}gcc -v
 
@@ -211,7 +211,7 @@ Linux-3.10.79 编译手册
 清除u-boot配置
 ~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ make distclean
 
@@ -232,7 +232,7 @@ u-boot配置
 
 - MYZR-RK3288-EK314-2G配置示例：
 
-.. code:: shell
+.. code-block:: shell
 
     $ make rk3288_defconfig
 
@@ -245,7 +245,7 @@ u-boot配置
 
 - 执行编译
 
-.. code:: shell
+.. code-block:: shell
 
     $ make
 
@@ -266,7 +266,7 @@ u-boot配置
 
 |   编译完成后通过ls命令即可看到编译得到的目标文件RK3288UbootLoader_V2.30.10.bin
 
-.. code:: shell
+.. code-block:: shell
 
     $ ls
 
@@ -279,7 +279,7 @@ u-boot配置
 进入内核源码目录
 ~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/my-rk3288/02_source/rk32-myzr_kernel_3.10/
 
@@ -292,7 +292,7 @@ u-boot配置
 
 - 执行source命令
 
-.. code:: shell
+.. code-block:: shell
 
     $ source ~/my-rk3288/03_tools/gcc-arm-eabi-4.6-env
 
@@ -301,7 +301,7 @@ u-boot配置
 
 - 查看编译配置
 
-.. code:: shell
+.. code-block:: shell
 
     $ echo $ARCH
     $ echo $CROSS_COMPILE
@@ -313,7 +313,7 @@ u-boot配置
 
 - 验证交叉编译工具配置
 
-.. code:: shell
+.. code-block:: shell
 
     $ ${CROSS_COMPILE}gcc -v
 
@@ -327,7 +327,7 @@ u-boot配置
 
 - 清除内核配置
 
-.. code:: shell
+.. code-block:: shell
 
     $ make distclean
 
@@ -338,7 +338,7 @@ u-boot配置
 
 |  备注：MYZR-RK3288-EK314系列评估板使用的配置文件是rk3288-myzr-linux_defconfig
 
-.. code:: shell
+.. code-block:: shell
 
     $ make rk3288-myzr-linux_defconfig
 
@@ -361,7 +361,7 @@ u-boot配置
 
 - 编译（以下是LVDS屏）
 
-.. code:: shell
+.. code-block:: shell
 
     $ make -j8 rk3288-myzr_rh568_lvds_linux.img
 
@@ -379,7 +379,7 @@ u-boot配置
 
 |   arch/arm/boot/uImage即为编译得到的目标文件，使用ls命令可查看文件信息。
 
-.. code:: shell
+.. code-block:: shell
 
     $ ls arch/arm/boot/zImage -la
 
@@ -391,7 +391,7 @@ u-boot配置
 
 - 编译
 
-.. code:: shell
+.. code-block:: shell
 
     $ make modules
 
@@ -409,7 +409,7 @@ u-boot配置
 
 |   编译完成后各模块的.ko文件位于代码所在的目录，通过find命令可以找出编译完成的模块，参考命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ find -name *.ko
 
@@ -424,7 +424,7 @@ u-boot配置
 
 |   1) 创建应用程序目录
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir ~/my-rk3288/01_application
     $ cd ~/my-rk3288/01_application
@@ -434,7 +434,7 @@ u-boot配置
 
 |   2) 解压和编译rockchip-mkbootimg
 
-.. code:: shell
+.. code-block:: shell
 
     $ tar jxf rockchip-mkbootimg.tar.bz2
     $ cd rockchip-mkbootimg/
@@ -449,7 +449,7 @@ u-boot配置
 
 |   1) 压缩为img格式
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/my-rk3288/01_application/
     $ tar jxf initrd.tar.bz2
@@ -467,7 +467,7 @@ u-boot配置
 打包linux-boot.img
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkbootimg --kernel ../02_source/rk32-myzr_kernel_3.10/arch/arm/boot/zImage --ramdisk initrd.img \ 
     --second ../02_source/rk32-myzr_kernel_3.10/resource.img -o linux-boot.img
@@ -488,7 +488,7 @@ u-boot配置
 编译打包工具
 ~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/my-rk3288/01_application
     $ tar jxf rk2918_tools.tar.bz2
@@ -508,7 +508,7 @@ u-boot配置
 .. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.2.1.jpg
    :alt: My-rk32-ek314build_7.2.1.jpg
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir ~/my-rk3288/04_rootfs/
     $ cd ~/my-rk3288/04_rootfs/
@@ -524,7 +524,7 @@ u-boot配置
 打包relase_update.img文件
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd Image/
     $ afptool -pack . ../update.img

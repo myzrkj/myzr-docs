@@ -12,7 +12,7 @@ Android-5.1 编译手册
 
 |   运行一下命令安装openjdk1.7
 
-.. code:: shell
+.. code-block:: shell
 
     sudo add-apt-repository "deb http://archive.canonical.com/ lucid partner"
     sudo apt-get update
@@ -21,7 +21,7 @@ Android-5.1 编译手册
 
 |   增加以下环境变量
 
-.. code:: shell
+.. code-block:: shell
 
     export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
     export JRE_HOME=$JAVA_HOME/jre
@@ -41,7 +41,7 @@ Android-5.1 编译手册
 
 |   (详细信息，请看网站http://source.android.com/source/initializing.html)
 
-.. code:: shell
+.. code-block:: shell
 
     sudo apt-get install git gnupg flex bison gperf build-essential \ 
      zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev \ 
@@ -65,7 +65,7 @@ Android-5.1 编译手册
 解压源码
 ~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir ~/rk3288-myzr
     $ tar jxvf rk32-myzr_android5.1_20180328.tar.bz2 -C ~/rk3288-myzr/
@@ -81,7 +81,7 @@ Android-5.1 编译手册
 设置环境变量
 ~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ export ARCH=arm
     $ export CROSS_COMPILE=~/rk3288-myzr/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin/arm-eabi-
@@ -89,7 +89,7 @@ Android-5.1 编译手册
 .. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.1.1.png
    :alt: My-rk32-ek314_android_6.1.1.png
 
-.. code:: shell
+.. code-block:: shell
 
     $ ${CROSS_COMPILE}gcc -v
 
@@ -101,19 +101,19 @@ Android-5.1 编译手册
 
 - 进入U-BOOT代码目录
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/rk3288-myzr/u-boot/
 
 - 设置配置文件
 
-.. code:: shell
+.. code-block:: shell
 
     $ make rk3288_defconfig
 
 - 编译
 
-.. code:: shell
+.. code-block:: shell
 
     $ make
 
@@ -142,13 +142,13 @@ Android-5.1 编译手册
 
 - 进入内核代码目录
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/rk3288-myzr/kernel/
 
 - 清除内核配置
 
-.. code:: shell
+.. code-block:: shell
 
     $ make distclean
 
@@ -157,7 +157,7 @@ Android-5.1 编译手册
 
 - 设置配置文件
 
-.. code:: shell
+.. code-block:: shell
 
     $ make rk3288-myzr_defconfig
 
@@ -166,7 +166,7 @@ Android-5.1 编译手册
 
 - 编译(以LVDS为例)
 
-.. code:: shell
+.. code-block:: shell
 
     $ make -j8 rk3288-myzr_rh568_lvds.img
 
@@ -184,7 +184,7 @@ Android-5.1 编译手册
 
 |   kernel.img和resource.img即为编译得到的目标文件，使用ls命令可查看文件信息。
 
-.. code:: shell
+.. code-block:: shell
 
     $ ls
 
@@ -197,7 +197,7 @@ Android-5.1 编译手册
 
 - 设置android环境变量
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/rk3288-myzr/
     $ source build.sh
@@ -207,7 +207,7 @@ Android-5.1 编译手册
 
 - 设置android版本配置
 
-.. code:: shell
+.. code-block:: shell
 
     $ lunch rk3288_box-userdebug
 
@@ -216,7 +216,7 @@ Android-5.1 编译手册
 
 - 编译
 
-.. code:: shell
+.. code-block:: shell
 
     $ make -j16
 
@@ -235,7 +235,7 @@ Android-5.1 编译手册
 
 |   boot.img，misc.img，kernel.img，resource.img，recovery.img，system.img即为编译得到的目标文件，使用ls命令可查看文件信息。
 
-.. code:: shell
+.. code-block:: shell
 
     $ ./mkimage.sh
     $ ls rockdev/Image-rk3288_box/
@@ -253,7 +253,7 @@ Android-5.1 编译手册
 |   注意：如果编译了rk2918_tools.tar.bz2，就不需要重新编译了，可以跳过这个步骤。
 |   默认复制rk2918_tools.tar.bz2到目录~/rk3288-myzr/rockdev下
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/rk3288-myzr/rockdev
     $ tar jxf rk2918_tools.tar.bz2
@@ -274,7 +274,7 @@ Android-5.1 编译手册
 .. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.1.png
    :alt: My-rk32-ek314_android_7.1.1.png
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir -p rockdev/android/Image
     $ cd rockdev/android/Image/
@@ -288,7 +288,7 @@ Android-5.1 编译手册
 打包relase_android_update.img文件
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ afptool -pack . ../update.img
     $ img_maker -rk32 RKLoader.bin update.img relase_android_update.img

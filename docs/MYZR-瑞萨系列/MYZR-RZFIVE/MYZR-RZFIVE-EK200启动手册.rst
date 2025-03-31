@@ -55,7 +55,7 @@ MYZR-RZFIVE-EK200 启动
 
 |   开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
 
-.. code:: shell
+.. code-block:: shell
 
    U-Boot SPL 2020.10 (Feb 15 2023 - 12:04:24 +0800)
    Trying to boot from MMC1

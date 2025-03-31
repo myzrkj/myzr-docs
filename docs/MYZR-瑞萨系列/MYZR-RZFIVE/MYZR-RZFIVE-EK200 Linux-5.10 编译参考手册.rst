@@ -18,7 +18,7 @@ MYZR-RZFIVE-EK200 Linux-5.10 编译参考手册
 
 **执行安装**
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~$ mkdir ~/riscv64-gcc
@@ -38,14 +38,14 @@ MYZR-RZFIVE-EK200 Linux-5.10 编译参考手册
 
 **设置交叉编译工具**
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input
   linyn@linyn-VirtualBox:~$ source /home/linyn/riscv64-gcc/environment-setup-riscv64-oe-linux
 
 **验证交叉编译工具是否设置成功**
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~$ $CC -v
@@ -90,14 +90,14 @@ U-BOOT编译
 
 - 创建编译工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~$ mkdir ~/source/ -p
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~$ tar jxvf myzr-rzfive_uboot-Release.*.tar.bz2 -C ~/source/
@@ -106,14 +106,14 @@ U-BOOT编译
 
 - 进入源码目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~$ cd ~/source/myzr-rzfive_uboot-2020.10
 
 - 清除配置
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~/source/myzr-rzfive_uboot-2020.10$ ./build.sh rzfive 2g clean
@@ -136,7 +136,7 @@ U-BOOT编译
 
 - 生成目标开发板的 .config 文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~/source/myzr-rzfive_uboot-2020.10$ ./build.sh rzfive 2g config
@@ -156,14 +156,14 @@ U-BOOT编译
 
 | 【注意】：上面2g 是内存配置，改为与开发板型号对应的配置文件，还有内存1g的配置。
 
-.. code:: shell
+.. code-block:: shell
 
   ********** MYZR-RZFIVE-EK200 **********
   myzr-rzfive-1g_defconfig  myzr-rzfive-2g_defconfig
 
 - 执行编译
 
-.. code:: shell
+.. code-block:: shell
   
   =====> Input:
   linyn@linyn-VirtualBox:~/source/myzr-rzfive_uboot-2020.10$ ./build.sh rzfive 2g uboot
@@ -185,7 +185,7 @@ U-BOOT编译
   
 - 目标文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~/source/myzr-rzfive_uboot-2020.10$ ls EK200_IMAGE/
@@ -197,7 +197,7 @@ U-BOOT编译
 `Note: 如果有提示 “cc1: error”，通常是交叉编译工具的配置没生效，可以按前面 “交叉编译工具链安装” 中的 “source 工具链配置文件” 操作一次后再执行此步骤。`
 `注意：还可以一次性完整编译`
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~/source/myzr-rzfive_uboot-2020.10$ ./build.sh all 
@@ -222,14 +222,14 @@ U-BOOT编译
 
 - 创建编译工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   mkdir ~/source/ -p
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~$ tar jxvf myzr-rzfive_linux-5.10-Release.*.tar.bz2 -C ~/source/ 
@@ -239,14 +239,14 @@ U-BOOT编译
 
 - 进入内核源码目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~$ cd ~/source/myzr-rzfive_linux-5.10/
 
 - 清除配置
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~/source/myzr-rzfive_linux-5.10$ ./build.sh rzfive 2g clean
@@ -257,7 +257,7 @@ U-BOOT编译
 
 - 编译内核
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~/source/myzr-rzfive_linux-5.10$ ./build.sh rzfive 2g kernel
@@ -283,7 +283,7 @@ U-BOOT编译
 
 - 执行编译命令
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~/source/myzr-rzfive_linux-5.10$ ./build.sh rzfive 2g dtb
@@ -297,7 +297,7 @@ U-BOOT编译
 
 - 目标文件
 
-.. code:: shell
+.. code-block:: shell
 
   ********** MYZR-RZFIEV-EK200 **********
   EK200_IMAGE/myzr-rzfive-1g.dtb  EK200_IMAGE/myzr-rzfive-2g.dtb
@@ -306,7 +306,7 @@ U-BOOT编译
 
 - 执行编译命令
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~/source/myzr-rzfive_linux-5.10$ ./build.sh rzfive 2g modules
@@ -324,13 +324,13 @@ U-BOOT编译
 
 - 目标文件
 
-.. code:: shell
+.. code-block:: shell
 
   EK200_IMAGE/kernel-modules.tar.bz2
 
 | 注意：还可以一次性完整编译
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~/source/myzr-rzfive_linux-5.10$ ./build.sh rzfive 2g all 
@@ -359,7 +359,7 @@ Linux C程序编译
 
 **编译目标文件**
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~/source$ $CC hello.c -o hello.out
@@ -371,7 +371,7 @@ Linux C程序编译
 - 把编译得到的 hello.out 复制到开发板上
 - 在开发板上运行Linux C目标程序
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   linyn@linyn-VirtualBox:~/source$ chmod +x ./hello.out

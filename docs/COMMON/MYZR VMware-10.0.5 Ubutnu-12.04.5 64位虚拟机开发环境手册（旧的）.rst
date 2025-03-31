@@ -52,7 +52,7 @@ MYZR VMware-10.0.5 Ubutnu-12.04.5 64位虚拟机开发环境手册（旧的）
 更新虚拟机系统的源列表
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get update
 
@@ -67,7 +67,7 @@ MYZR VMware-10.0.5 Ubutnu-12.04.5 64位虚拟机开发环境手册（旧的）
 更新虚拟机系统
 ~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get -y dist-upgrade
 
@@ -81,7 +81,7 @@ MYZR VMware-10.0.5 Ubutnu-12.04.5 64位虚拟机开发环境手册（旧的）
 
 |  1）安装aptitude包管理工具
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get -y install aptitude
 
@@ -91,7 +91,7 @@ MYZR VMware-10.0.5 Ubutnu-12.04.5 64位虚拟机开发环境手册（旧的）
 |  提示：上图为安装过aptitude后，再次执行安装命令的截图。
 |  2）使用aptitude安装ia32-libs
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo aptitude -y install ia32-libs
 
@@ -103,7 +103,7 @@ MYZR VMware-10.0.5 Ubutnu-12.04.5 64位虚拟机开发环境手册（旧的）
 安装mkimage工具(install mkimage tool)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get -y install uboot-mkimage
 
@@ -117,7 +117,7 @@ MYZR VMware-10.0.5 Ubutnu-12.04.5 64位虚拟机开发环境手册（旧的）
 
 |  make menuconfig对其具有依赖性质
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo aptitude -y install ncurses-dev
 

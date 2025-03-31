@@ -35,7 +35,7 @@ MYZR-IMX6-EK200 L3035测试手册
 - 执行测试命令：$ ping -I eth0 192.168.3.9 -c 2 -w 4
 - 观察测试结果：系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    --- 192.168.3.9 ping statistics ---
    2packets transmitted, 2 packets received, 0% packet loss
@@ -48,19 +48,19 @@ MYZR-IMX6-EK200 L3035测试手册
 - 设置计算机IP：设置计算机网口IP为192.168.3.9（如已经设置过可执行下一步骤）。
 - 设置第2个网口IP：$ ifconfig eth1 192.168.3.18，设置后系统会输出第2个网口的工作状态信息，类似如下：
 
-.. code:: shell
+.. code-block:: shell
 
    smsc95xx 2-1.1:1.0: eth1: link up, 100Mbps, full-duplex, lpa 0xCDE1
 
 - 执行测试命令：
 
-.. code:: shell
+.. code-block:: shell
 
    $ ping -I eth1 192.168.3.9 -c 2 -w 4
 
 - 观察测试结果：系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    --- 192.168.3.9 ping statistics ---
    2packets transmitted, 2 packets received, 0% packet loss
@@ -93,7 +93,7 @@ USB测试
 
 |  将USB设备插入底板USB接口，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    usb *-*.*: new high speed USB device number * using fsl-ehci
    ……
@@ -102,7 +102,7 @@ USB测试
 
 |  将USB设备从底板拔出，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    usb *-*.*: USB disconnect, device number *
 
@@ -131,7 +131,7 @@ SD卡接口测试
 
 |  插入SD卡到底板SD卡接口。系统输出以下信息（见附图）即表示SD接口正常：
 
-.. code:: shell
+.. code-block:: shell
 
    mmc*: new high speed SD card at address ****
    mmcblk*: mmcx:xxxx SA**G *.**GiB
@@ -141,7 +141,7 @@ SD卡接口测试
 
 |  再次住SD卡槽按下SD卡，底板会弹出SD卡。系统输出以下信息（见附图）表示SD卡接口弹出正常：
 
-.. code:: shell
+.. code-block:: shell
 
    mmc*: card **** removed
 
@@ -171,7 +171,7 @@ SD卡接口测试
 
 |  使用gplay播放一个视频，示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ gplay /app_test/arm.flv
 
@@ -200,13 +200,13 @@ LED（GPIO）测试
 
 |  在终端下键入命令执行测试程序，示例如下：
 
-.. code:: shell
+.. code-block:: shell
    
    $ /app_test/led
 
 |  这时测试程序会控制GPIO输出高低电平，并且输出类似以下信息
 
-.. code:: shell
+.. code-block:: shell
 
    Write=0
    Write=1
@@ -238,7 +238,7 @@ LED（GPIO）测试
 
 |  在终端下键入命令执行测试程序，示例如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ /app_test/key_test
 
@@ -246,7 +246,7 @@ LED（GPIO）测试
 
 |  分别按SW4、SW3、SW2，系统会输出相应的事件信息，如：
 
-.. code:: shell
+.. code-block:: shell
 
    key*** Pressed
    key*** Released
@@ -292,7 +292,7 @@ LED（GPIO）测试
 
 2. 执行测试
 
-.. code:: shell
+.. code-block:: shell
 
    $ ~/my-demo/linux-3.0.35/uart_test.out /dev/ttymxc4 "www.myzr.com.cn"
 
@@ -300,7 +300,7 @@ LED（GPIO）测试
 
 |  如果串口正常，终端上会显示类似如下的信息：
 
-.. code:: shell
+.. code-block:: shell
 
    Read Test Data finished,Read Test Data is-------www.myzr.com.cn
 
@@ -322,25 +322,25 @@ RTC测试
 
 |  查看当前系统时钟命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ date
 
 |  系统输出信息如下：
 
-.. code:: shell
+.. code-block:: shell
 
    Thu Jan 1 00:00:59 UTC 1970
 
 |  查看当前RTC芯片时钟命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ hwclock
 
 |  系统输出信息如下：
 
-.. code:: shell
+.. code-block:: shell
 
    Tue Nov 30 00:00:00 1999 0.000000 seconds
 
@@ -348,13 +348,13 @@ RTC测试
 
 |  设置系统时钟命令参考如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ date -s "2015-04-27 12:34:56"
 
 |  将系统时钟写入硬件时钟命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ hwclock -w
 
@@ -395,7 +395,7 @@ WatchDog测试
 
 |  运行/app_test/watdogrestart，示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ /app_test/watdogrestart
 
@@ -413,7 +413,7 @@ WatchDog测试
 
 |  运行/app_test/watdogtest &，示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ /app_test/watdogtest &
 
@@ -445,7 +445,7 @@ SPI测试
 
 2. 执行测试
 
-.. code:: shell
+.. code-block:: shell
 
    $ ~/my-demo/linux-3.0.35/spidev_test.out -D /dev/spidev1.0
 
@@ -453,7 +453,7 @@ SPI测试
 
 |  如果SPI正常，在终端上会看到如下字符：
 
-.. code:: shell
+.. code-block:: shell
 
    FF FF FF FF FF FF
    40 00 00 00 00 95
@@ -481,7 +481,7 @@ CAN接口测试
 
 |  示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ ip link set can0 up type can bitrate 250000
 
@@ -492,7 +492,7 @@ CAN接口测试
 
 3. 执行测试命令
 
-.. code:: shell
+.. code-block:: shell
 
    $ /app_test/client_test
 
@@ -520,7 +520,7 @@ PCIE接口测试
 
 |  在系统启动过程中输出如下信息表示PCI-E接口驱动加载没有问题：
 
-.. code:: shell
+.. code-block:: shell
 
    iMX6 PCIe PCIe RC mode imx_pcie_pltfm_probe entering.
    PCIE: imx_pcie_pltfm_probe start link up.
@@ -529,7 +529,7 @@ PCIE接口测试
 
 |  在系统启动过程中，如果PCI-E接口上没有连接有效的设备，系统会提示PCI-E端口“link down!”，类似如下：
 
-.. code:: shell
+.. code-block:: shell
 
    link up failed, DB_R0:0x00361900, DB_R1:0x08200000!
    IMX PCIe port: link down!
@@ -538,7 +538,7 @@ PCIE接口测试
 
 |  在系统启动过程中，如果PCI-E接口上检测到有效的设备，并且设备模块正常，系统会提示PCI-E端口“link up”，如下：
 
-.. code:: shell
+.. code-block:: shell
 
    IMX PCIe port: link up.
 
@@ -546,7 +546,7 @@ PCIE接口测试
 
 |  如果在PCI-E接口上插入了有效的PCI-E设备，使用lspci将会得到该模块相关的信息，类似如下（这里连接的是Intel 4965AGN）：
 
-.. code:: shell
+.. code-block:: shell
 
    00:00.0 Class 0604: 16c3:abcd
    01:00.0 Class 0280: 8086:4229
@@ -583,7 +583,7 @@ WIFI测试
 
 |  示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ insmod /lib/modules/wifi/wlan.ko
 
@@ -591,7 +591,7 @@ WIFI测试
 
 |  参考命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ wpa_passphrase MYZR_TP-LINK myzrd2302 > /etc/wpa_supplicant.conf
 
@@ -601,7 +601,7 @@ WIFI测试
 
 |  示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ wpa_supplicant -B –c /etc/wpa_supplicant.conf -iwlan0
 
@@ -609,7 +609,7 @@ WIFI测试
 
 |  示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ udhcpc -i wlan0
 
@@ -619,7 +619,7 @@ WIFI测试
 
 |  示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ ping -I wlan0 www.baidu.com -c 2
 
@@ -648,13 +648,13 @@ IPU测试
 
 |  进入测试程序所在目录（一定要进入测试程序所在目录才能正常执行测试脚本）
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd /unit_tests/
 
 |  执行测试脚本
 
-.. code:: shell
+.. code-block:: shell
 
    $ ./autorun-ipu.sh
 
@@ -663,7 +663,7 @@ IPU测试
 |  在整个测试过程中，可以看到显示屏显示的内容在不停的变化。
 |  测试完成后，在终端上可以看到类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    test stop at Thu Jan 1 00:33:38 UTC 1970
 
@@ -688,13 +688,13 @@ GPU测试
 
 |  进入测试程序所在目录（一定要进入测试程序所在目录才能正常执行测试脚本）
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd /unit_tests/
 
 |  执行测试脚本
 
-.. code:: shell
+.. code-block:: shell
 
    $ ./gpu.sh
 
@@ -724,13 +724,13 @@ VPU测试
 
 |  进入测试程序所在目录（一定要进入测试程序所在目录才能正常执行测试脚本）
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd /unit_tests/
 
 |  执行测试脚本
 
-.. code:: shell
+.. code-block:: shell
 
    $ ./autorun-vpu.sh
 
@@ -749,13 +749,13 @@ VPU测试
 
 1. 查看最大亮度
 
-.. code:: shell
+.. code-block:: shell
 
    $ cat /sys/class/backlight/pwm-backlight.0/max_brightness
 
 2. 设置亮度
 
-.. code:: shell
+.. code-block:: shell
 
    $ echo 200 >/sys/class/backlight/pwm-backlight.0/brightness
 
@@ -772,13 +772,13 @@ usb识别为U盘测试
 
 1. 创建一个10M大小的文件
 
-.. code:: shell
+.. code-block:: shell
 
    $ dd if=/dev/zero of=/dev/shm/disk bs=1024 count=10240
 
 2. 载入模块
 
-.. code:: shell
+.. code-block:: shell
 
    $ modprobe g_file_storage stall=0 file=/dev/shm/disk removable=1
 
@@ -788,7 +788,7 @@ usb识别为U盘测试
 
 4. 挂载
 
-.. code:: shell
+.. code-block:: shell
 
    $ mount /dev/shm/disk /mnt
 
@@ -805,13 +805,13 @@ usb识别为网口测试
 
 1. 载入模块
 
-.. code:: shell
+.. code-block:: shell
 
    $ modprobe g_ether
 
 2. 设置IP
 
-.. code:: shell
+.. code-block:: shell
 
    $ ifconfig usb0 192.168.7.2
 
@@ -819,7 +819,7 @@ usb识别为网口测试
 
 3. 测试网口
 
-.. code:: shell
+.. code-block:: shell
 
    $ ping 192.168.7.8 -c 2 -w 4
 
@@ -838,13 +838,13 @@ CPU温度测试
 
 1. 执行测试
 
-.. code:: shell
+.. code-block:: shell
 
    $ cat /sys/class/thermal/thermal_zone0/temp
 
 2. 测试结果
 
-.. code:: shell
+.. code-block:: shell
 
    44
 
@@ -863,7 +863,7 @@ tftp更新镜像
 
 1. 加载环境变量
 
-.. code:: shell
+.. code-block:: shell
 
    run load_scr; source;
 
@@ -871,25 +871,25 @@ tftp更新镜像
 
 |  设置开发板IP：
 
-.. code:: shell
+.. code-block:: shell
 
    setenv ipaddr 192.168.137.9
 
 |  设置电脑IP：
 
-.. code:: shell
+.. code-block:: shell
 
    setenv serverip 192.168.137.99
 
 |  设置MAC地址：
 
-.. code:: shell
+.. code-block:: shell
 
    setenv ethaddr 00:00:00:00:00:03
 
 |  测试网络：
 
-.. code:: shell
+.. code-block:: shell
 
    ping 192.168.137.99
 
@@ -897,19 +897,19 @@ tftp更新镜像
 
 3. 烧写zImage
 
-.. code:: shell
+.. code-block:: shell
 
    run update_kern
 
 4. 烧写u-boot环境变量
 
-.. code:: shell
+.. code-block:: shell
 
    run update_scr
 
 5. 烧写u-boot
 
-.. code:: shell
+.. code-block:: shell
 
    run update_ubot
 
@@ -929,7 +929,7 @@ tftp更新镜像
 
 2. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
    $ ping 192.168.137.99 -c 2 -w 4
 
@@ -937,7 +937,7 @@ tftp更新镜像
 
 3. 传输文件
 
-.. code:: shell
+.. code-block:: shell
 
    $ tftp -g 192.168.137.99 -r zImage-myimx6a9
    $ tftp -g 192.168.137.99 -r my_environment.scr
@@ -945,13 +945,13 @@ tftp更新镜像
 
 4. 查看fat分区地址
 
-.. code:: shell
+.. code-block:: shell
 
    $ fdisk -l
 
 |  输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
    ......
    Device Boot Start End Blocks Id System
@@ -961,26 +961,26 @@ tftp更新镜像
 
 5. 手动挂载
 
-.. code:: shell
+.. code-block:: shell
 
    $ mount /dev/mmcblk0p1 /mnt/
 
 6. 复制相应的文件到/mnt目录，将原文件替换
 
-.. code:: shell
+.. code-block:: shell
 
    $ cp zImage-myimx6a9 /mnt
    $ cp my_environment.scr /mnt
 
 7. 解压更新内核模块
 
-.. code:: shell
+.. code-block:: shell
 
    $ tar xjvf kernel-modules-myimx6a9.tar.bz2 -C /
 
 8. 保存并重启
 
-.. code:: shell
+.. code-block:: shell
 
    $ reboot
 
@@ -989,7 +989,7 @@ tftp更新镜像
 
 - 特别说明：
 
-.. code:: shell
+.. code-block:: shell
 
     当U-Boot 版本u-boot-2016.03 svn315及以上    
         内核 版本  linux-3.0.35  svn31及以上
@@ -1029,7 +1029,7 @@ tftp更新镜像
 |  提示：HDMI显示在启动过程中屏幕无Linux Logo显示。进入系统后可以使用gplay命令播放视频，可以看到视频转出在显示屏上。
 |  视频播放命令示例如下：
 
-.. code:: shell
+.. code-block:: shell
 
    $ gplay /unit_tests/akiyo.mp4
 
@@ -1056,25 +1056,25 @@ LVDS1+LVDS0同步显示(LVDS1+LVDS0 synchronous display)
 
 - 打开主显示屏的背光
 
-.. code:: shell
+.. code-block:: shell
 
    $ echo 0 > /sys/class/graphics/fb0/blank
 
 - 打开第2显示屏的背光
 
-.. code:: shell
+.. code-block:: shell
 
    $ echo 0 > /sys/class/graphics/fb2/blank
 
 - 播放指定的视频文件到视频设备（这里video17关联到主显示屏）
 
-.. code:: shell
+.. code-block:: shell
 
    $ gst-launch playbin2 uri=file:///unit_tests/akiyo.mp4 video-sink="mfw_v4lsink device=/dev/video17"
 
 - 播放指定的视频文件到视频设备（这里video18关联到第2显示屏）
 
-.. code:: shell
+.. code-block:: shell
 
    $ gst-launch playbin2 uri=file:///unit_tests/akiyo.mp4 video-sink="mfw_v4lsink device=/dev/video18"
 
@@ -1155,7 +1155,7 @@ OV5642摄像头 测试
 1. 开发板断电，接上tw6865四路摄像头模块，接上摄像头后启动评估板。
 2. 使用指令进行测试
 
-.. code:: shell
+.. code-block:: shell
 
    EXEC_FILE=/my-demo/linux-3.0.35/MY_TW6865_DEMO_L3035_MYIMX6A9.out
    ${EXEC_FILE} -x 2 -ot 0 -ol 0 -ow 512 -oh 300 -m 2 &

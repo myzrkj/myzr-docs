@@ -15,7 +15,7 @@
 
 2. 执行安装
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
 
@@ -36,19 +36,19 @@
 
     安装成功后，在03目录下有一个environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi脚本，输入如下命令：
 
-.. code:: shell
+.. code-block:: shell
 
     source environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi
 
 4. 验证
 
-.. code:: shell
+.. code-block:: shell
 
     $CC -v
 
 输出如下信息代表环境配置成功：
 
-.. code:: shell
+.. code-block:: shell
 
     Using built-in specs.
     COLLECT_GCC=arm-ostl-linux-gnueabi-gcc
@@ -69,13 +69,13 @@
 
 2. 创建编译目录：
 
-.. code:: shell
+.. code-block:: shell
 
     mkdir ~/my-work/stm32mp13/02_sources -p
 
 3. 把源码放到此目录中，并进行解压：
 
-.. code:: shell
+.. code-block:: shell
 
     tar xvf en.SOURCES-stm32mp1-openstlinux-5.15.tar.bz2 -C ~/my-work/stm32mp13/02_sources/
 
@@ -85,7 +85,7 @@
 
 1. 进入tf-a-stm32mp-v2.6-stm32mp-r2-r0目录，解压tf-a源码：
 
-.. code:: shell
+.. code-block:: shell
 
     tar xvf tf-a-stm32mp-v2.6-stm32mp-r2.tar.bz2 
 
@@ -93,7 +93,7 @@
 
 3. 在此目录下，可看到有一个编译脚本 build-512m.sh ，直接运行此脚本进行编译：
 
-.. code:: shell
+.. code-block:: shell
 
     ./build-512m.sh 
 
@@ -105,7 +105,7 @@
 
 1. 进入optee-os-stm32mp-3.16.0-stm32mp-r2-r0，解压源码：
 
-.. code:: shell
+.. code-block:: shell
 
     tar xvf optee-os-stm32mp-3.16.0-stm32mp-r2.tar.bz2 
 
@@ -113,7 +113,7 @@
 
 3. 在此目录下，可看到有一个编译脚本 build-512m.sh ，直接运行此脚本进行编译：
 
-.. code:: shell
+.. code-block:: shell
 
     ./build-512m.sh 
 
@@ -125,7 +125,7 @@
 
 1. 进入u-boot-stm32mp-v2021.10-stm32mp-r2-r0，解压源码：
 
-.. code:: shell
+.. code-block:: shell
 
     tar xvf u-boot-stm32mp-v2021.10-stm32mp-r2.tar.bz2 
 
@@ -133,7 +133,7 @@
 
 3. 在此目录下输入，如下命令进行配置和编译打包等：
 
-.. code:: shell
+.. code-block:: shell
 
     export FIP_DEPLOYDIR_ROOT=$PWD/../../FIP_artifacts
     make -f $PWD/../Makefile.sdk DEPLOYDIR=$FIP_DEPLOYDIR_ROOT/u-boot UBOOT_CONFIG=trusted UBOOT_DEFCONFIG=myzrstm32mp13_defconfig UBOOT_BINARY=u-boot.dtb DEVICETREE=myzr-stm32mp13-512m all
@@ -146,7 +146,7 @@
 
 1. 进入linux-stm32mp-5.15.67-stm32mp-r2-r0，解压源码：
 
-.. code:: shell
+.. code-block:: shell
 
     tar xvf linux-5.15.67.tar.bz2
 
@@ -154,25 +154,25 @@
 
 3. 生成.config文件
 
-.. code:: shell
+.. code-block:: shell
 
     make myzr-stm32mp13_defconfig 
 
 4. 编译内核目标文件
 
-.. code:: shell
+.. code-block:: shell
 
     make -j16 uImage LOADADDR=0xC2000040
 
 5. 编译设备树文件
 
-.. code:: shell
+.. code-block:: shell
 
     make myzr-stm32mp13.dtb
 
 6. 编译内核模块包
 
-.. code:: shell
+.. code-block:: shell
 
     # 进行编译
     make -j16 modules
@@ -203,13 +203,13 @@
 
     - 内核模块包更新：把内核模块包拷贝到开发板中，通过如下命令进行解压：
 
-    .. code:: shell
+    .. code-block:: shell
 
         tar xvf modules.tar.bz2 -C /
 
     解压完成后，输入如下命令进行重启开发板：
 
-    .. code:: shell
+    .. code-block:: shell
 
         depmod  -a
         sync

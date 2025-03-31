@@ -32,20 +32,20 @@ Linux-3.0.35 测试手册
 
 - 设置评估板IP：
 
-.. code:: shell
+.. code-block:: shell
 
     $ ifconfig eth0 192.168.18.36　　　　 　 ＃ configure the eth0
 
 - 执行测试命令：
 
-.. code:: shell
+.. code-block:: shell
 
     $ ifconfig eth1 down 　　　　 　 ＃ eth1 to be shut down
     $ ping 192.168.18.18 -c 2 -w 4 　　　　 　＃ send ICMP to HOST
 
 - 观察测试结果：系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
     --- 192.168.18.18 ping statistics ---
     2packets transmitted, 2 packets received, 0% packet loss
@@ -62,26 +62,26 @@ Linux-3.0.35 测试手册
 - 设置计算机IP：设置计算机网口IP为192.168.18.18（如已经设置过可执行下一步骤）。
 - 设置第2个网口IP：
 
-.. code:: shell
+.. code-block:: shell
 
     $ ifconfig eth1 192.168.18.27 　　　　 　＃ configure the eth1
 
 |   设置后系统会输出第2个网口的工作状态信息，类似如下：
 
-.. code:: shell
+.. code-block:: shell
 
     smsc95xx 1-1.1:1.0 eth1: link up, 100Mbps, full-duplex, lpa 0x4DE1
 
 |   执行测试命令：
 
-.. code:: shell
+.. code-block:: shell
 
     $ ifconfig eth0 down 　　　　 　＃ eth0 to be shut down
     $ ping 192.168.18.18 -c 2 -w 4 　　　　　＃ send ICMP to HOST
 
 - 观察测试结果：系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
     --- 192.168.18.18 ping statistics ---
 
@@ -105,7 +105,7 @@ USB测试
 |   1） 开始测试
 |   将USB设备插入底板USB接口，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
     usb *-*.*: new high speed USB device number * using fsl-ehci
     ……
@@ -113,7 +113,7 @@ USB测试
 |   2） 测试结束
 |   将USB设备从底板拔出，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
     usb *-*.*: USB disconnect, device number *
 
@@ -134,7 +134,7 @@ SD卡接口测试
 |   1） 往SD卡槽插入设备
 |   插入SD卡到底板SD卡接口。系统输出以下信息（见附图）即表示SD接口正常：
 
-.. code:: shell
+.. code-block:: shell
 
     mmc*: new high speed SD card at address ****
     mmcblk*: mmcx:xxxx SA**G *.**GiB
@@ -143,7 +143,7 @@ SD卡接口测试
 |   2）从SD卡槽弹出设备
 |   再次住SD卡槽按下SD卡，底板会弹出SD卡。系统输出以下信息（见附图）表示SD卡接口弹出正常：
 
-.. code:: shell
+.. code-block:: shell
 
     mmc*: card **** removed
 
@@ -169,7 +169,7 @@ SD卡接口测试
 |   2）执行测试
 |   使用aplay播放一个视频，示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ aplay /unit_tests/audio8k16S.wav
 
@@ -193,7 +193,7 @@ SD卡接口测试
 
 |   使用gplay播放一个视频，示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
     
     ＃ gplay /unit_tests/akiyo.mp4
 
@@ -222,13 +222,13 @@ GPIO-LED（GPIO）测试
 
 |   GPIO的测试方法如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ echo 1 > /sys/class/leds/user_led/brightness
 
 |   使用万用表测试U14:30引脚，可以看到该引脚是高电平。
 
-.. code:: shell
+.. code-block:: shell
 
     $ echo 0 > /sys/class/leds/user_led/brightness
 
@@ -242,31 +242,31 @@ GPIO-LED（GPIO）测试
 |   IMX6 GPIO序号的计算方法为：（所在的组 - 1） * 32 + 序号，所以PIO3_IO21的管脚值为 （3 – 1） * 32 + 21 = 85。
 |   2）设置需要测试的GPIO的IO Number
 
-.. code:: shell
+.. code-block:: shell
 
     $ IO_NUMBER=85
 
 |   3）导出GPIO
 
-.. code:: shell
+.. code-block:: shell
 
     $ echo ${IO_NUMBER} > /sys/class/gpio/export
 
 |   4）设置GPIO方向
 
-.. code:: shell
+.. code-block:: shell
 
     $ echo out > /sys/class/gpio/gpio${IO_NUMBER}/direction
 
 |   5）控制输出值
 
-.. code:: shell
+.. code-block:: shell
 
     $ echo 1 > /sys/class/gpio/gpio${IO_NUMBER}/value
 
 |   使用万用表测试IO_NUMBER对应的引脚，可以看到该引脚是高电平。
 
-.. code:: shell
+.. code-block:: shell
     
     $ echo 0 > /sys/class/gpio/gpio${IO_NUMBER}/value
 
@@ -284,14 +284,14 @@ GPIO-LED（GPIO）测试
 |   1）执行测试程序
 |   在终端下键入命令执行测试程序，示例如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ /app_test/key_test
 
 |   2）进行交互测试
 |   分别按SW2、SW3、SW4，系统会输出相应的事件信息，如：
 
-.. code:: shell
+.. code-block:: shell
 
     key*** Pressed
     key*** Released
@@ -340,7 +340,7 @@ GPIO-LED（GPIO）测试
 |   通过测试程序向串口发送字符串，并输出串口接收到的字符串。
 |   2）进入测试程序目录
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd /app_test
 
@@ -352,7 +352,7 @@ GPIO-LED（GPIO）测试
 
 - 执行测试命令
 
-.. code:: shell
+.. code-block:: shell
 
     $ ./uart_test /dev/ttymxc1 "www.myzr.com.cn"
 
@@ -369,7 +369,7 @@ GPIO-LED（GPIO）测试
 
 - 执行测试命令
 
-.. code:: shell
+.. code-block:: shell
 
     $ ./uart_test /dev/ttymxc2 "www.myzr.com.cn"
 
@@ -381,7 +381,7 @@ GPIO-LED（GPIO）测试
 
 - 执行测试命令
 
-.. code:: shell
+.. code-block:: shell
 
     $ ./uart_test /dev/ttymxc3 "www.myzr.com.cn"
 
@@ -399,7 +399,7 @@ GPIO-LED（GPIO）测试
 
 - 执行测试命令
 
-.. code:: shell
+.. code-block:: shell
 
     $ ./uart_test /dev/ttymxc4 "www.myzr.com.cn"
 
@@ -421,7 +421,7 @@ RS232串口测试
 |   短接RS232的发送发接收管脚（P2的2和3号引脚）。
 |   2）执行测试命令
 
-.. code:: shell
+.. code-block:: shell
 
     $ ./uart_test /dev/ttymxc3 "www.myzr.com.cn"
 
@@ -444,38 +444,38 @@ RTC测试
 
 |   查看当前系统时钟命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ date
 
 |   系统输出信息如下：
 
-.. code:: shell
+.. code-block:: shell
 
     Thu Jan 1 00:00:12 UTC 1970
 
 |   查看当前RTC芯片时钟命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ hwclock
 
 |   系统输出信息如下：
 
-.. code:: shell
+.. code-block:: shell
 
     Tue Nov 30 00:00:00 1999 0.000000 seconds
 
 |   2）设置系统时钟，并同步到RTC芯片
 |   设置系统时钟命令参考如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ date -s "2015-09-02 12:34:56"
 
 |   将系统时钟写入硬件时钟命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ hwclock –w
 
@@ -510,7 +510,7 @@ WatchDog测试
 |   复位测试将启动WatchDog，但是并不喂狗，超时后系统将会复位。
 |   2）执行测试
 
-.. code:: shell
+.. code-block:: shell
 
     $ /unit_tests/wdt_driver_test.out 10 15 1
 
@@ -529,13 +529,13 @@ WatchDog测试
 
 - 启动WatchDog
 
-.. code:: shell
+.. code-block:: shell
 
     $ /unit_tests/wdt_driver_test.out 4 2 1 &
 
 - 查看当前时间
 
-.. code:: shell
+.. code-block:: shell
 
     $ date
 
@@ -545,7 +545,7 @@ WatchDog测试
 
 |   经过几分钟之后，系统依然没有复位。我们再查看当前时间。
 
-.. code:: shell
+.. code-block:: shell
 
     $ date
 
@@ -553,14 +553,14 @@ WatchDog测试
 
 |   这时我们终止Watchdog测试程序，这样就没有程序进行喂狗了，系统将会在超时时间（这里是4秒）内复位。
 
-.. code:: shell
+.. code-block:: shell
 
     $ ps | grep "/unit_tests/wdt_driver_test.out"
     3195root 　　 1464 S 　　 /unit_tests/wdt_driver_test.out 4 2 1
 
 |   可以看到wdt_driver_test.out的pid为3195，下面我们终止3195的进程：
 
-.. code:: shell
+.. code-block:: shell
 
     $ kill 3195
 
@@ -584,14 +584,14 @@ SPI测试
 |   短接SPI的MISO和MISO管脚，即短接底板上J13的7号和11号管脚。
 |   2）执行测试
 
-.. code:: shell
+.. code-block:: shell
 
     $ /app_test/spi_test -D /dev/spidev1.0
 
 |   3）测试结果
 |   如果SPI正常，在终端上会看到如下字符：
 
-.. code:: shell
+.. code-block:: shell
 
     FF FF FF FF FF FF
     40 00 00 00 00 95
@@ -618,7 +618,7 @@ CAN接口测试
 |   1）配置CAN0
 |   示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ ip link set can0 up type can bitrate 250000
 
@@ -627,7 +627,7 @@ CAN接口测试
 |   配置示波器（不会使用示波器的客户请找硬件工程师协助）。
 |   3）执行测试命令
 
-.. code:: shell
+.. code-block:: shell
 
     $ /app_test/client_test
 
@@ -652,7 +652,7 @@ PCIE接口测试
 |   1）PCI-E驱动程序输出信息
 |   在系统启动过程中输出如下信息表示PCI-E接口驱动加载没有问题：
 
-.. code:: shell
+.. code-block:: shell
 
     iMX6 PCIe PCIe RC mode imx_pcie_pltfm_probe entering.
     PCIE: imx_pcie_pltfm_probe start link up.
@@ -660,7 +660,7 @@ PCIE接口测试
 |   2）不连接PCI-E设备时的输出信息
 |   在系统启动过程中，如果PCI-E接口上没有连接有效的设备，系统会提示PCI-E端口“link down!”，类似如下：
 
-.. code:: shell
+.. code-block:: shell
 
     link up failed, DB_R0:0x00801600, DB_R1:0x08200000!
     IMX PCIe port: link down!
@@ -668,19 +668,19 @@ PCIE接口测试
 |   3）连接有效PCI-E设备时的输出信息（这里以Intel 4965AGN为例）
 |   在系统启动过程中，如果PCI-E接口上检测到有效的设备，并且设备模块正常，系统会提示PCI-E端口“link up”，如下：
 
-.. code:: shell
+.. code-block:: shell
 
     IMX PCIe port: link up.
 
 4）Linux测试命令：
 
-.. code:: shell
+.. code-block:: shell
 
     $ lspci
 
 |   如果在PCI-E接口上插入了有效的PCI-E设备，使用lspci将会得到该模块相关的信息，类似如下（这里连接的是Intel 4965AGN）：
 
-.. code:: shell
+.. code-block:: shell
 
     00:00.0 Class 0604: 16c3:abcd
     01:00.0 Class 0280: 8086:4229
@@ -716,14 +716,14 @@ WIFI测试
 |   1）加载WIFI模块驱动
 |   示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ insmod /lib/modules/wifi/wlan.ko
 
 |   2）生成WIFI的config文件
 |   参考命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ wpa_passphrase MYZR_TP-LINK myzrd2302 > /etc/wpa_supplicant.conf
 
@@ -731,14 +731,14 @@ WIFI测试
 |   3）连接WIFI网络
 |   示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ wpa_supplicant -B –c /etc/wpa_supplicant.conf -iwlan0
 
 |   4）自动获取IP
 |   示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ udhcpc -i wlan0
 
@@ -746,7 +746,7 @@ WIFI测试
 |   5）测试WIFI网络连接
 |   示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ ping -I wlan0 www.baidu.com -c 2
 
@@ -765,13 +765,13 @@ IPU测试
 |   1）执行测试
 |   进入测试程序所在目录（一定要进入测试程序所在目录才能正常执行测试脚本）
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd /unit_tests/
 
 |   执行测试脚本
 
-.. code:: shell
+.. code-block:: shell
 
     $ ./autorun-ipu.sh
 
@@ -779,7 +779,7 @@ IPU测试
 |   在整个测试过程中，可以看到显示屏显示的内容在不停的变化。
 |   测试完成后，在终端上可以看到类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
     
     autorun-ipu.sh: Exiting PASS
 
@@ -804,7 +804,7 @@ GPU测试
 
 - 执行测试命令
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd /opt/viv_samples/vdk/ && ./tutorial3 -f 100
     $ cd /opt/viv_samples/vdk/ && ./tutorial4_es20 -f 100
@@ -832,13 +832,13 @@ VPU测试
 
 |   进入测试程序所在目录（一定要进入测试程序所在目录才能正常执行测试脚本）
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd /unit_tests/
 
 - 执行测试脚本
 
-.. code:: shell
+.. code-block:: shell
 
     $ ./autorun-vpu.sh
 
@@ -862,13 +862,13 @@ VPU测试
 
 |   1）查看最大亮度
 
-.. code:: shell
+.. code-block:: shell
 
     $ cat /sys/class/backlight/pwm-backlight.0/max_brightness
 
 |   2）设置亮度
 
-.. code:: shell
+.. code-block:: shell
 
     $ echo 200 >/sys/class/backlight/pwm-backlight.0/brightness
 
@@ -885,13 +885,13 @@ usb识别为U盘测试
 
 |   1）创建一个10M大小的文件
 
-.. code:: shell
+.. code-block:: shell
 
     $ dd if=/dev/zero of=/dev/shm/disk bs=1024 count=10240
 
 |   2）载入模块
 
-.. code:: shell
+.. code-block:: shell
 
     $ modprobe g_file_storage stall=0 file=/dev/shm/disk removable=1
 
@@ -899,7 +899,7 @@ usb识别为U盘测试
 |   此时PC“我的电脑”会出现U盘的驱动器，将其格式化后，便可对其读写
 |   4）挂载
 
-.. code:: shell
+.. code-block:: shell
 
     $ mount /dev/shm/disk /mnt
 
@@ -916,20 +916,20 @@ usb识别为网口测试
 
 |   1）载入模块
 
-.. code:: shell
+.. code-block:: shell
 
     $ modprobe g_ether
 
 |   2）设置IP
 
-.. code:: shell
+.. code-block:: shell
 
     $ ifconfig usb0 192.168.7.2
 
 |   将PC识别的rndis的本地连接IP设置为192.168.7.8
 |   3）测试网口
 
-.. code:: shell
+.. code-block:: shell
 
     $ ping 192.168.7.8 -c 2 -w 4
 
@@ -947,13 +947,13 @@ CPU温度测试
 
 |   1）执行测试
 
-.. code:: shell
+.. code-block:: shell
 
     $ cat /sys/class/thermal/thermal_zone0/temp
 
 |   2）测试结果
 
-.. code:: shell
+.. code-block:: shell
 
     44
 
@@ -971,32 +971,32 @@ tftp更新镜像
 |   进入u-boot命令行。
 |   1)加载环境变量
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source;
 
 |   2）设置IP
 |   设置开发板IP：
 
-.. code:: shell
+.. code-block:: shell
 
     setenv ipaddr 192.168.137.9
 
 |   设置电脑IP：
 
-.. code:: shell
+.. code-block:: shell
 
     setenv serverip 192.168.137.99
 
 |   设置MAC地址：
 
-.. code:: shell
+.. code-block:: shell
 
     setenv ethaddr 00:00:00:00:00:03
 
 |   测试网络：
 
-.. code:: shell
+.. code-block:: shell
 
     ping 192.168.137.99
 
@@ -1004,19 +1004,19 @@ tftp更新镜像
 
 |   3）烧写zImage
 
-.. code:: shell
+.. code-block:: shell
 
     run update_kern
 
 |   4)烧写u-boot环境变量
 
-.. code:: shell
+.. code-block:: shell
 
     run update_scr
 
 |   5)烧写u-boot
 
-.. code:: shell
+.. code-block:: shell
 
     run update_ubot
 
@@ -1034,14 +1034,14 @@ tftp更新镜像
 |   把开发板的这个网口用网线跟电脑网口连接起来。
 |   2）测试连接
 
-.. code:: shell
+.. code-block:: shell
 
     $ ping 192.168.137.99 -c 2 -w 4
 
 |   测试结果：“0% packet loss”表示测试通过
 |   3）传输文件
 
-.. code:: shell
+.. code-block:: shell
 
     $ tftp -g 192.168.137.99 -r zImage-myimx6a9
     $ tftp -g 192.168.137.99 -r my_environment.scr
@@ -1049,13 +1049,13 @@ tftp更新镜像
 
 |   4)查看fat分区地址
 
-.. code:: shell
+.. code-block:: shell
 
     $ fdisk -l
 
 |   输出信息：
 
-.. code:: shell
+.. code-block:: shell
 
     ......
     Device Boot Start End Blocks Id System
@@ -1065,26 +1065,26 @@ tftp更新镜像
 
 |   5)手动挂载
 
-.. code:: shell
+.. code-block:: shell
 
     $ mount /dev/mmcblk0p1 /mnt/
 
 |   6)复制相应的文件到/mnt目录，将原文件替换
 
-.. code:: shell
+.. code-block:: shell
 
     $ cp zImage-myimx6a9 /mnt
     $ cp my_environment.scr /mnt
 
 |   7)解压更新内核模块
 
-.. code:: shell
+.. code-block:: shell
 
     $ tar xjvf kernel-modules-myimx6a9.tar.bz2 -C /
 
 |   8)保存并重启
 
-.. code:: shell
+.. code-block:: shell
 
     $ reboot
 
@@ -1119,26 +1119,26 @@ tftp更新镜像
 
 |   进入u-boot命令行，输入下面命令并按确定键：
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=ldb,LDB-1024X600,if=RGB666 ldb=sin0; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
 **HDMI**
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=hdmi,1920x1080M@60,if=RGB24; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
 |   提示：HDMI显示在启动过程中屏幕无Linux Logo显示。进入系统后可以使用gplay命令播放视频，可以看到视频转出在显示屏上。
 |   视频播放命令示例如下：
 
-.. code:: shell
+.. code-block:: shell
 
     $ gplay /unit_tests/akiyo.mp4
 
 **RGB**
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=lcd,SEIKO-WVGA,if=RGB24; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
@@ -1150,7 +1150,7 @@ tftp更新镜像
 LVDS1+LVDS0同步显示
 ~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=ldb,LDB-1024X600,if=RGB666 ldb=dul0 video=mxcfb1:dev=ldb,LDB-1024X600,if=RGB666; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
@@ -1161,26 +1161,26 @@ LVDS1+LVDS0同步显示
 
 - 打开主显示屏的背光
 
-.. code:: shell
+.. code-block:: shell
 
     $ echo 0 > /sys/class/graphics/fb0/blank
 
 - 打开第2显示屏的背光
 
-.. code:: shell
+.. code-block:: shell
 
     $ echo 0 > /sys/class/graphics/fb2/blank
 
 - 播放指定的视频文件到视频设备（这里video17关联到主显示屏）
 
-.. code:: shell
+.. code-block:: shell
 
     $ gst-launch playbin2 uri=file:///unit_tests/akiyo.mp4 \ 
     video-sink="mfw_v4lsink device=/dev/video17"
 
 - 播放指定的视频文件到视频设备（这里video18关联到第2显示屏）
 
-.. code:: shell
+.. code-block:: shell
 
     $ gst-launch playbin2 uri=file:///unit_tests/akiyo.mp4 \ 
     video-sink="mfw_v4lsink device=/dev/video18"
@@ -1199,19 +1199,19 @@ LVDS1+LVDS0同步显示
 
 - LVDS1+LVDS0双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=ldb,LDB-1024X600,if=RGB666 video=mxcfb1:dev=ldb,LDB-1024X600,if=RGB666; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
 - LVDS1+RGB双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=ldb,LDB-1024X600,if=RGB666 video=mxcfb1:dev=lcd, SEIKO-WVGA,if=RGB24; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
 - LVDS1+HDMI双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=ldb,LDB-1024X600,if=RGB666 video=mxcfb1:dev=hdmi,1920x1080M@60,if=RGB24; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
@@ -1219,19 +1219,19 @@ LVDS1+LVDS0同步显示
 
 - LVDS0+LVDS1双屏异步显示：
 
-.. code:: shell
+.. code-block:: shell
     
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=ldb,LDB-1024X600,if=RGB666 ldb=sep0 video=mxcfb1:dev=ldb,LDB-1024X600,if=RGB666; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
 - LVDS0+RGB双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=ldb,LDB-1024X600,if=RGB666 ldb=sin0 video=mxcfb1:dev=lcd,SEIKO-WVGA,if=RGB24; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
 - LVDS0+HDMI双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=ldb,LDB-1024X600,if=RGB666 ldb=sin0 video=mxcfb1:dev=hdmi,1920x1080M@60,if=RGB24; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
@@ -1239,13 +1239,13 @@ LVDS1+LVDS0同步显示
 
 - RGB+LVDS1双屏异步显示：
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=lcd,SEIKO-WVGA,if=RGB24 video=mxcfb1:dev=ldb,LDB-1024X600,if=RGB666; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
 - RGB+LVDS0双屏异步显示：
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=lcd,SEIKO-WVGA,if=RGB24 video=mxcfb1:dev=ldb,LDB-1024X600,if=RGB666 ldb=sin0; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
@@ -1253,13 +1253,13 @@ LVDS1+LVDS0同步显示
 
 - HDMI+LVDS1双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=hdmi,1920x1080M@60,if=RGB24 video=mxcfb1:dev=ldb,LDB-1024X600,if=RGB666; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
 - HDMI+LVDS0双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 ip=none root=/dev/mmcblk0p1 rootwait video=mxcfb0:dev=hdmi,1920x1080M@60,if=RGB24 video=mxcfb1:dev=ldb,LDB-1024X600,if=RGB666 ldb=sin0; mmc dev 2; mmc read 0x10800000 0x800 0x2000; bootm
 
@@ -1269,7 +1269,7 @@ OV5642摄像头 测试
 1. 开发板断电，在"CAMERA"接上OV5642摄像头，接上摄像头后启动评估板。
 2. 使用指令进行测试:
 
-.. code:: shell
+.. code-block:: shell
 
     /unit_tests/mxc_v4l2_overlay.out -iw 640 -ih 480 -it 0 -il 0 -ow 640 -oh 480 -ot 20 -ol 20 -r 0 -t 50 -do 0 -fg -fr 30
 
@@ -1279,7 +1279,7 @@ OV5642摄像头 测试
 1. 开发板断电，接上tw6865四路摄像头模块，接上摄像头后启动评估板。
 2. 使用指令进行测试
 
-.. code:: shell
+.. code-block:: shell
 
     EXEC_FILE=/my-demo/linux-3.0.35/MY_TW6865_DEMO_L3035_MYIMX6A9.out
     ${EXEC_FILE} -x 2 -ot 0 -ol 0 -ow 512 -oh 300 -m 2 &

@@ -7,7 +7,7 @@ MYZR-SSD2351-EK112编译手册
 |  ubuntu版本：ubuntu20.04
 |  软件包安装：
 
-.. code:: shell
+.. code-block:: shell
 
    $ sudo apt-get install libc6-dev-i386 lib32z1  libuuid1 cmake libncurses5-dev 
    libncursesw5-dev bc xz-utils automake libtool libevdev-dev pkg-config mtd-utils  
@@ -18,7 +18,7 @@ MYZR-SSD2351-EK112编译手册
 
 |  编译脚本默认使用的是bash，要求系统的默认shell为bash，可通过ls -la /bin/sh命令来确认。以最常用的Ubuntu为例，高版本的Ubuntu默认shell为dash，修改方式如下：
 
-.. code:: shell
+.. code-block:: shell
 
    # ls -la /bin/sh
     lrwxrwxrwx 1 root root 4 Jun 15 08:49 /bin/sh -> dash
@@ -42,7 +42,7 @@ MYZR-SSD2351-EK112编译手册
 |  sdk-Pcupid_DLD00V2.2.9.tar.gz:测试Demo/应用打包框架部分
 |  arm-sigmastar-linux-gcc-12.4.0-uclibc-1.0.46-gnueabihf.tar.xz:  交叉编译工具
 
-.. code:: shell
+.. code-block:: shell
 
    $ mkdir ~/ssd2351/source -p
    $ tar zxvf boot-Pcupid_DLD00V2.2.9*.tar.gz -C ~/ssd2351/source 
@@ -55,7 +55,7 @@ MYZR-SSD2351-EK112编译手册
 设置交叉编译工具
 ~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ export PATH=~/ssd2351/tool/toolchain/arm-sigmastar-linux-gcc-12.4.0-uclibc-1.0.46-gnueabihf/bin:$PATH
    $ export CROSS_COMPILE=arm-sigmastar-linux-uclibcgnueabihf-12.4.0-
@@ -67,7 +67,7 @@ MYZR-SSD2351-EK112编译手册
 
 |  #全局编译，只要运行，会把boot,kernel，project，sdk编译
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/ssd2351/source/project/
    $ make dispcam_pcupid.spinand.uclibc-12.4.0-arm-squashfs.ssm001c.128.voip.qfn128_ddr3_defconfig
@@ -79,21 +79,21 @@ MYZR-SSD2351-EK112编译手册
 |  #为增加调试效率，除首次编译外，后续debug可以直接在project下编译对应修改模块然后重新快速打包即可，例如：
 |  #仅编译kernel：
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/ssd2351/source/project/
    $ make linux-kernel_clean;make linux-kernel -j8
 
 |  #仅编译boot：
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/ssd2351/source/project/
    $ make boot_clean;make boot -j8
 
 |  #仅快速打包sdk image：
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/ssd2351/source/project/
    $ make image-fast-nocheck -j8
@@ -104,7 +104,7 @@ MYZR-SSD2351-EK112编译手册
 
 |  #project下SDK编译已经添加boot编译选项，因此建议boot修改之后，直接在project下编译使用make boot编译boot，编译后不需要手动release到project下的路径，直接重新打包project即可
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/ssd2351/source/boot
    $ make pcupid_ssm001c_s01a_spinand_defconfig
@@ -112,7 +112,7 @@ MYZR-SSD2351-EK112编译手册
 
 |  #注意：在boot目录下单独编译需要先将生成image手动release到project对应目录之后打包才行
 
-.. code:: shell
+.. code-block:: shell
 
    $ cp ~/ssd2351/source/boot/u-boot_spinand.xz.img.bin ~/ssd2351/source/project/board/uboot/u-boot.xz.img.bin
 
@@ -121,7 +121,7 @@ MYZR-SSD2351-EK112编译手册
 
 |  #project下SDK编译已经添加kernel编译选项，因此建议kernel修改之后，直接在project下编译使用make linux-kernel编译kernel，编译后不需要手动release到project下的路径，直接重新打包project即可
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/ssd2351/source/kernel
    $ make pcupid_ssm001c_s01a_spinand_voip_defconfig
@@ -138,14 +138,14 @@ MYZR-SSD2351-EK112编译手册
 |  #整包sdk编译成功后，执行./image/makefiletools/script/make_usb_factory_sigmastar.sh 脚本
 |  #可以选择全部升级和部分分区升级：(y是全部更新，n是部分更新)
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/ssd2351/source/project/
    $ ./image/makefiletools/script/make_usb_factory_sigmastar.sh
 
 |  提示：
 
-.. code:: shell
+.. code-block:: shell
 
    Full or Optional Upgrade ? (Y/N)y
    using alone TF-A:u-bl31.bin

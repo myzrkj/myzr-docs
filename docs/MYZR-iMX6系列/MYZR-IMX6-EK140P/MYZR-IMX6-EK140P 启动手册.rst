@@ -78,7 +78,7 @@ MYZR-IMX6-EK140P 主要接口
 
 |   开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
 
-.. code:: shell
+.. code-block:: shell
 
    U-Boot 2016.03-svn315 (Nov 21 2018 - 15:03:14 +0800)
 

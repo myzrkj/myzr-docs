@@ -23,7 +23,7 @@ MYZR-SSD20X-CB096 烧录手册
 9. 在终端软件中的会话里的uboot启动阶段，敲击Enter回车键进入到uboot命令行
 10. 配置uboot烧录环境
 
-.. code:: shell
+.. code-block:: shell
 
    # windows ip
    setenv serverip 192.168.137.99

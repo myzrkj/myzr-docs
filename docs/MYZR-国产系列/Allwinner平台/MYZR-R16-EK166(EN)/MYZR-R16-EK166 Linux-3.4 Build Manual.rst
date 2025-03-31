@@ -16,7 +16,7 @@ Download source package
 Decompress source code
 --------------------------
 
-.. code:: shell
+.. code-block:: shell
    
     $ tar -jxvf tina.tar.bz2
 
@@ -28,7 +28,7 @@ Compile
 Setting platform information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
    
     $ cd ~/tinaV2.1
     $ source build/envsetup.sh
@@ -52,7 +52,7 @@ Setting platform information
 Compile Uboot
 ~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd lichee/brandy/u-boot-2011.09
     $ make distclean
@@ -74,7 +74,7 @@ Compile Uboot
 Compile the system and kernel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/tinaV2.1/
    $ make
@@ -86,7 +86,7 @@ Compile the system and kernel
 Package
 ~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/tinaV2.1
    $ pack

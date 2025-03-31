@@ -58,7 +58,7 @@ MYZR-LS1012A-EK200 烧录手册
 
 3. 依次输入一下命令：
 
-.. code:: shell
+.. code-block:: shell
 
    fl_unprotect 0x0 0x4000000
    fl_write 0x0 rcw_800.bin.swapped --erase --force
@@ -87,7 +87,7 @@ MYZR-LS1012A-EK200 烧录手册
 2. 重启开发板，进入uboot命令行。
 3. 输入命令：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    setenv ipaddr 192.168.137.81  
@@ -106,7 +106,7 @@ MYZR-LS1012A-EK200 烧录手册
 
 4. ping通后，输入命令：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    setenv update_ppa 'tftp 0x96000000 ppa.itb;sf probe 0:0; sf erase 0x500000 +$filesize; sf write 0x96000000 0x500000 $filesize;'
@@ -136,7 +136,7 @@ MYZR-LS1012A-EK200 烧录手册
 
 1. 加载ramdisk系统启动
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    run bootcmd_tftp 
@@ -151,7 +151,7 @@ MYZR-LS1012A-EK200 烧录手册
 
 2. 开发板启动完毕后，输入命令：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ root
@@ -268,7 +268,7 @@ MYZR-LS1012A-EK200 烧录手册
 
 1. 加载ramdisk启动
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    usb start
@@ -297,7 +297,7 @@ MYZR-LS1012A-EK200 烧录手册
 
 2. 开发板启动完毕后，输入命令：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $ root
@@ -393,7 +393,7 @@ MYZR-LS1012A-EK200 烧录手册
 
 1. 网络测试
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input: ifconfig eth0 192.168.137.81 ping 192.168.137.1 -c 2 -w 4 
 
@@ -405,7 +405,7 @@ MYZR-LS1012A-EK200 烧录手册
 
 2. 传输文件
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    tftp -g 192.168.137.1 -r Image
@@ -414,7 +414,7 @@ MYZR-LS1012A-EK200 烧录手册
 
 3. 查看系统是否自动挂载分区
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    ls /run/media/mmcblk0p1/
@@ -429,7 +429,7 @@ MYZR-LS1012A-EK200 烧录手册
 
 1. 复制相应的文件到/run/media/mmcblk0p1/目录，将原文件替换。
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    cp Image /run/media/mmcblk0p1/
@@ -437,14 +437,14 @@ MYZR-LS1012A-EK200 烧录手册
 
 2. 解压更新内核模块
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    tar xjvf modules-4.4.98.tar.bz2 -C /
 
 3. 保存并重启
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    reboot
@@ -453,7 +453,7 @@ MYZR-LS1012A-EK200 烧录手册
 
 1. 查看fat分区地址
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    fdisk -l
@@ -466,14 +466,14 @@ MYZR-LS1012A-EK200 烧录手册
 
 2. 手动挂载
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    mount /dev/mmcblk0p1 /mnt
 
 3. 复制相应的文件到/mnt目录，将原文件替换。
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    cp Image /mnt
@@ -481,14 +481,14 @@ MYZR-LS1012A-EK200 烧录手册
 
 4. 解压更新内核模块
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    tar xjvf modules-4.4.98.tar.bz2 -C /
 
 5. 保存并重启
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    reboot

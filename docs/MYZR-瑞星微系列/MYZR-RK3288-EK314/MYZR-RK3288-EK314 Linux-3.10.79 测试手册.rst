@@ -41,13 +41,13 @@ Linux-3.10.79 测试手册
 |   连接网线：将评估板“eth0”对应的接口与计算机有线网卡的接口用网线相连接
 |   设置评估板IP：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ifconfig eth0 192.168.18.36      //configure the eth0
 
 |   执行测试命令：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ifconfig eth1 down      //eth1 to be shut down
     ＃ ping 192.168.18.18 -c 2 -w 4      //send ICMP to HOST
@@ -55,7 +55,7 @@ Linux-3.10.79 测试手册
 
 |   观察测试结果：系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
     --- 192.168.18.18 ping statistics ---
     2packets transmitted, 2 packets received, 0% packet loss
@@ -70,26 +70,26 @@ Linux-3.10.79 测试手册
 |   连接网线：将网线插入“eth1”对应的评估板接口，网线另一端保持与计算机有线网卡的接口连接。
 |   设置第2个网口IP：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ifconfig eth1 192.168.18.27      //configure the eth1
 
 |   设置后系统会输出第2个网口的工作状态信息，类似如下：
 
-.. code:: shell
+.. code-block:: shell
 
     smsc95xx 1-1.1:1.0 eth1: link up, 100Mbps, full-duplex, lpa 0x4DE1
 
 |   执行测试命令：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ifconfig eth0 down      //eth0 to be shut down
     ＃ ping 192.168.18.18 -c 2 -w 4      //send ICMP to HOST
 
 |   观察测试结果：系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
     --- 192.168.18.18 ping statistics ---
     2packets transmitted, 2 packets received, 0% packet loss
@@ -117,14 +117,14 @@ USB测试
 |   1） 开始测试
 |   将USB设备插入底板USB接口，输入以下命令：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ df
 
 |   2） 测试结束
 |   将USB设备从底板拔出，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ df
 
@@ -150,7 +150,7 @@ SD卡测试
 |   1） 往SD卡槽插入设备
 |   插入SD卡到底板SD卡接口，输入以下命令：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ df
 
@@ -178,7 +178,7 @@ SD卡测试
 |   2）执行测试
 |   使用aplay播放一个视频，示例命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ aplay /usr/share/sounds/alsa/Rear_Left.wav
 
@@ -216,25 +216,25 @@ SD卡测试
 |   1）GPIO输出测试
 |   设置需要测试的GPIO的IO序号
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ OUT_IO_NUMBER=9
 
 导出GPIO
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo ${OUT_IO_NUMBER} > /sys/class/gpio/export
 
 设置GPIO方向
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo out > /sys/class/gpio/gpio${OUT_IO_NUMBER}/direction
 
 控制输出电平
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo 0 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
     ＃ echo 1 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
@@ -247,25 +247,25 @@ SD卡测试
 |   2）GPIO输入测试
 |   设置需要测试的GPIO的IO序号
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ IN_IO_NUMBER=18
 
 |   导出GPIO
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo ${IN_IO_NUMBER} > /sys/class/gpio/export
 
 |   设置GPIO方向
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo in > /sys/class/gpio/gpio${IN_IO_NUMBER}/direction
 
 |   查看输入电平
 
-.. code:: shell
+.. code-block:: shell
 
     cat /sys/class/gpio/gpio${IN_IO_NUMBER}/value
 
@@ -296,7 +296,7 @@ GPIO-KEY测试
 |   1）执行测试程序
 |   在终端下键入命令执行测试，示例如下：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ evtest
 
@@ -311,7 +311,7 @@ GPIO-KEY测试
 |   3）进行交互测试
 |   在终端会看到“Testing ... (interrupt to exit)”，这时我们按下或松开SW1、SW2。会看到如下类似信息：
 
-.. code:: shell
+.. code-block:: shell
 
     Event: time 1452590477.115958, type 1 (EV_KEY), code 114 (KEY_VOLUMEDOWN), value 0
     Event: time 1452590477.115958, -------------- SYN_REPORT ------------
@@ -355,14 +355,14 @@ GPIO-KEY测试
 |       通过ssh客户端向串口发送字符串，串口可以收到字符串。
 |   2）安装ssh客户端
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ apt-get install ssh
 
 |   3）UART1测试
 |   执行测试命令
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo “myzr” > /dev/ttyS1 (UART1发送数据myzr)
     ＃ cat /dev/ttyS1 (UART1接收数据)
@@ -385,38 +385,38 @@ RTC测试
 |   1）断电重启设备，查看当前系统时间和硬件时间。
 |   查看当前系统时钟命令如下：
 
-.. code:: shell
+.. code-block:: shell
     
     ＃ date
 
 |   系统输出信息如下：
 
-.. code:: shell
+.. code-block:: shell
 
     Thu Aug 6 05:35:17 UTC 2012
 
 2）查看当前RTC芯片时钟命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ hwclock
 
 |   系统输出信息如下：
 
-.. code:: shell
+.. code-block:: shell
 
     Thu Aug 6 05:35:59 2012 0.000000 seconds
 
 |   3）设置系统时钟，并同步到RTC芯片
 |   设置系统时钟命令参考如下：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ date -s "2013-03-28 12:30:30"
 
 |   将系统时钟写入硬件时钟命令如下：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ hwclok –w
 
@@ -469,14 +469,14 @@ SPI测试
 
 |   2）执行测试
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ./spi_test -D /dev/spidev0.0
 
 |   3）测试结果
 |   如果SPI正常，在终端上会看到如下字符：
 
-.. code:: shell
+.. code-block:: shell
 
     FF FF FF FF FF FF
     40 00 00 00 00 95
@@ -537,19 +537,19 @@ WIFI测试
 
 - 安装wvdial
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ sudo apt-get install wvdial
 
 - 修改配置文件/etc/wvdial.conf
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ vim /etc/wvdial.conf
 
 |   增加以下内容：
 
-.. code:: shell
+.. code-block:: shell
 
     [Dialer Defaults]
     Modem = /dev/ttyUSB2
@@ -567,7 +567,7 @@ WIFI测试
 
 - 拨号
 
-.. code:: shell
+.. code-block:: shell
     
     ＃ wvdial &
 

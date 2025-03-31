@@ -13,7 +13,7 @@ Android-8.1 编译手册
 
 - 安装编译所需库（Ubuntu14.04）
 
-.. code:: shell
+.. code-block:: shell
     
     $sudo apt-get install git-core gnupg flex bison gperf libsdl1.2-dev \
     libesd0-dev libwxgtk2.8-dev squashfs-tools build-essential zip curl \
@@ -24,13 +24,13 @@ Android-8.1 编译手册
 
 - 安装OpenJDK8
 
-.. code:: shell
+.. code-block:: shell
     
     $sudo apt-get install openjdk-8-jdk
 
 |   在用户目录的.profile文件中添加下面内容：
 
-.. code:: shell
+.. code-block:: shell
 
     export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
     export JRE_HOME=$JAVA_HOME/jre
@@ -39,7 +39,7 @@ Android-8.1 编译手册
 
 |   保存文件，执行source .profile让文件生效然后执行java -version查看java版本是否正确：
 
-.. code:: shell
+.. code-block:: shell
 
     $java -version
     openjdk version "1.8.0_222-ea"
@@ -52,7 +52,7 @@ Android-8.1 编译手册
 |   打开网盘到 02_源码 ->android-8.1
 |   下载源码包myrk3399_android8.tar.bz2的所有文件
 
-.. code:: shell
+.. code-block:: shell
     
     $ mkdir rk3399
     $ cat myrk3399_android8.tar.bz2* | tar xj -C rk3399
@@ -62,7 +62,7 @@ Android-8.1 编译手册
 
 - 编译uboot
 
-.. code:: shell
+.. code-block:: shell
     
     $cd u-boot
     $make clean
@@ -71,7 +71,7 @@ Android-8.1 编译手册
 
 - 编译kernel
 
-.. code:: shell
+.. code-block:: shell
     
     $cd kernel
     $make ARCH=arm64 myzr_defconfig -j8
@@ -79,7 +79,7 @@ Android-8.1 编译手册
 
 - 编译android
 
-.. code:: shell
+.. code-block:: shell
 
     $cd android8.1
     $source build/envsetup.sh
@@ -89,13 +89,13 @@ Android-8.1 编译手册
 打包镜像
 ~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $./mkimage.sh
 
 |   于rockdev/Image-rk3399目录得到目标文件：
 
-.. code:: shell
+.. code-block:: shell
 
     boot.img  
     kernel.img  
@@ -113,12 +113,12 @@ Android-8.1 编译手册
 打包成统一固件
 ~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
     
     $./MYTools/mkupdate.sh update
 
 |   于rockdev/Image-rk3399目录得到目标文件：
 
-.. code:: shell
+.. code-block:: shell
     
     rk3399_Android8.1.0_191030.img

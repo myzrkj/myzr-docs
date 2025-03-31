@@ -30,7 +30,7 @@ MYZR-IMX-A7 系列交叉编译工具链安装
 
 1. 执行安装
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   ./fsl-imx-x11-glibc-x86_64-meta-toolchain-qt5-cortexa7hf-neon-toolchain-4.9.88-2.0.0.sh
@@ -56,14 +56,14 @@ MYZR-IMX-A7 系列交叉编译工具链安装
 
 2. source 工具链配置文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   source /home/myzr/my-work/03_toolchain/fsl-imx-x11-glibc-x86_64-meta-toolchain-qt5-cortexa7hf-neon-toolchain-4.9.88-2.0.0/environment-setup-cortexa7hf-neon-poky-linux-gnueabi
 
 3. 检验交叉编译工具安装
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   $CC -v
@@ -82,7 +82,7 @@ MYZR-IMX-A9 系列交叉编译工具链安装
 
 1. 执行安装
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   ./fsl-imx-fb-glibc-x86_64-meta-toolchain-qt5-cortexa9hf-neon-toolchain-4.9.88-2.0.0.sh
@@ -109,14 +109,14 @@ MYZR-IMX-A9 系列交叉编译工具链安装
 
 2. source 工具链配置文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   source /home/myzr/my-work/03_toolchain/fsl-imx-fb-glibc-x86_64-meta-toolchain-qt5-cortexa9hf-neon-toolchain-4.9.88-2.0.0/environment-setup-cortexa9hf-neon-poky-linux-gnueabi 
 
 3. 检验交叉编译工具安装
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   $CC -v
@@ -140,14 +140,14 @@ u-boot编译
 
 - 创建编译工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   mkdir ~/my-work/02_source/ -p
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   tar xf u-boot-2016.03-svn*.tar.bz2 -C ~/my-work/02_source/
@@ -157,14 +157,14 @@ u-boot编译
 
 - 进入源码目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   cd ~/my-work/02_source/u-boot-2016.03
 
 - 生成目标开发板的 .config 文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make myimx6ek140p-6y-256m-emmc_defconfig
@@ -183,7 +183,7 @@ u-boot编译
 
 | 【注意】：上面 make 后面的 myimx6ek140p-6y-256m-emmc_defconfig 改为与开发板型号对应的配置文件。
 
-.. code:: shell
+.. code-block:: shell
 
   ********** MYZR-IMX6-EK140 **********
   myimx6ek140-6g-128m-emmc_defconfig  myimx6ek140-6y-128m-emmc_defconfig
@@ -218,7 +218,7 @@ u-boot编译
 
 - 执行编译
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make 
@@ -250,7 +250,7 @@ u-boot编译
 编译u-boot环境变量脚本
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
   ********** MYZR-IMX6-A7 **********
   emmc:
@@ -309,14 +309,14 @@ u-boot编译
 
 - 创建编译工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   mkdir ~/my-work/02_source/ -p
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   tar xf linux-4.9.88-svn*.tar.bz2 -C ~/my-work/02_source/
@@ -326,14 +326,14 @@ u-boot编译
 
 - 进入内核源码目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   cd ~/my-work/02_source/linux-4.9.88
 
 - 生成目标平台的 .config 文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make myimx6a7_defconfig
@@ -354,7 +354,7 @@ u-boot编译
 
 | 【注意】：上面 **make** 后面的 **myimx6a7_defconfig** 改为与开发板型号对应的配置文件。
 
-.. code:: shell
+.. code-block:: shell
 
   ********** MYZR-IMX6-EK140、MYZR-IMX6-EK140P **********
   myimx6a7_defconfig  
@@ -367,7 +367,7 @@ u-boot编译
 
 - 编译内核目标文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make zImage
@@ -392,7 +392,7 @@ u-boot编译
 
 - 执行编译命令
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make myimx6ek140p-6y-256m-emmc.dtb
@@ -402,7 +402,7 @@ u-boot编译
 
 | 【注意】：上面 **make** 后面的 **myimx6ek140p-6y-256m-emmc.dtb** 改为与开发板型号对应的配置文件。
 
-.. code:: shell
+.. code-block:: shell
 
   ********** MYZR-IMX6-EK140 **********
   myimx6ek140-6g-128m-emmc.dtb  myimx6ek140-6y-128m-emmc.dtb
@@ -437,7 +437,7 @@ u-boot编译
 
 - 复制设备树目标文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   cp arch/arm/boot/dts/myimx6ek140p-6y-256m-emmc.dtb ./
@@ -447,7 +447,7 @@ u-boot编译
 
 - 执行编译
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make modules
@@ -461,14 +461,14 @@ u-boot编译
 
 - 创建内核模块的保存目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   mkdir modules
 
 - 安装内核模块到指定目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   make modules_install INSTALL_MOD_PATH=./modules
@@ -483,7 +483,7 @@ u-boot编译
 
 - 打包内核模块文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   tar cjf kernel-modules.tar.bz2 -C modules lib
@@ -505,7 +505,7 @@ Linux C程序编译
 编译目标文件
 ~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   $CC hello.c -o hello.out
@@ -518,7 +518,7 @@ Linux C程序编译
 - 把编译得到的 hello.out 复制到开发板上
 - 在开发板上运行Linux C目标程序
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   chmod +x ./hello.out
@@ -544,7 +544,7 @@ Linux QT5程序编译
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   tar xf MY-Linux-QT5-Demo-AboutUs-svn*.tar.bz2 -C ~/my-work/02_source/
@@ -554,14 +554,14 @@ QT程序编译
 
 - 进入源码目录
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   cd ~/my-work/02_source/AboutUs/
 
 - 生成Makefile文件
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   qmake
@@ -584,7 +584,7 @@ QT程序编译
 - 把编译得到的 AboutUs 复制到开发板上
 - 在开发板上运行QT5目标程序
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   chmod +x ./AboutUs
@@ -596,7 +596,7 @@ QT程序编译
 - 把编译得到的 AboutUs 复制到开发板上
 - 在开发板上运行QT5目标程序
 
-.. code:: shell
+.. code-block:: shell
 
   =====> Input:
   export DISPLAY=:0.0

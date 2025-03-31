@@ -8,7 +8,7 @@ R16 android4.4 常见问题
 1.在内核中添加spi驱动
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd lichee/linux-3.4 
    $ make ARCH=arm menuconfig 
@@ -18,7 +18,7 @@ R16 android4.4 常见问题
 | Device Drivers ---> SPI support ---> <*> User mode SPI device driver support
 | 修改
 
-.. code:: shell
+.. code-block:: shell
 
    lichee/tools/pack/chips/sun8iw5p1/configs/evb-30/sys_config.fex  
    [spi_board0]  
@@ -31,7 +31,7 @@ R16 android4.4 常见问题
 
 | 修改成
 
-.. code:: shell 
+.. code-block:: shell 
 
    [spi_board0]
    modalias      = "spidev"  
@@ -51,7 +51,7 @@ R16 android4.4 常见问题
 
 | 在内核增加驱动
 
-.. code:: shell
+.. code-block:: shell
 
    $ make ARCH=arm menuconfig  
    Device Drivers --->
@@ -63,7 +63,7 @@ R16 android4.4 常见问题
 4.默认勾选使用以太网
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    1)在frameworks\base\packages\SettingsProvider\res\values\default.xml 
       <bool name="def_ethernet_on">true</bool>  改成true

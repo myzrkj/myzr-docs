@@ -13,7 +13,7 @@ MYZR-SSD20X-CB096 启动手册
 |  把电源适配器的一端连接到开发板的“5V_IN”，另一端插入到市电（220V的交流电）插座。
 |  开发板的启动信息
 
-.. code:: shell
+.. code-block:: shell
 
    IPL g5da0ceb
    D-1e

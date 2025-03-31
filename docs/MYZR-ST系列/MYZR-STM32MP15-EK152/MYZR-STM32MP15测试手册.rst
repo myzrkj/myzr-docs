@@ -37,7 +37,7 @@ MYZR-STM32MP15测试手册
 |  2.网线连接板子网口和电脑网口
 |  3.输入如下指令与电脑通讯：
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # ping 192.168.137.99
@@ -65,7 +65,7 @@ USB测试
 
 1.将USB设备插入底板USB接口，系统会输出类似如下信息:
 
-.. code:: shell
+.. code-block:: shell
 
    root@stm32mp1:~# [ 3288.330096] usb 2-1.4: new high-speed USB device number 3 using ehci-platform
    [ 3288.396730] usb-storage 2-1.4:1.0: USB Mass Storage device detected
@@ -81,7 +81,7 @@ USB测试
 
 2.将USB设备从底板拔出，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    root@stm32mp1:~# [ 3343.077203] usb 2-1.4: USB disconnect, device number 3
 
@@ -96,7 +96,7 @@ SD接口测试
 
 1.将TF卡安装到SD接口，开发会输出如下信息：
 
-.. code:: shell
+.. code-block:: shell
    
    root@stm32mp1:~# [ 3697.015101] mmc1: new high speed SDHC card at address 1234
    [ 3697.035081] mmcblk1: mmc1:1234 SA32G 29.1 GiB 
@@ -104,14 +104,14 @@ SD接口测试
 
 2.可以查看到对应的sd接口设备：
 
-.. code:: shell
+.. code-block:: shell
    
    # ls /dev/mmcblk1*
    /dev/mmcblk1  /dev/mmcblk1p1
 
 3.将TF卡拔出，输出如下信息：
 
-.. code:: shell
+.. code-block:: shell
    
    root@stm32mp1:~# [ 3985.400589] mmc1: card 1234 removed
 
@@ -127,7 +127,7 @@ GPIO测试
 
 1.列出系统上所有的gpiochip：
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # gpiodetect 
@@ -146,7 +146,7 @@ GPIO测试
 
 2.配置P21-38脚（即PF15）输出高电平：
 
-.. code:: shell
+.. code-block:: shell
    
    # gpioset gpiochip5 15=1
 
@@ -154,7 +154,7 @@ GPIO测试
 
 3.配置P21-38脚（即PF15）输出高低平：
 
-.. code:: shell
+.. code-block:: shell
    
    # gpioset gpiochip5 15=0
 
@@ -162,7 +162,7 @@ GPIO测试
 
 4.配置P21-38脚（即PF15）为输入，并读取其值：
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # gpioget  gpiochip5 15
@@ -185,7 +185,7 @@ GPIO测试
 1.短接P21-11和P21-13脚，即uart7_rx和uart7_tx
 2.输入如下命令进行uart7收发测试：
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # /usr/local/myzr-demo/serial_test.out /dev/ttySTM6 "myzr"
@@ -203,7 +203,7 @@ GPIO测试
 
 3.输入如下命令进行uart8收发测试：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # /usr/local/myzr-demo/serial_test.out /dev/ttySTM7 "myzr"
@@ -231,7 +231,7 @@ GPIO测试
 1.短接P16-1和P16-2脚，即TX和RX
 2.输入如下命令进行RS232收发测试：
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # /usr/local/myzr-demo/serial_test.out /dev/ttySTM2 "myzr"
@@ -260,7 +260,7 @@ GPIO测试
 2.打开串口调试助手，设置波特率为9600，无校验位，8位数据位，1位停止位。
 3.开发板使用ssh登录，向电脑端发送数据：
 
-.. code:: shell
+.. code-block:: shell
    
    # echo 123 > /dev/ttySTM4
 
@@ -268,13 +268,13 @@ GPIO测试
 
 4.开发板接收数据，电脑端发送数据：
 
-.. code:: shell
+.. code-block:: shell
    
    # cat /dev/ttySTM4
 
 |  当串口助手发送字符串时，开发板会接收到数据：
 
-.. code:: shell
+.. code-block:: shell
    
    # cat /dev/ttySTM4 
    myzr
@@ -294,25 +294,25 @@ CAN测试
 1.准备两个开发板，将CAN口进行连接，CAN_L与CAN_L相连；CAN_H和CAN_H相连。
 2.对两个板子的can0进行配置：
 
-.. code:: shell
+.. code-block:: shell
    
    # ip link set can0 up type can bitrate 125000
 
 3.将其中一个配置为接收：
 
-.. code:: shell
+.. code-block:: shell
    
    # candump can0
 
 4.另一个发送数据：
 
-.. code:: shell
+.. code-block:: shell
    
    # cansend can0 1F334455#1122334455667788
 
 5.在接收端可以接收到如下数据：
 
-.. code:: shell
+.. code-block:: shell
    
    can0  1F334455   [8]  11 22 33 44 55 66 77 88
 
@@ -328,7 +328,7 @@ SPI测试
 
 1.短接P21-2和P21-4脚，即SPI1_MOSI和SPI1_MISO，输入命令：
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # /usr/local/myzr-demo/spidev_test.out -D /dev/spidev0.0
@@ -348,7 +348,7 @@ SPI测试
 
 2.短接P21-1和P21-3脚，即SPI5_MOSI和SPI5_MISO，输入命令：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # /usr/local/myzr-demo/spidev_test.out -D /dev/spidev1.0
@@ -378,7 +378,7 @@ RTC测试
 
 1.断电重启设备，查看当前系统时间和硬件时间：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # date
@@ -388,7 +388,7 @@ RTC测试
 
 2.查看当前RTC芯片时钟：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # hwclock
@@ -398,7 +398,7 @@ RTC测试
 
 3.设置系统时钟：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # date -s "2021-04-08 15:00:00"
@@ -408,13 +408,13 @@ RTC测试
 
 4.将系统时钟写入硬件时钟：
 
-.. code:: shell
+.. code-block:: shell
    
    # hwclock -w
 
 5.断电重启开发板，查看当前系统时钟和硬件时钟：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # date
@@ -439,7 +439,7 @@ RTC测试
 
 1.把耳机插入开发板的“AUDIO”口。执行如下命令播放音频：
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # aplay /usr/share/sounds/alsa/Front_Center.wav
@@ -449,7 +449,7 @@ RTC测试
 
 2.可以使用如下命令进行音量调节：
 
-.. code:: shell
+.. code-block:: shell
    
    # alsamixer
 
@@ -467,7 +467,7 @@ RTC测试
 
 2.输入如下命令进行8秒的录音：
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # arecord -D hw:0,1 -f cd -d 8  record.wav
@@ -477,7 +477,7 @@ RTC测试
 
 2.播放录制的音频：
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # aplay record.wav
@@ -499,7 +499,7 @@ WIFI测试
 
 2.生成 SSID 的 WPA PSK 文件 　　命令格式: wpa_passphrase [passphrase]
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # wpa_passphrase MYZR-WIFI myzr2012 > /etc/wpa_supplicant.conf 
@@ -507,7 +507,7 @@ WIFI测试
 
 3.连接：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf 
@@ -528,7 +528,7 @@ WIFI测试
 
 4.获取IP：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # udhcpc -i wlan0
@@ -542,7 +542,7 @@ WIFI测试
 
 5.测试连接：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # ifconfig eth0 down
@@ -573,7 +573,7 @@ WIFI测试
 
 2.初始化蓝牙设备：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # gpioset gpiochip9 6=1
@@ -581,7 +581,7 @@ WIFI测试
 
 3.启动蓝牙：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # hciconfig hci0 up
@@ -596,7 +596,7 @@ WIFI测试
 
 4.扫描外部蓝牙设备：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # hcitool scan
@@ -607,7 +607,7 @@ WIFI测试
 
 5.发送发送L2CAP包测试：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # l2ping 88:46:04:4C:11:A7
@@ -640,7 +640,7 @@ WIFI测试
 
 2.使用指令进行网络连接：
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # /usr/local/myzr-demo/quectel-CM &
@@ -677,7 +677,7 @@ WIFI测试
 
 3.连接测试：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # ifconfig eth0 down
@@ -706,7 +706,7 @@ WIFI测试
 
 1.系统进入休眠状态
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # echo mem > /sys/power/state
@@ -721,7 +721,7 @@ WIFI测试
 
 2.使用sw2按键唤醒，按下按键后，系统恢复：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Output:
    NOTICE:  CPU: STM32MP157AAC Rev.Z
@@ -782,7 +782,7 @@ ADC测试
 
 2.可以短接0通道和P21:40脚（即短接地），然后读取adc值
 
-.. code:: shell
+.. code-block:: shell
    
    =====> Input:
    # cat /sys/bus/iio/devices/iio\:device0/in_voltage0_raw

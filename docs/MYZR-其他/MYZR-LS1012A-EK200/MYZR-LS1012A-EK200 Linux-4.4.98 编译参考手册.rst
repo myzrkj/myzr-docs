@@ -23,7 +23,7 @@ MYZR-LS1012A-EK200 Linux-4.4.98 编译参考手册
 
 - 执行安装
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    ./fsl-qoriq-glibc-x86_64-aarch64-toolchain-2.0.sh  （不要安装到/opt目录）
@@ -47,21 +47,21 @@ MYZR-LS1012A-EK200 Linux-4.4.98 编译参考手册
 
 - 修改配置文件
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    echo "unset LDFLAGS" >> ~/my-work/03_toolchain/fsl-qoriq/2.0/environment-setup-aarch64-fsl-linux
 
 - source 工具链配置文件
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    source  /home/myzr/my-work/03_toolchain/fsl-qoriq/2.0/environment-setup-aarch64-fsl-linux
 
 - 检验交叉编译工具安装
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $CC -v
@@ -83,14 +83,14 @@ RCW编译
 
 - 创建编译工作目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    mkdir ~/my-work/02_source/ -p
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    tar jxf rcw.tar.bz2 -C ~/my-work/02_source/
@@ -100,14 +100,14 @@ RCW编译
 
 - 进入源码目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    cd ~/my-work/02_source/rcw
 
 - 执行编译
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    make 
@@ -134,14 +134,14 @@ u-boot编译
 
 - 创建编译工作目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    mkdir ~/my-work/02_source/ -p
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    tar jxf qoriq-uboot-2016.09-20170322.archived.tar.bz2 -C ~/my-work/02_source/
@@ -151,14 +151,14 @@ u-boot编译
 
 - 进入源码目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    cd ~/my-work/02_source/qoriq-uboot-2016.09-20170322.archived/
 
 - 清除配置
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    ./ek200_build.sh clean  
@@ -169,7 +169,7 @@ u-boot编译
 
 - 生成目标开发板的 .config 文件
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    ./ek200_build.sh config
@@ -190,7 +190,7 @@ u-boot编译
 
 - 执行编译
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    ./ek200_build.sh uboot
@@ -205,7 +205,7 @@ u-boot编译
 全局编译
 ~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    ./ek200_build.sh all
@@ -232,14 +232,14 @@ PPA编译
 
 - 创建编译工作目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    mkdir ~/my-work/02_source/ -p
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    tar jxf ppa.tar.bz2 -C ~/my-work/02_source/
@@ -249,14 +249,14 @@ PPA编译
 
 - 进入源码目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    cd ~/my-work/02_source/ppa/soc-ls1012
 
 - 执行编译
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    make rdb-fit 
@@ -292,14 +292,14 @@ PPA编译
 
 - 创建编译工作目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    mkdir ~/my-work/02_source/ -p
 
 - 解压源码包到工作目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    tar jxf qoriq-linux-4.4.98-20171212.archived.tar.bz2 -C ~/my-work/02_source/
@@ -309,14 +309,14 @@ PPA编译
 
 - 进入内核源码目录
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    cd ~/my-work/02_source/qoriq-linux-4.4.98-20171212.archived
 
 - 清除配置
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    ./ek200_build.sh clean  
@@ -337,7 +337,7 @@ PPA编译
 
 - 编译内核目标文件
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    ./ek200_build.sh kernel
@@ -365,7 +365,7 @@ PPA编译
 
 - 执行编译命令
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    ./ek200_build.sh dtb
@@ -384,7 +384,7 @@ PPA编译
 
 - 执行编译
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    ./ek200_build.sh modules
@@ -407,7 +407,7 @@ PPA编译
 全局编译
 ---------
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    ./ek200_build.sh all
@@ -423,7 +423,7 @@ Linux C程序编译
 编译目标文件
 ~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    $CC hello.c -o hello.out
@@ -436,7 +436,7 @@ Linux C程序编译
 - 把编译得到的 hello.out 复制到开发板上
 - 在开发板上运行Linux C目标程序
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    chmod +x ./hello.out

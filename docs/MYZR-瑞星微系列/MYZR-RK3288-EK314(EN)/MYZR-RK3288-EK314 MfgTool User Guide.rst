@@ -47,7 +47,7 @@ Prepare MFG Tool
 
 |  In order to easy to understand MFG Tool ，below have a explanation about MFG Tool.
 
-.. code:: shell
+.. code-block:: shell
    
     /
     |-> AndroidTool_Release_v2.35

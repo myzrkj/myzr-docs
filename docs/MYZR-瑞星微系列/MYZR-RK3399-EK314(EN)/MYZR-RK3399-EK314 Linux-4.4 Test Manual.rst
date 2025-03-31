@@ -27,14 +27,14 @@ Ethernet test
 |   Connect this network port of the development board to the computer network port with a network cable. 
 |   Configure the development board network port:
 
-.. code:: shell
+.. code-block:: shell
 
     =====> Input:
     ifconfig eth0 192.168.18.36
 
 **Test network port**
 
-.. code:: shell
+.. code-block:: shell
 
     =====> Input:
     ping 192.168.18.18 -c 2 -w 4
@@ -61,13 +61,13 @@ USB interface test
 **Test Methods**
 |   Plug the USB device into the USB interface of the backplane and enter the following command:
 
-.. code:: shell
+.. code-block:: shell
     
     ＃ df -h
 
 |   Unplug the USB device from the backplane and enter the following command:
 
-.. code:: shell
+.. code-block:: shell
     
     ＃ df -h
 
@@ -89,7 +89,7 @@ SD interface test
 
 |   Insert the device into the SD card slot, insert the SD card into the SD card interface on the backplane, and enter the following command:
 
-.. code:: shell
+.. code-block:: shell
     
     ＃ df -h
 
@@ -131,7 +131,7 @@ Standard GPIO test
 
 |   Configure P8-3 to output high and low level operation methods:
 
-.. code:: shell
+.. code-block:: shell
     
     =====> Input:
     ＃ OUT_IO_NUMBER=92
@@ -152,7 +152,7 @@ Standard GPIO test
 
 |   configure P8-3 input:
 
-.. code:: shell
+.. code-block:: shell
     
     Set the IO number of the GPIO to be tested
     ＃ IN_IO_NUMBER=91
@@ -184,14 +184,14 @@ ADC-KEY test
 
 |   Install evtest
 
-.. code:: shell
+.. code-block:: shell
     
     =====> Input:
     $ sudo apt-get install evtest
 
 |   Run evtest to prepare the test
 
-.. code:: shell
+.. code-block:: shell
     
     =====> Input:
     evtest 
@@ -215,7 +215,7 @@ RTC Test
 
 **test introduction**
 
-.. code:: shell
+.. code-block:: shell
     
     Affected by express shipping, the MYZR-RK3399-EK314 series evaluation board is shipped without batteries. Please prepare your own coin-cell battery and install it on the evaluation board before testing the RTC. The battery holder of MYZR-RK3399-EK314 is in the "BT1" position on the back of the bottom plate.
 
@@ -223,7 +223,7 @@ RTC Test
 
 1. Power off and restart the device to view the current system time and hardware time:
 
-.. code:: shell
+.. code-block:: shell
     
     =====> Input: 
     date
@@ -233,7 +233,7 @@ RTC Test
 
 2. View the current RTC chip clock:
 
-.. code:: shell
+.. code-block:: shell
     
     =====> Input: 
     hwclock 
@@ -243,14 +243,14 @@ RTC Test
 
 3. Set the system clock and synchronize to the RTC chip
 
-.. code:: shell
+.. code-block:: shell
     
     =====> 输入指令: 
     date -s "2019-07-04 12:30:30"
 
 4. Write system clock to hardware clock
 
-.. code:: shell
+.. code-block:: shell
     
     =====> Input:
     hwclock -w  
@@ -271,7 +271,7 @@ Audio playback test
 |   Connect the audio output device to the audio socket on the front of the baseboard. The audio socket is on the front of the baseboard. "P6".
 |   Execute the test command:
 
-.. code:: shell
+.. code-block:: shell
     
     =====> Input:
     ＃aplay /usr/share/sounds/alsa/Rear_Left.wav 
@@ -329,7 +329,7 @@ Bluetooth module test
 
 **Test operation**
 
-.. code:: shell
+.. code-block:: shell
     
     Install wvdial
     =====> Input:
@@ -356,7 +356,7 @@ Bluetooth module test
 
 |   dial
 
-.. code:: shell
+.. code-block:: shell
     
     =====> Input:
     #wvdial & 

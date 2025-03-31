@@ -32,7 +32,7 @@ MYZR-IMX6-EK140P Linux-4.1.15 测试手册
 |   用网线连接开发板的ETH1和电脑。
 |   配置开发板网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ifconfig eth1 down 
@@ -40,7 +40,7 @@ MYZR-IMX6-EK140P Linux-4.1.15 测试手册
 
 |   测试ETH1（eth0）：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.137.99 -c 2 -w 4 
@@ -74,7 +74,7 @@ MYZR-IMX6-EK140P Linux-4.1.15 测试手册
 |   用网线连接开发板的ETH2和电脑。
 |   配置开发板网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ifconfig eth0 down
@@ -82,7 +82,7 @@ MYZR-IMX6-EK140P Linux-4.1.15 测试手册
 
 |   测试ETH2（eth1）：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.137.99 -c 2 -w 4 
@@ -112,7 +112,7 @@ USB 测试
 
 |   将USB设备插入底板USB接口，系统会输出类似如下信息:
 
-.. code:: shell
+.. code-block:: shell
 
     usb 1-1.4: new high-speed USB device number 4 using ci_hdrc  
     usb-storage 1-1.4:1.0: USB Mass Storage device detected  
@@ -127,7 +127,7 @@ USB 测试
 
 |   将USB设备从底板拔出，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
     usb 1-1.4: USB disconnect, device number 4  
 
@@ -148,7 +148,7 @@ SD接口测试
 |   为开发板断电，把TF卡安装到SD接口。
 |   查看内核中驱动输出信息
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     dmesg | grep mmc0  
@@ -161,7 +161,7 @@ SD接口测试
 
 |   查看系统的SD接口设备
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ls /dev/mmcblk0*   
@@ -186,7 +186,7 @@ SD接口测试
 
 |   配置 P21:35 为输出低电平的操作方法：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     OUT_IO_OUT_NUM=4 
@@ -200,7 +200,7 @@ SD接口测试
 
 |   配置 P21:36 为输出高电平的操作方法：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     OUT_IO_OUT_NUM=3  
@@ -214,14 +214,14 @@ SD接口测试
 
 |   控制 GPIO 输出低电平的指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 0 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value   
 
 |   控制 GPIO 输出高电平的指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
@@ -256,14 +256,14 @@ GPIO-LED 测试（led-timer）
 
 |   更改灭的时间：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 1000 > /sys/class/leds/led-timer/delay_off
 
 |   更改亮的时间：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 2000 > /sys/class/leds/led-timer/delay_on  
@@ -286,14 +286,14 @@ GPIO-LED 测试（led-default）
 |   说明：系统启动后默认状态为常亮。
 |   使 D11 灭：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 0 > /sys/class/leds/default/brightness
 
 |   使 D11 亮：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 1 > /sys/class/leds/default/brightness  
@@ -315,7 +315,7 @@ PWM 测试（PWM-LED）
 
 |   控制 PWM5 的占空时间：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     PWM_DEV=pwmchip4
@@ -341,7 +341,7 @@ PWM 测试（PWM-Buzzer）
 
 |   控制 PWM2 的占空时间：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     PWM_DEV=pwmchip1
@@ -368,7 +368,7 @@ PWM 测试（PWM-Buzzer）
 |   短接串口2的发送发接收管脚（P21的27和28号管脚）
 |   执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/serial_test.out /dev/ttymxc1 "www.myzr.com.cn"  
@@ -411,7 +411,7 @@ PWM 测试（PWM-Buzzer）
 |   短接串口2的发送发接收管脚（P21的25和26号管脚）
 |   执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/serial_test.out /dev/ttymxc2 "www.myzr.com.cn"  
@@ -464,7 +464,7 @@ CAN 测试
 
 |   配置 CAN1（can0）：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ip link set can0 up type can bitrate 125000  
@@ -475,7 +475,7 @@ CAN 测试
 
 |   配置 CAN2（can1）：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ip link set can1 up type can bitrate 125000  
@@ -486,7 +486,7 @@ CAN 测试
 
 |   CAN1 (can0) 后台接收：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     candump can0 &  
@@ -496,7 +496,7 @@ CAN 测试
 
 |   CAN2（can1）发送数据：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cansend can1 1F334455#1122334455667788 
@@ -517,7 +517,7 @@ SPI测试（ECSPI1）
 |   短接P21的3和4管脚。
 |   执行测试指令
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/spidev_test.out -D /dev/spidev0.0   
@@ -553,7 +553,7 @@ SPI测试（ECSPI2）
 |   短接P21的9和10管脚。
 |   执行测试指令
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/spidev_test.out -D /dev/spidev1.0   
@@ -588,7 +588,7 @@ Watchdog 超时复位测试
 
 |   运行看门狗程序：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /unit_tests/wdt_driver_test.out 10 15 1
@@ -603,7 +603,7 @@ Watchdog 超时复位测试
 
 |   运行测试命令10秒后，WatchDog超时，系统被复位。会在终端看到系统重新启动输出的信息类似如下：
 
-.. code:: shell
+.. code-block:: shell
 
     U-Boot 2016.03-svn270 (Oct 08 2018 - 16:52:53 +0800)
 
@@ -624,7 +624,7 @@ Watchdog 喂狗测试
 
 |   运行看门狗程序，并设置超时时间为4秒，喂狗间隔时间为2秒：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /unit_tests/wdt_driver_test.out 4 2 1 &  
@@ -653,7 +653,7 @@ RTC 测试
 
 1. 断电重启设备，查看当前系统时间和硬件时间：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     date  
@@ -663,7 +663,7 @@ RTC 测试
 
 2. 查看当前RTC芯片时钟：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     hwclock 
@@ -673,7 +673,7 @@ RTC 测试
 
 3. 设置系统时钟，并同步到RTC芯片
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     date -s "2018-09-21 12:34:56"  
@@ -683,7 +683,7 @@ RTC 测试
 
 4. 将系统时钟写入硬件时钟
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     hwclock -w  
@@ -692,7 +692,7 @@ RTC 测试
 
 1. 断电重启评估板，查看当前系统时钟和硬件时钟
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     date 
@@ -702,7 +702,7 @@ RTC 测试
 
 2. 查看当前RTC芯片时钟
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     hwclock  
@@ -724,14 +724,14 @@ wakealarm 唤醒测试
 
 1. 设定 rtc1，使 10 秒后产生 wakealarm 事件
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo +10 > /sys/class/rtc/rtc1/wakealarm
 
 2. 使设备进入睡眠
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo mem > /sys/power/state
@@ -747,7 +747,7 @@ wakealarm 唤醒测试
 |   1. 可以看到开发板的除电源指示灯以外的 LED 都灭了。
 |   2. 10内 LED 的状态又恢复了，并且系统输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
     PM: suspend of devices complete after 708.601 msecs
     PM: suspend devices took 0.710 seconds
@@ -772,7 +772,7 @@ ADC 测试
 
 1. 获取 ADC1_IN1 采集到的数据
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cat /sys/bus/iio/devices/iio\:device0/in_voltage1_raw
@@ -782,7 +782,7 @@ ADC 测试
 
 2. 获取 ADC1_IN2 采集到的数据
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cat /sys/bus/iio/devices/iio\:device0/in_voltage2_raw
@@ -809,7 +809,7 @@ ADC 测试
 |   把耳机插入开发板的“HP/MIC”口。
 |   执行测试命令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     aplay /unit_tests/audio8k16S.wav   
@@ -835,7 +835,7 @@ ADC 测试
 1. 把带MIC的耳机插入开发板的“HP/MIC”口。
 2. 执行录音命令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     arecord -d 5 -f S16_LE -t wav foobar.wav  
@@ -845,7 +845,7 @@ ADC 测试
 
 3. 播放录音
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     aplay foobar.wav  
@@ -868,7 +868,7 @@ ADC 测试
 
 1. 查看最大背光亮度值。
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cat /sys/class/backlight/backlight/max_brightness
@@ -878,7 +878,7 @@ ADC 测试
 
 2. 设置背光亮度，直接看显示屏亮度。
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 5 > /sys/class/backlight/backlight/brightness
@@ -902,7 +902,7 @@ usb识别为U盘测试
 
 1. 创建一个10M大小的文件
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     # dd if=/dev/zero of=/dev/shm/disk bs=1024 count=10240
@@ -914,7 +914,7 @@ usb识别为U盘测试
 
 2. 载入模块
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     # modprobe g_mass_storage stall=0 file=/dev/shm/disk removable=1
@@ -936,7 +936,7 @@ usb识别为U盘测试
 
 4. 挂载
 
-.. code:: shell
+.. code-block:: shell
     
     # mount /dev/shm/disk /mnt
 
@@ -955,7 +955,7 @@ usb识别为网口测试
 
 1. 载入模块
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     # modprobe g_ether
@@ -974,7 +974,7 @@ usb识别为网口测试
 
 2. 设置IP
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     # ifconfig usb0 192.168.7.2
@@ -982,7 +982,7 @@ usb识别为网口测试
 
 3. 测试网口
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     # ping 192.168.7.8 -c 2 -w 4
@@ -1012,7 +1012,7 @@ CPU温度测试
 
 1. 输入命令
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo $[$(cat /sys/class/thermal/thermal_zone0/temp)/1000]
@@ -1038,7 +1038,7 @@ tftp更新镜像
 
 1. 设置IP
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     设置开发板IP：setenv ipaddr 192.168.137.9
@@ -1054,7 +1054,7 @@ tftp更新镜像
 
 **emmc开发板**
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     run load_scr_emmc; source ${loadaddr};  
@@ -1066,7 +1066,7 @@ tftp更新镜像
 
 **nand开发板**
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     run load_scr_nand; source ${loadaddr};  
@@ -1078,7 +1078,7 @@ tftp更新镜像
 
 3. 烧写dtb
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     run update_dtb
@@ -1097,7 +1097,7 @@ tftp更新镜像
 
 4. 烧写zImage
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     run update_kern 
@@ -1124,7 +1124,7 @@ tftp更新镜像
 
 5. 烧写u-boot环境变量(nand开发板没有uboot更新)
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     run update_scr 
@@ -1146,7 +1146,7 @@ tftp更新镜像
 
 6. 烧写u-boot(nand开发板没有uboot更新)
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     run update_ubot 
@@ -1182,7 +1182,7 @@ tftp更新镜像
 
 2. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.137.99 -c 2 -w 4 
@@ -1200,7 +1200,7 @@ tftp更新镜像
 
 3. 传输文件
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     tftp -g 192.168.137.99 -r zImage-myimx6a7
@@ -1210,7 +1210,7 @@ tftp更新镜像
 
 4. 查看系统是否自动挂载分区
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ls /run/media/mmcblk1p1/
@@ -1223,7 +1223,7 @@ tftp更新镜像
 
 1. 复制相应的文件到/run/media/mmcblk1p1/目录，将原文件替换。
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cp zImage-myimx6a7 /run/media/mmcblk1p1/
@@ -1232,14 +1232,14 @@ tftp更新镜像
 
 2. 解压更新内核模块
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     tar xjvf kernel-modules-myimx6a9.tar.bz2 -C /
 
 3. 保存并重启
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     reboot
@@ -1248,7 +1248,7 @@ tftp更新镜像
 
 1. 查看fat分区地址　
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     fdisk -l
@@ -1262,14 +1262,14 @@ tftp更新镜像
 
 2. 手动挂载
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     mount /dev/mmcblk1p1 /mnt
 
 3. 复制相应的文件到/mnt目录，将原文件替换。
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cp zImage-myimx6a7 /mnt
@@ -1278,14 +1278,14 @@ tftp更新镜像
 
 4. 解压更新内核模块
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     tar xjvf kernel-modules-myimx6a9.tar.bz2 -C /
 
 5. 保存并重启
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     reboot
@@ -1306,7 +1306,7 @@ WIFI模块RTL8188EUS（选配）测试
 
 |   命令格式: wpa_passphrase <ssid> [passphrase]
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     wpa_passphrase MY-TEST-AP myzr2012 > /etc/wpa_supplicant.conf
@@ -1314,7 +1314,7 @@ WIFI模块RTL8188EUS（选配）测试
 
 4. 连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
@@ -1329,7 +1329,7 @@ WIFI模块RTL8188EUS（选配）测试
 
 5. 获取 IP
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     udhcpc -i wlan0
@@ -1344,7 +1344,7 @@ WIFI模块RTL8188EUS（选配）测试
 
 6. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping -I wlan0 www.baidu.com -c 2 -w 4
@@ -1377,7 +1377,7 @@ WIFI模块RTL8188EUS（选配）测试
 
 |   若识别为：eth2
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/quectel-CM.out &  
@@ -1415,7 +1415,7 @@ WIFI模块RTL8188EUS（选配）测试
 
 |   若识别为：usb0
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     udhcpc -i usb0
@@ -1430,7 +1430,7 @@ WIFI模块RTL8188EUS（选配）测试
 
 3. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping -I eth2 www.baidu.com -c 2 -w 4
@@ -1480,7 +1480,7 @@ FXLS8471（选配）测试
 
 1. 使传感器 Enable
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 1 > /sys/class/misc/FreescaleAccelerometer/enable  
@@ -1490,7 +1490,7 @@ FXLS8471（选配）测试
 
 2. 查看传感器数据
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cat /sys/class/misc/FreescaleAccelerometer/data  
@@ -1514,7 +1514,7 @@ FXAS2100（选配）测试
 
 1. 使传感器 Enable
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 1 > /sys/class/misc/FreescaleGyroscope/enable 
@@ -1524,7 +1524,7 @@ FXAS2100（选配）测试
 
 2. 运行 evtest 程序：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     evtest 
@@ -1540,7 +1540,7 @@ FXAS2100（选配）测试
 
 3. 选择对应的设备，这里fxas2100对应event0，所以我们输入0：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     0

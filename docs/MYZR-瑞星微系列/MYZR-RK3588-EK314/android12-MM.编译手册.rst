@@ -17,13 +17,13 @@
 
 2. 创建编译目录：
 
-.. code:: shell
+.. code-block:: shell
 
     mkdir ~/my-work/RK3588/05_android -p
 
 3. 把源码放到此目录中，并进行解压：
 
-.. code:: shell
+.. code-block:: shell
 
     tar xvf MYZR-RK3588_Android12_20240110.tar.bz2 -C ~/my-work/RK3588/05_android/
 
@@ -38,19 +38,19 @@
 
 3. 输入如下命令配置java环境：
 
-.. code:: shell
+.. code-block:: shell
 
     source javaenv.sh
 
 4. 输入如下命令配置编译环境：
 
-.. code:: shell
+.. code-block:: shell
 
     source build/envsetup.sh
 
 5. 输入如下命令配置平台环境：
 
-.. code:: shell
+.. code-block:: shell
 
     lunch rk3588_s-userdebug
 
@@ -62,7 +62,7 @@
 
 2. 输入如下命令：
 
-.. code:: shell
+.. code-block:: shell
 
     ./build.sh -AUCKu
 
@@ -76,14 +76,14 @@
 
 1. 编译前可先清除生成文件
 
-.. code:: shell
+.. code-block:: shell
 
     cd u-boot/
     make clean
 
 2. 回到SDK主目录，并进行uboot单独编译
 
-.. code:: shell
+.. code-block:: shell
 
     cd ../
     ./build.sh -U
@@ -94,14 +94,14 @@
 
 1. 编译前可先清除生成文件
 
-.. code:: shell
+.. code-block:: shell
 
     cd kernel-5.10/
     make clean
 
 2. 回到SDK主目录，并进行kernel单独编译
 
-.. code:: shell
+.. code-block:: shell
 
     cd ../
     ./build.sh -CKA
@@ -110,13 +110,13 @@
 
 需要先安装gcc编译器
 
-.. code:: shell
+.. code-block:: shell
 
     sudo apt-get install gcc-aarch64-linux-gnu
 
 输入如下命令编译：
 
-.. code:: shell
+.. code-block:: shell
 
     cd kernel-5.10/
     export PATH=../prebuilts/clang/host/linux-x86/clang-r416183b/bin:$PATH
@@ -126,7 +126,7 @@
 
 编译完成手动赋值镜像：
 
-.. code:: shell
+.. code-block:: shell
 
     cp boot.img ../rockdev/Image-rk3588_s/boot.img
 
@@ -136,7 +136,7 @@
 
 1. 在android12主目录下
 
-.. code:: shell
+.. code-block:: shell
 
     ./build.sh -A
 
@@ -148,7 +148,7 @@
 
 2. 在android12主目录下
 
-.. code:: shell
+.. code-block:: shell
 
     ./build.sh -u
 

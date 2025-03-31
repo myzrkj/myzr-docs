@@ -33,19 +33,19 @@ MYZR-IMX6-EK140 Linux-4.1.15 测试手册
 
 - 设置评估板IP:
 
-.. code:: shell
+.. code-block:: shell
 
    # ifconfig eth0 192.168.18.100
 
 |  执行测试命令:
 
-.. code:: shell
+.. code-block:: shell
 
    # ping 192.168.18.18 -c 4
 
 - 观察测试结果，系统会输出类似如下信息:
 
-.. code:: shell
+.. code-block:: shell
 
    PING 192.168.18.18 (192.168.18.18): 56 data bytes
    64 bytes from 192.168.18.18: seq=0 ttl=64 time=2.848 ms
@@ -70,7 +70,7 @@ USB 测试
 
 |  1）开始测试 将USB设备(U盘）插入底板USB接口，系统会输出类似如下信息:
 
-.. code:: shell
+.. code-block:: shell
 
    usb 1-1: new high-speed USB device number 2 using ci_hdrc
    usb-storage 1-1:1.0: USB Mass Storage device detected
@@ -86,7 +86,7 @@ USB 测试
 
 |  2）结束测试 将USB设备从底板拔出，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    usb 1-1: USB disconnect, device number 2
 
@@ -106,13 +106,13 @@ TF卡测试
 |  断电下，插入TF卡到底板背面的TF卡接口后再启动系统
 |  输入如下命令：
 
-.. code:: shell
+.. code-block:: shell
 
    # dmesg | grep mmc0
 
 |  系统输出类似以下信息，即表示 TF 接口正常：
 
-.. code:: shell
+.. code-block:: shell
 
    mmc0: SDHCI controller on 2190000.usdhc [2190000.usdhc] using ADMA
    mmc0: host does not support reading read-only switch, assuming write-enable
@@ -122,13 +122,13 @@ TF卡测试
 |  2）查看系统的TF卡设备
 |  输入如下命令:
 
-.. code:: shell
+.. code-block:: shell
 
    # ls /dev/mmcblk0*   
 
 |  系统会输出以下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    /dev/mmcblk0    /dev/mmcblk0p1
 
@@ -140,7 +140,7 @@ RGB屏测试
 - 具体连接参考 :doc:`《Linux快速启动手册》<MYZR-IMX6-EK140 启动手册>` 里的显示屏模块连接里的附图
 - 开发板开机进入系统后，屏幕上有如下几行文字显示如下：
 
-.. code:: shell
+.. code-block:: shell
 
    Freescale i.MX Release Distro 4.1.15-2.1.0 myimxlek140/dev/tty1
    imx6ek140 login:
@@ -177,14 +177,14 @@ GPIO-LED 测试（led-timer）
 
 |  更改灭的时间：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    echo 1000 > /sys/class/leds/led-timer/delay_off  
 
 |  更改亮的时间：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    echo 2000 > /sys/class/leds/led-timer/delay_on  
@@ -207,14 +207,14 @@ GPIO-LED 测试（led-default）
 |  说明：系统启动后默认状态为常亮。
 |  使 D4 灭：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    echo 0 > /sys/class/leds/default/brightness  
 
 |  使 D4 亮：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    echo 1 > /sys/class/leds/default/brightness  
@@ -237,7 +237,7 @@ GPIO-LED 测试（led-default）
 |  短接串口2的发送发接收管脚（P7的11和12号管脚）
 |  执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    /my-demo/gcc-linaro-5.3-arm/serial_test.out /dev/ttymxc1 "www.myzr.com.cn"  
@@ -280,7 +280,7 @@ GPIO-LED 测试（led-default）
 |  短接串口2的发送发接收管脚（P7的13和14号管脚）
 |  执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    /my-demo/gcc-linaro-5.3-arm/serial_test.out /dev/ttymxc2 "www.myzr.com.cn"  
@@ -323,7 +323,7 @@ SPI测试（ECSPI1）
 |  短接P8的24和26管脚。
 |  执行测试指令
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    /my-demo/gcc-linaro-5.3-arm/spidev_test.out -D /dev/spidev0.0   
@@ -359,7 +359,7 @@ SPI测试（ECSPI2）
 |  短接P8的23和25管脚。
 |  执行测试指令
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    /my-demo/gcc-linaro-5.3-arm/spidev_test.out -D /dev/spidev1.0   
@@ -394,7 +394,7 @@ Watchdog 喂狗测试
 
 |  运行看门狗程序，并设置超时时间为4秒，喂狗间隔时间为2秒：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    /unit_tests/wdt_driver_test.out 4 2 1 &  
@@ -423,14 +423,14 @@ wakealarm 唤醒测试
 
 1. 设定 rtc0，使 10 秒后产生 wakealarm 事件
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    echo +10 > /sys/class/rtc/rtc0/wakealarm 
 
 2. 使设备进入睡眠
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    echo mem > /sys/power/state
@@ -446,7 +446,7 @@ wakealarm 唤醒测试
 1. 可以看到开发板的除电源指示灯以外的 LED 都灭了。
 2. 10内 LED 的状态又恢复了，并且系统输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    PM: suspend of devices complete after 708.601 msecs
    PM: suspend devices took 0.710 seconds
@@ -469,7 +469,7 @@ wakealarm 唤醒测试
 
 1. 查看最大背光亮度值。
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    cat /sys/class/backlight/backlight/max_brightness
@@ -479,7 +479,7 @@ wakealarm 唤醒测试
 
 2. 设置背光亮度，直接看显示屏亮度。
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    echo 5 > /sys/class/backlight/backlight/brightness
@@ -503,7 +503,7 @@ CPU温度测试
 
 1. 输入命令
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    echo $[$(cat /sys/class/thermal/thermal_zone0/temp)/1000]
@@ -526,7 +526,7 @@ usb识别为网口测试
 
 1. 载入模块
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    # modprobe g_ether
@@ -546,7 +546,7 @@ usb识别为网口测试
 
 2. 设置IP
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    # ifconfig usb0 192.168.7.2
@@ -554,7 +554,7 @@ usb识别为网口测试
 
 3. 测试网口
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    # ping 192.168.7.8 -c 2 -w 4
@@ -588,7 +588,7 @@ tftp更新镜像
 
 1. 设置IP
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    设置开发板IP：setenv ipaddr 192.168.137.9
@@ -604,7 +604,7 @@ tftp更新镜像
 
 **emmc开发板**
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    run load_scr_emmc; source ${loadaddr};
@@ -616,7 +616,7 @@ tftp更新镜像
    
 **nand开发板**
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    run load_scr_nand; source ${loadaddr};
@@ -628,7 +628,7 @@ tftp更新镜像
 
 3. 烧写dtb
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    run update_dtb
@@ -647,7 +647,7 @@ tftp更新镜像
 
 4. 烧写zImage
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    run update_kern
@@ -674,7 +674,7 @@ tftp更新镜像
 
 5. 烧写u-boot环境变量
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    run update_scr
@@ -696,7 +696,7 @@ tftp更新镜像
 
 6. 烧写u-boot
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    run update_ubot
@@ -731,7 +731,7 @@ tftp更新镜像
 
 2. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    ping 192.168.137.99 -c 2 -w 4
@@ -749,7 +749,7 @@ tftp更新镜像
 
 3. 传输文件
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    tftp -g 192.168.137.99 -r zImage-myimx6a7
@@ -759,7 +759,7 @@ tftp更新镜像
 
 4. 查看系统是否自动挂载分区
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    ls /run/media/mmcblk1p1/
@@ -771,7 +771,7 @@ tftp更新镜像
 
 1. 复制相应的文件到/run/media/mmcblk1p1/目录，将原文件替换。
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    cp zImage-myimx6a7 /run/media/mmcblk1p1/
@@ -780,14 +780,14 @@ tftp更新镜像
 
 2. 解压更新内核模块
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    tar xjvf kernel-modules-myimx6a9.tar.bz2 -C /
 
 3. 保存并重启
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    reboot
@@ -796,7 +796,7 @@ tftp更新镜像
 
 1. 查看fat分区地址
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    fdisk -l
@@ -810,14 +810,14 @@ tftp更新镜像
 
 2. 手动挂载
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    mount /dev/mmcblk1p1 /mnt
 
 3. 复制相应的文件到/mnt目录，将原文件替换。
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    cp zImage-myimx6a7 /mnt
@@ -826,14 +826,14 @@ tftp更新镜像
 
 4. 解压更新内核模块
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    tar xjvf kernel-modules-myimx6a9.tar.bz2 -C /
 
 5. 保存并重启
 
-.. code:: shell
+.. code-block:: shell
 
    =====> 输入指令:
    reboot

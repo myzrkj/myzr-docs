@@ -13,7 +13,7 @@ Build a compilation environment
 
 - Install and compile the required libraries（Ubuntu14.04）
 
-.. code:: shell
+.. code-block:: shell
     
     $sudo apt-get install git-core gnupg flex bison gperf libsdl1.2-dev \
     libesd0-dev libwxgtk2.8-dev squashfs-tools build-essential zip curl \
@@ -24,13 +24,13 @@ Build a compilation environment
 
 - Install OpenJDK8
 
-.. code:: shell
+.. code-block:: shell
     
     $sudo apt-get install openjdk-8-jdk
 
 |   在用户目录的.profile文件中添加下面内容：
 
-.. code:: shell
+.. code-block:: shell
 
     export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
     export JRE_HOME=$JAVA_HOME/jre
@@ -39,7 +39,7 @@ Build a compilation environment
 
 |   Save the file, execute source .profile for the file to take effect, and then execute java -version to see if the java version is correct:
 
-.. code:: shell
+.. code-block:: shell
 
     $java -version
     openjdk version "1.8.0_222-ea"
@@ -52,7 +52,7 @@ Download source code and extract it
 |   Open the network disk to 02_源码 ->android-8.1
 |   Download source package myrk3399_android8.tar.bz2 for all files
 
-.. code:: shell
+.. code-block:: shell
     
     $ mkdir rk3399
     $ cat myrk3399_android8.tar.bz2* | tar xj -C rk3399
@@ -62,7 +62,7 @@ Compile
 
 - Compile uboot
 
-.. code:: shell
+.. code-block:: shell
     
     $cd u-boot
     $make clean
@@ -71,7 +71,7 @@ Compile
 
 - Compile the kernel
 
-.. code:: shell
+.. code-block:: shell
     
     $cd kernel
     $make ARCH=arm64 myzr_defconfig -j8
@@ -79,7 +79,7 @@ Compile
 
 - Compile android
 
-.. code:: shell
+.. code-block:: shell
 
     $cd android8.1
     $source build/envsetup.sh
@@ -89,13 +89,13 @@ Compile
 Package image
 ~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $./mkimage.sh
 
 |   Get the target file in the rockdev / Image-rk3399 directory:
 
-.. code:: shell
+.. code-block:: shell
 
     boot.img  
     kernel.img  
@@ -113,12 +113,12 @@ Package image
 Packed into unified firmware
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
     
     $./MYTools/mkupdate.sh update
 
 |   Get the target file in the rockdev / Image-rk3399 directory:
 
-.. code:: shell
+.. code-block:: shell
     
     rk3399_Android8.1.0_191030.img

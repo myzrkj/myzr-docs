@@ -18,7 +18,7 @@ Install JDK6
 
 1. Download the JDK -6u45-linux-x64.bin file and install.
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd /usr
    $ sudo mkdir java
@@ -29,7 +29,7 @@ Install JDK6
 
 2. Open the profile file and add the environment variables
 
-.. code:: shell
+.. code-block:: shell
    
    $ sudo gedit /etc/profile
    export JAVA_HOME=/usr/java/jdk1.6.0_45
@@ -40,7 +40,7 @@ Install JDK6
 
 3. To See jdk version
 
-.. code:: shell
+.. code-block:: shell
 
    $ java -version
 
@@ -52,7 +52,7 @@ Install JDK6
 Install the libraries needed to compile the Android system
 ------------------------------------------------------------
 
-.. code:: shell
+.. code-block:: shell
 
    sudo apt-get install git gnupg flex bison gperf build-essential \
    zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev \
@@ -67,7 +67,7 @@ Download the source code and unzip it
 
 1. Download android.tar.bz2.0 ，android.tar.bz2.1 ，android.tar.bz2.2 three files,Unzip with the following command.
 
-.. code:: shell
+.. code-block:: shell
 
    $ cat android.tar.bz2.* | tar -jxv
 
@@ -82,7 +82,7 @@ Compile the kernel with Uboot
 Configuration platform information
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/R16/android
    $ source build/envsetup.sh
@@ -125,7 +125,7 @@ Configuration platform information
 Compile the kernel
 ~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/R16/lichee
    $ ./build.sh
@@ -137,7 +137,7 @@ Compile the kernel
 Compile Uboot
 ~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/R16/lichee/brandy/u-boot-2011.09/
    $ make distclean
@@ -157,7 +157,7 @@ Compile Uboot
 Compile android system
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/R16/android/
    $ extract-bsp
@@ -173,7 +173,7 @@ Compile android system
 Package
 ~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/R16/android
    $ pack

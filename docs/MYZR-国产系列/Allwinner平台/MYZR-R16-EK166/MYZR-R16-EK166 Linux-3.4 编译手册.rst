@@ -17,7 +17,7 @@ MYZR-R16-EK166 linux-3.4 编译手册
 解压源码包
 -----------
 
-.. code:: shell
+.. code-block:: shell
    
    $ tar -jxvf tina.tar.bz2
 
@@ -29,7 +29,7 @@ MYZR-R16-EK166 linux-3.4 编译手册
 设置平台信息
 ~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
    
    $ cd ~/tinaV2.1
    $ source build/envsetup.sh
@@ -53,7 +53,7 @@ MYZR-R16-EK166 linux-3.4 编译手册
 编译Uboot
 ~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd lichee/brandy/u-boot-2011.09
    $ make distclean
@@ -73,7 +73,7 @@ MYZR-R16-EK166 linux-3.4 编译手册
 编译系统跟内核
 ~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/tinaV2.1/
    $ make
@@ -84,7 +84,7 @@ MYZR-R16-EK166 linux-3.4 编译手册
 打包
 ~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd ~/tinaV2.1
    $ pack

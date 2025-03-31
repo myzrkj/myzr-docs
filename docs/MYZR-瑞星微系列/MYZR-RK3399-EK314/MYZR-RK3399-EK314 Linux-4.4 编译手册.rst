@@ -10,7 +10,7 @@ Linux-4.4 编译手册
 
 - 下载安装ubuntu固件所需要的库
 
-.. code:: shell
+.. code-block:: shell
     
     $sudo apt-get install git-core gitk git-gui gcc-arm-linux-gnueabihf u-boot-tools device-tree-compiler \
     gcc-aarch64-linux-gnu mtools parted libudev-dev libusb-1.0-0-dev python-linaro-image-tools \
@@ -23,7 +23,7 @@ Linux-4.4 编译手册
 
 - 下载安装buildroot固件所需要的库
 
-.. code:: shell
+.. code-block:: shell
 
     $sudo apt-get install git-core gitk git-gui gcc-arm-linux-gnueabihf u-boot-tools device-tree-compiler \
     gcc-aarch64-linux-gnu mtools parted libudev-dev libusb-1.0-0-dev python-linaro-image-tools \
@@ -36,7 +36,7 @@ Linux-4.4 编译手册
 下载源码并解压
 ~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
     
     cat myrk3399_linux.tar.bz2.a* >> myrk3399_linux.tar.bz2
     sudo tar -xjvf myrk3399_linux.tar.bz2

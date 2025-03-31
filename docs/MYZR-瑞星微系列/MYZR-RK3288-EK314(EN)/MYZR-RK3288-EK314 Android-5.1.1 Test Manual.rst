@@ -47,7 +47,7 @@ Network inferface test
 - Connect lan line：insert one end of lan line into “eth1”on evaluation board and another end into network router.
 - Set the second network inter face IP：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ifconfig eth1 192.168.137.100 　　　　　＃ configure the eth1
     ＃ ping -I eth1 192.168.137.1 　　　　　＃ send ICMP to HOST
@@ -156,25 +156,25 @@ Standard GPIO test
 |   1）GPIO output test
 |   Set IO order number for GPIO of which need to be tested.
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ OUT_IO_NUMBER=9
 
 Lead out GPIO
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo ${OUT_IO_NUMBER} > /sys/class/gpio/export
 
 Set GPIO direction
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo out > /sys/class/gpio/gpio${OUT_IO_NUMBER}/direction
 
 Control outputed electrical level </span>
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo 0 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
     ＃ echo 1 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
@@ -186,25 +186,25 @@ Control outputed electrical level </span>
 |   2）GPIO input test
 |   Set IO order number for GPIO of which need to be tested .
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ IN_IO_NUMBER=18
 
 Lead out GPIO
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo ${IN_IO_NUMBER} > /sys/class/gpio/export
 
 Set GPIO direction
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo in > /sys/class/gpio/gpio${IN_IO_NUMBER}/direction
 
 Check inputed electrical level
 
-.. code:: shell
+.. code-block:: shell
 
     cat /sys/class/gpio/gpio${IN_IO_NUMBER}/value
 
@@ -326,14 +326,14 @@ SPI test
 |   Short connect MISO pin and MOSI pin of SPI2.
 |   2）Execute test
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ./spi_test -D /dev/spidev0.0
 
 |   3）Test result
 |   If SPI is normal,you can see following charaters on terminal：
 
-.. code:: shell
+.. code-block:: shell
 
     FF FF FF FF FF FF
     40 00 00 00 00 95

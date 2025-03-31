@@ -52,7 +52,7 @@ MYZR-RK3399-EK314 烧录手册
 - 在表格位置右击选择导入配置，选择配置文件，配置文件在烧写工具根目录。rk3399-config.cfg是ubuntu16.04的配置，rk3399-android81.cfg是android8.1的配置
 - 导入配置后在需要烧写的镜像前的勾选上
 
-.. code:: shell
+.. code-block:: shell
     
     Loader：MiniLoaderAll.bin
     Parameter：parameter.txt

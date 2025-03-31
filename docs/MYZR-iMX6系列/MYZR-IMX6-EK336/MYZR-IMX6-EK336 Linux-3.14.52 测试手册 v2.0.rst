@@ -38,7 +38,7 @@ MYZR-IMX6-EK336 Linux-3.14.52 测试手册 v2.0
 |   把开发板的这个网口用网线跟电脑网口连接起来。
 |   配置开发板网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ifconfig eth1 down
@@ -46,7 +46,7 @@ MYZR-IMX6-EK336 Linux-3.14.52 测试手册 v2.0
 
 |   测试网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.137.99 -c 2 -w 4 
@@ -77,7 +77,7 @@ MYZR-IMX6-EK336 Linux-3.14.52 测试手册 v2.0
 |   把开发板的这个网口用网线跟电脑网口连接起来。
 |   配置开发板网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ifconfig eth0 down
@@ -85,7 +85,7 @@ MYZR-IMX6-EK336 Linux-3.14.52 测试手册 v2.0
 
 |   测试网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.137.99 -c 2 -w 4 
@@ -114,7 +114,7 @@ USB接口测试
 
 |   将USB设备插入底板USB接口，系统会输出类似如下信息:
 
-.. code:: shell
+.. code-block:: shell
 
     usb 1-1.2: new high-speed USB device number 5 using ci_hdrc
     usb-storage 1-1.2:1.0: USB Mass Storage device detected
@@ -128,7 +128,7 @@ USB接口测试
 
 |   将USB设备从底板拔出，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
     
     usb 1-1.2: USB disconnect, device number 5
 
@@ -147,7 +147,7 @@ SD接口测试
 
 |   把SD卡插入到这个接口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输出信息：
     mmcblk2: mmc2:0002 00000 1.86 GiB (ro)
@@ -155,7 +155,7 @@ SD接口测试
 
 |   弹出SD卡：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输出信息：
     mmc2: card 0002 removed
@@ -173,7 +173,7 @@ SD接口测试
 
 **MYZR-IMX6-EK314可用的IO**
 
-.. code:: shell
+.. code-block:: shell
 
     U14:3(193), U14:5(177), U14:7(176), U14:9(35), U14:11(169), U14:13(34), U14:15(36), U14:17(29)
     U14:4(192), U14:6(178), U14:8(39), U14:10(38), U14:12(171), U14:14(32), U14:16(37), U14:18(27)
@@ -184,7 +184,7 @@ SD接口测试
 
 |   配置U14:29为输出低电平的操作方法：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     OUT_IO_OUT_NUM=85
@@ -198,7 +198,7 @@ SD接口测试
 
 |   配置U14:30为输出高电平的操作方法：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     OUT_IO_OUT_NUM=86 
@@ -212,14 +212,14 @@ SD接口测试
 
 |   控制 GPIO 输出低电平的指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 0 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value   
 
 |   控制 GPIO 输出高电平的指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value 
@@ -248,7 +248,7 @@ GPIO-LED测试（leds-mmc3）
 
 **测试操作**
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     dd if=/dev/zero of=/home/root/test bs=1024k count=128
@@ -269,14 +269,14 @@ GPIO-LED测试（leds-timer）
 
 |   更改 led-timer (D17) 灭的时间
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 1000 > /sys/class/leds/leds-timer/delay_off  
 
 |   更改 led-timer (D17) 亮的时间
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 2000 > /sys/class/leds/leds-timer/delay_on  
@@ -296,14 +296,14 @@ GPIO-LED测试（leds-gpio）
 
 |   使 D18 灭：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 0 > /sys/class/leds/leds-gpio/brightness  
 
 |   使 D18 亮：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 1 > /sys/class/leds/leds-gpio/brightness  
@@ -323,7 +323,7 @@ GPIO-KEY测试
 
 |   运行 evtest 准备测试
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     evtest 
@@ -337,7 +337,7 @@ GPIO-KEY测试
 
 |   选择 gpio-keys 所对应的序号
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     1
@@ -357,7 +357,7 @@ GPIO-KEY测试
 
 |   按动开发板上的按键
 
-.. code:: shell
+.. code-block:: shell
 
     Event: time 1537921332.815219, type 1 (EV_KEY), code 114 (KEY_VOLUMEDOWN), value 1
     Event: time 1537921332.815219, -------------- SYN_REPORT ------------
@@ -388,7 +388,7 @@ GPIO-KEY测试
 |   短接串口2的发送发接收管脚（J12的9和10号管脚）
 |   执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/serial_test.out /dev/ttymxc1 "www.myzr.com.cn"  
@@ -429,7 +429,7 @@ GPIO-KEY测试
 |   短接串口3的发送发接收管脚（J12的12和13号管脚）
 |   执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/serial_test.out /dev/ttymxc2 "www.myzr.com.cn"  
@@ -470,7 +470,7 @@ GPIO-KEY测试
 |   短接串口4的发送发接收管脚（J12的15和17号管脚）
 |   执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/serial_test.out /dev/ttymxc3 "www.myzr.com.cn"  
@@ -511,7 +511,7 @@ GPIO-KEY测试
 |   短接串口5的发送发接收管脚（J12的16和18号管脚）
 |   执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/serial_test.out /dev/ttymxc4 "www.myzr.com.cn"  
@@ -556,28 +556,28 @@ CAN 测试
 
 |   配置 CAN1（can0）：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ip link set can0 up type can bitrate 125000
 
 |   配置 CAN2（can1）：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ip link set can1 up type can bitrate 125000
 
 |   CAN1 (can0) 后台接收：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     candump can0 &  
 
 |   CAN2（can1）发送数据：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cansend can1 1F334455#1122334455667788 
@@ -601,7 +601,7 @@ SPI测试（ECSPI1）
 |   短接J7的6和12管脚。
 |   执行测试指令
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/spidev_test.out -D /dev/spidev0.1   
@@ -635,7 +635,7 @@ SPI测试（ECSPI2）
 |   短接J13的7和11管脚。
 |   执行测试指令
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/spidev_test.out -D /dev/spidev1.0   
@@ -668,7 +668,7 @@ Watchdog 超时复位测试
 
 |   运行看门狗程序：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /unit_tests/wdt_driver_test.out 10 15 1  
@@ -683,7 +683,7 @@ Watchdog 超时复位测试
 
 |   运行测试命令10秒后，WatchDog超时，系统被复位。会在终端看到系统重新启动输出的信息类似如下：
 
-.. code:: shell
+.. code-block:: shell
 
     U-Boot 2016.03-svn351 (Jan 25 2019 - 10:13:51 +0800)
 
@@ -704,7 +704,7 @@ Watchdog 喂狗测试
 
 |   运行看门狗程序，并设置超时时间为4秒，喂狗间隔时间为2秒：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /unit_tests/wdt_driver_test.out 4 2 1 &  
@@ -727,7 +727,7 @@ RTC 测试
 
 1. 断电重启设备，查看当前系统时间和硬件时间：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令: 
     date
@@ -737,7 +737,7 @@ RTC 测试
 
 2. 查看当前RTC芯片时钟：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令: 
     hwclock 
@@ -747,7 +747,7 @@ RTC 测试
 
 3. 设置系统时钟，并同步到RTC芯片
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令: 
     date -s "2019-01-14 12:34:56"  
@@ -757,7 +757,7 @@ RTC 测试
 
 4. 将系统时钟写入硬件时钟
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     hwclock -w  
@@ -766,7 +766,7 @@ RTC 测试
 
 1. 断电重启评估板，查看当前系统时钟和硬件时钟
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     date
@@ -776,7 +776,7 @@ RTC 测试
 
 2. 查看当前RTC芯片时钟
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     hwclock  
@@ -797,14 +797,14 @@ WakeAlarm 唤醒测试
 
 1. 设定 rtc1，使 10 秒后产生 wakealarm 事件
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo +10 > /sys/class/rtc/rtc1/wakealarm 
 
 2. 使设备进入睡眠
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo mem > /sys/power/state
@@ -820,7 +820,7 @@ WakeAlarm 唤醒测试
 1. 可以看到开发板的除电源指示灯以外的 LED 都灭了。
 2. 10内 LED 的状态又恢复了，并且系统输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
     PM: suspend of devices complete after 92.868 msecs
     PM: suspend devices took 0.090 seconds
@@ -849,7 +849,7 @@ WakeAlarm 唤醒测试
 |   把耳机插入开发板的“EAR”口。
 |   执行测试命令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     aplay /unit_tests/audio8k16S.wav   
@@ -873,7 +873,7 @@ WakeAlarm 唤醒测试
 1. 把带MIC的耳机插入开发板的“MIC”口。
 2. 执行录音命令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     arecord -d 5 -f S16_LE -t wav foobar.wav
@@ -883,7 +883,7 @@ WakeAlarm 唤醒测试
 
 3. 播放录音
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     aplay foobar.wav
@@ -906,7 +906,7 @@ WakeAlarm 唤醒测试
 
 1. 查看最大背光亮度值。
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cat /sys/class/backlight/backlight.27/max_brightness
@@ -916,7 +916,7 @@ WakeAlarm 唤醒测试
 
 2. 设置背光亮度，直接看显示屏亮度。
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo 5 > /sys/class/backlight/backlight.27/brightness
@@ -940,7 +940,7 @@ usb识别为U盘测试
 
 1. 创建一个10M大小的文件
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     # dd if=/dev/zero of=/dev/shm/disk bs=1024 count=10240
@@ -952,7 +952,7 @@ usb识别为U盘测试
 
 2. 载入模块
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     # modprobe g_mass_storage stall=0 file=/dev/shm/disk removable=1
@@ -975,7 +975,7 @@ usb识别为U盘测试
 
 4. 挂载
 
-.. code:: shell
+.. code-block:: shell
 
     # mount /dev/shm/disk /mnt
 
@@ -995,7 +995,7 @@ usb识别为网口测试
 
 1. 载入模块
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     # modprobe g_ether
@@ -1013,7 +1013,7 @@ usb识别为网口测试
 
 2. 设置IP
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     # ifconfig usb0 192.168.7.2
@@ -1021,7 +1021,7 @@ usb识别为网口测试
 
 3. 测试网口
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     # ping 192.168.7.8 -c 2 -w 4
@@ -1050,7 +1050,7 @@ CPU温度测试
 
 1. 输入命令
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo $[$(cat /sys/class/thermal/thermal_zone0/temp)/1000]
@@ -1076,7 +1076,7 @@ tftp更新镜像
 
 1. 设置IP
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     设置开发板IP：setenv ipaddr 192.168.137.9
@@ -1089,7 +1089,7 @@ tftp更新镜像
 
 2. 烧写dtb
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     run update_dtb
@@ -1107,7 +1107,7 @@ tftp更新镜像
 
 3. 烧写zImage
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     run update_kern 
@@ -1132,7 +1132,7 @@ tftp更新镜像
 
 4. 烧写u-boot环境变量
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     run update_scr 
@@ -1154,7 +1154,7 @@ tftp更新镜像
 
 5. 烧写u-boot
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     run update_ubot 
@@ -1188,7 +1188,7 @@ tftp更新镜像
 
 2. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.137.99 -c 2 -w 4 
@@ -1204,7 +1204,7 @@ tftp更新镜像
 
 3. 传输文件
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     tftp -g 192.168.137.99 -r zImage-myimx6a9 
@@ -1214,7 +1214,7 @@ tftp更新镜像
 
 4. 查看fat分区地址
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     fdisk -l
@@ -1227,14 +1227,14 @@ tftp更新镜像
 
 5. 手动挂载
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     mount /dev/mmcblk3p1 /mnt/
 
 6. 复制相应的文件到/mnt目录，将原文件替换。
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cp zImage-myimx6a9 /mnt
@@ -1243,14 +1243,14 @@ tftp更新镜像
 
 7. 解压更新内核模块
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     tar xjvf kernel-modules-myimx6a9.tar.bz2 -C /
 
 8. 保存并重启
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     reboot
@@ -1269,25 +1269,25 @@ tftp更新镜像
 |   说明：默认为 LVDS1 显示，即上电后不干预启动的情况下，LVDS1 为显示设备。
 |   显式配置 LVDS1 为显示的方法：
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_lvds1; saveenv; boot
 
 - LVDS0 显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_lvds0; saveenv; boot
 
 - HDMI 显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_hdmi; saveenv; boot
 
 - LCD(RGB) 显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_lcd; saveenv; boot
 
@@ -1295,13 +1295,13 @@ tftp更新镜像
 
 - LVDS1 + LVDS0 双屏同步显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_lvds_dul; saveenv; boot
 
 - LVDS1 + LVDS0(fb4) 双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_lvds_sep; saveenv; boot
 
@@ -1309,49 +1309,49 @@ tftp更新镜像
 
 - LVDS1 + HDMI 双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_lvds1 $disp_fb1_hdmi; saveenv; boot
 
 - LVDS1 + LCD(RGB) 双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_lvds1 $disp_fb1_lcd; saveenv; boot
 
 - LVDS0 + HDMI 双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_lvds0 $disp_fb1_hdmi; saveenv; boot
 
 - LVDS0 + LCD(RGB) 双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_lvds0 $disp_fb1_lcd; saveenv; boot
 
 - HDMI + LVDS1 双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_hdmi $disp_fb1_lvds1; saveenv; boot
 
 - HDMI + LVDS0 双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_hdmi $disp_fb1_lvds0; saveenv; boot
 
 - LCD(RGB) + LVDS1 双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_lcd $disp_fb1_lvds1; saveenv; boot
 
 - LCD(RGB) + LVDS0 双屏异步显示
 
-.. code:: shell
+.. code-block:: shell
 
     run load_scr; source; setenv display $disp_fb0_lcd $disp_fb1_lvds0; saveenv; boot
 
@@ -1360,7 +1360,7 @@ tftp更新镜像
 
 - 设置Linux的环境变量
 
-.. code:: shell
+.. code-block:: shell
 
     # export GSTL=gst-launch-1.0
     # export PLAYBIN=playbin
@@ -1370,13 +1370,13 @@ tftp更新镜像
 
 - 播放视频到主显示屏
 
-.. code:: shell
+.. code-block:: shell
 
     # $GSTL $PLAYBIN uri=file:$MP4_FILE video-sink="imxv4l2sink device=/dev/video17"
 
 - 播放视频到第二显示屏
 
-.. code:: shell
+.. code-block:: shell
 
     # $GSTL $PLAYBIN uri=file:$MP4_FILE video-sink="imxv4l2sink device=/dev/video18"
 
@@ -1398,7 +1398,7 @@ RTL8188 模块功能演示（WIFI Client）
 
 |   命令格式: wpa_passphrase <ssid> [passphrase]
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     wpa_passphrase MY-TEST-AP myzr2012 > /etc/wpa_supplicant.conf
@@ -1406,7 +1406,7 @@ RTL8188 模块功能演示（WIFI Client）
 
 4. 连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
@@ -1420,7 +1420,7 @@ RTL8188 模块功能演示（WIFI Client）
 
 5. 获取 IP
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     udhcpc -i wlan0
@@ -1434,7 +1434,7 @@ RTL8188 模块功能演示（WIFI Client）
 
 6. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping -I wlan0 192.168.43.1 -c 2 -w 4
@@ -1465,7 +1465,7 @@ RTL8188 模块功能演示（WIFI AP mode）
 2. 把WIFI天线连接到“WIFI_ANT”标识的接口上。
 3. 为 wlan0 配置 IP：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ifconfig wlan0 192.168.99.1
@@ -1476,7 +1476,7 @@ RTL8188 模块功能演示（WIFI AP mode）
 
 4. 为 wlan0 启用 DHCP 服务：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     touch /var/lib/misc/udhcpd.leases
@@ -1488,7 +1488,7 @@ RTL8188 模块功能演示（WIFI AP mode）
 
 5. 为 wlan0 启用 Host-AP 功能
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     hostapd /etc/my_hostapd.conf -B
@@ -1509,7 +1509,7 @@ RTL8188 模块功能演示（WIFI AP mode）
 
 1. 设备连接成功时产生的信息
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输出信息：
     Sending OFFER of 192.168.12.20
@@ -1518,7 +1518,7 @@ RTL8188 模块功能演示（WIFI AP mode）
 
 2. 设备断开连接时产生的信息
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输出信息：
     RTL871X: OnDeAuth(wlan0) reason=3, ta=b4:0b:44:f5:64:2f
@@ -1536,7 +1536,7 @@ EC20 模块测试
 1. 开发板断电，接上4G模块，接上天线并插入SIM卡后启动评估板。
 2. 使用指令进行网络连接：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/gcc-linaro-5.3-arm/quectel-CM &
@@ -1574,7 +1574,7 @@ EC20 模块测试
 
 3. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping -I eth2 www.baidu.com -c 2 -w 4
@@ -1604,7 +1604,7 @@ OV5642摄像头 测试
 1. 开发板断电，在"CAMERA"接上OV5642摄像头，接上摄像头后启动评估板。
 2. 使用指令进行测试
 
-.. code:: shell
+.. code-block:: shell
 
     # /unit_tests/mxc_v4l2_overlay.out -iw 640 -ih 480 -it 0 -il 0 -ow 640 -oh 480 -ot 20 -ol 20 -r 0 -t 50 -do 0 -fg -fr 30
 
@@ -1620,7 +1620,7 @@ OV5642摄像头 测试
 1. 开发板断电，接上采集模块，接上模拟摄像头，开机。
 2. 使用指令进行测试：
 
-.. code:: shell
+.. code-block:: shell
 
     # EXEC_FILE=/my-demo/linux-3.14.52/MY_TW6865_DEMO_L31452_MYIMX6A9.out
     # ${EXEC_FILE} -x 2 -ot 0 -ol 0 -ow 512 -oh 300 -m 2 &

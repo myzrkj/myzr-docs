@@ -12,7 +12,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 
 |   运行一下命令安装openjdk1.7
 
-.. code:: shell
+.. code-block:: shell
 
     sudo add-apt-repository "deb http://archive.canonical.com/ lucid partner"
     sudo apt-get update
@@ -21,7 +21,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 
 |   增加以下环境变量
 
-.. code:: shell
+.. code-block:: shell
 
     export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/
     export JRE_HOME=$JAVA_HOME/jre
@@ -40,7 +40,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 
 |   (详细信息，请看网站http://source.android.com/source/initializing.html)
 
-.. code:: shell
+.. code-block:: shell
 
     $ sudo apt-get install git gnupg flex bison gperf build-essential zip curl libc6-dev libncurses5-dev:i386 x11proto-core-dev libx11-dev:i386 libreadline6-dev:i386 libgl1-mesa-glx:i386 libgl1-mesa-dev g++-multilib mingw32 tofrodos python-markdown libxml2-utils xsltproc zlib1g-dev:i386
     $ sudo ln -s /usr/lib/i386-linux-gnu/mesa/libGL.so.1 /usr/lib/i386-linux-gnu/libGL.so
@@ -65,7 +65,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 解压源码
 ~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir ~/myandroid5.1
     $ cd ~
@@ -76,7 +76,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 
 **设置环境变量**
 
-.. code:: shell
+.. code-block:: shell
 
     $ export ARCH=arm
     $ export CROSS_COMPILE=~/myandroid5.1/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin/arm-eabi-
@@ -84,7 +84,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 
 **编译uboot**
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/myandroid5.1/bootable/bootloader/uboot-imx
     $ make distclean
@@ -100,7 +100,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 
 **编译kernel**
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/myandroid5.1/kernel_imx
     $ cp myzr.config .config
@@ -108,7 +108,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 
 **编译bootimg (uImage和ramdisk)**
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/myandroid5.1
     $ source build/envsetup.sh
@@ -117,7 +117,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 
 **编译system**
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/myandroid5.1
     $ source build/envsetup.sh
@@ -139,7 +139,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 
 **LVDS设置**
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 init=/init video=mxcfb0:dev=ldb,bpp=32 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off vmalloc=256M androidboot.console=ttymxc0 consoleblank=0 androidboot.hardware=freescale cma=384M(不能用调试串口)
     setenv bootargs console=ttymxc0,115200 init=/init video=mxcfb0:dev=ldb,bpp=32
@@ -147,7 +147,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 
 **HDMI设置**
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 androidboot.console=ttymxc0 consoleblank=0 vmalloc=256M init=/init video=mxcfb0:dev=hdmi,1920x1080M@60,bpp=32 video=mxcfb1:off video=mxcfb2:off video=mxcfb3:off androidboot.hardware=freescale cma=384M
     (不能用调试串口)
@@ -159,7 +159,7 @@ MYZR-I.MX6-DEMO Android5.1.1环境搭建
 
 **LVDS+HDMI设置**
 
-.. code:: shell
+.. code-block:: shell
 
     setenv bootargs console=ttymxc0,115200 androidboot.console=ttymxc0 consoleblank=0 vmalloc=256M init=/init video=mxcfb0:dev=ldb,bpp=32 video=mxcfb1:dev=hdmi,
     1920x1080M@60,bpp=32 video=mxcfb2:off video=mxcfb3:off androidboot.hardware=freescale cma=384M (不能用调试串口)

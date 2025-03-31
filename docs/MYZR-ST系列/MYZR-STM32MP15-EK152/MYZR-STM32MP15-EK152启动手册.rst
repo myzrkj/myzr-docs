@@ -86,7 +86,7 @@ USB下载线的连接
 
 |  开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
 
-.. code:: shell
+.. code-block:: shell
    
    NOTICE:  CPU: STM32MP157AAC Rev.Z
    NOTICE:  Model: MYZR STM32MP15 Discovery Board
@@ -136,7 +136,7 @@ USB下载线的连接
 TF-A 信息
 """"""""""
 
-.. code:: shell
+.. code-block:: shell
 
    "NOTICE: CPU: STM32MP157AAC Rev.Z"：表示使用的CPU型号为STM32MP157AAC，版本为Z。对于153和151的CPU则为"CPU: STM32MP153AAC Rev.Z"，"CPU: STM32MP151AAC Rev.Z"。
    "NOTICE: Model: MYZR STM32MP15 Discovery Board"为我们开发板的软件名称。
@@ -148,7 +148,7 @@ TF-A 信息
 U-Boot 信息
 """"""""""""
 
-.. code:: shell
+.. code-block:: shell
 
    "U-Boot 2020.01-stm32mp-r1 (Apr 07 2021 - 19:15:56 +0800)"：为UBOOT的版本号和编译时间
    "CPU: STM32MP157AAC Rev.Z"：为CPU信息
@@ -159,7 +159,7 @@ U-Boot 信息
 内核信息
 """"""""""
 
-.. code:: shell
+.. code-block:: shell
 
    启动信息中"Linux version 5.4.31 (myzr@u14045) (gcc version 9.3.0 (GCC)) #20 SMP PREEMPT Tue Apr 6 19:11:34 CST 2021"包含以下信息：
    【内核版本】：Linux-5.4.31；
@@ -170,7 +170,7 @@ U-Boot 信息
 文件系统信息
 """"""""""""""
 
-.. code:: shell
+.. code-block:: shell
 
    启动信息中两行"ST OpenSTLinux - Weston - (A Yocto Project Based Distro) 3.1-openstlinux-5.4-dunfell-mp1-20-06-24 stm32mp1 ttySTM0"包含以下信息：
    【ST OpenSTLinux - Weston】表示文件系统的基础包；

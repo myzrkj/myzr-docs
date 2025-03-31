@@ -10,7 +10,7 @@ Linux system
 
 1. Add spi drivers to the kernel
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd tinaV2.1 
    $ source build/envsetup.sh
@@ -24,7 +24,7 @@ Linux system
 
 2. Modification
 
-.. code:: shell
+.. code-block:: shell
 
    tinaV2.1/target/allwinner/astar-parrot/configs/sys_config.fex  
    [spi_board0]  
@@ -37,7 +37,7 @@ Linux system
 
 | changed to
 
-.. code:: shell
+.. code-block:: shell
 
    [spi_board0]
    modalias      = "spidev"  
@@ -52,7 +52,7 @@ Android system
 
 1. Add spi drivers to the kernel
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd lichee/linux-3.4
    $ make ARCH=arm menuconfig
@@ -62,7 +62,7 @@ Android system
 
 2. Modification
 
-.. code:: shell
+.. code-block:: shell
 
    lichee/tools/pack/chips/sun8iw5p1/configs/evb-30/sys_config.fex    
    [spi_board0]  
@@ -75,7 +75,7 @@ Android system
 
 | changed to
 
-.. code:: shell
+.. code-block:: shell
 
    [spi_board0]  
    modalias      = "spidev"    

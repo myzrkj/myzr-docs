@@ -28,14 +28,14 @@ Linux-4.4 测试手册
 |   把开发板的这个网口用网线跟电脑网口连接起来。
 |   配置开发板网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ifconfig eth0 192.168.18.36
 
 **测试网口**
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.18.18 -c 2 -w 4
@@ -62,13 +62,13 @@ USB接口测试
 **测试方法**
 |   将USB设备插入底板USB接口，输入以下命令:
 
-.. code:: shell
+.. code-block:: shell
     
     ＃ df -h
 
 |   将USB设备从底板拔出，输入以下命令：
 
-.. code:: shell
+.. code-block:: shell
     
     ＃ df -h
 
@@ -90,7 +90,7 @@ SD接口测试
 
 |   往SD卡槽插入设备，插入SD卡到底板SD卡接口，输入以下命令：
 
-.. code:: shell
+.. code-block:: shell
     
     ＃ df -h
 
@@ -132,7 +132,7 @@ SD接口测试
 
 |   配置P8-3为输出高、低电平的操作方法：
 
-.. code:: shell
+.. code-block:: shell
     
     =====> 输入指令:
     ＃ OUT_IO_NUMBER=92
@@ -153,7 +153,7 @@ SD接口测试
 
 |   配置P8-3输入的操作方法：
 
-.. code:: shell
+.. code-block:: shell
     
     设置需要测试的GPIO的IO序号
     ＃ IN_IO_NUMBER=91
@@ -185,14 +185,14 @@ ADC-KEY测试
 
 |   安装evtest
 
-.. code:: shell
+.. code-block:: shell
     
     =====> 输入指令:
     $ sudo apt-get install evtest
 
 |   运行 evtest 准备测试
 
-.. code:: shell
+.. code-block:: shell
     
     =====> 输入指令:
     evtest 
@@ -216,7 +216,7 @@ RTC测试
 
 **测试说明**
 
-.. code:: shell
+.. code-block:: shell
     
     受快递运输影响，MYZR-RK3399-EK314 系列评估板发货时不带电池。测试RTC前请自备纽扣电池并安装到评估板上。MYZR-RK3399-EK314的电池座在底板背面的“BT1”位置。
 
@@ -224,7 +224,7 @@ RTC测试
 
 1. 断电重启设备，查看当前系统时间和硬件时间：
 
-.. code:: shell
+.. code-block:: shell
     
     =====> 输入指令: 
     date
@@ -234,7 +234,7 @@ RTC测试
 
 2. 查看当前RTC芯片时钟：
 
-.. code:: shell
+.. code-block:: shell
     
     =====> 输入指令: 
     hwclock 
@@ -244,14 +244,14 @@ RTC测试
 
 3. 设置系统时钟，并同步到RTC芯片
 
-.. code:: shell
+.. code-block:: shell
     
     =====> 输入指令: 
     date -s "2019-07-04 12:30:30"
 
 4. 将系统时钟写入硬件时钟
 
-.. code:: shell
+.. code-block:: shell
     
     =====> 输入指令:
     hwclock -w  
@@ -272,7 +272,7 @@ RTC测试
 |   连接音频输出设备到底板正面的音频座子，音频座子在底板正面“P6”。
 |   执行测试命令：
 
-.. code:: shell
+.. code-block:: shell
     
     =====> 输入指令:
     ＃aplay /usr/share/sounds/alsa/Rear_Left.wav
@@ -330,7 +330,7 @@ WIFI模块测试
 
 **测试操作**
 
-.. code:: shell
+.. code-block:: shell
     
     安装wvdial
     =====> 输入指令:
@@ -357,7 +357,7 @@ WIFI模块测试
 
 |   拨号
 
-.. code:: shell
+.. code-block:: shell
     
     =====> 输入指令:
     #wvdial &

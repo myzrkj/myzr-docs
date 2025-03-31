@@ -24,7 +24,7 @@ MYZR-I.MX8Mmini-CB240 ANDROID9.1 烧录手册
 
 - 进入烧写工具的存放目录 例如烧写工具的存放路径为G:\imx8m\imx8mm-android-image
 
-.. code:: shell
+.. code-block:: shell
 
    <code class="shell"># 进入G盘
    C:\Windows\system32> G:
@@ -36,7 +36,7 @@ MYZR-I.MX8Mmini-CB240 ANDROID9.1 烧录手册
 - 用USB公对公烧写线将开发板j3USB接口与电脑usb接口相连接
 - 在命令提示符窗口输入uuu_imx_android_flash.bat -f imx8mq -a -e开始烧写
 
-.. code:: shell
+.. code-block:: shell
 
    <code class="shell">G:\imx8mq\imx8mq-android-ek300-AP6398S>uuu_imx_android_flash.bat -f imx8mm -a -e
    </code>

@@ -45,7 +45,7 @@ MYZR-RK3288-EK314 烧录手册
 
 这里直观的描述出完整的烧录工具目录及文件结构，并简要的对目录及文件进行说明，方便大家理解烧录工具。
 
-.. code:: shell
+.. code-block:: shell
    
     /
     |-> AndroidTool_Release_v2.35

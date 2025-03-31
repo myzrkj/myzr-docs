@@ -77,7 +77,7 @@ rzg2ul测试环境
 2. 网线连接板子网口和电脑网口
 3. 输入如下指令与电脑通讯：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # ping 192.168.137.99
@@ -113,7 +113,7 @@ rzg2ul测试环境
 2. 网线连接板子网口和电脑网口
 3. 输入如下指令与电脑通讯：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # ifconfig eth1 192.168.137.81
@@ -148,7 +148,7 @@ USB测试
 
 1. 将USB设备插入底板USB接口，系统会输出类似如下信息:
 
-.. code:: shell
+.. code-block:: shell
 
    root@myzr-rzg2l:~# [   41.664942] usb 1-1.1: new high-speed USB device number 4 using ehci-platform
    [   41.796776] usb-storage 1-1.1:1.0: USB Mass Storage device detected
@@ -162,7 +162,7 @@ USB测试
 
 2. 将USB设备从底板拔出，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    root@myzr-rzg2l:~# [   55.524114] usb 1-1.1: USB disconnect, device number 4
 
@@ -183,7 +183,7 @@ SD接口测试
 
 1. 将TF卡安装到SD接口，开发会输出如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    root@myzr-rzg2l:~# [  178.279039] mmc1: new high speed SDHC card at address 1234
    [  178.290822] mmcblk1: mmc1:1234 SA32G 29.1 GiB 
@@ -191,14 +191,14 @@ SD接口测试
 
 2. 可以查看到对应的sd接口设备：
 
-.. code:: shell
+.. code-block:: shell
 
    # ls /dev/mmcblk1*
    /dev/mmcblk1  /dev/mmcblk1p1
 
 3. 将TF卡拔出，输出如下信息：
 
-.. code:: shell
+.. code-block:: shell
    
    root@myzr-rzg2l:~# [  195.429099] mmc1: card 1234 removed
 
@@ -224,7 +224,7 @@ GPIO测试
 
 1. 导出需要测试的gpio接口，以P3中的GPIO47_2为例。GPIO47_2对应核心板管脚为P47_2，对应gpio编号 = （47*8+2）+120 = 498，输入如下命令导出节点：
 
-.. code:: shell
+.. code-block:: shell
 
    # echo 498 > /sys/class/gpio/export 
    # ls /sys/class/gpio/
@@ -232,13 +232,13 @@ GPIO测试
 
 2. 配置GPIO47_2脚作为输出引脚：
 
-.. code:: shell
+.. code-block:: shell
 
    # echo out > /sys/class/gpio/P47_2/direction
 
 3. 配置GPIO47_2脚输出高电平：
 
-.. code:: shell
+.. code-block:: shell
 
    # echo 1 > /sys/class/gpio/P47_2/value
 
@@ -246,7 +246,7 @@ GPIO测试
 
 4. 配置GPIO47_2脚输出低电平：
 
-.. code:: shell
+.. code-block:: shell
 
    # echo 0 > /sys/class/gpio/P47_2/value
 
@@ -254,7 +254,7 @@ GPIO测试
 
 5. 配置GPIO47_2脚为输入，将管脚接地，并读取其值：
 
-.. code:: shell
+.. code-block:: shell
 
    # echo in > /sys/class/gpio/P47_2/direction
    # cat /sys/class/gpio/P47_2/value 
@@ -264,7 +264,7 @@ GPIO测试
 
 1. 导出需要测试的gpio接口，以LCD板J12中的GPIO7_3为例。GPIO7_3对应核心板管脚为P7_3，对应gpio编号 = （7*8+3）+360 = 419，输入如下命令导出节点：
 
-.. code:: shell
+.. code-block:: shell
 
    # echo 419 > /sys/class/gpio/export 
    # ls /sys/class/gpio/
@@ -272,13 +272,13 @@ GPIO测试
 
 2. 配置GPIO7_3脚作为输出引脚：
 
-.. code:: shell
+.. code-block:: shell
 
    # echo out > /sys/class/gpio/P7_3/direction
 
 3. 配置GPIO7_3脚输出高电平：
 
-.. code:: shell
+.. code-block:: shell
 
    # echo 1 > /sys/class/gpio/P7_3/value
 
@@ -286,7 +286,7 @@ GPIO测试
 
 4. 配置GPIO7_3脚输出低电平：
 
-.. code:: shell
+.. code-block:: shell
 
    # echo 0 > /sys/class/gpio/P7_3/value
 
@@ -294,7 +294,7 @@ GPIO测试
 
 5. 配置GPIO7_3脚为输入，将管脚接地，并读取其值：
 
-.. code:: shell
+.. code-block:: shell
 
    # echo in > /sys/class/gpio/P7_3/direction
    # cat /sys/class/gpio/P7_3/value 
@@ -326,7 +326,7 @@ UART测试
 1. 短接P3-7和P3-9脚，即UART2_RXD 和UART2_TXD。
 2. 输入如下命令进行UART2收发测试：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # /my-demo/serial_test.out /dev/ttySC2 "myzr"
@@ -370,7 +370,7 @@ RS232测试
 1. 短接J10的TX3和RX3
 2. 输入如下命令进行RS232收发测试：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # /my-demo/serial_test.out /dev/ttySC3 "myzr"
@@ -413,7 +413,7 @@ RS485测试
 2. 打开串口调试助手，设置波特率为9600，无校验位，8位数据位，1位停止位。
 3. 开发板使用ssh登录，向电脑端发送数据：
 
-.. code:: shell
+.. code-block:: shell
 
    # echo 123 > /dev/ttySC2
 
@@ -421,13 +421,13 @@ RS485测试
 
 4. 开发板接收数据，电脑端发送数据：
 
-.. code:: shell
+.. code-block:: shell
 
    # cat /dev/ttySTM2
 
 |  当串口助手发送字符串时，开发板会接收到数据：
 
-.. code:: shell
+.. code-block:: shell
 
    # cat /dev/ttySTM2
    myzr
@@ -458,26 +458,26 @@ CAN测试
 1. 将CAN口进行连接，CAN0_L与CAN1_L相连；CAN0_H和CAN1_H相连。
 2. 对can0和can1进行配置：
 
-.. code:: shell
+.. code-block:: shell
 
    # ip link set can0 up type can bitrate 500000 dbitrate 1000000 fd on
    # ip link set can1 up type can bitrate 500000 dbitrate 1000000 fd on
 
 3. 将can0配置为接收：
 
-.. code:: shell
+.. code-block:: shell
 
    # candump can0 &
 
 4. can1发送数据：
 
-.. code:: shell
+.. code-block:: shell
 
    # cansend can1 1F334455#1122334455667788
 
 5. 可以接收到如下数据：
 
-.. code:: shell
+.. code-block:: shell
 
    can0  1F334455   [8]  11 22 33 44 55 66 77 88
 
@@ -499,7 +499,7 @@ SPI测试
 
 1. 短接P3的SPI1_MOSI和SPI1_MISO，输入命令：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # /my-demo/spidev_test.out -D /dev/spidev1.0
@@ -531,7 +531,7 @@ RTC测试
 
 1. 断电重启设备，查看当前系统时间和硬件时间：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # date
@@ -541,7 +541,7 @@ RTC测试
 
 2. 查看当前RTC芯片时钟：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # hwclock
@@ -551,7 +551,7 @@ RTC测试
 
 3. 设置系统时钟：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # date -s "2023-02-08 15:00:00""
@@ -561,13 +561,13 @@ RTC测试
 
 4. 将系统时钟写入硬件时钟：
 
-.. code:: shell
+.. code-block:: shell
 
    # hwclock -w
 
 5. 断电重启开发板，查看当前系统时钟和硬件时钟：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # date
@@ -598,7 +598,7 @@ RTC测试
 
 1. 把耳机插入开发板的“AUDIO”口。执行如下命令播放音频：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # aplay /usr/share/sounds/alsa/Front_Center.wav
@@ -608,7 +608,7 @@ RTC测试
 
 2. 可以使用如下命令进行音量调节：
 
-.. code:: shell
+.. code-block:: shell
 
    # alsamixer
 
@@ -631,7 +631,7 @@ RTC测试
 1. 把带MIC的耳机插入开发板耳机接口
 2. 输入如下命令进行4秒的录音：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # arecord -d 4 record.wav
@@ -641,7 +641,7 @@ RTC测试
 
 3. 播放录制的音频：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # aplay record.wav
@@ -668,7 +668,7 @@ WIFI测试
 1. 把WIFI天线连接到“E1/E2”接口上
 2. 生成 SSID 的 WPA PSK 文件
 
-.. code:: shell
+.. code-block:: shell
 
    wpa_passphrase命令格式：wpa_passphrase + wifi名称 + wifi密码 > /etc/wpa_supplicant.conf
 
@@ -677,7 +677,7 @@ WIFI测试
 
 3. 连接：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf 
@@ -698,7 +698,7 @@ WIFI测试
 
 4. 获取IP：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # udhcpc -i wlan0
@@ -712,7 +712,7 @@ WIFI测试
 
 5. 测试连接：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # ping -I wlan0 www.baidu.com
@@ -757,7 +757,7 @@ WIFI测试
 1. 把天线连接到“E2”接口上
 2. 启动蓝牙：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # hciconfig hci0 up
@@ -772,7 +772,7 @@ WIFI测试
 
 3. 扫描外部蓝牙设备：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # hcitool scan
@@ -783,7 +783,7 @@ WIFI测试
 
 4. 发送发送L2CAP包测试：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # l2ping 88:46:04:4C:11:A7
@@ -821,7 +821,7 @@ WIFI测试
 1. 开发板断电，接上4G模块，接上天线并插入SIM卡后启动评估板。
 2. 使用指令进行网络连接：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # /myzr-demo/quectel-CM &
@@ -858,7 +858,7 @@ WIFI测试
 
 3. 连接测试：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # ping -I usb0 www.baidu.com
@@ -889,20 +889,20 @@ DSI显示
 
 1. 启动开发板，在uboot倒数结束前按下回车键进行uboot命令行模式，输入printenv fdtfile查看当前设备树名称
 
-.. code:: shell
+.. code-block:: shell
 
    => printenv fdtfile 
    fdtfile=myzr-rzg2l-rgb.dtb
 
 2. 如果当前设备树不是dsi，则进行更换：
 
-.. code:: shell
+.. code-block:: shell
 
    => setenv fdtfile myzr-rzg2l-dsi.dtb
 
 3. 保存当前环境变量
 
-.. code:: shell
+.. code-block:: shell
 
    => saveenv 
    Saving Environment to MMC... Writing to MMC(0)... OK
@@ -930,20 +930,20 @@ RGB显示
 
 1. 启动开发板，在uboot倒数结束前按下回车键进行uboot命令行模式，输入printenv fdtfile查看当前设备树名称
 
-.. code:: shell
+.. code-block:: shell
 
    => printenv fdtfile 
    fdtfile=myzr-rzg2l-dsi.dtb
 
 2. 如果当前设备树不是rgb，则进行更换：
 
-.. code:: shell
+.. code-block:: shell
 
    => setenv fdtfile myzr-rzg2l-rgb.dtb
 
 3. 保存当前环境变量
 
-.. code:: shell
+.. code-block:: shell
 
    => saveenv 
    Saving Environment to MMC... Writing to MMC(0)... OK
@@ -970,7 +970,7 @@ ADC测试
 
 1. 查找ADC对应的外设：
 
-.. code:: shell
+.. code-block:: shell
 
    # grep -H "" /sys/bus/iio/devices/*/name | grep adc
    /sys/bus/iio/devices/iio:device0/name:rzg2l-adc
@@ -979,7 +979,7 @@ ADC测试
 
 2. 可以短接ADC_CH0通道和J11:1脚（即短接地），然后读取adc值
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # cat /sys/bus/iio/devices/iio\:device0/in_voltage0_raw

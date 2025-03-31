@@ -33,7 +33,7 @@ Prepare source code
 |   1）Create working directory
 |   Ceate ~/my-rk3288 as working directory
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir ~/my-rk3288
 
@@ -42,7 +42,7 @@ Prepare source code
 
 |   Ceate ~/my-rk3288/02_source as source code directory.
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir ~/my-rk3288/02_source
 
@@ -51,7 +51,7 @@ Prepare source code
 
 |   Ceate ~/my-rk3288/03_tools as tool directory.
 
-.. code:: shell
+.. code-block:: shell
     
     $ mkdir ~/my-rk3288/03_tools
 
@@ -65,7 +65,7 @@ Prepare source code
 
 |   1）Decompress u-boot source code and kernel source code.
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/my-rk3288/02_source
     $ tar jxf rk32-myzr_uboot_2014.10_201803028.tar.bz2
@@ -76,7 +76,7 @@ Prepare source code
 
 |   2）Decompress cross compiler tool
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/my-rk3288/03_tools/
     $ tar jxf gcc-arm-eabi-4.6.tar.bz2
@@ -92,7 +92,7 @@ Development environment configuration
 
 |   1）List of updated source
 
-.. code:: shell
+.. code-block:: shell
 
     $ sudo apt-get update
 
@@ -110,7 +110,7 @@ Development environment configuration
 
 - Install aptitude package management tool
 
-.. code:: shell
+.. code-block:: shell
 
     $ sudo apt-get -y install aptitude
 
@@ -119,7 +119,7 @@ Development environment configuration
 
 - Install ia32-libs with aptitude
 
-.. code:: shell
+.. code-block:: shell
 
     $ sudo aptitude -y install ia32-libs
 
@@ -131,7 +131,7 @@ Development environment configuration
 
 |   3）Install mkimage tool
 
-.. code:: shell
+.. code-block:: shell
 
     $ sudo apt-get -y install uboot-mkimage
 
@@ -143,7 +143,7 @@ Development environment configuration
 |   4）Install ncurses-dev
 |   Instruction：make menuconfig is dependent on it.
 
-.. code:: shell
+.. code-block:: shell
 
     $ sudo aptitude -y install ncurses-dev
 
@@ -159,7 +159,7 @@ Compile u-boot
 Enter u-boot source code directory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/my-rk3288/02_source/rk32-myzr_uboot_2014.10/
 
@@ -171,7 +171,7 @@ Validate configured file
 
 - Execute source command
 
-.. code:: shell
+.. code-block:: shell
 
     $ source ~/my-rk3288/03_tools/gcc-arm-eabi-4.6-env
 
@@ -180,7 +180,7 @@ Validate configured file
 
 - View compiler configuration
 
-.. code:: shell
+.. code-block:: shell
 
     $ echo $ARCH
     $ echo $CROSS_COMPILE
@@ -192,7 +192,7 @@ Validate configured file
 
 - Verify cross compiler tool configuration
 
-.. code:: shell
+.. code-block:: shell
 
     $ ${CROSS_COMPILE}gcc –v
 
@@ -205,7 +205,7 @@ Validate configured file
 Remove u-boot configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ make distclean
 
@@ -226,7 +226,7 @@ u-boot configuration
 
 - MY-RK3288-EK314-2G configuration example：
 
-.. code:: shell
+.. code-block:: shell
 
     $ make rk3288_defconfig
 
@@ -240,7 +240,7 @@ Compilation
 
 - Execute compilation
 
-.. code:: shell
+.. code-block:: shell
 
     $ make
 
@@ -261,7 +261,7 @@ Target file
 
 |   You can get the compiled file u-boot.bin with ls command after compilation.
 
-.. code:: shell
+.. code-block:: shell
 
     $ ls
 
@@ -274,7 +274,7 @@ Compile kernel
 Enter kernel source directory
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/my-rk3288/02_source/rk32-myzr_kernel_3.10/
 
@@ -287,7 +287,7 @@ Validate configured file
 
 - Execute source command
 
-.. code:: shell
+.. code-block:: shell
 
     $ source ~/my-rk3288/03_tools/gcc-arm-eabi-4.6-env
 
@@ -296,7 +296,7 @@ Validate configured file
 
 - View compiler configuration
 
-.. code:: shell
+.. code-block:: shell
 
     $ echo $ARCH
     $ echo $CROSS_COMPILE
@@ -308,7 +308,7 @@ Validate configured file
 
 - Verify cross compiler tool configuration
 
-.. code:: shell
+.. code-block:: shell
 
     $ ${CROSS_COMPILE}gcc -v
 
@@ -323,7 +323,7 @@ Prepare for kernel configuration
 
 - Remove kernel configuration
 
-.. code:: shell
+.. code-block:: shell
 
     $ make distclean
 
@@ -334,7 +334,7 @@ Prepare for kernel configuration
 
 `Instructions：configuration files used for MY-RK3288-EK314 seires of evaluation board is rk3288-myzr-linux_defconfig.`
 
-.. code:: shell
+.. code-block:: shell
 
     $ make rk3288-myzr-linux_defconfig
 
@@ -358,7 +358,7 @@ Compile kernel zImage and device tree dtb
 
 - Compile (for example：lvds lcd)
 
-.. code:: shell
+.. code-block:: shell
 
     $ make -j8 rk3288-myzr_rh568_lvds_linux.img
 
@@ -376,7 +376,7 @@ Compile kernel zImage and device tree dtb
 
 |   arch/arm/boot/zImage is the target file through compilation，you can view the file information with ls command.
 
-.. code:: shell
+.. code-block:: shell
 
     $ ls arch/arm/boot/zImage -la
 
@@ -389,7 +389,7 @@ Compile module
 
 - Compile
 
-.. code:: shell
+.. code-block:: shell
 
     $ make modules
 
@@ -407,7 +407,7 @@ Compile module
 
 |   After the translation is completed, the .ko file of each module is located in the directory where the code is located. The find command can be used to find out the compiled module. The reference commands are as follows:
 
-.. code:: shell
+.. code-block:: shell
 
     $ find -name *.ko
 
@@ -423,7 +423,7 @@ Compile rockchip-mkbootimg
 
 |   1) Create application directory
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir ~/my-rk3288/01_application
     $ cd ~/my-rk3288/01_application
@@ -433,7 +433,7 @@ Compile rockchip-mkbootimg
 
 |   2) Unpack and compile rockchip-mkbootimg
 
-.. code:: shell
+.. code-block:: shell
 
     $ tar jxf rockchip-mkbootimg.tar.bz2
     $ cd rockchip-mkbootimg/
@@ -448,7 +448,7 @@ Pack initrd.img
 
 |   1) Compresse to img format
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/my-rk3288/01_application/
     $ tar jxf initrd.tar.bz2
@@ -465,7 +465,7 @@ Pack initrd.img
 Pack linux-boot.img
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkbootimg --kernel ../02_source/rk32-myzr_kernel_3.10/arch/arm/boot/zImage --ramdisk initrd.img \ 
     --second ../02_source/rk32-myzr_kernel_3.10/resource.img -o linux-boot.img
@@ -486,7 +486,7 @@ Package batch file relase_update.img
 Compile packaging tools
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd ~/my-rk3288/01_application
     $ tar jxf rk2918_tools.tar.bz2
@@ -506,7 +506,7 @@ New folder and copy image
 .. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.2.1.jpg
    :alt: My-rk32-ek314build_7.2.1.jpg
 
-.. code:: shell
+.. code-block:: shell
 
     $ mkdir ~/my-rk3288/04_rootfs/
     $ cd ~/my-rk3288/04_rootfs/
@@ -521,7 +521,7 @@ New folder and copy image
 Pack relase_update.img
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     $ cd Image/
     $ afptool -pack . ../update.img

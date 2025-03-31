@@ -5,7 +5,7 @@ MYZR-R16-EK166 Linux-3.4 Test Manual
 Wifi Test
 -----------
 
-.. code:: shell
+.. code-block:: shell
 
    $ wifi_connect_ap_test wifi_name password
 
@@ -26,7 +26,7 @@ USB Test
 .. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-1.png
    :alt: MY-R16-CB166_linux-34_test2-1.png
 
-.. code:: shell
+.. code-block:: shell
    
    $ ls /dev/sda*
 
@@ -35,7 +35,7 @@ USB Test
 
 2. Mount the U disk
 
-.. code:: shell
+.. code-block:: shell
    
    $ mount /dev/sda4 /mnt
 
@@ -44,7 +44,7 @@ USB Test
 
 3. View the contents of the USB flash drive
 
-.. code:: shell
+.. code-block:: shell
 
    $ ls /mnt
 
@@ -54,7 +54,7 @@ USB Test
 
 4. Uninstall the U disk
 
-.. code:: shell
+.. code-block:: shell
    
    $ umount /mnt
 
@@ -69,7 +69,7 @@ SD card Test
 .. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-1.png
    :alt: MY-R16-CB166_linux-34_test3-1.png
  
-.. code:: shell
+.. code-block:: shell
    
    $ ls /dev/mmcblk1
 
@@ -96,7 +96,7 @@ Audio Test
 
 1. Copy an mp3 file to the development board with a USB flash drive.
 
-.. code:: shell
+.. code-block:: shell
 
    $ mount /dev/sda4 /mnt/
    $ cp /mnt/music.mp3 /
@@ -108,7 +108,7 @@ Audio Test
 
 2. Volume adjustment
 
-.. code:: shell
+.. code-block:: shell
 
    $ amixer controls
 
@@ -119,7 +119,7 @@ Audio Test
 
 3. Gets current volume information
 
-.. code:: shell
+.. code-block:: shell
 
    $ amixer cget numid=3,iface=MIXER,name='speaker volume control'
 
@@ -128,7 +128,7 @@ Audio Test
 
 4. Set the volume to 50
 
-.. code:: shell
+.. code-block:: shell
 
    $ amixer cset numid=3,iface=MIXER,name='speaker volume control' 50
 
@@ -137,7 +137,7 @@ Record Test
 
 1. Recording
 
-.. code:: shell
+.. code-block:: shell
 
    $ arecord -d 10 -D plughw:0 demo.wav
 
@@ -146,7 +146,7 @@ Record Test
 
 2. Play recording
 
-.. code:: shell
+.. code-block:: shell
    
    $ aplay -Dplug:dmix demo.wav
 
@@ -158,7 +158,7 @@ Serial port test
 
 - The development board has only one UART3, which shorts the pin of pin 13.14 of J20.
 
-.. code:: shell
+.. code-block:: shell
 
    $ ./etc/uart.o /dev/ttyS3 “Hello”
 
@@ -176,7 +176,7 @@ Network port test
 
 - Set your computer's local IP to 192.168.18.18 ，and close your computer's firewall.Connect the development board to the computer with a network cable and execute the following command:
 
-.. code:: shell
+.. code-block:: shell
 
    $ ifconfig eth0 192.168.18.36
    $ ping 192.168.18.18
@@ -192,7 +192,7 @@ Network port test
 - The dialup script is in the /etc/ppp/peers/ directory.
 - Dial：
 
-.. code:: shell
+.. code-block:: shell
 
    $ pppd call gprsdial &
 
@@ -201,7 +201,7 @@ Network port test
 
 - Check the IP
 
-.. code:: shell
+.. code-block:: shell
 
    $ ifconfig ppp0
 

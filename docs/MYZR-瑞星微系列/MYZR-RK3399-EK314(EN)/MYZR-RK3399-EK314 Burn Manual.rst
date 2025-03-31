@@ -60,7 +60,7 @@ Write the kernel separately, u-boot or file system
 - Right-click in the table and select Import Configuration, select the configuration file, and the configuration file is in the root directory of the programming tool. rk3399-config.cfg is the configuration of ubuntu16.04, rk3399-android81.cfg is the configuration of android8.1
 - After importing the configuration, check the box before the image to be flashed.
 
-.. code:: shell
+.. code-block:: shell
     
     Loader：MiniLoaderAll.bin
     Parameter：parameter.txt

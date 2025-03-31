@@ -13,13 +13,13 @@ SPI测试
 |  1. 杜邦线短接P8-3,P8-4管脚
 |  2. 使用spi测试程序进行数据收发：
 
-.. code:: shell
+.. code-block:: shell
 
    /opt/spidev_test.out -D /dev/spidev0.0
 
 |  输出
 
-.. code:: shell
+.. code-block:: shell
 
    spi mode: 0
    bits per word: 8
@@ -37,13 +37,13 @@ I2C测试
 
 |  【测试说明】：RTC挂接在I2c1中，触摸挂接在I2C0中
 
-.. code:: shell
+.. code-block:: shell
 
    i2cdetect -y 1
 
 |  输出以下：（UU表示芯片的驱动已经注册到内核里面）
 
-.. code:: shell
+.. code-block:: shell
 
    60: 60 61 62 63 64 65 66 67 68 69 6a 6b 6c 6d 6e UU
 
@@ -55,7 +55,7 @@ GPIO测试
 
 **测试操作**
 
-.. code:: shell
+.. code-block:: shell
 
    echo 86 > /sys/class/gpio/export //导出gpio86
    echo out > /sys/class/gpio/gpio86/direction //将管脚配置为输出
@@ -73,13 +73,13 @@ ADC测试
 
 |  运行sar0_test.out或sar2_test.out测试程序
 
-.. code:: shell
+.. code-block:: shell
 
    /opt/sar0_test.out
 
 |  输出
 
-.. code:: shell
+.. code-block:: shell
 
    SAR: get value 952SAR: get value 953SAR: get value 952SAR: get value 953SAR: get value 954SAR: get value 953SAR: get value 953SAR: get value 953SAR: get value 953SAR: get value 953
 
@@ -98,25 +98,25 @@ wifi—client测试
 
 |  命令格式 : wpa_passphrase [passphrase]
 
-.. code:: shell
+.. code-block:: shell
 
    wpa_passphrase MYZR-WIFI myzr2012 > /etc/wpa_supplicant.conf
 
 3. 连接
 
-.. code:: shell
+.. code-block:: shell
 
    /config/wifi/wpa_supplicant -Dnl80211 -i wlan0 -B -c /etc/wpa_supplicant.conf
 
 4. 获取IP
 
-.. code:: shell
+.. code-block:: shell
 
    udhcpc -i wlan0
 
 5. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
    ping -I wlan0 www.baidu.com -c 2 -w 4
 
@@ -136,7 +136,7 @@ wifi—client测试
 
 1. 把蓝牙天线连接到“E1”接口上
 
-.. code:: shell
+.. code-block:: shell
 
    # 输入以下命令：
    # hciconfig hci0 up
@@ -169,7 +169,7 @@ wifi—client测试
 
 2. 扫描蓝牙设备
 
-.. code:: shell
+.. code-block:: shell
 
    # 输入以下信息：
    # hcitool scan
@@ -196,13 +196,13 @@ wifi—client测试
 1. 开发板断电，接上4G模块，接上天线并插入SIM卡后启动评估板。
 2. 使用指令进行网络连接：
 
-.. code:: shell
+.. code-block:: shell
 
    udhcpc -i usb0
 
 3. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
    ping -I usb0 www.baidu.com
 
@@ -219,14 +219,14 @@ RS232测试
 1. 杜邦线短接P6 rx和tx
 2. 输入指令
 
-.. code:: shell
+.. code-block:: shell
 
    chmod +x /usr/bin/serial_test
    serial_test /dev/ttyS1 "myzr"
 
 3. 输出信息
 
-.. code:: shell
+.. code-block:: shell
 
    Starting send data...finish
    Starting receive data:
@@ -253,14 +253,14 @@ RS485测试
 1. 使用RS232转RS485转换模块连接电脑和板子的P7 A2 B2管脚
 2. 输入指令向电脑串口助手发送信息
 
-.. code:: shell
+.. code-block:: shell
 
    stty -F /dev/ttyS2 speed 115200
    echo myzr > /dev/ttyS2
 
 3. 输出信息
 
-.. code:: shell
+.. code-block:: shell
 
    Starting send data...finish
    Starting receive data:
@@ -288,13 +288,13 @@ SD测试
 2. 查看内核中驱动输出信息
 3. 挂载SD卡
 
-.. code:: shell
+.. code-block:: shell
 
    mount /dev/mmcblk0p1 /mnt/df
 
 4. 输出信息
 
-.. code:: shell
+.. code-block:: shell
 
    #插上SD卡，出现以下信息
    mmc0: new high speed SDHC card at address 5048
@@ -337,7 +337,7 @@ RTC测试
 
 1. 断电重启设备，查看当前系统时间和硬件时间：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # date
@@ -346,7 +346,7 @@ RTC测试
 
 2. 查看当前RTC芯片时钟：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # hwclock
@@ -355,7 +355,7 @@ RTC测试
 
 3. 设置系统时钟：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # date -s "2021-04-08 15:00:00"
@@ -364,13 +364,13 @@ RTC测试
 
 4. 将系统时钟写入硬件时钟：
 
-.. code:: shell
+.. code-block:: shell
 
    # hwclock -w
 
 5. 断电重启开发板，查看当前系统时钟和硬件时钟：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # date
@@ -394,7 +394,7 @@ RTC测试
 2. 网线连接板子网口eth0和电脑网口
 3. 输入如下指令与电脑通讯：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # ifconfig eth0 192.168.137.81
@@ -414,7 +414,7 @@ RTC测试
 4. 网线连接板子网口eth1和电脑网口
 5. 输入如下指令与电脑通讯：
 
-.. code:: shell
+.. code-block:: shell
 
    =====> Input:
    # ifconfig eth1 192.168.137.80
@@ -442,7 +442,7 @@ USB测试
 
 1. 将USB设备插入底板USB接口，系统会输出类似如下信息:
 
-.. code:: shell
+.. code-block:: shell
 
    root@myzr:/opt12 usb 1-1.4: new high-speed USB device number 4 using Sstar-ehci2
    usb 1-1.4: New USB device found, idVendor=13fe, idProduct=6300
@@ -462,6 +462,6 @@ USB测试
 
 2. 将USB设备从底板拔出，系统会输出类似如下信息：
 
-.. code:: shell
+.. code-block:: shell
 
    root@myzr:/opt12 usb 1-1.4: USB disconnect, device number 4

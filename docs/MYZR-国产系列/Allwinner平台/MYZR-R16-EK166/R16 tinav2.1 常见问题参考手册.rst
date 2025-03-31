@@ -11,7 +11,7 @@ R16 tinav2.1常见问题
 | 修改target/allwinner/astar-parrot/configs/sys_partition.fex
 | 例如：
 
-.. code:: shell
+.. code-block:: shell
 
     [partition]
     name        = rootfs_data
@@ -37,7 +37,7 @@ R16 tinav2.1常见问题
 
 | 1) 在内核中添加spi 驱动
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd tinaV2.1
    $ source build/envsetup.sh
@@ -49,7 +49,7 @@ R16 tinav2.1常见问题
 
 | 2) 修改
 
-.. code:: shell
+.. code-block:: shell
 
    tinaV2.1/target/allwinner/astar-parrot/configs/sys_config.fex
    [spi_board0]
@@ -62,7 +62,7 @@ R16 tinav2.1常见问题
 
 | 修改成
 
-.. code:: shell
+.. code-block:: shell
 
    [spi_board0]
    modalias = "spidev"
@@ -75,7 +75,7 @@ R16 tinav2.1常见问题
 5.以太网不可用
 ~~~~~~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
    $ cd tinaV2.1
    $ make kernel_menuconfig

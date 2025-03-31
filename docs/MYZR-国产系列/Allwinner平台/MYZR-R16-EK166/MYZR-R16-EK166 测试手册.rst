@@ -5,7 +5,7 @@ MYZR-R16-EK166 测试手册
 Wifi测试
 ----------
 
-.. code:: shell
+.. code-block:: shell
 
    $ wifi_connect_ap_test wifi_name password
 
@@ -27,7 +27,7 @@ USB测试
 .. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test2-1.png
    :alt: MY-R16-CB166_linux-34_test2-1.png
 
-.. code:: shell
+.. code-block:: shell
    
    $ ls /dev/sda*
 
@@ -37,7 +37,7 @@ USB测试
 
 |  挂载U盘
 
-.. code:: shell
+.. code-block:: shell
    
    $ mount /dev/sda4 /mnt
 
@@ -47,7 +47,7 @@ USB测试
 
 |  查看U盘的内容
 
-.. code:: shell
+.. code-block:: shell
 
    $ ls /mnt
 
@@ -56,7 +56,7 @@ USB测试
 
 |  卸载U盘
 
-.. code:: shell
+.. code-block:: shell
    
    $ umount /mnt
 
@@ -71,7 +71,7 @@ SD卡测试
 .. image:: /image/MYZR-国产系列/Allwinner平台/MYZR-R16-EK166/MY-R16-CB166_linux-34_test3-1.png
    :alt: MY-R16-CB166_linux-34_test3-1.png
 
-.. code:: shell
+.. code-block:: shell
    
    $ ls /dev/mmcblk1
 
@@ -101,7 +101,7 @@ SPI测试
 |  /dev/spidev0.0 要测试的spi
 |  短接开发板j19上的5、6号管脚，然后在串口输入如下指令：
 
-.. code:: shell
+.. code-block:: shell
    
    $ spidev_test -D /dev/spidev0.0
 
@@ -115,7 +115,7 @@ SPI测试
 
 用U盘复制一个mp3文件到开发板上。
 
-.. code:: shell
+.. code-block:: shell
    
    $ mount /dev/sda4 /mnt/
    $ cp /mnt/music.mp3 /
@@ -127,7 +127,7 @@ SPI测试
 
 | 音量调整
 
-.. code:: shell
+.. code-block:: shell
 
    $ amixer controls
 
@@ -137,7 +137,7 @@ SPI测试
 | 找到numid=3,iface=MIXER,name='speaker volume control'
 | 获取当前音量信息
 
-.. code:: shell
+.. code-block:: shell
    
    $ amixer cget numid=3,iface=MIXER,name='speaker volume control'
 
@@ -146,7 +146,7 @@ SPI测试
 
 | 设置音量大小为50
 
-.. code:: shell
+.. code-block:: shell
    
    $ amixer cset numid=3,iface=MIXER,name='speaker volume control' 50
 
@@ -158,7 +158,7 @@ SPI测试
 
 | 录音
 
-.. code:: shell
+.. code-block:: shell
    
    $ arecord -d 10 -D plughw:0 demo.wav
 
@@ -167,7 +167,7 @@ SPI测试
 
 | 播放录音
 
-.. code:: shell
+.. code-block:: shell
    
    $ aplay -Dplug:dmix demo.wav
 
@@ -179,7 +179,7 @@ SPI测试
 
 开发板只有一个UART3，将j19的13.14号管脚短接.
 
-.. code:: shell
+.. code-block:: shell
    
    $ uart_test /dev/ttyS3 "Hello"
 
@@ -196,7 +196,7 @@ SPI测试
 
 | 将电脑的本地ip设置为192.168.18.18，并将电脑的防火墙关闭。将开发板跟电脑用网线相连然后执行如下命令:
 
-.. code:: shell
+.. code-block:: shell
    
    $ ifconfig eth0 192.168.18.36
    $ ping 192.168.18.18
@@ -212,7 +212,7 @@ SPI测试
 | 拨号脚本在/etc/ppp/peers/目录下。
 | 拨号：
 
-.. code:: shell
+.. code-block:: shell
    
    $ pppd call gprsdial &
 
@@ -221,7 +221,7 @@ SPI测试
 
 | 查看IP
 
-.. code:: shell
+.. code-block:: shell
    
    $ ifconfig ppp0
 

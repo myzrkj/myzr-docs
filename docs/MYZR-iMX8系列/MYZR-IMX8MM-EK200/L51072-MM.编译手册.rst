@@ -7,7 +7,7 @@
 安装依赖包
 ~~~~~~~~~~
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     sudo apt install libssh-dev
@@ -25,14 +25,14 @@
 
 -  在线下载方式：
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     wget https://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/aarch64-linux-gnu/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz
 
 2. 执行安装
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
 
@@ -44,7 +44,7 @@
 
 3. 创建交叉编译工具配置文件
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     # 创建配置文件
@@ -60,14 +60,14 @@
 
 4. 配置工具环境变量
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
 
 5. 检查安装
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     ${CROSS_COMPILE}gcc -v
@@ -97,21 +97,21 @@
 
 2. 解压源码包
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     tar xf uboot-2021.04*.tar.bz2 -C ~/work/linux/imx-linux-5.10.72
 
 3. 配置编译工具环境变量
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
 
 4. 目标文件编译
 
-.. code:: shell
+.. code-block:: shell
 
     cd ~/work/linux/imx-linux-5.10.72/uboot-2021.04
     make myimx8mmek200_defconfig O=build
@@ -131,14 +131,14 @@
 
 2. 解压 Boot 编译工具
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     tar xf mkimage-5.10.72*.tar.bz2 -C ~/work/linux/imx-linux-5.10.72
 
 3. 编译 Boot 文件
 
-.. code:: shell
+.. code-block:: shell
 
     cd ~/work/linux/imx-linux-5.10.72/mkimage-5.10.72
     make SOC=iMX8MM dtbs=myimx8mmek200.dtb flash_ddr4_evk OUTIMG=boot-myimx8mmek200.bin
@@ -156,14 +156,14 @@
 
 2. 解压源码包
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     tar xf linux-5.10.72*.tar.bz2 -C ~/work/linux/imx-linux-5.10.72
 
 3. 配置编译工具环境变量
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
@@ -172,7 +172,7 @@
 
 -  执行编译
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
 
@@ -198,7 +198,7 @@
 
 -  执行编译
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     make myzr/myimx8mmek200.dtb
@@ -213,7 +213,7 @@
 
 -  执行编译
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     make modules -j24
@@ -228,7 +228,7 @@
 
 -  安装内核模块到指定目录
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     if [ -d modules ]; then rm -rf modules; fi; mkdir modules
@@ -244,7 +244,7 @@
 
 -  打包内核模块文件
 
-.. code:: shell
+.. code-block:: shell
 
     # =====> Input:
     tar cjf kernel-modules.tar.bz2 -C modules lib

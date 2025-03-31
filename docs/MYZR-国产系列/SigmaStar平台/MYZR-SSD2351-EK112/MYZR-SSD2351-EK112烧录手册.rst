@@ -97,6 +97,7 @@ TFTP服务器烧写
 |  setenv -f netmask 255.255.255.0;    //设置掩码
 |  setenv -f gatewayip 192.168.137.1;    //设置网关
 |  estart    //初始化网络  uboot 下使用网络之前需要先输入该命令
+|  estar
 |  #烧写成功，会自动启动板子
 |  #与全烧录的区别是此方式可以estar auto_update.txt中的脚本，烧录任意单独分区
 

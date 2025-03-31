@@ -519,7 +519,7 @@ DSI 背光电源
 |  丝印：J4
 |  接口属性：
 
-.. code:: shell
+.. code-block:: shell
 
    内正外负插孔
    电压：5V

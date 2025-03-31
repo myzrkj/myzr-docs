@@ -31,7 +31,7 @@ MYZR-LS1012A-EK200 Linux-4.4.98 测试手册
 |   用网线连接开发板的ETH1和电脑。
 |   配置开发板网口：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ifconfig eth1 down 
@@ -39,7 +39,7 @@ MYZR-LS1012A-EK200 Linux-4.4.98 测试手册
 
 |   测试ETH1（eth0）：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.137.99 -c 2 -w 4 
@@ -71,7 +71,7 @@ MYZR-LS1012A-EK200 Linux-4.4.98 测试手册
 |   用网线连接开发板的ETH2和电脑。
 |   配置开发板网口
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ifconfig eth0 down
@@ -79,7 +79,7 @@ MYZR-LS1012A-EK200 Linux-4.4.98 测试手册
 
 |   测试ETH2（eth1）：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping 192.168.137.99 -c 2 -w 4 
@@ -136,7 +136,7 @@ USB测试
 
 |   将USB设备插入底板USB接口。
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     df  
@@ -151,7 +151,7 @@ USB测试
 
 |   将USB设备从底板拔出。
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     df  
@@ -179,7 +179,7 @@ SD接口测试
 
 |   将SD卡插入SD接口。
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     df  
@@ -194,7 +194,7 @@ SD接口测试
 
 |   将SD卡从底板拔出。
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     df  
@@ -226,7 +226,7 @@ RS232测试(RS232_3)
 |   对应的系统设备依次为：ttyXRUSB0、ttyXRUSB1、ttyXRUSB2)
 |   执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/uart_test.out /dev/ttyXRUSB2 "www.myzr.com.cn"  
@@ -273,7 +273,7 @@ RS485测试(RS485_1)
 |   设置串口终端波特率为9600。
 |   执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     echo "myzr" > /dev/ttyXRUSB3
@@ -317,7 +317,7 @@ GPIO输入测试
 |   给测试板接上5v电源。
 |   执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     chmod +x /home/root/gpio-in.sh  
@@ -335,7 +335,7 @@ GPIO输入测试
 
 |   查看gpio按键中断次数：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cat /proc/interrupts | grep gpio  
@@ -353,7 +353,7 @@ GPIO输入测试
 
 |   按下测试版相应gpio的按键若干次，重复查看中断次数：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     cat /proc/interrupts | grep gpio  
@@ -397,7 +397,7 @@ GPIO输出测试
 |   给测试板接上5v电源。
 |   执行测试指令：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     chmod +x /home/root/gpio-out.sh  
@@ -416,14 +416,14 @@ GPIO输出测试
 
 |   控制输出高电平：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /home/root/gpio-out.sh 1    
 
 |   控制输出低电平：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /home/root/gpio-out.sh 0
@@ -449,7 +449,7 @@ WIFI模块RTL8723du测试
 
 |   命令格式: wpa_passphrase <ssid> [passphrase]
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     wpa_passphrase MY-TEST-AP myzr2012 > /etc/wpa_supplicant.conf
@@ -457,7 +457,7 @@ WIFI模块RTL8723du测试
 
 4. 连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
@@ -469,7 +469,7 @@ WIFI模块RTL8723du测试
 
 5. 获取 IP
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     udhcpc -i wlan0
@@ -483,7 +483,7 @@ WIFI模块RTL8723du测试
 
 6. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ping -I wlan0 www.baidu.com -c 2 -w 4
@@ -516,7 +516,7 @@ WIFI模块RTL8723du测试
 2. 把WIFI天线连接到“WIFI_ANT”标识的接口上。
 3. 查看hci0
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     hciconfig -a
@@ -534,7 +534,7 @@ WIFI模块RTL8723du测试
 
 4. 启动hci0
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     hciconfig hci0 up
@@ -544,7 +544,7 @@ WIFI模块RTL8723du测试
 
 5. 扫描蓝牙
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     hcitool scan
@@ -555,7 +555,7 @@ WIFI模块RTL8723du测试
 
 6. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     l2ping A4:50:46:9E:11:86
@@ -584,7 +584,7 @@ WIFI模块RTL8723du测试
 1. 开发板断电，接上4G模块，接上天线并插入SIM卡后启动评估板。
 2. 使用指令进行网络连接：
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     /my-demo/quectel-CM &
@@ -622,7 +622,7 @@ WIFI模块RTL8723du测试
 
 3. 测试连接
 
-.. code:: shell
+.. code-block:: shell
 
     =====> 输入指令:
     ifconfig eth0 down

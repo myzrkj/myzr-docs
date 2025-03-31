@@ -45,7 +45,7 @@ Android-5.1 测试手册
 - 连接网线：将网线插入“eth1”对应的评估板接口，网线另一端保持与网络路由器的接口连接
 - 设置第2个网口IP：
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ifconfig eth1 192.168.137.100 　　　　　＃ configure the eth1
     ＃ ping -I eth1 192.168.137.1 　　　　　＃ send ICMP to HOST
@@ -154,25 +154,25 @@ SD卡测试
 |   1）GPIO输出测试
 |   设置需要测试的GPIO的IO序号
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ OUT_IO_NUMBER=9
 
 |  导出GPIO
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo ${OUT_IO_NUMBER} > /sys/class/gpio/export
 
 |  设置GPIO方向
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo out > /sys/class/gpio/gpio${OUT_IO_NUMBER}/direction
 
 |  控制输出电平
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo 0 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
     ＃ echo 1 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
@@ -184,25 +184,25 @@ SD卡测试
 |   2）GPIO输入测试
 |   设置需要测试的GPIO的IO序号
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ IN_IO_NUMBER=18
 
 |  导出GPIO
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo ${IN_IO_NUMBER} > /sys/class/gpio/export
 
 |  设置GPIO方向
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ echo in > /sys/class/gpio/gpio${IN_IO_NUMBER}/direction
 
 |  查看输入电平
 
-.. code:: shell
+.. code-block:: shell
 
     cat /sys/class/gpio/gpio${IN_IO_NUMBER}/value
 
@@ -323,14 +323,14 @@ SPI测试
 |   短接SPI0的MISO和MOSI管脚。
 |   2）执行测试
 
-.. code:: shell
+.. code-block:: shell
 
     ＃ ./spi_test -D /dev/spidev0.0
 
 |   3）测试结果
 |   如果SPI正常，在终端上会看到如下字符：
 
-.. code:: shell
+.. code-block:: shell
 
     FF FF FF FF FF FF
     40 00 00 00 00 95
