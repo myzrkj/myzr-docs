@@ -1,7 +1,93 @@
-
 MYZR-IMX28-EK142(EN)
-====================
+======================
 
+Operator
+~~~~~~~~~~
 
-- `点击进入 <http://wiki.myzr.com.cn/index.php?title=MYZR-IMX28-EK142(EN)>`_
+Quick Start
+"""""""""""""
 
+   .. toctree::
+      :maxdepth: 1
+      
+      MYZR-IMX28-EK283 Quick Start
+
+Burning
+"""""""""
+
+ | Refer to the Build guide
+
+Test Manual
+"""""""""""""
+
+ | Refer to the Build guide
+
+Development
+~~~~~~~~~~~~
+
+Environment
+"""""""""""""
+
+   .. toctree::
+      :maxdepth: 1
+
+      /docs/COMMON/MYZR VirtualBox-4.3.40 Ubutnu-12.04.5 x64 VMware Development (Recommended)
+      /docs/COMMON/MYZR VMware-10.0.5 Ubutnu-12.04.5 x64 VMware Development (Old)
+
+Building
+""""""""""
+
+   **Linux-2.6.35**
+
+   .. toctree::
+      :maxdepth: 1
+
+      MYZR-IMX28 Linux-2.6.35 Build Manual
+
+   **Linux-3.14.52**
+
+   .. toctree::
+      :maxdepth: 1
+
+      MYZR-IMX28 Linux-3.14.52 Build Manual
+
+Developer Guide
+"""""""""""""""""
+
+   **Linux-2.6.35**
+
+      .. toctree::
+         :maxdepth: 1
+
+         MYZR-IMX28 Linux-2.6.35 Device and Driver
+
+   **Linux-3.14.52**
+
+      .. toctree::
+         :maxdepth: 1
+
+         MYZR-IMX28 Linux-3.14.52 Device and Driver
+
+Hardware manuals
+~~~~~~~~~~~~~~~~~~
+
+Core board introduction
+"""""""""""""""""""""""""
+
+   .. toctree::
+      :maxdepth: 1
+
+      MYZR-IMX28-CORE Introduction
+
+Base plate introduction
+"""""""""""""""""""""""""
+
+   .. toctree::
+      :maxdepth: 1
+
+      MYZR-IMX28-Base plate Introduction
+
+Hardware layout instruction
+"""""""""""""""""""""""""""""
+
+ | Hardware design related issues can be directly to our company for technical support.

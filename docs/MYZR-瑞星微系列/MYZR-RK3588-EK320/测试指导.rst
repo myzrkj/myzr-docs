@@ -1,0 +1,529 @@
+测试指导
+=========
+
+网口测试
+----------
+
+网口1
+~~~~~~~
+
+|   接口丝印：J13
+|   系统接口：eth0
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+|   测试操作：
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口
+3. 查看开发板网口1信息，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0
+
+4. 配置网口1的IPV4 IP，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0 192.168.137.18 netmask 255.255.255.0
+
+5. 再次查看开发板网口1信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0
+
+6. 输入指令如下进行验证网口1：
+
+.. code-block:: shell
+
+    ping -I eth0 192.168.137.99 -c 3
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试1.png
+   :alt: 测试1.png
+
+|   "0% packet loss"表示测试通过
+|   如果出现"100% packet loss"，请先确认电脑的防火墙是否全部关闭
+
+网口2
+~~~~~~~
+
+|   接口丝印：J14
+|   系统接口：eth1
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+|   测试操作：
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口
+3. 查看开发板网口2信息，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1
+
+4. 配置网口2的IPV4 IP，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1 192.168.137.22 netmask 255.255.255.0
+
+5. 再次查看开发板网口1信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1
+
+6. 输入指令如下进行验证网口2：
+
+.. code-block:: shell
+
+    ping -I eth1 192.168.137.99 -c 3
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试2.png
+   :alt: 测试2.png
+
+|   "0% packet loss"表示测试通过
+|   如果出现"100% packet loss"，请先确认电脑的防火墙是否全部关闭
+
+USB测试
+~~~~~~~~~
+
+|   接口丝印：
+|   1）J4
+|   2）J29
+|   3）P2
+|   测试说明：采用插拔USB存储设备（U盘）的方式进行测试
+|   测试操作：
+
+1. 将USB设备插入底板USB接口，系统会输出类似如下信息
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试3.png
+   :alt: 测试3.png
+
+2. 将USB设备从底板拔出，系统会输出类似如下信息
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试4.png
+   :alt: 测试4.png
+
+SD接口测试
+~~~~~~~~~~~
+
+|   接口丝印：J6
+|   测试说明：采用插拔TF卡的方式进行测试
+|   测试操作：
+
+1. 将TF卡安装到SD接口，开发会输出如下信息：
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试5.png
+   :alt: 测试5.png
+
+2.将TF拔出，输出信息如下：
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试6.png
+   :alt: 测试6.png
+
+音频播放测试
+~~~~~~~~~~~~~
+
+|   接口丝印：J16
+|   测试说明：播放音频文件验证评估板的音频播放功能
+|   测试操作：
+
+1. 把耳机接入丝印对应的接口
+2. 输入指令如下进行测试：
+
+.. code-block:: shell
+
+    aplay /app/05_headphone/1.wav
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试7.png
+   :alt: 测试7.png
+
+|   耳机有声音输出表示音频播放测试通过
+
+录音测试
+~~~~~~~~~~
+
+|   接口丝印：J15
+|   测试说明：录制并播放录音文件进行测试
+|   测试操作：
+
+1. 把带MIC的耳机插入丝印对应的接口
+2. 输入如下指令进行10秒的录音：
+
+.. code-block:: shell
+
+    arecord -d 10 -f cd -r 44100 -c 2 -t wav record.wav
+
+3. 把耳机或者喇叭接入丝印J16对应的接口播放录制的音频文件，输入如下指令：
+
+.. code-block:: shell
+
+    aplay record.wav
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试8.png
+   :alt: 测试8.png
+
+|   耳机有录制声音输出表示录音测试通过
+
+Wifi测试
+~~~~~~~~~~
+
+|   接口丝印：U19
+|   测试说明：WIFI连接到AP后，开发板向外网发送ICMP报文来验证连接正常
+|   测试操作：
+
+1. 把WIFI天线连接到"U19"接口上
+2. 生成 SSID 的 WPA PSK 文件，输入指令如下：
+
+.. code-block:: shell
+
+    wpa_passphrase MYZR-WIFI myzr2012 > /etc/wpa_supplicant.conf
+
+3. 连接，输入指令如下：
+
+.. code-block:: shell
+
+    wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+
+4. 获取IP，输入指令如下：
+
+.. code-block:: shell
+
+    udhcpc -i wlan0
+
+5. 测试连接，输入指令如下：
+
+.. code-block:: shell
+
+    ping -I wlan0 www.baidu.com -c 3
+
+|   "0% packet loss"表示wifi连接正常
+
+蓝牙测试
+~~~~~~~~~
+
+|   接口丝印：U19
+|   测试说明：扫描到蓝牙设备后，发送L2CAP回应请求并接收回答
+|   测试操作：
+
+1. 把天线连接到"U19"接口上
+2. 启动蓝牙，输入指令如下：
+
+.. code-block:: shell
+
+    hciconfig hci0 up
+
+3. 扫描外部蓝牙设备，输入指令如下：
+
+.. code-block:: shell
+
+    hcitool scan
+
+|   获取输出信息，需要的信息如下"88:46:04:4C:11:A7   Redmi K40"
+
+4. 发送L2CAP包测试，输入指令如下：
+
+.. code-block:: shell
+
+    l2ping -c 3 88:46:04:4C:11:A7
+
+|   "0% packet loss"表示蓝牙连接正常
+
+5G模块接口测试
+~~~~~~~~~~~~~~~
+
+|   接口丝印：U25、CON1
+|   测试说明：5G连接成功后，开发板向外网发送ICMP报文来验证连接正常
+|   测试操作：
+
+1. 开发板断电，接上5G模块，接上天线并插入SIM卡后启动开发板
+2. 拨号，输入指令如下：
+
+.. code-block:: shell
+
+    app/03_4g/quectel-CM &
+
+3. 上网测试，输入指令如下：
+
+.. code-block:: shell
+
+    ping -I rmnet_mhi0.1 www.baidu.com -c 3
+
+|   "0% packet loss"表示5G模块可以上网
+
+SATA接口测试
+~~~~~~~~~~~~~~
+
+|   接口丝印：J19、J2
+|   测试说明：挂载硬盘后查看挂载情况
+|   测试操作：
+
+1. 开发板断电，接上SATA接口硬盘后启动开发板
+2. 创建挂载点并挂载硬盘，输入指令如下：
+
+.. code-block:: shell
+
+    mkdir /sata
+    mount /dev/sda1 /sata/
+
+3. 查看挂载情况，输入指令如下：
+
+.. code-block:: shell
+
+    df -h
+
+|   挂载成功可获取类似输出"/dev/sda1       182G   87G   96G  48% /sata"
+
+4. 卸载硬盘，输入指令如下：
+
+.. code-block:: shell
+
+    umount /sata
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试9.png
+   :alt: 测试9.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试10.png
+   :alt: 测试10.png
+
+M.2接口测试
+~~~~~~~~~~~~
+
+|   接口丝印：J20
+|   测试说明：挂载硬盘后查看挂载情况
+|   测试操作：
+
+1. 开发板断电，接上M.2接口硬盘后启动开发板
+2. 创建挂载点并挂载硬盘，输入指令如下：
+
+.. code-block:: shell
+
+    mkdir /nvme
+    mount /dev/nvme0n1p1 /nvme/
+
+3. 查看挂载情况，输入指令如下：
+
+.. code-block:: shell
+
+    df -h
+
+|   挂载成功可获取类似输出"/dev/nvme0n1p1  499M   10M  490M   2% /nvme" 
+
+5. 卸载硬盘，输入指令如下：
+
+.. code-block:: shell
+
+    umount /nvme
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试11.png
+   :alt: 测试11.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试12.png
+   :alt: 测试12.png
+
+can测试
+~~~~~~~~
+
+|   接口丝印：J24
+|   测试说明：与另一块带can口的开发板(笔者用的是imx8mp)互联进行收发测试
+|   测试操作：
+
+1. 连接两块板的can口后通电
+2. 配置can，两块板的输入指令如下：
+
+|   rk3588：
+
+.. code-block:: shell
+
+    ip link set can0 up type can bitrate 1000000
+
+|   imx8mp：
+
+.. code-block:: shell
+
+    ip link set can0 up type can bitrate 1000000
+    candump can0
+
+3. rk3588发送数据，输入指令如下：
+
+.. code-block:: shell
+
+    cansend can0 123#DEADBEEF
+
+|   imx8mp可以收到"can0  123   [4]  DE AD BE EF"，按下"Ctrl + C"退出接收
+
+4. 更改rk3588的can配置，imx8mp发送数据，输入指令如下：
+
+|   rk3588：
+
+.. code-block:: shell
+
+    candump can0
+
+|   imx8mp：
+
+.. code-block:: shell
+
+    cansend can0 123#DEADBEEF
+
+|   rk3588可以收到"can0  123   [4]  DE AD BE EF"，按下"Ctrl + C"退出接收
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试13.png
+   :alt: 测试13.png
+
+|   操作过程中的输出符合预期即功能正常
+
+485测试
+~~~~~~~~~
+
+|   接口丝印：J21
+|   测试说明：通过485-USB转换头与电脑互联进行收发测试
+|   测试操作：
+
+1. 使用485-USB转换头连接开发板和电脑
+2. 打开串口调试助手，设置波特率为9600，无校验位，8位数据位，1位停止位
+3. 设置开发板的串口波特率，输入指令如下：
+
+.. code-block:: shell
+
+    stty -F /dev/ttyS0 9600
+
+4. 向电脑端发送数据，开发板端输入指令如下：
+
+.. code-block:: shell
+
+    echo "123" > /dev/ttyS0
+
+|   此时电脑端应收到数据123
+
+5. 电脑端发送数据"myzr"，开发板接收，输入如下指令：
+
+.. code-block:: shell
+
+    cat /dev/ttyS0
+
+|   此时开发板收到数据myzr，按下"Ctrl + C"退出
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试14.png
+   :alt: 测试14.png
+
+|   操作过程中的输出符合预期即功能正常
+
+rtc测试
+~~~~~~~~~
+
+|   接口丝印：BT1
+|   测试说明：读取并设置时间，断电重启后检查时间是否正确
+|   测试操作：
+
+1. 断电，检查纽扣电池是否安装，用万用表检查RTC电池有没有电，测出来是3.3v左右才是正常的
+2. 设备通电，查看当前系统时钟，输入指令如下：
+
+.. code-block:: shell
+
+    date
+
+3. 设置当前系统时钟，输入指令如下：
+
+.. code-block:: shell
+
+    date -s "2024-04-26 10:00:00"
+
+4. 查看系统时钟，此时时间为设置的时间，输入指令如下：
+
+.. code-block:: shell
+
+    date
+
+5. 将系统时间写入rtc，输入指令如下：
+
+.. code-block:: shell
+
+    hwclock -w
+
+6. 设备断电重启，查看rtc时钟，输入指令如下：
+
+.. code-block:: shell
+
+    hwclock
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试15.png
+   :alt: 测试15.png
+
+|   输出的rtc时间与"设置时间+写入rtc后到查看rtc时钟的时长"相差不大表明rtc测试通过
+
+蜂鸣器测试
+~~~~~~~~~~~
+
+|   接口丝印：BP1
+|   测试说明：设置PWM，打开和关闭蜂鸣器进行测试
+|   测试操作：
+
+1. 设置PWM，输入如下指令：
+
+.. code-block:: shell
+
+    echo 0 > /sys/class/pwm/pwmchip2/export
+    echo 366300 > /sys/class/pwm/pwmchip2/pwm0/period
+    echo 260000 > /sys/class/pwm/pwmchip2/pwm0/duty_cycle
+
+2. 打开蜂鸣器，输入如下指令：
+
+.. code-block:: shell
+
+    echo 1 > /sys/class/pwm/pwmchip2/pwm0/enable
+
+3. 关闭蜂鸣器，输入如下指令：
+
+.. code-block:: shell
+
+    echo 0 > /sys/class/pwm/pwmchip2/pwm0/enable
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试16.png
+   :alt: 测试16.png
+
+|   蜂鸣器可以正常的打开和关闭表示测试通过
+
+摄像头测试
+~~~~~~~~~~~
+
+|   接口丝印：
+|   1）U13 
+|   2）U15 
+|   3）U16 
+|   4）U17
+|   测试说明：摄像头拍摄的画面显示在显示屏上验证摄像头功能
+|   测试操作：
+
+1. 接上显示屏和摄像头模块，启动开发板
+2. 点击GUI桌面的qcamera即可实时观看摄像头拍摄的画面
+
+HDMI测试
+~~~~~~~~~~
+
+HDMI_TX
+^^^^^^^^^
+
+|   接口丝印：J8、J9
+|   测试说明：通过显示屏播放视频验证功能
+|   测试操作:
+
+1. 将一个HDMI接口的屏幕和开发板上任意一个对应丝印接口连接，启动开发板
+2. 将两个HDMI接口的屏幕分别和开发板上对应丝印接口连接后启动开发板，默认双屏同显
+
+|   显示屏正常显示表示测试通过
+
+HDMI_RX
+^^^^^^^^^
+
+|   接口丝印：J7
+|   测试说明：查看是否生成对应的设备节点
+|   测试操作(注：主机不能同时接多个视频线，且不能使用转接头)
+
+1. 将 HDMI_RX 与电脑端口连接
+2. HDMI-IN 设备在内核中会被注册为 video 设备，生成的节点如：/dev/video20，输入以下
+
+|   命令查看是否有 hdmiin 生成的设备节点：
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试17.png
+   :alt: 测试17.png

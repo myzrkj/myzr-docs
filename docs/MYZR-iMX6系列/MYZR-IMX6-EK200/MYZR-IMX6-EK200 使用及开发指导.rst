@@ -79,7 +79,7 @@ Linux 内核板级文件
 ~~~~~~~~~~~~~~~~~~~
 
 1. 内核板级编译配置文件：arch/arm/configs/myimx*_defconfig
-2. 内核板级设备树文件：arch/arm/boot/dts/<ek_name>-<cpu_type>-<mem_size>-*
+2. 内核板级设备树文件：arch/arm/boot/dts/<ek_name>-<cpu_type>-<mem_size>-\*
 3. 内核开发参考手册：网盘中《i.MX_Linux_Reference_Manual.pdf》
 
 第四部分 硬件开发指导

@@ -62,14 +62,14 @@ U-Boot 板级文件
 ~~~~~~~~~~~~~~~~
 
 1. u-boot 板级文件位置：board/myzr
-2. u-boot 板级配置文件：include/configs/myimx*.h
+2. u-boot 板级配置文件： include/configs/myimx\*.h
 3. u-boot 极级编译配置文件：configs/<ek_name>-<cpu_type>-<mem_size>-\*_defconfig
 
 Linux 内核板级文件
 ~~~~~~~~~~~~~~~~~~~
 
 1. 内核板级编译配置文件：arch/arm/configs/myimx*_defconfig
-2. 内核板级设备树文件：arch/arm/boot/dts/<ek_name>-<cpu_type>-<mem_size>-*
+2. 内核板级设备树文件：arch/arm/boot/dts/<ek_name>-<cpu_type>-<mem_size>-\*
 3. 内核开发参考手册：网盘中《i.MX_Linux_Reference_Manual.pdf》
 
 第四部分 硬件开发指导

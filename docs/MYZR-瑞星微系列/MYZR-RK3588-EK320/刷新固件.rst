@@ -1,0 +1,59 @@
+刷新固件
+=========
+
+安装DriverAssitant驱动
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+- 从下载的网盘资料中找到Rockchip USB驱动安装包，路径为：3.软件资料-->3.2-工具-->DriverAssitant_v5.11.zip
+- 解压DriverAssitant_v5.11.zip后进入DriverAssitant_v5.11文件夹
+- 直接双击DriverInstall.exe程序进行驱动安装，安装步骤如下:
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/DriverInstall-1.png
+   :alt: DriverInstall-1.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/DriverInstall-2.png
+   :alt: DriverInstall-2.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/DriverInstall-3.png
+   :alt: DriverInstall-3.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/DriverInstall-4.png
+   :alt: DriverInstall-4.png
+
+使用RKDevTool工具进行刷机
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- 从下载的网盘资料中找到RKDevTool驱动安装包，路径为：3.软件资料-->3.2-工具-->RKDevTool_Release_v3.15.zip
+- 解压RKDevTool_Release_v3.15.zip后进入RKDevTool_Release_v3.15文件夹
+- 双击RKDevTool.exe打开程序
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/RKDevTool-1.png
+   :alt: RKDevTool-1.png
+
+- 点击进入“升级固件”界面
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/RKDevTool-2.png
+   :alt: RKDevTool-2.png
+
+- 点击“固件”按钮，然后选择相应的img镜像文件
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/RKDevTool-3.png
+   :alt: RKDevTool-3.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/RKDevTool-4.png
+   :alt: RKDevTool-4.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/RKDevTool-5.png
+   :alt: RKDevTool-5.png
+
+- 开发板接上烧录线，按住开发板SW8按键，再给开发板上电，上电3秒左右可看到开发板进入了download模式
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/RKDevTool-6.png
+   :alt: RKDevTool-6.png
+
+- 点击“升级”按钮进行刷机，刷成功右边显示成功字符
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/RKDevTool-7.png
+   :alt: RKDevTool-7.png
+
+- 烧录完成后，开发板重新上电。
