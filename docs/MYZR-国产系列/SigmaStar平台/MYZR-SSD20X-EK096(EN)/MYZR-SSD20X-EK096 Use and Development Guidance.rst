@@ -16,7 +16,7 @@ Instructions for use of this document
 |   Development Environment Guidance Manual： :doc:`《Ubuntu14.04+Win10》</docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit dev env Manual>`
 |   Build Manual： :doc:`《Linux-4.9.84》<MYZR-SSD20X-CB096 Hardware Introduction>`
 
-**Description: **
+**Description:**
 
 |  Open all links in the document, it is recommended to use the mouse right click to open in the new tab.
 

@@ -52,7 +52,7 @@ Temperature range
 
 **Operating temperature**
 
-- Industrial grade：
+- Business grade：
 
    0°C ~ 70°C
 

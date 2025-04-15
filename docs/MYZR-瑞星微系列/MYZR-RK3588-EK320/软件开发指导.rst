@@ -1,210 +1,7 @@
 软件开发指导
 =============
 
-开发环境
-----------
-
-文件下载
-~~~~~~~~~
-
-|   从网盘中找到VirtualBox安装包并下载，路径为：1.通用资料-->1.3-工具-->VirtualBox-5.2.12-->VirtualBox-5.2.12-122591-Win.exe
-
-安装虚拟机软件
-~~~~~~~~~~~~~~~
-
-|   双击下载的VirtualBox-5.2.12-122591-Win.exe后如下进行安装
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导1.png
-   :alt: 软件开发指导1.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导2.png
-   :alt: 软件开发指导2.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导3.png
-   :alt: 软件开发指导3.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导4.png
-   :alt: 软件开发指导4.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导5.png
-   :alt: 软件开发指导5.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导6.png
-   :alt: 软件开发指导6.png
-
-为虚拟机配置 Windows
-~~~~~~~~~~~~~~~~~~~~~
-
-添加 Windows 网卡
-^^^^^^^^^^^^^^^^^^
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导7.jpg
-   :alt: 软件开发指导7.jpg
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导8.jpg
-   :alt: 软件开发指导8.jpg
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导9.jpg
-   :alt: 软件开发指导9.jpg
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导10.jpg
-   :alt: 软件开发指导10.jpg
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导11.jpg
-   :alt: 软件开发指导11.jpg
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导12.jpg
-    :alt: 软件开发指导12.jpg
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导13.jpg
-    :alt: 软件开发指导13.jpg
-
-配置 Windows 网卡
-^^^^^^^^^^^^^^^^^^
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导14.jpg
-    :alt: 软件开发指导14.jpg
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导15.jpg
-    :alt: 软件开发指导15.jpg
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导16.jpg
-    :alt: 软件开发指导16.jpg
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导17.jpg
-    :alt: 软件开发指导17.jpg
-
-导入虚拟机系统
-^^^^^^^^^^^^^^^
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导18.png
-    :alt: 软件开发指导18.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导19.png
-    :alt: 软件开发指导19.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导20.png
-    :alt: 软件开发指导20.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导21.png
-    :alt: 软件开发指导21.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导22.png
-    :alt: 软件开发指导22.png
-
-虚拟机设置
-~~~~~~~~~~~
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导23.png
-    :alt: 软件开发指导23.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导24.png
-    :alt: 软件开发指导24.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导25.png
-    :alt: 软件开发指导25.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导26.png
-    :alt: 软件开发指导26.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导27.png
-    :alt: 软件开发指导27.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导28.png
-    :alt: 软件开发指导28.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导29.png
-    :alt: 软件开发指导29.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导30.png
-    :alt: 软件开发指导30.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导31.png
-    :alt: 软件开发指导31.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导32.png
-    :alt: 软件开发指导32.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导33.png
-    :alt: 软件开发指导33.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导34.png
-    :alt: 软件开发指导34.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导35.png
-    :alt: 软件开发指导35.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导36.png
-    :alt: 软件开发指导36.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导37.png
-    :alt: 软件开发指导37.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导38.png
-    :alt: 软件开发指导38.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导39.png
-    :alt: 软件开发指导39.png
-
-虚拟机与PC互传文件
-~~~~~~~~~~~~~~~~~~~
-
-|   可使用Samba或SSH传送文件
-|   Samba如下
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导40.png
-    :alt: 软件开发指导40.png
-
-|   SSH如下
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导41.png
-    :alt: 软件开发指导41.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导42.png
-    :alt: 软件开发指导42.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导43.png
-    :alt: 软件开发指导43.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导44.png
-    :alt: 软件开发指导44.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导45.png
-    :alt: 软件开发指导45.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导46.png
-    :alt: 软件开发指导46.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导47.png
-    :alt: 软件开发指导47.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导48.png
-    :alt: 软件开发指导48.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导49.png
-    :alt: 软件开发指导49.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导50.png
-    :alt: 软件开发指导50.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导51.png
-    :alt: 软件开发指导51.png
-
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导52.png
-    :alt: 软件开发指导52.png
-
-
-虚拟机使用
-~~~~~~~~~~~
-
-用户和密码
-^^^^^^^^^^^
-
-|   默认用户：tangb，UserName：myzr，Password：myzr2012
-|   超级用户：root，UserName：root，Password：myzr2012
-
-|   可参考：http://wiki.myzr.com.cn/index.php?title=MYZR_Windows-10_VirtualBox-5.2.12_Ubuntu-14.04.5_64%E4%BD%8D%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8C%87%E5%AF%BC
-
+.. include:: /docs/COMMON/MYZR-RK3588-EK320开发环境搭建手册.rst
 
 
 源码编译
@@ -477,8 +274,8 @@ UART
 
 |   MYRK3588EK320
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导53.jpg
-    :alt: 软件开发指导53.jpg
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导1.jpg
+    :alt: 软件开发指导1.jpg
 
 |   与485模块转usb，A接A，B接B并连接到电脑上
 
@@ -518,8 +315,8 @@ UART
     send message is 123456789 
     # 用串口助手发送的消息板子也能收到
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导54.png
-    :alt: 软件开发指导54.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导2.png
+    :alt: 软件开发指导2.png
 
 CAN
 ~~~~~
@@ -534,8 +331,8 @@ CAN
 
 |   CAN模块之间接线：CAN_H接CAN_H，CAN_L接CAN_L
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导55.png
-    :alt: 软件开发指导55.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导3.png
+    :alt: 软件开发指导3.png
 
 3. DTS 节点配置
 ^^^^^^^^^^^^^^^^
@@ -629,13 +426,13 @@ CAN
 
 - HDMI0/ HDMI1/ Display Port/ VGA
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导56.jpg
-    :alt: 软件开发指导57.jpg
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导4.jpg
+    :alt: 软件开发指导4.jpg
 
 - MIPI DSI0/ MIPI DSI1
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导57.jpg
-    :alt: 软件开发指导58.jpg
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导5.jpg
+    :alt: 软件开发指导5.jpg
 
 |   开发板支持以下屏幕：
 |   LVDS 7 寸屏幕
