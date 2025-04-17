@@ -8,3 +8,4 @@
    :maxdepth: 1
    :hidden:
 
+   MYZR-SAMA5-EK200/index

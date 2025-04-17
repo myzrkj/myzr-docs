@@ -1,0 +1,249 @@
+测试指导
+=========
+
+网口测试
+----------
+
+网口1
+~~~~~~~
+
+|   系统接口：
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+|   测试操作
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口
+3. 配置网口1 IP并执行测试，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0 192.168.137.81
+    ping -I eth0 192.168.137.99 -c 3
+
+|   "0% packet loss"表示测试通过
+
+网口2
+~~~~~~~
+
+|   系统接口：
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+|   测试操作
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口
+3. 配置网口2 IP并执行测试，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1 192.168.137.82
+    ping -I eth1 192.168.137.99 -c 3
+
+|   "0% packet loss"表示测试通过
+
+USB测试
+---------
+
+|   测试说明：采用插拔USB存储设备（U盘）的方式进行测试
+|   测试操作
+
+1. 将U盘插入底板USB接口，系统会输出类似如下信息
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试1.png
+   :alt: 测试1.png
+
+2. 将U盘从底板拔出，系统会输出类似如下信息
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试2.png
+   :alt: 测试2.png
+
+SD接口测试
+-----------
+
+|   测试说明：采用插拔TF卡的方式进行测试
+|   测试操作
+
+1. 将TF卡安装到SD接口，开发会输出如下信息：
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试3.png
+   :alt: 测试3.png
+
+2. 将TF拔出，输出信息如下：
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试4.png
+   :alt: 测试4.png
+
+音频播放测试
+-------------
+
+|   测试说明：播放音频文件验证评估板的音频播放功能
+|   测试操作
+
+1. 把耳机或者喇叭接入丝印对应的接口
+2. 输入指令如下进行测试：
+
+.. code-block:: shell
+
+    aplay /mytest.wav
+
+|   耳机或者喇叭有声音输出表示音频播放测试通过
+
+录音测试
+----------
+
+|   测试说明：录制并播放录音文件进行测试
+|   测试操作
+
+1. 把带MIC的耳机插入丝印对应的接口
+2. 输入如下指令进行4秒的录音：
+
+.. code-block:: shell
+
+    arecord -d 4 -f S16_LE record.wav
+
+3. 播放录制的音频文件，输入如下指令：
+
+.. code-block:: shell
+
+    aplay record.wav
+
+|   耳机有录制声音输出表示录音测试通过
+
+4G模块接口测试
+---------------
+
+|   测试说明：4G连接成功后，开发板向外网发送ICMP报文来验证连接正常
+|   测试操作
+
+1. 开发板断电，接上4G模块，接上天线并插入SIM卡后启动开发板
+2. 拨号，输入指令如下：
+
+.. code-block:: shell
+
+    /quectel-CM &
+
+3. 上网测试，输入指令如下：
+
+.. code-block:: shell
+
+    ping -I rmnet_mhi0.1 www.baidu.com -c 3
+
+|   "0% packet loss"表示4G模块可以上网
+
+
+M.2接口测试
+-------------
+
+|   测试说明：挂载硬盘后查看挂载情况
+|   测试操作
+
+1. 开发板断电，接上M.2接口硬盘后启动开发板
+2. 创建挂载点并挂载硬盘，输入指令如下：
+
+.. code-block:: shell
+
+    mkdir /nvme
+    mount /dev/nvme0n1p1 /nvme/
+
+3. 查看挂载情况，输入指令如下：
+
+.. code-block:: shell
+
+    df -h
+
+4. 挂载成功可获取如下输出指令：
+
+.. code-block:: shell
+
+    /dev/nvme0n1p1  120G  108M  120G   1% /nvme
+
+5. 卸载硬盘，输入指令如下：
+
+.. code-block:: shell
+
+    umount /nvme
+
+uart测试
+----------
+
+|   测试说明：采用uart自发自收的方式进行测试
+|   测试操作
+
+1. 短接xx和xx引脚
+2. 输入指令如下进行收发测试：
+
+.. code-block:: shell
+
+    /my-demo/serial_test.out /dev/ttySC2 "myzr"
+
+    Starting send data...finish
+    Starting receive data:
+    ASCII: 0x6d     Character: m 
+    ASCII: 0x79     Character: y 
+    ASCII: 0x7a     Character: z 
+    ASCII: 0x72     Character: r 
+    ASCII: 0x0      Character: 
+
+|   执行测试指令后输出如上类似信息表示uart测试通过，按下'Ctrl + C'退出
+
+.. IIC接口测试
+.. 测试说明：与另一块带IIC接口的开发板互联进行收发测试
+.. 测试操作
+
+SPI接口测试
+-------------
+
+|   测试说明：采用spi自发自收的方式进行测试
+|   测试操作
+
+1. 短接xx和xx引脚
+2. 输入指令如下进行收发测试：
+
+.. code-block:: shell
+
+    /my-demo/spidev_test.out -D /dev/spidev1.0
+
+    spi mode: 0
+    bits per word: 8
+    max speed: 500000 Hz (500 KHz)
+
+    FF FF FF FF FF FF 
+    40 00 00 00 00 95 
+    FF FF FF FF FF FF 
+    FF FF FF FF FF FF 
+    FF FF FF FF FF FF 
+    DE AD BE EF BA AD 
+    F0 0D 
+
+|   执行测试指令后输出如上类似信息表示spi测试通过
+
+红外测试
+----------
+
+|   测试说明：通过接收红外信息，打印出相应数据
+|   测试操作
+
+1. 准备一个红外遥控器，或手机的红外遥控app
+2. 打开相关打印开关，输入指令如下：
+
+.. code-block:: shell
+
+    echo 1 > /sys/module/rockchip_pwm_remotectl/parameters/code_print
+    echo 1 > /sys/module/rockchip_pwm_remotectl/parameters/dbg_level
+
+3. 使用遥控器对准红外接口按下任意按钮
+4. 开发板看到返回相关按钮信息即为成功接收到
+
+
+显示屏
+--------
+
+|   测试说明：通过显示屏播放视频验证功能
+|   测试操作
+
+1. 接上显示屏，启动开发板
+2. 点击GUI桌面的test_gst_multivideo.sh即可看到多路视频同时播放
+3. 使用gst命令单个视频播放，输入指令如下：
+
+.. code-block:: shell
+
+    gst-launch-1.0 playbin uri=file:///oem/SampleVideo_1280x720_5mb.mp4 video-sink="waylandsink"

@@ -17,7 +17,8 @@
    docs/MYZR-瑞星微系列/MYZR-RK3399-EK314(EN)/index
    docs/MYZR-瑞星微系列/MYZR-RK3588-EK314/index
    docs/MYZR-瑞星微系列/MYZR-RK3568-EK314/index
-   .. docs/MYZR-瑞星微系列/MYZR-RK3588-EK320/index
+   docs/MYZR-瑞星微系列/MYZR-RK3588-EK320/index
+   docs/MYZR-瑞星微系列/MYZR-RK3568-EK360/index
 
 
 .. toctree::
@@ -86,6 +87,7 @@
    docs/MYZR-其他/MYZR-IMX28-EK142(EN)/index
 
    docs/MYZR-其他/MYZR-LS1012A-EK200/index
+   docs/MYZR-其他/MYZR-SAMA5-EK200/index
 
    docs/MYZR-其他/网关/index      
 
