@@ -7,43 +7,86 @@
 网口1
 ~~~~~~~
 
-|   系统接口：
+|   接口丝印：U9
+|   系统接口：eth0
 |   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+
 |   测试操作
 
 1. 配置电脑有线网卡IP为 192.168.137.99
 2. 使用网线连接开发板网口和电脑的网口
-3. 配置网口1 IP并执行测试，输入指令如下：
+3. 查看开发板网口1信息，输入指令如下：
 
 .. code-block:: shell
 
-    ifconfig eth0 192.168.137.81
+    ifconfig eth0
+
+4. 配置网口1的IPV4 IP，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0 192.168.137.18 netmask 255.255.255.0
+
+5. 再次查看开发板网口1信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0
+
+6. 输入指令如下进行验证网口1：
+
+.. code-block:: shell
+
     ping -I eth0 192.168.137.99 -c 3
 
 |   "0% packet loss"表示测试通过
 
+
+
 网口2
 ~~~~~~~
 
-|   系统接口：
+|   接口丝印：U5
+|   系统接口：eth1
 |   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+
 |   测试操作
 
 1. 配置电脑有线网卡IP为 192.168.137.99
 2. 使用网线连接开发板网口和电脑的网口
-3. 配置网口2 IP并执行测试，输入指令如下：
+3. 查看开发板网口2信息，输入指令如下：
 
 .. code-block:: shell
 
-    ifconfig eth1 192.168.137.82
+    ifconfig eth1
+
+4. 配置网口2的IPV4 IP，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1 192.168.137.22 netmask 255.255.255.0
+
+5. 再次查看开发板网口2信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1
+
+6. 输入指令如下进行验证网口2：
+
+.. code-block:: shell
+
     ping -I eth1 192.168.137.99 -c 3
 
 |   "0% packet loss"表示测试通过
 
+
 USB测试
 ---------
 
+|   接口丝印：J1
 |   测试说明：采用插拔USB存储设备（U盘）的方式进行测试
+
 |   测试操作
 
 1. 将U盘插入底板USB接口，系统会输出类似如下信息
@@ -59,10 +102,12 @@ USB测试
 SD接口测试
 -----------
 
+|   接口丝印：J12
 |   测试说明：采用插拔TF卡的方式进行测试
+
 |   测试操作
 
-1. 将TF卡安装到SD接口，开发会输出如下信息：
+1. 将TF卡安装到SD接口，开发板会输出如下信息：
 
 .. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试3.png
    :alt: 测试3.png
@@ -72,10 +117,12 @@ SD接口测试
 .. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试4.png
    :alt: 测试4.png
 
-音频播放测试
--------------
+音音频播放测试
+---------------
 
-|   测试说明：播放音频文件验证评估板的音频播放功能
+|   接口丝印：P1
+|   测试说明：播放音频文件验证开发板的音频播放功能
+
 |   测试操作
 
 1. 把耳机或者喇叭接入丝印对应的接口
@@ -83,14 +130,16 @@ SD接口测试
 
 .. code-block:: shell
 
-    aplay /mytest.wav
+    aplay ./mytest.wav
 
 |   耳机或者喇叭有声音输出表示音频播放测试通过
 
 录音测试
 ----------
 
+|   接口丝印：P1
 |   测试说明：录制并播放录音文件进行测试
+
 |   测试操作
 
 1. 把带MIC的耳机插入丝印对应的接口
@@ -108,118 +157,49 @@ SD接口测试
 
 |   耳机有录制声音输出表示录音测试通过
 
-4G模块接口测试
----------------
-
-|   测试说明：4G连接成功后，开发板向外网发送ICMP报文来验证连接正常
-|   测试操作
-
-1. 开发板断电，接上4G模块，接上天线并插入SIM卡后启动开发板
-2. 拨号，输入指令如下：
-
-.. code-block:: shell
-
-    /quectel-CM &
-
-3. 上网测试，输入指令如下：
-
-.. code-block:: shell
-
-    ping -I rmnet_mhi0.1 www.baidu.com -c 3
-
-|   "0% packet loss"表示4G模块可以上网
-
-
-M.2接口测试
--------------
-
-|   测试说明：挂载硬盘后查看挂载情况
-|   测试操作
-
-1. 开发板断电，接上M.2接口硬盘后启动开发板
-2. 创建挂载点并挂载硬盘，输入指令如下：
-
-.. code-block:: shell
-
-    mkdir /nvme
-    mount /dev/nvme0n1p1 /nvme/
-
-3. 查看挂载情况，输入指令如下：
-
-.. code-block:: shell
-
-    df -h
-
-4. 挂载成功可获取如下输出指令：
-
-.. code-block:: shell
-
-    /dev/nvme0n1p1  120G  108M  120G   1% /nvme
-
-5. 卸载硬盘，输入指令如下：
-
-.. code-block:: shell
-
-    umount /nvme
 
 uart测试
 ----------
 
+|   接口丝印：J14
 |   测试说明：采用uart自发自收的方式进行测试
+
 |   测试操作
 
-1. 短接xx和xx引脚
+1. 短接J14-33(UART3_TX_M1)和J14-35(UART3_RX_M1)引脚
 2. 输入指令如下进行收发测试：
 
 .. code-block:: shell
 
-    /my-demo/serial_test.out /dev/ttySC2 "myzr"
-
-    Starting send data...finish
-    Starting receive data:
-    ASCII: 0x6d     Character: m 
-    ASCII: 0x79     Character: y 
-    ASCII: 0x7a     Character: z 
-    ASCII: 0x72     Character: r 
-    ASCII: 0x0      Character: 
+    ./serial_test.out /dev/ttyS3 "myzr"
 
 |   执行测试指令后输出如上类似信息表示uart测试通过，按下'Ctrl + C'退出
 
-.. IIC接口测试
-.. 测试说明：与另一块带IIC接口的开发板互联进行收发测试
-.. 测试操作
 
 SPI接口测试
 -------------
 
+|   接口丝印：J14
 |   测试说明：采用spi自发自收的方式进行测试
+
 |   测试操作
 
-1. 短接xx和xx引脚
+1. 短接J14-19(HDMIRX_INT_L_GPIO4_C3)和J14-21(UART9_TX_M1)引脚
 2. 输入指令如下进行收发测试：
 
 .. code-block:: shell
 
-    /my-demo/spidev_test.out -D /dev/spidev1.0
-
-    spi mode: 0
-    bits per word: 8
-    max speed: 500000 Hz (500 KHz)
-
-    FF FF FF FF FF FF 
-    40 00 00 00 00 95 
-    FF FF FF FF FF FF 
-    FF FF FF FF FF FF 
-    FF FF FF FF FF FF 
-    DE AD BE EF BA AD 
-    F0 0D 
+    ./spidev_test -D /dev/spidev3.0
 
 |   执行测试指令后输出如上类似信息表示spi测试通过
+
 
 红外测试
 ----------
 
+|   接口丝印：IR1
 |   测试说明：通过接收红外信息，打印出相应数据
+
 |   测试操作
 
 1. 准备一个红外遥控器，或手机的红外遥控app
@@ -237,13 +217,11 @@ SPI接口测试
 显示屏
 --------
 
-|   测试说明：通过显示屏播放视频验证功能
+|   接口丝印：J2
+|   测试说明：查看开发板上电启动显示屏是否正常显示
+
 |   测试操作
 
-1. 接上显示屏，启动开发板
-2. 点击GUI桌面的test_gst_multivideo.sh即可看到多路视频同时播放
-3. 使用gst命令单个视频播放，输入指令如下：
+1. 将一个HDMI接口的屏幕和开发板上的HDMI接口连接，启动开发板
 
-.. code-block:: shell
-
-    gst-launch-1.0 playbin uri=file:///oem/SampleVideo_1280x720_5mb.mp4 video-sink="waylandsink"
+|   显示屏正常显示表示测试通过

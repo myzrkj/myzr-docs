@@ -1,6 +1,7 @@
 硬件设计指导
 =============
 
+
 核心板引脚原理图
 -----------------
 
@@ -9,3 +10,95 @@
 
 .. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/核心板引脚原理图2.png
    :alt: 核心板引脚原理图2.png
+
+
+底板原理图
+------------
+
+
+电源管理
+~~~~~~~~~
+
+|  底板电源为直流 5V 电源，由 DC-005 插座插入，J15 是电源插座。然后经过磁珠CBW322513U121T转成核心板需要的 5v 输入，VCC_5V会由  SY8113B 转成底板需要的3.3v以及核心板需要的3.3V。
+|  电源输入的原理图如下图所示，其中，5V_DC信号为DC接口的电源输入，其后级型号为自恢复保险丝1812L300MR，用于过载保护，跳闸电流为5A。开发板的电源系统采用瑞芯微RK809-5芯片，配合外围的BUCK、LDO电路，给RK3568主控、DDR、 eMMC和相关的功能外设设备提供稳定的电源。
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图1.png
+   :alt: 底板原理图1.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图2.png
+   :alt: 底板原理图2.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图3.png
+   :alt: 底板原理图3.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图4.png
+   :alt: 底板原理图4.png
+
+
+按键电路
+~~~~~~~~~
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图5.png
+   :alt: 底板原理图5.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图6.png
+   :alt: 底板原理图6.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图7.png
+   :alt: 底板原理图7.png
+
+|  按钮 PCB 如下图所示:
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图8.png
+   :alt: 底板原理图8.png
+
+
+TF Card电路
+~~~~~~~~~~~~~
+
+|  TF 卡槽位于主板正面，为自弹式TF卡座，最大支持512G的MicroSD卡(TF卡)，支持系统启动与 存储。当TF卡作为系统启动卡，系统运行过程中，切勿随意拔插TF卡。
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图9.png
+   :alt: 底板原理图9.png
+
+
+MINIPCI-E电路
+~~~~~~~~~~~~~~~
+
+|  SIM卡槽位于主板正面，支持的SIM卡尺寸为NanoSIM，其信号线直接与MINI  PCI-E接口相连，SIM卡支持移动、联通、电信，需要搭配MINIPCI-E接口的4G/5G模块才能实现 4G/5G通讯功能。 
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图10.png
+   :alt: 底板原理图10.png
+
+
+以太网电路
+~~~~~~~~~~~
+
+|  开发板引出两个RJ45接口，分别由独立的PHY芯片 RTL8211F-CG 控制，支持10/100/1000Mbps 数据传输速率。板载的RJ45接口有两个LED指示灯，由PHY芯片来控制。
+|  ETH0部分原理图如下图所示：
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图11.png
+   :alt: 底板原理图11.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图12.png
+   :alt: 底板原理图12.png
+
+|  ETH1部分原理图如下图所示：
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图13.png
+   :alt: 底板原理图13.png
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图14.png
+   :alt: 底板原理图14.png
+
+
+USB3.0/2.0电路
+~~~~~~~~~~~~~~~~
+
+|  RK3568芯片内置一个USB3.0OTG控制器、两个USB2.0HOST控制器和一个USB3.0HOST控制器。 一路USB3.0OTG中的USB3_OTG0_DP和USB3_OTG0_DM连接到了板载Type-COTG接口，速率 为USB2.0，可作为固件下载端口用于Emmc烧录。
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/底板原理图15.png
+   :alt: 底板原理图15.png
+
+|  一路USB3.0HOST1信号连接到了板载USB3.0接口（内芯为蓝色）；板载USB3.0接口为USB3.2  Gen1，相当于USB3.1Gen1和USB3.0，最高数据速率可达5Gbps，并向下兼容USB2.0。
+|  一路USB2.0HOST控制器USB2_HOST2信号连接到了与USB3.0接口同一组的USB2.0接口上。

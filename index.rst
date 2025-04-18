@@ -88,6 +88,7 @@
 
    docs/MYZR-其他/MYZR-LS1012A-EK200/index
    docs/MYZR-其他/MYZR-SAMA5-EK200/index
+   docs/MYZR-其他/MYZR-SAMA5-EK200(EN)/index
 
    docs/MYZR-其他/网关/index      
 
