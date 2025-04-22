@@ -44,28 +44,29 @@ HDMI显示屏连接
 
 |   开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
 
-|   U-Boot 2021.04-g245e65b5 (Jan 17 2023 - 17:01:28 +0800)CPU:   i.MX8MP[8] rev1.1 1800 MHz (running at 1200 MHz)CPU:   Commercial temperature grade (0C to 95C) at 28CReset cause: PORModel: MYZR i.MX8MPlus EK314 boardDRAM:  6 GiBMMC:   FSL_SDHC: 1, FSL_SDHC: 2Loading Environment from MMC... OK........Starting kernel ...[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034][    0.000000] Linux version 5.10.72-gdcb9071261a3 (tangbin@MYZR-230304) (aarch64-linux-gnu-gcc (Linaro GCC 7.5-2019.12) 7.5.0, GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706) #11 SMP PREEMPT Thu Mar 16 10:25:45 CST 2023[    0.000000] Machine model: MYZR i.MX8M Plus EK314 board[    0.000000] efi: UEFI not found.[    0.000000] Reserved memory: created CMA memory pool at 0x00000000c4000000, size 960 MiB[    0.000000] OF: reserved mem: initialized node linux,cma, compatible id shared-dma-pool[    0.000000] Reserved memory: created DMA memory pool at 0x0000000094300000, size 1 MiB[    0.000000] OF: reserved mem: ini............NXP i.MX Release Distro 5.10-hardknott imx8mp-ddr4-evk ttymxc1imx8mp-ddr4-evk login: [   33.759760] can1-stby: disabling
+.. code:: shell
+
+    U-Boot SPL 2017.09-gaaca6ffec1-211203 #zzz (Dec 03 2021 - 18:42:16)
+    Linux version 4.19.232 (zhengc@myzr-92aa) (gcc version 10.3.1 20210621 (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)), GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #4 SMP Tue Apr 15 17:28:04 CST 2025
+    vcc3v3_pcie: disabling
 
 U-Boot 信息
 ^^^^^^^^^^^^
 
-|   启动信息中 U-Boot SPL 2021.04-lf_v2021.04+g8372631b28 (Jun 10 2022- 06:24:02 +0000) 包含以下信息：
-|   【u-boot版本】 ：2021.04；
-|   【源码的版本号】 ：g8372631b28；
-|   【u-boot文件的编译时间】 ：Jun 10 2022 - 06:24:02 +0000。
+|   启动信息中 U-Boot SPL 2017.09-gaaca6ffec1-211203 #zzz (Dec 03 2021 - 18:42:16)包含以下信息：
+|   【u-boot版本】 ：2017.09；
+|   【源码的版本号】 ：gaaca6ffec1；
+|   【u-boot文件的编译时间】 ：Dec 03 2021 - 18:42:16。
 
 内核信息
 ^^^^^^^^^
 
-|   启动信息中 Linux version 5.10.72-gdcb9071261a3(tangbin@MYZR-230304) (aarch64-linux-gnu-gcc (Linaro GCC 7.5-2019.12)7.5.0, GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706) #11 SMPPREEMPT Thu Mar 16 10:25:45 CST 202 包含以下信息：
-|   【内核版本】 ：Linux- 5.10.72；
-|   【编译内核的GCC版本】 ： 7.5；
-|   【内核文件的编译时间】 ：Thu Mar 16 10:25:45 CST 2023。
+|   启动信息中 Linux version 4.19.232 (zhengc@myzr-92aa) (gcc version 10.3.1 20210621 (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)), GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #4 SMP Tue Apr 15 17:28:04 CST 2025包含以下信息：
+|   【内核版本】 ：Linux- 4.19.232 ；
+|   【编译内核的GCC版本】 ： 10.3.1；
+|   【内核文件的编译时间】 ：Tue Apr 15 17:28:04 CST 2025。
 
 开发板登录
 ~~~~~~~~~~~
 
-|   启动系统完后输出 imx8mp-ddr4-evk login: 时，可以登录：
-|   【用户名】 ：root
-|   【密码】 ：无
-|   提示：登录后可以通过“passwd”命令来设置和修改密码。
+|   启动系统完后输出 vcc3v3_pcie: disabling 时，按回车键可以登录;
