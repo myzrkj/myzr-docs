@@ -78,7 +78,7 @@
 处理器框图
 -----------
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK360/处理器框图.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK320/处理器框图.png
    :alt: 处理器框图.png
 
 

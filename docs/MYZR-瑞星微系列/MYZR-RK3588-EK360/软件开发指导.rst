@@ -1,7 +1,7 @@
 软件开发指导
 =============
 
-.. include:: /docs/COMMON/MYZR-RK3588-EK320开发环境搭建手册.rst
+.. include:: /docs/COMMON/MYZR-RK3588-EK360开发环境搭建手册.rst
 
 
 源码编译
@@ -274,7 +274,7 @@ UART
 
 |   MYRK3588EK320
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导1.jpg
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/软件开发指导1.jpg
     :alt: 软件开发指导1.jpg
 
 |   与485模块转usb，A接A，B接B并连接到电脑上
@@ -315,7 +315,7 @@ UART
     send message is 123456789 
     # 用串口助手发送的消息板子也能收到
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导2.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/软件开发指导2.png
     :alt: 软件开发指导2.png
 
 CAN
@@ -331,7 +331,7 @@ CAN
 
 |   CAN模块之间接线：CAN_H接CAN_H，CAN_L接CAN_L
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导3.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/软件开发指导3.png
     :alt: 软件开发指导3.png
 
 3. DTS 节点配置
@@ -426,12 +426,12 @@ CAN
 
 - HDMI0/ HDMI1/ Display Port/ VGA
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导4.jpg
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/软件开发指导4.jpg
     :alt: 软件开发指导4.jpg
 
 - MIPI DSI0/ MIPI DSI1
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/软件开发指导5.jpg
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/软件开发指导5.jpg
     :alt: 软件开发指导5.jpg
 
 |   开发板支持以下屏幕：

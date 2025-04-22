@@ -91,12 +91,12 @@ USB测试
 
 1. 将U盘插入底板USB接口，系统会输出类似如下信息
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试1.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试1.png
    :alt: 测试1.png
 
 2. 将U盘从底板拔出，系统会输出类似如下信息
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试2.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试2.png
    :alt: 测试2.png
 
 SD接口测试
@@ -109,12 +109,12 @@ SD接口测试
 
 1. 将TF卡安装到SD接口，开发板会输出如下信息：
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试3.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试3.png
    :alt: 测试3.png
 
 2. 将TF拔出，输出信息如下：
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK320/测试4.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试4.png
    :alt: 测试4.png
 
 音音频播放测试
