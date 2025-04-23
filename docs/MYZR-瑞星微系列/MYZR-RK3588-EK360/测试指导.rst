@@ -356,14 +356,17 @@ rtc测试
 
     hwclock -w
 
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试15.png
+   :alt: 测试15.png
+
 6. 设备断电重启，查看rtc时钟，输入指令如下：
 
 .. code-block:: shell
 
     hwclock
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试15.png
-   :alt: 测试15.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试16.png
+   :alt: 测试16.png
 
 |   输出的rtc时间与"设置时间+写入rtc后到查看rtc时钟的时长"相差不大表明rtc测试通过
 
@@ -394,8 +397,8 @@ rtc测试
 
     echo 0 > /sys/class/pwm/pwmchip2/pwm0/enable
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试16.png
-   :alt: 测试16.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试17.png
+   :alt: 测试17.png
 
 |   蜂鸣器可以正常的打开和关闭表示测试通过
 
@@ -440,5 +443,5 @@ HDMI_RX
 
 |   命令查看是否有 hdmiin 生成的设备节点：
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试17.png
-   :alt: 测试17.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试18.png
+   :alt: 测试18.png
