@@ -109,16 +109,16 @@ SD接口测试
 
 1. 将TF卡安装到SD接口，开发板会输出如下信息：
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试3.jpg
-   :alt: 测试3.jpg
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试3.png
+   :alt: 测试3.png
 
 2. 将TF拔出，输出信息如下：
 
 .. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试4.png
    :alt: 测试4.png
 
-音音频播放测试
----------------
+音频播放测试
+--------------
 
 |   接口丝印：P1
 |   测试说明：播放音频文件验证开发板的音频播放功能
@@ -207,6 +207,9 @@ uart测试
 
     ./serial_test.out /dev/ttyS3 "myzr"
 
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试5.png
+   :alt: 测试5.png
+
 |   执行测试指令后输出如上类似信息表示uart测试通过，按下'Ctrl + C'退出
 
 
@@ -224,6 +227,9 @@ SPI接口测试
 .. code-block:: shell
 
     ./spidev_test -D /dev/spidev3.0
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试6.png
+   :alt: 测试6.png
 
 |   执行测试指令后输出如上类似信息表示spi测试通过
 
