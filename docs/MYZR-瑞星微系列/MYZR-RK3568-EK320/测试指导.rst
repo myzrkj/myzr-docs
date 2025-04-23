@@ -109,8 +109,8 @@ SD接口测试
 
 1. 将TF卡安装到SD接口，开发板会输出如下信息：
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试3.png
-   :alt: 测试3.png
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试3.jpg
+   :alt: 测试3.jpg
 
 2. 将TF拔出，输出信息如下：
 
