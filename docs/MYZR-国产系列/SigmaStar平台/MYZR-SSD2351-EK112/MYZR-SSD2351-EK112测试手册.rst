@@ -454,8 +454,8 @@ WIFI测试
    $ mkdir -p /tmp/wifi/run
    
    #b.连接
-   $ /customer/wifi/wpa_supplicant -Dnl80211 -i wlan0 -c $ 
-   /customer/wifi/wpa_supplicant.conf -d &
+   $ /customer/wifi/wpa_supplicant -Dnl80211 -i wlan0 -c 
+   $ /customer/wifi/wpa_supplicant.conf -d &
    
    #c.自动获取IP
    $ udhcpc -q -i wlan0 -s /etc/init.d/udhcpc.script &
