@@ -443,5 +443,9 @@ HDMI_RX
 
 |   命令查看是否有 hdmiin 生成的设备节点：
 
+.. code-block:: shell
+
+    v4l2-ctl --list-devices
+
 .. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试18.png
    :alt: 测试18.png

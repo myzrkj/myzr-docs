@@ -12,7 +12,16 @@
 串口线的连接
 ~~~~~~~~~~~~~
 
-1. 把串口线的一端连接到开发板的“J22”口，另一端连接到电脑的串口。
+1. 使用TTL串口模块，把串口线的一端连接到开发板的“J22”口，另一端连接到电脑的串口。
+
+|   J22的座子：(三角标指定的管脚是GND,电源管脚不需要连接)
+
++------+-----+-----+-----+------+
+| 序号 | 1   | 2   | 3   | 4    |
++------+-----+-----+-----+------+
+| 管脚 | GND | RX  | TX  | 3.3V |
++------+-----+-----+-----+------+
+
 2. 参考 :doc:`《Xshell 参考手册》</docs/COMMON/Xshell.RM.参考手册>` 新建串口会话并打开会话。
 
 网线的连接
@@ -51,20 +60,26 @@ HDMI显示屏连接
 
 .. code-block:: shell
 
-    U-Boot SPL 2017.09-ge4e124926e-230922 #lxh (Sep 25 2023 - 10:58:38), fwver: v1.13
-    U-Boot 2017.09-g11029ef-dirty #root (Apr 08 2025 - 17:43:43 +0800)
-    Linux version 5.10.198 (root@myzr-92aa) (aarch64-none-linux-gnu-gcc (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621, GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #1 SMP Tue Apr 8 17:45:00 CST 2025
+    U-Boot 2017.09-g32640b0ada-230713-dirty #kuangwh (May 24 2024- 15:55:37+0800)
+    Model:MYZR RK3588 Evaluation BoardMPIDR:0x81000000
+    PreSerial: 2,0xfeb50000.raw，
+    DRAM:4 GiB
+    Sysmem: init
+    Relocation Offset: edald000
+    Relocation fdt:eb9fa280-eb9fecc8
+    CR:M/C/I
+    Using default environment
 
 U-Boot 信息
 """"""""""""
 
-|   启动信息中  U-Boot 2017.09-g11029ef-dirty #root (Apr 08 2025 - 17:43:43 +0800)包含以下信息：
+|   启动信息中  U-Boot 2017.09-g32640b0ada-230713-dirty #kuangwh (May 24 2024- 15:55:37+0800)包含以下信息：
 |   【u-boot版本】 ：2017.09；
-|   【源码的版本号】 ：g11029ef；
-|   【u-boot文件的编译时间】 ：Apr 08 2025  17:43:43。
+|   【源码的版本号】 ：g32640b0ada；
+|   【u-boot文件的编译时间】 ：May 24 2024- 15:55:37+0800。
 
 内核信息
-""""""""""
+"""""""""
 
 |   启动信息中 Linux version 5.10.198 (root@myzr-92aa) (aarch64-none-linux-gnu-gcc (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621, GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #1 SMP Tue Apr 8 17:45:00 CST 2025 包含以下信息：
 |   【内核版本】 ：Linux- 5.10.198；
@@ -72,7 +87,7 @@ U-Boot 信息
 |   【内核文件的编译时间】 ：Tue Apr 8 17:45:00 CST 2025
 
 开发板登录
-""""""""""""
+"""""""""""
 
 |   启动系统完后输出 root@root:/# 时，可以登录：
 |   【用户名】 ：root

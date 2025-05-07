@@ -45,10 +45,10 @@
 
 .. code-block:: shell
 
-    cd u-boot/
-    make clean
+    ./build.sh buildroot_update
 
 2. 编译成功后在rockdev/目录下可看到相关镜像，其中update.img是所有镜像的集合
+
 
 单独编译uboot
 ~~~~~~~~~~~~~~~
@@ -132,15 +132,15 @@
 U-Boot 板级文件
 ~~~~~~~~~~~~~~~~
 
-- u-boot 板级文件位置：board/myzr/myrk3588
-- u-boot 板级配置文件：include/configs/myrk3588.h
-- u-boot 极级编译配置文件：configs/myrk3588_defconfig
+- u-boot 板级文件位置：board/myzr/myzr_rk3588
+- u-boot 板级配置文件：include/configs/myzr_rk3588.h
+- u-boot 极级编译配置文件：configs/myzr_rk3588_defconfig
 
 Linux 内核板级文件
 ~~~~~~~~~~~~~~~~~~
 
-- 内核板级编译配置文件：arch/arm64/configs/my_rockchip_linux_defconfig
-- 内核板级设备树文件：arch/arm64/boot/dts/rockchip/myzr-*
+- 内核板级编译配置文件：arch/arm64/configs/myzr_rockchip_linux_defconfig
+- 内核板级设备树文件：arch/arm64/boot/dts/rockchip/myzr-*.dts*
 - 内核开发参考手册：网盘中《*Reference Manual*.pdf》
 
 GPIO
@@ -258,18 +258,12 @@ GPIO
     gpiochip2: GPIOs 64-95, parent: platform/fec30000.gpio, gpio2:
     ...
 
-UART
-~~~~~~
+485
+~~~~~
 
-1. 硬件
-^^^^^^^^^
 
-|   MYRK3588EK320
-
-|   与485模块转usb，A接A，B接B并连接到电脑上
-
-2. DTS配置
-^^^^^^^^^^^
+DTS配置
+^^^^^^^^^^
 
 |   文件路径kernel/arch/arm64/boot/dts/rockchip/myzr-rk3588-linux.dts
 
@@ -288,24 +282,38 @@ UART
 
     UART0:   /dev/ttyS0
 
-3. UART 收发验证
-^^^^^^^^^^^^^^^^^^
+UART 收发验证
+^^^^^^^^^^^^^^
+
+1. 使用485-USB转换头连接开发板和电脑
+2. 打开串口调试助手，设置波特率为9600，无校验位，8位数据位，1位停止位
+3. 设置开发板的串口波特率，输入指令如下：
 
 .. code-block:: shell
 
-    # 给电脑发送消息，串口助手
-    root@topeet:/topeet_test/01_485_test# ./uarttest /dev/ttyS0 send 123456789
-    uart is /dev/ttyS0
+    stty -F /dev/ttyS0 9600
 
-    itop3568 /dev/ttyS0 writereadtest start
-    open /dev/ttyS0 is success
+4. 向电脑端发送数据，开发板端输入指令如下：
 
-    write test start!!!
-    send message is 123456789 
-    # 用串口助手发送的消息板子也能收到
+.. code-block:: shell
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/软件开发指导2.png
-    :alt: 软件开发指导2.png
+    echo "123" > /dev/ttyS0
+
+|   此时电脑端应收到数据123
+
+5. 电脑端发送数据"myzr"，开发板接收，输入如下指令：
+
+.. code-block:: shell
+
+    cat /dev/ttyS0
+
+|   此时开发板收到数据myzr，按下"Ctrl + C"退出
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试14.png
+   :alt: 测试14.png
+
+|   操作过程中的输出符合预期即功能正常
+
 
 CAN
 ~~~~~
@@ -315,13 +323,7 @@ CAN
 
 |   CAN(Controller Area Network)总线，即控制器局域网总线，是一种有效支持分布式控制或实时控制的串行通信网络。CAN总线是一种在汽车上广泛采用的总线协议，被设计作为汽车环境中的微控制器通讯。 如果想了解更多的内容可以参考CAN应用报告
 
-2. 硬件连接
-^^^^^^^^^^^^^
-
-|   CAN模块之间接线：CAN_H接CAN_H，CAN_L接CAN_L
-
-
-3. DTS 节点配置
+2. DTS 节点配置
 ^^^^^^^^^^^^^^^^
 
 - 公共配置 kernel/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
@@ -356,26 +358,60 @@ CAN
             assigned-clock-rates = <100000000>;
     };
 
-4. CAN 通信测试
+3. CAN 通信测试
 ^^^^^^^^^^^^^^^^
+
+|   测试说明：与另一块带can口的开发板(笔者用的是imx8mp)互联进行收发测试
+|   测试操作
+
+1. 连接两块板的can口后通电
+2. 配置can，两块板的输入指令如下：
+
+|   rk3588：
 
 .. code-block:: shell
 
-    root@topeet:/# ip link set can0 type can bitrate 1000000
-    root@topeet:/# ip link set can0 up
-    [   60.469683] IPv6: ADDRCONF(NETDEV_CHANGE): can0: link becomes ready
-    root@topeet:/# candump can0 &
-    [1] 1226
-    # 接收到连接的板子的can 0发来的信息
-    root@topeet:/# 
-    root@topeet:/#   can0  123   [8]  11 22 33 44 55 66 77 88
-    # 给连接的板子的can 0 发送信息，连接板能看到接受的信息
-    root@topeet:/# cansend can0 1F334455#123456          
-      can0  1F334455   [3]  12 34 56
-      can0  1F334455   [3]  12 34 56
+    ip link set can0 up type can bitrate 1000000
 
-5. 更多指令
-^^^^^^^^^^^^^
+|   imx8mp：
+
+.. code-block:: shell
+
+    ip link set can0 up type can bitrate 1000000
+    candump can0
+
+3. rk3588发送数据，输入指令如下：
+
+.. code-block:: shell
+
+    cansend can0 123#DEADBEEF
+
+|   imx8mp可以收到"can0  123   [4]  DE AD BE EF"，按下"Ctrl + C"退出接收
+
+4. 更改rk3588的can配置，imx8mp发送数据，输入指令如下：
+
+|   rk3588：
+
+.. code-block:: shell
+
+    candump can0
+
+|   imx8mp：
+
+.. code-block:: shell
+
+    cansend can0 123#DEADBEEF
+
+|   rk3588可以收到"can0  123   [4]  DE AD BE EF"，按下"Ctrl + C"退出接收
+
+.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试13.png
+   :alt: 测试13.png
+
+|   操作过程中的输出符合预期即功能正常
+
+
+4. 更多指令
+^^^^^^^^^^^^
 
 .. code-block:: shell
 
@@ -392,30 +428,21 @@ CAN
     11、canconfig canX stop                 //停止can设备；
     12、canecho canX                         //查看can设备总线状态；
     13、cansend canX --identifier=ID+数据         //发送数据；
-    14、candump canX --filter=ID：mask        //使用滤波器接收ID匹配的数
+    14、candump canX --filter=ID：mask        //使用滤波器接收ID匹配的数据
 
-6. FAQS
-^^^^^^^^^
 
-**6.1. 报文发送后很久才接收到，或者接收不到。**
+5. 报文发送后很久才接收到，或者接收不到
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 |   检查总线 CAN_H 和 CAN_L， 杜邦线是否松动或者接反。
-
-**6.2. CAN时钟频率配置**
 
 显示屏
 ~~~~~~~~
 
 1. 显示接口的配置
-^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 
-|   四种显示输出接口，分别是 HDMI、Display Port、VGA 以及 MIPI DSI，可以做到多屏同显/异显，接口图如下所示：
-
-- HDMI0/ HDMI1/ Display Port/ VGA
-
-
-- MIPI DSI0/ MIPI DSI1
-
+|   四种显示输出接口，分别是 HDMI、Display Port、VGA 以及 MIPI DSI，可以做到多屏同显/异显
 
 |   开发板支持以下屏幕：
 |   LVDS 7 寸屏幕
@@ -445,7 +472,8 @@ CAN
 
 |   硬件上有两个 HDMI 显示输出接口：
 
-**1.1. 软件配置**
+1.1. 软件配置
+"""""""""""""""
 
 |   在设备树中添加：
 
@@ -499,7 +527,7 @@ CAN
     &route_hdmi1 {
             status = "okay";
     };
-    
+
     #endif
 
 2. MIPI DSI
@@ -507,7 +535,8 @@ CAN
 
 |   有两路 MIPI DSI 显示输出接口
 
-**2.1. 软件配置**
+2.1. 软件配置
+"""""""""""""""
 
 |   由于 DSI0 和 DSI1 在软件配置上类似，这里以 DSI0 的配置为例，DSI0 软件上表示为 dsi0。
 |   在设备树上添加：
@@ -540,12 +569,12 @@ CAN
                                            29 02 06 3C 01 09 00 07 00
                                             ...
                     ];
-
+    
                     panel-exit-sequence = [
                             05 05 01 28
                             05 78 01 10
                     ];
-
+    
                     disp_timings0: display-timings {
                             native-mode = <&dsi0_timing0>;
                             dsi0_timing0: timing0 {
@@ -564,11 +593,11 @@ CAN
                                     pixelclk-active = <0>;
                             };
                     };
-
+    
                     ports {
                             #address-cells = <1>;
                             #size-cells = <0>;
-
+    
                             port@0 {
                                     reg = <0>;
                                     panel_in_dsi: endpoint {
@@ -580,7 +609,7 @@ CAN
             ports {
                     #address-cells = <1>;
                     #size-cells = <0>;
-
+    
                     port@1 {
                             reg = <1>;
                             dsi_out_panel: endpoint {
@@ -590,7 +619,7 @@ CAN
             };
     };
     #endif
-
+    
     #if defined(LCD_TYPE_MIPI0) || defined(LCD_TYPE_LVDS_7_0)
             ft5x06@38 {
                     status = "okay";
@@ -602,5 +631,5 @@ CAN
                     reset-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_LOW>;
                     touchscreen-size-x = <800>;
                     touchscreen-size-y = <1280>;
-
+    
             };
