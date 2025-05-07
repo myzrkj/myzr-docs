@@ -16,7 +16,7 @@
 下载源码包
 ~~~~~~~~~~~
 
-1. 下载rk3588源码包，路径为：3.软件资料-->3.1源码-->XX
+1. 下载rk3588源码包，路径为：3.软件资料-->3.1源码-->rk3588-linux.tar.xz
 2. 创建编译目录:
 
 .. code-block:: shell
@@ -27,7 +27,7 @@
 
 .. code-block:: shell
 
-    tar xvf XX -C ~/my-work/RK3588/02_sources/
+    tar xvf rk3588-linux.tar.xz -C ~/my-work/RK3588/02_sources/
 
 依赖安装
 ~~~~~~~~~
@@ -38,15 +38,6 @@
 
     sudo apt-get install git ssh make gcc libssl-dev liblz4-tool expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib unzip device-tree-compiler ncurses-dev
 
-SDK配置加载
-~~~~~~~~~~~~~
-
-|   首次编译需要加载SDK配置文件，进入rk3588_sdk目录，输入如下命令加载配置文件：
-
-.. code-block:: shell
-
-    ./build.sh BoardConfig-rk3588-myzr.mk
-
 整体编译
 ~~~~~~~~~~
 
@@ -54,7 +45,8 @@ SDK配置加载
 
 .. code-block:: shell
 
-    ./build.sh
+    cd u-boot/
+    make clean
 
 2. 编译成功后在rockdev/目录下可看到相关镜像，其中update.img是所有镜像的集合
 
@@ -274,9 +266,6 @@ UART
 
 |   MYRK3588EK320
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/软件开发指导1.jpg
-    :alt: 软件开发指导1.jpg
-
 |   与485模块转usb，A接A，B接B并连接到电脑上
 
 2. DTS配置
@@ -331,8 +320,6 @@ CAN
 
 |   CAN模块之间接线：CAN_H接CAN_H，CAN_L接CAN_L
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/软件开发指导3.png
-    :alt: 软件开发指导3.png
 
 3. DTS 节点配置
 ^^^^^^^^^^^^^^^^
@@ -426,13 +413,9 @@ CAN
 
 - HDMI0/ HDMI1/ Display Port/ VGA
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/软件开发指导4.jpg
-    :alt: 软件开发指导4.jpg
 
 - MIPI DSI0/ MIPI DSI1
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/软件开发指导5.jpg
-    :alt: 软件开发指导5.jpg
 
 |   开发板支持以下屏幕：
 |   LVDS 7 寸屏幕
