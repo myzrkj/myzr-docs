@@ -36,12 +36,12 @@ Overview of development board interface
 
 **MYZR-R3288-MB314 Front view：**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.1.0.1.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.1.0.1.jpg
    :alt: 1500px-Myrk3288_mb314_1.1.0.1.jpg
 
 **MYZR-R3288-MB314 Rrear view：**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.2.0.1.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.2.0.1.jpg
    :alt: 1500px-Myrk3288_mb314_1.2.0.1.jpg
 
 
@@ -76,7 +76,7 @@ Serial port terminal tool configuration
 |  2）Configure the parameters of the serial port terminal tool.
 |  The SecureCRT & USB serial port 3 example configuration is as follows：
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_EK314_3.2.0.1.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/Myrk3288_EK314_3.2.0.1.jpg
    :alt: Myrk3288_EK314_3.2.0.1.jpg
 
 Network connection
@@ -111,7 +111,7 @@ Observe booting condition
 |  You can see the information about booting process outputed during the course of development board booting through serial port terminal.
 |  After starting, the serial port printing information is as follows:
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-MY-R3288-EK314_3.7.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/963px-MY-R3288-EK314_3.7.1.1.png
    :alt: 963px-MY-R3288-EK314_3.7.1.1.png
 
 

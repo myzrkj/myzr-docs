@@ -309,7 +309,7 @@ UART 收发验证
 
 |   此时开发板收到数据myzr，按下"Ctrl + C"退出
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试14.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试14.png
    :alt: 测试14.png
 
 |   操作过程中的输出符合预期即功能正常
@@ -404,7 +404,7 @@ CAN
 
 |   rk3588可以收到"can0  123   [4]  DE AD BE EF"，按下"Ctrl + C"退出接收
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试13.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试13.png
    :alt: 测试13.png
 
 |   操作过程中的输出符合预期即功能正常

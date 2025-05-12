@@ -97,17 +97,17 @@ MYZR-RK3288-EK314 烧录手册
 
 **解压AndroidTool_Release_v2.35.rar**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.1.1.png
    :alt: My-rk32-ek314_download_3.1.1.png
 
 **复制下载的Image到相应的目录**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.2.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.2.1.png
    :alt: My-rk32-ek314_download_3.2.1.png
 
 **安装驱动**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.2.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.2.1.png
    :alt: My-rk32-ek314_download_3.2.1.png
 
 **导入配置**
@@ -116,13 +116,13 @@ MYZR-RK3288-EK314 烧录手册
 |  方法一：双击“AndroidTool.exe”
 |  方法二：打开“AndroidTool.exe”后，右击“导入配置”，找到目录AndroidTool_Release_v2.35\config.cfg文件
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.1.png
    :alt: My-rk32-ek314_download_3.4.1.png
 
 | 2）导入ubuntu的配置
 |  打开“AndroidTool.exe”后，右击“导入配置”，找到目录AndroidTool_Release_v2.35\rk32-myzr-ubuntu.cfg文件
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.4.png
    :alt: My-rk32-ek314_download_3.4.4.png
 
 **加载镜像**
@@ -131,12 +131,12 @@ MYZR-RK3288-EK314 烧录手册
    
 |  android镜像：
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.2.png
    :alt: My-rk32-ek314_download_3.4.2.png
 
 |  ubuntu镜像：
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.5.png
    :alt: My-rk32-ek314_download_3.4.5.png
 
 烧写
@@ -144,12 +144,12 @@ MYZR-RK3288-EK314 烧录手册
 
 |  板子接通5V电源,打开电源开关，按”SW4”按键，看到电源指示灯亮了，松开”SW4”按键，软件“AndroidTool.exe”会显示“发现一个LOADER设备”
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.1.png
    :alt: My-rk32-ek314_download_4.1.1.png
 
 |  点击“执行”开始烧写,烧写完成，会自动重启系统（一般都是100%）
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.3.png
    :alt: My-rk32-ek314_download_4.1.3.png
 
 批量烧写
@@ -158,11 +158,11 @@ MYZR-RK3288-EK314 烧录手册
 |  可以把android或ubuntu的相关镜像打包成relase_android_update.img或release_update.img
 |  点击“固件”找到relase_android_update.img或release_update.img的绝对路径
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.5.png
    :alt: My-rk32-ek314_download_4.1.5.png
 
 |  点击“升级”开始烧写（烧写前先操作，看到“发现一个LOADER设备”）
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.6.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.6.png
    :alt: My-rk32-ek314_download_4.1.6.png
 

@@ -9,16 +9,16 @@
 
 .. toctree::
    :maxdepth: 1
-   :caption: MYZR-瑞星微系列
+   :caption: MYZR-瑞芯微系列
 
-   docs/MYZR-瑞星微系列/MYZR-RK3288-EK314/index
-   docs/MYZR-瑞星微系列/MYZR-RK3288-EK314(EN)/index
-   docs/MYZR-瑞星微系列/MYZR-RK3399-EK314/index
-   docs/MYZR-瑞星微系列/MYZR-RK3399-EK314(EN)/index
-   docs/MYZR-瑞星微系列/MYZR-RK3588-EK314/index
-   docs/MYZR-瑞星微系列/MYZR-RK3568-EK314/index
-   docs/MYZR-瑞星微系列/MYZR-RK3588-EK360/index
-   docs/MYZR-瑞星微系列/MYZR-RK3568-EK320/index
+   docs/MYZR-瑞芯微系列/MYZR-RK3288-EK314/index
+   docs/MYZR-瑞芯微系列/MYZR-RK3288-EK314(EN)/index
+   docs/MYZR-瑞芯微系列/MYZR-RK3399-EK314/index
+   docs/MYZR-瑞芯微系列/MYZR-RK3399-EK314(EN)/index
+   docs/MYZR-瑞芯微系列/MYZR-RK3588-EK314/index
+   docs/MYZR-瑞芯微系列/MYZR-RK3568-EK314/index
+   docs/MYZR-瑞芯微系列/MYZR-RK3588-EK360/index
+   docs/MYZR-瑞芯微系列/MYZR-RK3568-EK320/index
 
 
 .. toctree::

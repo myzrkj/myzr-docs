@@ -7,17 +7,17 @@ MYZR-RK3399_CB314 view
 
 **Front view**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/963px-MY-R3399-CB314_Front.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/963px-MY-R3399-CB314_Front.jpg
    :alt: 963px-MY-R3399-CB314_Front.jpg
 
 **Rear view**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/963px-MY-R3399-CB314-Back.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/963px-MY-R3399-CB314-Back.jpg
    :alt: 963px-MY-R3399-CB314-Back.jpg
 
 **Size**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/RK3399_size.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/RK3399_size.png
    :alt: RK3399_size.png
 
 

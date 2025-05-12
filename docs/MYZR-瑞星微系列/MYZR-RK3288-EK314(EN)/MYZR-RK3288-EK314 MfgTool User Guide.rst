@@ -100,17 +100,17 @@ Configurate MFG Tool
 
 **Unzip AndroidTool_Release_v2.35.rar**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.1.1.png
    :alt: My-rk32-ek314_download_3.1.1.png
 
 **Copy the downloaded Image to the appropriate directory**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.2.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.2.1.png
    :alt: My-rk32-ek314_download_3.2.1.png
 
 **Install driver**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.2.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.2.1.png
    :alt: My-rk32-ek314_download_3.2.1.png
 
 **Import the configuration**
@@ -125,13 +125,13 @@ Configurate MFG Tool
 
 |  After opening“AndroidTool.exe”，right-click "import configuration" and find the directory AndroidTool_Release_v2.35\config.cfg file.
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.1.png
    :alt: My-rk32-ek314_download_3.4.1.png
 
 |  2）Import ubuntu configuration
 |  After opening“AndroidTool.exe”，right-click "import configuration" and find the directory AndroidTool_Release_v2.35\rk32-myzr-ubuntu.cfg file
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.4.png
    :alt: My-rk32-ek314_download_3.4.4.png
 
 **Load image**
@@ -139,12 +139,12 @@ Configurate MFG Tool
 |  Clicking on the far right of the "tick" option corresponds to selecting the corresponding file of the absolute path "rockdev Image\android" or "rockdev Image\ Linux" 
 |  Android image：
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.2.png
    :alt: My-rk32-ek314_download_3.4.2.png
 
 |  ubuntu image：
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_3.4.5.png
    :alt: My-rk32-ek314_download_3.4.5.png
 
 Configurate MFG Tool
@@ -152,12 +152,12 @@ Configurate MFG Tool
 
 | The board is connected to the 5V power supply, turn on the power switch, directly press the “RECOVERY” button, then press the “SW3” button, and see that the power indicator light is on, first release the “SW3” button, then release the “RECOVERY” button, the software "AndroidTool.exe" will display "Discover a LOADER device"
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.1.png
    :alt: My-rk32-ek314_download_4.1.1.png
 
 | Click "execute" to start writing, and when the writing is finished, the system will be restarted automatically (usually 100%).
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.3.png
    :alt: My-rk32-ek314_download_4.1.3.png
 
 
@@ -167,11 +167,11 @@ Bulk burning
 | You can package the relevant image of android or ubuntu into relase_android_update.img or release_update.img
 | Click "firmware" to find relase_android_update.img or release_update.img absolute path
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.5.png
    :alt: My-rk32-ek314_download_4.1.5.png
 
 | Click "Upgrade" to start programming (before burning, see "Discover a LOADER device")
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.6.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_download_4.1.6.png
    :alt: My-rk32-ek314_download_4.1.6.png
 

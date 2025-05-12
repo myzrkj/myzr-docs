@@ -33,7 +33,7 @@ Install openjdk1.7
 
 |   （When version 1.7.0_121 is seen,which represent a success）
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_2.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_2.1.1.png
    :alt: My-rk32-ek314_android_2.1.1.png
 
 
@@ -51,7 +51,7 @@ Install libraries needed to compile Android system
      python-markdown libxml2-utils xsltproc zlib1g-dev:i386 \ 
      lzop libssl1.0.0 libssl-dev
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_3.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_3.1.1.png
    :alt: My-rk32-ek314_android_3.1.1.png
 
 
@@ -73,7 +73,7 @@ Decompress source code
     $ tar jxvf rk32-myzr_android5.1_20180328.tar.bz2 -C ~/rk3288-myzr/
 
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_5.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_5.1.1.png
    :alt: My-rk32-ek314_android_5.1.1.png
 
 
@@ -88,14 +88,14 @@ Set environment variables
     $ export ARCH=arm
     $ export CROSS_COMPILE=~/rk3288-myzr/prebuilts/gcc/linux-x86/arm/arm-eabi-4.6/bin/arm-eabi-
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.1.1.png
    :alt: My-rk32-ek314_android_6.1.1.png
 
 .. code-block:: shell
 
     $ ${CROSS_COMPILE}gcc -v
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.1.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.1.2.png
    :alt: My-rk32-ek314_android_6.1.2.png
 
 Compile uboot
@@ -119,12 +119,12 @@ Compile uboot
 
     $ make
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.2.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.2.1.png
    :alt: My-rk32-ek314_android_6.2.1.png
 
 - Target file
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.2.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.2.2.png
    :alt: My-rk32-ek314_android_6.2.2.png
 
 Compile kernetl
@@ -154,7 +154,7 @@ Compile kernetl
 
     $ make distclean
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.1.png
    :alt: My-rk32-ek314_android_6.3.1.png
 
 - Set up configuration file
@@ -163,7 +163,7 @@ Compile kernetl
 
     $ make rk3288-myzr_defconfig
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.2.png
    :alt: My-rk32-ek314_android_6.3.2.png
 
 - Compile(for example: LVDS)
@@ -174,12 +174,12 @@ Compile kernetl
 
 |   Instruction：8 threads compilation is used in the screenshots
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.3.png
    :alt: My-rk32-ek314_android_6.3.3.png
 
 - Complete compilation
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.4.png
    :alt: My-rk32-ek314_android_6.3.4.png
 
 - Target file
@@ -190,7 +190,7 @@ Compile kernetl
 
     $ ls
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.3.5.png
    :alt: My-rk32-ek314_android_6.3.5.png
 
 
@@ -204,7 +204,7 @@ Compile android code
     $ cd ~/rk3288-myzr/
     $ source build.sh
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.1.png
    :alt: My-rk32-ek314_android_6.4.1.png
 
 - Set android version configuration
@@ -213,7 +213,7 @@ Compile android code
 
     $ lunch rk3288_box-userdebug
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.2.png
    :alt: My-rk32-ek314_android_6.4.2.png
 
 - Compile
@@ -224,12 +224,12 @@ Compile android code
 
 |   Instruction：16 threads compilation is used in the screenshots.
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.3.png
    :alt: My-rk32-ek314_android_6.4.3.png
 
 - Complete compilation
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.4.png
    :alt: My-rk32-ek314_android_6.4.4.png
 
 
@@ -242,7 +242,7 @@ Compile android code
     $ ./mkimage.sh
     $ ls rockdev/Image-rk3288_box/
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_6.4.5.png
    :alt: My-rk32-ek314_android_6.4.5.png
 
 
@@ -264,7 +264,7 @@ Compile packaging tools
     $ sudo cp afptool img_unpack img_maker mkkrnlimg /usr/local/bin/
 
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.1.1.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314build_7.1.1.jpg
    :alt: My-rk32-ek314build_7.1.1.jpg
 
 
@@ -273,7 +273,7 @@ New folder and copy image
 
 |   The file of "rockdev/Image-rk3288_box/" corresponds to the file of "Image\android", rk3288box-3.10-uboot-android.parameter.txt is renamed to parameter, RK3288UbootLoader_V2.30.10.bin corresponds to RKLoader.bin, update-script and The recover-script is copied by the burning tool. The contents of the package-file are renamed according to the corresponding file, as follows:
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.1.png
    :alt: My-rk32-ek314_android_7.1.1.png
 
 .. code-block:: shell
@@ -284,7 +284,7 @@ New folder and copy image
     $ rm pc*
     $ ls
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.2.png
    :alt: My-rk32-ek314_android_7.1.2.png
 
 Pack relase_android_update.img
@@ -295,5 +295,5 @@ Pack relase_android_update.img
     $ afptool -pack . ../update.img
     $ img_maker -rk32 RKLoader.bin update.img relase_android_update.img
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_7.1.3.png
    :alt: My-rk32-ek314_android_7.1.3.png

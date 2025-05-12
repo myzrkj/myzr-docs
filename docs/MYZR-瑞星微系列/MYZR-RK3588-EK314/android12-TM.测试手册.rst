@@ -17,14 +17,14 @@ RTC
 
     a）点击时钟APP，查看当前时钟：
 
-    .. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-android12-clock-1.png
+    .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-clock-1.png
       :alt: image-RK3588-android12-clock-1.png
 
     b）断电重启设备。
 
     c）重新查看时钟：
 
-    .. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-android12-clock-2.png
+    .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-clock-2.png
       :alt: image-RK3588-android12-clock-2.png
 
   3）结果：执行操作后，核对 RTC 时间基本没有问题，且操作过程中的输出符合预期即功能正常。
@@ -119,7 +119,7 @@ U盘连接
 
 |    b）下拉框通知信息出现U盘信息
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-android12-USB-1.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-USB-1.png
   :alt: image-RK3588-android12-USB-1.png    
 
 |    c）需要拔出U盘点击弹出按钮即可。
@@ -138,7 +138,7 @@ U盘连接
 
 |    b）点击搜索栏，弹出键盘，测试鼠标键盘是否可用。
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-android11-USB-2.jpg
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK314/RK3568-android11-USB-2.jpg
   :alt: image-RK3568-android11-USB-2.jpg    
 
 
@@ -153,12 +153,12 @@ U盘连接
 
 |    b）在资源管理器 》USB 中进入U盘目录
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-android11-picture-1.jpg
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK314/RK3568-android11-picture-1.jpg
   :alt: image-RK3568-android11-picture-1.jpg 
 
 |    c）打开图片
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-android11-picture-2.jpg
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK314/RK3568-android11-picture-2.jpg
   :alt: image-RK3568-android11-picture-2.jpg 
 
 
@@ -175,7 +175,7 @@ U盘连接
 
 |    c）打开音频文件
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-android11-music-1.jpg
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK314/RK3568-android11-music-1.jpg
   :alt: image-RK3568-android11-music-1.jpg
 
 
@@ -192,7 +192,7 @@ U盘连接
 
 |    c）打开视频频文件
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-android11-movies-1.jpg
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK314/RK3568-android11-movies-1.jpg
   :alt: image-RK3568-android11-movies-1.jpg
 
 
@@ -211,7 +211,7 @@ TF卡
 
 |    b）下拉框通知信息出现TF卡信息
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-android12-TFcard-1.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-TFcard-1.png
   :alt: image-RK3588-android12-TFcard-1.png  
 
 |    c）需要拔出TF卡点击弹出按钮即可。
@@ -327,17 +327,17 @@ WIFI
 
 |    b）桌面中点击“设置” 》“网络与互联网” 》“互联网”
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-android12-wifi-1.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-wifi-1.png
   :alt: image-RK3588-android12-wifi-1.png
 
 |    c）选择wifi，输入密码进行连接
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-android12-wifi-2.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-wifi-2.png
   :alt: image-RK3588-android12-wifi-2.png
 
 |    d）连成功后可进行网站浏览测试
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-android12-wifi-3.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-wifi-3.png
   :alt: image-RK3588-android12-wifi-3.png
 
 
@@ -354,19 +354,19 @@ WIFI
 
 |    b）下拉框长按蓝牙，进入蓝牙设置界面
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-android12-BL-1.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-BL-1.png
   :alt: image-RK3588-android12-BL-1.png
 
 |    c）点击“与新设置匹配”
 
 |    d）选择手机或其它蓝牙设备进行匹配
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-android12-BL-2.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-BL-2.png
   :alt: image-RK3588-android12-BL-2.png
 
 |    e）与蓝牙耳机成功匹配后，会显示使用中
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-android12-BL-3.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-BL-3.png
   :alt: image-RK3588-android12-BL-3.png
 
 
@@ -383,12 +383,12 @@ WIFI
 
 |  3）可看到右上角有5G图片出现
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-android11-5g-1.jpg
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK314/RK3568-android11-5g-1.jpg
   :alt: image-RK3568-android11-5g-1.jpg
 
   4）可进行网站浏览测试
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-android12-5g-2.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-5g-2.png
   :alt: image-RK3588-android12-5g-2.png
 
 

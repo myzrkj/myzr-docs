@@ -36,12 +36,12 @@ MYZR-RK3288-EK314 启动手册
 
 **MYZR-R3288-MB314 正面图**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.1.0.1.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.1.0.1.jpg
    :alt: 1500px-Myrk3288_mb314_1.1.0.1.jpg
 
 **MYZR-R3288-MB314 背面图**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.2.0.1.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/1500px-Myrk3288_mb314_1.2.0.1.jpg
    :alt: 1500px-Myrk3288_mb314_1.2.0.1.jpg
 
 
@@ -76,7 +76,7 @@ MYZR-RK3288-EK314 启动手册
 |  2）配置串口终端工具的各参数。
 |  SecureCRT & USB串口3 示例配置如下：
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_EK314_3.2.0.1.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/Myrk3288_EK314_3.2.0.1.jpg
    :alt: Myrk3288_EK314_3.2.0.1.jpg
 
 网线的连接
@@ -110,7 +110,7 @@ USB下载线的连接
 |  会看到计算机的串口终端有开发板启动过程中输出的启动过程信息。
 |  启动串口打印信息如下：
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/963px-MY-R3288-EK314_3.7.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/963px-MY-R3288-EK314_3.7.1.1.png
    :alt: 963px-MY-R3288-EK314_3.7.1.1.png
 
 

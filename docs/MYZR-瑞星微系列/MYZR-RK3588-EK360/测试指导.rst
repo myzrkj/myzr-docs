@@ -38,7 +38,7 @@
 
     ping -I eth0 192.168.137.99 -c 3
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试1.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试1.png
    :alt: 测试1.png
 
 |   "0% packet loss"表示测试通过
@@ -78,7 +78,7 @@
 
     ping -I eth1 192.168.137.99 -c 3
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试2.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试2.png
    :alt: 测试2.png
 
 |   "0% packet loss"表示测试通过
@@ -96,12 +96,12 @@ USB测试
 
 1. 将USB设备插入底板USB接口，系统会输出类似如下信息
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试3.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试3.png
    :alt: 测试3.png
 
 2. 将USB设备从底板拔出，系统会输出类似如下信息
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试4.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试4.png
    :alt: 测试4.png
 
 SD接口测试
@@ -113,12 +113,12 @@ SD接口测试
 
 1. 将TF卡安装到SD接口，开发会输出如下信息：
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试5.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试5.png
    :alt: 测试5.png
 
 2.将TF拔出，输出信息如下：
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试6.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试6.png
    :alt: 测试6.png
 
 音频播放测试
@@ -135,7 +135,7 @@ SD接口测试
 
     aplay /app/05_headphone/1.wav
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试7.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试7.png
    :alt: 测试7.png
 
 |   耳机有声音输出表示音频播放测试通过
@@ -160,7 +160,7 @@ SD接口测试
 
     aplay record.wav
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试8.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试8.png
    :alt: 测试8.png
 
 |   耳机有录制声音输出表示录音测试通过
@@ -195,10 +195,10 @@ SATA接口测试
 
     umount /sata
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试9.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试9.png
    :alt: 测试9.png
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试10.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试10.png
    :alt: 测试10.png
 
 M.2接口测试
@@ -230,10 +230,10 @@ M.2接口测试
 
     umount /nvme
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试11.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试11.png
    :alt: 测试11.png
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试12.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试12.png
    :alt: 测试12.png
 
 can测试
@@ -283,7 +283,7 @@ can测试
 
 |   rk3588可以收到"can0  123   [4]  DE AD BE EF"，按下"Ctrl + C"退出接收
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试13.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试13.png
    :alt: 测试13.png
 
 |   操作过程中的输出符合预期即功能正常
@@ -319,7 +319,7 @@ can测试
 
 |   此时开发板收到数据myzr，按下"Ctrl + C"退出
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试14.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试14.png
    :alt: 测试14.png
 
 |   操作过程中的输出符合预期即功能正常
@@ -356,7 +356,7 @@ rtc测试
 
     hwclock -w
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试15.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试15.png
    :alt: 测试15.png
 
 6. 设备断电重启，查看rtc时钟，输入指令如下：
@@ -365,7 +365,7 @@ rtc测试
 
     hwclock
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试16.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试16.png
    :alt: 测试16.png
 
 |   输出的rtc时间与"设置时间+写入rtc后到查看rtc时钟的时长"相差不大表明rtc测试通过
@@ -397,7 +397,7 @@ rtc测试
 
     echo 0 > /sys/class/pwm/pwmchip2/pwm0/enable
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试17.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试17.png
    :alt: 测试17.png
 
 |   蜂鸣器可以正常的打开和关闭表示测试通过
@@ -447,5 +447,5 @@ HDMI_RX
 
     v4l2-ctl --list-devices
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK360/测试18.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试18.png
    :alt: 测试18.png

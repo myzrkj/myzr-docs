@@ -5,10 +5,10 @@
 核心板视图
 ----------
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588的正面背面图片/MYZR-RK3588-CB314-font.jpg
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588的正面背面图片/MYZR-RK3588-CB314-font.jpg
    :alt: MYZR-RK3588-CB314-font
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588的正面背面图片/MYZR-RK3588-CB314-back.jpg
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588的正面背面图片/MYZR-RK3588-CB314-back.jpg
    :alt: MYZR-RK3588-CB314-back   
 
 
@@ -17,7 +17,7 @@
 
 |  82mm*60mm
 
-.. figure:: /image/MYZR-瑞星微系列/MYZR-RK3588-EK314/RK3588-CB314-size.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-CB314-size.png
    :alt: RK3588-CB314-size
 
 工作温度

@@ -254,7 +254,7 @@ RS485
 
   可以看到开发板接收到字符串“0123456789abcdefghijklmnopqrstuvwxyz”
 
-  .. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-RS485-1.png
+  .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK314/RK3568-RS485-1.png
    :alt: image-RK3568-RS485-1.png
 
   4）开发板发送数据，电脑端接收数据：
@@ -268,7 +268,7 @@ RS485
 
   可以看到串口助手接收到数据：
 
-  .. figure:: /image/MYZR-瑞星微系列/MYZR-RK3568-EK314/RK3568-RS485-2.png
+  .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK314/RK3568-RS485-2.png
    :alt: image-RK3568-RS485-2.png
 
 

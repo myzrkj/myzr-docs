@@ -43,7 +43,7 @@ Serial port terminal tool configuration
 
 - | The SecureCRT & USB serial port 3 example configuration is as follows：
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/Myrk3288_EK314_3.2.0.1.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/Myrk3288_EK314_3.2.0.1.jpg
    :alt: Myrk3288_EK314_3.2.0.1.jpg
 
 Network connection

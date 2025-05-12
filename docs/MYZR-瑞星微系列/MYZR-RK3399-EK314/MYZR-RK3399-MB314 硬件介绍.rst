@@ -7,14 +7,14 @@
 正面图
 ~~~~~~~~
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/1275px-RK3399-front.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/1275px-RK3399-front.png
    :alt: 1275px-RK3399-front.png
 
 
 背面图
 ~~~~~~~
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/1275px-RK3399-back.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/1275px-RK3399-back.png
    :alt: 1275px-RK3399-back.png
 
 

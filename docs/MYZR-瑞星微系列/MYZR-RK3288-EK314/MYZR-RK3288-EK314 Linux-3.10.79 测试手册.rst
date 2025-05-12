@@ -33,7 +33,7 @@ Linux-3.10.79 测试手册
 |   1） 测试说明
 |   设置计算机有线网卡IP为192.168.18.18
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.1.png
    :alt: My-rk32-ek314test_2.1.1.png
 
 
@@ -63,7 +63,7 @@ Linux-3.10.79 测试手册
 |   测试结果：“0% packet loss”表示测试通过
 |   附图
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.2.png
    :alt: My-rk32-ek314test_2.1.2.png
 
 |   3） Eth1连接测试
@@ -97,7 +97,7 @@ Linux-3.10.79 测试手册
 |   测试结果：“0% packet loss”表示测试通过
 |   附图
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.1.3.png
    :alt: My-rk32-ek314test_2.1.3.png
 
 
@@ -130,7 +130,7 @@ USB测试
 
 **附图**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.2.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.2.1.png
    :alt: My-rk32-ek314test_2.2.1.png
 
 
@@ -159,7 +159,7 @@ SD卡测试
 
 **附图**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.3.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.3.1.png
    :alt: My-rk32-ek314test_2.3.1.png
 
 
@@ -190,7 +190,7 @@ SD卡测试
 
 **附图**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.4.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.4.1.png
    :alt: My-rk32-ek314test_2.4.1.png
 
 
@@ -240,7 +240,7 @@ SD卡测试
     ＃ echo 1 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
 
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.5.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.5.1.png
    :alt: My-rk32-ek314test_2.5.1.png
 
 
@@ -304,7 +304,7 @@ GPIO-KEY测试
 |   Select the device event number [0-2]: 2
 |   输入“gpio-keys”对应的序号，这里是2
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.6.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.6.1.png
    :alt: My-rk32-ek314test_2.6.1.png
 
 
@@ -320,7 +320,7 @@ GPIO-KEY测试
 |   其中“value 1”信息是在按键被按下的时候被输出，“value 0”信息是在按键被松开的时候被输出。
 
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.6.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.6.2.png
    :alt: My-rk32-ek314test_2.6.2.png
 
 |   4）结束测试
@@ -369,7 +369,7 @@ GPIO-KEY测试
 
 |   测试结果附图
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.7.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.7.1.png
    :alt: My-rk32-ek314test_2.7.1.png
 
 
@@ -429,12 +429,12 @@ RTC测试
 
 |   附图一：
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.8.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.8.1.png
    :alt: My-rk32-ek314test_2.8.1.png
 
 |   附图二：
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.8.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.8.2.png
    :alt: My-rk32-ek314test_2.8.2.png
 
 
@@ -489,7 +489,7 @@ SPI测试
 
 **附图**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.9.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.9.1.png
    :alt: My-rk32-ek314test_2.9.1.png
 
 WIFI测试
@@ -499,13 +499,13 @@ WIFI测试
 |   1）步骤一
 |   选择SSID，如：Honor V9
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.10.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.10.1.png
    :alt: My-rk32-ek314test_2.10.1.png
 
 |   2）步骤二
 |   输入WIFI密码,并连接成功
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.10.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.10.2.png
    :alt: My-rk32-ek314test_2.10.2.png
 
 
@@ -516,14 +516,14 @@ WIFI测试
 |   1）步骤一
 |   打开蓝牙,点击“Prefrences”->“Bluetooth Manager”
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.11.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.11.1.png
    :alt: My-rk32-ek314test_2.11.1.png
 
 |   2）步骤二
 |   搜索蓝牙，点击"Search"
 
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.11.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.11.2.png
    :alt: My-rk32-ek314test_2.11.2.png
 
 4G测试
@@ -562,7 +562,7 @@ WIFI测试
     Password = cmnet
     New PPPD = yes
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.12.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.12.1.png
    :alt: My-rk32-ek314test_2.12.1.png
 
 - 拨号
@@ -571,7 +571,7 @@ WIFI测试
     
     ＃ wvdial &
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.12.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.12.2.png
    :alt: My-rk32-ek314test_2.12.2.png
 
 

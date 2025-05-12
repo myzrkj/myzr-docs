@@ -46,7 +46,7 @@ Ethernet test
 
 |   “0% packet loss” Indicates that the test has passed。
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.1.png
    :alt: My-rk3399-ek314_test2.1.1.png
 
 USB interface test
@@ -73,7 +73,7 @@ USB interface test
 
 **Test Results**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.2.png
    :alt: My-rk3399-ek314_test2.1.2.png
 
 SD interface test
@@ -97,7 +97,7 @@ SD interface test
 
 **Test Results**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.3.png
    :alt: My-rk3399-ek314_test2.1.3.png
 
 Standard GPIO test
@@ -143,7 +143,7 @@ Standard GPIO test
     ＃ echo 0 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
     ＃ echo 1 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.4.png
    :alt: My-rk3399-ek314_test2.1.4.png
 
 |   Test pin P8-3 with a multimeter
@@ -203,7 +203,7 @@ ADC-KEY test
 
 **Test Results**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.5.png
    :alt: My-rk3399-ek314_test2.1.5.png
 
 **End Test**
@@ -278,7 +278,7 @@ Audio playback test
 
 **Test Results**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.6.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.6.png
    :alt: My-rk3399-ek314_test2.1.6.png
 
 Part III Display Function Test
@@ -351,7 +351,7 @@ Bluetooth module test
     Password = cmnet 
     New PPPD = yes
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.7.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.7.png
    :alt: My-rk3399-ek314_test2.1.7.png
 
 |   dial
@@ -361,5 +361,5 @@ Bluetooth module test
     =====> Input:
     #wvdial & 
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.8.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3399-EK314/My-rk3399-ek314_test2.1.8.png
    :alt: My-rk3399-ek314_test2.1.8.png

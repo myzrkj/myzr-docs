@@ -39,7 +39,7 @@ Network inferface test
 - Connect lan line: connect “eth0”on evaluation board with corresponding network router with lan line.
 - Figure
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.1.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.1.2.png
    :alt: My-rk32-ek314_android_test_2.1.2.png
 
 |   3） Eth1 connect test
@@ -54,7 +54,7 @@ Network inferface test
 
 - Figures
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.1.3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.1.3.png
    :alt: My-rk32-ek314_android_test_2.1.3.png
 
 
@@ -78,7 +78,7 @@ USB test
 
 **Figure**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.2.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.2.1.png
    :alt: My-rk32-ek314_android_test_2.2.1.png
 
 SD card test
@@ -101,7 +101,7 @@ SD card test
 
 **Figures**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.3.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.3.1.png
    :alt: My-rk32-ek314_android_test_2.3.1.png
 
 Audio test
@@ -111,7 +111,7 @@ Audio test
 
 **Figures**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.4.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.4.1.png
    :alt: My-rk32-ek314_android_test_2.4.1.png
 
 Audio test
@@ -130,7 +130,7 @@ Audio test
 
 **Figures**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.5.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.5.1.png
    :alt: My-rk32-ek314_android_test_2.5.1.png
 
 
@@ -180,7 +180,7 @@ Control outputed electrical level </span>
     ＃ echo 1 > /sys/class/gpio/gpio${OUT_IO_NUMBER}/value
 
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.6.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.6.1.png
    :alt: My-rk32-ek314_android_test_2.6.1.png
 
 |   2）GPIO input test
@@ -208,7 +208,7 @@ Check inputed electrical level
 
     cat /sys/class/gpio/gpio${IN_IO_NUMBER}/value
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.5.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314test_2.5.2.png
    :alt: My-rk32-ek314test_2.5.2.png
 
 
@@ -240,7 +240,7 @@ GPIO-KEY test
 **Figures**
 
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.7.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.7.1.png
    :alt: My-rk32-ek314_android_test_2.7.1.png
 
 
@@ -268,7 +268,7 @@ Serial port test
 - Install uart APK
 - Figures
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.8.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.8.1.png
    :alt: My-rk32-ek314_android_test_2.8.1.png
 
 
@@ -286,14 +286,14 @@ RTC test
 
 - Figures
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.9.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.9.1.png
    :alt: My-rk32-ek314_android_test_2.9.1.png
 
 |   2）Power off ,wait for a while and power on
 
 - Figures
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.9.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.9.2.png
    :alt: My-rk32-ek314_android_test_2.9.2.png
 
 
@@ -345,7 +345,7 @@ SPI test
 
 **Figures**
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.10.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.10.1.png
    :alt: My-rk32-ek314_android_test_2.10.1.png
 
 Camera ov13850 test
@@ -356,7 +356,7 @@ Camera ov13850 test
 - Figures
 
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.11.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.11.1.png
    :alt: My-rk32-ek314_android_test_2.11.1.png
 
 WIFI test
@@ -366,17 +366,17 @@ WIFI test
 |   1）Step 1
 |   Click "Settings" -> "Wi-Fi" to open the WIFI switch.
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.1.png
    :alt: My-rk32-ek314_android_test_2.12.1.png
 
 |   2）Step 2
 |   Enter WIFI password and connect successfully.
 
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.2.png
    :alt: My-rk32-ek314_android_test_2.12.2.png
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.12.3.png
    :alt: My-rk32-ek314_android_test_2.12.3.png
 
 
@@ -387,22 +387,22 @@ Bluetooth test
 |   1）Step 1
 |   Click on “Settings”->“Bluetooth”,turn on Bluetooth
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.1.png
    :alt: My-rk32-ek314_android_test_2.13.1.png
 
 |   2）Step 2
 |   Match
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.2.png
    :alt: My-rk32-ek314_android_test_2.13.2.png
 
 |   3）Step 3
 |   Send and receive files
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.3.png
    :alt: My-rk32-ek314_android_test_2.13.3.png
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.13.4.png
    :alt: My-rk32-ek314_android_test_2.13.4.png
 
 
@@ -417,7 +417,7 @@ Bluetooth test
 
 - Power on with the module, display 3G logo.
 
-.. image:: /image/MYZR-瑞星微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.14.1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RK3288-EK314/My-rk32-ek314_android_test_2.14.1.png
    :alt: My-rk32-ek314_android_test_2.14.1.png
 
 
