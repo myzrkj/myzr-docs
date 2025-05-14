@@ -199,5 +199,3 @@
 
 |   默认用户：tangb，UserName：myzr，Password：myzr2012
 |   超级用户：root，UserName：root，Password：myzr2012
-
-|   可参考：http://wiki.myzr.com.cn/index.php?title=MYZR_Windows-10_VirtualBox-5.2.12_Ubuntu-14.04.5_64%E4%BD%8D%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%8C%87%E5%AF%BC

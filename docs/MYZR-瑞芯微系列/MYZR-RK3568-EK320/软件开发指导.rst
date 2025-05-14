@@ -36,7 +36,12 @@
 
 .. code-block:: shell
 
-    sudo apt-get install git ssh make gcc libssl-dev liblz4-tool expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib unzip device-tree-compiler ncurses-dev
+    sudo apt-get install git ssh make gcc libssl-dev liblz4-tool \
+    expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support \
+    qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib \
+    unzip \
+    device-tree-compiler libncurses-dev \
+    time python3 rsync python-is-python3
 
 SDK配置加载
 ~~~~~~~~~~~~~
@@ -123,11 +128,326 @@ SDK配置加载
 打包update.img
 ~~~~~~~~~~~~~~~~
 
-1. 在rockdev将镜像打包成update.img
-2. 在SDK主目录下输入如下命令:
+1. 在SDK下的rockdev目录里可以看到打包好的镜像update.img
+2. 在SDK主目录下输入如下命令可完成镜像打包:
 
 .. code-block:: shell
 
     ./build.sh updateimg
 
 |   完成上述操作后可按照刷机手册重新刷机
+|   最后提示用户应该重新刷机测试
+
+
+开发指导
+---------
+
+UBOOT板级文件
+~~~~~~~~~~~~~~~
+
+|   u-boot 板级文件位置：u-boot/board/rockchip/myzr_rk3568
+|   u-boot 板级配置文件：u-boot/include/configs/myzr_rk3568.h
+|   u-boot 极级编译配置文件：u-boot/configs/myzr-rk3568_defconfig
+
+Linux内核板级文件
+~~~~~~~~~~~~~~~~~~
+
+|   内核板级编译配置文件：kernel/arch/arm64/configs/myzr_rk_defconfig
+|   内核板级设备树文件：kernel/arch/arm64/boot/dts/rockchip/myzr*.dts
+|   内核开发参考手册：网盘中《Reference Manual.pdf》
+
+GPIO
+~~~~~~
+
+1.GPIO驱动架构
+^^^^^^^^^^^^^^^
+
+|   RK3568的GPIO功能通过三级架构实现：硬件层由芯片内置的5组GPIO控制器（对应设备节点gpiochip0~4）直接管理各组32个引脚，厂商已提供底层寄存器驱动；内核层通过Linux GPIO子系统抽象硬件差异，向上提供标准API（如gpiod接口），供内核驱动以统一方式操作任意引脚（如设置方向、读写电平）；用户层则借助Sysfs模块（/sys/class/gpio）将GPIO子系统接口导入到用户空间，无需编写代码即可通过命令行直接控制引脚（导出、方向配置、电平读写）。整套机制中，硬件驱动由芯片厂商完成，Linux内核实现通用抽象，开发者既可基于内核API编程控制GPIO，也可通过Sysfs快速调试。
+|   这里讲一下如何通过用户层，来直接通过命令行控制GPIO（方向/电平）。
+
+2.引脚命名规则
+^^^^^^^^^^^^^^^
+
+|   RK3568的GPIO分为5组（GPIO0~GPIO4），每组包含A0-A7、B0-B7、C0-C7、D0-D7共32个引脚。例如：
+
+- GPIO4_D5表示第4组（GPIO4）的D组第5个引脚。
+- GPIO0_B7表示第0组（GPIO0）的B组第7个引脚。
+
+3.GPIO引脚编号的计算公式
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+    pin = bank * 32 + number
+
+|   bank：GPIO组号（0~4）。
+|   number：组内编号，通过以下公式计算：
+
+.. code-block:: shell
+
+    number = group * 8 + X
+
+|   group：字母对应的组内序号（A=0，B=1，C=2，D=3）。
+|   X：组内具体编号（0~7）。
+|   例如 GPIO4_D5
+|   bank = 4（GPIO4）。
+|   group = 3（D组对应3）。
+|   X = 5（D5的5）。
+|   number = 3*8 +5 = 29。
+|   pin = 4*32 +29 = 157。
+
+4.通过/sys/class/gpio目录控制GPIO
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+    echo 157 > /sys/class/gpio/export     # 导出GPIO157
+    echo out > gpio157/direction          # 设为输出模式
+    echo 1 > gpio157/value                # 输出高电平
+    echo 157 > /sys/class/gpio/unexport   # 释放GPIO
+
+|   注意事项：部分GPIO无法导出可能被复用为其他功能（如UART、I2C），需通过设备树确认实际用途。
+
+PWM
+~~~~~
+
+1.PWM 硬件与驱动框架
+^^^^^^^^^^^^^^^^^^^^^
+
+|   在RK3568平台上，PWM硬件驱动通过计数器与比较器协同工作：APB总线时钟源经分频器调整后驱动计数器周期性递增/递减，达到预设周期值后自动复位生成基础信号；比较器实时比对计数器值与占空比阈值，输出高低电平，并通过极性控制位切换normal（高有效）或inversed（低有效）模式。用户层通过/sys/class/pwm接口或内核API（如pwm_config）控制，核心层由pwm_chip管理控制器资源并注册接口，底层硬件适配层需实现pwm_ops操作集（含config、enable等函数），直接操作PWM寄存器完成频率、占空比及使能配置。
+
+2.PWM设备树配置（以PWM14_M0为例,在J14扩展接口对应12引脚）
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+|   在rk3568.dtsi文件中配置时钟及管脚：
+
+.. code-block:: shell
+
+    pwm14: pwm@fe700020 {
+            compatible = "rockchip,rk3568-pwm", "rockchip,rk3328-pwm";
+            reg = <0x0 0xfe700020 0x0 0x10>;
+            #pwm-cells = <3>;
+            pinctrl-names = "active";
+            pinctrl-0 = <&pwm14m0_pins>;
+            clocks = <&cru CLK_PWM3>, <&cru PCLK_PWM3>;
+            clock-names = "pwm", "pclk";
+            status = "disabled";
+    };
+
+|   在myzr-rk3568.dtsi中添加节点
+
+.. code-block:: shell
+
+    &pwm14 {
+        status = "okay";
+        pinctrl-names = "active";
+        pinctrl-0 = <&pwm14m0_pins>;  // 确保引脚复用配置正确
+    };
+
+|   添加pwm客户端设备节点
+|   在需要使用PWM的设备节点（如背光、蜂鸣器等）中引用PWM控制器并设置参数（若无需使用设备，可以不做配置）。以下是通用配置示例：
+
+.. code-block:: shell
+
+    // 示例：配置PWM14_M0输出到某个设备（如背光）
+    / {
+        pwm_dev: pwm-dev {
+            compatible = "pwm-device";
+            pwms = <&pwm14 0 10000000 1>; // 关键参数设置
+            duty-cycle = <5000000>;    // 占空比50%
+            pinctrl-names = "default";
+            pinctrl-0 = <&pwm14m0_pins>;// 确保与控制器配置一致
+        };
+    };
+
+|   驱动匹配：compatible = "pwm-device" 触发内核中对应compatible的PWM驱动，驱动通过of_device_id表匹配节点后，调用probe函数初始化硬件。
+|   PWM参数传递：pwms = <&pwm14 0 10000000 1> 绑定pwm14控制器的0号通道，设置周期为10ms（10000000ns，对应100Hz频率），极性为1（高电平有效）
+|   duty_ns = 5000000 指定初始占空比为5ms（50%占空比），驱动通过pwm_config()写入硬件寄存器。
+|   控制器使能：&pwm14 { status="okay" } 启用SoC内部的PWM14硬件控制器，底层驱动将初始化其时钟和复位信号，映射寄存器物理地址到内核虚拟地址。
+|   整个过程通过设备树将硬件参数直达驱动，实现PWM波形输出（PWM被初始化配置为频率100Hz，占空比50%，极性反向）。
+
+3. Sysfs接口操作PWM
+^^^^^^^^^^^^^^^^^^^^
+
+1. 查找PWM控制器路径
+
+|   输入指令：
+
+.. code-block:: shell
+
+    ls /sys/class/pwm  # 显示所有PWM控制器，例如pwmchip0、pwmchip1等
+
+|   RK3568的PWM控制器命名为pwmchip*，需根据设备树中&pwm14的地址确认具体编号。这里假设pwm14对应pwmchip3。
+
+2. 导出PWM通道
+
+.. code-block:: shell
+
+    echo 0 > /sys/class/pwm/pwmchip3/export  # 导出pwm14的0号通道
+
+|   执行后将生成/sys/class/pwm/pwmchip3/pwm0目录。
+
+3. 配置周期与占空比
+
+|   输入指令：
+
+.. code-block:: shell
+
+    echo 10000000 > /sys/class/pwm/pwmchip3/pwm0/period    # 设置10ms周期（100Hz）
+    echo 5000000 > /sys/class/pwm/pwmchip3/pwm0/duty_cycle  # 设置5ms占空比（50%）
+    echo 1 > /sys/class/pwm/pwmchip3/pwm0/enable            # 启用PWM输出
+
+|   参数单位为纳秒，需注意占空比不能超过周期值。
+|   注意事项：若导出或使能失败，需检查确定通道是否被其他比如串口功能占用。
+
+4. 动态调整占空比
+
+.. code-block:: shell
+
+    # 调整为70%占空比
+
+UART
+~~~~~~
+
+1.设备树配置（以UART3_M1为例，在J14扩展接口上对应33和35引脚）
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+    &uart3 {
+        status ="okay"; 
+        pinctrl-name = "default"; 
+        pinctrl-0 = <&uart3m1_xfer>; 
+    };
+
+|   pinctrl-0 = <&uart3m1_xfer>的作用，绑定UART3的TX/RX引脚到uart3m1_xfer复用组。
+|   uart3m1_xfer在rk3568-pinctrl.dtsi中已定义：
+
+.. code-block:: shell
+
+    uart3m1_xfer: uart3m1-xfer {
+        rockchip,pins =
+            /* uart3_rxm1 */
+            <3 RK_PC0 4 &pcfg_pull_up>,
+            /* uart3_txm1 */
+            <3 RK_PB7 4 &pcfg_pull_up>;
+    };
+
+|   设备树配置好之后，UART3在系统中注册为/dev/ttyS3，可通过ls /dev/ttyS*验证。
+
+2.调试工具
+^^^^^^^^^^^^
+
+|   将uart3m1的rx tx短接，利用文件系统内放置的测试文件进行收发测试：
+
+.. code-block:: shell
+
+    =====> Input:
+    # /my-demo/serial_test.out /dev/ttyS3 "myzr"
+    =====> Output:
+    Starting send data...finish
+    Starting receive data:
+    ASCII: 0x6d      Character: m
+    ASCII: 0x79      Character: y
+    ASCII: 0x7a      Character: z
+    ASCII: 0x72      Character: r
+    ASCII: 0x0   Character:
+
+I2C
+~~~~~
+
+1.I2C 子系统架构概述
+^^^^^^^^^^^^^^^^^^^^^
+
+|   在 RK3568 平台中，I2C 控制器基于标准 Linux I2C 框架实现，其核心分为硬件抽象层（适配器驱动）和设备驱动层。硬件层通过 i2c_adapter 抽象 I2C 总线控制器，设备层通过 i2c_client 描述从机设备，两者通过 i2c_driver 实现驱动逻辑。RK3568 的 I2C 控制器支持多主模式、时钟分频（最高 400kHz）及中断/DMA 传输，其物理层遵循开漏输出特性，通过 GPIO 复用实现 SCL/SDA 信号。
+
+2.I2C设备树配置（以I2C1上挂载触摸芯片为例）
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+    &i2c1 {
+        status = "okay";
+
+        gt1x: gt1x@14 {
+            compatible = "goodix,gt1x";
+            reg = <0x14>;
+            pinctrl-names = "default";
+            pinctrl-0 = <&touch_gpio>;
+            goodix,rst-gpio = <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
+            goodix,irq-gpio = <&gpio0 RK_PB5 IRQ_TYPE_LEVEL_LOW>;
+        };
+    };
+
+|   在该节点中， 内核通过compatible字符串匹配驱动。例如，驱动代码中需定义相同的 of_device_id 表：
+
+.. code-block:: shell
+
+    static const struct of_device_id gt1x_of_match[] = {
+        { .compatible = "goodix,gt1x" },
+        {}
+    };
+
+|   设备在 I2C 总线上的地址（0x14）,驱动通过 i2c_client 结构体获取reg地址。而pinctrl-*引用 touch_gpio 节点来配置 GPIO 的复用功能和电气属性。
+|   驱动与设备树匹配，compatible 值与驱动匹配时，内核调用 .probe() 函数，在probe函数中驱动将会从设备树获取配置包括引脚配置，芯片型号等信息。
+|   当设备在i2c上注册成功，利用指令：
+
+.. code-block:: shell
+
+    i2cdetect -y 1
+
+|   可以看到i2c1上地址14出现字母“UU”，代表该设备在i2c上成功挂载。
+
+SPI
+~~~~~
+
+1.Linux SPI 框架概述
+^^^^^^^^^^^^^^^^^^^^^
+
+|   Linux SPI框架为内核提供了标准化的SPI设备驱动支持体系，其核心由SPI Core、控制器驱动层、设备抽象层和用户空间接口构成。SPI Core作为框架中枢，承担总线管理、设备注册及标准传输API的维护，通过spi_alloc_device()和spi_add_device()实现控制器与从设备的动态绑定。硬件相关的SPI控制器驱动需实现时钟配置、数据传输等底层操作，每个控制器对应struct spi_controller实例；而连接的从设备则通过struct spi_device结构体描述，包含设备地址、片选和通信模式等参数。数据传输核心机制通过spi_sync()等同步/异步接口触发控制器实现的传输回调函数，支持DMA和中断两种传输模式。该框架还通过/dev/spidev*设备节点向用户空间开放SPI接口，从而可以实现从应用层来操作硬件寄存器。
+
+2.SPI设备树配置（以SPI3_M1为例，在J14扩展接口miso和mosi对应19和21引脚）
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: shell
+
+    &spi3 {
+        status = "okay";
+        pinctrl-names = "default";
+        pinctrl-0 = <&spi3m1_pins>;  // 指定M1模式引脚组
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        spidev@0 {
+            compatible = "spidev";
+            reg = <0>;
+            spi-max-frequency = <10000000>;  // 最大频率10MHz
+        };
+    };
+
+|   内核在启动时解析此节点，调用drivers/spi/spi-rockchip.c 中的驱动代码初始化 SPI3 控制器，注册为 /sys/bus/spi/devices/spi3.0。SPI设备通过片选信号（Chip Select, CS）寻址，#address-cells=1 表示 reg 属性对应 CS 编号（如 reg=<0> 表示使用 SPI3 的 CS0 线），在生成 SPI 设备时，内核根据 reg 值控制对应的 GPIO 引脚输出低电平以激活目标设备。
+|   在compatible="spidev"匹配成功后，将触发内核加载 drivers/spi/spidev.c，创建设备节点 /dev/spidev3.0。用户态程序无需开发内核驱动，可直接通过 ioctl(SPI_IOC_MESSAGE) 或 write() 等系统调用发起 SPI 数据传输请求。该请求经 spidev 驱动接收后，内核会通过 spi_async() 接口将数据传输任务提交至 SPI 控制器驱动（如 SPI3 控制器），最终由硬件控制器根据配置的时钟极性、速率等参数生成 SCK 信号，通过 MOSI 引脚发送数据流，并同步从 MISO 引脚读取响应数据，完成全双工通信过程。
+
+3.调试工具
+^^^^^^^^^^^
+
+|   短接SPI3_M1的miso和mosi，运行文件系统中的spi测试程序
+
+.. code-block:: shell
+
+    =====> Input:
+    ./spidev_test -D /dev/spidev3.0
+    =====> Output:
+    spi mode: 0
+    bits per word: 8
+    max speed: 500000 Hz (500 KHz)
+
+    FF FF FF FF FF FF
+    40 00 00 00 00 95
+    FF FF FF FF FF FF
+    FF FF FF FF FF FF
+    FF FF FF FF FF FF
+    DE AD BE EF BA AD
+    F0 0D
+
+|   代表spi功能正常。
