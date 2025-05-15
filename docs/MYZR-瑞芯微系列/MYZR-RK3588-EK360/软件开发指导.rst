@@ -36,16 +36,59 @@
 
 .. code-block:: shell
 
-    sudo apt-get install git ssh make gcc libssl-dev liblz4-tool expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib unzip device-tree-compiler ncurses-dev
+    sudo apt-get install uuid uuid-dev zlib1g-dev liblz-dev liblzo2-2 liblzo2-dev lzop \
+    git curl u-boot-tools mtd-utils openjdk-8-jdk device-tree-compiler \
+    gdisk m4 zlib1g-dev git gnupg flex bison gperf libsdl1.2-dev libesd-java \
+    squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev pngcrush schedtool \
+    libxml2 libxml2-utils xsltproc lzop libc6-dev schedtool g++-multilib lib32z1-dev \
+    lib32ncurses-dev lib32readline-dev gcc-multilib libswitch-perl libssl-dev unzip \
+    zip liblz4-tool git ssh make gcc libssl-dev liblz4-tool vim expect \
+    g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support \
+    qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib \
+    unzip device-tree-compiler python3-pip libncurses5-dev rsync subversion python-protobuf \
+    sed make binutils build-essential gcc g++ wget python-is-python2 libncurses5 bzr cvs git mercurial \
+    patch gzip bzip2 perl tar cpio unzip rsync file bc wget qemu-user-static live-build android-sdk-libsparse-utils android-sdk-ext4-utils -y libicu-dev
+
 
 整体编译
 ~~~~~~~~~~
 
 1. 运行整体编译(编译时间较长)，输入如下命令:
 
+buildroot
+^^^^^^^^^^^
+
 .. code-block:: shell
 
     ./build.sh buildroot_update
+
+ubantu20
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh ubuntu20_update
+
+ubantu22
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh ubuntu22_update
+
+debian11
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh debian11_update
+
+debian12
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh debian12_update
 
 2. 编译成功后在rockdev/目录下可看到相关镜像，其中update.img是所有镜像的集合
 
@@ -93,14 +136,47 @@
 
     ./build.sh recovery
 
-单独编译buildroot
-~~~~~~~~~~~~~~~~~~
+
+单独编译rootfs
+~~~~~~~~~~~~~~~
 
 |   在SDK主目录下输入如下命令:
+
+buildroot
+^^^^^^^^^^^
 
 .. code-block:: shell
 
     ./build.sh rootfs
+
+ubantu20
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh ubuntu20
+
+ubantu22
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh ubuntu22
+
+debian11
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh debian11
+
+debian12
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh debian12
+
 
 打包固件
 ~~~~~~~~~
@@ -139,22 +215,168 @@ U-Boot 板级文件
 Linux 内核板级文件
 ~~~~~~~~~~~~~~~~~~
 
-- 内核板级编译配置文件：arch/arm64/configs/myzr_rockchip_linux_defconfig
+- 内核板级编译配置文件：arch/arm64/configs/myzr_linux_defconfig
 - 内核板级设备树文件：arch/arm64/boot/dts/rockchip/myzr-*.dts*
 - 内核开发参考手册：网盘中《*Reference Manual*.pdf》
+
+
+Ethernet
+~~~~~~~~~~
+
+|   开发板有俩个网口：J13、J14，以J13说明，J14同理
+|   俩个网口都支持连接外网。
+
+1. dts 配置
+
+|   1.1 公共的配置
+|   kernel/arch/arm64/boot/dts/rockchip/rk3588.dtsi
+
+.. code-block:: shell
+
+    gmac0: ethernet@fe1b0000 {
+        compatible = "rockchip,rk3588-gmac", "snps,dwmac-4.20a";
+        reg = <0x0 0xfe1b0000 0x0 0x10000>;
+        interrupts = <GIC_SPI 227 IRQ_TYPE_LEVEL_HIGH>,
+                 <GIC_SPI 226 IRQ_TYPE_LEVEL_HIGH>;
+        interrupt-names = "macirq", "eth_wake_irq";
+        rockchip,grf = <&sys_grf>;
+        rockchip,php_grf = <&php_grf>;
+        clocks = <&cru CLK_GMAC_125M>, <&cru CLK_GMAC_50M>,
+             <&cru PCLK_GMAC0>, <&cru ACLK_GMAC0>,
+             <&cru CLK_GMAC0_PTP_REF>;
+        clock-names = "stmmaceth", "clk_mac_ref",
+                  "pclk_mac", "aclk_mac",
+                  "ptp_ref";
+        resets = <&cru SRST_A_GMAC0>;
+        reset-names = "stmmaceth";
+        power-domains = <&power RK3588_PD_GMAC>;
+
+        snps,mixed-burst;
+        snps,tso;
+
+        snps,axi-config = <&gmac0_stmmac_axi_setup>;
+        snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
+        snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
+        status = "disabled";
+
+        mdio0: mdio {
+            compatible = "snps,dwmac-mdio";
+            #address-cells = <0x1>;
+            #size-cells = <0x0>;
+        };
+
+|   1.2 板级的配置
+|   kernel/arch/arm64/boot/dts/rockchip/myzr-rk3588-linux.dts
+
+.. code-block:: shell
+
+    //有线网卡配置
+    &gmac0 {
+            /* Use rgmii-rxid mode to disable rx delay inside Soc */
+            phy-mode = "rgmii-rxid";
+            clock_in_out = "output";
+
+            snps,reset-active-low;
+            /* Reset time is 20ms, 100ms for rtl8211f */
+            snps,reset-delays-us = <0 20000 100000>;
+
+            pinctrl-names = "default";
+            pinctrl-0 = <&gmac0_miim
+                         &gmac0_tx_bus2
+                         &gmac0_rx_bus2
+                         &gmac0_rgmii_clk
+                         &gmac0_rgmii_bus>;
+            tx_delay = <0x44>;
+            /* rx_delay = <0x4f>; */
+
+            phy-handle = <&rgmii_phy0>;
+            status = "okay";
+    };
+
+2. 网口没有自动获取ip
+
+|   等待或者电脑网络适配器能上网的网口关掉共享给以太网网口并重新开启共享，再重启板子便能自动获取ip。
+
+
+RTC 使用
+~~~~~~~~~~
+
+1. 简介
+
+|   MYZR-RK3588-EK360开发板采用HYM8563作为RTC(Real Time Clock)，HYM8563是一款低功耗CMOS实时时钟/日历芯片,它提供一个可编程的时钟输出,一个中断 输出和一个掉电检测器,所有的地址和数据都通过I2C总线接口串行传递。最大总线速度为 400Kbits/s,每次读写数据后,内嵌的字地址寄存器会自动递增
+
+- 可计时基于 32.768kHz 晶体的秒,分,小时,星期,天,月和年
+- 宽工作电压范围:1.0~5.5V
+- 低休眠电流:典型值为 0.25μA(VDD =3.0V, TA =25°C)
+- 内部集成振荡电容
+- 漏极开路中断引脚
+
+2. RTC驱动
+
+|   驱动参考：kernel/drivers/rtc/rtc-hym8563.c
+
+3. 接口使用
+
+|   Linux 提供了三种用户空间调用接口。在 MYZR-RK3588-EK360开发板中对应的路径为：
+
+
+- SYSFS接口：/sys/class/rtc/rtc0/
+- PROCFS接口： /proc/driver/rtc
+- IOCTL接口： /dev/rtc0
+
+4. SYSFS接口
+
+|   可以直接使用 cat 和 echo 操作 /sys/class/rtc/rtc0/ 下面的接口。
+|   比如查看当前 RTC 的日期和时间：
+
+.. code-block:: shell
+
+    root@root:/# date -s "2025-05-7 10:00:00"
+    Wed May  7 10:00:00 UTC 2025
+    root@root:/# cat /sys/class/rtc/rtc0/time
+    10:00:24
+
+
+5. PROCFS 接口
+
+|   打印 RTC 相关的信息：
+
+.. code-block:: shell
+
+    root@root:/# cat /proc/driver/rtc
+    rtc_time        : 10:03:19
+    rtc_date        : 2025-05-07
+    alrm_time        : 10:04:00
+    alrm_date        : 2025-05-07
+    alarm_IRQ        : no
+    alrm_pending        : no
+    update IRQ enabled        : no
+    periodic IRQ enabled        : no
+    periodic IRQ frequency        : 1
+    max user IRQ frequency        : 64
+    24hr                : yes
+
+6. IOCTL接口
+
+|   可以使用 ioctl 控制 /dev/rtc0。
+|   详细使用说明请参考文档 kernel/Documentation/admin-guide/rtc.rst 。
+
+7. FAQs
+
+|   Q1: 开发板上电后时间不同步？
+|   A1: 检查一下 RTC 电池是否正确接入。
+
 
 GPIO
 ~~~~~~
 
 1. 简介
-^^^^^^^^
 
 |   GPIO，全称 General-Purpose Input/Output（通用输入输出），是一种软件运行期间能够动态配置和控制的通用引脚。 所有的 GPIO 在上电后的初始状态都是输入模式，可以通过软件设为上拉或下拉，也可以设置为中断脚，驱动强度都是可编程的，其核心是填充 GPIO bank 的方法和参数，并调用 gpiochip_add 注册到内核中。
 
 2. GPIO引脚计算
-^^^^^^^^^^^^^^^^
 
-|   MYRK3588EK320 有 6 组 GPIO bank：GPIO0~GPIO5，每组又以 A0~A7, B0~B7, C0~C7, D0~D7 作为编号区分，常用以下公式计算引脚：
+|   RK3588 有 6 组 GPIO bank：GPIO0~GPIO5，每组又以 A0~A7, B0~B7, C0~C7, D0~D7 作为编号区分，常用以下公式计算引脚：
 |   GPIO pin脚计算公式：pin = bank * 32 + number
 |   GPIO 小组编号计算公式：number = group * 8 + X
 |   下面演示GPIO2_C4 pin脚计算方法：
@@ -180,25 +402,7 @@ GPIO
 
 |   当GPIO2_C4脚没有被其它外设复用时, 我们可以通过export导出该引脚去使用
 
-.. code-block:: shell
-
-    root@topeet:/# ls /sys/class/gpio/      
-    export  gpiochip0    gpiochip32   gpiochip64  unexport
-    gpiochip128  gpiochip509  gpiochip96
-    root@topeet:/# export OUT_IO_OUT_NUM=84
-    root@topeet:/# echo ${OUT_IO_OUT_NUM} > /sys/class/gpio/export
-    root@topeet:/# ls /sys/class/gpio/      
-    export  gpiochip0    gpiochip32   gpiochip64  unexport
-    gpio84  gpiochiproot@topeet:/# ls /sys/class/gpio/gpio84
-    active_low  device  direction  edge  power  subsystem  uevent  value
-    128  gpiochip509  gpiochip96
-    root@topeet:/# cat /sys/class/gpio/gpio84/direction 
-    in
-    root@topeet:/# cat /sys/class/gpio/gpio84/value 
-    0
-
 3. 中断
-^^^^^^^^
 
 .. code-block:: shell
 
@@ -214,7 +418,6 @@ GPIO
 |   IRQ_TYPE_LEVEL_LOW    //低电平触发
 
 4. 复用
-^^^^^^^^
 
 |   该案例仅供参考，最终以实际硬件接口为准
 |   GPIO 口除了通用输入输出、中断功能外，还可能有其它复用功能，以GPIO2_C4为例，就有如下几个功能：
@@ -239,8 +442,7 @@ GPIO
             pinctrl-0 = <&uart0m2_xfer>;
     };
 
-5.GPIO 调试接口
-^^^^^^^^^^^^^^^^
+5. GPIO 调试接口
 
 |   Debugfs 文件系统目的是为开发人员提供更多内核数据，方便调试。 这里 GPIO 的调试也可以用 Debugfs 文件系统，获得更多的内核信息。GPIO 在 Debugfs 文件系统中的接口为 /sys/kernel/debug/gpio，可以这样读取该接口的信息：
 
@@ -260,7 +462,6 @@ GPIO
 
 485
 ~~~~~
-
 
 DTS配置
 ^^^^^^^^^^
@@ -282,49 +483,16 @@ DTS配置
 
     UART0:   /dev/ttyS0
 
-UART 收发验证
-^^^^^^^^^^^^^^
-
-1. 使用485-USB转换头连接开发板和电脑
-2. 打开串口调试助手，设置波特率为9600，无校验位，8位数据位，1位停止位
-3. 设置开发板的串口波特率，输入指令如下：
-
-.. code-block:: shell
-
-    stty -F /dev/ttyS0 9600
-
-4. 向电脑端发送数据，开发板端输入指令如下：
-
-.. code-block:: shell
-
-    echo "123" > /dev/ttyS0
-
-|   此时电脑端应收到数据123
-
-5. 电脑端发送数据"myzr"，开发板接收，输入如下指令：
-
-.. code-block:: shell
-
-    cat /dev/ttyS0
-
-|   此时开发板收到数据myzr，按下"Ctrl + C"退出
-
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试14.png
-   :alt: 测试14.png
-
-|   操作过程中的输出符合预期即功能正常
-
 
 CAN
 ~~~~~
 
 1. CAN 简介
-^^^^^^^^^^^^^
+
 
 |   CAN(Controller Area Network)总线，即控制器局域网总线，是一种有效支持分布式控制或实时控制的串行通信网络。CAN总线是一种在汽车上广泛采用的总线协议，被设计作为汽车环境中的微控制器通讯。 如果想了解更多的内容可以参考CAN应用报告
 
 2. DTS 节点配置
-^^^^^^^^^^^^^^^^
 
 - 公共配置 kernel/arch/arm64/boot/dts/rockchip/rk3588s.dtsi
 
@@ -358,60 +526,7 @@ CAN
             assigned-clock-rates = <100000000>;
     };
 
-3. CAN 通信测试
-^^^^^^^^^^^^^^^^
-
-|   测试说明：与另一块带can口的开发板(笔者用的是imx8mp)互联进行收发测试
-|   测试操作
-
-1. 连接两块板的can口后通电
-2. 配置can，两块板的输入指令如下：
-
-|   rk3588：
-
-.. code-block:: shell
-
-    ip link set can0 up type can bitrate 1000000
-
-|   imx8mp：
-
-.. code-block:: shell
-
-    ip link set can0 up type can bitrate 1000000
-    candump can0
-
-3. rk3588发送数据，输入指令如下：
-
-.. code-block:: shell
-
-    cansend can0 123#DEADBEEF
-
-|   imx8mp可以收到"can0  123   [4]  DE AD BE EF"，按下"Ctrl + C"退出接收
-
-4. 更改rk3588的can配置，imx8mp发送数据，输入指令如下：
-
-|   rk3588：
-
-.. code-block:: shell
-
-    candump can0
-
-|   imx8mp：
-
-.. code-block:: shell
-
-    cansend can0 123#DEADBEEF
-
-|   rk3588可以收到"can0  123   [4]  DE AD BE EF"，按下"Ctrl + C"退出接收
-
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试13.png
-   :alt: 测试13.png
-
-|   操作过程中的输出符合预期即功能正常
-
-
-4. 更多指令
-^^^^^^^^^^^^
+3. 更多指令
 
 .. code-block:: shell
 
@@ -430,33 +545,20 @@ CAN
     13、cansend canX --identifier=ID+数据         //发送数据；
     14、candump canX --filter=ID：mask        //使用滤波器接收ID匹配的数据
 
-
-5. 报文发送后很久才接收到，或者接收不到
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4. 报文发送后很久才接收到，或者接收不到。
 
 |   检查总线 CAN_H 和 CAN_L， 杜邦线是否松动或者接反。
 
-显示屏
-~~~~~~~~
 
-1. 显示接口的配置
-^^^^^^^^^^^^^^^^^^
+HDMI
+~~~~~~
 
-|   四种显示输出接口，分别是 HDMI、Display Port、VGA 以及 MIPI DSI，可以做到多屏同显/异显
+1. HDMI接口的配置
 
-|   开发板支持以下屏幕：
-|   LVDS 7 寸屏幕
-|   MIPI 7 寸屏幕
-|   LVDS 10.1 寸 1024*600 屏幕
-|   LVDS 10.1 寸 1280*800 屏幕
-|   LVDS 10.1 寸 1280*800 新屏幕
-|   HDMI 屏幕（通过 HDMI 线连接）
-
-|   下面对各个显示输出接口的配置和使用作基本的介绍，详细内容可以参考文件：
+|   硬件上有两个 HDMI 显示输出接口。
+|   打开HDMI接口如下所示：
 
 - /rk3588-linux/kernel/arch/arm64/boot/dts/rockchip/myzr-screen-lcds.dts
-
-|   可以通过打开下边的信息选择你的屏幕配置
 
 .. code-block:: shell
 
@@ -470,12 +572,9 @@ CAN
     //#define LCD_TYPE_TYPEC_DP  //VP1
     //#define LCD_TYPE_MIPI1    //VP3
 
-|   硬件上有两个 HDMI 显示输出接口：
+|   如果将两个 HDMI 接口同时接上屏幕，默认会双屏同显。
 
-1.1. 软件配置
-"""""""""""""""
-
-|   在设备树中添加：
+|   1.1. 软件配置
 
 .. code-block:: shell
 
@@ -530,106 +629,28 @@ CAN
 
     #endif
 
-2. MIPI DSI
-^^^^^^^^^^^^^
 
-|   有两路 MIPI DSI 显示输出接口
+Watchdog
+~~~~~~~~~~
 
-2.1. 软件配置
-"""""""""""""""
+1. 简介
 
-|   由于 DSI0 和 DSI1 在软件配置上类似，这里以 DSI0 的配置为例，DSI0 软件上表示为 dsi0。
-|   在设备树上添加：
+|   看门狗（watchdog）实际是一个定时器，启动之后会开始计时。系统或者软件需要在规定时间内与看门狗通信（俗称喂狗）重置计时，如此反复下去，以此来确定系统和软件正常运行。
+|   如果规定时间内没有喂狗，看门狗超时，说明系统或应用陷入循环、卡死，此时看门狗会发出复位信号让主控复位，脱离卡死。
+
+2. DTS配置
+
+|   MYZR-RK3588-EK360的 watchdog 的 DTS 节点在 kernel/arch/arm64/boot/dts/rockchip/rk3588s.dtsi 文件中定义，如下所示：
 
 .. code-block:: shell
 
-    #elif defined(LCD_TYPE_LVDS_7_0)
-    &dsi0 {
-            status = "okay";
-            //rockchip,lane-rate = <1000>;
-            dsi0_panel: panel@0 {
-                    status = "okay";
-                    compatible = "simple-panel-dsi";
-                    reg = <0>;
-                    power-supply = <&vcc3v3_lcd_n>;
-                    backlight = <&backlight>;
-                    reset-delay-ms = <10>;
-                    enable-delay-ms = <35>;
-                    prepare-delay-ms = <6>;
-                    unprepare-delay-ms = <0>;
-                    disable-delay-ms = <20>;
-                    dsi,flags = <(MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_BURST |
-                            MIPI_DSI_MODE_LPM | MIPI_DSI_MODE_EOT_PACKET)>;
-                    dsi,format = <MIPI_DSI_FMT_RGB888>;
-                    dsi,lanes  = <4>;
-                    dsi,channel = <0>;
-                    size,width = <120>;
-                    size,height = <170>;
-                    panel-init-sequence = [
-                                           29 02 06 3C 01 09 00 07 00
-                                            ...
-                    ];
-    
-                    panel-exit-sequence = [
-                            05 05 01 28
-                            05 78 01 10
-                    ];
-    
-                    disp_timings0: display-timings {
-                            native-mode = <&dsi0_timing0>;
-                            dsi0_timing0: timing0 {
-                                    clock-frequency = <90000000>;
-                                    hactive = <800>;
-                                    vactive = <1280>;
-                                    hsync-len = <10>;
-                                    hback-porch = <100>;
-                                    hfront-porch = <1580>;
-                                    vsync-len = <10>;
-                                    vback-porch = <25>;
-                                    vfront-porch = <10>;
-                                    hsync-active = <0>;
-                                    vsync-active = <0>;
-                                    de-active = <0>;
-                                    pixelclk-active = <0>;
-                            };
-                    };
-    
-                    ports {
-                            #address-cells = <1>;
-                            #size-cells = <0>;
-    
-                            port@0 {
-                                    reg = <0>;
-                                    panel_in_dsi: endpoint {
-                                            remote-endpoint = <&dsi_out_panel>;
-                                    };
-                            };
-                    };
-            };
-            ports {
-                    #address-cells = <1>;
-                    #size-cells = <0>;
-    
-                    port@1 {
-                            reg = <1>;
-                            dsi_out_panel: endpoint {
-                                    remote-endpoint = <&panel_in_dsi>;
-                            };
-                    };
-            };
+        wdt: watchdog@feaf0000 {
+        compatible = "snps,dw-wdt";
+        reg = <0x0 0xfeaf0000 0x0 0x100>;
+        clocks = <&cru TCLK_WDT0>, <&cru PCLK_WDT0>;
+        clock-names = "tclk", "pclk";
+        interrupts = <GIC_SPI 315 IRQ_TYPE_LEVEL_HIGH>;
+        status = "okay";
     };
-    #endif
-    
-    #if defined(LCD_TYPE_MIPI0) || defined(LCD_TYPE_LVDS_7_0)
-            ft5x06@38 {
-                    status = "okay";
-                    compatible = "edt,edt-ft5406";
-                    reg = <0x38>;
-                    touch-gpio = <&gpio3 RK_PC0 IRQ_TYPE_EDGE_RISING>;
-                    interrupt-parent = <&gpio3>;
-                    interrupts = <RK_PC0 IRQ_TYPE_LEVEL_LOW>;
-                    reset-gpios = <&gpio3 RK_PC1 GPIO_ACTIVE_LOW>;
-                    touchscreen-size-x = <800>;
-                    touchscreen-size-y = <1280>;
-    
-            };
+
+|   watchdog 的驱动文件为 kernel/drivers/watchdog/dw_wdt.c。

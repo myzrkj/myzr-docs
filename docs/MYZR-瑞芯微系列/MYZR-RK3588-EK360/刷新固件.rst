@@ -25,10 +25,24 @@
 
 - 从下载的网盘资料中找到RKDevTool驱动安装包，路径为：3.软件资料-->3.2-工具-->RKDevTool_Release_v3.15.zip
 - 解压RKDevTool_Release_v3.15.zip后进入RKDevTool_Release_v3.15文件夹
+- 镜像说明
+
++-----------------------+----------+--------------+----------------+--------------+
+| uboot.img             | boot.img | recovery.img | rootfs.img     | update.img   |
++-----------------------+----------+--------------+----------------+--------------+
+| U-Boot 启动加载器镜像 | 启动镜像 | 恢复镜像     | 根文件系统镜像 | 整体固件镜像 |
++-----------------------+----------+--------------+----------------+--------------+
+
 - 双击RKDevTool.exe打开程序
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-1.png
    :alt: RKDevTool-1.png
+
+
+全局烧录
+^^^^^^^^^^
+
+|  烧录整个固件
 
 - 点击进入“升级固件”界面
 
@@ -46,7 +60,7 @@
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-5.png
    :alt: RKDevTool-5.png
 
-- 开发板接上烧录线，按住开发板SW8按键，再给开发板上电，上电3秒左右可看到开发板进入了download模式
+- 开发板J5接上type-c烧录线，按住开发板SW2按键，再给开发板上电，上电3秒左右可看到开发板进入了downloadLOADER模式
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-6.png
    :alt: RKDevTool-6.png
@@ -55,5 +69,13 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-7.png
    :alt: RKDevTool-7.png
+
+单独烧录
+^^^^^^^^^
+
+- 单独烧录一个或多个镜像文件
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-8.png
+   :alt: RKDevTool-8.png
 
 - 烧录完成后，开发板重新上电。

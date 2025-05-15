@@ -60,36 +60,46 @@ HDMI显示屏连接
 
 .. code-block:: shell
 
-    U-Boot 2017.09-g32640b0ada-230713-dirty #kuangwh (May 24 2024- 15:55:37+0800)
-    Model:MYZR RK3588 Evaluation BoardMPIDR:0x81000000
-    PreSerial: 2,0xfeb50000.raw，
-    DRAM:4 GiB
+    U-Boot 2017.09 (May 12 2025 - 15:23:24 +0000)
+
+    Model: MYZR RK3588 EK360 Board
+    MPIDR: 0x81000000
+    PreSerial: 2, raw, 0xfeb50000
+    DRAM:  4 GiB
     Sysmem: init
-    Relocation Offset: edald000
-    Relocation fdt:eb9fa280-eb9fecc8
-    CR:M/C/I
-    Using default environment
+    Relocation Offset: eda1b000
+    Relocation fdt: eb9fa200 - eb9fece0
+    CR: M/C/I
+    DM: v2
 
 U-Boot 信息
 """"""""""""
 
-|   启动信息中  U-Boot 2017.09-g32640b0ada-230713-dirty #kuangwh (May 24 2024- 15:55:37+0800)包含以下信息：
+|   启动信息中  U-Boot 2017.09 (May 12 2025 - 15:23:24 +0000)包含以下信息：
 |   【u-boot版本】 ：2017.09；
-|   【源码的版本号】 ：g32640b0ada；
-|   【u-boot文件的编译时间】 ：May 24 2024- 15:55:37+0800。
+|   【u-boot文件的编译时间】 ：May 12 2025 - 15:23:24 +0000。
 
 内核信息
 """""""""
 
-|   启动信息中 Linux version 5.10.198 (root@myzr-92aa) (aarch64-none-linux-gnu-gcc (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621, GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #1 SMP Tue Apr 8 17:45:00 CST 2025 包含以下信息：
-|   【内核版本】 ：Linux- 5.10.198；
-|   【编译内核的GCC版本】 ： 10.3.1；
-|   【内核文件的编译时间】 ：Tue Apr 8 17:45:00 CST 2025
+|   启动信息中
+
+.. code-block:: shell
+
+    [    1.903539] Linux version 5.10.198 (root@myzr-u2004) (aarch64-none-linux-gnu-gcc (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621, GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #1 SMP Mon May 12 15:25:06 UTC 2025
+    [    1.914167] Machine model: MYZR RK3588 EK360 Board
+
+|   包含以下信息：
+
+ | 【内核版本】 ：Linux- 5.10.198；
+ | 【编译内核的GCC版本】 ： 10.3.1；
+ | 【内核文件的编译时间】 ：Mon May 12 15:25:06 UTC 2025
+
 
 开发板登录
 """""""""""
 
-|   启动系统完后输出 root@root:/# 时，可以登录：
+|   启动系统完后按回车键显示 root@root:/# 
 |   【用户名】 ：root
 |   【密码】 ：无
 |   提示：登录后可以通过“passwd”命令来设置和修改密码。
