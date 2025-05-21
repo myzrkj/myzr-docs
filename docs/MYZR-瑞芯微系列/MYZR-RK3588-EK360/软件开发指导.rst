@@ -62,14 +62,14 @@ buildroot
 
     ./build.sh buildroot_update
 
-ubantu20
+ubuntu20
 ^^^^^^^^^^
 
 .. code-block:: shell
 
     ./build.sh ubuntu20_update
 
-ubantu22
+ubuntu22
 ^^^^^^^^^^
 
 .. code-block:: shell
