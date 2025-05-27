@@ -1,0 +1,242 @@
+刷机手册
+=========
+
+准备文件
+---------
+
+* **下载固件**
+
+   * 打开网盘到 `3.软件资料 -> Linux-5.10.145` ，下载 `3.2-固件` 目录。
+   * 打开网盘到 `1.通用资料` ，下载 `1.3-工具` 目录。
+
+* **复制文件**
+
+   * 把 `3.2-固件` 目录的所有文件复制到 U 盘。
+
+* **准备工具**
+
+   * 把 `1.3-工具/TeraTerm.v4.108.zip` 解压到 Windows。
+
+开发板连接
+-----------
+
+* **断开电源开关**：把电源开关（丝印 `SW3`）拨到 **OFF**。
+* **拨码到刷机模式**：把模式拨码（丝印 `SW2`）的 **1** 拨到 **OFF**， **2** 拨到 **ON**。
+* **连接固件U盘**：把前面的 U 盘插入到开发板的 USB 接口上（丝印 `USB`）
+
+   * 提示：为了避免不必要的问题，建议使用 USB 2.0 的 U 盘连接到开发板 USB 座子上的 USB 2.0 接口。
+
+* **连接调试线**：使用 `USB Type-C` 数据线连接开发板的 Type-C 座子（丝印 `CON2`）和电脑，打开电脑的设备管理器，可以看到 `端口（COM 和 LPT）` 下面多出一个 `USB-SERIAL CH340 (COMx)`，记住 `COMx` 这个串口号，后面需要使用。
+
+   * 提示：这里不需要给开发板上电，电脑上也会出现  `USB-SERIAL CH340 (COMx)` 设备。
+   * 如果连接 Type-C 线后 `USB-SERIAL CH340 (COMx)` 上有一个三角形的感叹号，则需要电脑更新 CH340 的驱动（驱动位置 `1.3-工具/MYZR-RZV2H-USB驱动.zip`）。
+   * 如果连接 Type-C 线后没有多出一个 `USB-SERIAL CH340 (COMx)` 设备，则换一条 Type-C 线，以及换一台电脑连接。
+
+* **连接电源**：把 12~24V 的电源连接到开发板的电源接口上（丝印 `P3`）。
+
+刷新 BOOT
+-----------
+
+* 配置串口
+
+   * 运行解压 `1.3-工具/TeraTerm.v4.108.zip` 得到的 `ttermpro.exe` 。
+   * 新建连接时选择前面接上 Type-C 线时出来的 COM 口。
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Serial.New.png
+   :alt: TeraTerm.Serial.New.png
+
+   * 点击 Tera Term 菜单栏的 `Setup -> Serial port...` ，选择好参数。
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Serial.Setup.png
+   :alt: TeraTerm.Serial.Setup.png
+
+   * 点 Tera Term 软件菜单栏的 `Setup -> Save setup` 保存配置，文件名和路径默认即可。这样下次使用时会自动载入我们刚才的配置。
+
+* 接通电源
+
+   * 把电源开关拨到 ***ON*** ，使开发板的电源接通，可以在 Tera Term 软件上看到：
+
+.. code-block:: shell
+
+   SCI Download mode (Normal SCI boot)
+   -- Load Program to SRAM ---------------
+
+* 加载工具
+
+   * 加载 Flash 工具：把 `3.2-固件` 目录里的 `Flash_Writer_SCIF-MYZR_RZV2H_EK320.mot` 文件直接拖入到 Tera Term 软件窗口上。
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.SendFile.FlashWriter.png
+   :alt: TeraTerm.SendFile.FlashWriter.png
+
+   * 等待 Flash 工具传输完成，传输过程中可以看到传输进度。
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.FlashWriter.png
+   :alt: TeraTerm.Transmit.FlashWriter.png
+
+* 切换传输速率
+
+   * 在上一步的 Flash 工具传输完成后，在 Tera Term 上输入 `sup`
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.SUP.png
+   :alt: TeraTerm.FW.SUP.png
+
+   * 修改串口速率（加快后续文件传输）：在 Trea Term 的菜单栏上点击 `Setup -> Serial port...` ，修改串口波特率为 `921600`。
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Serial.912600.png
+   :alt: TeraTerm.Serial.912600.png
+
+* 刷入 bl2 固件：
+
+   * 在 Tera Term 软件上输入如下：
+
+.. code-block:: shell
+
+   em_w
+   1
+   1
+   8101e00
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.BL2.CMD.png
+   :alt: TeraTerm.FW.BL2.CMD.png
+
+   * 传输 bl2 固件：把 `3.2-固件` 目录的 `bl2_bp_emmc-myzr-rzv2h-ek320-8g.srec` 文件直接拖入到 Tera Term 软件窗口上（这里根据拿到的开发板的内存容量选择对应的文件），并等待传输完成。
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.BL2.png
+   :alt: TeraTerm.Transmit.BL2.png
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.BL2.Done.png
+   :alt: TeraTerm.FW.BL2.Done.png
+
+* 刷入 fip 固件：
+
+   * 在 Tera Term 软件上输入如下：
+
+.. code-block:: shell
+
+   em_w
+   1
+   300
+   44000000
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.FIP.CMD.png
+   :alt: TeraTerm.FW.FIP.CMD.png
+
+   * 传输 fip 固件：把 `3.2-固件` 目录的 `fip-myzr-rzv2h-ek320-8g.srec` 文件直接拖入到 Tera Term 软件窗口上（这里根据拿到的开发板的内存容量选择对应的文件），并等待传输完成。
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.FIP.png
+   :alt: TeraTerm.Transmit.FIP.png
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.FIP.Done.png
+   :alt: TeraTerm.FW.FIP.Done.png
+
+* 烧录 Boot 完成
+
+   * 至此，Boot 烧录完成，把电源开关拨到 **OFF**，关闭 Tera Term 软件，继续下一步操作。
+
+刷新系统
+----------
+
+启动 BOOT
+~~~~~~~~~~~
+
+   * **插入 U 盘**：把之前准备好的 U 盘插入到开发板的 USB 接口（丝印 `USB`）
+   * **拨码到启动模式**：把模式拨码（丝印 `SW2`）的 **1** 拨到 **ON**，**2** 拨到 **OFF**。
+   * **打开终端软件**：运行解压 `TeraTerm.v4.108.zip` 得到的 `ttermpro.exe` 。如果前面的步骤有保存配置，这时打开就不需要配置了。如果之前的步骤没有保存配置，则按前面配置串口。
+   * **接通电源**：把电源开关拨到 **ON** ，使开发板的电源接通，在 Tera Term 软件上看到到计时出现时，按下电脑的 `Enter` 按键。
+
+.. code-block:: shell
+
+  NOTICE:  BL2: v2.7(release):3ff5203
+  NOTICE:  BL2: Built : 12:10:31, May 24 2025
+  NOTICE:  BL2: Booting BL31
+  NOTICE:  BL31: v2.7(release):3ff5203
+  NOTICE:  BL31: Built : 12:10:31, May 24 2025
+  
+  
+  U-Boot 2021.10 (May 26 2025 - 08:03:39 +0000)
+  
+  CPU:   Renesas Electronics CPU rev 1.0
+  Model: MYZR RZV2H LGA320 Evaluation Kit - 8GB Memory
+  DRAM:  7.9 GiB
+  MMC:   mmc@15c00000: 0, mmc@15c10000: 1
+  Loading Environment from MMC... *** Warning - bad CRC, using default environment
+  
+  In:    serial@11c01400
+  Out:   serial@11c01400
+  Err:   serial@11c01400
+  Net:   eth0: ethernet@15c30000
+  Hit any key to stop autoboot:  0
+  =>
+
+刷新系统
+----------
+
+* **启动刷机系统**：输入下面的命令即可从 U 盘启动刷机系统。
+
+.. code-block:: shell
+
+   run bootcmd_usb
+
+|  **提示**：如果出现 `No boot file defined`，则是因为旧的环境变量还没有清除，需要执行下面命令后并重启开发板。
+
+.. code-block:: shell
+
+   env default -a; saveenv
+
+* **登录刷机系统**：输入 root 并按 Enter 即可
+
+.. code-block:: shell
+
+   root
+
+* **执行刷机**：复制下面的命令到终端执行（建议一次复制一段）
+
+.. code-block:: shell
+
+   cat <<EOF | sfdisk /dev/mmcblk0
+   /dev/mmcblk0p1 : size=960M, type=83
+   /dev/mmcblk0p2 : type=83
+   EOF
+
+   mkfs.ext4 -F /dev/mmcblk0p1
+   mkfs.ext4 -F /dev/mmcblk0p2
+
+   mkdir /mnt/p1; mkdir /mnt/p2
+   mount /dev/mmcblk0p1 /mnt/p1
+   mount /dev/mmcblk0p2 /mnt/p2
+   mount /dev/sda1 /media
+
+   cp -a /media/* /mnt/p1/
+
+   RTFS_FILE=core-image-weston-myzr-rzv2h-ek320.rootfs.tar.gz
+   tar xvf /media/${RTFS_FILE} -C /mnt/p2
+
+   sync; umount /mnt/p1; umount /mnt/p2; umount /media
+
+
+* **等待刷机完成**：
+
+进入系统
+----------
+
+* 刷机完成后会自动重启并启动系统，系统启动完成后可以看到的信息如下。
+
+.. code-block:: shell
+
+   Poky (Yocto Project Reference Distro) 3.1.31 myzr-rzv2h-ek320 ttySC0
+
+   BOARD: MYZR RZV2H LGA320 Evaluation Kit
+   LSI: RZ/V2H
+   AI SDK V5.00 (Source Code)
+   myzr-rzv2h-ek320 login: 
+
+* 这时输入 root 即可登录。
+
+.. code-block:: shell
+
+   root
+
+* 附图
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/Update.Done.Login.png
+   :alt: Update.Done.Login.png

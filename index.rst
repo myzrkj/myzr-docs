@@ -48,7 +48,7 @@
    :maxdepth: 1
    :caption: MYZR-瑞萨系列
 
-   docs/MYZR-瑞萨系列/MYZR-AI-V2H/index
+   docs/MYZR-瑞萨系列/MYZR-RZV2H-EK320/index
    
    docs/MYZR-瑞萨系列/MYZR-RZFIVE/index
    docs/MYZR-瑞萨系列/MYZR-RZG2L/index
