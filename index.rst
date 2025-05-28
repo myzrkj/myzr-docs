@@ -23,10 +23,20 @@
 
 .. toctree::
    :maxdepth: 1
-   :caption: MYZR-国产系列
+   :caption: MYZR-全志系列
 
-   docs/MYZR-国产系列/Allwinner平台/index
-   docs/MYZR-国产系列/SigmaStar平台/index
+   docs/MYZR-全志系列/MYZR-A40I-EK204/index
+   docs/MYZR-全志系列/MYZR-R16-EK166/index
+   docs/MYZR-全志系列/MYZR-R16-EK166(EN)/index
+   docs/MYZR-全志系列/MYZR-T113/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-SigmaStar系列
+
+   docs/MYZR-SigmaStar系列/MYZR-SSD20X-EK096/index
+   docs/MYZR-SigmaStar系列/MYZR-SSD20X-EK096(EN)/index
+   docs/MYZR-SigmaStar系列/MYZR-SSD2351-EK112/index
 
 
 .. toctree::

@@ -42,13 +42,13 @@
    * 运行解压 `1.3-工具/TeraTerm.v4.108.zip` 得到的 `ttermpro.exe` 。
    * 新建连接时选择前面接上 Type-C 线时出来的 COM 口。
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Serial.New.png
-   :alt: TeraTerm.Serial.New.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Serial.New.png
+      :alt: TeraTerm.Serial.New.png
 
    * 点击 Tera Term 菜单栏的 `Setup -> Serial port...` ，选择好参数。
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Serial.Setup.png
-   :alt: TeraTerm.Serial.Setup.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Serial.Setup.png
+      :alt: TeraTerm.Serial.Setup.png
 
    * 点 Tera Term 软件菜单栏的 `Setup -> Save setup` 保存配置，文件名和路径默认即可。这样下次使用时会自动载入我们刚才的配置。
 
@@ -65,25 +65,25 @@
 
    * 加载 Flash 工具：把 `3.2-固件` 目录里的 `Flash_Writer_SCIF-MYZR_RZV2H_EK320.mot` 文件直接拖入到 Tera Term 软件窗口上。
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.SendFile.FlashWriter.png
-   :alt: TeraTerm.SendFile.FlashWriter.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.SendFile.FlashWriter.png
+      :alt: TeraTerm.SendFile.FlashWriter.png
 
    * 等待 Flash 工具传输完成，传输过程中可以看到传输进度。
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.FlashWriter.png
-   :alt: TeraTerm.Transmit.FlashWriter.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.FlashWriter.png
+      :alt: TeraTerm.Transmit.FlashWriter.png
 
 * 切换传输速率
 
    * 在上一步的 Flash 工具传输完成后，在 Tera Term 上输入 `sup`
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.SUP.png
-   :alt: TeraTerm.FW.SUP.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.SUP.png
+      :alt: TeraTerm.FW.SUP.png
 
    * 修改串口速率（加快后续文件传输）：在 Trea Term 的菜单栏上点击 `Setup -> Serial port...` ，修改串口波特率为 `921600`。
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Serial.912600.png
-   :alt: TeraTerm.Serial.912600.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Serial.912600.png
+      :alt: TeraTerm.Serial.912600.png
 
 * 刷入 bl2 固件：
 
@@ -95,17 +95,18 @@
    1
    1
    8101e00
+/
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.BL2.CMD.png
-   :alt: TeraTerm.FW.BL2.CMD.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.BL2.CMD.png
+      :alt: TeraTerm.FW.BL2.CMD.png
 
    * 传输 bl2 固件：把 `3.2-固件` 目录的 `bl2_bp_emmc-myzr-rzv2h-ek320-8g.srec` 文件直接拖入到 Tera Term 软件窗口上（这里根据拿到的开发板的内存容量选择对应的文件），并等待传输完成。
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.BL2.png
-   :alt: TeraTerm.Transmit.BL2.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.BL2.png
+      :alt: TeraTerm.Transmit.BL2.png
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.BL2.Done.png
-   :alt: TeraTerm.FW.BL2.Done.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.BL2.Done.png
+      :alt: TeraTerm.FW.BL2.Done.png
 
 * 刷入 fip 固件：
 
@@ -118,16 +119,18 @@
    300
    44000000
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.FIP.CMD.png
-   :alt: TeraTerm.FW.FIP.CMD.png
+/
+
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.FIP.CMD.png
+      :alt: TeraTerm.FW.FIP.CMD.png
 
    * 传输 fip 固件：把 `3.2-固件` 目录的 `fip-myzr-rzv2h-ek320-8g.srec` 文件直接拖入到 Tera Term 软件窗口上（这里根据拿到的开发板的内存容量选择对应的文件），并等待传输完成。
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.FIP.png
-   :alt: TeraTerm.Transmit.FIP.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.FIP.png
+      :alt: TeraTerm.Transmit.FIP.png
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.FIP.Done.png
-   :alt: TeraTerm.FW.FIP.Done.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.FIP.Done.png
+      :alt: TeraTerm.FW.FIP.Done.png
 
 * 烧录 Boot 完成
 
@@ -169,7 +172,7 @@
   =>
 
 刷新系统
-----------
+~~~~~~~~~~
 
 * **启动刷机系统**：输入下面的命令即可从 U 盘启动刷机系统。
 
@@ -238,5 +241,5 @@
 
 * 附图
 
-.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/Update.Done.Login.png
-   :alt: Update.Done.Login.png
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/Update.Done.Login.png
+      :alt: Update.Done.Login.png

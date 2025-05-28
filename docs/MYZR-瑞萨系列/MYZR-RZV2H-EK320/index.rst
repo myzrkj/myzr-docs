@@ -2,7 +2,7 @@ MYZR-RZV2H-EK320
 ==================
 
 .. toctree:: 
-   :maxdepth: 1
+   :maxdepth: 3
 
    平台介绍
    刷机手册
