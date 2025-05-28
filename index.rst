@@ -25,10 +25,11 @@
    :maxdepth: 1
    :caption: MYZR-全志系列
 
+   docs/MYZR-全志系列/MYZR-T113/index
+   docs/MYZR-全志系列/MYZR-H618/index
    docs/MYZR-全志系列/MYZR-A40I-EK204/index
    docs/MYZR-全志系列/MYZR-R16-EK166/index
    docs/MYZR-全志系列/MYZR-R16-EK166(EN)/index
-   docs/MYZR-全志系列/MYZR-T113/index
 
 .. toctree::
    :maxdepth: 1

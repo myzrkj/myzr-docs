@@ -1,0 +1,98 @@
+启动手册
+==========
+
+开发板连接
+-----------
+
+检查电源开关
+~~~~~~~~~~~~~
+
+|   把开发板的J1口USB-TYPEC线拨出，以确保开发板电源开关处于断开状态。
+
+串口线的连接
+~~~~~~~~~~~~~
+
+1. 把串口线的一端连接到开发板的“J2”口，另一端连接到电脑的串口。
+2. 参考 《Xshell 参考手册》 新建串口会话并打开会话。
+
+网线的连接
+~~~~~~~~~~~
+
+|   把网线的一端连接到“J6”，另一端连接到电脑的网口。
+
+下载线的连接
+~~~~~~~~~~~~~
+
+|   把双头USB-TypeC线的一端连接J1，另一端连接到电脑的后置USB口。
+
+电源线的连接
+~~~~~~~~~~~~~
+
+|   把电源适配器的USB-TypeC端连接到开发板的“J1”，另一端插入到市电（220V的交流电）插座。
+
+HDMI显示屏连接
+~~~~~~~~~~~~~~~
+
+|   将 HDMI显示屏连接线的一端接到开发板的J5，另一端接到 HDMI 显示屏，并为 HDMI显示屏上电。
+|   注意： HDMI 显示屏的分辨率建议使用 1080P，以及使用HDMI 接口的显示屏，而不是转接为 HDMI 接口的。
+
+
+启动开发板
+-----------
+
+为开发板上电
+~~~~~~~~~~~~~
+
+|   将电源线接入J1,使开发板通电。
+
+开发板的启动信息解读
+---------------------
+
+|   开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
+
+.. code-block:: shell
+
+    U-Boot 2021.04-g245e65b5 (Jan 17 2023 - 17:01:28 +0800)CPU:   
+    i.MX8MP[8] rev1.1 1800 MHz (running at 1200 MHz)CPU:   
+    Commercial temperature grade (0C to 95C) at 28CReset cause: 
+    PORModel: MYZR i.MX8MPlus EK314 boardDRAM:  6 GiBMMC:   
+    FSL_SDHC: 1, FSL_SDHC: 2Loading Environment from MMC... 
+    OK........Starting kernel ...[    0.000000] Booting Linux on 
+    physical CPU 0x0000000000 [0x410fd034][    0.000000] Linux 
+    version 5.10.72-gdcb9071261a3 (tangbin@MYZR-230304) (aarch64-
+    linux-gnu-gcc (Linaro GCC 7.5-2019.12) 7.5.0, GNU ld 
+    (Linaro_Binutils-2019.12) 2.28.2.20170706) #11 SMP PREEMPT 
+    Thu Mar 16 10:25:45 CST 2023[    0.000000] Machine model: 
+    MYZR i.MX8M Plus EK314 board[    0.000000] efi: UEFI not 
+    found.[    0.000000] Reserved memory: created CMA memory pool 
+    at 0x00000000c4000000, size 960 MiB[    0.000000] OF: 
+    reserved mem: initialized node linux,cma, compatible id 
+    shared-dma-pool[    0.000000] Reserved memory: created DMA 
+    memory pool at 0x0000000094300000, size 1 MiB[    0.000000] 
+    OF: reserved mem: ini............NXP i.MX Release Distro 5.10-
+    hardknott imx8mp-ddr4-evk ttymxc1imx8mp-ddr4-evk login: [
+    33.759760] can1-stby: disabling
+  
+U-Boot 信息
+~~~~~~~~~~~~~
+
+|   启动信息中 U-Boot SPL 2021.04-lf_v2021.04+g8372631b28 (Jun 10 2022- 06:24:02 +0000) 包含以下信息：
+|   【u-boot版本】 ：2021.04；
+|   【源码的版本号】 ：g8372631b28；
+|   【u-boot文件的编译时间】 ：Jun 10 2022 - 06:24:02 +0000。
+
+内核信息
+~~~~~~~~~~
+
+* 启动信息中 Linux version 5.10.72-gdcb9071261a3(tangbin@MYZR-230304) |(aarch64-linux-gnu-gcc (Linaro GCC 7.5-2019.12)7.5.0, GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706) #11 SMPPREEMPT Thu Mar 16 10:25:45 CST 202 包含以下信息：
+* 【内核版本】 ：Linux- 5.10.72；
+* 【编译内核的GCC版本】 ： 7.5；
+* 【内核文件的编译时间】 ：Thu Mar 16 10:25:45 CST 2023。
+
+开发板登录
+-----------
+
+|   启动系统完后输出 imx8mp-ddr4-evk login: 时，可以登录：
+|   【用户名】 ：root
+|   【密码】 ：无
+|   提示：登录后可以通过“passwd”命令来设置和修改密码。
