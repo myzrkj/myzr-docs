@@ -25,6 +25,7 @@
    :maxdepth: 1
    :caption: MYZR-全志系列
 
+   docs/MYZR-全志系列/MYZR-T536/index
    docs/MYZR-全志系列/MYZR-T113/index
    docs/MYZR-全志系列/MYZR-H618/index
    docs/MYZR-全志系列/MYZR-A40I-EK204/index
