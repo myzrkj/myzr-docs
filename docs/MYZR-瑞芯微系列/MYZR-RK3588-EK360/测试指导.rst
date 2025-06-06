@@ -212,6 +212,132 @@ SD接口测试
 |   耳机或者喇叭有录制声音输出表示录音测试通过
 
 
+Wifi测试
+----------
+
+|   接口丝印：U19
+|   测试说明：WIFI连接到AP后，开发板向外网发送ICMP报文来验证连接正常
+|   测试操作：
+
+1. 把WIFI天线连接到"U19"接口上
+2. 生成 SSID 的 WPA PSK 文件
+
+.. code-block:: shell
+
+    wpa_passphrase命令格式: wpa_passphrase + wifi名称 + wifi密码 > /etc/wpa_supplicant.conf
+
+|   输入指令如下：
+
+.. code-block:: shell
+
+    wpa_passphrase MY-WIFI My202412 > /etc/wpa_supplicant.conf
+
+3. 连接，输入指令如下：
+
+.. code-block:: shell
+
+    wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Successfully initialized wpa_supplicant
+    nl80211: kernel reports: Authentication algorithm number required
+    [  266.744713] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+
+4. 获取IP，输入指令如下：
+
+.. code-block:: shell
+
+    udhcpc -i wlan0
+
+|   输出信息：
+
+.. code-block:: shell
+
+    udhcpc: started, v1.36.0
+    udhcpc: broadcasting discover
+    udhcpc: broadcasting select for 192.168.61.187, server 192.168.60.1
+    udhcpc: lease of 192.168.61.187 obtained from 192.168.60.1, lease time 86400
+    deleting routers
+    adding dns 192.168.60.1
+
+5. 测试连接，输入指令如下：
+
+.. code-block:: shell
+
+    ping -I wlan0 www.baidu.com -c 3
+
+|   输出信息：
+
+.. code-block:: shell
+
+    PING www.a.shifen.com (183.2.172.177) from 192.168.61.187 wlan0: 56(84) bytes of data.
+    64 bytes from 183.2.172.177 (183.2.172.177): icmp_seq=1 ttl=54 time=11.2 ms
+    64 bytes from 183.2.172.177 (183.2.172.177): icmp_seq=2 ttl=54 time=13.8 ms
+    64 bytes from 183.2.172.177 (183.2.172.177): icmp_seq=3 ttl=54 time=14.1 ms
+
+    --- www.a.shifen.com ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+    rtt min/avg/max/mdev = 11.158/13.029/14.104/1.328 ms
+
+|   结果："0% packet loss"表示wifi连接正常
+
+蓝牙测试
+----------
+
+|   接口丝印：U19
+|   测试说明：扫描到蓝牙设备后，发送L2CAP回应请求并接收回答
+|   测试操作：
+
+1. 把天线连接到"U19"接口上
+2. 启动蓝牙，输入指令如下：
+
+.. code-block:: shell
+
+    hciconfig hci0 up
+
+3. 扫描外部蓝牙设备，输入指令如下：
+
+.. code-block:: shell
+
+    hcitool scan
+
+|   输出：
+
+.. code-block:: shell
+
+    [  679.593805] rtk_btcoex: inquiry complete
+            D0:57:7E:BF:9B:44        SZ-L0648
+            10:38:1F:5C:61:9D        n/a
+            7C:21:4A:C7:A2:21        PFBYRXUIAKYSFRJ
+            74:B5:87:DB:09:7A        chensz
+
+|   获取输出信息，需要的信息类似如下"        74:B5:87:DB:09:7A        chensz"
+
+4. 发送L2CAP包测试，输入指令如下：
+
+.. code-block:: shell
+
+    l2ping 74:B5:87:DB:09:7A
+
+|   输出信息：
+
+.. code-block:: shell
+
+    root@root:/# l2ping 74:B5:87:DB:09:7A
+    Ping: 74:B5:87:DB:09:7A from C8:FE:0F:02:26:03 (data size 44) ...
+    0 bytes from 74:B5:87:DB:09:7A id 0 time 7.54ms
+    0 bytes from 74:B5:87:DB:09:7A id 1 time 14.19ms
+    0 bytes from 74:B5:87:DB:09:7A id 2 time 142.73ms
+    0 bytes from 74:B5:87:DB:09:7A id 3 time 111.30ms
+    0 bytes from 74:B5:87:DB:09:7A id 4 time 131.44ms
+    ^C5 sent, 5 received, 0% loss
+
+|   结果："0% packet loss"表示蓝牙连接正常
+
+
 SATA接口测试
 --------------
 
@@ -662,12 +788,17 @@ GPIO测试
 +--------+----------+----------+----------+----------+----------+--------+
 | GIPO   | GPIO3_B6 | GPIO3_A6 | GPIO4_C3 | GPIO2_C3 | GPIO2_C4 | GND    |
 +--------+----------+----------+----------+----------+----------+--------+
-| 高电平 | 3.3V     | 3.3V     |          |          |          | -      |
+| 高电平 | 3.3V     | 3.3V     | 1.8V     | 1.8V     | 1.8V     | -      |
 +--------+----------+----------+----------+----------+----------+--------+
+
 
 |   测试操作
 
 1. 输入如下指令使J23：2处于高电平：
+
+.. code-block:: shell
+
+    /test_app/gpio_test.out GPIO3_A6 1
 
 |   输出
 
