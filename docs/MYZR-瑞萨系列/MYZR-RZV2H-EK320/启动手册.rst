@@ -82,30 +82,29 @@
 
   * 开发板最先启动的是 Boot，Boot 输出的信息类似如下：
 
-.. code-block:: shell
+  .. code-block:: shell
 
-   NOTICE:  BL2: v2.7(release):3ff5203
-   NOTICE:  BL2: Built : 08:59:25, May 26 2025
-   NOTICE:  BL2: Booting BL31
-   NOTICE:  BL31: v2.7(release):3ff5203
-   NOTICE:  BL31: Built : 08:59:25, May 26 2025
+     NOTICE:  BL2: v2.7(release):3ff5203
+     NOTICE:  BL2: Built : 08:59:25, May 26 2025
+     NOTICE:  BL2: Booting BL31
+     NOTICE:  BL31: v2.7(release):3ff5203
+     NOTICE:  BL31: Built : 08:59:25, May 26 2025
 
 
-   U-Boot 2021.10 (May 27 2025 - 07:07:53 +0000)
+     U-Boot 2021.10 (May 27 2025 - 07:07:53 +0000)
 
-   CPU:   Renesas Electronics CPU rev 1.0
-   Model: MYZR RZV2H LGA320 Evaluation Kit - 4GB Memory
-   DRAM:  3.9 GiB
-   MMC:   mmc@15c00000: 0, mmc@15c10000: 1
-   Loading Environment from MMC... *** Warning - bad CRC, using default environment
+     CPU:   Renesas Electronics CPU rev 1.0
+     Model: MYZR RZV2H LGA320 Evaluation Kit - 4GB Memory
+     DRAM:  3.9 GiB
+     MMC:   mmc@15c00000: 0, mmc@15c10000: 1
+     Loading Environment from MMC... *** Warning - bad CRC, using default environment
 
-   In:    serial@11c01400
-   Out:   serial@11c01400
-   Err:   serial@11c01400
-   Net:   eth0: ethernet@15c30000
-   Hit any key to stop autoboot:    
+     In:    serial@11c01400
+     Out:   serial@11c01400
+     Err:   serial@11c01400
+     Net:   eth0: ethernet@15c30000
+     Hit any key to stop autoboot:    
 
-\
 
   * 其中行首是 `NOTICE` 的是 `trusted-firmware-a` 信息，主要有：
 
@@ -123,17 +122,16 @@
 
   * 从 `Starting kernel` 开始是内核信息，主要如下：
 
-.. code-block:: shell
+  .. code-block:: shell
 
-    Starting kernel ...
-    
-    [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x412fd050]
-    [    0.000000] Linux version 5.10.145-cip17-yocto-standard (oe-user@oe-host) (aarch64-poky-linux-gcc (GCC) 8.3.0, GNU ld (GNU Binutils) 2.31.1) #1 SMP PREEMPT Mon May 26 12:39:31 UTC 2025
-    [    0.000000] Machine model: MYZR RZV2H LGA320 Evaluation Kit - 4GB Memory
-    [    0.000000] earlycon: scif0 at MMIO 0x0000000011c01400 (options '115200n8')
-    [    0.000000] printk: bootconsole [scif0] enabled
+      Starting kernel ...
 
-\
+      [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x412fd050]
+      [    0.000000] Linux version 5.10.145-cip17-yocto-standard (oe-user@oe-host) (aarch64-poky-linux-gcc (GCC) 8.3.0, GNU ld (GNU Binutils) 2.31.1) #1 SMP PREEMPT Mon May 26 12:39:31 UTC 2025
+      [    0.000000] Machine model: MYZR RZV2H LGA320 Evaluation Kit - 4GB Memory
+      [    0.000000] earlycon: scif0 at MMIO 0x0000000011c01400 (options '115200n8')
+      [    0.000000] printk: bootconsole [scif0] enabled
+
 
   * 内核构建信息是：`Linux version 5.10.145-cip17-yocto-standard (oe-user@oe-host) (aarch64-poky-linux-gcc (GCC) 8.3.0, GNU ld (GNU Binutils) 2.31.1) #1 SMP PREEMPT Fri Apr 11 02:33:14 UTC 2025`
 
@@ -151,22 +149,21 @@
 
   * 开发板启动完成后，可以看到系统登录信息如下：
 
-.. code-block:: shell
+  .. code-block:: shell
+  
+      Poky (Yocto Project Reference Distro) 3.1.31 myzr-rzv2h-ek320 ttySC0
+      
+      BOARD: MYZR RZV2H LGA320 Evaluation Kit
+      LSI: RZ/V2H
+      AI SDK V5.00 (Source Code)
+      myzr-rzv2h-ek320 login:
 
-    Poky (Yocto Project Reference Distro) 3.1.31 myzr-rzv2h-ek320 ttySC0
-    
-    BOARD: MYZR RZV2H LGA320 Evaluation Kit
-    LSI: RZ/V2H
-    AI SDK V5.00 (Source Code)
-    myzr-rzv2h-ek320 login:
 
-\
+  **构建工具**：`Poky 3.1.31`
 
-    **构建工具**：`Poky 3.1.31`
+  **系统源码**：`AI SDK V5.00`
 
-    **系统源码**：`AI SDK V5.00`
-
-    **开发板信息**：`MYZR RZV2H LGA320 Evaluation Kit`
+  **开发板信息**：`MYZR RZV2H LGA320 Evaluation Kit`
 
 开发板登录
 ------------
@@ -177,7 +174,7 @@
 
   **密码**：无
 
-  **提示**：登录后可以通过 ***passwd*** 命令来设置和修改密码。
+  **提示**：登录后可以通过 **passwd** 命令来设置和修改密码。
 
 .. code-block:: shell
 

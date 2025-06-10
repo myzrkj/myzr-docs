@@ -1,0 +1,947 @@
+测试手册
+=========
+
+测试概览
+----------
+
++--------------+----------+---------+----------+------------+----------+
+| 测试项       | 测试结果 | 测试项  | 测试结果 | 测试项     | 测试结果 |
++--------------+----------+---------+----------+------------+----------+
+| 电源指示灯   | Pass     | TF Card | Pass     | HDMI       | Pass     |
++--------------+----------+---------+----------+------------+----------+
+| 电源开关     | Pass     | 网口一  | Pass     | USB摄像头  | Pass     |
++--------------+----------+---------+----------+------------+----------+
+| 复位按键     | Pass     | 网口二  | Pass     | M.2 SSD    | Pass     |
++--------------+----------+---------+----------+------------+----------+
+| 系统指示灯   | Pass     | RTC     |          | M.2 WiFi   | Pass     |
++--------------+----------+---------+----------+------------+----------+
+| 内存压力测试 | Pass     | 音频    |          | M.2 5G     | Pass     |
++--------------+----------+---------+----------+------------+----------+
+| USB 2.0      | Pass     |         |          | Mipi摄像头 | Pass     |
++--------------+----------+---------+----------+------------+----------+
+| USB 3.0      | Pass     |         |          |            |          |
++--------------+----------+---------+----------+------------+----------+
+
+
+电源指示灯
+-----------
+
+* 接口丝印：LD6
+
+**状态说明**
+
+* 亮：表示开发板的主电源接通。
+* 灭：表示开发板的主电源断开。
+
+**功能测试**
+
+* 参考本手册 `电源开关` 进行测试。
+
+电源开关
+----------
+
+* 接口丝印：SW3
+
+**功能测试**
+
+* **说明**：通过电源开关可以控制开发板的电源通断。
+
+- **关闭电源**
+
+  1）操作：在接通设备电源的情况下，把开发板的电源开关拨到 **OFF** 。
+
+  2）结果：看到开发板电源指示灯灭掉即正常。
+
+  3）提示：开发板电源指示需要几秒钟才会完全熄灭，这是正常现象。是因为通电后开发板上的电容有储电，电容放电完指示灯即完全熄灭。
+
+- **开启电源**
+
+  1）操作：在前面电源关闭的情况下，把开发板的电源开关拨到 **ON**。
+
+  2）结果：看到开发板电源指示灯亮起来即正常。
+
+复位按键
+----------
+
+- 接口丝印：SW1
+
+**功能测试**
+
+* 说明：短按复位按键可以使设备电源复位。
+
+* 操作：在主板电源开启的情况下，短按复位按键即可使设备电源复位。
+
+* 结果：按下并松开后，可以通过串口看到开发板在重启，即正常。
+
+系统指示灯
+-----------
+
+**接口丝印**
+
+* 心跳指示灯：LD2
+* 用户指示灯：LD1
+
+**系统接口**
+
+* 心跳指示灯：/sys/class/leds/heartbeat
+* 用户指示灯：/sys/class/leds/user
+
+**功能测试**
+
+- **心跳指示灯**
+
+  1）说明：通过心跳指示灯用于观察系统是否正常运行。
+
+  2）操作：无
+
+  3）结果：系统启动成功后，心跳指示灯会闪烁，表示系统正常运行中，此功能正常。
+
+- **用户指示灯**
+
+  1）说明：用户指示灯可通常系统接口由用户控制。
+
+  2）操作：通过系统接口控制，控制命令如下：
+
+.. code-block:: shell
+
+   # 灭灯
+   echo 0 > /sys/class/leds/user/brightness
+   # 亮灯
+   echo 1 > /sys/class/leds/user/brightness
+
+\
+
+  3）结果：执行灭灯命令后，用户指示灯的熄灭。执行亮灯命令后，用户指示灯的亮起来。
+
+内存压力测试
+--------------
+
+* 接口丝印：无
+
+**功能测试**
+
+* 说明：
+
+  1）采用内存压力测试工具进行测试。
+
+  2）内存压力测试需要的时间比较长，如果没有遇到问题，可以跳过内存测试。
+
+  3）内存空间有预分配 1917MB，具体为
+
+  * Security Area - 128MB
+  * Linux CMA - 256MB
+  * CMA for Codec - 512MB
+  * CMA for ISP - 384MB
+  * OpenCVA - 125MB
+  * DRP-AI - 512MB
+
+* 操作：
+
+  1）输入下面命令进行测试
+
+.. code-block:: shell
+
+   # 如果是 4GB 内存的开发板，执行这条命令
+   memtester 2100m 1
+   # 如果是 8GB 内存的开发板，执行这条命令
+   memtester 6100m 1
+   # 如果是 16GB 内存的开发板，执行这条命令
+   memtester 14100m 1
+
+\
+
+  2）内存压力测试需要的时间比较长，测试过程中字符或光标会闪烁，同时可以看到的信息类似如下：
+
+.. code-block:: shell
+
+  memtester version 4.3.0 (64-bit)
+  Copyright (C) 2001-2012 Charles Cazabon.
+  Licensed under the GNU General Public License version 2 (only).
+  
+  pagesize is 4096
+  pagesizemask is 0xfffffffffffff000
+  want 6100MB (6396313600 bytes)
+  got  6100MB (6396313600 bytes), trying mlock ...locked.
+  Loop 1/1:
+    Stuck Address       : ok
+    Random Value        : ok
+    Compare XOR         : ok
+    Compare SUB         : ok
+    Compare MUL         : ok
+    Compare DIV         : ok
+    Compare OR          : ok
+    Compare AND         : ok
+    Sequential Increment: ok
+    Solid Bits          : ok
+    Block Sequential    : ok
+    Checkerboard        : ok
+    Bit Spread          : ok
+    Bit Flip            : ok
+    Walking Ones        : ok
+    Walking Zeroes      : ok
+  
+  Done.
+
+* 结果：测试命令能够正常执行完，且输出信息符合预期即正常。
+
+USB 2.0
+----------
+
+* 接口丝印：J7
+
+**功能测试**
+
+* 说明：采用插拔USB存储设备（U盘）的方式进行测试
+
+* 操作
+
+  1）将 U 盘插入开发板的 USB 2.0 接口，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+  usb 1-1: new high-speed USB device number 2 using ehci-platform
+  usb-storage 1-1:1.0: USB Mass Storage device detected
+  scsi host0: usb-storage 1-1:1.0
+  ......
+   sda: sda1
+  sd 0:0:0:0: [sda] Attached SCSI removable disk
+
+\
+
+  2）将 U 盘从开发板拔出，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+   usb 1-1: USB disconnect, device number 2
+
+* 结果：插拔 U 盘时系统输出的信息符合预期，表示正常。
+
+USB 3.0
+----------
+
+* 接口丝印：J7
+
+**功能测试**
+
+* 说明：采用插拔USB存储设备（U盘）的方式进行测试
+
+* 操作：
+
+  1）将 USB 3.0 盘插入开发板的 USB 3.0 接口，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+  usb 6-1: new SuperSpeed Gen 1 USB device number 2 using xhci-hcd
+  usb-storage 6-1:1.0: USB Mass Storage device detected
+  scsi host0: usb-storage 6-1:1.0
+  ......
+   sda: sda1
+  sd 0:0:0:0: [sda] Attached SCSI removable disk
+
+\
+
+  2）将 U 盘从开发板拔出，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+   usb 6-1: USB disconnect, device number 2
+
+
+* 结果：插拔 U 盘时系统输出的信息符合预期，表示正常。
+
+网口一
+--------
+
+  + 接口丝印：CN6
+  + 系统接口：eth0
+
+**功能测试**
+
+* 说明：采用开发板向 PC 发送 ICMP 报文的方式进行测试
+
+* 操作
+
+  1）配置电脑有线网卡 IP 为 192.168.137.99。
+
+  2）把开发板的这个网口用网线跟电脑网口连接起来。
+
+  3）配置开发板网口 IP，具体配置命令如下：
+
+.. code-block:: shell
+
+  ifconfig eth1 down
+  ifconfig eth0 up
+  ifconfig eth0 192.168.137.81
+
+\
+
+  4）执行网口测试命令，具体命令如下：
+
+.. code-block:: shell
+
+   ping 192.168.137.99 -c 2 -w 4
+
+\
+
+  * 可以看到输出信息类似如下：
+
+.. code-block:: shell
+
+  PING 192.168.137.99 (192.168.137.99): 56 data bytes
+  64 bytes from 192.168.137.99: seq=0 ttl=128 time=0.833 ms
+  64 bytes from 192.168.137.99: seq=1 ttl=128 time=0.429 ms
+  
+  --- 192.168.137.99 ping statistics ---
+  2 packets transmitted, 2 packets received, 0% packet loss
+  round-trip min/avg/max = 0.429/0.631/0.833 ms
+
+\
+
+  5）拔下网线，可以看到类似如下信息：
+
+.. code-block:: shell
+
+   dwc-eth-dwmac 15c30000.ethernet eth0: Link is Down
+
+
+* 结果：操作过程中，看到的输出信息符合预期，以及 `ping` 测试时 `0% packet loss` 表示网口正常。
+
+网口二
+--------
+
+  + 接口丝印：CN7
+  + 系统接口：eth1
+
+**功能测试**
+
+* 说明：采用开发板向 PC 发送 ICMP 报文的方式进行测试
+
+* 操作
+
+  1）配置电脑有线网卡 IP 为 192.168.137.99。
+
+  2）把开发板的这个网口用网线跟电脑网口连接起来。
+
+  3）配置开发板网口 IP，具体配置命令如下：
+
+.. code-block:: shell
+
+  ifconfig eth0 down
+  ifconfig eth1 up
+  ifconfig eth1 192.168.137.90
+
+\
+
+  4）执行网口测试命令，具体命令如下：
+
+.. code-block:: shell
+
+   ping 192.168.137.99 -c 2 -w 4
+
+\
+
+  * 可以看到输出信息类似如下：
+
+.. code-block:: shell
+
+  PING 192.168.137.99 (192.168.137.99): 56 data bytes
+  64 bytes from 192.168.137.99: seq=0 ttl=128 time=0.849 ms
+  64 bytes from 192.168.137.99: seq=1 ttl=128 time=0.470 ms
+  
+  --- 192.168.137.99 ping statistics ---
+  2 packets transmitted, 2 packets received, 0% packet loss
+  round-trip min/avg/max = 0.470/0.659/0.849 ms
+
+\
+
+  5）拔下网线，可以看到类似如下信息：
+
+.. code-block:: shell
+
+   dwc-eth-dwmac 15c40000.ethernet eth1: Link is Down
+
+
+* 结果：操作过程中，看到的输出信息符合预期，以及 `ping` 测试时 `0% packet loss` 表示网口正常。
+
+TF 卡
+-------
+
++ 接口丝印：J10
++ 说明：设备的 TF 卡接口支持热插拔，TF 卡座是自弹式。
+
+**功能测试**
+
+* 说明：通过插拔 TF 卡，看开发板能否正确识别和移除 TF 卡。
+
++ 操作：
+
+  1）插入 TF 卡，这时开发板的调试口应该输出类似如下信息：
+
+.. code-block:: shell
+
+   mmc1: new high speed SDHC card at address 5048
+   mmcblk1: mmc1:5048 SD32G 29.7 GiB
+    mmcblk1: p1 p2
+
+\
+
+  2）弹出 TF 卡，这时开发板的调试口应该输出类似如下信息：
+
+.. code-block:: shell
+
+   mmc1: card 5048 removed
+
+* 结果：如果插卡和拔插时的输出信息符合预期，表示 TF 功能正常。
+
+HDMI
+------
+
++ 接口丝印：CN5
+
+**功能测试**
+
+* 说明：设备会识别到 HDMI 显示设备并启用，建议使用原生 HDMI 接口的显示屏。
+
+* 操作：
+
+  1）为开发板断电并连接 HDMI 显示屏。
+
+  2）为开发上电，在开机过程中，可以看到 HDMI 显示屏输出的画面。
+
+* 结果：HDMI 显示屏正常显示表示功能正常。
+
+* 附：可以在终端输入 `fbset` 命令查看 Frambuffer 信息，信息类似如下：
+
+.. code-block:: shell
+
+   mode "1920x1080-0"
+           # D: 0.000 MHz, H: 0.000 kHz, V: 0.000 Hz
+           geometry 1920 1080 1920 1080 32
+           timings 0 0 0 0 0 0 0
+           accel true
+           rgba 8/16,8/8,8/0,0/0
+   endmode
+
+
+USB 摄像头
+------------
+
++ 接口丝印：J7
+
+**功能测试**
+
+* 说明：系统已经支持 USB 摄像头，且支持热插拔，可使用常用的 USB 摄像头进行测试。
+
+* 操作：
+
+  1）连接 HDMI 显示屏并插入 USB 摄像头后，输入下面的命令查看 USB 设备：
+
+.. code-block:: shell
+
+   lsusb
+
+\
+
+  * 可以看到如下信息（提示：摄像头型号不一样，USB 总线上列出的信息会有差异）：
+
+.. code-block:: shell
+
+   ......
+   Bus 001 Device 003: ID 2bdf:0297 DC474C08_P050301_SN0002 2K USB Camera
+   ......
+
+\
+
+  2）使用 `gst-launch` 采集摄像头图像，命令如下：
+
+
+.. code-block:: shell
+
+   gst-launch-1.0 v4l2src device=/dev/video0 ! waylandsink
+
+\
+
+  * 可以看到类似如下信息：
+
+.. code-block:: shell
+
+   Setting pipeline to PAUSED ...
+   Pipeline is live and does not need PREROLL ...
+   Setting pipeline to PLAYING ...
+   New clock: GstSystemClock
+
+\
+
+  3）命令执行后，可以在 HDMI 显示屏看看到摄像头采集到的画面。
+
+* 结果：显示上正常显示 USB 摄像头采集到的图像表示正常。
+
+M.2 SSD
+---------
+
+* 接口说明：PCIe x 2 M.2 Key-M 接口，可用于连接 M.2 固态硬盘。
+* 接口丝印：J14
+* 系统接口：/dev/nvme0
+
+**功能测试**
+
+* 操作
+
+  1）为开发板断电并把 M.2 SSD 安装到开发板并固定好。
+
+  2）为开发板上电，系统启动成功并登录后，输入 `lspci` 命令可以看到固态硬盘的信息（这里的设备 ID 因 SSD 厂商的不同会不一样）：
+
+.. code-block:: shell
+
+   01:00.0 Non-Volatile memory controller: Device 1e4b:1202 (rev 01)
+
+\
+
+  3）输入下面命令，查看内核信息：
+
+.. code-block:: shell
+
+   dmesg | grep -i nvme
+
+\
+
+  * 应当看到类似如下信息：
+
+.. code-block:: shell
+
+   nvme nvme0: pci function 0000:01:00.0
+   nvme 0000:01:00.0: enabling device (0000 -> 0002)
+   nvme nvme0: allocated 8 MiB host memory buffer.
+   nvme nvme0: 4/0/0 default/read/poll queues
+    nvme0n1: p1
+
+* 结果：查看内核信息时能够看到 SSD 的信息表示正常。
+
+* 其它：
+
+  1）如果 SSD 的分区是 Linux 能支持的类型，则可以把 SSD 挂载到系统，参考命令如下：
+
+.. code-block:: shell
+
+   mount /dev/nvme0n1p1 /mnt
+
+\
+
+  2）如果 SSD 的分区系统不能识别，请先备份好数据，再对 SSD 创建并格式化分区，即可挂载。
+
+M.2 WiFi
+----------
+
+* 接口说明：PCIe M.2 Key-E 接口，可用于连接 M.2 WiFi 网卡。
+
+* 接口丝印：J11
+
+**功能测试**
+
+* 操作一：更新固件和配置到开发板
+
+  1）为开发板断电并连接 Intel AC3165 网卡到 WiFi 接口。
+
+  2）为开发上电，登录开发板后输入 `lspci` 命令查看 PCI 总线上是否存在 3165 模块：
+
+.. code-block:: shell
+
+   lspci
+
+\
+
+  应当可以看到 Intel 3165 网卡的信息：
+
+.. code-block:: shell
+
+   01:00.0 Network controller: Intel Corporation Wireless 3165 (rev 79)
+
+\
+
+  3）把 WiFi 模块的固件解压到开发板的根目录（WiFi 固件位于 `1.通用资料/1.2固件` ）：
+
+.. code-block:: shell
+
+   tar xf iwlwifi-7265.tar.gz -C /
+
+\
+
+  4）加载 WiFi 的驱动模块，命令如下：
+
+.. code-block:: shell
+
+   cd /lib/modules/$(uname -r)
+   depmod -a
+   modprobe cfg80211
+   modprobe mac80211
+   modprobe iwlwifi
+   modprobe iwlmvm
+
+\
+
+  加载后通过 `lsmod` 命令查看驱动模块的状态，可以看到下面信息：
+
+.. code-block:: shell
+
+   Module                  Size  Used by
+   iwlmvm                299008  0
+   mac80211              438272  1 iwlmvm
+   iwlwifi               229376  1 iwlmvm
+   cfg80211              307200  3 iwlmvm,iwlwifi,mac80211
+
+\
+
+  5）检查驱动绑定状态，命令如下：
+
+.. code-block:: shell
+
+   lspci -nnk -d 8086:3165
+
+\
+
+  执行命令后可以看到的信息如下：
+
+.. code-block:: shell
+
+   01:00.0 Network controller [0280]: Intel Corporation Wireless 3165 [8086:3165] (rev 79)
+           Subsystem: Intel Corporation Wireless 3165 [8086:4410]
+           Kernel modules: iwlwifi
+
+\
+
+  6）创建配置，命令如下：
+
+.. code-block:: shell
+
+   wpa_passphrase MY-WIFI wifi_passwd > /etc/wpa_supplicant.conf
+
+\
+
+  * 提示：“MY-WIFI” 需要修改为自己可以连接的 WiFi 网络名称，wifi_passwd 需要改为对应 WiFi 热点的密码。
+
+* 操作二：测试 WiFi 功能
+
+  1）重启开发板，在系统启动成功输入 `lsmod` 查看 WiFi 驱动模块加载情况，这次我们可以看到驱动模块已经自动加载了，信息如下：
+
+.. code-block:: shell
+
+   Module                  Size  Used by
+   iwlmvm                299008  0
+   mac80211              438272  1 iwlmvm
+   iwlwifi               229376  1 iwlmvm
+   cfg80211              307200  3 iwlmvm,iwlwifi,mac80211
+
+\
+
+  2）检查 WiFi 网卡信息，命令如下：
+
+.. code-block:: shell
+
+  dmesg | grep -i iwlwifi
+
+\
+
+  可以看到的信息如下：
+
+.. code-block:: shell
+
+   iwlwifi 0000:01:00.0: enabling device (0000 -> 0002)
+   iwlwifi 0000:01:00.0: Found debug destination: EXTERNAL_DRAM
+   iwlwifi 0000:01:00.0: Found debug configuration: 0
+   iwlwifi 0000:01:00.0: loaded firmware version 29.4063824552.0 7265D-29.ucode op_mode iwlmvm
+   iwlwifi 0000:01:00.0: Detected Intel(R) Dual Band Wireless AC 3165, REV=0x210
+   iwlwifi 0000:01:00.0: Applying debug destination EXTERNAL_DRAM
+   iwlwifi 0000:01:00.0: Allocated 0x00400000 bytes for firmware monitor.
+   iwlwifi 0000:01:00.0: base HW address: a4:6b:b6:52:1c:0a
+   iwlwifi 0000:01:00.0 wlp1s0: renamed from wlan0
+
+\
+
+  * 提示：可以看到 WiFi 模块在系统里注册的接口为 `wlp1s0`。
+
+  3）连接 WiFi 网络，命令如下：
+
+.. code-block:: shell
+
+   wpa_supplicant -B -i wlp1s0 -c /etc/wpa_supplicant.conf
+
+\
+
+  应当看到的信息如下：
+
+.. code-block:: shell
+
+   Successfully initialized wpa_supplicant
+   rfkill: Cannot open RFKILL control device
+
+\
+
+  4）检查连接信息，命令如下：
+
+.. code-block:: shell
+
+   dmesg | grep -i -E "wlp1s0|iwlwifi"
+
+\
+
+  应当看到的信息如下：
+
+.. code-block:: shell
+
+   iwlwifi 0000:01:00.0: Applying debug destination EXTERNAL_DRAM
+   iwlwifi 0000:01:00.0: FW already configured (0) - re-configuring
+   ......
+   wlp1s0: authenticated
+   ......
+   wlp1s0: associated
+   IPv6: ADDRCONF(NETDEV_CHANGE): wlp1s0: link becomes ready
+
+\
+
+  5）为 WiFi 网卡获取 IP，命令如下：
+
+.. code-block:: shell
+
+   udhcpc -i wlp1s0
+
+\
+
+  应当看到的信息类似如下：
+
+.. code-block:: shell
+
+   udhcpc: started, v1.30.1
+   udhcpc: sending discover
+   udhcpc: sending select for 192.168.61.130
+   udhcpc: lease of 192.168.61.130 obtained, lease time 86400
+   /etc/udhcpc.d/50default: Adding DNS 192.168.60.1
+
+\
+
+* 结果：WiFi 网卡能获取到 IP 表示正常。
+
+M.2 5G
+---------
+
++ 接口丝印：J13
+
+**功能测试**
+
+* 说明：已经适配的 5G 模块型号是 Quectel RM500Q。
+
+* 操作：
+
+  1）为开发板断电并连接 Quectel RM500Q 到 5G 接口。
+
+  2）为开发上电，登录开发板后输入 `lsusb` 命令查看 USB 总线上是否存在 RM500Q 模块：
+
+.. code-block:: shell
+
+   lsusb
+
+\
+
+  应当看到 RM500Q 的设备信息，类似如下：
+
+.. code-block:: shell
+
+   Bus 008 Device 002: ID 2c7c:0800 Quectel Wireless Solutions Co., Ltd. RM500Q-GL
+
+\
+
+  3）查看 5G 模块接口驱动加载情况，具体命令如下：
+
+.. code-block:: shell
+
+   dmesg | grep ttyUSB
+
+\
+
+  应当看到 GSM Modem 设备被成功连接到系统设备，信息如下：
+
+.. code-block:: shell
+
+   usb 8-1: GSM modem (1-port) converter now attached to ttyUSB0
+   usb 8-1: GSM modem (1-port) converter now attached to ttyUSB1
+   usb 8-1: GSM modem (1-port) converter now attached to ttyUSB2
+   usb 8-1: GSM modem (1-port) converter now attached to ttyUSB3
+
+\
+
+  4）检查网络接口是否成功加载，命令如下：
+
+.. code-block:: shell
+
+   dmesg | grep GobiNet
+
+\
+
+  应当看到 5G 模块的 GobiNet 驱动信息、注册信息、网络接口信息，如下：
+
+.. code-block:: shell
+
+   GobiNet: Quectel_Linux&Android_GobiNet_Driver_V1.6
+   usbcore: registered new interface driver GobiNet
+   GobiNet 8-1:1.4 eth2: register 'GobiNet' at usb-15860000.usb-1, GobiNet Ethernet Device, 0e:0c:aa:23:b9:21
+
+\
+
+  * 提示：这里的信息显示 5G 模块的网络接口被注册为 eth2。
+
+  5）执行 5G 模块的网络连接程序，命令如下：
+
+.. code-block:: shell
+
+   ./quectel-CM
+
+\
+
+  * 提示：`quectel-CM` 程序位于网盘 `1.通用资料/1.2-固件`
+
+  执行 5G 模块的网络连接程序后，可以看到的 5G 模块有获取到 IP，信息类似如下：
+
+.. code-block:: shell
+
+   QConnectManager_Linux_V1.6.5
+   Find /sys/bus/usb/devices/8-1 idVendor=0x2c7c idProduct=0x800, bus=0x008, dev=0x002
+   Auto find qmichannel = /dev/qcqmi2
+   Auto find usbnet_adapter = eth2
+   netcard driver = GobiNet, driver version = 5.10.145-cip17-yocto-standard-g
+   qmap_mode = 1, qmap_version = 5, qmap_size = 16384, muxid = 0x81, qmap_netcard = eth2
+   Modem works in QMI mode
+   Get clientWDS = 7
+   Get clientDMS = 8
+   Get clientNAS = 9
+   Get clientUIM = 10
+   requestBaseBandVersion RM500QGLABR10A02M4G
+   requestGetSIMStatus SIMStatus: SIM_READY
+   ctnet///0/IPV4V6
+   requestRegistrationState2 MCC: 460, MNC: 11, PS: Attached, DataCap: LTE
+   requestQueryDataCall IPv4ConnectionStatus: DISCONNECTED
+   ip addr flush dev eth2
+   ip link set dev eth2 down
+   requestSetupDataCall WdsConnectionIPv4Handle: 0x551fc220
+   ip link set dev eth2 up
+   busybox udhcpc -f -n -q -t 5 -i eth2
+  udhcpc: started, v1.30.1
+  udhcpc: sending discover
+  udhcpc: sending select for 10.23.45.204
+  udhcpc: lease of 10.23.45.204 obtained, lease time 7200
+   /etc/udhcpc.d/50default: Adding DNS 202.96.128.86
+   /etc/udhcpc.d/50default: Adding DNS 202.96.134.133
+
+
+* 结果：使用 `quectel-CM` 程序能够成功获取到网络 IP 即正常（`lease of x.x.x.x obtained`）。
+
+
+Mipi CSI
+----------
+
++ 接口丝印：CN1(CSI0), CN2(CSI1), CN3(CSI2), CN4(CSI3)
+
+**功能测试**
+
+* 说明：已经适配的摄像头型号是 Sony STARVIS IMX462。
+
+* 操作：
+
+  1）为开发板断电并连接 Sony STARVIS IMX462 摄像头到 MIPI-CSI 接口。
+
+  2）为开发上电，登录开发板后输入 `lsmod` 命令查看 `ecam_imx462` 是否 Used：
+
+.. code-block:: shell
+
+   lsmod
+
+\
+
+  * 可以看到的信息类似如下：
+
+.. code-block:: shell
+
+   Module                  Size  Used by
+   ......
+   ecam_imx462          2125824  1
+
+\
+
+  3）输入命令调用预设脚本配置摄像头（注意 CSI 接口与配置脚本对应，见后续的表格）：
+
+.. code-block:: shell
+
+   ./gstreamer_cam_test_CAM0_CN7.sh 1920x1080
+
+\
+
+  * CSI 接口对应的摄像头配置脚本表如下：
+
++----------+---------------------------------+
+| CSI 接口 |            配置脚本             |
++==========+=================================+
+| CSI0     | gstreamer_cam_test_CAM0_CN7.sh  |
++----------+---------------------------------+
+| CSI1     | gstreamer_cam_test_CAM1_CN8.sh  |
++----------+---------------------------------+
+| CSI2     | gstreamer_cam_test_CAM2_CN9.sh  |
++----------+---------------------------------+
+| CSI3     | gstreamer_cam_test_CAM3_CN10.sh |
++----------+---------------------------------+
+
+  调用预设脚本配置时可以看到的信息类似如下：
+
+.. code-block:: shell
+
+   1920x1080
+   imx462 0-001f: Stream ON - 1080p @60fps
+   Link CRU/CSI2 to imx462 0-001f with format UYVY8_2X8 and resolution 1920x1080
+   Available Resolutions :  1920x1080 , 1280x720 , 640x480
+    Usage Example: #sh gstreamer_cam_test.sh 1920x1080
+
+\
+
+  * 提示：在 `Stream ON` 前面报 `ISP Write Error` 不影响功能，后面会 `Reconfiguring ISP...` 并成功 `Stream ON` 即可。
+
+  4）使用 `gst-launch` 采集并显示图像，命令如下：
+
+.. code-block:: shell
+
+   gst-launch-1.0 v4l2src device=/dev/video0 ! waylandsink
+
+\
+
+  * 可以看到的信息类似如下：
+
+.. code-block:: shell
+
+   Setting pipeline to PAUSED ...
+   Pipeline is live and does not need PREROLL ...
+   Setting pipeline to PLAYING ...
+   New clock: GstSystemClock
+   imx462 0-001f: imx462_get_fmt code=0x2006, w/h=(1920,1080), colorspace=7, field=1
+   Gain doesn't work in Auto Exposure mode, change to manual exposure mode
+   In Auto mode, change to manual exposure mode
+   imx462 0-001f: Stream ON - 1080p @60fps
+
+\
+
+* 结果：第 4 步执行完后，可以在显示屏看看到摄像头采集到的画面即正常。
+
+**异常处理**
+
+* 如果大家使用 Sony STARVIS IMX462 摄像头不正常，可以提供以下命令的输出信息，我们帮你分析：
+
+.. code-block:: shell
+
+   # 命令一
+   lsmod
+   # 命令二
+   dmesg | grep csi
+   # 命令三
+   dmesg | grep imx462
+   # 命令四
+   media-ctl -d /dev/media3 -p
+
+\
+
+* 提示：上面最后一条命令中的参数 `/dev/media3` 是依据对应 CSI 接口的序号传参，如 CSI0 则传 /dev/media0。
+

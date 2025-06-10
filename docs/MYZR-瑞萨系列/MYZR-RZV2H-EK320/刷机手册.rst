@@ -54,12 +54,12 @@
 
 * 接通电源
 
-   * 把电源开关拨到 ***ON*** ，使开发板的电源接通，可以在 Tera Term 软件上看到：
+   * 把电源开关拨到 **ON** ，使开发板的电源接通，可以在 Tera Term 软件上看到：
 
-.. code-block:: shell
+   .. code-block:: shell
 
-   SCI Download mode (Normal SCI boot)
-   -- Load Program to SRAM ---------------
+      SCI Download mode (Normal SCI boot)
+      -- Load Program to SRAM ---------------
 
 * 加载工具
 
@@ -89,13 +89,13 @@
 
    * 在 Tera Term 软件上输入如下：
 
-.. code-block:: shell
+   .. code-block:: shell
 
-   em_w
-   1
-   1
-   8101e00
-/
+      em_w
+      1
+      1
+      8101e00
+
 
    .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.BL2.CMD.png
       :alt: TeraTerm.FW.BL2.CMD.png
@@ -112,14 +112,13 @@
 
    * 在 Tera Term 软件上输入如下：
 
-.. code-block:: shell
+   .. code-block:: shell
 
-   em_w
-   1
-   300
-   44000000
+      em_w
+      1
+      300
+      44000000
 
-/
 
    .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.FIP.CMD.png
       :alt: TeraTerm.FW.FIP.CMD.png
@@ -147,99 +146,99 @@
    * **打开终端软件**：运行解压 `TeraTerm.v4.108.zip` 得到的 `ttermpro.exe` 。如果前面的步骤有保存配置，这时打开就不需要配置了。如果之前的步骤没有保存配置，则按前面配置串口。
    * **接通电源**：把电源开关拨到 **ON** ，使开发板的电源接通，在 Tera Term 软件上看到到计时出现时，按下电脑的 `Enter` 按键。
 
-.. code-block:: shell
+   .. code-block:: shell
 
-  NOTICE:  BL2: v2.7(release):3ff5203
-  NOTICE:  BL2: Built : 12:10:31, May 24 2025
-  NOTICE:  BL2: Booting BL31
-  NOTICE:  BL31: v2.7(release):3ff5203
-  NOTICE:  BL31: Built : 12:10:31, May 24 2025
-  
-  
-  U-Boot 2021.10 (May 26 2025 - 08:03:39 +0000)
-  
-  CPU:   Renesas Electronics CPU rev 1.0
-  Model: MYZR RZV2H LGA320 Evaluation Kit - 8GB Memory
-  DRAM:  7.9 GiB
-  MMC:   mmc@15c00000: 0, mmc@15c10000: 1
-  Loading Environment from MMC... *** Warning - bad CRC, using default environment
-  
-  In:    serial@11c01400
-  Out:   serial@11c01400
-  Err:   serial@11c01400
-  Net:   eth0: ethernet@15c30000
-  Hit any key to stop autoboot:  0
-  =>
+     NOTICE:  BL2: v2.7(release):3ff5203
+     NOTICE:  BL2: Built : 12:10:31, May 24 2025
+     NOTICE:  BL2: Booting BL31
+     NOTICE:  BL31: v2.7(release):3ff5203
+     NOTICE:  BL31: Built : 12:10:31, May 24 2025
+   
+   
+     U-Boot 2021.10 (May 26 2025 - 08:03:39 +0000)
+   
+     CPU:   Renesas Electronics CPU rev 1.0
+     Model: MYZR RZV2H LGA320 Evaluation Kit - 8GB Memory
+     DRAM:  7.9 GiB
+     MMC:   mmc@15c00000: 0, mmc@15c10000: 1
+     Loading Environment from MMC... *** Warning - bad CRC, using default environment
+   
+     In:    serial@11c01400
+     Out:   serial@11c01400
+     Err:   serial@11c01400
+     Net:   eth0: ethernet@15c30000
+     Hit any key to stop autoboot:  0
+     =>
 
 刷新系统
 ~~~~~~~~~~
 
-* **启动刷机系统**：输入下面的命令即可从 U 盘启动刷机系统。
+   * **启动刷机系统**：输入下面的命令即可从 U 盘启动刷机系统。
 
-.. code-block:: shell
+   .. code-block:: shell
 
-   run bootcmd_usb
+      run bootcmd_usb
 
-|  **提示**：如果出现 `No boot file defined`，则是因为旧的环境变量还没有清除，需要执行下面命令后并重启开发板。
+   **提示**：如果出现 `No boot file defined`，则是因为旧的环境变量还没有清除，需要执行下面命令后并重启开发板。
 
-.. code-block:: shell
+   .. code-block:: shell
 
-   env default -a; saveenv
+      env default -a; saveenv
 
-* **登录刷机系统**：输入 root 并按 Enter 即可
+   * **登录刷机系统**：输入 root 并按 Enter 即可
 
-.. code-block:: shell
+   .. code-block:: shell
 
-   root
+      root
 
-* **执行刷机**：复制下面的命令到终端执行（建议一次复制一段）
+   * **执行刷机**：复制下面的命令到终端执行（建议一次复制一段）
 
-.. code-block:: shell
+   .. code-block:: shell
 
-   cat <<EOF | sfdisk /dev/mmcblk0
-   /dev/mmcblk0p1 : size=960M, type=83
-   /dev/mmcblk0p2 : type=83
-   EOF
+      cat <<EOF | sfdisk /dev/mmcblk0
+      /dev/mmcblk0p1 : size=960M, type=83
+      /dev/mmcblk0p2 : type=83
+      EOF
 
-   mkfs.ext4 -F /dev/mmcblk0p1
-   mkfs.ext4 -F /dev/mmcblk0p2
+      mkfs.ext4 -F /dev/mmcblk0p1
+      mkfs.ext4 -F /dev/mmcblk0p2
 
-   mkdir /mnt/p1; mkdir /mnt/p2
-   mount /dev/mmcblk0p1 /mnt/p1
-   mount /dev/mmcblk0p2 /mnt/p2
-   mount /dev/sda1 /media
+      mkdir /mnt/p1; mkdir /mnt/p2
+      mount /dev/mmcblk0p1 /mnt/p1
+      mount /dev/mmcblk0p2 /mnt/p2
+      mount /dev/sda1 /media
 
-   cp -a /media/* /mnt/p1/
+      cp -a /media/* /mnt/p1/
 
-   RTFS_FILE=core-image-weston-myzr-rzv2h-ek320.rootfs.tar.gz
-   tar xvf /media/${RTFS_FILE} -C /mnt/p2
+      RTFS_FILE=core-image-weston-myzr-rzv2h-ek320.rootfs.tar.gz
+      tar xvf /media/${RTFS_FILE} -C /mnt/p2
 
-   sync; umount /mnt/p1; umount /mnt/p2; umount /media
+      sync; umount /mnt/p1; umount /mnt/p2; umount /media
 
 
-* **等待刷机完成**：
+   * **等待刷机完成**：
 
 进入系统
 ----------
 
-* 刷机完成后会自动重启并启动系统，系统启动完成后可以看到的信息如下。
+   * 刷机完成后会自动重启并启动系统，系统启动完成后可以看到的信息如下。
 
-.. code-block:: shell
+   .. code-block:: shell
 
-   Poky (Yocto Project Reference Distro) 3.1.31 myzr-rzv2h-ek320 ttySC0
+      Poky (Yocto Project Reference Distro) 3.1.31 myzr-rzv2h-ek320 ttySC0
 
-   BOARD: MYZR RZV2H LGA320 Evaluation Kit
-   LSI: RZ/V2H
-   AI SDK V5.00 (Source Code)
-   myzr-rzv2h-ek320 login: 
+      BOARD: MYZR RZV2H LGA320 Evaluation Kit
+      LSI: RZ/V2H
+      AI SDK V5.00 (Source Code)
+      myzr-rzv2h-ek320 login: 
 
-* 这时输入 root 即可登录。
+   * 这时输入 root 即可登录。
 
-.. code-block:: shell
+   .. code-block:: shell
+   
+      root
 
-   root
-
-* 附图
+   * 附图
 
    .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/Update.Done.Login.png
       :alt: Update.Done.Login.png

@@ -1,0 +1,304 @@
+编译手册
+=========
+
+安装交叉编译工具
+-----------------
+
+1. **下载网盘文件**
+
+   打开网盘到 `3.软件资料 -> Linux-5.10.145 —> 3.3-工具` ，下载 `poky` 目录。
+
+2. **复制文件到编译主机**
+
+   把下载的 `poky` 目录复制到编译主机的 `${HOME}/my-work/rzv-linux-5.10.145`，如果还没有这个目录则在编译主机上输入下面命令，并按下 Enter，即可创建我们需要的目录。
+
+   .. code-block:: shell
+
+      # 说明：创建目录路径
+      mkdir ~/my-work/rzv-linux-5.10.145 -p
+
+3. **执行安装指令**
+
+   在编译主机上输入下面命令安装，并按下 Enter，即开始执行安装。
+
+   .. code-block:: shell
+
+      # 说明：进入 poky 目录
+      cd ~/my-work/rzv-linux-5.10.145/poky
+
+      # 说明：运行安装文件
+      ./poky-glibc-x86_64-core-image-weston-aarch64-myzr-rzv2h-ek320-toolchain-3.1.31.sh
+
+
+   执行命令后会出现如下信息，表示上面的命令执行正常。
+
+   .. code-block:: shell
+
+      Poky (Yocto Project Reference Distro) SDK installer version 3.1.31
+         ==================================================================
+      Enter target directory for SDK (default: /opt/poky/3.1.31):
+
+
+4. **输入安装路径**
+
+   在编译主机上输入下面路径，并按下 Enter，即表示将 poky 编译工具安装到我们需要的路径。
+
+   .. code-block:: shell
+
+      ${HOME}/my-work/rzv-linux-5.10.145/poky
+
+
+   输入后会提示如下信息，表示我们这一步执行正常。
+
+   .. code-block:: shell
+
+      You are about to install the SDK to "/home/tangbin/my-work/rzv-linux-5.10.145/poky". Proceed [Y/n]?
+
+
+5. **确认安装路径**
+
+   在上信的提示信息出现后，输入 `Y` 并按下 Enter ，表示我们确认安装路径。
+
+   .. code-block:: shell
+
+      Y
+
+6.  **等待安装**
+
+   在上一步的输入后，会开始安装，安装过程根据编译主机的配置需要的时间不同，安装过程可以看到一直有输出，完整的输出信息如下：
+
+   .. code-block:: shell
+
+      Extracting SDK............................................................................................................................done
+      Setting it up...done
+      SDK has been successfully set up and is ready to be used.
+      Each time you wish to use the SDK in a new shell session, you need to source the environment setup script e.g.
+       $ . /home/tangbin/my-work/rzv-linux-5.10.145/poky/environment-setup-aarch64-poky-linux
+       $ . /home/tangbin/my-work/rzv-linux-5.10.145/poky/environment-setup-armv7vet2hf-neon-vfpv4-pokymllib32-linux-gnueabi
+
+
+   至此，poky 交叉编译工具安装完成，这里是从第3步开始到第6步完成的过程截图：
+
+   .. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/build.poky.install.png
+      :alt: build.poky.install.png
+
+
+7. **配置工具环境变量**
+
+   在编译主机上输入下面命令即可：
+
+   .. code-block:: shell
+
+      . ~/my-work/rzv-linux-5.10.145/poky/environment-setup-aarch64-poky-linux
+
+
+8.  **确认环境变量生效**
+
+   在编译主机上输入下面命令：
+
+   .. code-block:: shell
+
+      echo $CC
+
+
+   会看到如下输出信息，表示环境变量配置正常
+
+   .. code-block:: shell
+
+      aarch64-poky-linux-gcc -mtune=cortex-a55 -fstack-protector-strong -D_FORTIFY_SOURCE=2 -Wformat -Wformat-security -Werror=format-security --sysroot=/home/tangbin/my-work/rzv-linux-5.10.145/poky/sysroots/aarch64-poky-linux
+
+
+9. **查看工具信息**
+
+   在编译主机上输入下面命令：
+
+   .. code-block:: shell
+
+      $CC -v
+
+   会看到如下输出信息，表示正常。
+
+   .. code-block:: shell
+
+      Using built-in specs.
+      COLLECT_GCC=aarch64-poky-linux-gcc
+      COLLECT_LTO_WRAPPER=/home/tangbin/my-work/rzv-linux-5.10.145/poky/sysroots/x86_64-pokysdk-linux/usr/libexec/aarch64-poky-linux/gcc/aarch64-poky-linux/8.3.0/lto-wrapper
+      Target: aarch64-poky-linux
+      Configured with: ............
+      Thread model: posix
+      gcc version 8.3.0 (GCC)
+
+
+编译 Linux 内核
+-----------------
+
+1.  **准备源码**
+
+   打开网盘到 `3.软件资料 -> Linux-5.10.145 —> 3.4-源码` ，下载 `rzv-linux-5.10.145.tar.gz` 文件。
+
+   把下载的 `rzv-linux-5.10.145.tar.gz` 文件复制到编译主机的 `${HOME}/my-work/rzv-linux-5.10.145`，如果还没有这个目录则在编译主机上输入下面命令，并按下 Enter，即可创建我们需要的目录。
+
+   .. code-block:: shell
+
+      mkdir ~/my-work/rzv-linux-5.10.145 -p
+
+
+   在编译主机上输入下面指令解压源码，解压过程不提示错误即正常。
+
+   .. code-block:: shell
+
+      tar zxf rzv-linux-5.10.145.tar.gz -C ~/my-work/rzv-linux-5.10.145/
+
+
+2. **配置编译工具环境变量**
+
+   .. code-block:: shell
+
+      . ~/my-work/rzv-linux-5.10.145/poky/environment-setup-aarch64-poky-linux
+
+
+3. **生成编译配置文件**
+
+   输入下面命令进入源码目录：
+
+   .. code-block:: shell
+
+      cd ~/my-work/rzv-linux-5.10.145/linux
+
+
+   输入下面命令产生配置文件：
+
+   .. code-block:: shell
+
+      make defconfig
+
+
+   命令执行的输出信息如下：
+
+   .. code-block:: shell
+
+      HOSTCC  scripts/basic/fixdep
+      HOSTCC  scripts/kconfig/conf.o
+      HOSTCC  scripts/kconfig/confdata.o
+      HOSTCC  scripts/kconfig/expr.o
+      LEX     scripts/kconfig/lexer.lex.c
+      YACC    scripts/kconfig/parser.tab.[ch]
+      HOSTCC  scripts/kconfig/lexer.lex.o
+      HOSTCC  scripts/kconfig/parser.tab.o
+      HOSTCC  scripts/kconfig/preprocess.o
+      HOSTCC  scripts/kconfig/symbol.o
+      HOSTCC  scripts/kconfig/util.o
+      HOSTLD  scripts/kconfig/conf
+      *** Default configuration is based on 'defconfig'
+      #
+      # configuration written to .config
+      #
+
+4. **Linux Image 编译**
+
+   输入下面命令进行编译：
+
+   .. code-block:: shell
+
+      make Image -j$(nproc)
+
+
+   命令执行的输出信息如下：
+
+   .. code-block:: shell
+
+      UPD     include/generated/uapi/linux/version.h
+      WRAP    arch/arm64/include/generated/uapi/asm/errno.h
+      WRAP    arch/arm64/include/generated/uapi/asm/kvm_para.h
+      ............
+      GEN     .version
+      CHK     include/generated/compile.h
+      LD      vmlinux.o
+      MODPOST vmlinux.symvers
+      MODINFO modules.builtin.modinfo
+      GEN     modules.builtin
+      LD      .tmp_vmlinux.kallsyms1
+      KSYMS   .tmp_vmlinux.kallsyms1.S
+      AS      .tmp_vmlinux.kallsyms1.S
+      LD      .tmp_vmlinux.kallsyms2
+      KSYMS   .tmp_vmlinux.kallsyms2.S
+      AS      .tmp_vmlinux.kallsyms2.S
+      LD      vmlinux
+      SORTTAB vmlinux
+      SYSMAP  System.map
+      OBJCOPY arch/arm64/boot/Image
+
+5. **Linux 设备树编译**
+
+   输入下面命令进行编译：
+
+   .. code-block:: shell
+
+      make myzr/myzr-rzv2h-ek320.dtb myzr/myzr-rzv2h-ek320-4g.dtb \
+      myzr/myzr-rzv2h-ek320-8g.dtb myzr/myzr-rzv2h-ek320-16g.dtb
+
+
+   设备树首次编译成功时，输出信息类似如下：
+
+   .. code-block:: shell
+
+      DTC     arch/arm64/boot/dts/myzr/myzr-rzv2h-ek320.dtb
+      DTC     arch/arm64/boot/dts/myzr/myzr-rzv2h-ek320-4g.dtb
+      DTC     arch/arm64/boot/dts/myzr/myzr-rzv2h-ek320-8g.dtb
+      DTC     arch/arm64/boot/dts/myzr/myzr-rzv2h-ek320-16g.dtb
+
+
+6. **Linux 模块编译**
+
+   输入下面命令进行编译：
+
+   .. code-block:: shell
+
+      make modules -j$(nproc)
+
+
+   模块编译成功输出信息类似如下：
+
+   .. code-block:: shell
+
+      CALL    scripts/atomic/check-atomics.sh
+      CALL    scripts/checksyscalls.sh
+      LDS     scripts/module.lds
+      CC [M]  drivers/xen/gntdev.o
+      ......
+      LD [M]  drivers/usb/gadget/function/usb_f_serial.ko
+      LD [M]  drivers/usb/gadget/legacy/g_ether.ko
+      LD [M]  drivers/usb/gadget/legacy/g_mass_storage.ko
+
+
+   安装内核模块到指定目录
+
+   .. code-block:: shell
+
+      # =====> Input:
+      if [ -d modules ]; then rm -rf modules; fi; mkdir modules
+      make modules_install INSTALL_MOD_PATH=./modules
+
+
+   模块安装输出信息类似如下：
+
+   .. code-block:: shell
+
+      ......
+      INSTALL drivers/usb/gadget/legacy/g_ether.ko
+      INSTALL drivers/usb/gadget/legacy/g_mass_storage.ko
+      INSTALL drivers/usb/gadget/legacy/g_serial.ko
+      DEPMOD  5.10.145-cip17-yocto-standard-gacfb9c790b2d
+
+
+   打包内核模块文件
+
+   .. code-block:: shell
+
+      # =====> Input:
+      tar czf modules-myzr-rzv2h-ek320.tgz -C modules lib
+
+
+7. **目标文件**
+
+   `Image, myzr-rzv2h-ek320.dtb, myzr-rzv2h-ek320-4g.dtb, myzr-rzv2h-ek320-8g.dtb, modules-myzr-rzv2h-ek320.tgz` 即目标文件，可以用编译出来的这些目标文件替换固件目录里的同名文件。
