@@ -26,7 +26,7 @@
 处理器框图
 ------------
 
-.. figure:: /image/MYZR-全志系列/MYZR-H618/处理器框图.png
+.. figure:: /image/MYZR-全志系列/MYZR-H618-EK120/处理器框图.png
    :alt: 处理器框图.png
 
 

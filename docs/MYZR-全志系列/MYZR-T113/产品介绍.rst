@@ -1,0 +1,50 @@
+产品介绍
+=========
+
+核心板规格
+-----------
+
+- 规格参数（应包括温度参数、支持的系统版本）
+
+.. figure:: /image/MYZR-全志系列/MYZR-T113/核心板接口参数.png
+
+
+信号定义
+----------
+
+- 参考网盘 2.硬件资料 -> 2.1-原理和PCB -> 核心板原理图
+
+核心板介绍
+-----------
+
+- 正面图
+
+.. figure:: /image/MYZR-全志系列/MYZR-T113/核心板正面图.png
+
+- 背面图
+
+.. figure:: /image/MYZR-全志系列/MYZR-T113/核心板背面图.png
+
+- 尺寸图
+
+.. figure:: /image/MYZR-全志系列/MYZR-T113/核心板尺寸图.png
+
+
+底板介绍
+---------
+
+- 正面图
+
+.. figure:: /image/MYZR-全志系列/MYZR-T113/底板正面图.png
+
+- 接口图
+
+.. figure:: /image/MYZR-全志系列/MYZR-T113/底板接口图.png
+
+- 尺寸图
+
+.. figure:: /image/MYZR-全志系列/MYZR-T113/底板尺寸图.png
+
+
+
+

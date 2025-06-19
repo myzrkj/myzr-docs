@@ -1,0 +1,514 @@
+测试指导
+=========
+
+网口
+------
+
+网口1
+~~~~~~~
+
+|   接口丝印：CON20
+|   系统接口：eth0
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+|   测试操作
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口
+3. 查看开发板网口1信息，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0
+
+4. 配置网口1的IPV4 IP，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0 192.168.137.18 netmask 255.255.255.0
+
+5. 再次查看开发板网口1信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0
+
+6. 输入指令如下进行验证网口1：
+
+.. code-block:: shell
+
+    ping -I eth0 192.168.137.99 -c 3
+
+|   "0% packet loss"表示测试通过
+
+网口2
+~~~~~~
+
+|   接口丝印：CON21
+|   系统接口：eth1
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+|   测试操作
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口
+3. 查看开发板网口2信息，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1
+
+4. 配置网口2的IPV4 IP，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1 192.168.137.22 netmask 255.255.255.0
+
+5. 再次查看开发板网口2信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1
+
+6. 输入指令如下进行验证网口2：
+
+.. code-block:: shell
+
+    ping -I eth1 192.168.137.99 -c 3
+
+|   "0% packet loss"表示测试通过
+
+USB测试
+---------
+
+|   接口丝印：CON22
+|   测试说明：采用插拔USB存储设备（U盘）的方式进行测试
+|   测试操作
+
+1. 将U盘插入底板USB接口，系统会输出类似如下信息
+
+.. figure:: /image/MYZR-全志系列/MYZR-T113/测试1.png
+   :alt: 测试1.png
+
+2. 将U盘从底板拔出，系统会输出类似如下信息
+
+.. figure:: /image/MYZR-全志系列/MYZR-T113/测试2.png
+   :alt: 测试2.png
+
+SD接口测试
+------------
+
+|   接口丝印：CON7
+|   测试说明：采用插拔TF卡的方式进行测试
+|   测试操作
+
+1. 将TF卡安装到SD接口，开发板会输出如下信息：
+
+.. figure:: /image/MYZR-全志系列/MYZR-T113/测试3.png
+   :alt: 测试3.png
+
+2. 将TF拔出，输出信息如下：
+
+.. figure:: /image/MYZR-全志系列/MYZR-T113/测试4.png
+   :alt: 测试4.png
+
+音频测试
+----------
+
+MIC_IN/HP_OUT
+~~~~~~~~~~~~~~~
+
+|   接口丝印：CON19
+|   测试说明：使用带MIC的耳机录制并播放录音文件进行测试
+|   测试操作
+
+1. 把带MIC的耳机插入丝印对应的接口
+2. 输入如下指令进行录音，按下"Ctrl + C"可终止录音：
+
+.. code-block:: shell
+
+    cd /
+    ./mic_in_test.sh
+
+3. 输入如下指令播放录制的音频文件：
+
+.. code-block:: shell
+
+    aplay -Dhw:audiocodec -vv test.wav
+
+|   耳机有录制声音输出并且不存在杂音、失真现象表示测试通过
+
+LINE_IN
+~~~~~~~~~
+
+|   接口丝印：CON18
+|   测试说明：通过开发板输出设备音频
+|   测试操作
+
+1. 将一条两头都是公头(3.5mm)的音频线的一端插入丝印对应的接口
+2. 音频线的另一端接入一个正在播放音频的设备
+3. 将耳机或者音箱连接开发板的MIC_IN/HP_OUT接口
+
+|   1）不配置音量测试：
+|   输入如下指令进行测试，按下"Ctrl + C"可终止测试：
+
+.. code-block:: shell
+
+    cd /
+    ./line_in_test.sh
+
+|   2）配置音量测试：
+|   ①输入如下指令进行测试(命令中参数"4"，参数取值范围为 0~7)：
+
+.. code-block:: shell
+
+    cd /
+    ./line_in_test.sh &
+    amixer sset -c audiocodec "Headphone volume" 4
+
+|   ②输入如下指令可终止测试：
+
+.. code-block:: shell
+
+    killall line_in_test.sh aplay arecord
+
+|   耳机或者音箱正常播放设备输出的音频，并且不存在杂音、失真表示测试通过
+
+UART测试
+----------
+
+|   接口丝印：CON10(UART4)、CON11(UART5)、CON26(UART2)
+|   系统接口：ttyAS4(UART4)、ttyAS5(UART5)
+|   测试说明：使用自发自收的方式进行测试
+|   测试操作
+
+1. 短接需要测试的UART对应的接口丝印的TX和RX
+2. 配置测试的UART，启动后台运行并发送数据，输入指令如下(以下均以UART4为例，如果测试其他UART，只需将指令中的"ttyS4"替换成测试的UART对应的系统接口即可)：
+
+.. code-block:: shell
+
+    stty -F /dev/ttyS4 ispeed 115200 ospeed 115200 cs8 -cstopb -parenb -crtscts -echo -ixon -icanon
+    cat /dev/ttyS4 &
+    echo myzr > /dev/ttyS4
+
+|   此时应收到"myzr"，按下"Ctrl + C"退出
+
+3. 终止测试，输入指令如下：
+
+.. code-block:: shell
+
+    pkill -f "cat /dev/ttyS4"
+
+|   操作过程中的输出符合预期即功能正常
+
+can测试
+---------
+
+|   接口丝印：J3
+|   系统接口：can0(H0、L0)、can1(H1、L1)
+|   测试说明：使用两组 CAN 总线相互收发的方式进行测试
+|   测试操作
+
+1. 将J3的H0和H1连接、L0和L1连接，输入如下指令配置can0和can1
+
+.. code-block:: shell
+
+    ip link set awlink0 down
+    ip link set awlink1 down
+    ip link set awlink0 type can bitrate 1000000
+    ip link set awlink1 type can bitrate 1000000
+    ip link set awlink0 up
+    ip link set awlink1 up
+
+2. can0发送，can1接收，输入指令如下：
+
+.. code-block:: shell
+
+    candump awlink1 &
+    cansend awlink0 123#1122334455667788
+
+|   此时应收到"can1  123   [8]  11 22 33 44 55 66 77 88"，按下"Ctrl + C"退出
+
+3. can0接收，can1发送，输入指令如下：
+
+.. code-block:: shell
+
+    pkill candump
+    candump awlink0 &
+    cansend awlink1 123#DEADBEEF
+
+|   此时应收到"awlink0  123   [4]  DE AD BE EF"，按下"Ctrl + C"退出
+
+4. 终止进程，关闭接口，输入指令如下：
+
+.. code-block:: shell
+
+    pkill candump
+    ip link set awlink0 down
+    ip link set awlink1 down
+
+|   操作过程中的输出符合预期即功能正常
+
+232测试
+---------
+
+|   接口丝印：CON9
+|   系统接口：ttyS2
+|   测试说明：使用自发自收的方式进行测试
+|   测试操作
+
+1. 短接丝印对应接口的TX和RX引脚
+2. 配置232，启动后台运行并发送数据，输入指令如下：
+
+.. code-block:: shell
+
+    stty -F /dev/ttyS2 ispeed 115200 ospeed 115200 cs8 -cstopb -parenb -crtscts -echo -ixon -icanon
+    cat /dev/ttyS2 &
+    echo myzr > /dev/ttyS2
+
+|   此时应收到"myzr"，按下"Ctrl + C"退出
+
+3. 终止测试，输入指令如下：
+
+.. code-block:: shell
+
+    pkill -f "cat /dev/ttyS2"
+
+|   操作过程中的输出符合预期即功能正常
+
+485测试
+---------
+
+|   接口丝印：J3
+|   系统接口：ttyS1(A0、B0)、ttyS3(A1、B1)
+|   测试说明：使用两组485相互收发的方式进行测试
+|   测试操作
+
+1. 将J3的A0和A1连接、B0和B1连接，输入如下指令配置485：
+
+.. code-block:: shell
+
+    stty -F /dev/ttyS1 ispeed 115200 ospeed 115200 cs8
+    stty -F /dev/ttyS3 ispeed 115200 ospeed 115200 cs8
+
+2. ttyAS1接收，ttyAS3发送，输入如下指令：
+
+.. code-block:: shell
+
+    cat /dev/ttyS1 &
+    echo myzr > /dev/ttyS3
+
+|   此时应收到"myzr"，按下"Ctrl + C"退出
+
+3. ttyAS3接收，ttyAS1发送，输入如下指令：
+
+.. code-block:: shell
+
+    pkill -f "cat /dev/ttyAS1"
+    cat /dev/ttyS3 &
+    echo 123 > /dev/ttyS1
+
+|   此时应收到"123"，按下"Ctrl + C"退出
+
+4. 终止测试，输入指令如下：
+
+.. code-block:: shell
+
+    pkill -f "cat /dev/ttyS3"
+
+|   操作过程中的输出符合预期即功能正常
+
+rtc测试
+---------
+
+|   接口丝印：CON6
+|   测试说明：读取并设置时间，断电重启后检查时间是否正确
+|   测试操作
+
+1. 断电，检查纽扣电池是否安装，用万用表检查RTC电池有没有电，测出来是3.3v左右才是正常的
+2. 设备通电，查看当前rtc设备节点，输入指令如下：
+
+.. code-block:: shell
+
+    ls /dev/rtc*
+    dmesg | grep rtc0
+
+3. 查看系统时钟并设置系统时钟，输入指令如下：
+
+.. code-block:: shell
+
+    date
+    date -s "2025-05-15 15:08:00" && hwclock -w -f /dev/rtc0
+
+4. 同步系统时钟至rtc时钟并查看rtc时钟，输入指令如下：
+
+.. code-block:: shell
+
+    hwclock --systohc -u
+    hwclock -u
+
+5. 将rtc时钟的时间同步到系统时钟，输入指令如下：
+
+.. code-block:: shell
+
+    hwclock --hctosys -u
+
+6. 设备断电重启，查看rtc时钟，输入指令如下：
+
+.. code-block:: shell
+
+    hwclock -u
+
+|   rtc时间在原来的时间上继续走，表明rtc测试通过
+
+HDMI测试
+----------
+
+|   接口丝印：CON17
+|   测试说明：开发板上电启动显示屏是否正常显示
+|   测试操作
+
+1. 将一个HDMI接口的屏幕和开发板上的HDMI接口连接，启动开发板
+
+|   显示屏正常显示表示测试通过
+
+4G测试
+--------
+
+|   接口丝印：CON25、CON23
+|   测试说明：4G连接成功后，开发板向外网发送ICMP报文来验证连接正常
+|   测试操作
+
+1. 开发板断电，将4G模块接入CON25对应丝印接口、SIM卡接入CON23对应丝印接口，连接好4G模块的天线
+2. 开发板通电，输入以下指令关闭其他网络并查询是否有无usb0网络节点生成
+
+.. code-block:: shell
+
+    ifconfig eth0 down
+    ifconfig eth1 down
+    ifconfig
+
+3. 若无usb0节点，输入以下指令手动打开
+
+.. code-block:: shell
+
+    microcom -t15000 -s115200 /dev/ttyUSB2
+    AT+QCFG="USBNET",1
+
+|   返回"OK"后按下"Ctrl + X"退出
+
+4. 输入以下指令自动获取IP地址并测试网络连接
+
+.. code-block:: shell
+
+    udhcpc -i usb0
+    ping www.baidu.com -I usb0 -c 3
+
+|   "0% packet loss"表示测试通过
+
+WIFI 测试
+------------
+
+|   接口丝印：CON24
+|   测试说明：将2.4G天线连接至开发板WIFI(CON24)接口，开发板向外网发送ICMP报文来验证连接正常。
+|   测试操作：
+
+1. 执行如下命令，关闭其他网络：
+
+.. code-block:: shell
+
+    ifconfig eth0 down
+    ifconfig eth1 down
+
+|   输入命令，启用WIFI：
+
+.. code-block:: shell
+
+    ifconfig wlan0 up
+
+2. 将wifi_setup.sh文件添加到文件系统下，并执行如下命令：
+
+.. code-block:: shell
+
+    ./wifi_setup.sh -i MY-WIFI -p My202412
+
+|   其中-i指定 WIFI 名称，-p指定 WIFI 密码，请根据实际情况修改。
+
+|   输出类似如下信息：
+
+.. code-block:: shell
+
+    udhcpc: sending discover
+    [  169.754845] RTW: rtl8723d_fill_default_txdesc(wlan0): SP Packet(0x0800) rate=0x0 SeqNum = 6
+    udhcpc: sending select for 192.168.61.215
+    [  170.834775] RTW: rtl8723d_fill_default_txdesc(wlan0): SP Packet(0x0800) rate=0x0 SeqNum = 9
+    udhcpc: lease of 192.168.61.215 obtained, lease time 86400
+    deleting routers
+    adding dns 192.168.60.1
+    wifi setup successfully!
+
+3. 连接测试
+
+|   执行如下命令，测试网络功能是否正常：
+
+.. code-block:: shell
+
+    ping -I wlan0 www.baidu.com
+
+|   输出信息：
+
+.. code-block:: shell
+
+    64 bytes from 183.2.172.17: seq=0 ttl=54 time=27.760 ms
+    64 bytes from 183.2.172.17: seq=1 ttl=54 time=17.046 ms
+    64 bytes from 183.2.172.17: seq=2 ttl=54 time=15.300 ms
+    64 bytes from 183.2.172.17: seq=3 ttl=54 time=34.486 ms
+
+蓝牙测试
+---------
+
+|   接口丝印：CON24
+|   测试说明：描到蓝牙设备后，发送L2CAP回应请求并接收回答。
+|   测试操作：
+
+1. 将rtl8723du_config文件和rtl8723du_fw文件添加进文件系统中的/lib/firmware路径下。
+2. 输入如下命令，启动蓝牙，并查看是否启动成功：
+
+.. code-block:: shell
+
+    hciconfig hci0 up
+    hciconfig
+
+3. 输入如下命令，外部蓝牙设备：
+
+.. code-block:: shell
+
+    hcitool scan
+
+|   输出类似信息：
+
+.. code-block:: shell
+
+    Scanning ...
+    [  771.975134] rtk_btcoex: hci (periodic)inq start
+    [  782.224170] rtk_btcoex: inquiry complete
+            E8:5C:5F:B5:7A:11        BlueZ 5.77
+            40:45:A0:49:3B:1A        chensz
+
+4. 发送L2CAP包测试：
+
+|   输入命令：
+
+.. code-block:: shell
+
+    l2ping 40:45:A0:49:3B:1A
+
+|   输出类似信息：
+
+.. code-block:: shell
+
+    Ping: 40:45:A0:49:3B:1A from FC:23:CD:29:9B:99 (data size 44) ...
+    44 bytes from 40:45:A0:49:3B:1A id 0 time 8.75ms
+    44 bytes from 40:45:A0:49:3B:1A id 1 time 54.76ms
+    44 bytes from 40:45:A0:49:3B:1A id 2 time 173.62ms
+    ^C3 sent, 3 received, 0% loss
+
+|   “0% packet loss”表示蓝牙连接正常。

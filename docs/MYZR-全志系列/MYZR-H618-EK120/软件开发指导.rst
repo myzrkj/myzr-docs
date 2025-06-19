@@ -1,0 +1,123 @@
+软件开发指导
+=============
+
+编译手册
+----------
+
+编译 Tina SDK
+~~~~~~~~~~~~~~~~
+
+准备源码
+""""""""""
+
+1. 下载源码：打开网盘到 3.软件资料 -> linux-4.9.170 ，下载 3.4-源码 目录。
+2. 复制源码到编译主机：把下载的 3.4-源码 目录复制到编译主机的 ${HOME}/my-work/linux-4.9.170。如果还没有这个目录则在编译主机上输入下面命令，并按下 Enter，即可创建我们需要的目录。
+
+.. code-block:: shell
+
+    mkdir ~/my-work/linux-4.9.170 -p
+
+3. 解压源码：在编译主机上输入下面指令解压源码，解压过程不提示错误即正常。
+
+.. code-block:: shell
+
+    cd ~/my-work/linux-4.9.170; mkdir tina
+    cat 3.4-源码/h618-v0.9.tar.gz* | tar xf - -C tina
+
+4. 检出源码：从本地 repo 检出源码。
+
+.. code-block:: shell
+
+    cd tina
+    ./.repo/repo/repo sync -l
+
+5. 更新源码：解压 MYZR-H618 的更新包。
+
+.. code-block:: shell
+
+    tar xf ../3.4-源码/tina-h618-myzr*.tar.gz
+
+编译配置
+""""""""""
+
+1. 导入环境变量：编译时需要依赖一些环境变量，通过下面命令可以导入：
+
+.. code-block:: shell
+
+    source build/envsetup.sh
+
+- 执行命令后终端会输出 Setup env done! Please run lunch next.
+
+2. 执行配置程序：在源码目录输入下面命令：
+
+.. code-block:: shell
+
+    lunch
+
+3. 选择配置：执行lunch命令会在终端看到下面信息，这时我们输入3，即使用h618_p2-tina配置。
+
+.. code-block:: shell
+
+    Lunch menu... pick a combo:
+         1. h313_p1-tina
+         2. h616_p2-tina
+         3. h618_p2-tina
+
+    Which would you like?:
+
+- 之后我们在终端能看到如下信息：
+
+.. code-block:: shell
+
+    ============================================
+    TINA_BUILD_TOP=/home/tangbin/my-work/h618-linux-4.9.170/tina
+    TINA_TARGET_ARCH=aarch64
+    TARGET_PRODUCT=h618_p2
+    TARGET_PLATFORM=h618
+    TARGET_BOARD=h618-p2
+    TARGET_PLAN=p2
+    TARGET_BUILD_VARIANT=tina
+    TARGET_BUILD_TYPE=release
+    TARGET_KERNEL_VERSION=4.9
+    TARGET_UBOOT=u-boot-2018
+    TARGET_CHIP=sun50iw9p1
+    ============================================
+    no buildserver to clean
+
+执行编译
+""""""""""
+
+1. 开始编译：输入下面命令即可开始编译 SDK：
+
+.. code-block:: shell
+
+    export FORCE_UNSAFE_CONFIGURE=1; make -j$(nproc)
+
+2. 完成提示：make 完成后，我们能看在终端看到信息：#### make completed successfully (27:50 (mm:ss)) ####
+
+打包固件
+""""""""""
+
+1. 执行打包：上一步 Make 完成后，我能需要使用 pack命令打包固件：
+
+.. code-block:: shell
+
+    pack
+
+2. 终端信息：打包时终端输出的信息如下：
+
+.. code-block:: shell
+
+    Dragon execute image.cfg SUCCESS !
+    ----------image is for nand/emmc----------
+    ----------image is at----------
+
+    /home/tangbin/my-work/h618-linux-4.9.170/tina/out/h618-p2/tina_h618-p2_uart0
+
+    pack finish
+
+3. 目标文件：上面信息中的给出了我们固件的路径
+
+.. code-block:: shell
+
+    /home/tangbin/my-work/h618-linux-4.9.170/tina/out/h618-p2/tina_h618-p2_uart0.img
