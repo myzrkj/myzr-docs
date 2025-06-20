@@ -38,13 +38,13 @@ Allwinner平台
 
    MYZR-T113/index
 
-- :doc:`./MYZR-H618/index`
+- :doc:`./MYZR-H618-EK120/index`
 
 .. toctree:: 
    :maxdepth: 1
    :hidden:
 
-   MYZR-H618/index
+   MYZR-H618-EK120/index
 
 - :doc:`./MYZR-T536/index`
 
