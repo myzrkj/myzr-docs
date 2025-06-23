@@ -1,8 +1,8 @@
 启动手册
-==========
+=========
 
 连接开发板
------------
+------------
 
 检查电源开关
 ~~~~~~~~~~~~~
@@ -85,33 +85,31 @@
     swu_mode: ####
     no swupdate_cmd to run, wait for next swupdate
 
-U-Boot信息
-~~~~~~~~~~~~
+U-Boot 信息
+~~~~~~~~~~~~~
 
-|   启动信息中U-Boot2018.07(May282025-17:32:16+0800)AllwinnerTechnology包含以下信息：
-|   【u-boot版本】：2018.07；
-|   【芯片厂商】：Allwinner Technology；
-|   【u-boot文件的编译时间】：(May 28 2025 - 17:32:16 +0800)。
+|   启动信息中U-Boot 2018.07 (May 28 2025 - 17:32:16 +0800) Allwinner Technology包含以下信息：
+|   【u-boot版本】 ：2018.07；
+|   【芯片厂商】 ：Allwinner Technology；
+|   【u-boot文件的编译时间】 ：(May 28 2025 - 17:32:16 +0800)。
 
 内核信息
-~~~~~~~~~
+~~~~~~~~~~
 
-|   启动信息中 Linux version 5.4.61 (root@myzr-u2004) (arm-linux-gnueabi-gcc (Linaro GCC 5.3-2016.05) 5.3.1 20160412, GNU ld ( Linaro_Binutils-2016.05) 2.25.0 Linaro 2016_02) #11 SMP PREEMPT Thu May 29 14:04:27 CST 2025 包含以下信息：
-|   【内核版本】：Linux-5.4.61；
-|   【编译内核的GCC版本】：5.3；
-|   【内核文件的编译时间】：Thu May 29 14:04:27 CST 2025 。
+|   启动信息中 Linux version 5.4.61 (root@myzr-u2004) (arm-linux-gnueabi-gcc (Linaro GCC 5.3-2016.05) 5.3.1 20160412, GNU ld (Linaro_Binutils-2016.05) 2.25.0 Linaro 2016_02) #11 SMP PREEMPT Thu May 29 14:04:27 CST 2025 包含以下信息：
+|   【内核版本】 ：Linux-5.4.61；
+|   【编译内核的GCC版本】 ： 5.3；
+|   【内核文件的编译时间】 ：Thu May 29 14:04:27 CST 2025。
 
 开发板登录
 ------------
 
 .. code-block:: shell
 
-    YAML 
-    Trying to connect to SWUpdate.. . 
-    swu_param: #### 
-    swu_software: #### 
-    swu_mode: #### 
+    Trying to connect to SWUpdate...
+    swu_param: ####
+    swu_software: ####
+    swu_mode: ####
     no swupdate_cmd to run, wait for next swupdate
 
-|   开机观察到上述信息，
-|   点击回车键进入系统。
+|   开机观察到上述信息，点击回车键进入系统。

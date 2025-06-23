@@ -1,411 +1,753 @@
 测试指导
 =========
 
-网口
-------
+LED 测试
+---------
 
-网口1
-~~~~~~~
+|   进入文件系统，输入命令，能正常控制LED亮灭，说明LED功能正常。
+
+.. code-block:: shell
+
+    echo 0 > /sys/class/leds/user-led0/brightness                //熄灭 LED1
+    echo 1 > /sys/class/leds/user-led0/brightness                //点亮 LED1
+
+按键测试
+----------
+
+1. 按KEY0按键后，评估板系统将重新启动，说明按键功能正常。
+2. 根据刷机手册步骤，使用USB刷机并正常启动，说明KEY1按键功能正常。
+3. 输入命令：
+
+.. code-block:: shell
+
+    cat /proc/bus/input/devices
+    od -x /dev/input/event0
+
+|   输出类似信息，说明KEY2按键功能正常。
+
+.. code-block:: shell
+
+    0000000 6129 63e2 0930 0000 0001 0073 0001 0000
+    0000020 6129 63e2 0930 0000 0000 0000 0000 0000
+    0000040 6129 63e2 d9b7 0003 0001 0073 0000 0000
+    0000060 6129 63e2 d9b7 0003 0000 0000 0000 0000
+
+网口测试
+----------
+
+网口一
+~~~~~~~~
 
 |   接口丝印：CON20
 |   系统接口：eth0
 |   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
-|   测试操作
+|   测试操作：
 
-1. 配置电脑有线网卡IP为 192.168.137.99
-2. 使用网线连接开发板网口和电脑的网口
-3. 查看开发板网口1信息，输入指令如下：
-
-.. code-block:: shell
-
-    ifconfig eth0
-
-4. 配置网口1的IPV4 IP，输入指令如下：
+1. 配置电脑有线网卡IP为 192.168.137.1
+2. 开启网口一并使用网线连接开发板网口和电脑网口，串口信息显示：
 
 .. code-block:: shell
 
-    ifconfig eth0 192.168.137.18 netmask 255.255.255.0
-
-5. 再次查看开发板网口1信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+    ifconfig eth0 up
 
 .. code-block:: shell
 
-    ifconfig eth0
+    [  413.267040] libphy: 4500000.gmac0: probed
+    [  413.272096] [sound  403][MACH simple_parse_of] simple_dai_link_of failed
+    [  413.274297] sunxi-gmac 4500000.gmac0 eth0: eth0: Type(8) PHY ID 0000011a at 0 IRQ poll (4500000.gmac0-0:00)
+    [  443.434378] sunxi-gmac 4500000.gmac0 eth0: Link is Up - 1Gbps/Full - flow control off
+    [  443.443192] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
 
-6. 输入指令如下进行验证网口1：
+3. 输入指令如下自动获取 IP 地址：
 
 .. code-block:: shell
 
-    ping -I eth0 192.168.137.99 -c 3
+    udhcpc -i eth0
 
-|   "0% packet loss"表示测试通过
+|   输出信息：
 
-网口2
-~~~~~~
+.. code-block:: shell
+
+    udhcpc: started, v1.33.2
+    udhcpc: sending discover
+    udhcpc: sending select for 192.168.137.88
+    udhcpc: lease of 192.168.137.88 obtained, lease time 604800
+    deleting routers
+    adding dns 192.168.137.1
+
+4. 输入指令如下进行验证网口一：
+
+.. code-block:: shell
+
+    ping www.baidu.com -I eth0
+
+|   输出信息：
+
+.. code-block:: shell
+
+    PING www.baidu.com (183.2.172.177): 56 data bytes
+    64 bytes from 183.2.172.177: seq=0 ttl=53 time=10.659 ms
+    64 bytes from 183.2.172.177: seq=1 ttl=53 time=9.572 ms
+    64 bytes from 183.2.172.177: seq=2 ttl=53 time=9.260 ms
+    64 bytes from 183.2.172.177: seq=3 ttl=53 time=9.235 ms
+
+    --- www.baidu.com ping statistics ---
+    4 packets transmitted, 4 packets received, 0% packet loss
+    round-trip min/avg/max = 9.235/9.681/10.659 ms
+
+4. 配置静态IP：
+
+.. code-block:: shell
+    
+    ifconfig eth0 192.168.137.81
+
+|   输入指令进行验证
+
+.. code-block:: shell
+
+    ping -I eth0 192.168.137.1 -c 2 -w 4
+
+|   输出信息
+
+.. code-block:: shell
+
+    PING 192.168.137.1 (192.168.137.1): 56 data bytes
+    64 bytes from 192.168.137.1: seq=0 ttl=128 time=0.636 ms
+    64 bytes from 192.168.137.1: seq=1 ttl=128 time=1.165 ms
+
+    --- 192.168.137.1 ping statistics ---
+    2 packets transmitted, 2 packets received, 0% packet loss
+    round-trip min/avg/max = 0.636/0.900/1.165 ms
+
+|   “0% packet loss”表示测试通过
+|   如果出现”100% packet loss”，请先确认电脑的防火墙是否全部关闭
+
+网口二
+~~~~~~~~
 
 |   接口丝印：CON21
 |   系统接口：eth1
 |   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
-|   测试操作
+|   测试操作：
 
-1. 配置电脑有线网卡IP为 192.168.137.99
-2. 使用网线连接开发板网口和电脑的网口
-3. 查看开发板网口2信息，输入指令如下：
-
-.. code-block:: shell
-
-    ifconfig eth1
-
-4. 配置网口2的IPV4 IP，输入指令如下：
+1. 配置电脑有线网卡IP为 192.168.137.1
+2. 开启网口一并使用网线连接开发板网口和电脑网口：
 
 .. code-block:: shell
 
-    ifconfig eth1 192.168.137.22 netmask 255.255.255.0
+    ifconfig eth1 up
 
-5. 再次查看开发板网口2信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
-
-.. code-block:: shell
-
-    ifconfig eth1
-
-6. 输入指令如下进行验证网口2：
+3. 输入指令如下自动获取 IP 地址：
 
 .. code-block:: shell
 
-    ping -I eth1 192.168.137.99 -c 3
+    udhcpc -i eth1
 
-|   "0% packet loss"表示测试通过
+.. code-block:: shell
 
-USB测试
----------
+    udhcpc: started, v1.33.2
+    udhcpc: sending discover
+    udhcpc: sending select for 192.168.137.44
+    udhcpc: lease of 192.168.137.44 obtained, lease time 604800
+    deleting routers
+    adding dns 192.168.137.1
+
+4. 输入指令如下进行验证网口一：
+
+.. code-block:: shell
+
+    ping www.baidu.com -I eth1
+
+.. code-block:: shell
+
+    PING www.baidu.com (183.2.172.177): 56 data bytes
+    64 bytes from 183.2.172.177: seq=0 ttl=53 time=12.714 ms
+    64 bytes from 183.2.172.177: seq=1 ttl=53 time=15.923 ms
+    64 bytes from 183.2.172.177: seq=2 ttl=53 time=10.738 ms
+    64 bytes from 183.2.172.177: seq=3 ttl=53 time=12.096 ms
+
+    --- www.baidu.com ping statistics ---
+    5 packets transmitted, 5 packets received, 0% packet loss
+    round-trip min/avg/max = 10.736/12.441/15.923 ms
+
+5. 配置静态IP：
+
+.. code-block:: shell
+
+    ifconfig eth0 192.168.137.81
+
+|   输入指令进行验证
+
+.. code-block:: shell
+
+    ping -I eth0 192.168.137.1 -c 2 -w 4
+
+|   输出信息
+
+.. code-block:: shell
+
+    PING 192.168.137.1 (192.168.137.1): 56 data bytes
+    64 bytes from 192.168.137.1: seq=0 ttl=128 time=0.636 ms
+    64 bytes from 192.168.137.1: seq=1 ttl=128 time=1.165 ms
+
+    --- 192.168.137.1 ping statistics ---
+    2 packets transmitted, 2 packets received, 0% packet loss
+    round-trip min/avg/max = 0.636/0.900/1.165 ms
+
+|   “0% packet loss”表示测试通过
+|   如果出现”100% packet loss”，请先确认电脑的防火墙是否全部关闭
+
+USB 测试
+----------
+
+USB0_DRD
+~~~~~~~~~~~
 
 |   接口丝印：CON22
-|   测试说明：采用插拔USB存储设备（U盘）的方式进行测试
-|   测试操作
+|   测试说明：采用插拔USB存储设备（U盘）的方式，以及使用命令对 USB0_DRD 进行读写测试
 
-1. 将U盘插入底板USB接口，系统会输出类似如下信息
+**HOST 模式测试：**
 
-.. figure:: /image/MYZR-全志系列/MYZR-T113/测试1.png
-   :alt: 测试1.png
+|   测试操作：
 
-2. 将U盘从底板拔出，系统会输出类似如下信息
+1. 将USB设备插入底板USB接口，系统会输出类似如下信息：
 
-.. figure:: /image/MYZR-全志系列/MYZR-T113/测试2.png
-   :alt: 测试2.png
+.. code-block:: shell
 
-SD接口测试
-------------
+    [ 7546.482276] sunxi_set_cur_vol_work()422 WARN: get power supply failed
+    [ 7546.489555] sunxi_set_cur_vol_work()422 WARN: get power supply failed
+    [ 7547.772538] 
+    [ 7547.772538] rmmod_device_driver
+    [ 7547.772538] 
+    [ 7547.779396] rmmod_device_driver()223 WARN: get power supply failed
+    [ 7547.786585] 
+    [ 7547.786585] insmod_host_driver
+    [ 7547.786585] 
+    [ 7547.793319] [ehci0-controller]: sunxi_usb_enable_ehci
+    [ 7547.799042] [sunxi-ehci0]: probe, pdev->name: 4101000.ehci0-controller, sunxi_ehci: 0xc0c92388, 0x:d1f41000, irq_no:3e
+    [ 7547.811352] sunxi-ehci 4101000.ehci0-controller: 4101000.ehci0-controller supply hci not found, using dummy regulator
+    [ 7547.823932] android_work: did not send uevent (0 0 00000000)
+    [ 7547.830384] sunxi-ehci 4101000.ehci0-controller: EHCI Host Controller
+    [ 7547.837675] sunxi-ehci 4101000.ehci0-controller: new USB bus registered, assigned bus number 3
+    [ 7547.848149] sunxi-ehci 4101000.ehci0-controller: irq 62, io mem 0x04101000
+    [ 7547.884737] sunxi-ehci 4101000.ehci0-controller: USB 2.0 started, EHCI 1.00
+    [ 7547.893595] hub 3-0:1.0: USB hub found
+    [ 7547.897942] hub 3-0:1.0: 1 port detected
+    [ 7547.903099] [ohci0-controller]: sunxi_usb_enable_ohci
+    [ 7547.908849] [sunxi-ohci0]: probe, pdev->name: 4101400.ohci0-controller, sunxi_ohci: 0xc0c92638
+    [ 7547.918891] sunxi-ohci 4101400.ohci0-controller: 4101400.ohci0-controller supply hci not found, using dummy regulator
+    [ 7547.921210] sunxi-ehci 4101000.ehci0-controller: ehci_irq: highspeed device connect
+    [ 7547.931381] sunxi-ohci 4101400.ohci0-controller: OHCI Host Controller
+    [ 7547.946708] sunxi-ohci 4101400.ohci0-controller: new USB bus registered, assigned bus number 4
+    [ 7547.956934] [sound  403][MACH simple_parse_of] simple_dai_link_of failed
+    [ 7547.964762] debugfs: Directory 'sunxi-ohci' with parent 'ohci' already present!
+    [ 7547.973064] sunxi-ohci 4101400.ohci0-controller: irq 63, io mem 0x04101400
+    [ 7548.049743] hub 4-0:1.0: USB hub found
+    [ 7548.054035] hub 4-0:1.0: 1 port detected
+    [ 7548.059941] [sound  403][MACH simple_parse_of] simple_dai_link_of failed
+    [ 7548.264735] usb 3-1: new high-speed USB device number 2 using sunxi-ehci
+    [ 7548.466532] usb-storage 3-1:1.0: USB Mass Storage device detected
+    [ 7548.479245] scsi host0: usb-storage 3-1:1.0
+    [ 7548.494584] [sound  403][MACH simple_parse_of] simple_dai_link_of failed
+    [ 7549.515526] scsi 0:0:0:0: Direct-Access     General  UDisk            5.00 PQ: 0 ANSI: 2
+    [ 7549.528712] sd 0:0:0:0: [sda] 1966080 512-byte logical blocks: (1.01 GB/960 MiB)
+    [ 7549.539317] sd 0:0:0:0: [sda] Write Protect is off
+    [ 7549.547711] sd 0:0:0:0: [sda] Mode Sense: 0b 00 00 08
+    [ 7549.557376] sd 0:0:0:0: [sda] No Caching mode page found
+    [ 7549.563355] sd 0:0:0:0: [sda] Assuming drive cache: write through
+    [ 7549.635368]  sda:
+    [ 7549.648386] sd 0:0:0:0: [sda] Attached SCSI removable disk
+    create /dev/sda[ 7549.655125][sound  403][MACH simple_parse_of] simple_dai_link_of failed
 
-|   接口丝印：CON7
-|   测试说明：采用插拔TF卡的方式进行测试
-|   测试操作
+    [ 7549.736630] FAT-fs (sda): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
 
-1. 将TF卡安装到SD接口，开发板会输出如下信息：
+2. 输入指令如下可查询挂载路径：
 
-.. figure:: /image/MYZR-全志系列/MYZR-T113/测试3.png
-   :alt: 测试3.png
+.. code-block:: shell
 
-2. 将TF拔出，输出信息如下：
+    df -h
 
-.. figure:: /image/MYZR-全志系列/MYZR-T113/测试4.png
-   :alt: 测试4.png
+.. code-block:: shell
 
-音频测试
+    /dev/sda                959.7M     48.0K    959.7M   0% /mnt/usb/sda
+
+3. 输入指令如下可查询USB_DRD当前模式
+
+.. code-block:: shell
+
+    cat /sys/bus/platform/drivers/otg\ manager/soc\@3000000\:usbc0\@0/otg_role
+
+4. 输入指令如下，测试 USB0_DRD 接口写速度：
+
+.. code-block:: shell
+
+    echo 3 > /proc/sys/vm/drop_caches
+    time dd if=/dev/zero of=/dev/sda bs=1024K count=10
+
+.. code-block:: shell
+
+    10+0 records in
+    10+0 records out
+
+    real        0m0.080s
+    user        0m0.000s
+    sys        0m0.069s
+
+|   此处通过 USB_DRD 接口一共写入 10MByte 测试数据至固态硬盘。
+
+5. 输入指令如下，测试 USB0_DRD 接口读速度：
+
+.. code-block:: shell
+
+    echo 3 > /proc/sys/vm/drop_caches
+    time dd if=/dev/sda of=/dev/null bs=1024K count=10
+
+.. code-block:: shell
+
+    10+0 records in
+    10+0 records out
+
+    real        0m1.412s
+    user        0m0.000s
+    sys        0m0.056s
+
+|   此处通过 USB_DRD 接口一共读取 10MByte 测试数据至固态硬盘。
+
+6. 将 USB 设备从底板拔出，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+    [ 8667.889791] sunxi-ehci 4101000.ehci0-controller: ehci_irq: highspeed device disconnect
+    [ 8667.898825] usb 3-1: USB disconnect, device number 2
+    [ 8668.898778] 
+    [ 8668.898778] rmmod_host_driver
+    [ 8668.898778] 
+    [ 8668.905441] [ehci0-controller]: sunxi_usb_disable_ehci
+    [ 8668.911201] [sunxi-ehci0]: remove, pdev->name: 4101000.ehci0-controller, sunxi_ehci: 0xc0c92388
+    [ 8668.921004] sunxi-ehci 4101000.ehci0-controller: remove, state 1
+    [ 8668.927773] usb usb3: USB disconnect, device number 1
+    remove /dev/sda
+    [ 8668.968046] FAT-fs (sda): unable to read boot sector to mark fs as dirty
+    [ 8669.039104] sunxi-ehci 4101000.ehci0-controller: USB bus 3 deregistered
+    [ 8669.047150] [ohci0-controller]: sunxi_usb_disable_ohci
+    [ 8669.052958] [sunxi-ohci0]: remove, pdev->name: 4101400.ohci0-controller, sunxi_ohci: 0xc0c92638
+    [ 8669.062813] sunxi-ohci 4101400.ohci0-controller: remove, state 4
+    [ 8669.069636] usb usb4: USB disconnect, device number 1
+    [ 8669.077208] sunxi-ohci 4101400.ohci0-controller: USB bus 4 deregistered
+    [ 8669.085233] 
+    [ 8669.085233] insmod_device_driver
+
+**DEVICE 模式测试**
+
+|   测试操作：
+
+1. 使用usb转type-c数据线连接开发板usb0_drd和电脑主机接口，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+    [ 8694.440072] sunxi_set_cur_vol_work()422 WARN: get power supply failed
+    [ 8694.526975] android_work: sent uevent USB_STATE=CONNECTED
+    [ 8694.562395] configfs-gadget gadget: high-speed config #1: c
+    [ 8694.569522] android_work: sent uevent USB_STATE=CONFIGURED
+
+2. 输入指令如下可查询USB_DRD当前模式
+
+.. code-block:: shell
+
+    cat /sys/bus/platform/drivers/otg\ manager/soc\@3000000\:usbc0\@0/otg_role
+
+3. 将otg.sh脚本文件拷贝至评估板文件系统opt目录下，输入指令如下，会将评估板 10MByte 容量的DDR内存空间虚拟为U盘：
+
+.. code-block:: shell
+
+    ./opt/otg.sh
+
+.. code-block:: shell
+
+    10+0 records in
+    10+0 records ou[  372.235549] android_work: sent uevent USB_STATE=DISCONNECTED
+    t
+    清理旧配置...
+    [  372.243721] android_work: did not send uevent (0 0 00000000)
+    创建新配置...
+
+    USB Mass Storage Gadget 已激活
+    # [  373.443261] sunxi_set_cur_vol_work()422 WARN: get power supply failed
+    [  373.529838] android_work: sent uevent USB_STATE=CONNECTED
+    [  374.663250] configfs-gadget gadget: high-speed config #1: c
+    [  374.669936] android_work: sent uevent USB_STATE=CONFIGURED
+    
+4. 将usb转type-c数据线从电脑主机和开发板接口断开，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+    [ 8713.914725] sunxi_vbus_det_work()3439 WARN: get power supply failed
+    [ 8713.922030] android_work: sent uevent USB_STATE=DISCONNECTED
+    
+USB1_HOST
+~~~~~~~~~~~
+
+|   接口丝印：CON22
+|   测试说明：采用插拔USB存储设备（U盘）的方式，以及使用命令对 USB1_HOST 进行读写测试
+|   测试操作：
+
+1. 将USB设备插入底板USB接口，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+    [ 8286.514156] usb 1-1.1: new high-speed USB device number 5 using sunxi-ehci
+    [ 8286.666092] usb-storage 1-1.1:1.0: USB Mass Storage device detected
+    [ 8286.678608] scsi host0: usb-storage 1-1.1:1.0
+    [ 8286.685232] [sound  403][MACH simple_parse_of] simple_dai_link_of failed
+    [ 8287.755033] scsi 0:0:0:0: Direct-Access     General  UDisk            5.00 PQ: 0 ANSI: 2
+    [ 8287.768294] sd 0:0:0:0: [sda] 1966080 512-byte logical blocks: (1.01 GB/960 MiB)
+    [ 8287.782858] sd 0:0:0:0: [sda] Write Protect is off
+    [ 8287.788529] sd 0:0:0:0: [sda] Mode Sense: 0b 00 00 08
+    [ 8287.795011] sd 0:0:0:0: [sda] No Caching mode page found
+    [ 8287.800995] sd 0:0:0:0: [sda] Assuming drive cache: write through
+    [ 8287.845122]  sda:
+    [ 8287.861123] sd 0:0:0:0: [sda] Attached SCSI removable disk
+    create /dev/sda
+    [ 8287.868032] [sound  403][MACH simple_parse_of] simple_dai_link_of failed
+    [ 8287.978121] FAT-fs (sda): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+
+2. 输入指令如下可查询挂载路径：
+
+.. code-block:: shell
+
+    df -h
+
+.. code-block:: shell
+
+    /dev/sda                959.7M     48.0K    959.7M   0% /mnt/usb/sda
+
+3. 输入指令如下，测试 USB1_HOST 接口写速度：
+
+.. code-block:: shell
+
+    echo 3 > /proc/sys/vm/drop_caches
+    time dd if=/dev/zero of=/dev/sda bs=1024K count=10
+
+.. code-block:: shell
+
+    10+0 records in
+    10+0 records out
+
+    real        0m0.082s
+    user        0m0.000s
+    sys        0m0.071s
+
+|   此处通过 USB_HOST 接口一共写入 10MByte 测试数据至固态硬盘。
+
+4. 输入指令如下，测试 USB1_HOST 接口读速度：
+
+.. code-block:: shell
+
+    echo 3 > /proc/sys/vm/drop_caches
+    time dd if=/dev/sda of=/dev/null bs=1024K count=10
+
+.. code-block:: shell
+
+    10+0 records in
+    10+0 records out
+
+    real        0m1.412s
+    user        0m0.000s
+    sys        0m0.054s
+
+|   此处通过 USB_HOST 接口一共读取 10MByte 测试数据至固态硬盘。
+
+5. 将 USB 设备从底板拔出，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+    [ 9655.558077] usb 1-1.1: USB disconnect, device number 7
+    remove /dev/sda
+    [ 9655.629385] FAT-fs (sda): unable to read boot sector to mark fs as dirty
+
+串口测试
 ----------
 
-MIC_IN/HP_OUT
-~~~~~~~~~~~~~~~
-
-|   接口丝印：CON19
-|   测试说明：使用带MIC的耳机录制并播放录音文件进行测试
-|   测试操作
-
-1. 把带MIC的耳机插入丝印对应的接口
-2. 输入如下指令进行录音，按下"Ctrl + C"可终止录音：
-
-.. code-block:: shell
-
-    cd /
-    ./mic_in_test.sh
-
-3. 输入如下指令播放录制的音频文件：
-
-.. code-block:: shell
-
-    aplay -Dhw:audiocodec -vv test.wav
-
-|   耳机有录制声音输出并且不存在杂音、失真现象表示测试通过
-
-LINE_IN
-~~~~~~~~~
-
-|   接口丝印：CON18
-|   测试说明：通过开发板输出设备音频
-|   测试操作
-
-1. 将一条两头都是公头(3.5mm)的音频线的一端插入丝印对应的接口
-2. 音频线的另一端接入一个正在播放音频的设备
-3. 将耳机或者音箱连接开发板的MIC_IN/HP_OUT接口
-
-|   1）不配置音量测试：
-|   输入如下指令进行测试，按下"Ctrl + C"可终止测试：
-
-.. code-block:: shell
-
-    cd /
-    ./line_in_test.sh
-
-|   2）配置音量测试：
-|   ①输入如下指令进行测试(命令中参数"4"，参数取值范围为 0~7)：
-
-.. code-block:: shell
-
-    cd /
-    ./line_in_test.sh &
-    amixer sset -c audiocodec "Headphone volume" 4
-
-|   ②输入如下指令可终止测试：
-
-.. code-block:: shell
-
-    killall line_in_test.sh aplay arecord
-
-|   耳机或者音箱正常播放设备输出的音频，并且不存在杂音、失真表示测试通过
-
-UART测试
-----------
-
-|   接口丝印：CON10(UART4)、CON11(UART5)、CON26(UART2)
-|   系统接口：ttyAS4(UART4)、ttyAS5(UART5)
-|   测试说明：使用自发自收的方式进行测试
-|   测试操作
-
-1. 短接需要测试的UART对应的接口丝印的TX和RX
-2. 配置测试的UART，启动后台运行并发送数据，输入指令如下(以下均以UART4为例，如果测试其他UART，只需将指令中的"ttyS4"替换成测试的UART对应的系统接口即可)：
-
-.. code-block:: shell
-
-    stty -F /dev/ttyS4 ispeed 115200 ospeed 115200 cs8 -cstopb -parenb -crtscts -echo -ixon -icanon
-    cat /dev/ttyS4 &
-    echo myzr > /dev/ttyS4
-
-|   此时应收到"myzr"，按下"Ctrl + C"退出
-
-3. 终止测试，输入指令如下：
-
-.. code-block:: shell
-
-    pkill -f "cat /dev/ttyS4"
-
-|   操作过程中的输出符合预期即功能正常
-
-can测试
----------
-
-|   接口丝印：J3
-|   系统接口：can0(H0、L0)、can1(H1、L1)
-|   测试说明：使用两组 CAN 总线相互收发的方式进行测试
-|   测试操作
-
-1. 将J3的H0和H1连接、L0和L1连接，输入如下指令配置can0和can1
-
-.. code-block:: shell
-
-    ip link set awlink0 down
-    ip link set awlink1 down
-    ip link set awlink0 type can bitrate 1000000
-    ip link set awlink1 type can bitrate 1000000
-    ip link set awlink0 up
-    ip link set awlink1 up
-
-2. can0发送，can1接收，输入指令如下：
-
-.. code-block:: shell
-
-    candump awlink1 &
-    cansend awlink0 123#1122334455667788
-
-|   此时应收到"can1  123   [8]  11 22 33 44 55 66 77 88"，按下"Ctrl + C"退出
-
-3. can0接收，can1发送，输入指令如下：
-
-.. code-block:: shell
-
-    pkill candump
-    candump awlink0 &
-    cansend awlink1 123#DEADBEEF
-
-|   此时应收到"awlink0  123   [4]  DE AD BE EF"，按下"Ctrl + C"退出
-
-4. 终止进程，关闭接口，输入指令如下：
-
-.. code-block:: shell
-
-    pkill candump
-    ip link set awlink0 down
-    ip link set awlink1 down
-
-|   操作过程中的输出符合预期即功能正常
-
-232测试
----------
+RS232  UART2 串口
+~~~~~~~~~~~~~~~~~~~
 
 |   接口丝印：CON9
-|   系统接口：ttyS2
-|   测试说明：使用自发自收的方式进行测试
-|   测试操作
+|   测试说明：使用 RS232 交叉串口母母线、USB 转 RS232 公头串口线与电脑互联，进行收发测试。
+|   测试操作：
 
-1. 短接丝印对应接口的TX和RX引脚
-2. 配置232，启动后台运行并发送数据，输入指令如下：
-
-.. code-block:: shell
-
-    stty -F /dev/ttyS2 ispeed 115200 ospeed 115200 cs8 -cstopb -parenb -crtscts -echo -ixon -icanon
-    cat /dev/ttyS2 &
-    echo myzr > /dev/ttyS2
-
-|   此时应收到"myzr"，按下"Ctrl + C"退出
-
-3. 终止测试，输入指令如下：
+1. 使用 RS232 交叉串口母母线、USB 转 RS232 公头串口线连接开发板和电脑。
+2. 使用xshell打开对应串口，将波特兰设置成115200，数据为8位，停止位1位。
+3. 输入如下命令，可以向RS232串口发送消息：
 
 .. code-block:: shell
 
-    pkill -f "cat /dev/ttyS2"
+    stty -F /dev/ttyS2 ispeed 115200 ospeed 115200 cs8
+    echo Myzr > /dev/ttyS2                                //向上位机发送数据
 
-|   操作过程中的输出符合预期即功能正常
+|   可以看到RS232串口终端输出Myzr。
 
-485测试
----------
+4. 输入如下命令，可以接收RS232串口发出的消息：
+
+.. code-block:: shell
+
+    cat /dev/ttyS2
+
+|   在RS232串口终端，直接输入123，板子输出结果：
+
+.. code-block:: shell
+
+    123
+
+|   按Ctrl + C可终止测试命令。
+
+TTL UART4、TTL UART5 串口
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   接口丝印：CON10、CON11
+|   测试说明：通过USB转TTL模块和杜邦线连接电脑和开发板接口，进行收发测试。
+|   测试操作：
+
+1. 通过USB转TTL模块和杜邦线，将电脑接口和开发板接口相互连接。
+2. 使用xshell打开对应串口，将波特兰设置成115200，数据为8位，停止位1位。
+3. 输入如下命令，可以向TTL UART4串口发送消息：
+
+.. code-block:: shell
+
+    stty -F /dev/ttyS4 ispeed 115200 ospeed 115200 cs8
+    echo Myzr > /dev/ttyS4                                //向上位机发送数据
+
+|   可以看到TTL UART4串口终端输出Myzr。
+
+4. 输入如下命令，可以接收TTL UART4串口发出的消息：
+
+.. code-block:: shell
+
+    cat /dev/ttyS4
+
+|   在TTL UART4串口终端，直接输入123，板子输出结果：
+
+.. code-block:: shell
+
+    123
+
+|   按Ctrl + C可终止测试命令。
+
+5. 若需测试TTL UART5，将ttyS4改为ttyS5即可。
+
+RS485 UART1、RS485 UART5 串口
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 |   接口丝印：J3
-|   系统接口：ttyS1(A0、B0)、ttyS3(A1、B1)
-|   测试说明：使用两组485相互收发的方式进行测试
-|   测试操作
+|   测试说明：通过USB转RS485模块连接电脑和开发板接口，进行收发测试。
+|   测试操作：
 
-1. 将J3的A0和A1连接、B0和B1连接，输入如下指令配置485：
+1. 通过USB转RS485模块和杜邦线，将电脑接口和开发板接口相互连接。
+2. 使用xshell打开对应串口，将波特兰设置成115200，数据为8位，停止位1位。
+3. 输入如下命令，可以向RS485 UART1串口发送消息：
 
 .. code-block:: shell
 
     stty -F /dev/ttyS1 ispeed 115200 ospeed 115200 cs8
-    stty -F /dev/ttyS3 ispeed 115200 ospeed 115200 cs8
+    echo Myzr > /dev/ttyS1                                //向上位机发送数据
 
-2. ttyAS1接收，ttyAS3发送，输入如下指令：
+|   可以看到RS485 UART1串口终端输出Myzr。
 
-.. code-block:: shell
-
-    cat /dev/ttyS1 &
-    echo myzr > /dev/ttyS3
-
-|   此时应收到"myzr"，按下"Ctrl + C"退出
-
-3. ttyAS3接收，ttyAS1发送，输入如下指令：
+4. 输入如下命令，可以接收RS485 UART1串口发出的消息：
 
 .. code-block:: shell
 
-    pkill -f "cat /dev/ttyAS1"
-    cat /dev/ttyS3 &
-    echo 123 > /dev/ttyS1
+    cat /dev/ttyS1
 
-|   此时应收到"123"，按下"Ctrl + C"退出
-
-4. 终止测试，输入指令如下：
+|   在RS485 UART1串口终端，直接输入123，板子输出结果：
 
 .. code-block:: shell
 
-    pkill -f "cat /dev/ttyS3"
+    123
 
-|   操作过程中的输出符合预期即功能正常
+|   按Ctrl + C可终止测试命令。
 
-rtc测试
----------
+5. 若需测试RS485 UART3，将ttyS1改为ttyS3即可。
 
-|   接口丝印：CON6
-|   测试说明：读取并设置时间，断电重启后检查时间是否正确
-|   测试操作
 
-1. 断电，检查纽扣电池是否安装，用万用表检查RTC电池有没有电，测出来是3.3v左右才是正常的
-2. 设备通电，查看当前rtc设备节点，输入指令如下：
+CAN
+------
 
-.. code-block:: shell
+|   接口丝印：J3
+|   测试说明：使用杜邦线连接两组CAN总线，通过互发互收的方式进行测试
+|   测试操作：
 
-    ls /dev/rtc*
-    dmesg | grep rtc0
-
-3. 查看系统时钟并设置系统时钟，输入指令如下：
+1. 使用杜邦线将CAN0接口和CAN1互相连接。
+2. 在终端输入如下命令配置CAN0和CAN1
 
 .. code-block:: shell
 
-    date
-    date -s "2025-05-15 15:08:00" && hwclock -w -f /dev/rtc0
+    ip link set awlink0 down
+    ip link set awlink0 type can bitrate 1000000
+    ip link set awlink0 up
 
-4. 同步系统时钟至rtc时钟并查看rtc时钟，输入指令如下：
+    ip link set awlink1 down
+    ip link set awlink1 type can bitrate 1000000
+    ip link set awlink1 up
 
-.. code-block:: shell
-
-    hwclock --systohc -u
-    hwclock -u
-
-5. 将rtc时钟的时间同步到系统时钟，输入指令如下：
+|   在终端看到类似信息输出，表示启用成功：
 
 .. code-block:: shell
 
-    hwclock --hctosys -u
+    link becomes ready
 
-6. 设备断电重启，查看rtc时钟，输入指令如下：
+3. 在终端输入如下命令使CAN0和CAN1后台接收：
 
 .. code-block:: shell
 
-    hwclock -u
+    candump awlink0 &
+    candump awlink1 &
 
-|   rtc时间在原来的时间上继续走，表明rtc测试通过
+4. 在串口终端输入如下命令使 CAN0(can1) 发送测试数据
 
-HDMI测试
-----------
+|   输入命令
+
+.. code-block:: shell
+
+    cansend awlink0 123#1122334455667788
+
+|   接收消息
+
+.. code-block:: shell
+
+  awlink0  123   [8]  11 22 33 44 55 66 77 88
+  awlink1  123   [8]  11 22 33 44 55 66 77 88
+
+
+TF 卡
+------
+
+TF 卡插入检测
+~~~~~~~~~~~~~~~
+
+|   接口丝印：CON7
+|   测试说明：插入TF卡，观察设备能否正确识别到卡。
+|   测试操作：
+
+1. 准备一张TF卡，插入开发板Micro SD接口。输出以下类似信息：
+
+.. code-block:: shell
+
+    [  107.514984] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 0Hz bm PP pm UP vdd 21 width 1 timing LEGACY(SDR12) dt B
+    [  107.526272] sunxi-mmc 4020000.sdmmc: no vqmmc,Check if there is regulator
+    [  107.546435] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+    [  107.570689] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+    [  107.585329] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+    [  107.599254] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+    [  107.613896] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing LEGACY(SDR12) dt B
+    [  107.819966] mmc1: host does not support reading read-only switch, assuming write-enable
+    [  107.832034] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 400000Hz bm PP pm ON vdd 21 width 1 timing SD-HS(SDR25) dt B
+    [  107.843671] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 1 timing SD-HS(SDR25) dt B
+    [  107.855525] sunxi-mmc 4020000.sdmmc: sdc set ios:clk 50000000Hz bm PP pm ON vdd 21 width 4 timing SD-HS(SDR25) dt B
+    [  107.867332] mmc1: new high speed SDHC card at address aaaa
+    [  107.874744] mmcblk1: mmc1:aaaa SD32G 29.7 GiB 
+    [  107.884002]  mmcblk1: p1 p2 p3 p4 p5 p6 p7 p8
+
+2. 输入命令,查看TF卡信息：
+
+.. code-block:: shell
+
+    fdisk -l
+
+TF 卡读写测试
+~~~~~~~~~~~~~~
+
+|   接口丝印：CON7
+|   测试说明：插入TF卡，使用命令对Micro SD接口进行读写测试。
+|   测试操作：
+
+1. 输入命令，格式化TF卡未使用空间：
+
+.. code-block:: shell
+
+    mkfs.ext4 /dev/mmcblk1p8
+
+|   输出如下类似信息，表示格式化成功：
+
+.. code-block:: shell
+
+    mke2fs 1.44.5 (15-Dec-2018)
+    Creating filesystem with 7506559 4k blocks and 1876800 inodes
+    Filesystem UUID: 9c080811-bd02-47a3-8f31-01ea7ad2268c
+    Superblock backups stored on blocks: 
+            32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+            4096000
+
+    Allocating group tables: done                            
+    Writing inode tables: done                            
+    Creating journal (32768 blocks): done
+    Writing superblocks and filesystem accounting information: remove /dev/mmcblk1p8
+    done
+
+2. 输入命令，创建目录并对分区进行挂载。
+
+.. code-block:: shell
+
+    mkdir -p /run/media/mmcblk1p8
+    mount /dev/mmcblk1p8 /run/media/mmcblk1p8
+
+|   输出信息：
+
+.. code-block:: shell
+
+    [ 1023.996843] EXT4-fs (mmcblk1p8): mounted filesystem with ordered data mode. Opts: (null)
+
+3. 输入命令，对Micro SD接口进行写速度测试：
+
+.. code-block:: shell
+
+    echo 3 > /proc/sys/vm/drop_caches
+    time dd if=/dev/zero of=/run/media/mmcblk1p8/test bs=1024K count=10 conv=fsync
+
+|   输出信息：
+
+.. code-block:: shell
+
+    10+0 records in
+    10+0 records out
+
+    real        0m0.731s
+    user        0m0.001s
+    sys        0m0.116s
+
+4. 输入命令，对Micro SD接口进行读速度测试：
+
+.. code-block:: shell
+
+    echo 3 > /proc/sys/vm/drop_caches
+    time dd if=/run/media/mmcblk1p8/test of=/dev/null bs=1024K
+
+|   输出信息：
+
+.. code-block:: shell
+
+    10+0 records in
+    10+0 records out
+
+    real        0m0.463s
+    user        0m0.000s
+    sys        0m0.036s
+
+5. 完成测试后，执行如下命令卸载挂载分区
+
+.. code-block:: shell
+
+    umount /run/media/mmcblk1p8/
+    rm -r /run/media/mmcblk1p8
+
+
+HDMI OUT 测试
+---------------
 
 |   接口丝印：CON17
-|   测试说明：开发板上电启动显示屏是否正常显示
-|   测试操作
-
-1. 将一个HDMI接口的屏幕和开发板上的HDMI接口连接，启动开发板
-
-|   显示屏正常显示表示测试通过
-
-4G测试
---------
-
-|   接口丝印：CON25、CON23
-|   测试说明：4G连接成功后，开发板向外网发送ICMP报文来验证连接正常
-|   测试操作
-
-1. 开发板断电，将4G模块接入CON25对应丝印接口、SIM卡接入CON23对应丝印接口，连接好4G模块的天线
-2. 开发板通电，输入以下指令关闭其他网络并查询是否有无usb0网络节点生成
-
-.. code-block:: shell
-
-    ifconfig eth0 down
-    ifconfig eth1 down
-    ifconfig
-
-3. 若无usb0节点，输入以下指令手动打开
-
-.. code-block:: shell
-
-    microcom -t15000 -s115200 /dev/ttyUSB2
-    AT+QCFG="USBNET",1
-
-|   返回"OK"后按下"Ctrl + X"退出
-
-4. 输入以下指令自动获取IP地址并测试网络连接
-
-.. code-block:: shell
-
-    udhcpc -i usb0
-    ping www.baidu.com -I usb0 -c 3
-
-|   "0% packet loss"表示测试通过
+|   测试操作：通过HDMI连接线，将开发板和显示屏连接，检查显示屏是否显示。若显示，则表示功能正常。
 
 WIFI 测试
-------------
+-----------
 
 |   接口丝印：CON24
 |   测试说明：将2.4G天线连接至开发板WIFI(CON24)接口，开发板向外网发送ICMP报文来验证连接正常。
@@ -512,3 +854,186 @@ WIFI 测试
     ^C3 sent, 3 received, 0% loss
 
 |   “0% packet loss”表示蓝牙连接正常。
+
+RTC
+-----
+
+|   接口丝印：CON6
+|   测试说明：先读取RTC时间，再设置RTC时间，之后断电重启后再核对RTC时间。
+|   测试操作：
+
+1. 输入命令，查看外部RTC设备节点。：
+
+.. code-block:: shell
+
+    ls /dev/rtc*
+
+|   输出信息：
+
+.. code-block:: shell
+
+    /dev/rtc   /dev/rtc0
+
+2. 输入命令，读取RTC当前时间：
+
+.. code-block:: shell
+
+    hwclock -f /dev/rtc
+
+3. 输入命令，设置RTC时间：
+
+.. code-block:: shell
+
+    date -s "2023-02-06 12:34:56"
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Mon Feb  6 12:34:56 UTC 2023
+|   系统时间成功更新为设置的时间。
+
+4. 输入命令，同步系统时钟至RTC时钟并查看：
+
+.. code-block:: shell
+    
+    hwclock --systohc -u
+    hwclock -u
+
+5. 输入命令，系统将同步 RTC 时钟作为系统时钟。
+
+.. code-block:: shell
+
+    hwclock --hctosys -u
+
+6. 断电重启设备。
+7. 输入命令，核对RTC时间：
+.. code-block:: shell
+
+    hwclock -f /dev/rtc
+
+音频
+-------
+
+HP OUT/MIC IN 接口测试
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   接口丝印：CON19
+|   测试说明：使用带有麦克风的3.5mm耳机连接开发板上HP OUT/MIC IN接口，进行播放和录音测试。
+|   测试操作：
+
+1. 将耳机插入丝印CON19对应的接口。
+2. 将mic_in_test.sh添加至系统文件下。
+3. 输入命令，进行录音测试：
+
+.. code-block:: shell
+
+    ./mic_in_test.sh
+
+4. 输入命令，进行播放测试：
+
+.. code-block:: shell
+
+    aplay -Dhw:audiocodec -vv test.wav
+
+|   耳机可以听到声音，即功能正常。
+
+LINE IN 接口测试
+~~~~~~~~~~~~~~~~~~
+
+|   接口丝印：CON18
+|   测试说明：使用两头均为公头的3.5mm音频线，连接开发板和音频播放器，在将耳机插入HP OUT/MIC IN接口，进行播放测试。
+|   测试操作：
+
+1. 准备一条3.5mm两头均为公头的音频线，一端连接评估板的 LINE IN 接口，另外一端连接正在播放音频的播放器（手机或 PC 机均可），将耳机连接HP OUT/MIC IN接口。
+2. 将line_in_test.sh文件添加至系统文件下。
+3. 输入命令，进行播放测试：
+
+.. code-block:: shell
+
+    ./line_in_test.sh
+
+|   耳机正常播放音频，则功能正常。
+
+4G 模块
+----------
+
+|   接口丝印：CON25
+|   测试说明：4G连接成功后，开发板向外网发送ICMP报文来验证连接正常。
+|   测试操作：
+
+1. 准备一个4G模块，插入开发板的4G模块接口，输入命令，找到usb0:
+
+.. code-block:: shell
+
+    ifconfig -a
+
+2. 将quectel-CM文件添加至文件系统，输入命令，获取IP并启用usb0:
+
+.. code-block:: shell
+
+    ./quectel-CM &
+    ifconfig usb0 up
+
+3. 输入命令，测试网络连接：
+
+.. code-block:: shell
+
+    ping -I usb0 www.baidu.com
+
+|   输出信息：
+
+.. code-block:: shell
+
+    PING www.baidu.com (183.240.99.58): 56 data bytes
+    64 bytes from 183.240.99.58: seq=0 ttl=52 time=119.380 ms
+    64 bytes from 183.240.99.58: seq=1 ttl=53 time=49.178 ms
+    64 bytes from 183.240.99.58: seq=2 ttl=53 time=40.013 ms
+    64 bytes from 183.240.99.58: seq=3 ttl=53 time=48.857 ms
+    64 bytes from 183.240.99.58: seq=4 ttl=53 time=51.461 ms
+    64 bytes from 183.240.99.58: seq=5 ttl=53 time=49.446 ms
+    64 bytes from 183.240.99.58: seq=6 ttl=53 time=49.273 ms
+    64 bytes from 183.240.99.58: seq=7 ttl=53 time=39.126 ms
+    64 bytes from 183.240.99.58: seq=8 ttl=53 time=48.990 ms
+    ^C
+    --- www.baidu.com ping statistics ---
+    9 packets transmitted, 9 packets received, 0% packet loss
+
+|   “0% packet loss”表示4G连接正常。
+
+GPIO
+------
+
+|   接口丝印：CON26
+|   测试说明：通过命令控制GPIO输出高低电平
+|   测试操作：
+
+1. 首先获取引脚名称，并计算GPIO编号。TX和RX使用的分别是PC0和PC1，GPIO编号分别为64和65。
+2. 输入命令，挂载debugfs：
+
+.. code-block:: shell
+
+    mount -t debugfs none /sys/kernel/debug
+
+3. 输入命令，导出GPIO引脚并设置为输出模式：
+
+.. code-block:: shell
+
+    echo 64 > /sys/class/gpio/export
+    echo out > /sys/class/gpio/gpio64/direction
+
+4. 输入命令，控制GPIO引脚输出高电平：
+
+.. code-block:: shell
+
+    echo 1 > /sys/class/gpio/gpio64/value
+
+5. 输入命令，控制GPIO引脚输出低电平：
+
+.. code-block:: shell
+
+    echo 0 > /sys/class/gpio/gpio64/value
+
+|   在测试操作中，读取到的电平符合正确预期，即功能正常
+
+

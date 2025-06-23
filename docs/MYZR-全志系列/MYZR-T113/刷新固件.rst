@@ -4,15 +4,15 @@
 使用TF卡刷机
 -------------
 
-|   使用PhoenixCard工具可以将Linux系统镜像文件通过读卡器固化到SD卡上，将SD卡制作成“启动卡”或者“量产卡”。
+|   使用 PhoenixCard 工具可以将 Linux 系统镜像文件通过读卡器固化到 SD 卡上，将 SD 卡制作成 “启动卡” 或者 “量产卡”。
 
-1. 将空白的SD卡通过读卡器连接至电脑主机，双击打开PhoenixCard系统固化工具。
+1. 将空白的 SD 卡通过读卡器连接至电脑主机，双击打开 PhoenixCard 系统固化工具。
 
 .. image:: /image/MYZR-全志系列/MYZR-T113/刷新固件1.jpg
    :alt: 刷新固件1.jpg
 
-2. 工具运行后会自动识别到连接至电脑主机的SD。
-3. 点击“固件”选择需要烧录的目标镜像，选择“启动卡”，最后选择“烧卡”。
+2. 工具运行后会自动识别到连接至电脑主机的 SD。
+3. 点击 “固件” 选择需要烧录的目标镜像，选择 “启动卡” ，最后选择 “烧卡” 。
 
 .. image:: /image/MYZR-全志系列/MYZR-T113/刷新固件2.jpg
    :alt: 刷新固件2.jpg
@@ -42,7 +42,7 @@
 .. image:: /image/MYZR-全志系列/MYZR-T113/刷新固件5.jpg
    :alt: 刷新固件5.jpg
 
-4. 将开发板断电，长按KEY1按键，在将开发板上电，当PhoenixSuit工具出现如下图界面后，松开KEY1按键，在PhoenixSuit工具界面选择“是”。
+4. 将开发板断电，长按KEY1按键，在将开发板上电，当PhoenixSuit工具出现如下图界面后，松开KEY1按键，在PhoenixSuit工具界面选择 “是”。
 
 .. image:: /image/MYZR-全志系列/MYZR-T113/刷新固件6.jpg
    :alt: 刷新固件6.jpg
@@ -58,13 +58,13 @@
 分区烧录
 ----------
 
-|   请打开PhoenixSuit工具，点击“一键刷机”，然后选择系统镜像文件后，勾选“单个或多个分区”选项，勾选后会出现以下分区选项，可根据实际需要勾选对应分区进行固化；若全不选，则仅下载boot0，boot1，即boot_package.fex文件，可用于更新U-Boot与设备树。
+|   请打开PhoenixSuit工具，点击 “一键刷机”，然后选择系统镜像文件后，勾选 “单个或多个分区” 选项，勾选后会出现以下分区选项，可根据实际需要勾选对应分区进行固化；若全不选，则仅下载boot0，boot1，即 boot_package.fex文件，可用于更新U-Boot与设备树。
 
 .. image:: /image/MYZR-全志系列/MYZR-T113/刷新固件8.jpg
    :alt: 刷新固件8.jpg
 
-|   BOOT-RESOURCE：存放bootlogo等资源。
-|   ENV：存放U-Boot环境变量env.fex。
-|   ENV-REDUND：存放U-Boot环境变量env.fex。
-|   BOOT：存放内核镜像boot.fex。
-|   ROOTFS：存放文件系统镜像rootfs.fex。
+|  BOOT-RESOURCE：存放bootlogo等资源。
+|  ENV：存放U-Boot环境变量env.fex。
+|  ENV-REDUND：存放U-Boot环境变量env.fex。
+|  BOOT：存放内核镜像boot.fex。
+|  ROOTFS：存放文件系统镜像rootfs.fex。
