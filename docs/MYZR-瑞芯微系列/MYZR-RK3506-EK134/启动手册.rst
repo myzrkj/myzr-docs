@@ -1,0 +1,81 @@
+启动手册
+=========
+
+开发板连接
+-----------
+
+串口线的连接
+~~~~~~~~~~~~~
+
+1. 使用 Type-C 线将评估板的"CON1"接口连接至 PC 机 USB 接口
+2. 参考 :doc:`《Xshell 参考手册》</docs/COMMON/Xshell.RM.参考手册>` 新建串口会话并打开会话。
+
+网线的连接
+~~~~~~~~~~~
+
+|   把网线的一端连接到“J15”或“J14”，另一端连接到电脑的网口。
+
+下载线的连接
+~~~~~~~~~~~~~
+
+|   把双头USB线的一端连接J6，另一端连接到电脑的后置USB口。
+
+电源线的连接
+~~~~~~~~~~~~~
+
+|   把电源适配器的一端连接到开发板的“"12V_IN”，另一端插入到市电（220V的交流电）插座。
+
+启动开发板
+-----------
+
+开发板的启动信息解读
+---------------------
+
+|   开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
+
+.. code-block:: shell
+
+    U-Boot SPL board init
+    U-Boot SPL 2017.09 (Jun 05 2025 - 15:47:49)
+    sfc cmd=03H(6BH-x4)
+    SPI Nand ID ef aa 22
+    unrecognized JEDEC id bytes: ff, ef, aa
+    Trying to boot from MTD1
+    Trying fit image at 0x2000 sector
+    Trying kernel at 0xba00 sector from 'boot' part
+    Jumping to Kernel(0x01100000) via OP-TEE(0x00001000)
+    Total: 278.672/343.84 ms
+
+    I/TC: Status: cluster=0xc00, core=0xe100, bootcpu=0
+    I/TC: Next entry point address: 0x01100000
+    I/TC: OP-TEE version: 3.13.0-894-g0e7e5b3c7ff #chenjh (gcc version 10.2.1 20201103 (GNU Toolchain for the A-profile Architecture 10.2-2020.11 (arm-10.16))) #2 Tue Nov 12 09:21:23 CST 2024 arm, fwver: v1.25 
+    I/TC: OP-TEE memory: TEEOS 0x5e000 TA 0x1000 SHM 0x1000
+    I/TC: Primary CPU initializing
+    I/TC: Primary CPU switching to normal world boot
+    [    0.478757] Booting Linux on physical CPU 0xf00
+    [    0.478780] Linux version 6.1.84 (huangyc@myzr-u2004-ec50) (arm-none-linux-gnueabihf-gcc (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621, GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #1 SMP PREEMPT Thu Jun  5 15:50:39 CST 2025
+    [    0.479080] Machine model: myzr-rk3506-ek200
+  
+U-Boot 信息
+~~~~~~~~~~~~~
+
+|   启动信息中 U-Boot 2017.09 (Jun 05 2025 - 15:47:49) 包含以下信息：
+|   【u-boot版本】 ：2017.09；
+|   【源码的版本号】 ：g8372631b28；
+|   【u-boot文件的编译时间】 ：Jun 05 2025 - 15:47:49。
+
+内核信息
+~~~~~~~~~~
+
+|   启动信息中 Linux version 6.1.84 (huangyc@myzr-u2004-ec50) (aarch64-none-linux-gnu-gcc (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621, GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #12 SMP Thu May 29 08:04:48 UTC 2025 包含以下信息：
+|   【内核版本】 ：Linux- 6.1.84；
+|   【编译内核的GCC版本】 ： 10.3.1；
+|   【内核文件的编译时间】 ：Thu May 29 08:04:48 UTC 2025。
+
+开发板登录
+-----------
+
+|   启动系统完后输出 root@RK3506-MYZR: 时，可以登录：
+|   【用户名】 ：root
+|   【密码】 ：无
+|   提示：登录后可以通过“passwd”命令来设置和修改密码。
