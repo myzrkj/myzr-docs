@@ -7,7 +7,8 @@
 - 规格参数（应包括温度参数、支持的系统版本）
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113/核心板接口参数.png
-
+    :alt: 核心板接口参数.png
+    :width: 60%
 
 
 核心板介绍
@@ -16,14 +17,20 @@
 - 正面图
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113/核心板正面图.png
+    :alt: 核心板正面图.png
+    :width: 60%
 
 - 背面图
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113/核心板背面图.png
+    :alt: 核心板背面图.png
+    :width: 60%
 
 - 尺寸图
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113/核心板尺寸图.png
+    :alt: 核心板尺寸图.png
+    :width: 60%
 
 
 底板介绍
@@ -32,14 +39,20 @@
 - 正面图
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113/底板正面图.png
+    :alt: 底板正面图.png
+    :width: 60%
 
 - 接口图
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113/底板接口图.png
+    :alt: 底板接口图.png
+    :width: 60%
 
 - 尺寸图
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113/底板尺寸图.png
+    :alt: 底板尺寸图.png
+    :width: 60%
 
 
 

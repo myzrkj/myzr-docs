@@ -73,16 +73,19 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/核心板-正面图.jpg
    :alt: 核心板-正面图.jpg
+   :width: 60%
 
 - 背面图
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/核心板-背面图.jpg
    :alt: 核心板-背面图.jpg
+   :width: 60%
 
 - 尺寸图
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/核心板-尺寸图.jpg
    :alt: 核心板-尺寸图.jpg
+   :width: 60%
 
 底板介绍
 ----------
@@ -91,14 +94,16 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/底板-正面图.jpg
    :alt: 底板-正面图.jpg
+   :width: 60%
 
 - 接口图
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/底板-接口图.jpg
    :alt: 底板-接口图.jpg
+   :width: 60%
 
 - 尺寸图
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/底板-尺寸图.jpg
    :alt: 底板-尺寸图.jpg
-
+   :width: 60%
