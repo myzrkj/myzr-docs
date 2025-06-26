@@ -28,7 +28,7 @@
 处理器框图
 -----------
 
-.. figure:: /image/MYZR-全志系列/MYZR-T113/处理器框图.png
+.. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/处理器框图.png
    :alt: 处理器框图.png
 
 

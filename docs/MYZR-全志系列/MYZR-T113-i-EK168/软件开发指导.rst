@@ -45,7 +45,7 @@ Linux 系统镜像编译及生成
 
    lunch
 
-.. image:: /image/MYZR-全志系列/MYZR-T113/编译手册1.jpg
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册1.jpg
    :alt: 编译手册1.jpg
 
 3. 配置信息
@@ -56,7 +56,7 @@ Linux 系统镜像编译及生成
 
    ./build.sh config
 
-.. image:: /image/MYZR-全志系列/MYZR-T113/编译手册2.jpg
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册2.jpg
    :alt: 编译手册2.jpg
 
 4. 编译 LinuxSDK
