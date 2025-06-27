@@ -46,10 +46,10 @@ Allwinner平台
 
    MYZR-H618-EK120/index
 
-- :doc:`./MYZR-T536/index`
+- :doc:`./MYZR-T536-EK270/index`
 
 .. toctree:: 
    :maxdepth: 1
    :hidden:
 
-   MYZR-T536/index
+   MYZR-T536-EK270/index

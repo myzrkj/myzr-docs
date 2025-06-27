@@ -12,20 +12,20 @@
 
 |  底板由 12V 直流电源供电， CON2 和 CON3 为电源输入连接器。 CON2 为 3pin 规格的绿色连接器，间距为 3.81mm。 CON3 为 DC-005 电源接口，可接外径 5.5mm、内径 2.1mm的电源插头。 SW1 为电源拨动开关，使用时请根据附近的 ON/OFF 丝印进行选择。  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件1.jpg
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件1.jpg
    :alt: 硬件1.jpg
 
 |  电源输入端提供过流保护、过压保护、防反插及快速掉电等电路保护功能。
 
 **（1）输入级电源保护电路设计，如下图所示。**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件2.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件2.png
    :alt: 硬件2.png
 
 |  VDD_12V_MAIN 通过不同电源芯片转为核心板及底板外设的供电。 核心板提供底板辅助电源信号VDD_3V3_SOM_OUT，用于控制评估底板各路电源上电时序。
 |  评估板推荐的上电时序： 12V DC 供电（VDD_12V_MAIN） -> 核心板供电（VDD_5V_SO M） -> 核心板配置底板辅助电源（VDD_3V3_SOM_OUT） -> 底板外设供电 -> 系统复位（AF 27/RESETn/PU/1V8），如下图所示。  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件3.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件3.png
    :alt: 硬件3.png
 
 1.1 核心板电源
@@ -35,7 +35,7 @@
 
 **（1）VDD_5V_SOM 电源设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件4.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件4.png
    :alt: 硬件4.png
 
 |  **注意：** 为保证核心板长期稳定可靠工作，请按我司提供的工作电压典型值（5.0V）要求为核心板供电。  
@@ -49,22 +49,22 @@
 
 **（1）VDD_5V_MAIN 电源设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件5.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件5.png
    :alt: 硬件5.png
 
 **（2）VDD_3V3_MAIN 电源设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件6.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件6.png
    :alt: 硬件6.png
 
 **（3）VDD_3V3_PCIE 电源设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件7.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件7.png
    :alt: 硬件7.png
 
 **（4）VDD_1V8_MAIN 电源设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件8.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件8.png
    :alt: 硬件8.png
 
 **设计注意事项：**
@@ -78,12 +78,12 @@
 
 **（1） VDD_5V_ISO1 电源设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件9.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件9.png
    :alt: 硬件9.png
 
 **（2）VDD_5V_ISO2 电源设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件10.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件10.png
    :alt: 硬件10.png
 
 **设计注意事项：**
@@ -99,7 +99,7 @@
 
 |  系统上电后，由 CPU 内部 BootRom 的引导代码依次从 SD 卡、 eMMC FLASH 检测 SPL启动程序，从第一个包含 SPL 启动程序的设备开始启动。 SPL 启动后，将优先从 SD 系统卡（非常规 SD 卡）引导 U-Boot 镜像， 否则，将从原启动设备引导 U-Boot 镜像。  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件11.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件11.png
    :alt: 硬件11.png
 
 **设计注意事项：**
@@ -117,7 +117,7 @@
 
 **（1）底板板电源指示灯电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件12.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件12.png
    :alt: 硬件12.png
 
 3.2 用户可编程指示灯
@@ -127,7 +127,7 @@
 
 **（1）底板板电源指示灯电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件13.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件13.png
    :alt: 硬件13.png
 
 3.3 模块状态指示灯
@@ -135,7 +135,7 @@
 
 **（1） 4G/5G 模块状态指示灯电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件14.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件14.png
    :alt: 硬件14.png
 
 4  KEY
@@ -151,7 +151,7 @@
 
 **（1） RESETn 按键电路设计**   
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件15.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件15.png
    :alt: 硬件15.png
 
 **设计注意事项：**
@@ -166,7 +166,7 @@
 
 **（1） PWRON 按键电路设计**    
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件16.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件16.png
    :alt: 硬件16.png
 
 **设计注意事项：**
@@ -181,7 +181,7 @@
 
 **（1）FEL 按键电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件17.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件17.png
    :alt: 硬件17.png
 
 4.4 用户输入按键
@@ -191,7 +191,7 @@
 
 **（1）用户输入按键电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件18.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件18.png
    :alt: 硬件18.png
 
 **设计注意事项：**
@@ -211,7 +211,7 @@
 
 **（1）USB TO UART0 电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件19.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件19.png
    :alt: 硬件19.png
 
 **设计注意事项：**
@@ -229,12 +229,12 @@
 
 **（1）RS232 UART6 串口电路设计**
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件20.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件20.png
    :alt: 硬件20.png
 
 **（2）RS232 S-UART1 串口电路设计**
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件21.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件21.png
    :alt: 硬件21.png
 
 5.3 RS485 UART1/UART2/UART3/UART4/UART9/UART11 串口
@@ -244,7 +244,7 @@
 
 **（1）RS485串口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件22.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件22.png
    :alt: 硬件22.png
 
 **设计注意事项：**
@@ -264,7 +264,7 @@
 
 **TTL UART5/S-UART0TTL UART7/UART12 串口电路设计**
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件23.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件23.png
    :alt: 硬件23.png
 
 6  CAN-FD 接口
@@ -276,7 +276,7 @@
 
 **（1）CAN-FD 接口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件24.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件24.png
    :alt: 硬件24.png
 
 **设计注意事项：**
@@ -294,7 +294,7 @@
 
 **（1）Micro SD 接口电路设计**    
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件25.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件25.png
    :alt: 硬件25.png
 
 **设计注意事项：**
@@ -310,7 +310,7 @@
 
 **（1）外部 RTC 电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件26.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件26.png
    :alt: 硬件26.png
 
 **设计注意事项：**
@@ -326,7 +326,7 @@
 
 **（1）外部 Watchdog 电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件27.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件27.png
    :alt: 硬件27.png
 
 **设计注意事项：**
@@ -342,7 +342,7 @@
 
 **（1）FAN 供电接口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件28.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件28.png
    :alt: 硬件28.png
 
 11  AUDIO 接口
@@ -354,12 +354,12 @@
 
 **A. LINE OUT**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件29.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件29.png
    :alt: 硬件29.png
 
 **B. MIC IN**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件30.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件30.png
    :alt: 硬件30.png
 
 **设计注意事项：**
@@ -374,7 +374,7 @@
 
 **（1）LVDS OUT 接口电路设计**
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件31.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件31.png
    :alt: 硬件31.png
 
 **设计注意事项：**
@@ -391,7 +391,7 @@
 
 **（1）MIPI DSI 接口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件32.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件32.png
    :alt: 硬件32.png
 
 **设计MIPI 转接板注意事项：**
@@ -411,7 +411,7 @@
 
 **（1）HDMI OUT 接口电路设计**   
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件33.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件33.png
    :alt: 硬件33.png
 
 **设计注意事项：**
@@ -434,7 +434,7 @@
 
 **（1）USB2.0 HOST 接口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件34.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件34.png
    :alt: 硬件34.png
 
 15.2 USB2.0 DRD 接口
@@ -444,7 +444,7 @@
 
 **（1）USB2.0 DRD 接口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件35.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件35.png
    :alt: 硬件35.png
 
 **设计注意事项：**
@@ -468,12 +468,12 @@
 
 **（1）ETH1 RGMII 接口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件36.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件36.png
    :alt: 硬件36.png
 
 **（2）ETH2 RGMII 接口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件37.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件37.png
    :alt: 硬件37.png
 
 **设计注意事项：**
@@ -496,19 +496,19 @@
 
 **(1) USB 信号分配示意图**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件38.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件38.png
    :alt: 硬件38.png
 
 |  SR9900AI 符合 IEEE 802.3 10Base-T/100Base-TX 和 IEEE 802.3 100Base-FX 标准，提供极性、相位偏移校正，网线交叉检测及自动校正等功能。 
 
 **(2) ETH3(USB)百兆网口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件39.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件39.png
    :alt: 硬件39.png
 
 **(3) ETH4(USB)百兆网口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件40.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件40.png
    :alt: 硬件40.png
 
 **设计注意事项：**
@@ -529,7 +529,7 @@
 
 **WiFi/BT 模块电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件41.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件41.png
    :alt: 硬件41.png
 
 **设计注意事项：**
@@ -546,7 +546,7 @@
 
 **（1）4G 模块拓展接口电路设计（不含 SIM 卡座）**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件42.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件42.png
    :alt: 硬件42.png
 
 **设计注意事项：**
@@ -565,7 +565,7 @@
 
 **（1）M.2 PCIe NVMe 固态硬盘/5G 模块拓展接口电路设计** 
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件43.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件43.png
    :alt: 硬件43.png
 
 **设计注意事项：**
@@ -581,7 +581,7 @@
 
 **(1)JTAG 接口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件44.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件44.png
    :alt: 硬件44.png
 
 **设计注意事项：**
@@ -591,7 +591,7 @@
 |  （3） ARM 端 JTAG 和 RISC-V 端共用一个 JTAG 接口， ARM 端使用 J-LINK V9 仿真下载器， RISC-V 端使用 CKLink-lite 仿真下载器。
 |  （4） T536支持通过配置JTAG-SEL引脚的状态切换JTAG功能从PB组或PF组的IO复用。JTAG-SEL 引脚为低电平时， JTAG 信号从 PB 组 IO 复用，默认为从 PF 组 IO 复用，评估底板的 JTAG 功能从 PB 组复用，参考以下电路设计：  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件45.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件45.png
    :alt: 硬件45.png
 
 21  PLP 接口
@@ -601,7 +601,7 @@
 
 **（1） PLP 接口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件46.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件46.png
    :alt: 硬件46.png
 
 **设计注意事项：**
@@ -621,7 +621,7 @@
 
 **（1）EXPORT1 拓展接口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件47.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件47.png
    :alt: 硬件47.png
 
 **设计注意事项：**
@@ -635,7 +635,7 @@
 
 **（1）EXPORT2 拓展接口电路设计**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件48.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件48.png
    :alt: 硬件48.png
 
 **设计注意事项：**
@@ -645,7 +645,7 @@
 
 |  LRADC 按键检测电路设计    
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536/硬件49.png
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件49.png
    :alt: 硬件49.png
 
 |  （3） LRADC 的最大安全输入电压为 1.8V，不使用 LRADC 时需连接 100K 上拉电阻至 1. 8V 电源或确认软件关闭 LRADC 相关配置后才可悬空。底板设计时需注意输入信号请勿超过电压要求范围，否则可能会损坏核心板。  
