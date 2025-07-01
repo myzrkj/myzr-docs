@@ -11,6 +11,7 @@
    :maxdepth: 1
    :caption: MYZR-瑞芯微系列
 
+   docs/MYZR-瑞芯微系列/MYZR-RK3576-EK288/index
    docs/MYZR-瑞芯微系列/MYZR-RK3588-EK360/index
    docs/MYZR-瑞芯微系列/MYZR-RK3568-EK320/index
    docs/MYZR-瑞芯微系列/MYZR-RK3506-EK134/index

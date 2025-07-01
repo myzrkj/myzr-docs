@@ -1,0 +1,650 @@
+软件开发指导
+=============
+
+.. include:: /docs/COMMON/MYZR-RK3588-EK360开发环境搭建手册.rst
+
+
+源码编译
+---------
+
+编译环境要求
+~~~~~~~~~~~~~
+
+|   编译主机需在ubuntu系统中进行，且版本需Ubuntu 20.04以上，笔者主机系统为Ubuntu 20.04
+
+下载源码包
+~~~~~~~~~~~~
+
+1. 下载rk3576源码包，路径为：3.软件资料-->3.1源码-->XX
+2. 创建编译目录:
+
+.. code-block:: shell
+
+    mkdir -p ~/my-work/RK3576/02_sources/
+
+3. 把源码放到刚创建的目录中，并进行解压：
+
+.. code-block:: shell
+
+    tar xvf XX -C ~/my-work/RK3576/02_sources/
+
+依赖安装
+~~~~~~~~~~
+
+|   首次编译可能需要安装某些依赖，下面给出主机可能需要安装的某些依赖:
+
+.. code-block:: shell
+
+    sudo apt-get install uuid uuid-dev zlib1g-dev liblz-dev liblzo2-2 liblzo2-dev lzop git curl u-boot-tools mtd-utils openjdk-8-jdk device-tree-compiler gdisk m4 gnupg flex bison gperf libsdl1.2-dev libesd-java squashfs-tools build-essential zip libncurses5-dev pngcrush schedtool libxml2 libxml2-utils xsltproc libc6-dev g++-multilib lib32z1-dev lib32ncurses-dev lib32readline-dev gcc-multilib libswitch-perl libssl-dev unzip liblz4-tool ssh make vim expect patchelf chrpath gawk texinfo diffstat binfmt-support qemu-user-static live-build fakeroot cmake python3-pip rsync subversion python-protobuf sed binutils wget python-is-python2 libncurses5 bzr cvs mercurial patch gzip bzip2 perl tar cpio file bc android-sdk-libsparse-utils android-sdk-ext4-utils -y
+
+整体编译
+~~~~~~~~~
+
+1. 运行整体编译(编译时间较长)，输入如下命令:
+
+**buildroot**
+
+.. code-block:: shell
+
+    ./build.sh buildroot_update
+
+**ubantu22**
+
+.. code-block:: shell
+
+    ./build.sh ubuntu22_update
+
+**debian12**
+
+.. code-block:: shell
+
+    ./build.sh debian12_update
+
+2. 编译成功后在rockdev/目录下可看到相关镜像，其中update.img是所有镜像的集合
+
+
+单独编译uboot
+~~~~~~~~~~~~~~~
+
+1. 编译前可先清除生成文件
+
+.. code-block:: shell
+
+    cd u-boot/
+    make clean
+
+2. 回到SDK主目录，并进行uboot单独编译
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh uboot
+
+
+单独编译Kernel
+~~~~~~~~~~~~~~~~
+
+1. 编译前可先清除生成文件
+
+.. code-block:: shell
+
+    cd kernel/
+    make clean
+
+2. 回到SDK主目录，并进行kernel单独编译
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh kernel
+
+单独编译recovery
+~~~~~~~~~~~~~~~~~
+
+|   在SDK主目录下输入如下命令:
+
+.. code-block:: shell
+
+    ./build.sh recovery
+
+单独编译rootfs
+~~~~~~~~~~~~~~~~
+
+|   在SDK主目录下输入如下命令:
+
+**buildroot**
+
+.. code-block:: shell
+
+    ./build.sh buildroot
+
+**ubantu22**
+
+.. code-block:: shell
+
+    ./build.sh ubuntu22
+
+**debian12**
+
+.. code-block:: shell
+
+    ./build.sh debian12
+
+打包固件
+~~~~~~~~~
+
+|   在SDK主目录下输入如下命令:
+
+.. code-block:: shell
+
+    ./build.sh firmware
+
+打包update.img
+~~~~~~~~~~~~~~~~
+
+1. 在rockdev将镜像打包成update.img
+2. 在SDK主目录下输入如下命令:
+
+.. code-block:: shell
+
+    ./build.sh updateimg
+
+|   完成上述操作后可按照刷机手册重新刷机
+|   最后提示用户应该重新刷机测试
+
+开发指导
+---------
+
+U-Boot 板级文件
+~~~~~~~~~~~~~~~~~
+
+- u-boot 板级文件位置：board/myzr/myzr_rk3576
+- u-boot 板级配置文件：include/configs/myzr_rk3576.h
+- u-boot 极级编译配置文件：configs/myzr_rk3576_defconfig
+
+Linux 内核板级文件
+~~~~~~~~~~~~~~~~~~~
+
+- 内核板级编译配置文件：arch/arm64/configs/myzr_linux_defconfig
+- 内核板级设备树文件：arch/arm64/boot/dts/rockchip/myzr-*.dts*
+- 内核开发参考手册：网盘中《*Reference Manual*.pdf》
+
+Ethernet
+~~~~~~~~~~
+
+|   开发板有俩个网口：J11、J12，以J11说明，J12同理
+
+1. dts 配置
+
+**1.1 公共的配置**
+
+|   kernel/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+
+.. code-block:: shell
+
+    gmac0: ethernet@2a220000 {
+                    compatible = "rockchip,rk3576-gmac", "snps,dwmac-4.20a";
+                    reg = <0x0 0x2a220000 0x0 0x10000>;
+                    interrupts = <GIC_SPI 293 IRQ_TYPE_LEVEL_HIGH>,
+                                 <GIC_SPI 298 IRQ_TYPE_LEVEL_HIGH>;
+                    interrupt-names = "macirq", "eth_wake_irq";
+                    rockchip,grf = <&sdgmac_grf>;
+                    rockchip,php_grf = <&ioc_grf>;
+                    clocks = <&cru CLK_GMAC0_125M_SRC>, <&cru CLK_GMAC0_RMII_CRU>,
+                             <&cru PCLK_GMAC0>, <&cru ACLK_GMAC0>,
+                             <&cru CLK_GMAC0_PTP_REF>;
+                    clock-names = "stmmaceth", "clk_mac_ref",
+                                  "pclk_mac", "aclk_mac",
+                                  "ptp_ref";
+                    resets = <&cru SRST_A_GMAC0>;
+                    reset-names = "stmmaceth";
+                    power-domains = <&power RK3576_PD_SDGMAC>;
+
+                    dma-coherent;
+                    snps,mixed-burst;
+                    snps,tso;
+
+                    snps,axi-config = <&gmac0_stmmac_axi_setup>;
+                    snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
+                    snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
+                    status = "disabled";
+
+                    mdio0: mdio {
+                            compatible = "snps,dwmac-mdio";
+                            #address-cells = <0x1>;
+                            #size-cells = <0x0>;
+                    };
+
+                    gmac0_stmmac_axi_setup: stmmac-axi-config {
+                            snps,wr_osr_lmt = <4>;
+                            snps,rd_osr_lmt = <8>;
+                            snps,blen = <0 0 0 0 16 8 4>;
+                    };
+
+                    gmac0_mtl_rx_setup: rx-queues-config {
+                            snps,rx-queues-to-use = <1>;
+                            queue0 {};
+                    };
+
+                    gmac0_mtl_tx_setup: tx-queues-config {
+                            snps,tx-queues-to-use = <1>;
+                            queue0 {};
+                    };
+            };
+
+**1.2 板级的配置**
+
+|   kernel/arch/arm64/boot/dts/rockchip/myzr-rk3576-linux.dts
+
+.. code-block:: shell
+
+    &gmac0 {
+        /* Use rgmii-rxid mode to disable rx delay inside Soc */
+        phy-mode = "rgmii-rxid";
+        clock_in_out = "output";
+
+        snps,reset-gpio = <&gpio2 RK_PB5 GPIO_ACTIVE_LOW>;
+        snps,reset-active-low;
+        /* Reset time is 20ms, 100ms for rtl8211f */
+        snps,reset-delays-us = <0 20000 100000>;
+
+        pinctrl-names = "default";
+        pinctrl-0 = <&eth0m0_miim
+                 &eth0m0_tx_bus2
+                 &eth0m0_rx_bus2
+                 &eth0m0_rgmii_clk
+                 &eth0m0_rgmii_bus
+                 &ethm0_clk0_25m_out>;
+
+        tx_delay = <0x21>;
+        /* rx_delay = <0x3f>; */
+
+        phy-handle = <&rgmii_phy0>;
+        status = "okay";
+    };
+
+2. 网口没有自动获取ip
+
+|   等待或者电脑网络适配器能上网的网口关掉共享给以太网网口并重新开启共享，再重启板子便能自动获取ip。
+
+RTC 使用
+~~~~~~~~~~
+
+1. 简介
+
+|   MYZR-RK3576开发板采用HYM8563作为RTC(Real Time Clock)，HYM8563是一款低功耗CMOS实时时钟/日历芯片,它提供一个可编程的时钟输出,一个中断 输出和一个掉电检测器,所有的地址和数据都通过I2C总线接口串行传递。最大总线速度为 400Kbits/s,每次读写数据后,内嵌的字地址寄存器会自动递增
+
+- 可计时基于 32.768kHz 晶体的秒,分,小时,星期,天,月和年
+- 宽工作电压范围:1.0~5.5V
+- 低休眠电流:典型值为 0.25μA(VDD =3.0V, TA =25°C)
+- 内部集成振荡电容
+- 漏极开路中断引脚
+
+2. RTC驱动
+
+|   驱动参考：kernel/drivers/rtc/rtc-hym8563.c
+
+3. 接口使用
+
+|   Linux 提供了三种用户空间调用接口。
+
+- SYSFS接口：/sys/class/rtc/rtc0/
+- PROCFS接口： /proc/driver/rtc
+- IOCTL接口： /dev/rtc0
+
+4. SYSFS接口
+
+|   可以直接使用 cat 和 echo 操作 /sys/class/rtc/rtc0/ 下面的接口。
+|   比如查看当前 RTC 的日期和时间：
+
+.. code-block:: shell
+
+    root@root:/# date -s "2025-05-7 10:00:00"
+    Wed May  7 10:00:00 UTC 2025
+    root@root:/# cat /sys/class/rtc/rtc0/time
+    10:00:24
+
+5. PROCFS 接口
+
+|   打印 RTC 相关的信息：
+
+.. code-block:: shell
+
+    root@root:/# cat /proc/driver/rtc
+    rtc_time        : 10:03:19
+    rtc_date        : 2025-05-07
+    alrm_time        : 10:04:00
+    alrm_date        : 2025-05-07
+    alarm_IRQ        : no
+    alrm_pending        : no
+    update IRQ enabled        : no
+    periodic IRQ enabled        : no
+    periodic IRQ frequency        : 1
+    max user IRQ frequency        : 64
+    24hr                : yes
+
+6. IOCTL接口
+
+|   可以使用 ioctl 控制 /dev/rtc0。
+|   详细使用说明请参考文档 kernel/Documentation/admin-guide/rtc.rst 。
+
+7. FAQs
+
+|   Q1: 开发板上电后时间不同步？
+|   A1: 检查一下 RTC 电池是否正确接入。
+
+485
+~~~~~
+
+DTS配置
+
+|   文件路径kernel/arch/arm64/boot/dts/rockchip/myzr-rk3576-linux.dts
+
+.. code-block:: shell
+
+    &uart5 {
+        status = "okay";
+        pinctrl-0 = <&uart5m1_xfer>;
+    };
+
+|   配置好串口后，硬件接口对应软件上的节点为：
+
+.. code-block:: shell
+
+    /dev/ttyS5
+
+CAN
+~~~~~~
+
+1. CAN 简介
+
+|   CAN(Controller Area Network)总线，即控制器局域网总线，是一种有效支持分布式控制或实时控制的串行通信网络。CAN总线是一种在汽车上广泛采用的总线协议，被设计作为汽车环境中的微控制器通讯。
+
+2. DTS 节点配置
+
+- 公共配置 kernel/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+
+.. code-block:: shell
+
+    can0: can@2ac00000 {
+            compatible = "rockchip,rk3576-canfd";
+            reg = <0x0 0x2ac00000 0x0 0x1000>;
+            interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
+            clocks = <&cru CLK_CAN0>, <&cru HCLK_CAN0>;
+            clock-names = "baudclk", "apb_pclk";
+            resets = <&cru SRST_CAN0>, <&cru SRST_H_CAN0>;
+            reset-names = "can", "can-apb";
+            dmas = <&dmac0 20>;
+            dma-names = "rx";
+            status = "disabled";
+    };
+
+- 板级配置 arch/arm64/boot/dts/rockchip/myzr-rk3576-linux.dts
+
+.. code-block:: shell
+
+    &can0 {
+        status = "okay";
+        assigned-clocks = <&cru CLK_CAN0>;
+        assigned-clock-rates = <200000000>;
+        pinctrl-names = "default";
+        pinctrl-0 = <&can0m2_pins>;
+    };
+
+3. 更多指令
+
+.. code-block:: shell
+
+    1、 ip link set canX down                 //关闭can设备；
+    2、 ip link set canX up                   //开启can设备；
+    3、 ip -details link show canX                 //显示can设备详细信息；
+    4、 candump canX                          //接收can总线发来数据；
+    5、 ifconfig canX down                         //关闭can设备，以便配置;
+    6、 ip link set canX up type can bitrate 250000 //设置can波特率
+    7、 conconfig canX bitrate + 波特率；
+    8、 canconfig canX start                 //启动can设备；
+    9、 canconfig canX ctrlmode loopback on //回环测试；
+    10、canconfig canX restart                 // 重启can设备；
+    11、canconfig canX stop                 //停止can设备；
+    12、canecho canX                         //查看can设备总线状态；
+    13、cansend canX --identifier=ID+数据         //发送数据；
+    14、candump canX --filter=ID：mask        //使用滤波器接收ID匹配的数据
+
+4. 报文发送后很久才接收到，或者接收不到。
+
+|   检查总线 CAN_H 和 CAN_L， 杜邦线是否松动或者接反。
+
+GPIO
+~~~~~~
+
+1. 简介
+
+|   GPIO，全称 General-Purpose Input/Output（通用输入输出），是一种软件运行期间能够动态配置和控制的通用引脚。 所有的 GPIO 在上电后的初始状态都是输入模式，可以通过软件设为上拉或下拉，也可以设置为中断脚，驱动强度都是可编程的，其核心是填充 GPIO bank 的方法和参数，并调用 gpiochip_add 注册到内核中。
+
+2. GPIO引脚计算
+
+|   RK3576 有 6 组 GPIO bank：GPIO0~GPIO5，每组又以 A0~A7, B0~B7, C0~C7, D0~D7 作为编号区分，常用以下公式计算引脚：
+|   GPIO pin脚计算公式：pin = bank * 32 + number
+|   GPIO 小组编号计算公式：number = group * 8 + X
+|   下面演示GPIO2_C4 pin脚计算方法：
+|   bank = 2;      //GPIO2_C4 => 2, bank ∈ [0,5]
+|   group = 2;      //GPIO2_C4 => 2, group ∈ {(A=0), (B=1), (C=2), (D=3)}
+|   X = 0;       //GPIO2_C4 => 4, X ∈ [0,7]
+|   number = group * 8 + X = 2 * 8 + 4 = 20
+|   pin = bank*32 + number= 2 * 32 + 20 = 56;
+|   GPIO2_C4 对应的设备树属性描述为:<&gpio2 20 GPIO_ACTIVE_HIGH>,由kerne/include/dt-bindings/pinctrl/rockchip.h的宏定义可知，也可以将GPIO2_C4描述为<&gpio2 RK_PC4 GPIO_ACTIVE_HIGH>。
+
+.. code-block:: shell
+
+    #define RK_PA0          0
+    #define RK_PA1          1
+    #define RK_PA2          2
+    #define RK_PA3          3
+    #define RK_PA4          4
+    #define RK_PA5          5
+    #define RK_PA6          6
+    #define RK_PA7          7
+    #define RK_PB0          8
+    ...
+
+|   当GPIO2_C4脚没有被其它外设复用时, 我们可以通过export导出该引脚去使用
+
+3. 中断
+
+.. code-block:: shell
+
+    interrupt-parent = <&gpio0>;
+    interrupts = <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
+
+|   IRQ_TYPE_LEVEL_LOW 表示中断由低电平触发，当该引脚接收到低电平信号时可以触发中断函数。 这里还可以配置成如下：
+|   IRQ_TYPE_NONE         //默认值，无定义中断触发类型
+|   IRQ_TYPE_EDGE_RISING  //上升沿触发
+|   IRQ_TYPE_EDGE_FALLING //下降沿触发
+|   IRQ_TYPE_EDGE_BOTH    //上升沿和下降沿都触发
+|   IRQ_TYPE_LEVEL_HIGH   //高电平触发
+|   IRQ_TYPE_LEVEL_LOW    //低电平触发
+
+4. 复用
+
+|   该案例仅供参考，最终以实际硬件接口为准
+|   GPIO 口除了通用输入输出、中断功能外，还可能有其它复用功能,若要改变gpio的复用，可以通过kernel\arch\arm64\boot\dts\rockchip\rk3576-pinctrl.dtsi
+|   输入4 RK_PA3去查找节点，引用并配置
+
+.. code-block:: shell
+
+                    /omit-if-no-ref/
+                    uart5m1_xfer: uart5m1-xfer {
+                            rockchip,pins =
+                                    /* uart5_rx_m1 */
+                                    <4 RK_PB1 10 &pcfg_pull_up>,
+                                    /* uart5_tx_m1 */
+                                    <4 RK_PB0 10 &pcfg_pull_up>;
+                    };
+
+    &uart5 {
+        status = "okay";
+        pinctrl-0 = <&uart5m1_xfer>;
+    };
+
+5. GPIO 调试接口
+
+|   Debugfs 文件系统目的是为开发人员提供更多内核数据，方便调试。 这里 GPIO 的调试也可以用 Debugfs 文件系统，获得更多的内核信息。GPIO 在 Debugfs 文件系统中的接口为 /sys/kernel/debug/gpio，可以这样读取该接口的信息：
+
+.. code-block:: shell
+
+    root@root:/# cat sys/kernel/debug/gpio
+    gpiochip0: GPIOs 0-31, parent: platform/27320000.gpio, gpio0:
+     gpio-22  (                    |vcc3v3-lcd0-n       ) out lo 
+     gpio-23  (                    |vcc5v0-host         ) out hi 
+     gpio-25  (                    |vbus5v0-typec       ) out lo 
+     gpio-27  (                    |hp-det              ) in  lo IRQ 
+
+    gpiochip1: GPIOs 32-63, parent: platform/2ae10000.gpio, gpio1:
+     gpio-57  (                    |vcc3v3-pcie0        ) out hi 
+
+    gpiochip2: GPIOs 64-95, parent: platform/2ae20000.gpio, gpio2:
+     gpio-70  (                    |sbu1-dc             ) out lo 
+     gpio-71  (                    |sbu2-dc             ) out lo 
+     gpio-72  (                    |enable              ) out hi 
+     gpio-73  (                    |spk-con             ) out lo 
+
+    gpiochip3: GPIOs 96-127, parent: platform/2ae30000.gpio, gpio3:
+     gpio-126 (                    |hp-con              ) out lo 
+
+    gpiochip4: GPIOs 128-159, parent: platform/2ae40000.gpio, gpio4:
+
+    gpiochip5: GPIOs 509-511, parent: platform/rk806-pinctrl.1.auto, rk806-gpio, can sleep:
+
+485
+~~~~~
+
+DTS配置
+^^^^^^^^^
+
+|   文件路径kernel/arch/arm64/boot/dts/rockchip/myzr-rk3576-linux.dts
+
+.. code-block:: shell
+
+    &uart5 {
+        status = "okay";
+        pinctrl-0 = <&uart5m1_xfer>;
+    };
+
+|   配置好串口后，硬件接口对应软件上的节点为：
+
+.. code-block:: shell
+
+    UART0:   /dev/ttyS5
+
+CAN
+~~~~~~
+
+1. CAN 简介
+
+|   CAN(Controller Area Network)总线，即控制器局域网总线，是一种有效支持分布式控制或实时控制的串行通信网络。CAN总线是一种在汽车上广泛采用的总线协议，被设计作为汽车环境中的微控制器通讯。
+
+2. DTS 节点配置
+
+- 公共配置 kernel/arch/arm64/boot/dts/rockchip/rk3576.dtsi
+
+.. code-block:: shell
+
+    can0: can@2ac00000 {
+            compatible = "rockchip,rk3576-canfd";
+            reg = <0x0 0x2ac00000 0x0 0x1000>;
+            interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>;
+            clocks = <&cru CLK_CAN0>, <&cru HCLK_CAN0>;
+            clock-names = "baudclk", "apb_pclk";
+            resets = <&cru SRST_CAN0>, <&cru SRST_H_CAN0>;
+            reset-names = "can", "can-apb";
+            dmas = <&dmac0 20>;
+            dma-names = "rx";
+            status = "disabled";
+    };
+
+- 板级配置 kernel/arch/arm64/boot/dts/rockchip/myzr-rk3576-linux.dts
+
+.. code-block:: shell
+
+    &can0 {
+        status = "okay";
+        assigned-clocks = <&cru CLK_CAN0>;
+        assigned-clock-rates = <200000000>;
+        pinctrl-names = "default";
+        pinctrl-0 = <&can0m2_pins>;
+    };
+
+3. 更多指令
+
+.. code-block:: shell
+
+    1、 ip link set canX down                 //关闭can设备；
+    2、 ip link set canX up                   //开启can设备；
+    3、 ip -details link show canX                 //显示can设备详细信息；
+    4、 candump canX                          //接收can总线发来数据；
+    5、 ifconfig canX down                         //关闭can设备，以便配置;
+    6、 ip link set canX up type can bitrate 250000 //设置can波特率
+    7、 conconfig canX bitrate + 波特率；
+    8、 canconfig canX start                 //启动can设备；
+    9、 canconfig canX ctrlmode loopback on //回环测试；
+    10、canconfig canX restart                 // 重启can设备；
+    11、canconfig canX stop                 //停止can设备；
+    12、canecho canX                         //查看can设备总线状态；
+    13、cansend canX --identifier=ID+数据         //发送数据；
+    14、candump canX --filter=ID：mask        //使用滤波器接收ID匹配的数据
+
+
+4. 报文发送后很久才接收到，或者接收不到。
+
+|   检查总线 CAN_H 和 CAN_L， 杜邦线是否松动或者接反。
+
+HDMI
+~~~~~~~
+
+HDMI接口的配置
+^^^^^^^^^^^^^^^^
+
+- kernel/arch/arm64/boot/dts/rockchip/myzr-screen-lcds.dts
+
+.. code-block:: shell
+
+    #define LCD_TYPE_HDMI  //VP0
+    //#define LCD_TYPE_MIPI0  //VP1
+    // #define LCD_TYPE_LVDS_7_0  //VP1
+
+.. code-block:: shell
+
+    #if defined(LCD_TYPE_HDMI)
+    //HDMI配置
+    &vp0 {
+        status = "okay";
+    };
+
+    &hdmi {
+        status = "okay";
+        enable-gpios = <&gpio2 RK_PB0 GPIO_ACTIVE_HIGH>;
+        rockchip,sda-falling-delay-ns = <360>;
+    };
+
+    &hdmi_in_vp0 {
+        status = "okay";
+    };
+
+    &hdptxphy_hdmi {
+        status = "okay";
+    };
+
+    &hdmi_sound {
+        status = "okay";
+    };
+
+    &route_hdmi {
+        status = "okay";
+        connect = <&vp0_out_hdmi>;
+    };
+
+    &display_subsystem {
+        clocks = <&hdptxphy_hdmi>;
+        clock-names = "hdmi0_phy_pll";
+    };
+    #endif
