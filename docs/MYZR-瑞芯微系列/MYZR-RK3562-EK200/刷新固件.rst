@@ -1,0 +1,101 @@
+刷新固件
+==========
+
+安装DriverAssitant驱动
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+- 从下载的网盘资料中找到Rockchip USB驱动安装包，路径为：3.软件资料-->3.2-工具-->DriverAssitant_v5.11.zip
+- 解压DriverAssitant_v5.11.zip后进入DriverAssitant_v5.11文件夹
+- 直接双击DriverInstall.exe程序进行驱动安装，安装步骤如下:
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件1.png
+   :alt: 刷新固件1.png
+   :width: 80%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件2.png
+   :alt: 刷新固件2.png
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件3.png
+   :alt: 刷新固件3.png
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件4.png
+   :alt: 刷新固件4.png
+
+使用RKDevTool工具进行刷机
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- 从下载的网盘资料中找到RKDevTool驱动安装包，路径为：3.软件资料-->3.2-工具-->RKDevTool_Release_v3.15.zip
+- 解压RKDevTool_Release_v3.15.zip后进入RKDevTool_Release_v3.15文件夹
+- 双击RKDevTool.exe打开程序
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件5.png
+   :alt: 刷新固件5.png
+
+
+全局烧录
+^^^^^^^^^^
+
+|  烧录整个固件
+
+- 点击进入"升级固件"界面
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件6.png
+   :alt: 刷新固件6.png
+   :width: 80%
+
+- 点击"固件"按钮，然后选择相应的img镜像文件
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件7.png
+   :alt: 刷新固件7.png
+   :width: 80%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件8.png
+   :alt: 刷新固件8.png
+   :width: 80%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件9.png
+   :alt: 刷新固件9.png
+   :width: 80%
+
+- 开发板CON6接上type-c烧录线，按住开发板USER1按键，上电3秒左右可看到开发板进入了download模式
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件10.png
+   :alt: 刷新固件10.png
+   :width: 80%
+
+- 点击"升级"按钮进行刷机，刷成功右边显示成功字符
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件11.png
+   :alt: 刷新固件11.png
+   :width: 80%
+
+- 烧录完成后，开发板重新上电。
+
+单独烧录
+^^^^^^^^^
+
+- 单独烧录一个或多个镜像文件
+- 将待替换的U-Boot镜像uboot.img、Linux内核镜像boot.img或文件系统镜像文件rootfs.img，以及 mkimage/output/Image/parameter.txt （分区表）文件拷贝至Windows非中文工作目录下
+- 开发板CON6接上type-c烧录线，按住开发板USER1按键，再给开发板接电源线，上电3秒左右可看到开发板进入了downloadLOADER模式，按照下图步骤导入配置
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件12.png
+   :alt: 刷新固件12.png
+   :width: 80%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件13.png
+   :alt: 刷新固件13.png
+   :width: 80%
+
+- 把parameter勾选上，点击设备分区表读取分区
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件14.png
+   :alt: 刷新固件14.png
+   :width: 80%
+
+|  按照下图步骤进行烧录
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件15.png
+   :alt: 刷新固件15.png
+   :width: 80%
+
+- 烧录完成后，开发板重新上电。

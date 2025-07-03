@@ -1,0 +1,635 @@
+测试指导
+=========
+
+LED测试
+---------
+
+|   接口丝印：LED4,LED5
+|   测试说明：控制LED亮灭进行测试
+|   测试操作：
+|   执行如下命令控制LED4灭
+
+.. code-block:: shell
+
+    echo 0 > /sys/class/leds/heartbeat/brightness
+
+|   执行如下命令控制LED4亮
+
+.. code-block:: shell
+
+    echo 1 > /sys/class/leds/heartbeat/brightness
+
+|   执行如下命令控制LED5亮
+
+.. code-block:: shell
+
+    echo 1 > /sys/class/leds/disk/brightness
+
+|   执行如下命令控制LED5灭
+
+.. code-block:: shell
+
+    echo 0 > /sys/class/leds/disk/brightness
+
+
+按键测试
+----------
+
+|   接口丝印：KEY1：RESET KEY2：MASKROM KEY3：USER1
+|   测试说明：底板包含1个系统复位按键RESET，1个Maskrom按键Maskrom，1个用户输入按键：USER1;查看输入按键对应的事件号，执行od命令，按下对应按键进行测试
+|   测试操作：
+
+1. 系统复位按键测试
+
+|   评估板上电，按下系统复位按键RESET(KEY1)，核心板板载LED1停止闪烁；松开按键后，系统将会重新启动
+
+2.  Maskrom按键测试
+
+.. code-block:: shell
+
+    =====> Input:
+    od -x /dev/input/event1
+    =====> Output:
+    0000000 00ad 0000 0000 0000 2ce3 0007 0000 0000
+    0000020 0001 0094 0001 0000 00ad 0000 0000 0000
+    0000040 2ce3 0007 0000 0000 0000 0000 0000 0000
+    0000060 00ad 0000 0000 0000 5423 000a 0000 0000
+    0000100 0001 0094 0000 0000 00ad 0000 0000 0000
+    0000120 5423 000a 0000 0000 0000 0000 0000 0000
+    ^C
+
+3. USER1按键测试
+
+.. code-block:: shell
+
+    =====> Input:
+    od -x /dev/input/event2
+    =====> Output:
+    0000000 00d6 0000 0000 0000 bbdd 0004 0000 0000
+    0000020 0001 0094 0001 0000 00d6 0000 0000 0000
+    0000040 bbdd 0004 0000 0000 0000 0000 0000 0000
+    0000060 00d6 0000 0000 0000 4f7e 0006 0000 0000
+    0000100 0001 0094 0000 0000 00d6 0000 0000 0000
+    0000120 4f7e 0006 0000 0000 0000 0000 0000 0000
+    ^C
+
+网口测试
+----------
+
+网口1
+~~~~~~~
+
+|   接口丝印：J13
+|   系统接口：eth0
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+|   测试操作：
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口，串口显示信息：
+
+.. code-block:: shell
+
+    [  275.170629] rk_gmac-dwmac fe1c0000.ethernet eth0: Link is Up - 1Gbps/
+
+3. 查看开发板网口1信息，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0
+
+4. 配置网口1的IPV4 IP，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0 192.168.137.81 netmask 255.255.255.0
+
+5. 再次查看开发板网口1信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0
+
+6. 输入指令如下进行验证网口1：
+
+.. code-block:: shell
+
+    ping -I eth0 192.168.137.99 -c 2 -w 4
+
+|   “0% packet loss”表示测试通过
+|   如果出现”100% packet loss”，请先确认电脑的防火墙是否全部关闭
+
+网口2
+~~~~~~~
+
+|   接口丝印：J14
+|   系统接口：eth1
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+|   测试操作：
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口，串口显示信息：
+
+.. code-block:: shell
+
+    [  528.550794] IPv6: ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready
+
+3. 查看开发板网口2信息，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1
+
+4. 默认是自动获取ip，但测试是配置静态ip来测，具体配置命令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1 192.168.137.81 netmask 255.255.255.0
+
+5. 再次查看开发板网口2信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1
+
+6. 输入指令如下进行验证网口2：
+
+.. code-block:: shell
+
+    ping -I eth1 192.168.137.99 -c 2 -w 4
+
+|   “0% packet loss”表示测试通过
+|   如果出现”100% packet loss”，请先确认电脑的防火墙是否全部关闭
+
+GPIO测试
+-----------
+
+|   测试说明：
+|   使用GPIO sysfs接口控制IO，以GPIO1_C1为例，如需测试其他GPIO，请按照下表对应关系修改为对应的PIN值
+
++-----------+--------+
+| GPIO 引脚 | pin 值 |
++-----------+--------+
+| GPIO3_A0  | 96     |
++-----------+--------+
+| GPIO3_A1  | 97     |
++-----------+--------+
+| GPIO1_C1  | 49     |
++-----------+--------+
+| GPIO1_C2  | 50     |
++-----------+--------+
+| GPIO1_C3  | 51     |
++-----------+--------+
+| GPIO1_C4  | 52     |
++-----------+--------+
+| GPIO1_C5  | 53     |
++-----------+--------+
+| GPIO1_C6  | 54     |
++-----------+--------+
+| GPIO4_B6  | 142    |
++-----------+--------+
+| GPIO3_D2  | 122    |
++-----------+--------+
+| GPIO3_D3  | 123    |
++-----------+--------+
+| GPIO3_B7  | 111    |
++-----------+--------+
+| GPIO3_C0  | 112    |
++-----------+--------+
+
+|   测试操作
+|   输入如下指令使GPIO1_C1处于低电平
+
+.. code-block:: shell
+
+    echo 49 > /sys/class/gpio/export
+    echo out > /sys/class/gpio/gpio49/direction
+    echo 0 > /sys/class/gpio/gpio49/value
+    cat /sys/class/gpio/gpio49/value
+
+|   输出信息类似如下：
+
+.. code-block:: shell
+
+    0
+
+|   输入如下指令使GPIO1_C1处于高电平
+
+.. code-block:: shell
+
+    echo 1 > /sys/class/gpio/gpio49/value
+    cat /sys/class/gpio/gpio49/value
+
+|   输出信息类似如下：
+
+.. code-block:: shell
+
+    1
+
+UART测试
+----------
+
+|   接口丝印：J8
+|   测试说明：采用uart自发自收的方式进行测试
+|   测试操作
+
+1. 短接J8-7(UART6_TX_M0)和J8-9(UART6_RX_M0)引脚
+2. 在/test_app目录输入指令如下进行收发测试：
+
+.. code-block:: shell
+
+    ./test_app/serial_test.out /dev/ttyS6 "myzr"
+
+|   输出信息类似如下：
+
+.. code-block:: shell
+
+    Starting send data...finish
+    Starting receive data:
+    ASCII: 0x6d          Character: m 
+    ASCII: 0x79          Character: y 
+    ASCII: 0x7a          Character: z 
+    ASCII: 0x72          Character: r 
+    ASCII: 0x0           Character: 
+
+|   输出显示了发送和接收一样的ASCII字符，并且没有报错信息，表示uart测试通过，按下’Ctrl + C’退出
+
+SPI接口测试
+-------------
+
+|   接口丝印：J9
+|   测试说明：采用spi自发自收的方式进行测试
+|   测试操作
+
+1. 短接J9-17(GPIO3_B7)和J9-19(GPIO3_C0)引脚
+2. 在/test_app目录下输入指令如下进行收发测试：
+
+.. code-block:: shell
+
+    ./test_app/spidev_test.out -D /dev/spidev0.0
+
+|   输出信息类似如下：
+
+.. code-block:: shell
+
+    spi mode: 0
+    bits per word: 8
+    max speed: 500000 Hz (500 KHz)
+    00 24 00 00 00 00 
+    00 3F FC 00 00 00 
+    7F F8 00 00 00 00 
+    00 00 00 00 00 00 
+    00 00 00 00 00 00 
+    00 0F 87 D0 7E 1F 
+    87 F8
+
+|   在执行测试命令后，终端显示了如上的输出信息，并且没有报错信息，表示spi测试通过
+
+音频播放测试
+-------------
+
+|   接口丝印：CON10
+|   测试说明：播放音频文件验证评估板的音频播放功能
+|   测试操作
+
+1. 把耳机接入丝印对应的接口
+2. 输入指令如下进行测试：
+
+.. code-block:: shell
+
+    amixer -c 0 cset name='Playback Path' 'HP'
+    amixer -c 0 cset name='Playback Volume' 255
+    aplay  /usr/share/sounds/alsa/Rear_Center.wav
+
+3. 结果：耳机有声音输出表示音频播放测试通过
+
+
+SPEAKER测试
+--------------
+
+|   接口丝印：J1
+|   测试说明：接口有2个脚，把喇叭接入丝印 J1 对应的接口
+|   测试操作
+
+1. 输入如下指令
+
+.. code-block:: shell
+
+    amixer -c 0 cset name='Playback Path' 'SPK'
+    amixer -c 0 cset name='Playback Volume' 255
+    aplay /usr/share/sounds/alsa/Rear_Center.wav
+
+|   喇叭发出声音，表示测试通过
+
+
+录音测试
+----------
+
+|   接口丝印：J2
+|   测试说明：录制并播放录音文件进行测试
+|   测试操作
+
+1. 把带MIC插入丝印对应的接口
+2. 输入如下指令进行10秒的录音：
+
+.. code-block:: shell
+
+    amixer -c 0 cset name='Capture MIC Path' 'Main Mic'
+    amixer -c 0 cset name='Capture Volume' 255
+    arecord -c 1 -f S16_LE -r 44100 -d 10 -t wav /userdata/test.wav
+
+3. 把耳机或者喇叭接入丝印CON10、J2对应的接口播放录制的音频文件，输入如下指令：
+
+.. code-block:: shell
+
+    aplay /userdata/test.wav
+
+|   耳机或者喇叭有录制声音输出表示录音测试通过
+
+
+SD接口测试
+------------
+
+|   接口丝印：CON5
+|   测试说明：采用插拔TF卡的方式进行测试
+|   测试操作：
+
+1. 将TF卡安装到SD接口，开发会输出如下信息：
+
+|   [  380.723829] dwmmc_rockchip fe2c0000.mmc: could not set regulator OCR (-22)[  380.723921] dwmmc_rockchip fe2c0000.mmc: failed to enable vmmc regulator
+|   [  380.736730] mmc_host mmc1: Bus speed (slot 0) = 400000Hz (slot req 400000Hz, actual 400000HZ div = 0)[  380.892477] mmc_host mmc1: Bus speed (slot 0) = 49500000Hz (slot req 50000000Hz, actual 49500000HZ div = 0)[  380.892687] mmc1: new high speed SDHC card at address 0001[  380.894512] mmcblk1: mmc1:0001 TF 4G 3.68 GiB
+|   [  380.896321]  mmcblk1: p1
+|   [  381.134266] FAT-fs (mmcblk1p1): utf8 is not a recommended IO charset for FAT filesystems, filesystem will be case sensitive!
+|   [  381.140831] FAT-fs (mmcblk1p1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+
+|   结果：操作后输出信息符合正确预期，表示正确识别到 TF 卡。
+
+2. 将TF拔出，输出信息如下：
+
+|   [  376.270975] mmc1: card 0001 removed
+
+
+USB测试
+---------
+
+|   接口丝印：CON7
+|   测试说明：采用插拔USB存储设备（U盘）的方式进行测试
+|   测试操作：
+
+1. 将USB设备插入底板USB接口，系统会输出类似如下信息：
+
+|   [ 2649.580746] usb 2-1.1: new high-speed USB device number 3 using ehci-platform
+|   [ 2649.735676] usb-storage 2-1.1:1.0: USB Mass Storage device detected
+|   [ 2649.752030] scsi host0: usb-storage 2-1.1:1.0
+|   [ 2649.951147] usbcore: registered new interface driver uas
+|   [ 2650.801744] scsi 0:0:0:0: Direct-Access     aigo     U330             2.00 PQ: 0 ANSI: 4
+|   [ 2650.822371] sd 0:0:0:0: [sda] 61440000 512-byte logical blocks: (31.5 GB/29.3 GiB)
+|   [ 2650.830508] sd 0:0:0:0: Attached scsi generic sg0 type 0
+|   [ 2650.851173] sd 0:0:0:0: [sda] Write Protect is off
+|   [ 2650.871241] sd 0:0:0:0: [sda] No Caching mode page found
+|   [ 2650.875217] sd 0:0:0:0: [sda] Assuming drive cache: write through
+|   [ 2650.896991]  sda: sda1
+|   [ 2650.916261] sd 0:0:0:0: [sda] Attached SCSI removable disk
+
+2. 将USB设备从底板拔出，系统会输出类似如下信息：
+
+|   [ 2690.764161] usb 2-1.1: USB disconnect, device number 3
+
+
+显示屏
+--------
+
+|   接口丝印：CON14
+|   测试说明：查看开发板上电启动显示屏是否正常显示
+|   测试操作
+
+1. 将一个HDMI接口的屏幕和开发板上的HDMI接口连接，启动开发板
+
+|   显示屏正常显示表示测试通过
+
+多路视频播放测试
+-----------------
+
+|   测试说明：
+|   在HDMI界面打开multivideoplayer,循环播放9路视频
+
+
+GPU测试
+---------
+
+|   测试说明：
+|   在HDMI界面左下角，打开图标3D字样的程序，打开后cpu温度偏高。
+|   测试完成后会显示如下信息：
+
+|   =======================================================
+|                           glmark2 Score: 
+|   2281=======================================================
+|   child 1905 exited
+
+
+mpp测试
+---------
+
+|   测试操作
+
+1. 解码视频，在串口终端输入如下指令：
+
+.. code-block:: shell
+
+    mpi_dec_test -i /oem/200frames_count.h264 -t 7 -n 250 -o /test.yuv -w 640 -h 480
+
+|   将 h264 转为 yuv，在当前目录下生成test.yuv
+
+2. 编码视频，在串口终端输入如下指令：
+
+.. code-block:: shell
+
+    mpi_enc_test -i /test.yuv -t 7 -n 250 -o /test.h264 -w 640 -h 480 -fps 25
+
+|   将 yuv 转为 h264，在当前目录下生成test.h264。
+
+背光测试
+----------
+
+|   背光的亮度设置范围为（0--255），255表示亮度最高，0表示关闭背光亮度。进入系统后在终端输入如下命令进行背光测试。
+|   输入以下命令查看当前屏幕背光值
+
+.. code-block:: shell
+
+    cat /sys/class/backlight/ffb10000.dsi.0/brightness
+
+|   输出信息类似如下：
+
+.. code-block:: shell
+
+    200
+
+|   输入以下命令设置背光熄灭
+
+.. code-block:: shell
+
+    echo 0 > /sys/class/backlight/ffb10000.dsi.0/brightness
+
+|   输入以下命令设置背光亮起
+
+.. code-block:: shell
+
+    echo 200 > /sys/class/backlight/ffb10000.dsi.0/brightness
+
+usb摄像头测试
+--------------
+
+|   测试说明：摄像头拍摄的画面显示在显示屏上验证摄像头功能
+|   测试操作
+
+1. 在其中一个usb接口接上usb摄像头。
+2. 查看摄像头设备：
+
+.. code-block:: shell
+
+    v4l2-ctl --list-devices
+
+|   输出信息底部：
+
+.. code-block:: shell
+
+    Full HD webcam: Full HD webcam (usb-xhci-hcd.10.auto-1):
+        /dev/video36
+        /dev/video37
+        /dev/media4
+
+3. 查看摄像头格式指令：
+
+.. code-block:: shell
+
+    v4l2-ctl --list-formats-ext -d /dev/video36
+
+4. 摄像头采集格式查询指令：
+
+.. code-block:: shell
+
+    v4l2-ctl -V -d /dev/video36
+
+5. 播放拍摄画面指令，以video36节点为例：
+
+.. code-block:: shell
+
+    gst-launch-1.0 v4l2src device=/dev/video36 \
+    ! 'image/jpeg,width=1920,height=1080,framerate=30/1' \
+    ! jpegdec \
+    ! videoconvert \
+    ! autovideosink
+
+|   输出如下信息：
+
+.. code-block:: shell
+
+    Setting pipeline to PAUSED ...
+    Pipeline is live and does not need PREROLL ...
+    Pipeline is PREROLLED ...
+    Setting pipeline to PLAYING ...
+    New clock: GstSystemClock
+    Redistribute latency...
+    0:00:07.6 / 99:99:99.
+
+|   HDMI界面会出现摄像头的画面。
+
+EMMC测试
+----------
+
+|   简单测试 eMMC 的读写速度，以读写 ext4 文件系统为例
+|   输入指令测试写入速度：
+
+.. code-block:: shell
+
+    dd if=/dev/zero of=/test bs=1M count=500 conv=fsync
+
+|   输出如下信息：
+
+.. code-block:: shell
+
+    500+0 records in
+    500+0 records out
+    524288000 bytes (524 MB, 500 MiB) copied, 14.2694 s, 36.7 MB/s
+
+|   输入指令测试读取速度：
+
+.. code-block:: shell
+
+    dd if=/test of=/dev/null bs=1000M
+
+|   输出如下信息：
+
+.. code-block:: shell
+
+    0+1 records in
+    0+1 records out
+    524288000 bytes (524 MB, 500 MiB) copied, 0.819405 s, 640 MB/s
+
+
+SARADC接口测试
+----------------
+
+|   接口丝印：J9
+|   测试说明：采用获取电压值的方式进行测试，本次操作以 EXPORT1(J9)接口的 pin3(SARADC0_IN2)为例进行演示。如需测试其他通道，请按照下表对应关系修改为对应的设备节点
+
++-------------+--------------+---------------------------------------------------+
+| ADC 通道    | ADC 接口(J9) | 设备节点                                          |
++-------------+--------------+---------------------------------------------------+
+| SARADC0_IN2 | pin3         | /sys/bus/iio/devices/iio\:device0/in_voltage2_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC0_IN3 | pin5         | /sys/bus/iio/devices/iio\:device0/in_voltage3_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC0_IN4 | pin7         | /sys/bus/iio/devices/iio\:device0/in_voltage4_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC0_IN5 | pin9         | /sys/bus/iio/devices/iio\:device0/in_voltage5_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC0_IN6 | pin11        | /sys/bus/iio/devices/iio\:device0/in_voltage6_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC0_IN7 | pin13        | /sys/bus/iio/devices/iio\:device0/in_voltage7_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC1_IN0 | pin4         | /sys/bus/iio/devices/iio\:device1/in_voltage0_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC1_IN1 | pin6         | /sys/bus/iio/devices/iio\:device1/in_voltage1_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC1_IN2 | pin8         | /sys/bus/iio/devices/iio\:device1/in_voltage2_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC1_IN3 | pin10        | /sys/bus/iio/devices/iio\:device1/in_voltage3_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC1_IN4 | pin12        | /sys/bus/iio/devices/iio\:device1/in_voltage4_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC1_IN5 | pin14        | /sys/bus/iio/devices/iio\:device1/in_voltage5_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC1_IN6 | pin16        | /sys/bus/iio/devices/iio\:device1/in_voltage6_raw |
++-------------+--------------+---------------------------------------------------+
+| SARADC1_IN7 | pin18        | /sys/bus/iio/devices/iio\:device1/in_voltage7_raw |
++-------------+--------------+---------------------------------------------------+
+
+
+|   测试操作
+|   a) 请通过杜邦线将板子EXPORT1(J9)接口的pin3(SARADC0_IN2)连接至pin1(VDD_1V8_MAIN，电平为1.8V)。 
+|   b) 进入板子文件系统执行如下命令进行输入电压测试
+
+.. code-block:: shell
+
+    cat /sys/bus/iio/devices/iio\:device0/in_voltage2_raw
+
+|   输出信息类似如下：
+
+.. code-block:: shell
+
+    1023
+
+|   c) 板子断电，请通过杜邦线将评估板EXPORT1(J9)接口的pin3(SARADC0_IN2)连接至pin2(GND)。
+|   d) 进入板子文件系统执行如下命令进行接地测试
+
+.. code-block:: shell
+
+    cat /sys/bus/iio/devices/iio\:device0/in_voltage2_raw
+
+|   输出信息类似如下：
+
+.. code-block:: shell
+
+    0
+
+|   实际输入电压值Vin = 1023 x [1.8 / (2^10 - 1)] ≈ 1.79V，结果与输入电压相近。电压测试输出信息在1000左右，接地测试输出信息为0表示测试通过。
