@@ -50,6 +50,7 @@ SDK配置加载
 
 .. code-block:: shell
 
+    cd RK356X_Linux
     ./build.sh BoardConfig-rk3568-myzr.mk
 
 整体编译
