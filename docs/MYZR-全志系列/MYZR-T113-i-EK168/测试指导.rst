@@ -891,6 +891,7 @@ RTC
 .. code-block:: shell
 
     Mon Feb  6 12:34:56 UTC 2023
+
 |   系统时间成功更新为设置的时间。
 
 4. 输入命令，同步系统时钟至RTC时钟并查看：
@@ -908,6 +909,7 @@ RTC
 
 6. 断电重启设备。
 7. 输入命令，核对RTC时间：
+
 .. code-block:: shell
 
     hwclock -f /dev/rtc

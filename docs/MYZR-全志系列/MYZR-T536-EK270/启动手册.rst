@@ -71,7 +71,7 @@ U-Boot 信息
 内核信息
 ~~~~~~~~~~
 
-|  启动信息中 Linux version 5.10.72-gdcb9071261a3(tangbin@MYZR-230304) |(aarch64-linux-gnu-gcc (Linaro GCC 7.5-2019.12)7.5.0, GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706) #11 SMPPREEMPT Thu Mar 16 10:25:45 CST 202 包含以下信息：
+|  启动信息中 Linux version 5.10.72-gdcb9071261a3(tangbin@MYZR-230304) \|(aarch64-linux-gnu-gcc (Linaro GCC 7.5-2019.12)7.5.0, GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706) #11 SMPPREEMPT Thu Mar 16 10:25:45 CST 202 包含以下信息：
 |  【内核版本】 ：Linux- 5.10.72；
 |  【编译内核的GCC版本】 ： 7.5；
 |  【内核文件的编译时间】 ：Thu Mar 16 10:25:45 CST 2023。

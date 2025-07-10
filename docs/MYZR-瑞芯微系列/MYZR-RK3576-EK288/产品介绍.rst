@@ -8,7 +8,7 @@
 
 **MY-RK3506-LB134核心板接口参数**
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/核心板接口参数.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/核心板接口参数.png
    :alt: 核心板接口参数.png
    :width: 60%
 
@@ -17,19 +17,19 @@
 
 - 正面图
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/核心板正面图.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/核心板正面图.png
    :alt: 核心板正面图.png
    :width: 60%
 
 - 背面图
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/核心板背面图.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/核心板背面图.png
    :alt: 核心板背面图.png
    :width: 60%
 
 - 尺寸图
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/核心板尺寸图.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/核心板尺寸图.png
    :alt: 核心板尺寸图.png
    :width: 60%
 
@@ -38,18 +38,18 @@
 
 - 正面图
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/底板正面图.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/底板正面图.png
    :alt: 底板正面图.png
    :width: 60%
 
 - 接口图
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/底板接口图.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/底板接口图.png
    :alt: 底板接口图.png
    :width: 60%
 
 - 尺寸图
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/底板尺寸图.png
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/底板尺寸图.png
    :alt: 底板尺寸图.png
    :width: 60%
