@@ -161,8 +161,6 @@ Linux内核板级文件
 2. kernel-5.10/arch/arm64/boot/dts/rockchip/myzr-rk3562-ek200-lvds-lcd.dtsi（备用，适用于lvds lcd显示屏）
 3. kernel-5.10/arch/arm64/boot/dts/rockchip/myzr-rk3562-ek200-mipi-lcd.dtsi（备用，适用于mipi lcd显示屏）
 
-|   内核开发参考手册：网盘中《Reference Manual.pdf》
-
 Ethernet
 ~~~~~~~~~~
 
