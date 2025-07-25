@@ -10,16 +10,19 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件1.png
    :alt: 刷新固件1.png
-   :width: 80%
+   :width: 60%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件2.png
    :alt: 刷新固件2.png
+   :width: 60%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件3.png
    :alt: 刷新固件3.png
+   :width: 60%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件4.png
    :alt: 刷新固件4.png
+   :width: 60%
 
 使用RKDevTool工具进行刷机
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -30,6 +33,7 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件5.png
    :alt: 刷新固件5.png
+   :width: 60%
 
 
 全局烧录
@@ -41,33 +45,33 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件6.png
    :alt: 刷新固件6.png
-   :width: 80%
+   :width: 60%
 
 - 点击"固件"按钮，然后选择相应的img镜像文件
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件7.png
    :alt: 刷新固件7.png
-   :width: 80%
+   :width: 60%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件8.png
    :alt: 刷新固件8.png
-   :width: 80%
+   :width: 60%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件9.png
    :alt: 刷新固件9.png
-   :width: 80%
+   :width: 60%
 
 - 开发板CON6接上type-c烧录线，按住开发板USER1按键，上电3秒左右可看到开发板进入了download模式
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件10.png
    :alt: 刷新固件10.png
-   :width: 80%
+   :width: 60%
 
 - 点击"升级"按钮进行刷机，刷成功右边显示成功字符
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件11.png
    :alt: 刷新固件11.png
-   :width: 80%
+   :width: 60%
 
 - 烧录完成后，开发板重新上电。
 
@@ -80,22 +84,22 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件12.png
    :alt: 刷新固件12.png
-   :width: 80%
+   :width: 60%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件13.png
    :alt: 刷新固件13.png
-   :width: 80%
+   :width: 60%
 
 - 把parameter勾选上，点击设备分区表读取分区
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件14.png
    :alt: 刷新固件14.png
-   :width: 80%
+   :width: 60%
 
 |  按照下图步骤进行烧录
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/刷新固件15.png
    :alt: 刷新固件15.png
-   :width: 80%
+   :width: 60%
 
 - 烧录完成后，开发板重新上电。

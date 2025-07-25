@@ -9,34 +9,41 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导1.png
    :alt: 硬件设计指导1.png
+   :width: 90%
 
 **12V**
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导2.png
    :alt: 硬件设计指导2.png
+   :width: 90%
 
 **5V**
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导3.png
    :alt: 硬件设计指导3.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导4.png
    :alt: 硬件设计指导4.png
+   :width: 90%
 
 **3.3V**
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导5.png
    :alt: 硬件设计指导5.png
+   :width: 90%
 
 **VCC3.3_RTC**
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导6.png
    :alt: 硬件设计指导6.png
+   :width: 90%
 
 **1.8V**
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导7.png
    :alt: 硬件设计指导7.png
+   :width: 90%
 
 
 2、烧录
@@ -46,9 +53,11 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导8.png
    :alt: 硬件设计指导8.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导9.png
    :alt: 硬件设计指导9.png
+   :width: 90%
 
 3、USB
 ---------
@@ -66,18 +75,22 @@ USB3.0
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导10.png
    :alt: 硬件设计指导10.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导11.png
    :alt: 硬件设计指导11.png
+   :width: 90%
 
 USB2.0
 ~~~~~~~~
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导12.png
    :alt: 硬件设计指导12.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导13.png
    :alt: 硬件设计指导13.png
+   :width: 90%
 
 4、WIFI
 ---------
@@ -87,6 +100,7 @@ USB2.0
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导14.png
    :alt: 硬件设计指导14.png
+   :width: 90%
 
 5、SD卡
 ---------
@@ -112,9 +126,11 @@ USB2.0
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导15.png
    :alt: 硬件设计指导15.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导16.png
    :alt: 硬件设计指导16.png
+   :width: 90%
 
 **SDMMC1 接口**
 
@@ -167,12 +183,15 @@ USB2.0
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导17.png
    :alt: 硬件设计指导17.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导18.png
    :alt: 硬件设计指导18.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导19.png
    :alt: 硬件设计指导16.png
+   :width: 90%
 
 7、MIPI-DSI
 --------------
@@ -185,9 +204,11 @@ USB2.0
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导20.png
    :alt: 硬件设计指导20.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导21.png
    :alt: 硬件设计指导21.png
+   :width: 90%
 
 8、HDMI
 ----------
@@ -199,6 +220,7 @@ USB2.0
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导22.png
    :alt: 硬件设计指导22.png
+   :width: 90%
 
 |  ⚫ HDMI2.1 TX 模式
 |  RK3576 支持 HDMI2.1 并向下兼容 HDMI2.0 和 HDMI1.4。HDMI2.1 工作在 FRL 模式； HDMI2.0 及以下模式时，工作在 TMDS 模式。采用 AC 耦合电压模式驱动器。
@@ -233,6 +255,7 @@ USB2.0
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导23.png
    :alt: 硬件设计指导23.png
+   :width: 90%
 
 9、以太网
 -----------
@@ -264,9 +287,11 @@ USB2.0
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导24.png
    :alt: 硬件设计指导24.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导25.png
    :alt: 硬件设计指导25.png
+   :width: 90%
 
 音频
 ------
@@ -288,12 +313,15 @@ USB2.0
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导26.png
    :alt: 硬件设计指导26.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导27.png
    :alt: 硬件设计指导27.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导28.png
    :alt: 硬件设计指导28.png
+   :width: 90%
 
 4G
 -----
@@ -302,6 +330,7 @@ USB2.0
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导29.png
    :alt: 硬件设计指导29.png
+   :width: 90%
 
 PCIE
 ------
@@ -325,6 +354,7 @@ PCIE
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导30.png
    :alt: 硬件设计指导30.png
+   :width: 90%
 
 按键
 ------
@@ -333,18 +363,22 @@ PCIE
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导31.png
    :alt: 硬件设计指导31.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导32.png
    :alt: 硬件设计指导32.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导33.png
    :alt: 硬件设计指导33.png
+   :width: 90%
 
 传感器
 --------
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导34.png
    :alt: 硬件设计指导34.png
+   :width: 90%
 
 CAN
 ------
@@ -357,6 +391,7 @@ CAN
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导35.png
    :alt: 硬件设计指导35.png
+   :width: 90%
 
 RS485
 -------
@@ -398,6 +433,7 @@ RS485
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导36.png
    :alt: 硬件设计指导36.png
+   :width: 90%
 
 LED
 ------
@@ -406,6 +442,7 @@ LED
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导37.png
    :alt: 硬件设计指导37.png
+   :width: 90%
 
 SARADC
 ---------
@@ -415,6 +452,7 @@ SARADC
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导38.png
    :alt: 硬件设计指导38.png
+   :width: 90%
 
 |  若 Rup=DNP， Rdown=10K； RK3576 设备连接好 USB 线，此时上电，系统可以直接进入 Maskrom。
 |  SARADC_IN1 当做按键的键值输入采样，并复用为 Recovery 模式按键（不可修改）。
@@ -423,6 +461,7 @@ SARADC
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导39.png
    :alt: 硬件设计指导39.png
+   :width: 90%
 
 FAN
 ------
@@ -431,6 +470,7 @@ FAN
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导40.png
    :alt: 硬件设计指导40.png
+   :width: 90%
 
 Debug
 --------
@@ -439,6 +479,7 @@ Debug
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导41.png
    :alt: 硬件设计指导41.png
+   :width: 90%
 
 GPIO
 -------
@@ -447,6 +488,7 @@ GPIO
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导42.png
    :alt: 硬件设计指导42.png
+   :width: 90%
 
 红外
 -------
@@ -464,3 +506,4 @@ GPIO
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导43.png
    :alt: 硬件设计指导43.png
+   :width: 90%

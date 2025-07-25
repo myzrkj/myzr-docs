@@ -18,6 +18,7 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件1.png
    :alt: 硬件1.png
+   :width: 90%
 
 * **原理设计注意事项**：
 
@@ -39,6 +40,7 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件2.png
    :alt: 硬件2.png
+   :width: 90%
 
 * **原理图设计注意事项**：
 
@@ -60,6 +62,7 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件3.png
    :alt: 硬件3.png
+   :width: 90%
 
 * **原理图设计注意事项**：
 
@@ -81,6 +84,7 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件4.png
    :alt: 硬件4.png
+   :width: 90%
 
 5、IR红外
 ~~~~~~~~~~~
@@ -89,6 +93,7 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件5.png
    :alt: 硬件5.png
+   :width: 90%
 
 * **原理图设计注意事项**：
 
@@ -111,6 +116,7 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件6.png
    :alt: 硬件6.png
+   :width: 90%
 
 * **原理图设计注意事项**：
 
@@ -130,6 +136,7 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件7.png
    :alt: 硬件7.png
+   :width: 90%
 
 * **原理图设计注意事项**：
 
@@ -148,6 +155,7 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件8.png
    :alt: 硬件8.png
+   :width: 90%
 
 * **原理图设计注意事项**：
 
@@ -171,9 +179,11 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件9.png
    :alt: 硬件9.png
+   :width: 90%
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件10.png
    :alt: 硬件10.png
+   :width: 90%
 
 * **原理图设计注意事项**：
 
@@ -193,6 +203,7 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件11.png
    :alt: 硬件11.png
+   :width: 90%
 
 * **原理图设计注意事项**：
 
@@ -210,6 +221,7 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件12.png
    :alt: 硬件12.png
+   :width: 90%
 
 12、LED灯
 ~~~~~~~~~~~
@@ -220,6 +232,7 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件13.png
    :alt: 硬件13.png
+   :width: 90%
 
 * **原理图设计注意事项**：
 
@@ -240,13 +253,14 @@
 
 .. image:: /image/MYZR-全志系列/MYZR-H618-EK120/硬件14.png
    :alt: 硬件14.png
+   :width: 90%
 
 * **原理图设计注意事项**：
 
    | 1、每个电源引脚就近放置 0.1μF+1μF 电容，高频噪声大的场合增加 10μF 储能电容。
    | 2、TX和RX信号上串联22R电阻。
    | 3、在RJ45接口附近放置TVS二极管，保护差分线对。
-   | 4、选择带变压器的RJ45插座可简化设计。。
+   | 4、选择带变压器的RJ45插座可简化设计。
    | 5、PHY未使用的GPIO或配置引脚需按手册处理（上拉/下拉）。
 
 * **PCB注意事项**：

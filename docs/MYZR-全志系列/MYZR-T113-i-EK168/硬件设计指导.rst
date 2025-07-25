@@ -11,6 +11,7 @@ BOOT
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导1.png
    :alt: 硬件设计指导1.png
+   :width: 90%
 
 |  设计要点：
 |  （1）拨码开关处需加ESD防护器件
@@ -18,6 +19,7 @@ BOOT
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导2.png
    :alt: 硬件设计指导2.png
+   :width: 90%
 
 UART
 ~~~~~~
@@ -29,6 +31,7 @@ Debug
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导3.png
    :alt: 硬件设计指导3.png
+   :width: 90%
 
 |  设计要点：
 |  （1）为避免 RX 端在底板上电前带电，向 CPU 灌输电流，影响 CPU 正常启动。底板设计时，需加电平转换芯片进行隔离
@@ -36,12 +39,14 @@ Debug
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导4.png
    :alt: 硬件设计指导4.png
+   :width: 90%
 
 |  （3）CH340T需要加12MHz的晶振，且晶振两端分别加两个匹配电容，电容的容值选择具体需看CH340T芯片数据手册
 |  （4）Type-C座子处需加ESD防护器件
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导5.png
    :alt: 硬件设计指导5.png
+   :width: 90%
 
 TTL
 ^^^^^
@@ -50,6 +55,7 @@ TTL
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导6.png
    :alt: 硬件设计指导6.png
+   :width: 90%
 
 |  设计要点：
 |  （1）UART 信号是否默认高电平，否则需加上拉电阻
@@ -57,6 +63,7 @@ TTL
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导7.png
    :alt: 硬件设计指导7.png
+   :width: 90%
 
 RS232
 ^^^^^^^
@@ -65,12 +72,14 @@ RS232
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导8.png
    :alt: 硬件设计指导8.png
+   :width: 90%
 
 |  （1）通过 UART2 转换为 RS232 串口，使用 9 针 DB9 接口  
 |  （2）RS232座子处需加ESD防护器件
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导9.png
    :alt: 硬件设计指导9.png
+   :width: 90%
 
 RS485
 ^^^^^^^
@@ -79,6 +88,7 @@ RS485
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导10.png
    :alt: 硬件设计指导10.png
+   :width: 90%
 
 |  设计要点：
 |  （1）该电路图采用的是自收发，需注意RS1G14XC5  （反相器）有一定的延迟时间，可能会对高速通信有影响，不适合用于波特率较高的通信场所
@@ -87,11 +97,13 @@ RS485
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导11.png
    :alt: 硬件设计指导11.png
+   :width: 90%
 
 |  （4）RS485、 CAN 使用隔离电源供电，该隔离电源供电最大电流为 200mA。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导12.png
    :alt: 硬件设计指导12.png
+   :width: 90%
 
 CAN
 ~~~~~~
@@ -100,6 +112,7 @@ CAN
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导10.png
    :alt: 硬件设计指导10.png
+   :width: 90%
 
 |  （1）CAN需加120欧的终端匹配电阻
 |  （2）加电源隔离模块
@@ -107,6 +120,7 @@ CAN
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导13.png
    :alt: 硬件设计指导13.png
+   :width: 90%
 
 
 RTC
@@ -116,6 +130,7 @@ RTC
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导14.png
    :alt: 硬件设计指导14.png
+   :width: 90%
 
 |  设计要点：
 |  （1）I2C信号是否有加上拉电阻。若没有，则需添加上拉电阻
@@ -124,6 +139,7 @@ RTC
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导15.png
    :alt: 硬件设计指导15.png
+   :width: 90%
 
 KEY
 ~~~~~
@@ -132,6 +148,7 @@ KEY
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导16.png
    :alt: 硬件设计指导16.png
+   :width: 90%
 
 |  设计要点：
 |  （1）RESET信号和FEL信号预留上拉电阻位置，方便后期调试
@@ -140,6 +157,7 @@ KEY
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导17.png
    :alt: 硬件设计指导17.png
+   :width: 90%
 
 WatchDog
 ~~~~~~~~~~
@@ -148,6 +166,7 @@ WatchDog
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导18.png
    :alt: 硬件设计指导18.png
+   :width: 90%
 
 |  设计要点：
 |  （1）使用MAX6369KA+T芯片，可以通过4、5、6引脚的电平高低调节看门狗启动延迟时间以及监控时间，客户可根据自身需要修改。图中表格仅限参考，具体需参考芯片数据手册。
@@ -156,6 +175,7 @@ WatchDog
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导19.png
    :alt: 硬件设计指导19.png
+   :width: 90%
 
 SD
 ~~~~
@@ -164,6 +184,7 @@ SD
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导20.png
    :alt: 硬件设计指导20.png
+   :width: 90%
 
 |  设计要点：
 |  （1）建议使用核心板输出的 VDD_3V3_SOM 为 Micro SD（CON7）供电，以满足上电时序要求。 以避免 Micro SD 因电源供电延迟，导致 CPU 无法正确识别 SD 卡设备而启动失败。  
@@ -171,11 +192,13 @@ SD
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导21.png
    :alt: 硬件设计指导21.png
+   :width: 90%
 
 |  （3）ARM/RISC-V JTAG 和 SDC0 总线存在引脚复用关系，两个模块不能同时使用
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导22.png
    :alt: 硬件设计指导22.png
+   :width: 90%
 
 JTAG
 ~~~~~~
@@ -184,12 +207,14 @@ JTAG
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导23.png
    :alt: 硬件设计指导23.png
+   :width: 90%
 
 |  设计要点：
 |  （1）JTAG座子需加ESD防护器件
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导24.png
    :alt: 硬件设计指导24.png
+   :width: 90%
 
 USB
 ~~~~~
@@ -201,6 +226,7 @@ USB0 DRD
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导25.png
    :alt: 硬件设计指导25.png
+   :width: 90%
 
 |  设计要点：
 |  （1）I2C、中断引脚注意是否有上拉电阻
@@ -209,6 +235,7 @@ USB0 DRD
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导26.png
    :alt: 硬件设计指导26.png
+   :width: 90%
 
 USB HUB
 ^^^^^^^^^
@@ -219,6 +246,7 @@ USB HUB
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导27.png
    :alt: 硬件设计指导27.png
+   :width: 90%
 
 USB HOST
 """"""""""
@@ -227,6 +255,7 @@ USB HOST
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导28.png
    :alt: 硬件设计指导28.png
+   :width: 90%
 
 |  设计要点：
 |  (1) 注意加过流保护
@@ -234,6 +263,7 @@ USB HOST
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导29.png
    :alt: 硬件设计指导29.png
+   :width: 90%
 
 WIFI
 """"""
@@ -242,12 +272,14 @@ WIFI
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导30.png
    :alt: 硬件设计指导30.png
+   :width: 90%
 
 |  设计要点：
 |  （1）天线座子需加ESD防护器件
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导31.png
    :alt: 硬件设计指导31.png
+   :width: 90%
 
 4G
 """"
@@ -256,19 +288,23 @@ WIFI
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导32.png
    :alt: 硬件设计指导32.png
+   :width: 90%
 
 |  设计要点：
 |  （1）4G模块需要多大电流以及稳定的电压，需要加独立的DCDC模块供电
 |  （2）SIM卡座子需加ESD防护器件
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导33.png
-   :alt: 硬件设计指导33.png 
+   :alt: 硬件设计指导33.png
+   :width: 90%
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导34.png
    :alt: 硬件设计指导34.png
+   :width: 90%
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导35.png
    :alt: 硬件设计指导35.png
+   :width: 90%
 
 USB ETH1
 """"""""""
@@ -277,6 +313,7 @@ USB ETH1
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导36.png
    :alt: 硬件设计指导36.png
+   :width: 90%
 
 |  设计要点：
 |  （1）SR9900AI芯片的RSET引脚需接一个2.49K(±1%)的电阻
@@ -286,9 +323,11 @@ USB ETH1
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导37.png
    :alt: 硬件设计指导37.png
+   :width: 90%
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导38.png
    :alt: 硬件设计指导38.png
+   :width: 90%
 
 RGMII
 ~~~~~~~
@@ -297,56 +336,68 @@ RGMII
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导39.png
    :alt: 硬件设计指导39.png
+   :width: 90%
   
 |  设计要点：
 |  （1）注意核心板RGMII信号的I/O电平与PHY芯片I/O电平是否匹配。T113I的RGMII信号的I/O电平为3V3，所以要将PYH芯片的I/O电平配置为3V3。如下表所示（仅供参考，具体请看芯片数据手册），需要将CFG_LDO[1:0]信号配置为低电平。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导40.png
    :alt: 硬件设计指导40.png
+   :width: 90%
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导41.png
    :alt: 硬件设计指导41.png
+   :width: 90%
 
 |  （2）以太网座子的灯也是通过CFG_LDO[1:0]信号控制。所以在配置灯信号时，要注意是否会改变PYH芯片的I/O电平配置。可根据下表配置灯（仅供参考）。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导42.png
    :alt: 硬件设计指导42.png
+   :width: 90%
 
 |  （3）配置PHY地址。若共用一个MAC时，需要配置不同的PYH地址。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导43.png
    :alt: 硬件设计指导43.png
+   :width: 90%
 
 |  （4）PYH芯片可以配置多个模式。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导44.png
    :alt: 硬件设计指导44.png
+   :width: 90%
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导45.png
    :alt: 硬件设计指导45.png
+   :width: 90%
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导46.png
    :alt: 硬件设计指导46.png
+   :width: 90%
 
 |  （5）YT8521SH-CA 芯片管脚 LED0/PHYAD0、 LED1/CFG_LDO0、 LED2/CFG_LDO1、 RESET_N的信号电平皆为 3.3V，上拉配置时，请 3.3V上拉；其他信号管脚上拉配置时，请用 DVDD_RGMII(1.8V/2.5V/3.3V)电源上拉。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导46-1.png
    :alt: 硬件设计指导46-1.png
+   :width: 90%
 
 |  （6）注意复位、中断、MDIO信号是否有接上拉电阻。MDIO信号的上拉电阻阻值大小需查看PYH芯片数据手册。同时要注意PYH芯片的RESET引脚上电时序，在PYH芯片上电稳定后至少有10ms的RESET信号（具体请查看芯片数据手册)。RBIAS引脚必须接2.49K（±1%）电阻到GND。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导47.png
    :alt: 硬件设计指导47.png
+   :width: 90%
 
 |  （7）XTAL_I、XTAL_O 引脚接入 25MHz 无源晶振。如需使用 25MHz 有源晶振，可从 XTAL_I引脚接入， XTAL_O 引脚悬空处理。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导48.png
    :alt: 硬件设计指导48.png
+   :width: 90%
 
 |  （8）确定PYH芯片的是电压驱动还是电流驱动，若是电压驱动则RJ45座子的中心抽头（1号引脚）接电源，若是电流驱动则直接个电容到GND。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导49.png
    :alt: 硬件设计指导49.png
+   :width: 90%
 
 （9）以太网座子处需加ESD防护器件
 
@@ -357,6 +408,7 @@ LVDS
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导50.png
    :alt: 硬件设计指导50.png
+   :width: 90%
 
 |  设计要点：
 |  （1）LVDS差分信号可预留100欧的终端电阻
@@ -364,11 +416,13 @@ LVDS
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导51.png
    :alt: 硬件设计指导51.png
+   :width: 90%
 
 |  （3）LVDS、RGB 接口共用 C12/TP_X1、 A11/TP_X2、 B11/TP_Y1、 C11/TP_Y2 四线电阻触摸信号，请勿同时连接两种显示设备。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导52.png
    :alt: 硬件设计指导52.png
+   :width: 90%
 
 RGB
 ~~~~~
@@ -377,6 +431,7 @@ RGB
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导53.png
    :alt: 硬件设计指导53.png
+   :width: 90%
 
 |  设计要点：
 |  （1）由于 LVDS0、 LVDS1 与 LCD0(RGB )引脚复用，同时 LVDS0 与 MIPI_DSI 引脚复用，并且 HDMI  由 MIPI_DSI 通过 LT8912B（U27）转换引出， 因此 MIPI_DSI、HDMI、 LVDS 、 RGB 接口仅能同时使用其中一个。  
@@ -385,6 +440,7 @@ RGB
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导54.png
    :alt: 硬件设计指导54.png
+   :width: 90%
 
 MIPI_DSI
 ~~~~~~~~~~~
@@ -393,12 +449,14 @@ MIPI_DSI
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导55.png
    :alt: 硬件设计指导55.png
+   :width: 90%
 
 |  设计要点：
 |  （1）由于 LVDS0、 LVDS1 与 LCD0(RGB )引脚复用，同时 LVDS0 与 MIPI_DSI 引脚复用，并且 HDMI  由 MIPI_DSI 通过 LT8912B（U27）转换引出， 因此 MIPI_DSI、HDMI、 LVDS 、 RGB 接口仅能同时使用其中一个。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导56.png
    :alt: 硬件设计指导56.png
+   :width: 90%
 
 HDMI
 ~~~~~~
@@ -407,6 +465,7 @@ HDMI
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导57.png
    :alt: 硬件设计指导57.png
+   :width: 90%
 
 |  设计要点：
 |  （1）由于 LVDS0、 LVDS1 与 LCD0(RGB )引脚复用，同时 LVDS0 与 MIPI_DSI 引脚复用，并且 HDMI  由 MIPI_DSI 通过 LT8912B（U27）转换引出， 因此 MIPI_DSI、HDMI、 LVDS 、 RGB 接口仅能同时使用其中一个。  
@@ -414,11 +473,13 @@ HDMI
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导58.png
    :alt: 硬件设计指导58.png
+   :width: 90%
 
 |  （3）要注意I2C电平是否匹配，可使用电平转换芯片进行连接。
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导59.png
    :alt: 硬件设计指导59.png
+   :width: 90%
 
 |  （4）HDMI座子需加ESD防护器件
 
@@ -429,6 +490,7 @@ CVBS
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导60.png
    :alt: 硬件设计指导60.png
+   :width: 90%
 
 CVBS_IN
 ^^^^^^^^^^
@@ -439,6 +501,7 @@ CVBS_IN
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导61.png
    :alt: 硬件设计指导61.png
+   :width: 90%
 
 CVBS_OUT
 ^^^^^^^^^^
@@ -448,6 +511,7 @@ CVBS_OUT
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导62.png
    :alt: 硬件设计指导62.png
+   :width: 90%
 
 Audio
 ~~~~~~~
@@ -456,6 +520,7 @@ Audio
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导63.png
    :alt: 硬件设计指导63.png
+   :width: 90%
 
 HP/MIC
 ^^^^^^^^^
@@ -467,6 +532,7 @@ HP/MIC
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导64.png
    :alt: 硬件设计指导64.png
+   :width: 90%
 
 LINE IN
 ^^^^^^^^^^
@@ -476,6 +542,7 @@ LINE IN
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导65.png
    :alt: 硬件设计指导65.png
+   :width: 90%
 
 电源
 ~~~~~~
@@ -484,6 +551,7 @@ LINE IN
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导66.png
    :alt: 硬件设计指导66.png
+   :width: 90%
 
 |  设计要点：
 |  （1）VDD_12V_MAIN 通过 DC-DC 芯片输出 VDD_5V_SOM 供核心板使用，通过另外 3路 DC-DC 芯片输出 VDD_5V_MAIN、VDD_3V3_MAIN、VDD_1V8_MAIN 供评估底板外设使用。
@@ -495,18 +563,23 @@ LINE IN
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导67.png
    :alt: 硬件设计指导67.png
+   :width: 90%
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导68.png
    :alt: 硬件设计指导68.png
+   :width: 90%
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导69.png
    :alt: 硬件设计指导69.png
+   :width: 90%
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导70.png
    :alt: 硬件设计指导70.png
+   :width: 90%
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导71.png
    :alt: 硬件设计指导71.png
+   :width: 90%
   
 PCB
 ------
@@ -518,12 +591,14 @@ PCB
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导72.png
    :alt: 硬件设计指导72.png
+   :width: 90%
 
 |  （4）数字地和模拟地要区分开
 |  （5）ESD保护器件要尽可能靠近接口
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导73.png
    :alt: 硬件设计指导73.png
+   :width: 90%
 
 |  （6）非屏蔽型电感需割铜，割到地平面。且下方不走线
 |  （7）一体成型电感下方可铺地
@@ -552,16 +627,19 @@ PCB
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导74.png
    :alt: 硬件设计指导74.png
+   :width: 90%
 
 - 当信号用于多个复用功能且需要做等长时，需建立信号的起始端到模块终端的Pin Pair，再用Pin Pair拉等长
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导75.png
    :alt: 硬件设计指导75.png
+   :width: 90%
 
 - 在差分线对内禁止布置过孔或者元器件
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导76.png
    :alt: 硬件设计指导76.png
+   :width: 90%
 
 - DP和DM走线不应穿过参考平面中的平面分裂或空隙
 - DP和DM走线不应与其他信号交叉。如果它们交叉，则将数字电源平面或地平面置于两者之间
@@ -569,9 +647,11 @@ PCB
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导77.png
    :alt: 硬件设计指导77.png
+   :width: 90%
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导78.png
    :alt: 硬件设计指导78.png
+   :width: 90%
 
 - 为了防止噪声，尽量减少DP和DM走线的弯曲次数和过孔数量，并且这些信号线应布线在固态的GND参考平面上。DP和DM走线应该有相同数量的过孔。尽量避免过孔和层的变化。建议使用顶层或底层进行信号线布线
 - DP和DM不能靠近其他信号。特别要注意时钟和数据总线的噪声
@@ -579,11 +659,13 @@ PCB
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导79.png
    :alt: 硬件设计指导79.png
+   :width: 90%
 
 - 将GND回路过孔与差分对过孔相邻
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导80.png
    :alt: 硬件设计指导80.png
+   :width: 90%
 
 - 返回路径应与地连续。就是返回路径通常通过地（GND）来实现。为了确保有效、稳定地回流，地线（GND）应该尽量保持连续，避免分裂或中断。
 
@@ -598,6 +680,7 @@ PCB
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导81.png
    :alt: 硬件设计指导81.png
+   :width: 90%
 
 |  （15）Ethernet
 
@@ -633,6 +716,7 @@ PCB
 
 .. figure:: /image/MYZR-全志系列/MYZR-T113-i-EK168/硬件设计指导82.png
    :alt: 硬件设计指导82.png
+   :width: 90%
 
 调试
 -------

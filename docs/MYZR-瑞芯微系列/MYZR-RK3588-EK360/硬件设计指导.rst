@@ -6,15 +6,19 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/核心板引脚原理图-1.png
    :alt: 核心板引脚原理图-1.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/核心板引脚原理图-2.png
    :alt: 核心板引脚原理图-2.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/核心板引脚原理图-3.png
    :alt: 核心板引脚原理图-3.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/核心板引脚原理图-4.png
    :alt: 核心板引脚原理图-4.png
+   :width: 80%
 
 底板原理图
 ------------
@@ -28,18 +32,23 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/电源管理-1.png
    :alt: 电源管理-1.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/电源管理-2.png
    :alt: 电源管理-2.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/电源管理-3.png
    :alt: 电源管理-3.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/电源管理-4.png
    :alt: 电源管理-4.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/电源管理-5.png
    :alt: 电源管理-5.png
+   :width: 80%
 
 纽扣电池电路
 ~~~~~~~~~~~~~~
@@ -50,18 +59,21 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/纽扣电池电路.png
    :alt: 纽扣电池电路.png
+   :width: 80%
 
 风扇电路
 ~~~~~~~~~
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/风扇电路.png
    :alt: 风扇电路.png
+   :width: 80%
 
 SATA 电源电路
 ~~~~~~~~~~~~~~
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/SATA电源电路.png
    :alt: SATA电源电路.png
+   :width: 80%
 
 USB2.0 HOST 电路
 ~~~~~~~~~~~~~~~~~
@@ -70,6 +82,7 @@ USB2.0 HOST 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/USB2.0HOST_电路.png
    :alt: USB2.0HOST_电路.png
+   :width: 80%
 
 USB3.0HOST 电路
 ~~~~~~~~~~~~~~~~
@@ -78,18 +91,21 @@ USB3.0HOST 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/USB3.0HOST电路.png
    :alt: USB3.0HOST电路.png
+   :width: 80%
 
 Type-C 电路
 ~~~~~~~~~~~~
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/Type-C电路.png
    :alt: Type-C电路.png
+   :width: 80%
 
 USB2.0 HUB 电路
 ~~~~~~~~~~~~~~~~~
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/USB2.0HUB电路.png
    :alt: USB2.0HUB电路.png
+   :width: 80%
 
 TF 卡电路
 ~~~~~~~~~~
@@ -98,6 +114,7 @@ TF 卡电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/TF卡电路.png
    :alt: TF卡电路.png
+   :width: 80%
 
 Camera_MIPI 电路
 ~~~~~~~~~~~~~~~~~~
@@ -106,15 +123,19 @@ Camera_MIPI 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/Camera_MIPI电路-1.png
    :alt: Camera_MIPI电路-1.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/Camera_MIPI电路-2.png
    :alt: Camera_MIPI电路-2.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/Camera_MIPI电路-3.png
    :alt: Camera_MIPI电路-3.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/Camera_MIPI电路-4.png
    :alt: Camera_MIPI电路-4.png
+   :width: 80%
 
 HDMI RX 电路
 ~~~~~~~~~~~~~~
@@ -123,15 +144,18 @@ HDMI RX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI_RX电路.png
    :alt: HDMI_RX电路.png
+   :width: 80%
 
 HDMI TX 电路
 ~~~~~~~~~~~~~~
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI_TX_电路-1.png
    :alt: HDMI_TX_电路-1.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI_TX_电路-2.png
    :alt: HDMI_TX_电路-2.png
+   :width: 80%
 
 MIPI 显示屏接口电路
 ~~~~~~~~~~~~~~~~~~~~
@@ -142,6 +166,7 @@ MIPI 显示屏接口电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/MIPI显示屏接口电路.png
    :alt: MIPI显示屏接口电路.png
+   :width: 80%
 
 LCD-eDP 电路
 ~~~~~~~~~~~~~~
@@ -152,6 +177,7 @@ LCD-eDP 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/LCD-eDP电路.png
    :alt: LCD-eDP电路.png
+   :width: 80%
 
 WiFi 蓝牙电路
 ~~~~~~~~~~~~~~
@@ -160,6 +186,7 @@ WiFi 蓝牙电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/WiFi蓝牙电路.png
    :alt: WiFi蓝牙电路.png
+   :width: 80%
 
 音频电路
 ~~~~~~~~~
@@ -169,6 +196,7 @@ WiFi 蓝牙电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/音频电路.png
    :alt: 音频电路.png
+   :width: 80%
 
 千兆网电路
 ~~~~~~~~~~~
@@ -181,34 +209,40 @@ WiFi 蓝牙电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/千兆网电路-1.png
    :alt: 千兆网电路-1.png
+   :width: 80%
 
 |  网线接口
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/千兆网电路-2.png
    :alt: 千兆网电路-2.png
+   :width: 80%
 
 |  以太网 1 原理图如下所示：
 |  Phy 芯片
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/千兆网电路-3.png
    :alt: 千兆网电路-3.png
+   :width: 80%
 
 |  网线接口
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/千兆网电路-4.png
    :alt: 千兆网电路-4.png
+   :width: 80%
 
 SATA3.0 电路
 ~~~~~~~~~~~~~~
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/SATA3.0电路.png
    :alt: SATA3.0电路.png
+   :width: 80%
 
 5G 电路
 ~~~~~~~~~
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/5G电路.png
    :alt: 5G电路.png
+   :width: 80%
 
 PCIE 3.0 电路
 ~~~~~~~~~~~~~~~
@@ -217,29 +251,35 @@ PCIE 3.0 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/PCIE3.0电路-1.png
    :alt: PCIE3.0电路-1.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/PCIE3.0电路-2.png
    :alt: PCIE3.0电路-2.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/PCIE3.0电路-3.png
    :alt: PCIE3.0电路-3.png
+   :width: 80%
 
 Sensor 电路
 ~~~~~~~~~~~~~
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/Sensor电路.png
    :alt: Sensor电路.png
+   :width: 80%
 
 按键电路
 ~~~~~~~~~
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/按键电路-1.png
    :alt: 按键电路-1.png
+   :width: 80%
 
 |  按钮 PCB 如下图所示:
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/按键电路-2.png
    :alt: 按键电路-2.png
+   :width: 80%
 
 调试串口电路
 ~~~~~~~~~~~~~~
@@ -248,6 +288,7 @@ Sensor 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/调试串口电路.png
    :alt: 调试串口电路.png
+   :width: 80%
 
 485 电路
 ~~~~~~~~~~
@@ -256,6 +297,7 @@ Sensor 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/485电路.png
    :alt: 485电路.png
+   :width: 80%
 
 原理图设计建议
 ---------------
@@ -273,15 +315,19 @@ Sensor 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/电源设计-1.png
    :alt: 电源设计-1.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/电源设计-2.png
    :alt: 电源设计-2.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/电源设计-3.png
    :alt: 电源设计-3.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/电源设计-4.png
    :alt: 电源设计-4.png
+   :width: 80%
 
 功能接口电路设计指南
 ~~~~~~~~~~~~~~~~~~~~
@@ -293,6 +339,7 @@ RTC 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计指南_RTC电路.png
    :alt: 设计指南_RTC电路.png
+   :width: 80%
 
 |  I2C 信号 SCL、SDA 需要外接上拉电阻，根据总线负载不同，选择不同阻值的电阻，推荐接 2.2Kohm 上拉电阻。I2C 总线上各设备地址不要冲突，上拉电源必须和电源保持一致。
 
@@ -311,21 +358,25 @@ USB2.0/3.0 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计指南_USB2.0_3.0电路-1.png
    :alt: 设计指南_USB2.0_3.0电路-1.png
+   :width: 80%
 
 |  为加强抗静电和浪涌能力，信号上必须预留 ESD 器件，USB2.0 信号的 ESD 寄生电容不得超过 3pF，另外 USB2.0 信号的 DP/DM 串接 2.2ohm 电阻，加强抗静电浪涌能力，不得删减。为抑制电磁辐射，可以考虑在信号线上预留共模电感（Common mode choke），在调试过程中根据实际情况选择使用电阻或者共模电感。见下图，以USB20_HOST0_DP/DM 为例，其它 USB2.0接口也需要同样处理。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计指南_USB2.0_3.0电路-2.png
    :alt: 设计指南_USB2.0_3.0电路-2.png
+   :width: 80%
 
 |  当使用 HOST 功能时，5V 电源建议增加限流开关，限流大小根据应用需要可调整，限流开关使用 GPIO 控制，建议 5V 电源增加 100uF 以上和 100nF 电容。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计指南_USB2.0_3.0电路-3.png
    :alt: 设计指南_USB2.0_3.0电路-3.png
+   :width: 80%
 
 |  TYPEC 协议要求在 SSTXP/N 线上增加 100nF 交流耦合电容，AC 耦合电容建议使用 0201 封装，更低的 ESR 和 ESL，也可减少线路上的阻抗变化。TYPEC 座子所有信号都必须增加 ESD 器件，布局时靠近 USB 连接器放置。对于 SSTXP/N、SSRXP/N 信号，ESD 寄生电容不得超过 0.3pF。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计指南_USB2.0_3.0电路-4.png
    :alt: 设计指南_USB2.0_3.0电路-4.png
+   :width: 80%
 
 |  USB2.0/USB3.0 接口匹配设计推荐如下表所示。
 
@@ -360,9 +411,11 @@ USB2.0/3.0 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计指南_5G电路-1.png
    :alt: 设计指南_5G电路-1.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计指南_5G电路-2.png
    :alt: 设计指南_5G电路-2.png
+   :width: 80%
 
 MIPI_D/CPHY_RX 电路
 ^^^^^^^^^^^^^^^^^^^^^
@@ -371,9 +424,11 @@ MIPI_D/CPHY_RX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/CPHY_RX电路-1.png
    :alt: CPHY_RX电路-1.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/CPHY_RX电路-2.png
    :alt: CPHY_RX电路-2.png
+   :width: 80%
 
 |  MIPI D/C-PHY0 工作在 D-PHY 时模式支持情况：
 
@@ -389,11 +444,13 @@ MIPI_D/CPHY_RX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/CPHY_RX电路-3.png
    :alt: CPHY_RX电路-3.png
+   :width: 80%
 
 |  Camera 的 PWDN 信号必须使用 GPIO 控制，GPIO 电平必须和 Camera IO 电平匹配；Camera的 Reset 信号建议使用 GPIO 控制，GPIO 电平必须和 Camera IO 电平匹配。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/CPHY_RX电路-4.png
    :alt: CPHY_RX电路-4.png
+   :width: 80%
 
 |  MIPI D-PHY/C-PHY Combo PHY0/1 RX 匹配设计推荐如下表所示：
 
@@ -441,9 +498,11 @@ MIPI DPHY CSI RX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/MIPI-DPHY-CSI-RX电路-1.png
    :alt: MIPI-DPHY-CSI-RX电路-1.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/MIPI-DPHY-CSI-RX电路-2.png
    :alt: MIPI-DPHY-CSI-RX电路-2.png
+   :width: 80%
 
 |  MIPI DPHY CSI0 RX 接口模式支持情况：
 
@@ -457,16 +516,19 @@ MIPI DPHY CSI RX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/MIPI-DPHY-CSI-RX电路-3.png
    :alt: MIPI-DPHY-CSI-RX电路-3.png
+   :width: 80%
 
 |  Camera 的 DVDD 供电有 1.2V/1.5V/1.8V 等不同情况，请根据 Camera 的规格书提供准确的电源，有些 Camera 的 DVDD 电流比较大，超过 100mA 建议使用 DCDC 供电。若 Camera 带 AF 功能，则 VCC2V8_AF 需要单独供电，开发板通过 LDO 电源芯片由 3.3V 生成。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/MIPI-DPHY-CSI-RX电路-4.png
    :alt: MIPI-DPHY-CSI-RX电路-4.png
+   :width: 80%
 
 |  Camera 的 PWDN 信号必须使用 GPIO 控制，GPIO 电平必须和 Camera IO 电平匹配；Camera的 Reset 信号建议使用 GPIO 控制，GPIO 电平必须和 Camera IO 电平匹配。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/MIPI-DPHY-CSI-RX电路-5.png
    :alt: MIPI-DPHY-CSI-RX电路-5.png
+   :width: 80%
 
 |  MIPI DPHY CSI0/1 RX 接口匹配设计推荐如下表所示：
 
@@ -506,6 +568,7 @@ HDMI 2.0 RX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI-2.0-RX电路-1.png
    :alt: HDMI-2.0-RX电路-1.png
+   :width: 80%
 
 |  HDMI_RX_CEC 是 HDMI 控制器 CEC 功能复用到普通 GPIO 上功能，电平随所在电源域电压，电源域供电电压有更改，外围电路的上拉电阻电源也必须同步调整。
 |  HDMI_RX_CEC 分别复用 3 个位置，一个在 VCCIO6 电源域的 IO 上面，一个在 VCCIO5 电源域的 IO 上面，一个在 VCCIO4 电源域的 IO 上面。开发板中使用的是 VCCIO5 电源域上的GPIO3_D1_d。
@@ -513,11 +576,13 @@ HDMI 2.0 RX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI-2.0-RX电路-2.png
    :alt: HDMI-2.0-RX电路-2.png
+   :width: 80%
 
 |  RK3588 IO Domain 在未上电时，如果 IO 上有电压，IO 会存在漏电，比如 RK3588 已经断电了，然后 HDMI 线还连接着 Sink 端（电视或显示器），此时 Sink 端的 CEC 有电，会通过 HDMI线漏电到 RK3588 IO 上，造成 CEC 漏电超过 1.8uA，因此外部需要增加一个隔离电路，R102阻值不得随意修改，需要使用 56Kohm，Q9 默认选择 2SK3018，如果要换其它型号，结电容必须相当，如果用结电容过大，不仅会影响工作，认证也会过不了。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI-2.0-RX电路-3.png
    :alt: HDMI-2.0-RX电路-3.png
+   :width: 80%
 
 |  HDMI_RX DDC_SCL/DDC_SDA 是 HDMI RX 控制器的 I2C/DDC 总线，功能复用到 PMUIO2，VCCIO5，VCCIO4 电源域的 IO 上面，电平随所在电源域电压，电源域供电电压有更改，外围电路的上拉电阻电源也必须同步调整。
 |  DDC_SCL/DDC_SDA 协议规定是 5V 电平，RK3588 IO 不支持 5V 电平，必须增加电平转换电路，不得删减，默认使用 MOS 管电平转换，MOS 型号默认选择 2SK3018，如果要换其它型号，结电容必须相当，如果用结电容过大，不仅影响工作，认证也会过不了。
@@ -525,11 +590,13 @@ HDMI 2.0 RX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI-2.0-RX电路-4.png
    :alt: HDMI-2.0-RX电路-4.png
+   :width: 80%
 
 |  HDMI 座子的 Pin18 管脚建议放置 0.1uF 去耦电容，布局时，靠近 HDMI 座子管脚放置。为加强抗静电能力，信号上必须预留 ESD 器件，HDMI2.0 信号的 ESD 寄生电容不得超过 0.4pF，其它信号的 ESD 寄生电容建议使用不超过 1pF。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI-2.0-RX电路-5.png
    :alt: HDMI-2.0-RX电路-5.png
+   :width: 80%
 
 |  HDMI RX 接口匹配设计推荐如下表所示：
 
@@ -569,6 +636,7 @@ HDMI 2.0 TX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI-2.0-TX电路-1.png
    :alt: HDMI-2.0-TX电路-1.png
+   :width: 80%
 
 |  注：1：如果只需要支持 HDMI2.0 及以下模式时， Q16，Q17，Q18，Q19 也不能省掉，需要保证机器在未开机时，管子不能导通，因为 HDMI CTS Test ID 7-3 TMDS Voff 测试项目要求在 DUT 未上电，Voff 电压必须在 AVcc+-10mV 以内，否则这个测试项无法通过。
 |  2：控制 MOS 管 Coss 不能过大，否则会影响信号质量，建议按参考图型号或相应的 Coss值。
@@ -576,6 +644,7 @@ HDMI 2.0 TX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI-2.0-TX电路-2.png
    :alt: HDMI-2.0-TX电路-2.png
+   :width: 80%
 
 |  HDMI_TX0_HPD 是 HDMI TX 控制器复用到普通 GPIO 上功能，电平随所在电源域电压，电源域供电电压有更改，外围电路的上拉电阻电源也必须同步调整。
 |  HDMI_TX0/1_HPD 分别复用在两个不同的电源域，一个在 VCCIO4 电源域的 IO 上面，一个在 VCCIO5 电源域的 IO 上面。开发板中使用的是 VCCIO4 电源域上的 GPIO1_A5/6_d。
@@ -586,11 +655,13 @@ HDMI 2.0 TX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI-2.0-TX电路-3.png
    :alt: HDMI-2.0-TX电路-3.png
+   :width: 80%
 
 |  RK3588 IO Domain 在未上电时，如果 IO 上有电压，IO 会存在漏电，比如 RK3588 已经断电了，然后 HDMI 线还连接着 Sink 端（电视或显示器），此时 Sink 端的 CEC 有电，会通过 HDMI线漏电到 RK3588 IO 上，造成 CEC 漏电超过 1.8uA，因此外部需要增加一个隔离电路，R124阻值不得随意修改，需要使用 27Kohm，Q15 默认选择 2SK3018，如果要换其它型号，结电容必须相当，如果用结电容过大，不仅会影响工作，认证也会过不了。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI-2.0-TX电路-4.png
    :alt: HDMI-2.0-TX电路-4.png
+   :width: 80%
 
 |  HDMI_TX DDC_SCL/DDC_SDA 是 HDMI TX0/1 控制器的 I2C/DDC 总线，功能复用到 VCCIO3，VCCIO5，VCCIO4 电源域的 IO 上面，电平随所在电源域电压，电源域供电电压有更改，外围电路的上拉电阻电源也必须同步调整。
 |  DDC_SCL/DDC_SDA 协议规定是 5V 电平，RK3588 IO 不支持 5V 电平，必须增加电平转换电路，不得删减，默认使用 MOS 管电平转换，MOS 型号默认选择 2SK3018，如果要换其它型号，结电容必须相当，如果用结电容过大，不仅影响工作，认证也会过不了。
@@ -600,12 +671,14 @@ HDMI 2.0 TX 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI-2.0-TX电路-5.png
    :alt: HDMI-2.0-TX电路-5.png
+   :width: 80%
 
 |  HDMI 座子的 Pin18 电压需保证在 4.8-5.3V 之间，管脚需放置 1uF 去耦电容，不得删减，布局时，靠近 HDMI 座子管脚放置。
 |  为加强抗静电能力，信号上必须预留 ESD 器件，HDMI2.1 信号的 ESD 寄生电容不得超过0.2pF，其它信号的 ESD 寄生电容建议使用不超过 1pF。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/HDMI-2.0-TX电路-6.png
    :alt: HDMI-2.0-TX电路-6.png
+   :width: 80%
 
 |  HDMI TX 接口匹配设计推荐如下表所示：
 
@@ -660,6 +733,7 @@ MIPI 显示屏接口电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-MIPI显示屏接口电路.png
    :alt: 设计建议-MIPI显示屏接口电路.png
+   :width: 80%
 
 |  MIPI 座子的 Pin28-30 电压需保证在 4.8-5.3V 之间，管脚需放置 1uF 和 0.1uF 去耦电容，不得删减，布局时，靠近 MIPI 座子管脚放置。为了抑制电磁辐射，MIPI 的数据、时钟信号可以预留共模电感。
 
@@ -670,11 +744,13 @@ LCM-eDP 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-LCM-eDP电路-1.png
    :alt: 设计建议-LCM-eDP电路-1.png
+   :width: 80%
 
 eDP_TX_AUXP/AUXN 需要靠近接口端串接的 100nF 交流耦合电容，AUXP 需要预留对地 100K电阻，AUXN 预留 100K 电阻上拉到 3.3V。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-LCM-eDP电路-2.png
    :alt: 设计建议-LCM-eDP电路-2.png
+   :width: 80%
 
 WiFi 蓝牙电路
 ^^^^^^^^^^^^^^
@@ -683,6 +759,7 @@ WiFi 蓝牙电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-WiFi蓝牙电路.png
    :alt: 设计建议-WiFi蓝牙电路.png
+   :width: 80%
 
 SD 卡电路
 ^^^^^^^^^^^
@@ -691,6 +768,7 @@ SD 卡电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-SD卡电路.png
    :alt: 设计建议-SD卡电路.png
+   :width: 80%
 
 |  当接 SD 卡使用时，需要注意以下问题：
 
@@ -715,9 +793,11 @@ SD 卡电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-千兆网电路-1.png
    :alt: 设计建议-千兆网电路-1.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-千兆网电路-2.png
    :alt: 设计建议-千兆网电路-2.png
+   :width: 80%
 
 音频电路
 ^^^^^^^^^
@@ -727,17 +807,20 @@ SD 卡电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-音频电路-1.png
    :alt: 设计建议-音频电路-1.png
+   :width: 80%
 
 |  另外 ROUT1，LOUT1 可以增加 ESD 器件，加强抗静电能力。
 |  MIC2P/N 为 mic 输入接口，MIC 的 0.1uF 隔直电容不得删减。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-音频电路-2.png
    :alt: 设计建议-音频电路-2.png
+   :width: 80%
 
 |  ROUT2 和 LOUT2 为喇叭接口。若需要大功率或更好的输出音质，则建议外扩模拟功放或数字功放。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-音频电路-3.png
    :alt: 设计建议-音频电路-3.png
+   :width: 80%
 
 SATA3.0 电路
 ^^^^^^^^^^^^^^
@@ -746,11 +829,13 @@ SATA3.0 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/SATA3.0电路-1.png
    :alt: SATA3.0电路-1.png
+   :width: 80%
 
 |  开发板上板载了一个 SATA 电源座子，设计时电流需要根据 SATA 的实际数量进行估算，大功率建议使用 2 个以上供电。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/SATA3.0电路-2.png
    :alt: SATA3.0电路-2.png
+   :width: 80%
 
 PCIE3.0 电路
 ^^^^^^^^^^^^^^
@@ -759,11 +844,13 @@ PCIE3.0 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-PCIE3.0电路-1.png
    :alt: 设计建议-PCIE3.0电路-1.png
+   :width: 80%
 
 |  PCIe3.0 接口的 TX0P/N，TX1P/N 差分信号上串接的 220nF 交流耦合电容，AC 耦合电容建议使用 0201，有更低的 ESR 和 ESL，也可减少线路上的阻抗变化。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-PCIE3.0电路-2.png
    :alt: 设计建议-PCIE3.0电路-2.png
+   :width: 80%
 
 |  PCIE30_CLKREQn、PCIE30_WAKEn 必须使用功能脚，不能用 GPIO 替代，特别说明：选择时，必须都是选择_M0 或_M1 或_M2，不能一个_M0 一个_M1；
 |  PCIE30_PERSTn可以选择功能脚也可以使用 GPIO 替代 ，选择功能脚时 ，必须和 PCIE30_CLKREQn、PCIE30_WAKEn 同一组_Mx；
@@ -771,9 +858,11 @@ PCIE3.0 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-PCIE3.0电路-3.png
    :alt: 设计建议-PCIE3.0电路-3.png
+   :width: 80%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-PCIE3.0电路-4.png
    :alt: 设计建议-PCIE3.0电路-4.png
+   :width: 80%
 
 按键电路
 ^^^^^^^^^^
@@ -784,17 +873,20 @@ PCIE3.0 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-按键电路-1.png
    :alt: 设计建议-按键电路-1.png
+   :width: 80%
 
 |  RK3588 芯片的 SARADC_VIN1 默认做为键值输入采样口，并复用为 Recovery 模式按键（不可修改）。SARADC_VIN1 信号在核心板上已经通过 10Kohm 电阻上拉到 1.8V，在没有按键动作且系统已经烧录固件的前提下，上电直接进入系统；若系统启动时 Recovery 模式按键处于按下状态，即将 SARADC_VIN1 保持为低电平（0V），则 RK3588 进入 Loader 烧写模式，当 PC 识别到 USB 设备时，松开按键使 SARADC_VIN1 恢复为高电平（1.8V），即可进行固件烧写。因此，在产品没有按键情况下，SARADC_VIN1 悬空时，会不定态，可能会影响开机，所以核心板上SARADC_VIN1 的 10Kohm 上拉电阻必须保留，不可删减，保证默认的正常启动判断，另外为了方便开发，建议预留按键或预留测试点。
 |  RK3588 上，SARADC 采样范围为 0-1.8V，采样精度为 10bits。按键阵列采用并联型，可以通过增减按键并调整分压电阻比例来调整输入键值，实现多键输入以满足客户产品需求。设计中建议任意两个按键键值必须大于+/-35，即中心电压差必须大于 123mV。
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-按键电路-2.png
    :alt: 设计建议-按键电路-2.png
+   :width: 80%
 
 |  按钮 PCB 如下图所示：
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-按键电路-3.png
    :alt: 设计建议-按键电路-3.png
+   :width: 80%
 
 调试串口电路
 ^^^^^^^^^^^^^
@@ -803,6 +895,7 @@ PCIE3.0 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-调试串口电路.png
    :alt: 设计建议-调试串口电路.png
+   :width: 80%
 
 |  RK3588 UART Debug 默认选择 UART2_RX_M0/UART2_TX_M0，防止开发过程损坏芯片管脚，预留2.54mm 插针。
 
@@ -813,6 +906,7 @@ PCIE3.0 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-485电路.png
    :alt: 设计建议-485电路.png
+   :width: 80%
 
 |  开发板上使用的 RS485 芯片为 3.3V，UART IO 电平也为 3.3V，如需更换的 RS485 芯片是5V 供电，UART 这边需要电平转换，否则会存在漏电，不得直接更换为 5V 供电的 RS485 芯片。
 
@@ -823,6 +917,7 @@ CAN 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-CAN电路.png
    :alt: 设计建议-CAN电路.png
+   :width: 80%
 
 FAN 电路
 ^^^^^^^^^
@@ -831,6 +926,7 @@ FAN 电路
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-FAN电路.png
    :alt: 设计建议-FAN电路.png
+   :width: 80%
 
 PCB 设计建议
 ~~~~~~~~~~~~~
@@ -859,6 +955,7 @@ PCB 叠层设计
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/设计建议-电源电路PCB设计.png
    :alt: 设计建议-电源电路PCB设计.png
+   :width: 80%
 
 |  输入电容 Cin、输出电容 Cout 以及 DC/DC 的 GND，要尽量多打一些过孔，建议 4 个以上的0503 过孔，如果 Vin，Vout 电源有换层，建议过孔也要多打一些过孔，建议 4 个以上的 0503过孔（和电流有关系）。电感要尽量靠近 DC/DC，走线要尽量粗而短，FB 端的电阻地尽量远离干扰源。
 |  板对板连接器电源管脚处禁止覆铜，所有电源管脚通过走线方式和外面连接，走线线宽不得超过管脚宽度，防止制板后，焊盘变大后贴片容易连锡虚焊。

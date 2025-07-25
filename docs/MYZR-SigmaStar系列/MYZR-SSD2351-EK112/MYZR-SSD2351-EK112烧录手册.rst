@@ -25,6 +25,7 @@ usb接口下载
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/烧录手册01.png
    :alt: 烧录手册01.png
+   :width: 60%
 
 双击烧录工具，USB_Factory_Tool_64_1.0.0.19.exe，如下：
 
@@ -34,6 +35,7 @@ usb接口下载
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/烧录手册02.png
    :alt: 烧录手册02.png
+   :width: 60%
 
 4. 当进度100%时，点击红色停止按键结束
 
@@ -48,11 +50,13 @@ Flash_Tool烧录
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/烧录手册03.png
    :alt: 烧录手册03.png
+   :width: 60%
 
 - kernel下，则输入`11111`，然后关闭串口终端
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/烧录手册04.png
    :alt: 烧录手册04.png
+   :width: 60%
 
 1. 开机，并确保串口的log无法执行到uboot控制台（如能正常启动，需要先在uboot控制台输入debug指令停掉串口调试功能）
 2. 关闭串口调试终端
@@ -74,11 +78,13 @@ Flash_Tool烧录
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/烧录手册05.png
    :alt: 烧录手册05.png
+   :width: 60%
 
 |  烧写boot.bin镜像
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/烧录手册06.png
    :alt: 烧录手册06.png
+   :width: 60%
 
 TFTP服务器烧写
 ~~~~~~~~~~~~~~~
@@ -87,6 +93,7 @@ TFTP服务器烧写
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/烧录手册07.png
    :alt: 烧录手册07.png
+   :width: 60%
 
 |  #板子需要进入启动模式：启动拨码模式：1: on, 2: on   3: off  4 : off
 |  #插入TYPEC线，开机按住Enter不放进入到Uboot控制台，按照以下方式设置IP

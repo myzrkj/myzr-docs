@@ -10,15 +10,19 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/DriverInstall-1.png
    :alt: DriverInstall-1.png
+   :width: 60%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/DriverInstall-2.png
    :alt: DriverInstall-2.png
+   :width: 60%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/DriverInstall-3.png
    :alt: DriverInstall-3.png
+   :width: 60%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/DriverInstall-4.png
    :alt: DriverInstall-4.png
+   :width: 60%
 
 使用RKDevTool工具进行刷机
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -37,6 +41,7 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-1.png
    :alt: RKDevTool-1.png
+   :width: 60%
 
 
 全局烧录
@@ -48,27 +53,33 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-2.png
    :alt: RKDevTool-2.png
+   :width: 60%
 
 - 点击“固件”按钮，然后选择相应的img镜像文件
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-3.png
    :alt: RKDevTool-3.png
+   :width: 60%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-4.png
    :alt: RKDevTool-4.png
+   :width: 60%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-5.png
    :alt: RKDevTool-5.png
+   :width: 60%
 
 - 开发板J5接上type-c烧录线，按住开发板SW2按键，再给开发板上电，上电3秒左右可看到开发板进入了downloadLOADER模式
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-6.png
    :alt: RKDevTool-6.png
+   :width: 60%
 
 - 点击“升级”按钮进行刷机，刷成功右边显示成功字符
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-7.png
    :alt: RKDevTool-7.png
+   :width: 60%
 
 单独烧录
 ^^^^^^^^^
@@ -77,5 +88,6 @@
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/RKDevTool-8.png
    :alt: RKDevTool-8.png
+   :width: 60%
 
 - 烧录完成后，开发板重新上电。

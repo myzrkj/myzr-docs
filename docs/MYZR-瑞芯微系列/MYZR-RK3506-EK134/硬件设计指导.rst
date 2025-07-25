@@ -10,6 +10,7 @@ BOOT
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导1.png
    :alt: 硬件指导1.png
+   :width: 90%
 
 KEY
 ------
@@ -32,6 +33,7 @@ RESET
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导2.png
    :alt: 硬件指导2.png
+   :width: 90%
 
 USB
 -------
@@ -51,6 +53,7 @@ DEVICE
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导3.png
    :alt: 硬件指导3.png
+   :width: 90%
 
 USB_HUB
 ~~~~~~~~~~
@@ -63,6 +66,7 @@ USB_HUB
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导4.png
    :alt: 硬件指导4.png
+   :width: 90%
 
 HOST
 ^^^^^^^^
@@ -73,6 +77,7 @@ HOST
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导5.png
    :alt: 硬件指导5.png
+   :width: 90%
 
 4G
 -----
@@ -84,9 +89,11 @@ HOST
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导6.png
    :alt: 硬件指导6.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导7.png
    :alt: 硬件指导7.png
+   :width: 90%
 
 MIPI_DSI
 ------------
@@ -97,6 +104,7 @@ MIPI_DSI
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导8.png
    :alt: 硬件指导8.png
+   :width: 90%
 
 
 RGB
@@ -109,6 +117,7 @@ RGB
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导9.png
    :alt: 硬件指导9.png
+   :width: 90%
 
 
 Audio
@@ -124,9 +133,11 @@ Audio
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导10.png
    :alt: 硬件指导10.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导11.png
    :alt: 硬件指导11.png
+   :width: 90%
 
 WIFI
 -------
@@ -138,6 +149,7 @@ WIFI
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导12.png
    :alt: 硬件指导12.png
+   :width: 90%
 
 Ethernet
 -----------
@@ -153,9 +165,11 @@ Ethernet
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导13.png
    :alt: 硬件指导13.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导14.png
    :alt: 硬件指导14.png
+   :width: 90%
 
 Uart
 -------
@@ -176,6 +190,7 @@ Debug
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导15.png
    :alt: 硬件指导15.png
+   :width: 90%
 
 RS232 & TTL & IO扩展
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -186,6 +201,7 @@ RS232 & TTL & IO扩展
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导16.png
    :alt: 硬件指导16.png
+   :width: 90%
 
 RS485
 ~~~~~~~~
@@ -197,6 +213,7 @@ RS485
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导17.png
    :alt: 硬件指导17.png
+   :width: 90%
 
 CAN
 ------
@@ -208,6 +225,7 @@ CAN
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导18.png
    :alt: 硬件指导18.png
+   :width: 90%
 
 电源
 -------
@@ -219,15 +237,19 @@ CAN
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导19.png
    :alt: 硬件指导19.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导20.png
    :alt: 硬件指导20.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导21.png
    :alt: 硬件指导21.png
+   :width: 90%
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导22.png
    :alt: 硬件指导22.png
+   :width: 90%
 
 PCB
 ------
@@ -239,12 +261,14 @@ PCB
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导23.png
    :alt: 硬件指导23.png
+   :width: 90%
 
 （4）数字地和模拟地要区分开
 （5）ESD保护器件要尽可能靠近接口
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导24.png
    :alt: 硬件指导24.png
+   :width: 90%
 
 |   （6）非屏蔽型电感需割铜，割到地平面。且下方不走线
 |   （7）一体成型电感下方可铺地
@@ -272,26 +296,39 @@ PCB
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导25.png
    :alt: 硬件指导25.png
+   :width: 90%
 
 - 当信号用于多个复用功能且需要做等长时，需建立信号的起始端到模块终端的Pin Pair，再用Pin Pair拉等长
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导26.png
    :alt: 硬件指导26.png
+   :width: 90%
 
 - 在差分线对内禁止布置过孔或者元器件
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导27.png
    :alt: 硬件指导27.png
+   :width: 90%
 
 - DP和DM走线不应穿过参考平面中的平面分裂或空隙
 - DP和DM走线不应与其他信号交叉。如果它们交叉，则将数字电源平面或地平面置于两者之间
 - 尽量减少DP和DM走线弯曲的次数。但如果需要90°拐弯时，可以用两个45°代替
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导28.png
-   :alt: 硬件指导28.png
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导29.png
-   :alt: 硬件指导29.png
+.. list-table::
+   :widths: 50 50
+   :header-rows: 0
+
+   * - .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导28.png
+          :width: 100%
+          :align: center
+          :alt: 硬件指导28.png
+          
+     - .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导29.png
+          :width: 100%
+          :align: center
+          :alt: 硬件指导29.png
+
 
 - 为了防止噪声，尽量减少DP和DM走线的弯曲次数和过孔数量，并且这些信号线应布线在固态的GND参考平面上。DP和DM走线应该有相同数量的过孔。尽量避免过孔和层的变化。建议使用顶层或底层进行信号线布线
 - DP和DM不能靠近其他信号。特别要注意时钟和数据总线的噪声
@@ -299,11 +336,13 @@ PCB
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导30.png
    :alt: 硬件指导30.png
+   :width: 90%
 
 - 将GND回路过孔与差分对过孔相邻
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导31.png
    :alt: 硬件指导31.png
+   :width: 90%
 
 - 返回路径应与地连续。就是返回路径通常通过地（GND）来实现。为了确保有效、稳定地回流，地线（GND）应该尽量保持连续，避免分裂或中断。
 
@@ -318,6 +357,7 @@ PCB
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导32.png
    :alt: 硬件指导32.png
+   :width: 90%
 
 |   （15）Ethernet
 
@@ -353,6 +393,7 @@ PCB
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3506-EK134/硬件指导33.png
    :alt: 硬件指导33.png
+   :width: 90%
 
 调试
 --------

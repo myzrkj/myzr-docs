@@ -228,11 +228,13 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/核心板正面.png
    :alt: 核心板正面.png
+   :width: 50%
 
 **核心板背面**
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/核心板背面.png
    :alt: 核心板背面.png
+   :width: 50%
 
 1.2 核心板结构参数
 ------------------
@@ -241,6 +243,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/核心板结构参数.png
    :alt: 核心板结构参数.png
+   :width: 50%
 
 
 |	结构尺寸：26mm×26mm 正方形邮票孔 PCB，共计112脚，间距 0.98mm。
@@ -322,6 +325,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/主板背面.png
    :alt: 主板背面.png
+   :width: 50%
 
 
 第二章 MYZR-SSD2351-MB112嵌入式开发平台介绍
@@ -337,12 +341,14 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/主板正面A.png
    :alt: 主板正面A.png
+   :width: 50%
 
 2.1.2底板参数
 ^^^^^^^^^^^^^^^
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/底板尺寸.png
    :alt: 底板尺寸.png
+   :width: 50%
 
 |	结构尺寸： 94mm×51mm 矩形 PCB。
 |	制版工艺：厚度 1.6mm，4层PCB，黑色。
@@ -386,6 +392,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/底板电源.png
    :alt: 底板电源.png
+   :width: 90%
 
 |	5V电源经过电源IC分成两路3.3V分别给核心和其它设备供电。
 
@@ -393,6 +400,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/boot_mode.png
    :alt: boot_mode.png
+   :width: 90%
 
 |	核心板启动时需要先读取BOOT模式（具体BOOT启动模式见原理图）。
 
@@ -401,6 +409,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/复位电路.png
    :alt: 复位电路.png
+   :width: 90%
 
 |	本开发板只使用了图中的RESET22复位开关。
 
@@ -409,6 +418,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/外接TF卡电路.png
    :alt: 外接TF卡电路.png
+   :width: 90%
 
 |	TF卡电路使用了SDIO总线接口。
 |	注意：PCB设计时需做等长处理并要求3W间距且做整体包地处理。
@@ -418,6 +428,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/以太网接口电路.png
    :alt: 以太网接口电路.png
+   :width: 90%
 
 |	核心板内没有网口芯片，网口芯片在底板。需要注意的是RJ45接口两指示灯需要按照本原理图设计。
 
@@ -428,6 +439,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/USB口电路.png
    :alt: USB口电路.png
+   :width: 90%
 
 |	此接口是Type-C接口，用来接上位PC机给本开发板烧录系统。USB线要求差分走线。
 
@@ -436,6 +448,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/USB_HOST电路.png
    :alt: USB_HOST电路.png
+   :width: 90%
 
 |	PCB设计时每组USB信号线需要按照差分规则走线并做差分对内等长，差分对与其他网络尽量保持3倍线宽以上间距，差分对内要求等长误差范围在5mil以内。
 |	进行PCB设计时，芯片电源网络走线应该加粗，电源去耦电容要靠近芯片管脚摆放；晶振要靠近芯片摆放，晶振网络尽量远离其他信号线并包地处理，晶振本身周围要求包地。
@@ -445,6 +458,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/wifi.png
    :alt: wifi.png
+   :width: 90%
 
 |	PCB设计时，要求网络组等长走线，线间距满足3W规则要求，整组包地处理；图中天线接口U12所在网络要求走线满足50Ω阻抗设计，走线尽量短且不可走折角，周围要求包地无信号干扰。
 
@@ -453,6 +467,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/Debug调试口电路.png
    :alt: Debug调试口电路.png
+   :width: 90%
 
 |	J3接口是开发板Debug调试口。
 |	设计PCB时，应成组走线，避免走线太远时使组内两网络长度误差太大。
