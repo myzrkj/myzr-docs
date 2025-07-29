@@ -1,0 +1,26 @@
+产品介绍
+=========
+
+核心板规格
+-----------
+
+- 规格参数（应包括温度参数、支持的系统版本）
+
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-LB276/核心板接口参数.png
+   :alt: 核心板接口参数.png
+   :width: 60%
+
+核心板介绍
+-----------
+
+- 正面图
+
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-LB276/核心板正面图.jpg
+   :alt: 核心板正面图.jpg
+   :width: 60%
+
+- 背面图
+
+.. figure:: /image/MYZR-iMX8系列/MYZR-IMX8MP-LB276/核心板背面图.jpg
+   :alt: 核心板背面图.jpg
+   :width: 60%

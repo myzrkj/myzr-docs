@@ -48,6 +48,7 @@
    :maxdepth: 1
    :caption: MYZR-iMX8系列
 
+   docs/MYZR-iMX8系列/MYZR-IMX8MP-LB276/index
    docs/MYZR-iMX8系列/MYZR-IMX8MP-EK314/index
    docs/MYZR-iMX8系列/MYZR-IMX8MM-EK200/index
    docs/MYZR-iMX8系列/MYZR-IMX8MQ-EK300-RevE/index
