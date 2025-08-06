@@ -1,0 +1,23 @@
+刷新固件
+=========
+
+- 安装 PhoenixSuit 解压 PhoenixSuit.zip，运行 PhoenixSuit_CN.msi
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件1.png
+   :alt: 刷新固件1.png
+   :width: 60%
+
+- 点击下一步，下一步，提示安装 Device Driver ，点击下一步安装，直到安装完成，点击关闭。
+- 打开 PhoenixSuit 软件，选择一键刷机，点击浏览选择固件。
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件2.png
+   :alt: 刷新固件2.png
+   :width: 60%
+
+- 注意这里要选择对的镜像文件
+- 选择好镜像文件后按住开发板的Burn sw2按键不放，接着接入供电Powewr 5v接口
+- 然后就会进入烧录模式，并开始烧录
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件3.png
+   :alt: 刷新固件3.png
+   :width: 60%

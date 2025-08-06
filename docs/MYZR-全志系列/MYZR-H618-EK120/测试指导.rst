@@ -1,0 +1,394 @@
+测试指导
+=========
+
+网口测试
+----------
+
+- 测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+- 接口标识】： Ethernet
+- 系统接口:eth0
+
+**测试操作：**
+
+
+|  =====> 输入指令
+|  自动获取IP
+
+.. code-block:: shell
+
+   dhcpcd eth0
+
+|  =====> 输出信息
+
+.. code-block:: shell
+
+   eth0: waiting for carrier
+   eth0: carrier acquired
+   DUID 00:01:00:01:c7:92:bd:76:6e:18:2d:da:42:22
+   eth0: IAID 2d:da:42:22
+   eth0: adding address fe80::5207:16ff:3182:ab03
+   eth0: soliciting a DHCP lease
+   eth0: soliciting an IPv6 router
+   eth0: carrier lost
+   eth0: deleting address fe80::5207:16ff:3182:ab03
+   [  246.326167] sunxi-gmac gmac0 eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+   eth0: carrier acquired
+   eth0: IAID 2d:da:42:22
+   eth0: adding address fe80::5207:16ff:3182:ab03
+   eth0: soliciting a DHCP lease
+   eth0: soliciting an IPv6 router
+   eth0: offered 192.168.63.40 from 192.168.60.1
+   eth0: probing address 192.168.63.40/22
+   eth0: leased 192.168.63.40 for 86400 seconds
+   eth0: adding route to 192.168.60.0/22
+   eth0: adding default route via 192.168.60.1
+   forked to background, child pid 1355
+
+|  =====> 输入指令
+
+.. code-block:: shell
+
+|  ping 8.8.8.8
+|  ping baidu.com
+
+|  =====> 输出信息
+
+.. code-block:: shell
+
+   root@TinaLinux:/# ping 8.8.8.8
+   PING 8.8.8.8 (8.8.8.8): 56 data bytes
+   64 bytes from 8.8.8.8: seq=0 ttl=115 time=10.691 ms
+   64 bytes from 8.8.8.8: seq=1 ttl=115 time=10.319 ms
+   64 bytes from 8.8.8.8: seq=2 ttl=115 time=10.772 ms
+   64 bytes from 8.8.8.8: seq=3 ttl=115 time=10.321 ms
+   ^C
+   --- 8.8.8.8 ping statistics ---
+   4 packets transmitted, 4 packets received, 0% packet loss
+   round-trip min/avg/max = 10.319/10.525/10.772 ms
+
+   root@TinaLinux:/# ping baidu.com
+   PING baidu.com (182.61.244.181): 56 data bytes
+   64 bytes from 182.61.244.181: seq=0 ttl=51 time=27.699 ms
+   64 bytes from 182.61.244.181: seq=1 ttl=51 time=27.362 ms
+   64 bytes from 182.61.244.181: seq=2 ttl=51 time=27.383 ms
+   ^C
+   --- baidu.com ping statistics ---
+   3 packets transmitted, 3 packets received, 0% packet loss
+   round-trip min/avg/max = 27.362/27.481/27.699 ms
+
+**测试结果：** 0% packet loss表示测试通过
+
+USB接口测试
+-------------
+
+|  【测试说明】：采用插拔USB存储设备（U盘）的方式进行测试
+|  【接口标识】：USB 2.0x4
+|  【系统接口】：/sys/bus/usb/
+
+**测试操作**
+
+|  将USB设备插入底板USB接口，系统会输出类似如下信息:
+
+.. code-block:: shell
+
+   round-trip min/avg/max = 10.319/10.525/10.772 ms
+   root@TinaLinux:/# [ 1573.898058] sunxi-ehci 5200000.ehci1-controller: ehci_irq: highspeed device connect
+   [ 1574.125583] usb 1-1: new high-speed USB device number 2 using sunxi-ehci
+   [ 1574.919611] usb-storage 1-1:1.0: USB Mass Storage device detected
+   [ 1574.927501] scsi host0: usb-storage 1-1:1.0
+   [ 1574.937598] snddaudio snddaudio0: codec: snd-soc-dummy, codec_dai: snd-soc-dummy-dai.
+   [ 1574.946500] snddaudio snddaudio0: ASoC: CPU DAI (null) not registered
+   [ 1574.953816] snddaudio snddaudio0: snd_soc_register_card failed
+   [ 1575.954559] scsi 0:0:0:0: Direct-Access     HP       USB Flash Drive  PMAP PQ: 0 ANSI: 6
+   [ 1575.967566] snddaudio snddaudio0: codec: snd-soc-dummy, codec_dai: snd-soc-dummy-dai.
+   [ 1575.976579] sd 0:0:0:0: [sda] 484362240 512-byte logical blocks: (248 GB/231 GiB)
+   [ 1575.985373] snddaudio snddaudio0: ASoC: CPU DAI (null) not registered
+   [ 1575.992703] snddaudio snddaudio0: snd_soc_register_card failed
+   [ 1575.999380] sd 0:0:0:0: [sda] Write Protect is off
+   [ 1576.005287] sd 0:0:0:0: [sda] Mode Sense: 2b 00 00 08
+   [ 1576.012488] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+   [ 1577.735739]  sda: sda1
+   [ 1577.743511] sd 0:0:0:0: [sda] Attached SCSI removable disk
+   [ 1577.765361] FAT-fs (sda1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+
+|  将USB设备从底板拔出，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+   [ 1705.900072] sunxi-ehci 5200000.ehci1-controller: ehci_irq: highspeed device disconnect
+   [ 1705.909001] sunxi-ehci 5200000.ehci1-controller: ehci_irq: highspeed device connect
+   [ 1705.917609] sunxi-ehci 5200000.ehci1-controller: ehci_irq: highspeed device disconnect
+   [ 1705.927040] usb 1-1: USB disconnect, device number 2
+
+**测试结果：** USB存储设备插拔时系统输出如上类似信息即表示正常。
+
+TF卡接口测试
+--------------
+
+|  【测试说明】：采用插入并识别TF卡的方式进行测试
+|  【接口标识】：J7
+|  【系统接口】：/sys/bus/mmc/
+
+**测试操作**
+
+|  把TF卡插入到这个接口：
+
+.. code-block:: shell
+
+   root@TinaLinux:/# [ 2240.538803] sunxi-mmc sdc0: sdc set ios:clk 0Hz bm PP pm UP vdd 23 width 1 timing LEGACY(SDR12) dt B
+   [ 2240.549179] sunxi-mmc sdc0: no vqmmc,Check if there is regulator
+   [ 2240.572107] sunxi-mmc sdc0: sdc set ios:clk 400000Hz bm PP pm ON vdd 23 width 1 timing LEGACY(SDR12) dt B
+   [ 2240.598781] sunxi-mmc sdc0: sdc set ios:clk 400000Hz bm PP pm ON vdd 23 width 1 timing LEGACY(SDR12) dt B
+   [ 2240.611981] sunxi-mmc sdc0: sdc set ios:clk 400000Hz bm PP pm ON vdd 23 width 1 timing LEGACY(SDR12) dt B
+   [ 2240.624753] sunxi-mmc sdc0: sdc set ios:clk 400000Hz bm PP pm ON vdd 23 width 1 timing LEGACY(SDR12) dt B
+   [ 2240.637965] sunxi-mmc sdc0: sdc set ios:clk 400000Hz bm PP pm ON vdd 23 width 1 timing LEGACY(SDR12) dt B
+   [ 2240.834071] sunxi-mmc sdc0: sdc set ios:clk 0Hz bm PP pm ON vdd 23 width 1 timing LEGACY(SDR12) dt B
+   [ 2240.844382] sunxi-mmc sdc0: no vqmmc,Check if there is regulator
+   [ 2240.865443] sunxi-mmc sdc0: sdc set ios:clk 400000Hz bm PP pm ON vdd 23 width 1 timing LEGACY(SDR12) dt B
+   [ 2240.884910] mmc1: host does not support reading read-only switch, assuming write-enable
+   [ 2240.894567] sunxi-mmc sdc0: sdc set ios:clk 400000Hz bm PP pm ON vdd 23 width 4 timing LEGACY(SDR12) dt B
+   [ 2240.908671] sunxi-mmc sdc0: sdc set ios:clk 400000Hz bm PP pm ON vdd 23 width 4 timing UHS-SDR104 dt B
+   [ 2240.919207] sunxi-mmc sdc0: sdc set ios:clk 150000000Hz bm PP pm ON vdd 23 width 4 timing UHS-SDR104 dt B
+   [ 2240.930062] mmc1: new ultra high speed SDR104 SDHC card at address aaaa
+   [ 2240.939075] mmcblk1: mmc1:aaaa SD32G 29.7 GiB
+   [ 2240.947432]  mmcblk1: p1
+   [ 2240.952666] snddaudio snddaudio0: codec: snd-soc-dummy, codec_dai: snd-soc-dummy-dai.
+   [ 2240.961535] snddaudio snddaudio0: ASoC: CPU DAI (null) not registered
+   [ 2240.968824] snddaudio snddaudio0: snd_soc_register_card failed
+   [ 2241.000770] EXT4-fs (mmcblk1p1): Unrecognized mount option "utf8" or missing value
+
+|  弹出TF卡：
+
+.. code-block:: shell
+
+   [ 2363.092124] sunxi-mmc sdc0: smc 1 p0 err, cmd 13, RTO !!
+   [ 2363.098116] sunxi-mmc sdc0: smc 1 p0 err, cmd 13, RTO !!
+   [ 2363.104093] sunxi-mmc sdc0: smc 1 p0 err, cmd 13, RTO !!
+   [ 2363.110079] sunxi-mmc sdc0: smc 1 p0 err, cmd 13, RTO !!
+   [ 2363.116121] mmc1: card aaaa removed
+   [ 2363.136325] sunxi-mmc sdc0: sdc set ios:clk 0Hz bm PP pm OFF vdd 0 width 1 timing LEGACY(SDR12) dt B
+
+**测试结果：** 能正常显示输出表示测试通过
+
+标准GPIO测试
+--------------
+
+|  【测试说明】：控制GPIO的输出电平
+|  【系统接口】：/sys/class/gpio/
+
+**测试操作**
+
+|  输入命令控制 IO 输出高电平：
+|  =====> 输入指令
+
+.. code-block:: shell
+
+   export OUT_IO_OUT_NUM=67
+   echo ${OUT_IO_OUT_NUM} > /sys/class/gpio/export
+   echo "out" > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/direction
+   echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+
+|  这时用万用表测试 引脚16，电压应当是 3.3V。
+ 
+|  控制 IO 输出低电平：
+
+.. code-block:: shell
+
+   echo 0 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+
+|  这时用万用表测试 引脚16，电压应当是 0V。
+ 
+|  输入测试：
+|  说明：通过系统的接口配置并读取GPIO的输入电平。用杜邦线或跳线帽连接 16 和22脚。
+|  输入命令导出 IO 操作接口并配置为输入：
+
+.. code-block:: shell
+
+   export OUT_IO_IN_NUM=71
+   echo ${OUT_IO_IN_NUM} > /sys/class/gpio/export
+   echo "in" > /sys/class/gpio/gpio${OUT_IO_IN_NUM}/direction
+
+|  输入命令控制 16 输出高电平并读取 22的输入电平：
+
+.. code-block:: shell
+
+   # 控制16 IO 输出高电平
+   echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+   # 读取 IO 的输入电平
+   cat /sys/class/gpio/gpio${OUT_IO_IN_NUM}/value
+
+|  这时命令行界面终端应当输出字符“1”（表示高电平）。
+ 
+|  输入命令控制 16输出低电平并读取 22的输入电平：
+
+.. code-block:: shell
+
+   # 注释：控制 16输出低电平
+   echo 0 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+   # 注释：读取 IO 的输入电平
+   cat /sys/class/gpio/gpio${OUT_IO_IN_NUM}/value
+
+|  这时命令行界面终端应当输出字符“0”（表示低电平）。
+|  测试结果：在测试操作中，读取到的电平符合正确预期，即功能正常。
+
+串口测试（uart2）
+------------------
+
+|  【测试说明】：采用串口自发自收的方式进行测试
+|  【接口标识】：UART5
+|  【系统设备】：/dev/ttyS5
+ 
+**测试操作**
+
+|  短接串口5的发送发接收管脚（8和10号引脚的TX和RX管脚）
+|  =====> 输入指令
+
+.. code-block:: shell
+
+   ./uart /dev/ttys5
+
+|  =====> 输出信息
+
+.. code-block:: shell
+
+   root@TinaLinux:/mnt/exUDISK/my-h618-test# ./uart /dev/ttys5
+
+|  收到数据: Test Left UART!
+|  测试结果：能正常接收到信息表示测试通过。
+
+I2C测试（I2C-4）
+-----------------
+
+|  【测试说明】：采用I2C的OLED显示屏方式进行测试
+|  【接口标识】：3和5号引脚
+|  【系统设备】：/dev/i2c-4
+ 
+**测试操作**
+
+|  # 板卡与 OLED 显示屏连接 
+|  板子 ------ OLED 显示屏 
+|  3.3V(1) ------ VCC 
+|  GND(6) ------ GND 
+|  SCL(5) ------ SCL  
+|  SDA(3) ------ SDA
+ 
+|  =====> 输入指令
+
+.. code-block:: shell
+
+   ./i2c_oled /dev/i2c-4
+
+|  OLED将会被点亮
+|  =====> 输入指令
+
+.. code-block:: shell
+
+   i2cdetect -a 4
+
+|  =====> 输出信息
+
+.. code-block:: shell
+
+   30: [ 7473.613227] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x48, dev addr: 0x30)
+   -- [ 7473.623407] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x48, dev addr: 0x31)
+   -- [ 7473.633081] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x48, dev addr: 0x32)
+   -- [ 7473.642779] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x48, dev addr: 0x33)
+   -- [ 7473.652478] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x48, dev addr: 0x34)
+   -- [ 7473.662161] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x48, dev addr: 0x35)
+   -- [ 7473.671842] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x48, dev addr: 0x36)
+   -- [ 7473.681516] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x48, dev addr: 0x37)
+   -- [ 7473.691196] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x20, dev addr: 0x38)
+   -- [ 7473.700885] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x20, dev addr: 0x39)
+   -- [ 7473.710569] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x20, dev addr: 0x3a)
+   -- [ 7473.720237] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x20, dev addr: 0x3b)
+   -- 3c [ 7473.730166] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x20, dev addr: 0x3d)
+   -- [ 7473.739907] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x20, dev addr: 0x3e)
+   -- [ 7473.749625] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x20, dev addr: 0x3f)
+
+|  测试结果：OLED屏幕将会被点亮，也可以看到设备地址：3c
+
+.. code-block:: shell
+
+   -- 3c [ 7473.730166] sunxi_i2c_do_xfer()1935 - [i2c4] incomplete xfer (status: 0x20, dev addr: 0x3d)
+
+SPI测试
+---------
+
+|  【测试说明】：根据 ioctl 相关参数即可编写 spi 相关测试程序，此处为了简单仅做回环测试实验，只需要将 SPI1 的 MIOS 与 MOSI 引脚 (板卡上的 19 和 21) 使用跳线帽短接即可。
+|  【接口标识】：19和21引脚
+|  【系统设备】：/dev/spidev1.0
+ 
+**测试操作**
+
+|  =====> 输入指令
+
+.. code-block:: shell
+
+   ./spi_test /dev/spidev1.0
+
+|  =====> 输出信息
+
+.. code-block:: shell
+
+   root@TinaLinux:/mnt/exUDISK/my-h618-test# ./spi_test /dev/spidev1.0
+   [ 8592.048928] spidev spi1.0: setup mode 0, 8 bits/w, 100000000 Hz max --> 0
+   [ 8592.056596] spidev spi1.0: spi mode 0
+   [ 8592.060731] spidev spi1.0: setup mode 0, 8 bits/w, 100000000 Hz max --> 0
+   [ 8592.068375] spidev spi1.0: 8 bits per word
+   [ 8592.072994] spidev spi1.0: setup mode 0, 8 bits/w, 1000000 Hz max --> 0
+   spi mode: 0
+   bits per word: 8
+   max speed: 1000000 Hz (1000 KHz)
+   发送数据: 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08
+   接收数据: 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08
+
+   执行回环测试（需要将MOSI和MISO短接）
+   发送回环测试数据: 0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07
+   接收回环测试数据: 0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07
+   回环测试成功: 发送和接收数据一致
+
+|  测试结果：能正常输出相应信息表示测试通过
+
+PWM测试
+---------
+
+|  【测试说明】：板卡上集成了一个具有 pwm 功能的 GPIO，该 PWM 引脚与板载的 FAN 接口 共用。
+|  【接口标识】：引脚12
+|  【系统设备】： /sys/class/pwm
+ 
+**测试操作**
+
+|  需提前执行echo 1 > /sys/class/pwm/pwmchip0/export导出 PWM1 通道（假设使用 pwmchip0 的 pwm1）。
+
+.. code-block:: shell
+
+   echo 1 > /sys/class/pwm/pwmchip0/export
+
+|  通过echo命令设置周期、占空比并启用 PWM：
+
+.. code-block:: shell
+
+   echo 1000000 > /sys/class/pwm/pwmchip0/pwm1/period
+   echo 500000 > /sys/class/pwm/pwmchip0/pwm1/duty_cycle
+   echo 1 > /sys/class/pwm/pwmchip0/pwm1/enable
+
+|  =====> 输入指令
+
+.. code-block:: shell
+
+   ./pwm
+
+|  =====> 输出信息
+
+.. code-block:: shell
+
+   root@TinaLinux:/mnt/exUDISK/my-h618-test# ./pwm
+   PWM 周期: 1000000 ns
+   占空比: 50.0 %
+   使能状态: 开启
+
+**测试结果：** 能正常输出相应信息表示测试通过，若 PWM 通道未导出或路径错误，文件不存在，程序会读取到空字符串，atol(buf)返回 0，输出：
+
+|  PWM 周期: 0 ns
+|  占空比: 0.0 %
+|  使能状态: 关闭
