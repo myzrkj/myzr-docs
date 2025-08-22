@@ -40,6 +40,7 @@
    :caption: MYZR-SigmaStar系列
 
    docs/MYZR-SigmaStar系列/MYZR-SSD2351-EK112/index
+   docs/MYZR-SigmaStar系列/MYZR-SSD2351-EK112(EN)/index
    docs/MYZR-SigmaStar系列/MYZR-SSD20X-EK096/index
    docs/MYZR-SigmaStar系列/MYZR-SSD20X-EK096(EN)/index
 

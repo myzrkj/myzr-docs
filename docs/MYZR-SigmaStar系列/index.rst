@@ -20,3 +20,14 @@ SigmaStar平台
 
    MYZR-SSD2351-EK112/index
 
+
+- :doc:`./MYZR-SSD2351-EK112(EN)/index`
+
+
+.. toctree:: 
+   :maxdepth: 2
+   :hidden:
+
+   MYZR-SSD2351-EK112(EN)/index
+
+
