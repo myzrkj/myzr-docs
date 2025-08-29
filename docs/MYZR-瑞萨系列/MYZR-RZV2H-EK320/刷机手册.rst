@@ -186,31 +186,7 @@
      
      run bootcmd_usb
 
-- **执行刷机**：复制下面的命令到终端执行（建议一次复制一段）
-
-  .. code-block:: text
-     
-     cat <<EOF | sfdisk /dev/mmcblk0
-     /dev/mmcblk0p1 : size=960M, type=83
-     /dev/mmcblk0p2 : type=83
-     EOF
-     
-     mkfs.ext4 -F /dev/mmcblk0p1
-     mkfs.ext4 -F /dev/mmcblk0p2
-     
-     mkdir /mnt/p1; mkdir /mnt/p2
-     mount /dev/mmcblk0p1 /mnt/p1
-     mount /dev/mmcblk0p2 /mnt/p2
-     mount /dev/sda1 /media
-     
-     cp -a /media/* /mnt/p1/
-     
-     RTFS_FILE=core-image-weston-myzr-rzv2h-ek320.rootfs.tar.gz
-     tar xvf /media/${RTFS_FILE} -C /mnt/p2
-     
-     sync; umount /mnt/p1; umount /mnt/p2; umount /media
-
-- **等待刷机完成**：
+- **等待刷机完成**。
 
 进入系统
 ----------
