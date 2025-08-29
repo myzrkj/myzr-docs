@@ -36,7 +36,17 @@ Allwinner平台
    :maxdepth: 1
    :hidden:
 
+
    MYZR-T113-i-EK168/index
+
+- :doc:`./MYZR-T113-i-EK168(EN)/index`
+
+.. toctree:: 
+   :maxdepth: 1
+   :hidden:
+
+   MYZR-T113-i-EK168(EN)/index
+
 
 - :doc:`./MYZR-H618-EK120/index`
 
@@ -46,6 +56,16 @@ Allwinner平台
 
    MYZR-H618-EK120/index
 
+
+- :doc:`./MYZR-H618-EK120(EN)/index`
+
+.. toctree:: 
+   :maxdepth: 1
+   :hidden:
+
+   MYZR-H618-EK120(EN)/index
+
+
 - :doc:`./MYZR-T536-EK270/index`
 
 .. toctree:: 
@@ -53,3 +73,12 @@ Allwinner平台
    :hidden:
 
    MYZR-T536-EK270/index
+
+
+- :doc:`./MYZR-T536-EK270(EN)/index`
+
+.. toctree:: 
+   :maxdepth: 1
+   :hidden:
+
+   MYZR-T536-EK270(EN)/index

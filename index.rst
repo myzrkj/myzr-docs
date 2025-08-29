@@ -15,7 +15,9 @@
    docs/MYZR-瑞芯微系列/MYZR-RK3588-EK360/index
    docs/MYZR-瑞芯微系列/MYZR-RK3568-EK320/index
    docs/MYZR-瑞芯微系列/MYZR-RK3562-EK200/index
+   docs/MYZR-瑞芯微系列/MYZR-RK3562-EK200(EN)/index
    docs/MYZR-瑞芯微系列/MYZR-RK3506-EK134/index
+   docs/MYZR-瑞芯微系列/MYZR-RK3506-EK134(EN)/index
    docs/MYZR-瑞芯微系列/MYZR-RK3588-EK314/index
    docs/MYZR-瑞芯微系列/MYZR-RK3568-EK314/index
    docs/MYZR-瑞芯微系列/MYZR-RK3399-EK314/index
@@ -29,8 +31,11 @@
    :caption: MYZR-全志系列
 
    docs/MYZR-全志系列/MYZR-H618-EK120/index
+   docs/MYZR-全志系列/MYZR-H618-EK120(EN)/index
    docs/MYZR-全志系列/MYZR-T536-EK270/index
+   docs/MYZR-全志系列/MYZR-T536-EK270(EN)/index
    docs/MYZR-全志系列/MYZR-T113-i-EK168/index
+   docs/MYZR-全志系列/MYZR-T113-i-EK168(EN)/index
    docs/MYZR-全志系列/MYZR-A40I-EK204/index
    docs/MYZR-全志系列/MYZR-R16-EK166/index
    docs/MYZR-全志系列/MYZR-R16-EK166(EN)/index
