@@ -20,6 +20,7 @@
    docs/MYZR-瑞芯微系列/MYZR-RK3506-EK134(EN)/index
    docs/MYZR-瑞芯微系列/MYZR-RK3588-EK314/index
    docs/MYZR-瑞芯微系列/MYZR-RK3568-EK314/index
+   docs/MYZR-瑞芯微系列/MYZR-RK3568-EK314(EN)/index
    docs/MYZR-瑞芯微系列/MYZR-RK3399-EK314/index
    docs/MYZR-瑞芯微系列/MYZR-RK3399-EK314(EN)/index
    docs/MYZR-瑞芯微系列/MYZR-RK3288-EK314/index
