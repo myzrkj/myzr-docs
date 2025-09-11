@@ -1,19 +1,20 @@
-MYZR-SSD2351-EK112 Compile Manual
-===================================
+MYZR-SSD2351-EK112 Compilation Manual
+=======================================
 
-Install Package
-~~~~~~~~~~~~~~~~~
+Installing Software Packages
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|  Ubuntu Version: ubuntu20.04
-|  Package Installation:
+| Ubuntu version: ubuntu20.04
+| Software package installation:
 
 .. code-block:: shell
 
    $ sudo apt-get install libc6-dev-i386 lib32z1  libuuid1 cmake libncurses5-dev libncursesw5-dev bc xz-utils automake libtool libevdev-dev pkg-config mtd-utils  bison flex libssl-dev libmpc-dev squashfs-tools gawk make gcc git python rename
 
-|  Other Configurations:
-|  a. Default shell configuration
-|  The compilation script uses bash by default, requiring the system's default shell to be bash, which can be confirmed via the `ls -la /bin/sh` command. Taking the most commonly used Ubuntu as an example, the default shell for higher versions of Ubuntu is dash, and the modification method is as follows: 
+| Other configurations:
+| a. Default shell configuration
+
+| The compilation script uses bash by default, requiring the system's default shell to be bash. You can confirm this with the command ls -la /bin/sh. Taking the commonly used Ubuntu as an example, newer versions of Ubuntu use dash as the default shell. To modify this:
 
 .. code-block:: shell
 
@@ -21,22 +22,22 @@ Install Package
    lrwxrwxrwx 1 root root 4 Jun 15 08:49 /bin/sh -> dash
 
    $ sudo dpkg-reconfigure dash
-   #Select on the pop-up interface<NO>
+   #Select <NO> in the pop-up interface
 
    $ ls -la /bin/sh
    lrwxrwxrwx 1 root root 4 Jun 15 08:49 /bin/sh -> bash
 
-|  b. Set the default Python version to Python 2.x (Ubuntu 20.04 does not require configuration as it defaults to Python 2.x)
-|  There are semantic differences between Python 2 and Python 3, and the SDK compilation script uses Python 2 semantics. Therefore, it is necessary to set the system's default Python version to Python 2.x. For the modification method, please refer to relevant documents on the internet, such as using the update-alternatives tool for configuration.
+| b. Set default python version to python2.x (No configuration needed for ubuntu20.04 as it defaults to python2.x)
+| There are semantic differences between python2 and python3. The SDK compilation script uses python2 semantics, so you need to set the system's default python version to python2.x. For modification methods, refer to relevant documents online, such as using the update-alternatives tool for configuration.
 
-Unzip the source code and cross-compile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Extracting Source Code and Cross-Compilation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|  boot-Pcupid_DLD00V2.2.9.tar.gz: Uboot Source Code
-|  kernel-Pcupid_DLD00V2.2.9.tar.gz: kernel source
-|  project-Pcupid_DLD00V2.2.9.tar.gz: The part for compiling and creating the image, including lib/ko of non-open-source parts and reference to external API Header Files
-|  sdk-Pcupid_DLD00V2.2.9.tar.gz: Test Demo/Application Packaging Framework Section
-|  arm-sigmastar-linux-gcc-12.4.0-uclibc-1.0.46-gnueabihf.tar.xz: Cross-compilation tool
+| boot-Pcupid_DLD00V2.3.3*.tar.gz: Uboot source code
+| kernel-Pcupid_DLD00V2.3.3*.gz: kernel source code
+| project-Pcupid_DLD00V2.3.3*.tar.gz: Part for compiling and creating images, including non-open source lib/ko, and reference for external API headers (squashfs compiles into a read-only system, ubifs compiles into a read-write system; ubifs version is recommended)
+| sdk-Pcupid_DLD00V2.3.3*.tar.gz: Test Demo/application packaging framework part
+| aarch64-unknown-linux-gcc-12.4.0-glibc-2.37-gnu.tar.xz: Cross-compilation tool
 
 .. code-block:: shell
 
@@ -48,8 +49,8 @@ Unzip the source code and cross-compile
    $ mkdir ~/ssd2351/tool/toolchain -p
    $ tar -xvf ./aarch64-unknown-linux-gcc-12.4.0-glibc-2.37-gnu.tar.xz -C ~/ssd2351/tool/toolchain
 
-Set up cross-compilation tools
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Setting Up Cross-Compilation Tools
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell
 
@@ -58,97 +59,74 @@ Set up cross-compilation tools
    $ export ARCH=arm64
    $ ${CROSS_COMPILE}gcc -v
 
-Global Compile
-~~~~~~~~~~~~~~~~~
-
-
-|  Global compilation, as long as it runs, it will compile boot, kernel, project, and SDK
+Global Compilation
+~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell
 
+   #Global compilation, will compile boot, kernel, project, and sdk when run
    $ cd ~/ssd2351/source/project/
-   $ make myzr-ssd2351-ek112_128m_defconfig    (ddr；128M)
+   $ make myzr-ssd2351-ek112_128m_defconfig    (ddr; 128M)
    or
-   $ make myzr-ssd2351-ek112_256m_defconfig    (ddr；256M)
+   $ make myzr-ssd2351-ek112_256m_defconfig    (ddr; 256M)
    $ make clean;make image -j8
 
-|  The generated images after compilation are displayed in project/image/output/images
-|  Note：
-|  For the first compilation, be sure to run make clean under project; make image -j8 command fully compiled (including the whole boot/kernel)
-|  In order to increase the efficiency of debugging, in addition to the first compilation, subsequent debugs can be directly compiled under the project and then quickly packaged, such as:
+   #Generated images after compilation are in project/image/output/images
+   #Note:
+   #For the first compilation, be sure to execute make clean;make image -j8 in the project directory for a complete compilation (including full compilation of boot/kernel)
+   #To improve debugging efficiency, after the first compilation, subsequent debugging can directly compile the modified modules in the project directory and then repackage quickly, for example:
 
-|  Compile only the kernel:
-
-.. code-block:: shell
-
+   #Compile only kernel:
    $ cd ~/ssd2351/source/project/
    $ make linux-kernel_clean;make linux-kernel -j8
 
-|  Compile boot only:
-
-.. code-block:: shell
-
+   #Compile only boot:
    $ cd ~/ssd2351/source/project/
    $ make boot_clean;make boot -j8
 
-|  Quickly package the SDK image only:
-
-.. code-block:: shell
-
+   #Quickly package only sdk image:
    $ cd ~/ssd2351/source/project/
    $ make image-fast-nocheck -j8
 
 
-Separate compilation of boot
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-|  The boot compilation option has been added to the SDK compilation under project, so it is recommended that after the boot is modified, directly compile under the project using make boot to compile boot. In addition to compiling in project, you can also compile in the boot directory as follows:
+Separate Compilation of boot
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell
 
+   #The SDK compilation in the project has added boot compilation options, so it is recommended that after modifying boot, directly compile boot using make boot in the project directory. After compilation, there's no need to manually release it to the project directory; just repackage the project. Besides compiling in the project, you can also compile in the boot directory as follows:
    $ cd ~/ssd2351/source/boot
    $ make pcupid_ssm001c_s01a_spinand_arm64_defconfig
    $ make clean;make -j8;
-
-|  Note: To compile separately in the boot directory, you need to manually release the generated image to the corresponding directory of the project before packaging
-   
-.. code-block:: shell
-
+   #Note: When compiling separately in the boot directory, you need to manually release the generated image to the corresponding project directory before packaging
    $ cp ~/ssd2351/source/boot/u-boot_spinand.xz.img.bin ~/ssd2351/source/project/board/uboot/u-boot.xz.img.bin
 
 
-Separate compilation kernels
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-|  The kernel compilation option has been added to the SDK compilation under the project, so it is recommended that after the kernel is modified, directly compile under the project and use make linux-kernel to compile the kernel. In addition to compiling in Project, you can also compile in the kernel directory as follows:
+Separate Compilation of kernel
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell
 
+   #The SDK compilation in the project has added kernel compilation options, so it is recommended that after modifying the kernel, directly compile the kernel using make linux-kernel in the project directory. After compilation, there's no need to manually release it to the project directory; just repackage the project. Besides compiling in the project, you can also compile in the kernel directory as follows:
    $ cd ~/ssd2351/source/kernel
    $ make pcupid_ssm001c_s01a_spinand_voip_defconfig
    $ make clean;make image -j8;
- 
-|  Note: The package in the project is the kernel directory pointed directly to by the soft link, so the kernel does not need to be manually released, just do the project packaging action
-|  If there are new kernel modules in the kernel, you need to add the corresponding module to the kernel_mod_list/kernel_mod_list_late (the ko in the kernel_mod_list_late will be loaded after the mi module)
+   #Note: The packaging in the project directly uses a soft link to the kernel directory, so there's no need to manually release the kernel; just perform the project packaging
+   #If new kernel modules are added to the kernel, the corresponding modules need to be added to kernel_mod_list/kernel_mod_list_late (ko files in kernel_mod_list_late will be loaded after mi modules)
 
-|  Modify the path: project/kbuild/customize/6.1/pcupid/dispcam/kernel_mod_list
+   #Modification path: project/kbuild/customize/6.1/pcupid/dispcam/kernel_mod_list 
 
-Generate USB burning mirroring
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-|  Compile the entire SDK package according to the normal process to generate the mirroring upgrade file.
-|  After the entire package SDK is successfully compiled, execute the script./image/makefiletools/script/make_usb_factory_sigmastar.sh
-|  You can choose between full upgrade and partial partition upgrade: (y for full update, n for partial update)
+Generating USB Burning Image
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell
 
+   #Compile the entire sdk package according to the normal process to generate the image upgrade file.
+   #After successful compilation of the entire sdk package, execute the ./image/makefiletools/script/make_usb_factory_sigmastar.sh script
+   #You can choose full upgrade or partial partition upgrade: (y for full update, n for partial update)
    $ cd ~/ssd2351/source/project/
    $ ./image/makefiletools/script/make_usb_factory_sigmastar.sh
-
-|  Tip：
-
-.. code-block:: shell
-
+   Prompt:
    Full or Optional Upgrade ? (Y/N)y
    using alone TF-A:u-bl31.bin
    USB Facotry Image Generating.....
@@ -156,3 +134,15 @@ Generate USB burning mirroring
          path:./image/output/images/SstarUsbImage_202502280425.bin
          size:48439296 byte
          md5sum:057c1f55ecbe0a4ecaaa916a8612bfe2
+
+uboot Configuration, Device Tree, and Kernel Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: shell
+
+   #uboot configuration:
+   Configuration: pcupid_ssm001c_s01a_spinand_arm64_defconfig
+   Device tree: pcupid-ssm001c-s01a.dts
+   #kernel configuration
+   Configuration: pcupid_ssm001c_s01a_spinand_voip_defconfig
+   Device tree: pcupid-ssm001c-s01a-voip.dts

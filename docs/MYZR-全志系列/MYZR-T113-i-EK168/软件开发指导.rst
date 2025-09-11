@@ -7,8 +7,9 @@
 编译环境要求
 ~~~~~~~~~~~~~
 
-1. 编译主机需在ubuntu系统中进行，且版本需Ubuntu 20.04以上，笔者主机系统为Ubuntu 20.04
+1. 编译主机需在ubuntu系统中进行，笔者主机系统为Ubuntu 20.04，推荐使用与笔者相同版本的Ubuntu，避免因为版本不同导致一些工具出现兼容问题。
 2. 主机需可连接外网，因为编译系统过程需要下载某些文件。
+3. 部分文件的代码语法与python3有冲突，推荐使用python2。
 
 下载源码包
 ~~~~~~~~~~~
@@ -27,14 +28,18 @@
    tar xvf 133-tina5.0-20240926-v1.1.tar.gz -C ~/my-work/Tina5.0/
 
 Linux 系统镜像编译及生成
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. 编译环境配置
 
-|  进入Tina5.0目录，执行如下命令，初始化环境变量：
+|  进入Tina5.0目录，执行如下命令，清除旧的编译和配置生成文件，初始化环境变量：
 
 .. code-block:: shell
 
+   cd Tina5.0
+   ./build.sh distclean
+
+   cd Tina5.0
    source build/envsetup.sh
 
 2. 开发板型号选择
@@ -45,7 +50,7 @@ Linux 系统镜像编译及生成
 
    lunch
 
-.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册1.jpg
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册1.png
    :alt: 编译手册1.jpg
 
 3. 配置信息
@@ -56,7 +61,7 @@ Linux 系统镜像编译及生成
 
    ./build.sh config
 
-.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册2.jpg
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册2.png
    :alt: 编译手册2.jpg
 
 4. 编译 LinuxSDK
@@ -94,19 +99,63 @@ Linux 系统镜像编译及生成
 .. code-block:: shell
 
    dd if=boot.fex of=/dev/mmcblk1p4
+
    reboot
 
 |  在Tina5.0目录下执行如下命令，单独编译bootloader：
 
 .. code-block:: shell
 
-   ./build.sh bootloader
+   ./build.sh buildroot_rootfs
 
-|  在Tina5.0目录下执行如下命令，单独编译buildroot：
+
+编译过程中可能遇见的问题
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. 执行./build.sh时遇见路径错误
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册3.png
+   :alt: 编译手册3.jpg
+
+|  执行以下指令
 
 .. code-block:: shell
 
-   ./build.sh buildroot_rootfs
+   cd ./rtos/lichee/rtos
+
+   make distclean
+
+|  若在执行make distclean时，遇见语法问题：
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册4.png
+   :alt: 编译手册4.jpg
+
+|  执行以下指令，检查当前使用的 python 版本，若当前使用的为 python3，则需修改为 python2
+
+.. code-block:: shell
+
+   python --version
+
+2. 显示无法找到文件drv_type.h文件：
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册5.png
+   :alt: 编译手册5.jpg
+
+|  执行以下指令：
+
+.. code-block:: shell
+
+   vim ./kernel/linux-5.4/drivers/net/wireless/realtek/rtl8723du/Makefile
+
+|  找到如下代码：
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册6.png
+   :alt: 编译手册6.jpg
+
+|  修改代码如下图所示，或修改为当前 PC 机的绝对路径：
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册7.png
+   :alt: 编译手册7.jpg
 
 
 开发指导

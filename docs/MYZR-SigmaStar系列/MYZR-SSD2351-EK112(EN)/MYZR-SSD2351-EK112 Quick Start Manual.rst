@@ -1,50 +1,51 @@
-MYZR-SSD2351-EK112 Quick Start Manual
-=========================================
+MYZR-SSD2351-EK112 Quick Start Guide
+======================================
 
-Preparatory Work
-~~~~~~~~~~~~~~~~~~
+Preparation
+~~~~~~~~~~~~~
 
 | Development board: 1 piece
 | TYPEC data cable: 1 piece
-| TTL Serial Port Module: 1 unit
-| Du Ban Line: Several
+| TTL serial port module: 1 piece
+| DuPont wires: several
 | Network cable: 1 piece
 
 Serial Port Software Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-| Baud rate: 115200 
+| Baud rate: 115200
 | Data bits: 8bit
-| Stop bit: 1 bit
-| Check digit: none
+| Stop bits: 1bit
+| Parity: none
 
-DIP switch settings and TTL serial port module 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DIP Switch Settings and TTL Serial Port Module
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-DIP switch setting 
+DIP Switch Settings
 ---------------------
 
-| Start DIP switch mode: 1: on, 2: on, 3: off, 4: off
+| Boot DIP switch mode: 1: on, 2: on, 3: off, 4: off
 
-Connection Method of TTL Serial Port Module
------------------------------------------------
+TTL Serial Port Module Connection Method
+------------------------------------------
 
 | Socket: J3
-| Connect the corresponding end points of the following CPU to the pins of the TTL module 
+| Connect the corresponding ends of the CPU and the pins of the TTL module as follows
 
-+---------------+---------------------------+--------------+--------------+
-| CPU Side:     | J3_1: RX Pin (Square Pad) | J3_2: TX Pin | J3_3: Ground |
-+---------------+---------------------------+--------------+--------------+
-| TTL Terminal: | TX Pin                    | RX Pin       | GND          |
-+---------------+---------------------------+--------------+--------------+
++-----------+---------------------------+--------------+-----------+
+| CPU side: | J3_1: RX pin (square pad) | J3_2: TX pin | J3_3: GND |
++===========+===========================+==============+===========+
+| TTL side: | TX pin                    | RX pin       | GND       |
++-----------+---------------------------+--------------+-----------+
+
 
 Serial Port Startup
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell
 
-  #Use the TTL module to connect the computer and the board. Plug in the TYPEC cable and turn it on
-  The prompt message is as follows:
+  #Use the TTL module to connect the computer and the board. Insert the TYPEC cable and power on.
+  The prompt information is as follows:
   IPL gf7fc380
   D-19
   CPU=800MHz
@@ -217,7 +218,7 @@ Serial Port Startup
   CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
   Setting up static identity map for 0x20100000 - 0x20100054
   rcu: Hierarchical SRCU implementation.
-  rcu: |Max phase no-delay instances is 1000.
+  rcu: 	Max phase no-delay instances is 1000.
   printk: console [ttyS0] printing thread started
   smp: Bringing up secondary CPUs ...
   GICv3: CPU1: found redistributor 1 region 0:0x160a0000
@@ -230,7 +231,7 @@ Serial Port Startup
   SMP: Total of 4 processors activated (48.00 BogoMIPS).
   CPU: All CPU(s) started in SVC mode.
   devtmpfs: initialized
-  VFP support v0.3: implementor 41 architecture 3 part 40 variant 4 rev 3
+  VFP support v0.3: implementor 41
   clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
   futex hash table entries: 16 (order: -2, 1024 bytes, linear)
   NET: Registered PF_NETLINK/PF_ROUTE protocol family
@@ -556,15 +557,14 @@ Serial Port Startup
   /customer/ssh/sbin/sshd: can't load library 'libfts.so.0'
   / # 
 
-
-adb connection login
-~~~~~~~~~~~~~~~~~~~~~~
+ADB Connection and Login
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell
 
-  #Requires TYPEC wire power
-  #Open the cmd input terminal of the Win10 computer
-  #Enter adb shell and ls as follows:
+  # TYPEC cable power supply is required
+  # Open the cmd input terminal on the win10 computer
+  # Enter adb shell and ls as follows:
   adb shell
   / # ls
   bin
@@ -586,23 +586,23 @@ adb connection login
   usr
   var
   / #
-  #You can see the file indicating that the login is complete
+  # Files can be seen, indicating that the login is completed
 
-Network cable telnetd login
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ethernet telnetd Login
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: shell
 
-  #Need to plug in the network cable and configure the IP Address, as well as telnetd (my computer's IP Address is 192.168.137.99)
+  # Need to plug in the network cable, configure the IP address, and telnetd (my computer's IP address is 192.168.137.99)
   $ ifconfig eth0 192.168.137.81
   $ telnetd
 
-  #Can log in via serial port software, e.g.
-  #click serial port file -> New
-  #set Protocol to TELNET # set host to 192.168.137.81
-  #host设置为192.168.137.81
-  #click Connect to connect
-  #username is root, no password, just press Enter to log in, as follows
+  # Can log in via serial port software, such as
+  # Click serial port file->New
+  # Set Protocol to TELNET
+  # Set host to 192.168.137.81
+  # Click Connect
+  # The username is root, no password, just press Enter to log in, as follows
   login: can\'t chdir to home directory '/home/root'
   / # ls
   bin
