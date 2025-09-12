@@ -30,6 +30,7 @@
    :maxdepth: 1
    :caption: MYZR-全志系列
 
+   docs/MYZR-全志系列/MYZR-RV1126B/index
    docs/MYZR-全志系列/MYZR-H618-EK120/index
    docs/MYZR-全志系列/MYZR-H618-EK120(EN)/index
    docs/MYZR-全志系列/MYZR-T536-EK270/index
