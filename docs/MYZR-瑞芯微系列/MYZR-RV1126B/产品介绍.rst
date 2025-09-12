@@ -4,7 +4,7 @@
 核心板规格
 ------------
 
-.. image:: /image/MYZR-全志系列/MYZR-RV1126B/核心板资源表.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/核心板资源表.jpg
    :alt: 核心板资源表.jpg
    :width: 60%
 
@@ -18,12 +18,12 @@
 
 - 正面图
 
-.. image:: /image/MYZR-全志系列/MYZR-RV1126B/核心板正面图.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/核心板正面图.jpg
    :alt: 核心板正面图.jpg
    :width: 60%
 
 - 背面图
 
-.. image:: /image/MYZR-全志系列/MYZR-RV1126B/核心板背面图.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/核心板背面图.jpg
    :alt: 核心板背面图.jpg
    :width: 60%
