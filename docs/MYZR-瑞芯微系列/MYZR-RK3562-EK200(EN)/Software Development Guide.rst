@@ -230,10 +230,12 @@ GPIO
 **1. GPIO Driver Architecture**
 
 |   The GPIO function of RK3562 is implemented through a three-level architecture: 
+
 - The hardware layer uses 5 built-in GPIO controllers (corresponding to device nodes gpiochip0~4) to directly manage 32 pins in each group, and the manufacturer provides the underlying register driver. 
 - The kernel layer abstracts hardware differences through the Linux GPIO subsystem and provides standard APIs (such as the gpiod interface) upward, allowing kernel drivers to operate any pin in a unified manner (e.g., setting direction, reading/writing levels). 
 - The user layer imports the GPIO subsystem interface into user space through the Sysfs module (/sys/class/gpio), enabling direct pin control (exporting, direction configuration, level reading/writing) via the command line without writing code. 
-In this entire mechanism, the hardware driver is provided by the chip manufacturer, the Linux kernel implements general abstraction, and developers can either program to control GPIO based on kernel APIs or perform quick debugging through Sysfs.
+
+|   In this entire mechanism, the hardware driver is provided by the chip manufacturer, the Linux kernel implements general abstraction, and developers can either program to control GPIO based on kernel APIs or perform quick debugging through Sysfs.
 |   The following section explains how to directly control GPIO (direction/level) through the command line at the user layer.
 
 **2. Pin Naming Convention**
@@ -278,9 +280,11 @@ PWM
 **1. PWM Hardware and Driver Framework**
 
 |   On the RK3562 platform, the PWM hardware driver works collaboratively with counters and comparators: 
+
 - The APB bus clock source drives the counter to increment/decrement periodically after being adjusted by a frequency divider, and automatically resets to generate a basic signal when reaching the preset cycle value. 
 - The comparator compares the counter value with the duty cycle threshold in real time, outputs high/low levels, and switches between normal (high-active) or inversed (low-active) modes through the polarity control bit. 
-The user layer controls PWM through the /sys/class/pwm interface or kernel APIs (such as pwm_config). The core layer manages controller resources and registers interfaces through pwm_chip, while the underlying hardware adaptation layer needs to implement the pwm_ops operation set (including config, enable, and other functions) to directly operate PWM registers for frequency, duty cycle, and enable configuration.
+
+|   The user layer controls PWM through the /sys/class/pwm interface or kernel APIs (such as pwm_config). The core layer manages controller resources and registers interfaces through pwm_chip, while the underlying hardware adaptation layer needs to implement the pwm_ops operation set (including config, enable, and other functions) to directly operate PWM registers for frequency, duty cycle, and enable configuration.
 
 **2. PWM Device Tree Configuration**
 
