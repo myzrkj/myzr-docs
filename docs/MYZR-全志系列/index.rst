@@ -30,6 +30,15 @@ Allwinner平台
 
    MYZR-A40I-EK204/index
 
+- :doc:`./MYZR-A40I-EK204(EN)/index`
+
+
+.. toctree:: 
+   :maxdepth: 1
+   :hidden:
+
+   MYZR-A40I-EK204(EN)/index
+
 - :doc:`./MYZR-T113-i-EK168/index`
 
 .. toctree:: 

@@ -43,6 +43,7 @@
    docs/MYZR-全志系列/MYZR-T113-i-EK168/index
    docs/MYZR-全志系列/MYZR-T113-i-EK168(EN)/index
    docs/MYZR-全志系列/MYZR-A40I-EK204/index
+   docs/MYZR-全志系列/MYZR-A40I-EK204(EN)/index
    docs/MYZR-全志系列/MYZR-R16-EK166/index
    docs/MYZR-全志系列/MYZR-R16-EK166(EN)/index
 
