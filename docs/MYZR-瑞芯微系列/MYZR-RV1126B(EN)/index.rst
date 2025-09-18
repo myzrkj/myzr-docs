@@ -1,6 +1,6 @@
 
-MYZR-RV1126B
-===============
+MYZR-RV1126B(EN)
+==================
 
 .. toctree:: 
    :maxdepth: 3

@@ -161,13 +161,11 @@ GPIO
 ~~~~~
 
 1. GPIO Driver Architecture
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    The GPIO function of RK3568 is implemented through a three-level architecture: The hardware layer is directly managed by the chip's built-in 5 groups of GPIO controllers (corresponding to device nodes gpiochip0~4) for 32 pins in each group, and the manufacturer has provided the underlying register driver; The kernel layer abstracts hardware differences through the Linux GPIO subsystem and provides standard APIs (such as gpiod interfaces) upward, allowing kernel drivers to operate any pin in a unified way (such as setting direction, reading and writing levels); The user layer imports the GPIO subsystem interface into user space with the help of the Sysfs module (/sys/class/gpio), enabling direct control of pins through the command line (exporting, direction configuration, level reading and writing) without writing code. In the entire mechanism, the hardware driver is completed by the chip manufacturer, the Linux kernel implements general abstraction, and developers can either control GPIO based on kernel API programming or quickly debug through Sysfs.
    Here, let's talk about how to directly control GPIO (direction/level) through the command line at the user layer.
 
 2. Pin Naming Rules
-^^^^^^^^^^^^^^^^^^^
 
    The GPIO of RK3568 is divided into 5 groups (GPIO0~GPIO4), and each group contains 32 pins: A0-A7, B0-B7, C0-C7, D0-D7. For example:
 
@@ -175,7 +173,6 @@ GPIO
 - GPIO0_B7 indicates the 7th pin of group B in the 0th group (GPIO0).
 
 3. Calculation Formula for GPIO Pin Number
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: shell
 
@@ -198,7 +195,6 @@ GPIO
    pin = 4*32 +29 = 157.
 
 4. Controlling GPIO through the /sys/class/gpio Directory
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: shell
 
@@ -210,15 +206,13 @@ GPIO
    Note: Some GPIOs cannot be exported may be multiplexed for other functions (such as UART, I2C), so you need to confirm the actual use through the device tree.
 
 PWM
-~~~
+~~~~~
 
 1. PWM Hardware and Driver Framework
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    On the RK3568 platform, the PWM hardware driver works together through counters and comparators: The APB bus clock source is adjusted by a frequency divider to drive the counter to increment/decrement periodically, and automatically resets to generate a basic signal after reaching the preset period value; The comparator compares the counter value with the duty cycle threshold in real-time, outputs high and low levels, and switches between normal (high active) or inversed (low active) modes through the polarity control bit. The user layer controls through the /sys/class/pwm interface or kernel API (such as pwm_config). The core layer manages controller resources and registers interfaces through pwm_chip, and the underlying hardware adaptation layer needs to implement the pwm_ops operation set (including config, enable and other functions) to directly operate PWM registers to complete frequency, duty cycle and enable configuration.
 
 2. PWM Device Tree Configuration (taking PWM14_M0 as an example, corresponding to pin 12 on the J14 expansion interface)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    Configure the clock and pins in the rk3568.dtsi file:
 
@@ -268,7 +262,6 @@ PWM
    The entire process transmits hardware parameters directly to the driver through the device tree to realize PWM waveform output (PWM is initialized and configured to a frequency of 100Hz, a duty cycle of 50%, and inverted polarity).
 
 3. Operating PWM through Sysfs Interface
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Find the PWM controller path
 
@@ -308,10 +301,9 @@ PWM
     # Adjust to 70% duty cycle
 
 UART
-~~~~
+~~~~~~
 
 1. Device Tree Configuration (taking UART3_M1 as an example, corresponding to pins 33 and 35 on the J14 expansion interface)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: shell
 
@@ -337,7 +329,6 @@ UART
    After the device tree is configured, UART3 is registered as /dev/ttyS3 in the system, which can be verified by ls /dev/ttyS*.
 
 2. Debugging Tools
-^^^^^^^^^^^^^^^^^
 
    Short-circuit the rx and tx of uart3m1, and use the test file placed in the file system for transceiver testing:
 
@@ -355,15 +346,13 @@ UART
     ASCII: 0x0   Character:
 
 I2C
-~~~
+~~~~~
 
 1. Overview of I2C Subsystem Architecture
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
    In the RK3568 platform, the I2C controller is implemented based on the standard Linux I2C framework, and its core is divided into a hardware abstraction layer (adapter driver) and a device driver layer. The hardware layer abstracts the I2C bus controller through i2c_adapter, and the device layer describes the slave device through i2c_client. Both implement the driver logic through i2c_driver. The I2C controller of RK3568 supports multi-master mode, clock frequency division (up to 400kHz), and interrupt/DMA transmission. Its physical layer follows the open-drain output characteristic and realizes SCL/SDA signals through GPIO multiplexing.
 
 2. I2C Device Tree Configuration (taking a touch chip mounted on I2C1 as an example)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: shell
 

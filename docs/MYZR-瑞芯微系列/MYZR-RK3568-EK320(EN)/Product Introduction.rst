@@ -61,12 +61,12 @@ Core Board Specifications
 
 
 Signal Definition
----------
+-------------------
 
 - Refer to the network disk: 2. Hardware Data -> 2.1- Principle and PCB -> Core Board Schematic Diagram
 
 Core Board Introduction
------------
+--------------------------
 
 - Front view of the core board
 
@@ -87,7 +87,7 @@ Core Board Introduction
    :width: 60%
 
 Base Board Introduction
-----------
+--------------------------
 
 - Front view of the base board
 

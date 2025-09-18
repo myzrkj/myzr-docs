@@ -137,8 +137,8 @@ TF Interface Test
 |  The system is functioning normally if it outputs information similar to the above when the TF storage device is plugged in or unplugged.
 
 
-## Standard GPIO Test
---------------
+Standard GPIO Test
+--------------------
 
 | 【Test Description】: Control the output level of GPIO
 | 【Interface Identification】: GPIO/SD2

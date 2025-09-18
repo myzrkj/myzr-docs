@@ -436,6 +436,7 @@ WiFi
   1) Description: After the WIFI is connected to the AP, the development board sends ICMP packets to the external network to verify that the connection is normal.
 
   2) Operation:
+
     a) Connect the WIFI antenna to the "U12" interface.
     b) Generate the WPA PSK file for the SSID, enter:
 
@@ -472,6 +473,7 @@ Bluetooth
   1) Description: After scanning for Bluetooth devices, send an L2CAP echo request and receive the reply.
 
   2) Operation:
+  
     a) Connect the antenna to the "U12" interface.
     b) Initialize and start Bluetooth:
 

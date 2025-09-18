@@ -455,41 +455,41 @@ MIPI_D/CPHY_RX Circuit
 
 |  The recommended matching design for MIPI D-PHY/C-PHY Combo PHY0/1 RX is shown in the table below:
 
-+---------------------------+----------+-------------------------------+
-| Signal                    | Connection | Description                  |
-+---------------------------+----------+-------------------------------+
-| MIPI_DPHY0_RX_D0P/D0N     | Direct   | MIPI_DPHY0_RX Data Lane0 Input|
-+---------------------------+----------+-------------------------------+
-| MIPI_DPHY0_RX_D1P/D1N     | Direct   | MIPI_DPHY0_RX Data Lane1 Input|
-+---------------------------+----------+-------------------------------+
-| MIPI_DPHY0_RX_D2P/D2N     | Direct   | MIPI_DPHY0_RX Data Lane2 Input|
-+---------------------------+----------+-------------------------------+
-| MIPI_DPHY0_RX_D3P/D3N     | Direct   | MIPI_DPHY0_RX Data Lane3 Input|
-+---------------------------+----------+-------------------------------+
-| MIPI_DPHY0_RX_CLKP/CLKN   | Direct   | MIPI_DPHY0_RX Clock Input     |
-+---------------------------+----------+-------------------------------+
-| MIPI_CPHY0_RX_TRIO0_A/B/C | Direct   | MIPI_CPHY0_RX_TRIO0 Input     |
-+---------------------------+----------+-------------------------------+
-| MIPI_CPHY0_RX_TRIO1_A/B/C | Direct   | MIPI_CPHY0_RX_TRIO1 Input     |
-+---------------------------+----------+-------------------------------+
-| MIPI_CPHY0_RX_TRIO2_A/B/C | Direct   | MIPI_CPHY0_RX_TRIO2 Input     |
-+---------------------------+----------+-------------------------------+
-| MIPI_DPHY1_RX_D0P/D0N     | Direct   | MIPI_DPHY1_RX Data Lane0 Input|
-+---------------------------+----------+-------------------------------+
-| MIPI_DPHY1_RX_D1P/D1N     | Direct   | MIPI_DPHY1_RX Data Lane1 Input|
-+---------------------------+----------+-------------------------------+
-| MIPI_DPHY1_RX_D2P/D2N     | Direct   | MIPI_DPHY1_RX Data Lane2 Input|
-+---------------------------+----------+-------------------------------+
-| MIPI_DPHY1_RX_D3P/D3N     | Direct   | MIPI_DPHY1_RX Data Lane3 Input|
-+---------------------------+----------+-------------------------------+
-| MIPI_DPHY1_RX_CLKP/CLKN   | Direct   | MIPI_DPHY1_RX Clock Input     |
-+---------------------------+----------+-------------------------------+
-| MIPI_CPHY1_RX_TRIO0_A/B/C | Direct   | MIPI_CPHY1_RX_TRIO0 Input     |
-+---------------------------+----------+-------------------------------+
-| MIPI_CPHY1_RX_TRIO1_A/B/C | Direct   | MIPI_CPHY1_RX_TRIO1 Input     |
-+---------------------------+----------+-------------------------------+
-| MIPI_CPHY1_RX_TRIO2_A/B/C | Direct   | MIPI_CPHY1_RX_TRIO2 Input     |
-+---------------------------+----------+-------------------------------+
++---------------------------+------------+--------------------------------+
+| Signal                    | Connection | Description                    |
++---------------------------+------------+--------------------------------+
+| MIPI_DPHY0_RX_D0P/D0N     | Direct     | MIPI_DPHY0_RX Data Lane0 Input |
++---------------------------+------------+--------------------------------+
+| MIPI_DPHY0_RX_D1P/D1N     | Direct     | MIPI_DPHY0_RX Data Lane1 Input |
++---------------------------+------------+--------------------------------+
+| MIPI_DPHY0_RX_D2P/D2N     | Direct     | MIPI_DPHY0_RX Data Lane2 Input |
++---------------------------+------------+--------------------------------+
+| MIPI_DPHY0_RX_D3P/D3N     | Direct     | MIPI_DPHY0_RX Data Lane3 Input |
++---------------------------+------------+--------------------------------+
+| MIPI_DPHY0_RX_CLKP/CLKN   | Direct     | MIPI_DPHY0_RX Clock Input      |
++---------------------------+------------+--------------------------------+
+| MIPI_CPHY0_RX_TRIO0_A/B/C | Direct     | MIPI_CPHY0_RX_TRIO0 Input      |
++---------------------------+------------+--------------------------------+
+| MIPI_CPHY0_RX_TRIO1_A/B/C | Direct     | MIPI_CPHY0_RX_TRIO1 Input      |
++---------------------------+------------+--------------------------------+
+| MIPI_CPHY0_RX_TRIO2_A/B/C | Direct     | MIPI_CPHY0_RX_TRIO2 Input      |
++---------------------------+------------+--------------------------------+
+| MIPI_DPHY1_RX_D0P/D0N     | Direct     | MIPI_DPHY1_RX Data Lane0 Input |
++---------------------------+------------+--------------------------------+
+| MIPI_DPHY1_RX_D1P/D1N     | Direct     | MIPI_DPHY1_RX Data Lane1 Input |
++---------------------------+------------+--------------------------------+
+| MIPI_DPHY1_RX_D2P/D2N     | Direct     | MIPI_DPHY1_RX Data Lane2 Input |
++---------------------------+------------+--------------------------------+
+| MIPI_DPHY1_RX_D3P/D3N     | Direct     | MIPI_DPHY1_RX Data Lane3 Input |
++---------------------------+------------+--------------------------------+
+| MIPI_DPHY1_RX_CLKP/CLKN   | Direct     | MIPI_DPHY1_RX Clock Input      |
++---------------------------+------------+--------------------------------+
+| MIPI_CPHY1_RX_TRIO0_A/B/C | Direct     | MIPI_CPHY1_RX_TRIO0 Input      |
++---------------------------+------------+--------------------------------+
+| MIPI_CPHY1_RX_TRIO1_A/B/C | Direct     | MIPI_CPHY1_RX_TRIO1 Input      |
++---------------------------+------------+--------------------------------+
+| MIPI_CPHY1_RX_TRIO2_A/B/C | Direct     | MIPI_CPHY1_RX_TRIO2 Input      |
++---------------------------+------------+--------------------------------+
 
 MIPI DPHY CSI RX Circuit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -532,33 +532,33 @@ MIPI DPHY CSI RX Circuit
 
 |  The recommended matching design for MIPI DPHY CSI0/1 RX interfaces is shown in the table below:
 
-+-----------------------+----------+---------------------------+
-| Signal                | Connection | Description              |
-+-----------------------+----------+---------------------------+
-| MIPI_CSI0_D0P/D0N     | Direct   | MIPI CSI0 Data Lane0 Input|
-+-----------------------+----------+---------------------------+
-| MIPI_CSI0_D1P/D1N     | Direct   | MIPI CSI0 Data Lane1 Input|
-+-----------------------+----------+---------------------------+
-| MIPI_CSI0_D2P/D2N     | Direct   | MIPI CSI0 Data Lane2 Input|
-+-----------------------+----------+---------------------------+
-| MIPI_CSI0_D3P/D3N     | Direct   | MIPI CSI0 Data Lane3 Input|
-+-----------------------+----------+---------------------------+
-| MIPI_CSI0_CLK0P/CLK0N | Direct   | MIPI CSI0 Clock 0 Input   |
-+-----------------------+----------+---------------------------+
-| MIPI_CSI0_CLK1P/CLK1N | Direct   | MIPI CSI0 Clock 1 Input   |
-+-----------------------+----------+---------------------------+
-| MIPI_CSI1_D0P/D0N     | Direct   | MIPI CSI1 Data Lane0 Input|
-+-----------------------+----------+---------------------------+
-| MIPI_CSI1_D1P/D1N     | Direct   | MIPI CSI1 Data Lane1 Input|
-+-----------------------+----------+---------------------------+
-| MIPI_CSI1_D2P/D2N     | Direct   | MIPI CSI1 Data Lane2 Input|
-+-----------------------+----------+---------------------------+
-| MIPI_CSI1_D3P/D3N     | Direct   | MIPI CSI1 Data Lane3 Input|
-+-----------------------+----------+---------------------------+
-| MIPI_CSI1_CLK0P/CLK0N | Direct   | MIPI CSI1 Clock 0 Input   |
-+-----------------------+----------+---------------------------+
-| MIPI_CSI1_CLK1P/CLK1N | Direct   | MIPI CSI1 Clock 1 Input   |
-+-----------------------+----------+---------------------------+
++-----------------------+------------+----------------------------+
+| Signal                | Connection | Description                |
++-----------------------+------------+----------------------------+
+| MIPI_CSI0_D0P/D0N     | Direct     | MIPI CSI0 Data Lane0 Input |
++-----------------------+------------+----------------------------+
+| MIPI_CSI0_D1P/D1N     | Direct     | MIPI CSI0 Data Lane1 Input |
++-----------------------+------------+----------------------------+
+| MIPI_CSI0_D2P/D2N     | Direct     | MIPI CSI0 Data Lane2 Input |
++-----------------------+------------+----------------------------+
+| MIPI_CSI0_D3P/D3N     | Direct     | MIPI CSI0 Data Lane3 Input |
++-----------------------+------------+----------------------------+
+| MIPI_CSI0_CLK0P/CLK0N | Direct     | MIPI CSI0 Clock 0 Input    |
++-----------------------+------------+----------------------------+
+| MIPI_CSI0_CLK1P/CLK1N | Direct     | MIPI CSI0 Clock 1 Input    |
++-----------------------+------------+----------------------------+
+| MIPI_CSI1_D0P/D0N     | Direct     | MIPI CSI1 Data Lane0 Input |
++-----------------------+------------+----------------------------+
+| MIPI_CSI1_D1P/D1N     | Direct     | MIPI CSI1 Data Lane1 Input |
++-----------------------+------------+----------------------------+
+| MIPI_CSI1_D2P/D2N     | Direct     | MIPI CSI1 Data Lane2 Input |
++-----------------------+------------+----------------------------+
+| MIPI_CSI1_D3P/D3N     | Direct     | MIPI CSI1 Data Lane3 Input |
++-----------------------+------------+----------------------------+
+| MIPI_CSI1_CLK0P/CLK0N | Direct     | MIPI CSI1 Clock 0 Input    |
++-----------------------+------------+----------------------------+
+| MIPI_CSI1_CLK1P/CLK1N | Direct     | MIPI CSI1 Clock 1 Input    |
++-----------------------+------------+----------------------------+
 
 HDMI 2.0 RX Circuit
 ^^^^^^^^^^^^^^^^^^^^^
@@ -600,27 +600,27 @@ HDMI 2.0 RX Circuit
 
 |  The recommended matching design for the HDMI RX interface is shown in the table below:
 
-+-----------------+------------------------------+----------------------------+
-| Signal          | Connection                  | Description                |
-+-----------------+------------------------------+----------------------------+
-| HDMI_RX_D0P/D0N | Series 2.2ohm R             | TMDS Data Lane0 Input      |
-+-----------------+------------------------------+----------------------------+
-| HDMI_RX_D1P/D1N | Series 2.2ohm R             | TMDS Data Lane1 Input      |
-+-----------------+------------------------------+----------------------------+
-| HDMI_RX_D2P/D2N | Series 2.2ohm R             | TMDS Data Lane2 Input      |
-+-----------------+------------------------------+----------------------------+
-| HDMI_RX_D3P/D3N | Series 2.2ohm R             | TMDS Clock Input           |
-+-----------------+------------------------------+----------------------------+
-| HDMI_RX_REXT    | 200 ohm 1% R to GND         | HDMI_RX PHY external ref R |
-+-----------------+------------------------------+----------------------------+
-| HDMI_RX_HPD     | MOS control circuit         | HDMI HPD Output            |
-+-----------------+------------------------------+----------------------------+
-| HDMI_RX_CEC     | MOS isolation conversion    | HDMI CEC Signal            |
-+-----------------+------------------------------+----------------------------+
-| HDMI_RX_SCL     | MOS level conversion        | HDMI DDC Clock             |
-+-----------------+------------------------------+----------------------------+
-| HDMI_RX_SDA     | MOS level conversion        | HDMI DDC Data I/O          |
-+-----------------+------------------------------+----------------------------+
++-----------------+--------------------------+----------------------------+
+| Signal          | Connection               | Description                |
++-----------------+--------------------------+----------------------------+
+| HDMI_RX_D0P/D0N | Series 2.2ohm R          | TMDS Data Lane0 Input      |
++-----------------+--------------------------+----------------------------+
+| HDMI_RX_D1P/D1N | Series 2.2ohm R          | TMDS Data Lane1 Input      |
++-----------------+--------------------------+----------------------------+
+| HDMI_RX_D2P/D2N | Series 2.2ohm R          | TMDS Data Lane2 Input      |
++-----------------+--------------------------+----------------------------+
+| HDMI_RX_D3P/D3N | Series 2.2ohm R          | TMDS Clock Input           |
++-----------------+--------------------------+----------------------------+
+| HDMI_RX_REXT    | 200 ohm 1% R to GND      | HDMI_RX PHY external ref R |
++-----------------+--------------------------+----------------------------+
+| HDMI_RX_HPD     | MOS control circuit      | HDMI HPD Output            |
++-----------------+--------------------------+----------------------------+
+| HDMI_RX_CEC     | MOS isolation conversion | HDMI CEC Signal            |
++-----------------+--------------------------+----------------------------+
+| HDMI_RX_SCL     | MOS level conversion     | HDMI DDC Clock             |
++-----------------+--------------------------+----------------------------+
+| HDMI_RX_SDA     | MOS level conversion     | HDMI DDC Data I/O          |
++-----------------+--------------------------+----------------------------+
 
 HDMI 2.0 TX Circuit
 ^^^^^^^^^^^^^^^^^^^^^
@@ -681,49 +681,49 @@ HDMI 2.0 TX Circuit
 
 |  The recommended matching design for the HDMI TX interface is shown in the table below:
 
-+--------------------+------------------------------------------------+------------------------------------+
-| Signal             | Connection                                     | Description                        |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX0_D0P/D0N   | Series 220nF C (0201), 499ohm R to GND         | RFL Mode Lane0/TMDS Data Lane0 Out |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX0_D1P/D1N   | Series 220nF C (0201), 499ohm R to GND         | RFL Mode Lane1/TMDS Data Lane1 Out |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX0_D2P/D2N   | Series 220nF C (0201), 499ohm R to GND         | RFL Mode Lane2/TMDS Data Lane2 Out |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX0_D3P/D3N   | Series 220nF C (0201), 499ohm R to GND         | RFL Mode Lane3/TMDS Clock Out      |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX0_SBDP/SBDN | Series 1uF C (0201)                            | ARC/eARC Channel                   |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI/EDP_TX0_REXT  | 8200 ohm 1% R to GND                           | HDMI/EDP_TX0 PHY external ref R    |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX0_HPD       | Transistor conversion                          | HDMI Insertion Detection           |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX0_CEC       | MOS isolation conversion                       | HDMI CEC Signal                    |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX0_SCL       | MOS level conversion                           | HDMI DDC Clock                     |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX0_SDA       | MOS level conversion                           | HDMI DDC Data I/O                  |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX1_D0P/D0N   | Series 220nF C (0201), 499ohm R to GND         | RFL Mode Lane0/TMDS Data Lane0 Out |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX1_D1P/D1N   | Series 220nF C (0201), 499ohm R to GND         | RFL Mode Lane1/TMDS Data Lane1 Out |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX1_D2P/D2N   | Series 220nF C (0201), 499ohm R to GND         | RFL Mode Lane2/TMDS Data Lane2 Out |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX1_D3P/D3N   | Series 220nF C (0201), 499ohm R to GND         | RFL Mode Lane3/TMDS Clock Out      |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX1_SBDP/SBDN | Series 1uF C (0201)                            | ARC/eARC Channel                   |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI/EDP_TX1_REXT  | 8200 ohm 1% R to GND                           | HDMI/EDP_TX0 PHY external ref R    |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX1_HPD       | Transistor conversion                          | HDMI Insertion Detection           |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX1_CEC       | MOS isolation conversion                       | HDMI CEC Signal                    |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX1_SCL       | MOS level conversion                           | HDMI DDC Clock                     |
-+--------------------+------------------------------------------------+------------------------------------+
-| HDMI_TX1_SDA       | MOS level conversion                           | HDMI DDC Data I/O                  |
-+--------------------+------------------------------------------------+------------------------------------+
++--------------------+----------------------------------------+------------------------------------+
+| Signal             | Connection                             | Description                        |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX0_D0P/D0N   | Series 220nF C (0201), 499ohm R to GND | RFL Mode Lane0/TMDS Data Lane0 Out |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX0_D1P/D1N   | Series 220nF C (0201), 499ohm R to GND | RFL Mode Lane1/TMDS Data Lane1 Out |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX0_D2P/D2N   | Series 220nF C (0201), 499ohm R to GND | RFL Mode Lane2/TMDS Data Lane2 Out |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX0_D3P/D3N   | Series 220nF C (0201), 499ohm R to GND | RFL Mode Lane3/TMDS Clock Out      |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX0_SBDP/SBDN | Series 1uF C (0201)                    | ARC/eARC Channel                   |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI/EDP_TX0_REXT  | 8200 ohm 1% R to GND                   | HDMI/EDP_TX0 PHY external ref R    |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX0_HPD       | Transistor conversion                  | HDMI Insertion Detection           |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX0_CEC       | MOS isolation conversion               | HDMI CEC Signal                    |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX0_SCL       | MOS level conversion                   | HDMI DDC Clock                     |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX0_SDA       | MOS level conversion                   | HDMI DDC Data I/O                  |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX1_D0P/D0N   | Series 220nF C (0201), 499ohm R to GND | RFL Mode Lane0/TMDS Data Lane0 Out |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX1_D1P/D1N   | Series 220nF C (0201), 499ohm R to GND | RFL Mode Lane1/TMDS Data Lane1 Out |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX1_D2P/D2N   | Series 220nF C (0201), 499ohm R to GND | RFL Mode Lane2/TMDS Data Lane2 Out |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX1_D3P/D3N   | Series 220nF C (0201), 499ohm R to GND | RFL Mode Lane3/TMDS Clock Out      |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX1_SBDP/SBDN | Series 1uF C (0201)                    | ARC/eARC Channel                   |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI/EDP_TX1_REXT  | 8200 ohm 1% R to GND                   | HDMI/EDP_TX0 PHY external ref R    |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX1_HPD       | Transistor conversion                  | HDMI Insertion Detection           |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX1_CEC       | MOS isolation conversion               | HDMI CEC Signal                    |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX1_SCL       | MOS level conversion                   | HDMI DDC Clock                     |
++--------------------+----------------------------------------+------------------------------------+
+| HDMI_TX1_SDA       | MOS level conversion                   | HDMI DDC Data I/O                  |
++--------------------+----------------------------------------+------------------------------------+
 
 MIPI Display Interface Circuit
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -964,17 +964,17 @@ USB2.0 Circuit PCB Design
 
 |  Table 3-1 USB2.0 Signal Impedance and Routing Requirements
 
-+----------------------+--------------------------------+
-| Parameter            | Requirement                    |
-+----------------------+--------------------------------+
-| Trace Impedance      | Differential 90ohm ±10%        |
-+----------------------+--------------------------------+
-| Max Intra-Pair Skew | Less than 20mil                |
-+----------------------+--------------------------------+
-| Trace Length         | Less than 6 inches             |
-+----------------------+--------------------------------+
-| Allowed Via Count   | Recommended <=4, Must not >6   |
-+----------------------+--------------------------------+
++---------------------+------------------------------+
+| Parameter           | Requirement                  |
++---------------------+------------------------------+
+| Trace Impedance     | Differential 90ohm ±10%      |
++---------------------+------------------------------+
+| Max Intra-Pair Skew | Less than 20mil              |
++---------------------+------------------------------+
+| Trace Length        | Less than 6 inches           |
++---------------------+------------------------------+
+| Allowed Via Count   | Recommended <=4, Must not >6 |
++---------------------+------------------------------+
 
 |  When USB differential signals need to change layers, ensure the number of vias on the trace is less than 4, must not exceed 6. Place symmetrical ground stitching vias near the signal vias. The center distance between the ground stitching via and the signal via must not exceed 30mil. The USB differential pair should preferably have a complete ground plane as its reference layer. If crossing different planes is unavoidable, the entire route must be handled with ground pouring. The ground pour trace should have ground vias within every 300mil interval.
 
@@ -983,26 +983,26 @@ USB3.0 Circuit PCB Design
 
 |  USB3.0 Signal Impedance and Routing Requirements
 
-+----------------------------------------+-------------------------------------------------+
-| Parameter                              | Requirement                                     |
-+----------------------------------------+-------------------------------------------------+
-| Differential Trace Impedance           | 90Ω±10%                                         |
-+----------------------------------------+-------------------------------------------------+
-| SSTXP/SSTXN Intra-Pair Skew            | < 12mil                                         |
-+----------------------------------------+-------------------------------------------------+
-| SSRXP/SSRXN Intra-Pair Skew            | < 12mil                                         |
-+----------------------------------------+-------------------------------------------------+
-| SSTXP/N and SSRXP/N Inter-Pair Skew    | < 6000mil Recommended <=4, Must not >6          |
-+----------------------------------------+-------------------------------------------------+
-| Total PCB Trace Length                 | < 6000mil                                       |
-+----------------------------------------+-------------------------------------------------+
-| Spacing between SSTX and SSRX signals  | >=4 x trace width                               |
-+----------------------------------------+-------------------------------------------------+
-| Spacing to other signals               | >=4 x trace width                               |
-+----------------------------------------+-------------------------------------------------+
-| Layer Change Vias                      | < 2, need symmetrical ground stitching vias     |
-|                                        | near signal layer change vias                   |
-+----------------------------------------+-------------------------------------------------+
++---------------------------------------+---------------------------------------------+
+| Parameter                             | Requirement                                 |
++---------------------------------------+---------------------------------------------+
+| Differential Trace Impedance          | 90Ω±10%                                     |
++---------------------------------------+---------------------------------------------+
+| SSTXP/SSTXN Intra-Pair Skew           | < 12mil                                     |
++---------------------------------------+---------------------------------------------+
+| SSRXP/SSRXN Intra-Pair Skew           | < 12mil                                     |
++---------------------------------------+---------------------------------------------+
+| SSTXP/N and SSRXP/N Inter-Pair Skew   | < 6000mil Recommended <=4, Must not >6      |
++---------------------------------------+---------------------------------------------+
+| Total PCB Trace Length                | < 6000mil                                   |
++---------------------------------------+---------------------------------------------+
+| Spacing between SSTX and SSRX signals | >=4 x trace width                           |
++---------------------------------------+---------------------------------------------+
+| Spacing to other signals              | >=4 x trace width                           |
++---------------------------------------+---------------------------------------------+
+| Layer Change Vias                     | < 2, need symmetrical ground stitching vias |
+|                                       | near signal layer change vias               |
++---------------------------------------+---------------------------------------------+
 
 |  SSTXP/N and SSRXP/N should preferably be routed on the TOP layer. If layer change is necessary, do not exceed 2 vias. Place symmetrical ground stitching vias near the signal vias, with a center distance not exceeding 30mil. Use arcs or obtuse angles for trace bends, not right angles or acute angles.
 |  The reference layer for SSTXP/N and SSRXP/N signals needs to be a complete ground plane. Avoid situations where continuous vias block the signal return path. Place AC coupling capacitors symmetrically and close to the USB connector. The area below the pads of the USB3 connector and the AC coupling capacitor pads must be voided of one layer to ensure impedance continuity. The void size should be no smaller than the package pad size.
@@ -1012,24 +1012,24 @@ Camera_MIPI_CSI Circuit PCB Design
 
 |  MIPI CSI RX Signal Impedance and Routing Requirements
 
-+-----------------------------------+-------------------------------------------------+
-| Parameter                         | Requirement                                     |
-+-----------------------------------+-------------------------------------------------+
-| Differential Trace Impedance      | 100Ω±10%                                        |
-+-----------------------------------+-------------------------------------------------+
-| Intra-Pair Skew                   | < 12mil                                         |
-+-----------------------------------+-------------------------------------------------+
-| Inter-Pair Skew                   | < 36mil                                         |
-+-----------------------------------+-------------------------------------------------+
-| Total PCB Trace Length            | < 6000mil                                       |
-+-----------------------------------+-------------------------------------------------+
-| Spacing between MIPI signals      | >=3 x trace width                               |
-+-----------------------------------+-------------------------------------------------+
-| Spacing to other signals          | >=3 x trace width                               |
-+-----------------------------------+-------------------------------------------------+
-| Layer Change Vias                 | < 4, need symmetrical ground stitching vias     |
-|                                   | near signal layer change vias                   |
-+-----------------------------------+-------------------------------------------------+
++------------------------------+---------------------------------------------+
+| Parameter                    | Requirement                                 |
++------------------------------+---------------------------------------------+
+| Differential Trace Impedance | 100Ω±10%                                    |
++------------------------------+---------------------------------------------+
+| Intra-Pair Skew              | < 12mil                                     |
++------------------------------+---------------------------------------------+
+| Inter-Pair Skew              | < 36mil                                     |
++------------------------------+---------------------------------------------+
+| Total PCB Trace Length       | < 6000mil                                   |
++------------------------------+---------------------------------------------+
+| Spacing between MIPI signals | >=3 x trace width                           |
++------------------------------+---------------------------------------------+
+| Spacing to other signals     | >=3 x trace width                           |
++------------------------------+---------------------------------------------+
+| Layer Change Vias            | < 4, need symmetrical ground stitching vias |
+|                              | near signal layer change vias               |
++------------------------------+---------------------------------------------+
 
 |  Minimize layer change vias. If necessary, a maximum of 4 vias is allowed. Place symmetrical ground stitching vias near the signal vias, with a center distance not exceeding 30mil. The reference layer for MIPI CSI differential pairs needs to be a complete ground plane. Avoid situations where continuous vias block the signal return path.
 
@@ -1038,24 +1038,24 @@ HDMI 2.0 Circuit PCB Design
 
 |  HDMI TX Signal Impedance and Routing Requirements
 
-+-------------------------------------+-------------------------------------------------+
-| Parameter                           | Requirement                                     |
-+-------------------------------------+-------------------------------------------------+
-| Differential Trace Impedance        | 100Ω±10%                                        |
-+-------------------------------------+-------------------------------------------------+
-| Intra-Pair Skew                     | < 12mil                                         |
-+-------------------------------------+-------------------------------------------------+
-| Clock-Data Skew                     | < 480mil                                        |
-+-------------------------------------+-------------------------------------------------+
-| Total PCB Trace Length              | < 6000mil                                       |
-+-------------------------------------+-------------------------------------------------+
-| Spacing between HDMI data signals   | >=5 x trace width                               |
-+-------------------------------------+-------------------------------------------------+
-| Spacing between data and clock      | >=5 x trace width                               |
-+-------------------------------------+-------------------------------------------------+
-| Layer Change Vias                   | < 2, need symmetrical ground stitching vias     |
-|                                     | near signal layer change vias                   |
-+-------------------------------------+-------------------------------------------------+
++-----------------------------------+---------------------------------------------+
+| Parameter                         | Requirement                                 |
++-----------------------------------+---------------------------------------------+
+| Differential Trace Impedance      | 100Ω±10%                                    |
++-----------------------------------+---------------------------------------------+
+| Intra-Pair Skew                   | < 12mil                                     |
++-----------------------------------+---------------------------------------------+
+| Clock-Data Skew                   | < 480mil                                    |
++-----------------------------------+---------------------------------------------+
+| Total PCB Trace Length            | < 6000mil                                   |
++-----------------------------------+---------------------------------------------+
+| Spacing between HDMI data signals | >=5 x trace width                           |
++-----------------------------------+---------------------------------------------+
+| Spacing between data and clock    | >=5 x trace width                           |
++-----------------------------------+---------------------------------------------+
+| Layer Change Vias                 | < 2, need symmetrical ground stitching vias |
+|                                   | near signal layer change vias               |
++-----------------------------------+---------------------------------------------+
 
 |  Route traces preferably on the TOP layer. If layer change is necessary, do not exceed 2 vias. Place symmetrical ground stitching vias near the signal vias, with a center distance not exceeding 30mil. Use arcs or obtuse angles for trace bends, not right angles or acute angles.
 |  Route差分线整组并行走线 (the entire group of differential lines in parallel). Pour ground around the outermost periphery. The spacing between the ground pour and the signals should be no less than 4 times the trace width, and the ground pour trace should have ground vias within every 300mil interval.
@@ -1068,24 +1068,24 @@ MIPI Display Interface Circuit PCB Design
 
 |  MIPI DSI TX Signal Impedance and Routing Requirements
 
-+-----------------------------------+-------------------------------------------------+
-| Parameter                         | Requirement                                     |
-+-----------------------------------+-------------------------------------------------+
-| Differential Trace Impedance      | 100Ω±10%                                        |
-+-----------------------------------+-------------------------------------------------+
-| Intra-Pair Skew                   | < 12mil                                         |
-+-----------------------------------+-------------------------------------------------+
-| Inter-Pair Skew                   | < 36mil                                         |
-+-----------------------------------+-------------------------------------------------+
-| Total PCB Trace Length            | < 6000mil                                       |
-+-----------------------------------+-------------------------------------------------+
-| Spacing between MIPI signals      | >=3 x trace width                               |
-+-----------------------------------+-------------------------------------------------+
-| Spacing to other signals          | >=3 x trace width                               |
-+-----------------------------------+-------------------------------------------------+
-| Layer Change Vias                 | < 4, need symmetrical ground stitching vias     |
-|                                   | near signal layer change vias                   |
-+-----------------------------------+-------------------------------------------------+
++------------------------------+---------------------------------------------+
+| Parameter                    | Requirement                                 |
++------------------------------+---------------------------------------------+
+| Differential Trace Impedance | 100Ω±10%                                    |
++------------------------------+---------------------------------------------+
+| Intra-Pair Skew              | < 12mil                                     |
++------------------------------+---------------------------------------------+
+| Inter-Pair Skew              | < 36mil                                     |
++------------------------------+---------------------------------------------+
+| Total PCB Trace Length       | < 6000mil                                   |
++------------------------------+---------------------------------------------+
+| Spacing between MIPI signals | >=3 x trace width                           |
++------------------------------+---------------------------------------------+
+| Spacing to other signals     | >=3 x trace width                           |
++------------------------------+---------------------------------------------+
+| Layer Change Vias            | < 4, need symmetrical ground stitching vias |
+|                              | near signal layer change vias               |
++------------------------------+---------------------------------------------+
 
 |  Minimize layer change vias for MIPI differential pairs. If necessary, do not exceed 4 vias. Place symmetrical ground stitching vias near the signal vias, with a center distance not exceeding 30mil. The reference layer for MIPI DSI differential pairs needs to be a complete ground plane. Avoid situations where continuous vias block the signal return path.
 
@@ -1094,22 +1094,22 @@ LCM-eDP Circuit PCB Design
 
 |  eDP TX Signal Impedance and Routing Requirements
 
-+----------------------------------+-------------------------------------------------+
-| Parameter                        | Requirement                                     |
-+----------------------------------+-------------------------------------------------+
-| Differential Trace Impedance     | 85Ω±10%                                         |
-+----------------------------------+-------------------------------------------------+
-| Intra-Pair Skew                  | < 12mil                                         |
-+----------------------------------+-------------------------------------------------+
-| Total PCB Trace Length           | < 6000mil                                       |
-+----------------------------------+-------------------------------------------------+
-| Spacing between eDP signals      | >=4 x trace width                               |
-+----------------------------------+-------------------------------------------------+
-| Spacing to other signals         | >=4 x trace width                               |
-+----------------------------------+-------------------------------------------------+
-| Layer Change Vias                | < 4, need symmetrical ground stitching vias     |
-|                                  | near signal layer change vias                   |
-+----------------------------------+-------------------------------------------------+
++------------------------------+---------------------------------------------+
+| Parameter                    | Requirement                                 |
++------------------------------+---------------------------------------------+
+| Differential Trace Impedance | 85Ω±10%                                     |
++------------------------------+---------------------------------------------+
+| Intra-Pair Skew              | < 12mil                                     |
++------------------------------+---------------------------------------------+
+| Total PCB Trace Length       | < 6000mil                                   |
++------------------------------+---------------------------------------------+
+| Spacing between eDP signals  | >=4 x trace width                           |
++------------------------------+---------------------------------------------+
+| Spacing to other signals     | >=4 x trace width                           |
++------------------------------+---------------------------------------------+
+| Layer Change Vias            | < 4, need symmetrical ground stitching vias |
+|                              | near signal layer change vias               |
++------------------------------+---------------------------------------------+
 
 |  Minimize layer change vias. If necessary, a maximum of 4 vias is allowed. Place symmetrical ground stitching vias near the signal vias, with a center distance not exceeding 30mil. The reference layer for eDP_TX differential pairs needs to be a complete ground plane. Avoid situations where continuous vias block the signal return path.
 
@@ -1155,24 +1155,24 @@ Gigabit Ethernet Circuit PCB Design
 
 |  RGMII Signal Impedance and Routing Requirements
 
-+------------------------------------------------+----------------------------------------------------------+
-| Parameter                                      | Requirement                                              |
-+------------------------------------------------+----------------------------------------------------------+
-| Single-Ended Impedance                         | 50Ω±10%                                                  |
-+------------------------------------------------+----------------------------------------------------------+
-| TXD0,TXD1,TXD2,TXD3,TXEN and TXCLK Skew        | < 120mil                                                 |
-+------------------------------------------------+----------------------------------------------------------+
-| RXD0,RXD1,RXD2,RXD3,RXDV and RXCLK Skew        | < 120mil                                                 |
-+------------------------------------------------+----------------------------------------------------------+
-| Total PCB Trace Length                         | < 5000mil                                                |
-+------------------------------------------------+----------------------------------------------------------+
-| Spacing between PRGMII signals                 | >=2 x trace width                                        |
-+------------------------------------------------+----------------------------------------------------------+
-| Spacing to other signals                       | >=3 x trace width                                        |
-+------------------------------------------------+----------------------------------------------------------+
-| TXCLK and RXCLK Trace Requirement              | Must have ground pour along entire route, with ground    |
-|                                                | vias within every 300mil interval of the ground pour     |
-+------------------------------------------------+----------------------------------------------------------+
++-----------------------------------------+-------------------------------------------------------+
+| Parameter                               | Requirement                                           |
++-----------------------------------------+-------------------------------------------------------+
+| Single-Ended Impedance                  | 50Ω±10%                                               |
++-----------------------------------------+-------------------------------------------------------+
+| TXD0,TXD1,TXD2,TXD3,TXEN and TXCLK Skew | < 120mil                                              |
++-----------------------------------------+-------------------------------------------------------+
+| RXD0,RXD1,RXD2,RXD3,RXDV and RXCLK Skew | < 120mil                                              |
++-----------------------------------------+-------------------------------------------------------+
+| Total PCB Trace Length                  | < 5000mil                                             |
++-----------------------------------------+-------------------------------------------------------+
+| Spacing between PRGMII signals          | >=2 x trace width                                     |
++-----------------------------------------+-------------------------------------------------------+
+| Spacing to other signals                | >=3 x trace width                                     |
++-----------------------------------------+-------------------------------------------------------+
+| TXCLK and RXCLK Trace Requirement       | Must have ground pour along entire route, with ground |
+|                                         | vias within every 300mil interval of the ground pour  |
++-----------------------------------------+-------------------------------------------------------+
 
 |  The 22ohm series matching resistors for RXD0-RXD3, RXCLK, RXDV should be placed close to the PHY end. The trace length between the PHY pin and the resistor must be controlled within 400mil.
 |  ETH0/1_REFCLKO_25M must have ground pour along its entire route, with ground vias within every 300mil interval of the ground pour.
@@ -1206,24 +1206,24 @@ SATA3.0 Circuit PCB Design
 
 |  SATA3.0 Signal Impedance and Routing Requirements
 
-+------------------------------------+-------------------------------------------------+
-| Parameter                          | Requirement                                     |
-+------------------------------------+-------------------------------------------------+
-| Differential Trace Impedance       | 90Ω±10%                                         |
-+------------------------------------+-------------------------------------------------+
-| TXP/TXN Intra-Pair Skew            | < 12mil                                         |
-+------------------------------------+-------------------------------------------------+
-| RXP/RXN Intra-Pair Skew            | < 12mil                                         |
-+------------------------------------+-------------------------------------------------+
-| Total PCB Trace Length             | < 6000mil                                       |
-+------------------------------------+-------------------------------------------------+
-| Spacing between TX and RX signals  | >=4 x trace width                               |
-+------------------------------------+-------------------------------------------------+
-| Spacing to other signals           | >=4 x trace width                               |
-+------------------------------------+-------------------------------------------------+
-| Layer Change Vias                  | < 2, need symmetrical ground stitching vias     |
-|                                    | near signal layer change vias                   |
-+------------------------------------+-------------------------------------------------+
++-----------------------------------+---------------------------------------------+
+| Parameter                         | Requirement                                 |
++-----------------------------------+---------------------------------------------+
+| Differential Trace Impedance      | 90Ω±10%                                     |
++-----------------------------------+---------------------------------------------+
+| TXP/TXN Intra-Pair Skew           | < 12mil                                     |
++-----------------------------------+---------------------------------------------+
+| RXP/RXN Intra-Pair Skew           | < 12mil                                     |
++-----------------------------------+---------------------------------------------+
+| Total PCB Trace Length            | < 6000mil                                   |
++-----------------------------------+---------------------------------------------+
+| Spacing between TX and RX signals | >=4 x trace width                           |
++-----------------------------------+---------------------------------------------+
+| Spacing to other signals          | >=4 x trace width                           |
++-----------------------------------+---------------------------------------------+
+| Layer Change Vias                 | < 2, need symmetrical ground stitching vias |
+|                                   | near signal layer change vias               |
++-----------------------------------+---------------------------------------------+
 
 |  TXP/N and RXP/N should preferably be routed on the TOP layer. If layer change is necessary, do not exceed 2 vias. Place symmetrical ground stitching vias near the signal vias, with a center distance not exceeding 30mil. Use arcs or obtuse angles for trace bends, not right angles or acute angles.
 |  The reference layer for TXP/N and RXP/N signals needs to be a complete ground plane. Avoid situations where continuous vias block the signal return path.
@@ -1234,31 +1234,31 @@ PCIE3.0 Circuit PCB Design
 
 |  PCIe3.0 Signal Impedance and Routing Requirements
 
-+-------------------------------------+-----------------------------------------------------------+
-| Parameter                           | Requirement                                               |
-+-------------------------------------+-----------------------------------------------------------+
-| Data Differential Trace Impedance   | 85Ω±10%                                                   |
-+-------------------------------------+-----------------------------------------------------------+
-| Clock Differential Trace Impedance  | 100Ω±10%                                                  |
-+-------------------------------------+-----------------------------------------------------------+
-| TXP/TXN Intra-Pair Skew             | < 12mil                                                   |
-+-------------------------------------+-----------------------------------------------------------+
-| RXP/RXN Intra-Pair Skew             | < 12mil                                                   |
-+-------------------------------------+-----------------------------------------------------------+
-| Total PCB Trace Length              | < 6000mil                                                 |
-+-------------------------------------+-----------------------------------------------------------+
-| TX and RX Trace Length Skew         | < 6000mil                                                 |
-+-------------------------------------+-----------------------------------------------------------+
-| Spacing between TX and RX signals   | >=5 x trace width                                         |
-+-------------------------------------+-----------------------------------------------------------+
-| Spacing to other signals            | >=5 x trace width                                         |
-+-------------------------------------+-----------------------------------------------------------+
-| REFCLKP/N Differential Trace Req.   | Must have ground pour along entire route, with ground     |
-|                                     | vias within every 300mil interval of the ground pour      |
-+-------------------------------------+-----------------------------------------------------------+
-| Layer Change Vias                   | < 2, need symmetrical ground stitching vias               |
-|                                     | near signal layer change vias                             |
-+-------------------------------------+-----------------------------------------------------------+
++------------------------------------+-------------------------------------------------------+
+| Parameter                          | Requirement                                           |
++------------------------------------+-------------------------------------------------------+
+| Data Differential Trace Impedance  | 85Ω±10%                                               |
++------------------------------------+-------------------------------------------------------+
+| Clock Differential Trace Impedance | 100Ω±10%                                              |
++------------------------------------+-------------------------------------------------------+
+| TXP/TXN Intra-Pair Skew            | < 12mil                                               |
++------------------------------------+-------------------------------------------------------+
+| RXP/RXN Intra-Pair Skew            | < 12mil                                               |
++------------------------------------+-------------------------------------------------------+
+| Total PCB Trace Length             | < 6000mil                                             |
++------------------------------------+-------------------------------------------------------+
+| TX and RX Trace Length Skew        | < 6000mil                                             |
++------------------------------------+-------------------------------------------------------+
+| Spacing between TX and RX signals  | >=5 x trace width                                     |
++------------------------------------+-------------------------------------------------------+
+| Spacing to other signals           | >=5 x trace width                                     |
++------------------------------------+-------------------------------------------------------+
+| REFCLKP/N Differential Trace Req.  | Must have ground pour along entire route, with ground |
+|                                    | vias within every 300mil interval of the ground pour  |
++------------------------------------+-------------------------------------------------------+
+| Layer Change Vias                  | < 2, need symmetrical ground stitching vias           |
+|                                    | near signal layer change vias                         |
++------------------------------------+-------------------------------------------------------+
 
 |  TXP/N, RXP/N, REFCLKP/N should preferably be routed on the TOP layer. If layer change is necessary, do not exceed 2 vias. Place symmetrical ground stitching vias near the signal vias, with a center distance not exceeding 30mil. Use arcs or obtuse angles for trace bends, not right angles or acute angles.
 |  The reference layer for the signals needs to be a complete ground plane. Avoid situations where continuous vias block the signal return path.

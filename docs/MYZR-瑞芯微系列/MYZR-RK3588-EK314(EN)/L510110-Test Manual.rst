@@ -354,6 +354,7 @@ WiFi
   1) Description: After the WiFi is connected to the AP, the development board sends ICMP packets to the external network to verify that the connection is normal.
 
   2) Operations:
+
     a) Connect the WiFi antenna to the "ANT2/ANT1" interface.
     b) Generate the WPA PSK file for the SSID. Enter:
 
@@ -390,6 +391,7 @@ Bluetooth
   1) Description: After scanning for Bluetooth devices, send an L2CAP response request and receive the reply.
 
   2) Operations:
+  
     a) Connect the antenna to the "ANT2/ANT3" interface
     b) Initialize and start Bluetooth:
 
