@@ -12,6 +12,7 @@
    :caption: MYZR-瑞芯微系列
 
    docs/MYZR-瑞芯微系列/MYZR-RV1126B/index
+   docs/MYZR-瑞芯微系列/MYZR-RV1126B(EN)/index
    docs/MYZR-瑞芯微系列/MYZR-RK3576-EK288/index
    docs/MYZR-瑞芯微系列/MYZR-RK3576-EK288(EN)/index
    docs/MYZR-瑞芯微系列/MYZR-RK3588-EK360/index
