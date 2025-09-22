@@ -1,5 +1,5 @@
-MYZR-RZV2H-EK320
-==================
+MYZR-RZV2H-EK320(EN)
+======================
 
 .. toctree:: 
    :maxdepth: 3
