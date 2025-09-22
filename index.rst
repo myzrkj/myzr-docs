@@ -79,7 +79,7 @@
    :caption: MYZR-瑞萨系列
 
    docs/MYZR-瑞萨系列/MYZR-RZV2H-EK320/index
-   
+   docs/MYZR-瑞萨系列/MYZR-RZV2H-EK320(EN)/index
    docs/MYZR-瑞萨系列/MYZR-RZFIVE/index
    docs/MYZR-瑞萨系列/MYZR-RZG2L/index
    docs/MYZR-瑞萨系列/MYZR-RZG2UL/index
