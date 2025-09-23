@@ -64,6 +64,7 @@
 
    docs/MYZR-iMX8系列/MYZR-IMX8MP-LB276/index
    docs/MYZR-iMX8系列/MYZR-IMX8MP-EK314/index
+   docs/MYZR-iMX8系列/MYZR-IMX8MP-EK314(EN)/index
    docs/MYZR-iMX8系列/MYZR-IMX8MM-EK200/index
    docs/MYZR-iMX8系列/MYZR-IMX8MQ-EK300-RevE/index
    
@@ -72,6 +73,12 @@
    docs/MYZR-iMX8系列/MYZR-IMX8M-EVK/index
    docs/MYZR-iMX8系列/MYZR-IMX8Mmini-EK240/index
    docs/MYZR-iMX8系列/MYZR-IMX8Mmini-EK240(EN)/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-iMX9系列
+
+   docs/MYZR-iMX9系列/MYZR-I.MX93/index
 
 
 .. toctree::

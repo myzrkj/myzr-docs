@@ -1,0 +1,45 @@
+产品介绍
+=========
+
+核心板规格
+-----------
+
+.. figure:: /image/MYZR-iMX9系列/MYZR-I.MX93/核心板接口资源表.jpg
+   :alt: 核心板接口资源表.jpg
+
+信号定义
+---------
+
+- 参考网盘 2.硬件资料 -> 2.1-原理和PCB -> 核心板原理图
+
+核心板介绍
+-----------
+
+- 正面图
+
+.. figure:: /image/MYZR-iMX9系列/MYZR-I.MX93/核心板正面图.jpg
+   :alt: 核心板正面图.jpg
+
+- 背面图
+
+.. figure:: /image/MYZR-iMX9系列/MYZR-I.MX93/核心板背面图.jpg
+   :alt: 核心板背面图.jpg
+
+
+底板介绍
+---------
+
+- 正面图
+
+.. figure:: /image/MYZR-iMX9系列/MYZR-I.MX93/底板正面图.jpg
+   :alt: 底板正面图.jpg
+
+- 背面图
+
+.. figure:: /image/MYZR-iMX9系列/MYZR-I.MX93/底板背面图.jpg
+   :alt: 底板背面图.jpg
+
+- 接口图
+
+.. figure:: /image/MYZR-iMX9系列/MYZR-I.MX93/接口图.jpg
+   :alt: 接口图.jpg
