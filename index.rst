@@ -66,6 +66,7 @@
    docs/MYZR-iMX8系列/MYZR-IMX8MP-EK314/index
    docs/MYZR-iMX8系列/MYZR-IMX8MP-EK314(EN)/index
    docs/MYZR-iMX8系列/MYZR-IMX8MM-EK200/index
+   docs/MYZR-iMX8系列/MYZR-IMX8MM-EK200(EN)/index
    docs/MYZR-iMX8系列/MYZR-IMX8MQ-EK300-RevE/index
    
    docs/MYZR-iMX8系列/MYZR-IMX8M-EK300/index
@@ -120,12 +121,8 @@
    :maxdepth: 1
    :caption: MYZR-其他
 
-   docs/MYZR-其他/MYZR-IMX28-EK142/index
-   docs/MYZR-其他/MYZR-IMX28-EK142(EN)/index
 
-   docs/MYZR-其他/MYZR-LS1012A-EK200/index
-   docs/MYZR-其他/MYZR-SAMA5-EK200/index
-   docs/MYZR-其他/MYZR-SAMA5-EK200(EN)/index
+
 
    docs/MYZR-其他/网关/index      
 
