@@ -101,7 +101,9 @@ Flash the BOOT
   .. image:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.BL2.CMD.png
     :alt: TeraTerm.FW.BL2.CMD
 
-  - Transmit the bl2 firmware: Drag the `bl2_bp_emmc - myzr - rzv2h - ek320 - 8g.srec` file from the `1.2 - Firmware/Linux - 5.10.145/boot - files - <date>` directory directly into the Tera Term software window (select the corresponding file according to the memory capacity of the development board you have) and wait for the transmission to complete.
+  - Transmit the bl2 firmware: Drag the `bl2_bp_emmc - myzr - rzv2h - bb320 - revb - 8g.srec` file from the `1.2 - Firmware/Linux - 5.10.145/boot - files - <date>` directory directly into the Tera Term software window and wait for the transmission to complete.
+
+  **Note**: The file selected in this step must correspond to the memory capacity of the development board, such as revb - 4g or revb - 16g.
 
   .. image:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.BL2.png
     :alt: TeraTerm.Transmit.BL2
@@ -123,7 +125,9 @@ Flash the BOOT
   .. image:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.FIP.CMD.png
     :alt: TeraTerm.FW.FIP.CMD
 
-  - Transmit the fip firmware: Drag the `fip - myzr - rzv2h - ek320 - 8g.srec` file from the `1.2 - Firmware/Linux - 5.10.145/boot - files - <date>` directory directly into the Tera Term software window (select the corresponding file according to the memory capacity of the development board you have) and wait for the transmission to complete.
+  - Transmit the fip firmware: Drag the `fip - myzr - rzv2h - bb320 - revb - 8g.srec` file from the `1.2 - Firmware/Linux - 5.10.145/boot - files - <date>` directory directly into the Tera Term software window and wait for the transmission to complete.
+
+  **Note**: The file selected in this step must correspond to the memory capacity of the development board, such as revb - 4g or revb - 16g.
 
   .. image:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.FIP.png
     :alt: TeraTerm.Transmit.FIP.Loading

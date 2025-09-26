@@ -99,7 +99,9 @@
   .. image:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.BL2.CMD.png
     :alt: TeraTerm.FW.BL2.CMD
 
-  - 传输 bl2 固件：把 `1.2-固件/Linux-5.10.145/boot-files-<date>` 目录的 `bl2_bp_emmc-myzr-rzv2h-ek320-8g.srec` 文件直接拖入到 Tera Term 软件窗口上（这里根据拿到的开发板的内存容量选择对应的文件），并等待传输完成。
+  - 传输 bl2 固件：把 `1.2-固件/Linux-5.10.145/boot-files-<date>` 目录的 `bl2_bp_emmc-myzr-rzv2h-bb320-revb-8g.srec` 文件直接拖入到 Tera Term 软件窗口上，并等待传输完成。
+
+  **提示**：这一步选择的文件需要与开发板的内存容量对应，比如 revb-4g 或 revb-16g。
 
   .. image:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.BL2.png
     :alt: TeraTerm.Transmit.BL2
@@ -121,7 +123,9 @@
   .. image:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.FW.FIP.CMD.png
     :alt: TeraTerm.FW.FIP.CMD
 
-  - 传输 fip 固件：把 `1.2-固件/Linux-5.10.145/boot-files-<date>` 目录的 `fip-myzr-rzv2h-ek320-8g.srec` 文件直接拖入到 Tera Term 软件窗口上（这里根据拿到的开发板的内存容量选择对应的文件），并等待传输完成。
+  - 传输 fip 固件：把 `1.2-固件/Linux-5.10.145/boot-files-<date>` 目录的 `fip-myzr-rzv2h-bb320-revb-8g.srec` 文件直接拖入到 Tera Term 软件窗口上，并等待传输完成。
+
+  **提示**：这一步选择的文件需要与开发板的内存容量对应，比如 revb-4g 或 revb-16g。
 
   .. image:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/TeraTerm.Transmit.FIP.png
     :alt: TeraTerm.Transmit.FIP.Loading
