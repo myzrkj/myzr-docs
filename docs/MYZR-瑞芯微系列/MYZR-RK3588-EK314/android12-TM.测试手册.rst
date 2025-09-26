@@ -383,8 +383,8 @@ WIFI
 
 |  3）可看到右上角有5G图片出现
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK314/RK3568-android11-5g-1.jpg
-  :alt: image-RK3568-android11-5g-1.jpg
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-5g-1.jpg
+  :alt: image-RK3588-android12-5g-1.jpg
 
   4）可进行网站浏览测试
 

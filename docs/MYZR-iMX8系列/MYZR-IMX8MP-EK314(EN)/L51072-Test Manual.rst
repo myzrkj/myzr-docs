@@ -1092,7 +1092,7 @@ USB Recognized as USB Flash Drive
     Files written on the computer can be seen in the /mnt directory after remounting. Files written on the development board can be seen on the PC after re-plugging the USB cable. This indicates that the function is normal.
 
 USB recognized as network interface
---------------
+--------------------------------------
 
 + Interface silkscreen: J16
 
@@ -1154,7 +1154,7 @@ Note: If WIN10 recognizes rndis as a COM port, you need to download the driver k
 
 
 HDMI
-----
+------
 
 + Interface silkscreen: J4
 
@@ -1177,7 +1177,7 @@ HDMI
   Note: Using myimx8mpek314-mipi.dtb or myimx8mpek314.dtb, the HDMI display will work normally.
 
 LVDS
-----
+------
 
 + Interface silkscreen: J8 (LVDS0), J9 (LVDS1)
 
@@ -1190,7 +1190,7 @@ LVDS
   3) Phenomenon:
 
 MIPI DSI
---------
+----------
 
 + Interface silkscreen: J5
 
@@ -1211,7 +1211,7 @@ MIPI DSI
   Note: Using myimx8mpek314-mipi.dtb, the MIPI screen will display normally.
 
 MIPI CSI
---------
+----------
 
 + Interface silkscreen: J6 (CSI1), J7 (CSI2)
 
@@ -1296,7 +1296,7 @@ MIPI CSI
        [   27.649107] output fmt YUYV
 
 PCIe
-----
+------
 
 + Interface silkscreen: J11
 
@@ -1320,7 +1320,7 @@ PCIe
   3) Result: The output information after operation meets the expected result, indicating that the module is correctly recognized.
 
 M2 5G
------
+-------
 
 + Interface silkscreen: J12
 
@@ -1335,7 +1335,7 @@ M2 5G
 
 
 QT Test
--------
+---------
 
 **Functional Test**
 

@@ -52,12 +52,12 @@ U-Boot Board-Level Files
 
 - Location of U-Boot board-level files: board/myzr
 - U-Boot board-level configuration files: include/configs/myimx*.h
-- U-Boot board-level compilation configuration files: configs/*_defconfig
+- U-Boot board-level compilation configuration files: configs/\*_defconfig
 
 Linux Kernel Board-Level Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-- Kernel board-level compilation configuration files: arch/arm/configs/*_defconfig
+- Kernel board-level compilation configuration files: arch/arm/configs/\*_defconfig
 - Kernel board-level device tree files: arch/arm/boot/dts/---*
 - Kernel Development Reference Manual: 《*Reference Manual*.pdf》 in the network disk
 
