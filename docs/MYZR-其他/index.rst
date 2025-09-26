@@ -11,5 +11,6 @@
    ./其他/MYZR-IMX28-EK142/index
    ./其他/MYZR-IMX28-EK142(EN)/index
    ./其他/MYZR-LS1012A-EK200/index
+   ./其他/MYZR-LS1012A-EK200(EN)/index
    ./其他/MYZR-SAMA5-EK200/index
    ./其他/MYZR-SAMA5-EK200(EN)/index

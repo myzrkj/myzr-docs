@@ -891,19 +891,19 @@ Mipi CSI
 
   * The following is the table of camera configuration scripts corresponding to CSI interfaces:
 
-+----------+---------------------------------+
-| CSI Interface |            Configuration Script             |
-+==========+=================================+
-| CSI0     | gstreamer_cam_test_CAM0_CN7.sh  |
-+----------+---------------------------------+
-| CSI1     | gstreamer_cam_test_CAM1_CN8.sh  |
-+----------+---------------------------------+
-| CSI2     | gstreamer_cam_test_CAM2_CN9.sh  |
-+----------+---------------------------------+
-| CSI3     | gstreamer_cam_test_CAM3_CN10.sh |
-+----------+---------------------------------+
++---------------+---------------------------------+
+| CSI Interface |      Configuration Script       |
++===============+=================================+
+| CSI0          | gstreamer_cam_test_CAM0_CN7.sh  |
++---------------+---------------------------------+
+| CSI1          | gstreamer_cam_test_CAM1_CN8.sh  |
++---------------+---------------------------------+
+| CSI2          | gstreamer_cam_test_CAM2_CN9.sh  |
++---------------+---------------------------------+
+| CSI3          | gstreamer_cam_test_CAM3_CN10.sh |
++---------------+---------------------------------+
 
-  The information you can see when calling the preset script for configuration is similar to the following:
+  * The information you can see when calling the preset script for configuration is similar to the following:
 
 .. code-block:: shell
 
