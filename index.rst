@@ -92,6 +92,7 @@
    docs/MYZR-瑞萨系列/MYZR-RZG2L/index
    docs/MYZR-瑞萨系列/MYZR-RZG2L(EN)/index
    docs/MYZR-瑞萨系列/MYZR-RZG2UL/index
+   docs/MYZR-瑞萨系列/MYZR-RZG2UL(EN)/index
 
 
 .. toctree::
