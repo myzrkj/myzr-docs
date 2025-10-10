@@ -325,7 +325,7 @@ CPU性能
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/主板背面.png
    :alt: 主板背面.png
-   :width: 50%
+   :width: 80%
 
 
 第二章 MYZR-SSD2351-MB112嵌入式开发平台介绍
@@ -339,16 +339,16 @@ CPU性能
 
 |	明远智睿MYZR-SSD2351-MB112开发平台采用邮票孔核心板+底板结构，名字中的112指核心板管脚数非CPU后缀，开发板主要接口如下图所示：
 
-.. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/主板正面A.png
-   :alt: 主板正面A.png
-   :width: 50%
+.. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/主板正面A.jpg
+   :alt: 主板正面A.jpg
+   :width: 80%
 
 2.1.2底板参数
 ^^^^^^^^^^^^^^^
 
-.. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/底板尺寸.png
-   :alt: 底板尺寸.png
-   :width: 50%
+.. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/底板尺寸.jpg
+   :alt: 底板尺寸.jpg
+   :width: 80%
 
 |	结构尺寸： 94mm×51mm 矩形 PCB。
 |	制版工艺：厚度 1.6mm，4层PCB，黑色。

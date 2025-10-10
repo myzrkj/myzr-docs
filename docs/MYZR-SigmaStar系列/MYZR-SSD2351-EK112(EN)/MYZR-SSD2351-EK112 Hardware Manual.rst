@@ -323,7 +323,7 @@ Core Board Interface Resources
 
 .. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/主板背面.png
    :alt: 主板背面.png
-   :width: 50%
+   :width: 80%
 
 
 Chapter 2 Introduction to MYZR-SSD2351-MB112 Embedded Development Platform
@@ -337,16 +337,16 @@ Chapter 2 Introduction to MYZR-SSD2351-MB112 Embedded Development Platform
 
 | Mingyuan Zhirui MYZR-SSD2351-MB112 development platform adopts a stamp hole core board + base board structure. The 112 in the name refers to the number of core board pins, not the CPU suffix. The main interfaces of the development board are as shown in the following figure:
 
-.. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/主板正面A.png
-   :alt: 主板正面A.png
-   :width: 50%
+.. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/主板正面A.jpg
+   :alt: 主板正面A.jpg
+   :width: 80%
 
 2.1.2 Base Board Parameters
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/底板尺寸.png
-   :alt: 底板尺寸.png
-   :width: 50%
+.. image:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/底板尺寸.jpg
+   :alt: 底板尺寸.jpg
+   :width: 80%
 
 | Structural size: 94mm×51mm rectangular PCB.
 | Manufacturing process: thickness 1.6mm, 4-layer PCB, black.
