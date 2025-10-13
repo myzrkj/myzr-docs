@@ -89,6 +89,7 @@
    docs/MYZR-瑞萨系列/MYZR-RZV2H-EK320/index
    docs/MYZR-瑞萨系列/MYZR-RZV2H-EK320(EN)/index
    docs/MYZR-瑞萨系列/MYZR-RZFIVE/index
+   docs/MYZR-瑞萨系列/MYZR-RZFIVE(EN)/index
    docs/MYZR-瑞萨系列/MYZR-RZG2L/index
    docs/MYZR-瑞萨系列/MYZR-RZG2L(EN)/index
    docs/MYZR-瑞萨系列/MYZR-RZG2UL/index
@@ -100,7 +101,9 @@
    :caption: MYZR-ST系列
 
    docs/MYZR-ST系列/MYZR-STM32MP13-EK200/index
+   docs/MYZR-ST系列/MYZR-STM32MP13-EK200(EN)/index
    docs/MYZR-ST系列/MYZR-STM32MP15-EK152/index
+   docs/MYZR-ST系列/MYZR-STM32MP15-EK152(EN)/index
 
 
 
