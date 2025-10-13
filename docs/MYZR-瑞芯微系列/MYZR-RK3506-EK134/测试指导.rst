@@ -7,40 +7,42 @@
 网口1
 ~~~~~~~
 
-|   接口丝印：U9
+|   接口丝印：J14
 |   系统接口：eth0
 |   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
-
-|   测试操作
+|   测试操作：
 
 1. 配置电脑有线网卡IP为 192.168.137.99
-2. 使用网线连接开发板网口和电脑的网口
-3. 查看开发板网口1信息，输入指令如下：
+2. 使用网线连接开发板网口和电脑的网口，串口显示信息：
 
 .. code-block:: shell
 
-    ifconfig eth0
+    [  275.170629] rk_gmac-dwmac fe1c0000.ethernet eth0: Link is Up - 1Gbps/
 
-4. 配置网口1的IPV4 IP，输入指令如下：
-
-.. code-block:: shell
-
-    ifconfig eth0 192.168.137.18 netmask 255.255.255.0
-
-5. 再次查看开发板网口1信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+3. 默认是自动获取ip，但测试是配置静态ip来测，具体配置命令如下：
 
 .. code-block:: shell
 
-    ifconfig eth0
+    ifconfig eth1 down
+    ifconfig eth0 up
+    ifconfig eth0 192.168.137.81
 
-6. 输入指令如下进行验证网口1：
+
+4. 输入指令如下进行验证网口1：
 
 .. code-block:: shell
 
-    ping -I eth0 192.168.137.99 -c 3
+    ping -I eth0 192.168.137.99 -c 2 -w 4
+    PING 192.168.137.99 (192.168.137.99) from 192.168.137.81 eth0: 56(84) bytes of data.
+    64 bytes from 192.168.137.99: icmp_seq=1 ttl=128 time=0.947 ms
+    64 bytes from 192.168.137.99: icmp_seq=2 ttl=128 time=0.588 ms
 
-|   "0% packet loss"表示测试通过
+    --- 192.168.137.99 ping statistics ---
+    2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+    rtt min/avg/max/mdev = 0.588/0.767/0.947/0.179 ms
 
+|   “0% packet loss”表示测试通过
+|   如果出现”100% packet loss”，请先确认电脑的防火墙是否全部关闭
 
 
 网口2
@@ -49,219 +51,391 @@
 |   接口丝印：U5
 |   系统接口：eth1
 |   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
-
-|   测试操作
+|   测试操作：
 
 1. 配置电脑有线网卡IP为 192.168.137.99
-2. 使用网线连接开发板网口和电脑的网口
-3. 查看开发板网口2信息，输入指令如下：
+2. 使用网线连接开发板网口和电脑的网口，串口显示信息：
 
 .. code-block:: shell
 
-    ifconfig eth1
+    [  528.550794] IPv6: ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready
 
-4. 配置网口2的IPV4 IP，输入指令如下：
-
-.. code-block:: shell
-
-    ifconfig eth1 192.168.137.22 netmask 255.255.255.0
-
-5. 再次查看开发板网口2信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+3. 默认是自动获取ip，但测试是配置静态ip来测，具体配置命令如下：
 
 .. code-block:: shell
 
-    ifconfig eth1
+    ifconfig eth0 down
+    ifconfig eth1 up
+    ifconfig eth1 192.168.137.81
 
-6. 输入指令如下进行验证网口2：
+4. 输入指令如下进行验证网口2：
 
 .. code-block:: shell
 
-    ping -I eth1 192.168.137.99 -c 3
+    ping -I eth1 192.168.137.99 -c 2 -w 4
+    64 bytes from 192.168.137.99: icmp_seq=2 ttl=128 time=0.575 ms
 
-|   "0% packet loss"表示测试通过
+    --- 192.168.137.99 ping statistics ---
+    2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+    rtt min/avg/max/mdev = 0.575/0.812/1.049/0.237 ms
+
+
+|   “0% packet loss”表示测试通过
+|   如果出现”100% packet loss”，请先确认电脑的防火墙是否全部关闭
+
+
+GPIO测试
+-----------
+
++--------+------+------+------+------+------+------+------+
+| 丝印   | 11   | 12   | 13   | 14   | 15   | 16   | 17   |
++--------+------+------+------+------+------+------+------+
+| GIPO   | IO11 | IO12 | IO13 | IO14 | IO15 | IO16 | IO17 |
++--------+------+------+------+------+------+------+------+
+| 高电平 | 1.8V | 1.8V | 1.8V | 1.8V | 1.8V | 1.8V | 1.8V |
++--------+------+------+------+------+------+------+------+
+
+|   测试操作：
+
+.. code-block:: shell
+
+    echo out >/proc/myzr_gpio/IO11
+
+    cat /proc/myzr_gpio/IO11
+
+|   输出信息类似如下：
+
+.. code-block:: shell
+
+    0
+    echo 1 > /proc/myzr_gpio/IO11
+    cat /proc/myzr_gpio/IO11
+
+|   输出信息类似如下：
+
+.. code-block:: shell
+
+    1
+
+UART测试
+----------
+
+|   接口丝印：J17
+|   测试说明：采用uart自发自收的方式进行测试
+|   测试操作
+
+1. 短接J17-3(UART1_TX_M0)和J17-4(UART1_RX_M0)引脚
+2. 输入指令如下进行收发测试：
+
+.. code-block:: shell
+
+    chmod 777 ./serial_test.out
+    ./serial_test.out /dev/ttyS1 "myzr"
+    Starting send data...finish
+    Starting receive data:
+    ASCII: 0x6d          Character: m 
+    ASCII: 0x79          Character: y 
+    ASCII: 0x7a          Character: z 
+    ASCII: 0x72          Character: r 
+    ASCII: 0x0            Character: 
+
+音频播放测试
+-------------
+
+|   接口丝印：J10
+|   测试说明：播放音频文件验证评估板的音频播放功能
+|   测试操作
+
+1. 把耳机接入丝印对应的接口
+2. 输入指令如下进行测试：
+
+.. code-block:: shell
+
+    aplay test.wav
+
+3. 结果：耳机有声音输出表示音频播放测试通过
+
+录音测试
+---------
+
+|   接口丝印：J11
+|   测试说明：录制并播放录音文件进行测试
+|   测试操作：
+
+1. 把带MIC插入丝印对应的接口
+2. 输入如下指令进行10秒的录音：
+
+.. code-block:: shell
+
+    arecord -Dhw:1,0 -c 2 -r 44100 -f S16_LE -t wav test.wav
+
+3. 把耳机或者喇叭接入丝印J10、J13对应的接口播放录制的音频文件，输入如下指令：
+
+.. code-block:: shell
+
+    aplay test.wav
+
+|   耳机或者喇叭有录制声音输出表示录音测试通过
+
+
+SPEAKER测试
+-------------
+
+|   接口丝印：J12
+|   测试说明：接口有3个脚，把喇叭接入丝印 J12对应的接口
+|   测试操作
+
+1. 输入如下指令
+
+.. code-block:: shell
+
+    aplay /myzr_test/audio/mytest.wav
+
+|   喇叭发出声音，表示测试通过
+
+
+4G测试
+--------
+
+|   接口丝印：J19、ANT2
+|   测试说明：采用插拔SIM卡和接天线的方式进行测试
+|   测试操作：
+
+1. 接上4G天线和SIM卡
+2. 启动开发板
+3. 获取ip
+
+.. code-block:: shell
+
+    udhcpc -i usb0
+
+4. 测试连接情况
+
+.. code-block:: shell
+
+    ping -I usb0 baidu.com
 
 
 USB测试
 ---------
 
-|   接口丝印：J1
+|   接口丝印：J7、USB2.0
 |   测试说明：采用插拔USB存储设备（U盘）的方式进行测试
+|   测试操作：
 
-|   测试操作
-
-1. 将U盘插入底板USB接口，系统会输出类似如下信息
-
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试1.png
-   :alt: 测试1.png
-
-2. 将U盘从底板拔出，系统会输出类似如下信息
-
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试2.png
-   :alt: 测试2.png
-
-SD接口测试
------------
-
-|   接口丝印：J12
-|   测试说明：采用插拔TF卡的方式进行测试
-
-|   测试操作
-
-1. 将TF卡安装到SD接口，开发板会输出如下信息：
-
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试3.png
-   :alt: 测试3.png
-
-2. 将TF拔出，输出信息如下：
-
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试4.png
-   :alt: 测试4.png
-
-音频播放测试
---------------
-
-|   接口丝印：P1
-|   测试说明：播放音频文件验证开发板的音频播放功能
-
-|   测试操作
-
-1. 把耳机或者喇叭接入丝印对应的接口
-2. 输入指令如下进行测试：
+1. 将USB设备插入底板USB接口，系统会输出类似如下信息：
 
 .. code-block:: shell
 
-    aplay ./mytest.wav
+    [ 2649.580746] usb 2-1.1: new high-speed USB device number 3 using ehci-platform
+    [ 2649.735676] usb-storage 2-1.1:1.0: USB Mass Storage device detected
+    [ 2649.752030] scsi host0: usb-storage 2-1.1:1.0
+    [ 2649.951147] usbcore: registered new interface driver uas
+    [ 2650.801744] scsi 0:0:0:0: Direct-Access     aigo     U330             2.00 PQ: 0 ANSI: 4
+    [ 2650.822371] sd 0:0:0:0: [sda] 61440000 512-byte logical blocks: (31.5 GB/29.3 GiB)
+    [ 2650.830508] sd 0:0:0:0: Attached scsi generic sg0 type 0
+    [ 2650.851173] sd 0:0:0:0: [sda] Write Protect is off
+    [ 2650.871241] sd 0:0:0:0: [sda] No Caching mode page found
+    [ 2650.875217] sd 0:0:0:0: [sda] Assuming drive cache: write through
+    [ 2650.896991]  sda: sda1
+    [ 2650.916261] sd 0:0:0:0: [sda] Attached SCSI removable disk
 
-|   耳机或者喇叭有声音输出表示音频播放测试通过
+2. 将USB设备从底板拔出，系统会输出类似如下信息：
 
-录音测试
+.. code-block:: shell
+
+    [ 2690.764161] usb 2-1.1: USB disconnect, device number 3
+
+
+背光测试
+---------
+
+|   背光的亮度设置范围为（0--255），255表示亮度最高，0表示关闭背光亮度。进入系统后在终端输入如下命令进行背光测试。
+|   输入以下命令查看当前屏幕背光值
+
+.. code-block:: shell
+
+    cat /sys/class/backlight/backlight/brightness
+
+|   输出信息类似如下：
+
+.. code-block:: shell
+
+    200
+
+|   输入以下命令设置背光熄灭
+
+.. code-block:: shell
+
+    echo 0 > /sys/class/backlight/backlight/brightness
+
+|   输入以下命令设置背光亮起
+
+.. code-block:: shell
+
+    echo 200 > /sys/class/backlight/backlight/brightness
+
+
+RTC测试
+---------
+
+|   接口丝印：RTC1
+|   测试说明：读取并设置时间，断电重启后检查时间是否正确
+|   测试操作：
+
+1. 断电，检查纽扣电池是否安装，用万用表检查RTC电池有没有电，测出来是3.3v左右才是正常的
+2. 设备通电，查看当前系统时钟，输入指令如下：
+
+.. code-block:: shell
+
+    date
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Wed May 14 02:06:10 UTC 2025
+
+3. 查看rtc时钟，输入指令：
+
+.. code-block:: shell
+
+    hwclock
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Wed May 14 02:06:20 2025  0.000000 seconds
+
+4. 设置系统时间
+
+.. code-block:: shell
+
+    date -s "2025-5-14 10:30:00"
+
+5. 将系统时间写入rtc，查看有没有成功写入，输入指令如下：
+
+.. code-block:: shell
+
+    hwclock -w
+    hwclock
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Wed May 14 10:30:10 2025  0.000000 seconds
+
+|   与系统时间差不多，表示成功写入rtc。
+
+6. 设备断电重启，查看rtc时钟，输入指令如下：
+
+.. code-block:: shell
+
+    hwclock
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Wed May 14 10:30:43 2025  0.000000 seconds
+
+|   rtc时间在原来的时间上继续走，表明rtc测试通过
+
+
+Wifi测试
 ----------
 
-|   接口丝印：P1
-|   测试说明：录制并播放录音文件进行测试
+|   接口丝印：ANT1
+|   测试说明：WIFI连接到AP后，开发板向外网发送ICMP报文来验证连接正常
+|   测试操作：
 
-|   测试操作
-
-1. 把带MIC的耳机插入丝印对应的接口
-2. 输入如下指令进行4秒的录音：
-
-.. code-block:: shell
-
-    arecord -d 4 -f S16_LE record.wav
-
-3. 播放录制的音频文件，输入如下指令：
+1. 把WIFI天线连接到”ANT1”接口上
+2. 生成 SSID 的 WPA PSK 文件
 
 .. code-block:: shell
 
-    aplay record.wav
+    wpa_passphrase命令格式: wpa_passphrase + wifi名称 + wifi密码 > /etc/wpa_supplicant.conf
 
-|   耳机有录制声音输出表示录音测试通过
-
-
-M.2接口测试
-------------
-
-|   接口丝印：J7
-|   测试说明：挂载硬盘后查看挂载情况
-
-|   测试操作
-
-1. 开发板断电，接上M.2接口硬盘后启动开发板
-2. 创建挂载点并挂载硬盘，输入指令如下：
-
-.. code:: shell
-
-    mkdir /nvme    
-    mount /dev/nvme0n1p1 /nvme/
-
-3. 查看挂载情况，输入指令如下：
-
-.. code:: shell
-
-    df -h
-
-4. 挂载成功可获取如下类似输出信息：
-
-.. code:: shell
-
-    /dev/nvme0n1p1  499M  10M  490M  2%  /nvme
-
-5. 卸载硬盘，输入指令如下：
-
-.. code:: shell
-
-    umount /nvme
-
-uart测试
-----------
-
-|   接口丝印：J14
-|   测试说明：采用uart自发自收的方式进行测试
-
-|   测试操作
-
-1. 短接J14-33(UART3_TX_M1)和J14-35(UART3_RX_M1)引脚
-2. 输入指令如下进行收发测试：
+|   输入指令如下：
 
 .. code-block:: shell
 
-    ./serial_test.out /dev/ttyS3 "myzr"
+    wpa_passphrase MY-WIFI My202412 > /etc/wpa_supplicant.conf
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试5.png
-   :alt: 测试5.png
-
-|   执行测试指令后输出如上类似信息表示uart测试通过，按下'Ctrl + C'退出
-
-
-SPI接口测试
--------------
-
-|   接口丝印：J14
-|   测试说明：采用spi自发自收的方式进行测试
-
-|   测试操作
-
-1. 短接J14-19(HDMIRX_INT_L_GPIO4_C3)和J14-21(UART9_TX_M1)引脚
-2. 输入指令如下进行收发测试：
+3. 连接，输入指令如下：
 
 .. code-block:: shell
 
-    ./spidev_test -D /dev/spidev3.0
+    wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试6.png
-   :alt: 测试6.png
-
-|   执行测试指令后输出如上类似信息表示spi测试通过
-
-
-红外测试
-----------
-
-|   接口丝印：IR1
-|   测试说明：通过接收红外信息，打印出相应数据
-
-|   测试操作
-
-1. 准备一个红外遥控器，或手机的红外遥控app
-2. 打开相关打印开关，输入指令如下：
+|   输出信息：
 
 .. code-block:: shell
 
-    echo 1 > /sys/module/rockchip_pwm_remotectl/parameters/code_print
-    echo 1 > /sys/module/rockchip_pwm_remotectl/parameters/dbg_level
+    Successfully initialized wpa_supplicant
+    nl80211: kernel reports: Match already configured
 
-3. 使用遥控器对准红外接口按下任意按钮
-4. 开发板看到返回相关按钮信息即为成功接收到
+4. 获取IP，输入指令如下：
+
+.. code-block:: shell
+
+    udhcpc -i wlan0
+
+|   输出信息：
+
+.. code-block:: shell
+
+    udhcpc: started, v1.36.1
+    udhcpc: broadcasting discover
+    udhcpc: broadcasting select for 192.168.61.109, server 192.168.60.1
+    udhcpc: lease of 192.168.61.109 obtained from 192.168.60.1, lease time 86400
+    deleting routers
+    route: SIOCADDRT: Network is unreachable
+    adding dns 192.168.60.1
+
+5. 测试连接，输入指令如下：
+
+.. code-block:: shell
+
+    ping -I wlan0 www.baidu.com -c 3
+
+|   输出信息：
+
+.. code-block:: shell
+
+    PING www.baidu.com (183.2.172.17): 56 data bytes
+    64 bytes from 183.2.172.17: seq=0 ttl=54 time=11.818 ms
+    64 bytes from 183.2.172.17: seq=1 ttl=54 time=579.288 ms
+    64 bytes from 183.2.172.17: seq=2 ttl=54 time=38.478 ms
+
+    --- www.a.shifen.com ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss
+    round-trip min/avg/max = 11.818/209.861/579.288 ms
+
+|   结果：”0% packet loss”表示wifi连接正常
 
 
-显示屏
---------
+can测试
+---------
 
-|   接口丝印：J2
-|   测试说明：查看开发板上电启动显示屏是否正常显示
+|   RK3506 系列 CAN 属于 CANFD 接口。
+|   测试可以使用 candump 和 cansend 测试，注意提前连接好设备。
 
-|   测试操作
+1. 配置并开启 can 接口
 
-1. 将一个HDMI接口的屏幕和开发板上的HDMI接口连接，启动开发板
+.. code-block:: shell
 
-|   显示屏正常显示表示测试通过
+    ip link set can0 up type can bitrate 100000  dbitrate 200000 fd on restart-ms 1000
+    ip link set can1 up type can bitrate 100000  dbitrate 200000 fd on restart-ms 1000
+
+2. 收发数据
+
+.. code-block:: shell
+
+    candump can0 &
+    candump can1 &
+
+    cansend can0 123#112233eeff
+    cansend can1 123#112233eeff

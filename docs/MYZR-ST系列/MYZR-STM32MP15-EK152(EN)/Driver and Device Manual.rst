@@ -1,5 +1,5 @@
-MYZR-STM32MP15-EK152 Driver and Device Manual
-===============================================
+Driver and Device Manual
+==========================
 
 Drivers and Related Device Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

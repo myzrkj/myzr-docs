@@ -15,7 +15,7 @@ Compilation Manual
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32MP15-EK152 Compilation Reference Manual
+   Compilation Reference Manual
 
 Driver and Device Manual
 --------------------------
@@ -23,7 +23,7 @@ Driver and Device Manual
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32MP15-EK152 Driver and Device Manual
+   Driver and Device Manual
 
 Flashing Manual
 -----------------
@@ -31,15 +31,15 @@ Flashing Manual
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32MP15CubeProgrammer Programming Guide
+   Programming Guide
 
 Startup Manual
------------------
+----------------
 
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32MP15-EK152 Startup Manual
+   Startup Manual
 
 Testing Manual
 ----------------
@@ -47,4 +47,4 @@ Testing Manual
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32MP15 Test Manual
+   Test Manual

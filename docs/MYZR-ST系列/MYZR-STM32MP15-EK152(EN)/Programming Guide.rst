@@ -1,5 +1,5 @@
-MYZR-STM32MP15CubeProgrammer Programming Guide
-================================================
+Programming Guide
+====================
 
 STM32CubeProgrammer Programming
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

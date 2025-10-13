@@ -1,9 +1,6 @@
 软件开发指导
 =============
 
-.. include:: /docs/COMMON/MYZR-RK3588-EK360开发环境搭建手册.rst
-
-
 源码编译
 ---------
 
@@ -36,22 +33,10 @@
 
 .. code-block:: shell
 
-    sudo apt-get install git bc bison build-essential curl flex g++-
-    multilib gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev 
-    lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev 
-    libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush 
-    rsync schedtool squashfs-tools xsltproc yasm zip zlib1g-dev 
-    python device-tree-compiler expect g++ patchelf gawk texinfo 
-    chrpath diffstat binfmt-support qemu-user-static live-build 
-    fakeroot cmake ssh make gcc g++ unzip ncurses-dev python3-pip 
-    libncurses5 libc6:i386 genext2fs u-boot-tools  mtools parted 
-    libudev-dev libusb-1.0-0-dev autoconf autotools-dev libsigsegv2 
-    m4 intltool libdrm-dev  sed binutils wget libglib2.0-dev 
-    libgtk2.0-dev libglade2-dev cvs mercurial gcc-arm-none-eabi 
-    gcc-arm-linux-gnueabi openjdk-8-jdk openssh-client subversion 
-    asciidoc w3m dblatex graphviz device-tree-compiler flex bison 
-    openssl libssl-dev unzip git-lfs ccache libelf-dev default-jdk 
-    mtd-utils scons
+    sudo dpkg --add-architecture i386
+    sudo apt-get install git bc bison build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip \
+    zlib1g-dev device-tree-compiler expect g++ patchelf gawk texinfo chrpath diffstat binfmt-support qemu-user-static live-build fakeroot cmake ssh make gcc g++ unzip ncurses-dev python3-pip libncurses5 libc6:i386 genext2fs \
+    u-boot-tools  mtools parted libudev-dev libusb-1.0-0-dev autoconf autotools-dev libsigsegv2 m4 intltool libdrm-dev  sed binutils wget libglib2.0-dev libgtk2.0-dev libglade2-dev cvs mercurial gcc-arm-none-eabi gcc-arm-linux-gnueabi openjdk-8-jdk  subversion asciidoc w3m dblatex graphviz device-tree-compiler flex bison openssl libssl-dev unzip git-lfs ccache libelf-dev default-jdk mtd-utils scons 
 
 SDK配置加载
 ~~~~~~~~~~~~~
@@ -60,7 +45,7 @@ SDK配置加载
 
 .. code-block:: shell
 
-    ./build.sh myzr_rk3506_ek200_defconfig
+    ./build.sh buildroot-config
 
 整体编译
 ~~~~~~~~~~
@@ -84,7 +69,7 @@ SDK配置加载
     cd u-boot/
     make clean
 
-2. 回到SDK主目录，并进行uboot单独编译
+2. 2.回到SDK主目录，并进行uboot单独编译
 
 .. code-block:: shell
 
@@ -138,7 +123,7 @@ SDK配置加载
 打包update.img
 ~~~~~~~~~~~~~~~~
 
-1. 在rockdev将镜像打包成update.img
+1. 在SDK下的output/update/Image目录里可以看到打包好的镜像update.img
 2. 在SDK主目录下输入如下命令:
 
 .. code-block:: shell
@@ -146,6 +131,7 @@ SDK配置加载
     ./build.sh updateimg
 
 |   完成上述操作后可按照刷机手册重新刷机
+|   最后提示用户应该重新刷机测试
 
 
 开发指导
@@ -162,19 +148,18 @@ Linux内核板级文件
 ~~~~~~~~~~~~~~~~~~
 
 |   内核板级编译配置文件：kernel-6.1/arch/arm/configs/rk3506_defconfig
-|   内核板级设备树文件：kernel-6.1/arch/arm/boot/dts/rockchip/myzr-rk3506-ek200.dts
-|   内核开发参考手册：网盘中《Reference Manual.pdf》
+|   内核板级设备树文件：kernel-6.1/arch/arm/boot/dts/rockchip/myzr-rk3506-*.dts
 
 GPIO
 ~~~~~~
 
-1. GPIO驱动架构
+1. 简介
 
 |   GPIO是General Purpose I/O的缩写，即通用输入输出端口，简单来说就是MCU/CPU可控制的引脚， 这些引脚通常有多种功能，最基本的是高低电平输入检测和输出，部分引脚还会与主控器的片上外设绑定， 如作为串口、I2C、网络、电压检测的通讯引脚。Linux提供了GPIO子系统驱动框架，使用该驱动框架即可灵活地控制板子上的GPIO。
 
 2. 引脚命名规则
 
-|   RK3506的GPIO分为4组（GPIO0~GPIO3），每组又以 A0~A7, B0~B7, C0~C7, D0~D7 作为编号区分。例如
+|   RK3562的GPIO分为4组（GPIO0~GPIO3），每组又以 A0~A7, B0~B7, C0~C7, D0~D7 作为编号区分。例如
 
 - GPIO0_C2表示第0组（GPIO0）的C组第2个引脚。
 - GPIO3_B5表示第3组（GPIO3）的B组第5个引脚。
@@ -198,7 +183,7 @@ GPIO
 
 .. code-block:: shell
 
-|   在Linux中，最常见的读写GPIO方式就是用GPIO sysfs interface， 是通过操作 /sys/class/gpio 目录下的 export 、 unexport 、gpio{N}/direction, gpio{N} /value （用实际引脚号替代{N}）等文件实现的，经常出现shell脚本里面。 
+|   在Linux中，最常见的读写GPIO方式就是用GPIO sysfs interface， 是通过操作 /sys/class/gpio 目录下的 export 、 unexport 、gpio{N}/direction, gpio{N} /value （用实际引脚号替代{N}）等文件实现的，经常出现shell脚本里面。
 |   echo 18 > /sys/class/gpio/export     #使能引脚GPIO0_C2
 |   echo out > gpio18/direction          # 设置引脚为输出模式
 |   echo 1 > gpio18/value                # 设置引脚为高电平
@@ -210,7 +195,7 @@ GPIO
 UART
 ~~~~~~
 
-1. 设备树配置（UART3_M0为例，在J17扩展接口上对应5和6引脚）
+1. 设备树配置
 
 .. code-block:: shell
 
@@ -253,6 +238,7 @@ UART
     ASCII: 0x72          Character: r 
     ASCII: 0x0            Character:
 
+
 CAN
 ~~~~~~
 
@@ -288,6 +274,21 @@ CAN
         pinctrl-names = "default";
         pinctrl-0 = <&rm_io19_can0_tx &rm_io20_can0_rx>;
     };
+
+**CAN通信测试**
+
+|   使用 candump 和 cansend 工具进行收发报文测试即可，
+|   #在收发端关闭can0设备
+|   ip link set can0 down
+|   #在收发端设置比特率为250Kbps                 
+|   ip link set can0 type can bitrate 250000 dbitrate 1000000 fd on
+|   #在收发端打开can0设备          
+|   ip link set can0 up
+|   #在接收端执行candump,阻塞等待报文                                
+|   candump can0
+|   #在发送端执行cansend，发送报文                
+|   cansend can0 123#1122334455667788      
+
 
 3. 更多指令
 
@@ -355,7 +356,7 @@ Ethernet
                     #size-cells = <0x0>;
             };
 
-            gmac0_stmmac_axi_setup: stmmac-axi-config {
+        gmac0_stmmac_axi_setup: stmmac-axi-config {
                     snps,wr_osr_lmt = <4>;
                     snps,rd_osr_lmt = <8>;
                     snps,blen = <0 0 0 0 16 8 4>;
@@ -393,13 +394,13 @@ Ethernet
         rx_delay = <0x21>;
         phy-handle = <&rmii_phy0>;
         pinctrl-names = "default";    
-        pinctrl-0 = <ð_rmii0_miim_pins
-                    ð_rmii0_tx_bus2_pins
-                    ð_rmii0_rx_bus2_pins
-                    ð_rmii0_clk_pins>;                
+        pinctrl-0 = <&eth_rmii0_miim_pins
+                    &eth_rmii0_tx_bus2_pins
+                    &eth_rmii0_rx_bus2_pins
+                    &eth_rmii0_clk_pins>;                
     };
 
-2. 如果网口没有自动获取ip
+2. 网口没有自动获取ip
 
 |   等待或者电脑网络适配器能上网的网口关掉共享给以太网网口并重新开启共享，再重启板子便能自动获取ip。
 
@@ -442,7 +443,7 @@ I2C
             ...
             ];      
         };
-    };
+    };  
 
 |   在该节点中， 内核通过compatible字符串匹配驱动。例如，驱动代码中gt9xx.c需定义相同的 of_device_id 表：
 
@@ -453,7 +454,7 @@ I2C
         { }
     };
 
-|   设备在 I2C 总线上的地址（0x5d）,驱动通过 i2c_client 结构体获取reg地址。而pinctrl-\*引用 touch_gpio 节点来配置 GPIO 的复用功能和电气属性。
+|   设备在 I2C 总线上的地址（0x5d）,驱动通过 i2c_client 结构体获取reg地址。而pinctrl-*引用 touch_gpio 节点来配置 GPIO 的复用功能和电气属性。
 |   驱动与设备树匹配，compatible 值与驱动匹配时，内核调用 .probe() 函数，在probe函数中驱动将会从设备树获取配置包括引脚配置，芯片型号等信息。
 |   当设备在i2c上注册成功，利用指令：
 |   i2cdetect -y 1

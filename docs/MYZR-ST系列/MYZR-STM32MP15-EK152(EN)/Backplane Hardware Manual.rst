@@ -1,5 +1,5 @@
-MYZR-STM32MP15-EK152 Backplane Hardware Manual
-=================================================
+Backplane Hardware Manual
+===========================
 
 Interface Overview
 ~~~~~~~~~~~~~~~~~~~~

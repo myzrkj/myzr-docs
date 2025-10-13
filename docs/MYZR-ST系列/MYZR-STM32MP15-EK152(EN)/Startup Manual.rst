@@ -1,5 +1,5 @@
-MYZR-STM32MP15-EK152 Startup Manual
-=====================================
+Startup Manual
+================
 
 MYZR-STM32MP15-EK152 Package List
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

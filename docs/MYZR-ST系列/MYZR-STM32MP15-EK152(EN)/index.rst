@@ -16,8 +16,9 @@ Hardware Manual
 .. toctree::
    :maxdepth: 1
 
-   MYZR-STM32MP15-EK152 Core Board Hardware Manual
-   MYZR-STM32MP15-EK152 Backplane Hardware Manual
+   Core Board Hardware Manual
+   Backplane Hardware Manual
+   
 
 
 Software Manual

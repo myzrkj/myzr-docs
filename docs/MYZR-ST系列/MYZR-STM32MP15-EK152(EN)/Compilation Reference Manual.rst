@@ -1,5 +1,5 @@
-MYZR-STM32MP15-EK152 Compilation Reference Manual
-===================================================
+Compilation Reference Manual
+==============================
 
 Cross-Compilation Toolchain
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

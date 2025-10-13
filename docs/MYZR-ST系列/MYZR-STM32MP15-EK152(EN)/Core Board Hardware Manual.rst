@@ -1,5 +1,5 @@
-MYZR-STM32MP15-EK152 Core Board Hardware Manual
-=================================================
+Core Board Hardware Manual
+============================
 
 Views
 -------

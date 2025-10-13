@@ -1,5 +1,5 @@
-MYZR-STM32MP15 Test Manual
-============================
+Test Manual
+=============
 
 Test Environment
 ~~~~~~~~~~~~~~~~~~
