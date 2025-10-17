@@ -7,3 +7,7 @@ MYZR-RV1126B(EN)
 
    Platform Introduction
    Product Introduction
+   Startup Manual
+   Testing Manual
+   Firmware Flashing Manual
+   Compilation Manual
