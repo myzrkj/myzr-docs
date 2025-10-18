@@ -5,7 +5,9 @@
 --------------
 
 |   编译主机需在 ubuntu 系统中进行，笔者主机系统为 ubuntu 22.04，推荐使用与笔者相同版本的 ubuntu，避免因为版本不同导致一些工具出现兼容问题。
-|   安装库和工具集：
+
+安装库和工具集：
+----------------
 
 .. code-block:: shell
 
@@ -15,25 +17,28 @@
     cmake gcc-multilib g++-multilib unzip device-tree-compiler ncurses-dev \
     libgucharmap-2-90-dev bzip2 expat gpgv2 cpp-aarch64-linux-gnu libgmp-dev \
     libmpc-dev bc python-is-python3 python2 gettext libc6-dev libncurses-dev rsync
-    •(python 版本要求在 python3.6 及以上版本)
-    •(make 版本要求在 make4.0 及以上版本)
-    •(lz4 版本要求在 lz4 1.7.3 及以上版本)
+
+- (python 版本要求在 python3.6 及以上版本)
+- (make 版本要求在 make4.0 及以上版本)
+- (lz4 版本要求在 lz4 1.7.3 及以上版本)
 
 下载源码包
 -----------
 
-1.  下载 RV1126b 源码包。
-2.  创建编译目录：
+1. 下载 RV1126b 源码包。
+2. 创建编译目录：
 
 .. code-block:: shell
 
     mkdir -p ~/my-work/RV1126b/
 
-3. 把源码放到刚创建的目录中，并进行解压：
+3. 把源码放到刚创建的目录中，将分卷解压的源码进行合并，随后在解压：
 
 .. code-block:: shell
 
-    tar xvf rv1126b_linux6.1_release_v1.0.0_20250620_sync20250825.tgz -C ~/my-work/RV1126b/
+    cat myzr-rv1126b.tar.gz.part-* > myzr-rv1126b.tar.gz
+
+    tar xvf myzr-rv1126b.tgz -C ~/my-work/RV1126b/
 
 Linux 系统镜像编译及生成
 -------------------------
@@ -42,27 +47,43 @@ Linux 系统镜像编译及生成
 
     ## 查看具体编译命令
     ./build.sh 
-    
+
+.. code-block:: shell
+
     ## 选中对应板级配置
     ./build.sh lunch
-    
+
+.. code-block:: shell
+
     ## 全局编译并打包镜像
     ./build.sh 
-    
+
+.. code-block:: shell
+
     ## 只进行全局编译，不执行固件打包操作
     ./build.sh all
-    
+
+.. code-block:: shell
+
     ## 只进行固件打包
     ./build.sh firmware
-    
+
+.. code-block:: shell
+
     ## 单独编译 U-Boot
     ./build.sh uboot
-    
+
+.. code-block:: shell
+
     ## 单独编译 Kernel
     ./build.sh kernel
-    
+
+.. code-block:: shell
+
     ## 单独编译 buildroot
     ./build.sh rootfs
-    
+
+.. code-block:: shell
+
     ## 单独编译 recovery
     ./build.sh recovery
