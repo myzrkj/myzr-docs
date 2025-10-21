@@ -8,6 +8,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-1.png
    :alt: hw1-1.png
+   :width: 90%
 
 |   Precautions for using the UART interface:
 
@@ -17,20 +18,24 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-2.png
    :alt: hw1-2.png
+   :width: 90%
 
 - Alternatively, the CH340T chip can be used to convert to USB signals.
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-3.png
    :alt: hw1-3.png
+   :width: 90%
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-4.png
    :alt: hw1-4.png
+   :width: 90%
 
 2. OTG Circuit
 ----------------
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw2-1.png
    :alt: hw2-1.png
+   :width: 90%
 
 |   1. Please note to add ESD protection at the interface.
 |   2. Add common-mode filtering to improve signal quality.
@@ -43,6 +48,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw3-1.png
    :alt: hw3-1.png
+   :width: 90%
 
 |   1. This circuit has overvoltage protection, overcurrent protection, and reverse connection prevention.
 |   2. There is an LED power indicator.
@@ -52,6 +58,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw3-2.png
    :alt: hw3-2.png
+   :width: 90%
 
 |   1. Uses the SY8113BADC DCDC chip.
 |   2. Supports a maximum output current of 3A.
@@ -61,6 +68,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw3-3.png
    :alt: hw3-3.png
+   :width: 90%
 
 |   1. Uses the SY8113BADC DCDC chip.
 |   2. Supports a maximum output current of 3A.
@@ -73,12 +81,14 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw4-1.png
    :alt: hw4-1.png
+   :width: 90%
 
 5. USB3.0
 ------------
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw5-1.png
    :alt: hw5-1.png
+   :width: 90%
 
 |   1. A 0.1uF capacitor must be added to the TX signal of USB3.0.
 |   2. A 2.0R resistor must be connected in series with the USB2.0 signal.
@@ -86,12 +96,14 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw5-2.png
    :alt: hw5-2.png
+   :width: 90%
 
 6. MIPI-CSI
 --------------
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw6-1.png
    :alt: hw6-1.png
+   :width: 90%
 
 - The DVDD power supply of the Camera has different specifications such as 1.2V/1.5V/1.8V. Please provide the accurate power supply according to the Camera's datasheet;
 - Some Cameras have a large DVDD current (high-resolution modules). If it exceeds 300mA, it is recommended to use DCDC power supply;
@@ -113,6 +125,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw7-1.png
    :alt: hw7-1.png
+   :width: 90%
 
 |   RV1126B has one MIPI DPHY DSI TX, supporting MIPI V1.2 version with a total of 4 Lanes. The maximum transmission rate supported by each channel is 1.5Gbps/Lane, and the maximum resolution supported is 1920x1080@60Hz.  
 
@@ -147,6 +160,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw8-1.png
    :alt: hw8-1.png
+   :width: 90%
 
 |   Precautions for the design of the LCDC TX interface:
 
@@ -162,6 +176,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-1.png
    :alt: hw9-1.png
+   :width: 90%
 
 |   The following points should be noted in audio design:
 
@@ -269,6 +284,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-2.png
    :alt: hw9-2.png
+   :width: 90%
 
 |   The corresponding relationship between common sampling rates and PDM_CLK is shown in the following table, which can be used as a reference during hardware debugging. The quality of the clock signal has a direct impact on the PDM recording quality. Therefore, when dividing the PLL frequency, a fractional PLL + integer division method should be used.  
 
@@ -332,22 +348,23 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-3.png
    :alt: hw9-3.png
+   :width: 90%
 
 |   DSM audio is a low-cost audio output solution. For scenarios with sound quality requirements, it is recommended to use an external audio Codec or DAC to achieve audio output. The following table shows the audio indicators of the DSM audio differential output under a 200Kohm load:  
 
-+-----------------+-------------------+--------------+---------+----------+------------+----------+
-| Test Item       | Test Conditions   | Output Signal Amplitude | FS=8KHz | FS=16KHz | FS=44.1KHz | FS=48KHz |
-+-----------------+-------------------+--------------+---------+----------+------------+----------+
-| RMS Level(Vrms) | N/A               | 0dBFS        | 2.037   | 2.037    | 2.037      | 2.037    |
-+-----------------+-------------------+--------------+---------+----------+------------+----------+
-| THD+N(dB)       | LPF=20KHz, HPF=20Hz | -3dBFS       | -72.505 | -72.888  | -75.047    | -75.241  |
-+-----------------+-------------------+--------------+---------+----------+------------+----------+
-| SNR(dB)         | 0dBFS/Noise       | 94.825       | 95.035  | 97.508   | 97.115     |          |
-+-----------------+-------------------+--------------+---------+----------+------------+----------+
-| DR(dB)          | 0dBFS/-60dBFS     | 77.637       | 77.732  | 82.259   | 84.261     |          |
-+-----------------+-------------------+--------------+---------+----------+------------+----------+
-| Noise(uVrms)    | N/A               | 67.12        | 64.95   | 62.37    | 62.79      |          |
-+-----------------+-------------------+--------------+---------+----------+------------+----------+
++-----------------+---------------------+-------------------------+---------+----------+------------+----------+
+| Test Item       | Test Conditions     | Output Signal Amplitude | FS=8KHz | FS=16KHz | FS=44.1KHz | FS=48KHz |
++-----------------+---------------------+-------------------------+---------+----------+------------+----------+
+| RMS Level(Vrms) | N/A                 | 0dBFS                   | 2.037   | 2.037    | 2.037      | 2.037    |
++-----------------+---------------------+-------------------------+---------+----------+------------+----------+
+| THD+N(dB)       | LPF=20KHz, HPF=20Hz | -3dBFS                  | -72.505 | -72.888  | -75.047    | -75.241  |
++-----------------+---------------------+-------------------------+---------+----------+------------+----------+
+| SNR(dB)         | 0dBFS/Noise         | 94.825                  | 95.035  | 97.508   | 97.115     |          |
++-----------------+---------------------+-------------------------+---------+----------+------------+----------+
+| DR(dB)          | 0dBFS/-60dBFS       | 77.637                  | 77.732  | 82.259   | 84.261     |          |
++-----------------+---------------------+-------------------------+---------+----------+------------+----------+
+| Noise(uVrms)    | N/A                 | 67.12                   | 64.95   | 62.37    | 62.79      |          |
++-----------------+---------------------+-------------------------+---------+----------+------------+----------+
 
 |   This group of interfaces provides two pairs of differential outputs to meet stereo requirements. For detailed introduction of the interface and calculation of RC low-pass filter parameters, refer to the document "DSM AUDIO Interface Circuit Design".
 
@@ -359,17 +376,17 @@ Hardware Design Guide
 
 |   The matching design of the DSM interface is shown in the following table:
 
-+----------------+------------+----------------+------------------+
-| Signal and Multiplexing | Default Pull-Up/Pull-Down | Connection Method | Description (Chip Side) |
-+----------------+------------+----------------+------------------+
-| DSM_AUD_LP     | Pull-Down  | Series RC low-pass filter | DSM Output Left Channel P Terminal |
-+----------------+------------+----------------+------------------+
-| DSM_AUD_LN     | Pull-Down  | Series RC low-pass filter | DSM Output Left Channel N Terminal |
-+----------------+------------+----------------+------------------+
-| DSM_AUD_RP     | Pull-Down  | Series RC low-pass filter | DSM Output Right Channel P Terminal |
-+----------------+------------+----------------+------------------+
-| DSM_AUD_RN     | Pull-Down  | Series RC low-pass filter | DSM Output Right Channel N Terminal |
-+----------------+------------+----------------+------------------+
++-------------------------+---------------------------+---------------------------+-------------------------------------+
+| Signal and Multiplexing | Default Pull-Up/Pull-Down | Connection Method         | Description (Chip Side)             |
++-------------------------+---------------------------+---------------------------+-------------------------------------+
+| DSM_AUD_LP              | Pull-Down                 | Series RC low-pass filter | DSM Output Left Channel P Terminal  |
++-------------------------+---------------------------+---------------------------+-------------------------------------+
+| DSM_AUD_LN              | Pull-Down                 | Series RC low-pass filter | DSM Output Left Channel N Terminal  |
++-------------------------+---------------------------+---------------------------+-------------------------------------+
+| DSM_AUD_RP              | Pull-Down                 | Series RC low-pass filter | DSM Output Right Channel P Terminal |
++-------------------------+---------------------------+---------------------------+-------------------------------------+
+| DSM_AUD_RN              | Pull-Down                 | Series RC low-pass filter | DSM Output Right Channel N Terminal |
++-------------------------+---------------------------+---------------------------+-------------------------------------+
 
 |   Precautions for the design of the DSM audio interface:
 
@@ -383,9 +400,11 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-4.png
    :alt: hw9-4.png
+   :width: 90%
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-5.png
    :alt: hw9-5.png
+   :width: 90%
 
 |   Precautions for the design of the Audio ADC interface:
 
@@ -404,7 +423,7 @@ Hardware Design Guide
  | RV1126B provides 2 ASRC modules, covering external and internal audio modules. The supported sampling rate range is from 8kHz to 384kHz, and the typical ones are shown in the following table. It provides a conversion range from 1:8 (down conversion) to 8:1 (up conversion).  
 
 +-----------------------------------------------------------+
-| Typical Input/Output Sampling Rates of ASRC Modules                               |
+| Typical Input/Output Sampling Rates of ASRC Modules       |
 +-----------------------------------------------------------+
 | 8KHz, 16KHz, 32KHz, 64KHz, 128KHz                         |
 +-----------------------------------------------------------+
@@ -420,11 +439,13 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-6.png
    :alt: hw9-6.png
+   :width: 90%
 
 |   For the speaker playback requirement of low-cost solutions, the DSM filtered output of RV1126B can be used, and then power amplification can be achieved through an audio power amplifier to drive speakers, as shown in the following figure:  
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-7.png
    :alt: hw9-7.png
+   :width: 90%
 
 |   For recording requirements, there are the following implementation methods:  
 
@@ -432,16 +453,19 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-8.png
    :alt: hw9-8.png
+   :width: 90%
 
 |   2. Connect a PDM microphone through the PDM interface, or use an ADC with SAI/I2S/PDM interface to connect an external analog MIC; 
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-9.png
    :alt: hw9-9.png
+   :width: 90%
 
 |   3. Use a Codec (such as RK730) to achieve related functions, as shown in the following figure;  
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-10.png
    :alt: hw9-10.png
+   :width: 90%
 
 10. RGMII/RMII Interface
 --------------------------
@@ -450,9 +474,11 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-1.png
    :alt: hw10-1.png
+   :width: 90%
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-2.png
    :alt: hw10-2.png
+   :width: 90%
 
 |   1. Both Ethernet channels adopt 3.3V level.
 |   To improve the performance of the RGMII/RMII interface, the decoupling capacitor of the VCCIOx_VCC power supply in the corresponding power domain must not be deleted, and should be placed close to the pins during layout.
@@ -497,39 +523,45 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-3.png
    :alt: hw10-3.png
+   :width: 90%
 
 |   The working clock of RGMII GEPHY uses the 25MHz provided by RV1126B  
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-4.png
    :alt: hw10-4.png
+   :width: 90%
 
 |   The working clock of RMII FEPHY uses a 25MHz crystal, ETH_MCLK_Mx adopts output mode as the reference clock of the RMII interface, and the TXCLK of FEPHY needs to be configured as input mode  
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-5.png
    :alt: hw10-5.png
+   :width: 90%
 
 |   RMII uses the 25MHz provided by the SOC instead of the FEPHY crystal, ETH_MCLK_Mx adopts output mode as the reference clock of the RMII interface, and the TXCLK of FEPHY needs to be configured as input mode  
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-6.png
    :alt: hw10-6.png
+   :width: 90%
 
 |   The working clock of FEPHY uses an external 25MHz crystal, ETHx_MCLK_Mx adopts input mode, the reference clock of the RMII interface is provided by FEPHY, and the TXCLK of FEPHY needs to be configured as output mode  
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-7.png
    :alt: hw10-7.png
+   :width: 90%
 
 |   RMII uses the 25MHz provided by the SOC instead of the FEPHY crystal, ETH_MCLK_Mx adopts input mode, the reference clock of the RMII interface is provided by FEPHY, and the TXCLK of FEPHY needs to be configured as output mode  
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-8.png
    :alt: hw10-8.png
+   :width: 90%
 
 |   Precautions for the design of the RGMII/RMII interface: 
 
-- In RGMII mode, the internal TX/RX clock path of the RV1126B chip integrates a delayline, which supports adjustment; the default configuration of the reference figure is: the timing between TXCLK and data is controlled by the MAC, and the timing between RXCLK and data is controlled by the PHY (such as using **8211F/FI, the RXCLK enables 2ns delay by default, and other PHYs should pay attention to this configuration)  
-- The Reset signal of the Ethernet PHY needs to be controlled by GPIO, and the GPIO level must match the PHY IO level. A 100nF capacitor must be added close to the PHY pins to enhance anti-static capability. Note: The reset pin of ***8211F/FI only supports 3.3V level.
-- The INTB/PMEB of ***8211F/FI is an open-drain output, and an external pull-up resistor must be added.
+- In RGMII mode, the internal TX/RX clock path of the RV1126B chip integrates a delayline, which supports adjustment; the default configuration of the reference figure is: the timing between TXCLK and data is controlled by the MAC, and the timing between RXCLK and data is controlled by the PHY (such as using \*\*8211F/FI, the RXCLK enables 2ns delay by default, and other PHYs should pay attention to this configuration)  
+- The Reset signal of the Ethernet PHY needs to be controlled by GPIO, and the GPIO level must match the PHY IO level. A 100nF capacitor must be added close to the PHY pins to enhance anti-static capability. Note: The reset pin of \*\*8211F/FI only supports 3.3V level.
+- The INTB/PMEB of \*\*8211F/FI is an open-drain output, and an external pull-up resistor must be added.
 - When the PHY uses an external crystal, the crystal capacitor should be selected according to the load capacitance value of the actually used crystal, and the frequency deviation should be controlled within +/-20ppm.
-- The external resistor for the RSET pin of ***8211F/FI is 2.49K ohm with an accuracy of 1%, which cannot be modified arbitrarily.
+- The external resistor for the RSET pin of \*\*8211F/FI is 2.49K ohm with an accuracy of 1%, which cannot be modified arbitrarily.
 - The hardware configuration for PHY initialization must match the actual requirements.
 - MDIO must be externally pulled up with a resistor, recommended 1.5-1.8Kohm, and the pull-up power supply must be consistent with the IO power supply.
 - The connection of the transformer center tap must refer to the reference design of each Ethernet PHY manufacturer, as different PHY manufacturers will have different connection methods.
@@ -537,7 +569,7 @@ Hardware Design Guide
 - The 75 ohm resistor on the high-voltage side of the network transformer is recommended to use a package of 0805 or larger.
 - To achieve a lightning protection level of 4KV or above, a lightning protection tube needs to be added. An ordinary isolation transformer can only meet the 2KV level requirement.
 - If there is a lightning strike differential test requirement, a TVS tube needs to be added between the MDI differential pairs.
-- It is necessary to confirm whether the RJ45 package is consistent with the schematic diagram. RJ45 is divided into Tab down and Tab up, and the signal order is exactly opposite. If using ***8211F/FI, it is recommended to use Tab down, and the MDI order is correct.  
+- It is necessary to confirm whether the RJ45 package is consistent with the schematic diagram. RJ45 is divided into Tab down and Tab up, and the signal order is exactly opposite. If using \*\*8211F/FI, it is recommended to use Tab down, and the MDI order is correct.  
 
 **FEPHY Interface**
 
@@ -546,6 +578,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-9.png
    :alt: hw10-9.png
+   :width: 90%
 
 |   Precautions for the design of the FEPHY interface:
 
@@ -623,6 +656,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw12-1.png
    :alt: hw12-1.png
+   :width: 90%
 
 |   1. Please note to add ESD protection at the interface.
 |   2. Note that the level of the serial port is 3.3V.
@@ -632,6 +666,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw13-1.png
    :alt: hw13-1.png
+   :width: 90%
 
 |   1. Please note to add ESD protection at the interface.
 |   2. Note that the level of the serial port is 3.3V.
@@ -641,6 +676,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw14-1.png
    :alt: hw14-1.png
+   :width: 90%
 
 |   The RV1126B chip has 2 CAN controllers, supporting the following functions:
 
@@ -653,6 +689,7 @@ Hardware Design Guide
   
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw14-2.png
    :alt: hw14-2.png
+   :width: 90%
 
 |   Precautions for the design of the CAN interface:
 
@@ -673,6 +710,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw15-1.png
    :alt: hw15-1.png
+   :width: 90%
 
 |   The distribution of the I2C interface is as follows:  
 
@@ -837,6 +875,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw17-1.png
    :alt: hw17-1.png
+   :width: 90%
 
 - When laying out the infrared receiver, it should be far away from wireless module antennas (such as Wi-Fi antennas) to avoid interference with infrared signal reception during wireless data transmission.
 - The layout of the infrared receiver should avoid direct exposure to on-board LED light sources to prevent the LED blinking frequency from affecting infrared reception.
@@ -847,6 +886,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw18-1.png
    :alt: hw18-1.png
+   :width: 90%
 
 |   1. Uses the BL-8723DU module.
 |   2. Supports 2.4G WIFI and Bluetooth 5.0.
@@ -856,6 +896,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw19-1.png
    :alt: hw19-1.png
+   :width: 90%
 
 |   1. The development board uses SARADC_IN0 (ESC/RECOVERY, MENU, LEFT, RIGHT) as button detection ports, supporting 13-bit resolution. The functions of the 4 ADC KEY buttons can be configured independently through software.  
 |   Press and hold the button during power-on to enter RECOVERY mode.
@@ -865,6 +906,7 @@ Hardware Design Guide
 
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw20-1.png
    :alt: hw20-1.png
+   :width: 90%
 
 |   1. 40Pin pin header.
 |   2. Includes GPIO, I2C, and ADC interfaces.
