@@ -10,4 +10,5 @@ MYZR-RV1126B(EN)
    Startup Manual
    Testing Manual
    Firmware Flashing Manual
+   Hardware Design Guide
    Compilation Manual

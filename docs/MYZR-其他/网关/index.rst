@@ -5,6 +5,7 @@
    :maxdepth: 1
    :hidden:
    
+   GW305
    GW200
    GW200(EN)
    GW300
