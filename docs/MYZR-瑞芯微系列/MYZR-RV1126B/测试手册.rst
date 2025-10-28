@@ -5,8 +5,9 @@ USB 测试
 ----------
 
 |   接口丝印：
-|   USB 2.0 : J1
-|   USB 3.0 : USB 3.0
+
+1. USB 2.0 : J1
+2. USB 3.0 : USB 3.0
 
 |   测试说明：采用插拔 USB 存储设备（U 盘）的方式进行测试。
 
@@ -70,6 +71,8 @@ SD 卡接口测试
 网口测试
 ----------
 
+|   （注：由于 RV1126b 不支持同时开启两个网口，所以默认开启千兆网口，关闭百兆网口。）
+
 网口一
 ~~~~~~~~
 
@@ -114,6 +117,7 @@ SD 卡接口测试
     2 packets transmitted, 2 received, 0% packet loss, time 1002ms
     rtt min/avg/max/mdev = 0.378/0.829/1.280/0.451 ms
 
+
 网口二
 ~~~~~~~
 
@@ -157,6 +161,20 @@ SD 卡接口测试
     --- 192.168.137.99 ping statistics ---
     2 packets transmitted, 2 received, 0% packet loss, time 1002ms
     rtt min/avg/max/mdev = 0.378/0.829/1.280/0.451 ms
+
+切换网口
+~~~~~~~~~~
+
+|   若要由千兆网口切换到百兆网口，打开 myzr-rv1126b-evb1.dtsi 设备树，找到 &gmac 节点，根据注释找到千兆网口和百兆网口的代码，将千兆网口的代码注释掉，再将百兆网口的代码取消注释；随后在找到 &mdio 节点，同样将千兆网口的代码注释掉，将百兆网口的代码取消注释。最后重新编译内核，再次烧入即可。
+
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/测试1.png
+   :alt: 测试1.png
+   :width: 90%
+
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/测试2.png
+   :alt: 测试2.png
+   :width: 90%
+
 
 WIFI 测试
 -----------
