@@ -10,5 +10,5 @@
    GW200(EN)
    GW300
    GW300(EN)
-   GW310
-   GW310(EN)
+   GW510
+   GW510(EN)

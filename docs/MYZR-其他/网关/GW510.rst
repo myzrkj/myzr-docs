@@ -1,4 +1,4 @@
-GW310-4G
+GW510-4G
 ==========
 
 1 产品概述
@@ -98,18 +98,18 @@ GW310-4G
 
 **2.1.1 产品正面图**
 
-.. figure:: /image/MYZR-其他/网关/GW310/产品介绍1.png
+.. figure:: /image/MYZR-其他/网关/GW510/产品介绍1.png
    :alt: 产品介绍1.png
 
 **2.1.2 产品侧面图**
 
-.. figure:: /image/MYZR-其他/网关/GW310/产品介绍2.png
+.. figure:: /image/MYZR-其他/网关/GW510/产品介绍2.png
    :alt: 产品介绍2.png
 
 2.2 产品尺寸
 ~~~~~~~~~~~~~
 
-.. figure:: /image/MYZR-其他/网关/GW310/产品介绍3.png
+.. figure:: /image/MYZR-其他/网关/GW510/产品介绍3.png
    :alt: 产品介绍3.png
 
 2.3 产品接口
@@ -117,7 +117,7 @@ GW310-4G
 
 **2.3.1 产品正面接口**
 
-.. figure:: /image/MYZR-其他/网关/GW310/产品介绍4.png
+.. figure:: /image/MYZR-其他/网关/GW510/产品介绍4.png
    :alt: 产品介绍4.png
 
 +----------+---------------------------------------+
@@ -140,7 +140,7 @@ GW310-4G
 
 **2.3.2 产品侧面接口**
 
-.. figure:: /image/MYZR-其他/网关/GW310/产品介绍5.png
+.. figure:: /image/MYZR-其他/网关/GW510/产品介绍5.png
    :alt: 产品介绍5.png
 
 +----------+-----------------------------------------+
@@ -154,5 +154,5 @@ GW310-4G
 2.4 装箱清单
 ~~~~~~~~~~~~~
 
-.. figure:: /image/MYZR-其他/网关/GW310/产品介绍6.png
+.. figure:: /image/MYZR-其他/网关/GW510/产品介绍6.png
    :alt: 产品介绍6.png
