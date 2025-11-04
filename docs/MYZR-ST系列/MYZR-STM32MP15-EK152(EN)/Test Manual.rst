@@ -181,7 +181,7 @@ Serial Port Test
 
 **Test Operations**
 
-1. Short-circuit pins P21-11 and P21-13, i.e., uart7_rx and uart7_tx
+1. Short-circuit pins P21-11 and P21-13, which correspond to uart7_rx and uart7_tx respectively; short-circuit pins P21-12 and P21-14, which correspond to uart8_rx and uart8_tx respectively.
 2. Enter the following command to perform uart7 transmission and reception test:
 
 .. code-block:: shell

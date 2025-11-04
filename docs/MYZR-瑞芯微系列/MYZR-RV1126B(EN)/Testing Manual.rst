@@ -449,7 +449,7 @@ RS232 Testing
 
 .. code-block:: shell
 
-    ./usr/serial_test.out /dev/ttyS2 "MYZR"
+    ./usr/serial_test.out /dev/ttyS1 "MYZR"
 
 |   You can see the RS232 serial terminal output "MYZR", and then it enters the receiving mode.
 
@@ -478,7 +478,7 @@ RS485 Testing
 
 .. code-block:: shell
 
-    ./usr/serial_test.out /dev/ttyS1 "MYZR"
+    ./usr/serial_test.out /dev/ttyS2 "MYZR"
 
 |   You can see the RS485 serial terminal output "MYZR", and then it enters the receiving mode.
 

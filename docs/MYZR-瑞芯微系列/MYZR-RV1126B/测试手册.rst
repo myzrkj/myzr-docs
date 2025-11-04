@@ -467,7 +467,7 @@ RS232 测试
 
 .. code-block:: shell
 
-    ./usr/serial_test.out /dev/ttyS2 "MYZR"
+    ./usr/serial_test.out /dev/ttyS1 "MYZR"
 
 |   可以看到 RS232 串口终端输出 MYZR，然后进入接收模式。
 
@@ -496,7 +496,7 @@ RS485 测试
 
 .. code-block:: shell
 
-    ./usr/serial_test.out /dev/ttyS1 "MYZR"
+    ./usr/serial_test.out /dev/ttyS2 "MYZR"
 
 |   可以看到 RS485 串口终端输出 MYZR，然后进入接收模式。
 

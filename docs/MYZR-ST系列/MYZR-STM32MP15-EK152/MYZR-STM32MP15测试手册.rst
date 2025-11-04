@@ -182,7 +182,7 @@ GPIO测试
 
 **测试操作**
 
-1.短接P21-11和P21-13脚，即uart7_rx和uart7_tx
+1.短接P21-11和P21-13脚，即uart7_rx和uart7_tx；短接P21-12和P21-14脚，即uart8_rx和uart8_tx。
 2.输入如下命令进行uart7收发测试：
 
 .. code-block:: shell
