@@ -72,4 +72,4 @@ Driver and Related Device Files
 +-------------+-------------------------------------------+---------------------------+
 
 - Main Device Tree File: arch/arm64/boot/dts/myzr/ls1012a-ek200.dts
-- Device Tree Registration Information File: arch/arm64/boot/dts/myzr/ls1012a.dtsi ("***" represents 140, 140p)
+- Device Tree Registration Information File: arch/arm64/boot/dts/myzr/ls1012a.dtsi ("\*\*\*" represents 140, 140p)

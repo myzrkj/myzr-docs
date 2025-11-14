@@ -148,7 +148,7 @@ Linux内核板级文件
 ~~~~~~~~~~~~~~~~~~
 
 |   内核板级编译配置文件：kernel-6.1/arch/arm/configs/rk3506_defconfig
-|   内核板级设备树文件：kernel-6.1/arch/arm/boot/dts/rockchip/myzr-rk3506-*.dts
+|   内核板级设备树文件：kernel-6.1/arch/arm/boot/dts/rockchip/myzr-rk3506-\*.dts
 
 GPIO
 ~~~~~~
@@ -454,7 +454,7 @@ I2C
         { }
     };
 
-|   设备在 I2C 总线上的地址（0x5d）,驱动通过 i2c_client 结构体获取reg地址。而pinctrl-*引用 touch_gpio 节点来配置 GPIO 的复用功能和电气属性。
+|   设备在 I2C 总线上的地址（0x5d）,驱动通过 i2c_client 结构体获取reg地址。而pinctrl-\*引用 touch_gpio 节点来配置 GPIO 的复用功能和电气属性。
 |   驱动与设备树匹配，compatible 值与驱动匹配时，内核调用 .probe() 函数，在probe函数中驱动将会从设备树获取配置包括引脚配置，芯片型号等信息。
 |   当设备在i2c上注册成功，利用指令：
 |   i2cdetect -y 1

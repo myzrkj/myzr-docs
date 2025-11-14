@@ -377,16 +377,16 @@ Bluetooth
 
 **Functional Test**
 
-|  1) Connect the 5G module RM500Q, 5G antenna, and SIM card to the device.
+| 1) Connect the 5G module RM500Q, 5G antenna, and SIM card to the device.
 
-|  2) Start the development board.
+| 2) Start the development board.
 
-|  3) A 5G icon should appear in the upper right corner.
+| 3) A 5G icon should appear in the upper right corner.
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-5g-1.jpg
   :alt: image-RK3588-android12-5g-1.jpg
 
-  4) Perform a website browsing test.
+| 4) Perform a website browsing test.
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK314/RK3588-android12-5g-2.png
   :alt: image-RK3588-android12-5g-2.png

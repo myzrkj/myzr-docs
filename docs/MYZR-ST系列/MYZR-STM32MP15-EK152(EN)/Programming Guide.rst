@@ -12,39 +12,41 @@ Download and Installation
 1. After downloading, in the directory "01_Programming -> stm32Cubeprog", there is a compressed package and a JDK file. Extract the compressed package to obtain a folder, an exe file, and a Linux file.
 
 2. First, install jdk-8u241-windows-x64.exe
-   - Double-click jdk-8u241-windows-x64.exe, then click "Next" as shown in the figure.
+
+- Double-click jdk-8u241-windows-x64.exe, then click "Next" as shown in the figure.
 
 .. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/STM32CubeProgrammer_1.png
    :alt: STM32CubeProgrammer_1.png
 
-   - Keep the default installation directory and click "Next".
+- Keep the default installation directory and click "Next".
 
 .. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/STM32CubeProgrammer_2.png
    :alt: STM32CubeProgrammer_2.png
 
-   - Click "Next" again to start the installation.
-   - Once the installation is complete, click "Close".
+- Click "Next" again to start the installation.
+- Once the installation is complete, click "Close".
 
 .. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/STM32CubeProgrammer_3.png
    :alt: STM32CubeProgrammer_3.png
 
 3. Install SetupSTM32CubeProgrammer-2.4.0.exe
-   - Double-click SetupSTM32CubeProgrammer-2.4.0.exe and click "Next".
+
+- Double-click SetupSTM32CubeProgrammer-2.4.0.exe and click "Next".
 
 .. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/STM32CubeProgrammer_4.png
    :alt: STM32CubeProgrammer_4.png
 
-   - Click "Next" -> "Next" -> "I accept...." -> "Next" repeatedly until reaching the installation directory settings. Keep the default installation directory (**Note: The path must not contain Chinese characters**).
+- Click "Next" -> "Next" -> "I accept...." -> "Next" repeatedly until reaching the installation directory settings. Keep the default installation directory (**Note: The path must not contain Chinese characters**).
 
 .. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/STM32CubeProgrammer_5.png
    :alt: STM32CubeProgrammer_5.png
 
-   - Keep the default configuration options.
+- Keep the default configuration options.
 
 .. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/STM32CubeProgrammer_6.png
    :alt: STM32CubeProgrammer_6.png
 
-   - Another window will pop up; click "Next" to continue the installation. After the installation finishes, click "Complete", then return to the STM32CubeProgrammer window and click "Next".
+- Another window will pop up; click "Next" to continue the installation. After the installation finishes, click "Complete", then return to the STM32CubeProgrammer window and click "Next".
 
 .. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/STM32CubeProgrammer_7.png
    :alt: STM32CubeProgrammer_7.png
@@ -52,7 +54,7 @@ Download and Installation
 .. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/STM32CubeProgrammer_8.png
    :alt: STM32CubeProgrammer_8.png
 
-   - Click "Done" to complete the installation.
+- Click "Done" to complete the installation.
 
 .. image:: /image/MYZR-ST系列/MYZR-STM32MP15-EK152/STM32CubeProgrammer_9.png
    :alt: STM32CubeProgrammer_9.png

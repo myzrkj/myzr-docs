@@ -115,10 +115,10 @@ Product Specification
 
 
 2 Product Appearance and Interfaces
------------------
+--------------------------------------
 
 2.1 Product Appearance
-~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **2.1.1 Front View of the Product**
 
@@ -131,54 +131,54 @@ Product Specification
    :alt: 576px-GW300_2.1.2.1.png
 
 2.2 Product Dimensions
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: /image/MYZR-其他/网关/GW300/576px-GW300_2.2.0.1_1.png
    :alt: 576px-GW300_2.2.0.1_1.png
 
 2.3 Product Interfaces
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **2.3.1 Front Interfaces of the Product**
 
 .. figure:: /image/MYZR-其他/网关/GW300/576px-GW300_2.3.1.1.png
    :alt: 576px-GW300_2.3.1.1.png
 
-+-----------+---------------------------------------+
-| Hardware Interface | Interface Description                |
-+===========+=======================================+
-| ETH       | Ethernet interface, using RJ45 connector, supporting 10/100M |
-+-----------+---------------------------------------+
-| RS232     | 3.81mm pitch phoenix terminal, can connect external RS232 devices |
-+-----------+---------------------------------------+
-| RS485     | 3.81mm pitch phoenix terminal, can connect external RS485 devices |
-+-----------+---------------------------------------+
-| SIM Card Slot | Pop-up type, supporting standard SIM card |
-+-----------+---------------------------------------+
-| PWR       | Power indicator light, red color      |
-+-----------+---------------------------------------+
-| SYS       | System indicator light, green color   |
-+-----------+---------------------------------------+
-| 4G        | 4G indicator light, green color       |
-+-----------+---------------------------------------+
-| RST       | Button, with system reset function    |
-+-----------+---------------------------------------+
++--------------------+-------------------------------------------------------------------+
+| Hardware Interface |                       Interface Description                       |
++====================+===================================================================+
+| ETH                | Ethernet interface, using RJ45 connector, supporting 10/100M      |
++--------------------+-------------------------------------------------------------------+
+| RS232              | 3.81mm pitch phoenix terminal, can connect external RS232 devices |
++--------------------+-------------------------------------------------------------------+
+| RS485              | 3.81mm pitch phoenix terminal, can connect external RS485 devices |
++--------------------+-------------------------------------------------------------------+
+| SIM Card Slot      | Pop-up type, supporting standard SIM card                         |
++--------------------+-------------------------------------------------------------------+
+| PWR                | Power indicator light, red color                                  |
++--------------------+-------------------------------------------------------------------+
+| SYS                | System indicator light, green color                               |
++--------------------+-------------------------------------------------------------------+
+| 4G                 | 4G indicator light, green color                                   |
++--------------------+-------------------------------------------------------------------+
+| RST                | Button, with system reset function                                |
++--------------------+-------------------------------------------------------------------+
 
 **2.3.2 Side Interfaces of the Product**
 
 .. figure:: /image/MYZR-其他/网关/GW300/576px-GW300_2.3.3.1.png
    :alt: 576px-GW300_2.3.3.1.png
 
-+----------+-----------------------------------------------+
-| Hardware Interface | Interface Description                                      |
-+==========+===============================================+
-| Power Interface | 3P phoenix terminal (5.08mm pitch) interface, 12V or 24V dual power input |
-+----------+-----------------------------------------------+
-| 4G_ANTx  | Standard SMA female antenna interface         |
-+----------+-----------------------------------------------+
++--------------------+---------------------------------------------------------------------------+
+| Hardware Interface |                           Interface Description                           |
++====================+===========================================================================+
+| Power Interface    | 3P phoenix terminal (5.08mm pitch) interface, 12V or 24V dual power input |
++--------------------+---------------------------------------------------------------------------+
+| 4G_ANTx            | Standard SMA female antenna interface                                     |
++--------------------+---------------------------------------------------------------------------+
 
 2.4 Packing List
-~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 .. figure:: /image/MYZR-其他/网关/GW300/576px-GW300_2.4.0.1_1.png
    :alt: 576px-GW300_2.4.0.1_1.png
@@ -195,6 +195,3 @@ Product Specification
 |  Website: http://www.myzr.com.cn
 
 - The product pictures and technical data in this document are for reference only. Updates will not be notified separately. The right to interpret the specific content belongs to Mingyuan Zhirui.
-
-
-要不要我帮你将这份英文版本的产品规格书转换为 **可编辑的Word文档**，方便你后续修改或分享给海外合作伙伴？

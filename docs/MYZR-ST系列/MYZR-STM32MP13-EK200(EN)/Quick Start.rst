@@ -45,7 +45,7 @@ Basic Guide for Software Development
 Advanced Guide for Software Development
 ------------------------------------------
 
-After completing the Quick Start Guide for Development Board Usage_ and Basic Guide for Software Development_, we will be familiar with the basic knowledge. Then, the next step is to learn the content required for secondary development.
+After completing the `Quick Start Guide for Development Board Usage`_ and `Basic Guide for Software Development`_, we will be familiar with the basic knowledge. Then, the next step is to learn the content required for secondary development.
 
 ### U-Boot Board-Level Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
