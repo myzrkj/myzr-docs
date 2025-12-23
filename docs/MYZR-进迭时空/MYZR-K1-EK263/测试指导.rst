@@ -1,0 +1,858 @@
+测试指导
+=========
+
+网口测试
+----------
+
+网口1
+~~~~~~~
+
+|   接口丝印：ETH0
+|   系统接口：eth0
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+|   测试操作
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口，串口显示信息：
+
+.. code-block:: shell
+
+    [ 1069.788888] rk_gmac-dwmac 2a220000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
+
+3. 默认是自动获取ip，但测试是配置静态ip来测，具体配置命令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1 down
+    ifconfig eth0 up
+    ifconfig eth0 192.168.137.81
+
+4. 输入指令如下进行验证网口1：
+
+.. code-block:: shell
+
+    ping -I eth0 192.168.137.99 -c 2 -w 4
+    PING 192.168.137.99 (192.168.137.99) from 192.168.137.17 eth0: 56(84) bytes of data.
+    64 bytes from 192.168.137.99: icmp_seq=1 ttl=128 time=1.28 ms
+    64 bytes from 192.168.137.99: icmp_seq=2 ttl=128 time=0.378 ms
+
+    --- 192.168.137.99 ping statistics ---
+    2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+    rtt min/avg/max/mdev = 0.378/0.829/1.280/0.451 ms
+
+|   "0% packet loss"表示测试通过
+|   如果出现"100% packet loss"，请先确认电脑的防火墙是否全部关闭
+
+网口2
+~~~~~~~
+
+|   接口丝印：ETH1
+|   系统接口：eth1
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+|   测试操作
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口，串口显示信息：
+
+.. code-block:: shell
+
+    [  113.734632] k1x_emac cac80000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
+
+3. 默认是自动获取ip，但测试是配置静态ip来测，具体配置命令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0 down
+    ifconfig eth1 up
+    ifconfig eth1 192.168.137.81
+
+4. 输入指令如下进行验证网口2：
+
+.. code-block:: shell
+
+    ping -I eth1 192.168.137.99 -c 2 -w 4
+    PING 192.168.137.99 (192.168.137.99) from 192.168.137.185 eth1: 56(84) bytes of data.
+    64 bytes from 192.168.137.99: icmp_seq=1 ttl=128 time=1.42 ms
+    64 bytes from 192.168.137.99: icmp_seq=2 ttl=128 time=0.489 ms
+
+    --- 192.168.137.99 ping statistics ---
+    2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+    rtt min/avg/max/mdev = 0.489/0.955/1.421/0.466 ms
+
+|   "0% packet loss"表示测试通过
+|   如果出现"100% packet loss"，请先确认电脑的防火墙是否全部关闭
+
+USB测试
+---------
+
+|   接口丝印：
+|   USB 2.0/3.0 : J4
+|   测试说明：采用插拔USB存储设备（U盘）的方式进行测试
+|   测试操作
+
+1. 将USB设备插入底板USB接口，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+    [   56.017601] usb 3-1: new SuperSpeed USB device number 2 using xhci-hcd
+    [   56.047097] usb-storage 3-1:1.0: USB Mass Storage device detected
+    [   56.054981] scsi host0: usb-storage 3-1:1.0
+    [   57.063522] scsi 0:0:0:0: Direct-Access              aigo U330        PMAP PQ: 0 ANSI: 6
+    [   59.137255] sd 0:0:0:0: [sda] 122880000 512-byte logical blocks: (62.9 GB/58.6 GiB)
+    [   59.145513] sd 0:0:0:0: [sda] Write Protect is off
+    [   59.150350] sd 0:0:0:0: [sda] Mode Sense: 2b 00 00 08
+    [   59.155652] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+    [   59.168788]  sda: sda1
+    [   59.171550] sd 0:0:0:0: [sda] Attached SCSI removable disk
+    [   59.223333] exFAT-fs (sda): invalid fs_name
+    [   59.227645] exFAT-fs (sda): failed to read boot sector
+    [   59.232849] exFAT-fs (sda): failed to recognize exfat type
+    [   59.244624] ntfs3: sda: Primary boot signature is not NTFS.
+    [   59.250272] ntfs3: sda: try to read out of volume at offset 0xea5fffe00
+    [   59.547291] exFAT-fs (sda1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+
+2. 将USB设备从底板拔出，系统会输出类似如下信息：
+
+.. code-block:: shell
+
+    [   79.939940] usb 3-1: USB disconnect, device number 2
+
+SD接口测试
+-----------
+
+|   接口丝印：TF
+|   测试说明：采用插拔TF卡的方式进行测试
+|   测试操作
+
+1. 将TF卡安装到SD接口，开发会输出如下信息：
+
+.. code-block:: shell
+
+    [   98.656408] mmc0: new high speed SDHC card at address 1234
+    [   98.663781] mmcblk0: mmc0:1234 SA08G 7.21 GiB
+    [   98.670550]  mmcblk0: p1
+
+|   结果：操作后输出信息符合正确预期，表示正确识别到 TF 卡。
+
+2. 将TF拔出，输出信息如下：
+
+.. code-block:: shell
+
+    [  142.185791] mmc0: card 1234 removed
+
+|   结果：操作时的现象符合正确预期，表示 TF 热插拔正常
+
+音频播放测试(等新版)
+---------------------
+
+|   接口丝印：P1
+|   测试说明：播放音频文件验证评估板的音频播放功能
+|   测试操作
+
+1. 把耳机接入丝印对应的接口
+2. 输入指令如下进行测试：
+
+|   查看rockchipes8388声卡及编号
+
+.. code-block:: shell
+
+    aplay -l
+
+|   指定播放设备，hw:卡号,设备号
+
+.. code-block:: shell
+
+    aplay -D hw:0,0 test_app/music_test.wav
+
+|   会输出如下信息
+
+.. code-block:: shell
+
+    Playing WAVE 'test_app/music_test.wav' : Signed 16 bit Little Endian, Rate 44100 Hz, Stereo
+
+|   耳机有声音输出表示音频播放测试通过
+
+录音测试(等新版)
+-----------------
+
+|   接口丝印：JP1
+|   测试说明：录制并播放录音文件进行测试
+|   测试操作
+
+1. 把带MIC的耳机插入丝印对应的接口
+2. 输入如下指令进行10秒的录音：
+
+.. code-block:: shell
+
+    arecord -d 10 -f cd -r 44100 -c 2 -t wav record.wav
+
+3. 把耳机或者喇叭接入丝印J16对应的接口播放录制的音频文件，输入如下指令：
+
+.. code-block:: shell
+
+    aplay -D hw:0,0 record.wav
+
+|   耳机或者喇叭有录制声音输出表示录音测试通过
+
+SPEAKER测试(等新版)
+---------------------
+
+|   接口丝印：J15、J16
+|   测试说明：
+|   测试操作
+
+1. 输入如下指令
+
+.. code-block:: shell
+
+    aplay test_app/music_test.wav
+
+|   喇叭发出声音，表示测试通过。
+
+Wifi测试
+----------
+
+|   接口丝印：U22
+|   测试说明：WIFI连接到AP后，开发板向外网发送ICMP报文来验证连接正常
+|   测试操作
+
+1. 把WIFI天线连接到"U40"接口上
+2. 生成 SSID 的 WPA PSK 文件
+
+|   输入指令如下：
+
+.. code-block:: shell
+
+    cat > /etc/wpa_supplicant.conf << 'EOF'
+    ctrl_interface=/var/run/wpa_supplicant
+    update_config=1
+    network={
+        ssid="zhi"
+        psk="123456789"
+        key_mgmt=WPA-PSK
+    }
+    EOF
+
+3. 连接，输入指令如下：
+
+.. code-block:: shell
+
+    wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Successfully initialized wpa_supplicant
+
+4. 获取IP，输入指令如下：
+
+.. code-block:: shell
+
+    udhcpc -i wlan0
+
+|   输出信息：
+
+.. code-block:: shell
+
+    udhcpc: started, v1.36.1
+    udhcpc: broadcasting discover
+    udhcpc: broadcasting select for 192.168.39.200, server 192.168.39.83
+    udhcpc: lease of 192.168.39.200 obtained from 192.168.39.83, lease time 3600
+    deleting routers
+    adding dns 192.168.39.83
+
+5. 测试连接，输入指令如下：
+
+.. code-block:: shell
+
+    ping -4 -I wlan0 www.baidu.com -c 3 -w 4
+
+|   输出信息：
+
+.. code-block:: shell
+
+    PING  (183.2.172.177) from 192.168.39.200 wlan0: 56(84) bytes of data.
+    64 bytes from 183.2.172.177 (183.2.172.177): icmp_seq=1 ttl=52 time=281 ms
+    64 bytes from 183.2.172.177 (183.2.172.177): icmp_seq=2 ttl=52 time=332 ms
+    64 bytes from 183.2.172.177 (183.2.172.177): icmp_seq=3 ttl=52 time=252 ms
+
+    ---  ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+    rtt min/avg/max/mdev = 252.230/288.472/332.418/33.186 ms
+
+|   结果："0% packet loss"表示wifi连接正常
+
+蓝牙测试
+----------
+
+|   接口丝印：U22
+|   测试说明：扫描到蓝牙设备后，发送L2CAP回应请求并接收回答
+|   测试操作
+
+1. 把天线连接到"U40"接口上
+2. 启动蓝牙，输入指令如下：
+
+.. code-block:: shell
+
+    hciconfig hci0 up
+
+3. 扫描外部蓝牙设备，输入指令如下：
+
+.. code-block:: shell
+
+    hcitool scan
+
+|   输出：
+
+.. code-block:: shell
+
+    Scanning ...
+            40:45:A0:49:3B:1A        chensz
+
+|   获取输出信息，需要的信息类似如下"        74:B5:87:DB:09:7A        chensz"
+
+5. 发送L2CAP包测试，输入指令如下：
+
+.. code-block:: shell
+
+    l2ping 40:45:A0:49:3B:1A
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Ping: 40:45:A0:49:3B:1A from E8:5C:5F:B5:7A:11 (data size 44) ...
+    44 bytes from 40:45:A0:49:3B:1A id 0 time 32.41ms
+    44 bytes from 40:45:A0:49:3B:1A id 1 time 77.03ms
+    44 bytes from 40:45:A0:49:3B:1A id 2 time 90.89ms
+    44 bytes from 40:45:A0:49:3B:1A id 3 time 59.38ms
+    44 bytes from 40:45:A0:49:3B:1A id 4 time 93.44ms
+    ^C5 sent, 5 received, 0% loss
+
+|   结果："0% packet loss"表示蓝牙连接正常
+
+M.2接口测试
+-------------
+
+|   接口丝印：J2
+|   测试说明：挂载硬盘后查看挂载情况
+|   测试操作
+
+1. 开发板断电，接上M.2接口硬盘后启动开发板
+2. 创建挂载点并挂载硬盘，输入指令如下：
+
+.. code-block:: shell
+
+    mkdir -p /mnt/nvme
+    mount /dev/nvme0n1p1 /mnt/nvme
+
+3. 查看挂载情况，输入指令如下：
+
+.. code-block:: shell
+
+    df -h
+
+|   挂载成功可获取类似输出"/dev/nvme0n1p1  499M   10M  490M   2% /nvme" 
+
+4. 卸载硬盘，输入指令如下：
+
+.. code-block:: shell
+
+    umount /mt/nvme
+
+M.2 WiFi
+----------
+
+- 接口说明：PCIe M.2 Key-E 接口，可用于连接 M.2 WiFi 网卡。
+- 接口丝印：WIFI
+
+功能测试
+~~~~~~~~~~
+
+- 操作一：更新固件和配置到开发板
+
+1. 为开发板断电并连接 Intel AC3165 网卡到 WiFi 接口。
+2. 为开发上电，登录开发板后输入 lspci 命令查看 PCI 总线上是否存在 3165 模块：
+
+.. code-block:: shell
+
+    lspc
+
+|   应当可以看到 Intel 3165 网卡的信息：
+
+.. code-block:: shell
+
+    01:00.0 Class 0280: 8086:3165
+
+3. 把 WiFi 模块的固件解压到开发板的根目录（WiFi 固件位于 1.通用资料/1.2固件 ）：
+
+.. code-block:: shell
+
+    tar xf iwlwifi-7265.tar.gz -C /
+
+4. 加载 WiFi 的驱动模块，命令如下：
+
+.. code-block:: shell
+
+    cd /lib/firmware
+    ln -sf iwlwifi-7265D-29.ucode iwlwifi-7265D-22.ucode
+    ls -l iwlwifi-7265D-*.ucode
+    cd /lib/modules/$(uname -r)
+    depmod -a
+    modprobe cfg80211
+    modprobe mac80211
+    modprobe iwlwifi
+    modprobe iwlmvm
+
+5. 创建配置，命令如下：
+
+.. code-block:: shell
+
+    cat > /etc/wpa_supplicant.conf << 'EOF'
+    ctrl_interface=/var/run/wpa_supplicant
+    update_config=1
+    network={
+        ssid="zhi"
+        psk="123456789"
+        key_mgmt=WPA-PSK
+    }
+    EOF
+
+- 操作二：测试 WiFi 功能
+
+3. 连接 WiFi 网络，命令如下：
+
+.. code-block:: shell
+
+    wpa_supplicant -B -i wlP2p1s0 -c /etc/wpa_supplicant.conf
+
+|   应当看到的信息如下：
+
+.. code-block:: shell
+
+    Successfully initialized wpa_supplicant
+    rfkill: Cannot open RFKILL control device
+
+5. 为 WiFi 网卡获取 IP，命令如下：
+
+.. code-block:: shell
+
+    udhcpc -i wlP2p1s0
+
+|   应当看到的信息类似如下：
+
+.. code-block:: shell
+
+    udhcpc: started, v1.36.1
+    udhcpc: broadcasting discover
+    udhcpc: broadcasting discover
+    udhcpc: broadcasting discover
+    [  648.886876] wlP2p1s0: authenticate with 3e:0f:fe:a1:9c:c1
+    [  648.892438] wlP2p1s0: 80 MHz not supported, disabling VHT
+    [  648.902205] wlP2p1s0: send auth to 3e:0f:fe:a1:9c:c1 (try 1/3)
+    [  648.921023] wlP2p1s0: authenticated
+    [  648.926976] wlP2p1s0: associate with 3e:0f:fe:a1:9c:c1 (try 1/3)
+    [  648.966319] wlP2p1s0: RX AssocResp from 3e:0f:fe:a1:9c:c1 (capab=0x1431 status=0 aid=1)
+    [  648.988409] wlP2p1s0: associated
+    [  649.103599] wlP2p1s0: Limiting TX power to 20 (20 - 0) dBm as advertised by 3e:0f:fe:a1:9c:c1
+
+.. code-block:: shell
+
+    ping -I wlP2p1s0 www.baidu.com
+
+.. code-block:: shell
+
+    PING www.baidu.com(240e:ff:e020:99b:0:ff:b099:cff1 (240e:ff:e020:99b:0:ff:b099:cff1)) from 240e:47e:32e1:75ff:a3bf:def1:4d68:7cbe wlP2p1s0: 56 data bytes
+    64 bytes from 240e:ff:e020:99b:0:ff:b099:cff1 (240e:ff:e020:99b:0:ff:b099:cff1): icmp_seq=1 ttl=54 time=57.8 ms
+    64 bytes from 240e:ff:e020:99b:0:ff:b099:cff1 (240e:ff:e020:99b:0:ff:b099:cff1): icmp_seq=2 ttl=54 time=44.0 ms
+
+- 结果：WiFi 网卡能获取到 IP 表示正常。
+
+can测试
+---------
+
+|   接口丝印：J13
+|   测试说明：与另一块带can口的开发板(笔者用的是MYZR-T536-EK270)互联进行收发测试
+|   测试操作
+
+1. 连接两块板的can口后通电(H接H，L接L)
+2. 配置can，两块板的输入指令如下：
+
+|   MYZR-K1-LB-REVA：
+
+.. code-block:: shell
+
+    ip link set can0 up type can bitrate 1000000 dbitrate 5000000 fd on
+    candump can0
+
+|   MYZR-T536-EK270：
+
+.. code-block:: shell
+
+    ip link set can1 up type can bitrate 1000000 dbitrate 5000000 fd on
+    candump can1
+
+3. MYZR-K1-LB-REVA发送数据，输入指令如下：
+
+.. code-block:: shell
+
+    cansend can0 1F334455#1122334455667788
+    MYZR-T536-EK270可以收到"can1  1F334455   [8]  11 22 33 44 55 66 77 88"，按下"Ctrl + C"退出接收
+
+4. 更改MYZR-K1-LB-REVA的can配置，MYZR-T536-EK270发送数据，输入指令如下：
+
+|   MYZR-K1-LB-REVA：
+
+.. code-block:: shell
+
+    candump can0
+
+|   MYZR-T536-EK270：
+
+.. code-block:: shell
+
+    cansend can1 1F334455#1122334455667788
+    MYZR-K1-LB-REVA可以收到"can0  1F334455   [8]  11 22 33 44 55 66 77 88"，按下"Ctrl + C"退出接收
+
+|   操作过程中的输出符合预期即功能正常
+
+232测试
+---------
+
+|   接口丝印：J8
+|   测试说明：通过232-USB转换头与电脑互联进行收发测试
+|   测试操作
+
+1. 使用232-USB转换头连接开发板和电脑，查看板子底部丝印，RX接TX，TX接RX
+2. 使用Xshell打开对应串口,将波特兰设置成115200，数据为8位，停止位1位
+3. 输入如下命令
+
+.. code-block:: shell
+
+    stty -F /dev/ttyS2 115200
+    echo "123456789" > /dev/ttyS2
+    cat /dev/ttyS2
+
+|   可以看到232串口终端输出123456789，然后进入接收模式
+
+4. 在232串口终端，直接输入123（不显示），板子输出结果：
+
+.. code-block:: shell
+
+    123
+
+|   按下"Ctrl + C"退出，操作过程中的输出符合预期即功能正常。
+
+485测试
+---------
+
+|   接口丝印：J9
+|   测试说明：通过485-USB转换头与电脑互联进行收发测试
+|   测试操作
+
+1. 使用485-USB转换头连接开发板和电脑，查看板子底部丝印，B对应转接头B，A对应转接头A
+2. 使用Xshell打开对应串口,将波特兰设置成115200，数据为8位，停止位1位
+3. 输入如下命令
+
+.. code-block:: shell
+
+    stty -F /dev/ttyS5 115200
+    echo "123456789" > /dev/ttyS5
+    cat /dev/ttyS5
+
+|   可以看到485串口终端输出123456789，然后进入接收模式
+
+4. 在485串口终端，直接输入123（不显示），板子输出结果：
+
+.. code-block:: shell
+
+    123
+
+|   按下"Ctrl + C"退出，操作过程中的输出符合预期即功能正常。
+
+rtc测试
+---------
+
+|   接口丝印：RTC
+|   测试说明：读取并设置时间，断电重启后检查时间是否正确
+|   测试操作
+
+1. 断电，检查纽扣电池是否安装，用万用表检查RTC电池有没有电，测出来是3.3v左右才是正常的
+2. 设备通电，查看当前系统时钟，输入指令如下：
+
+.. code-block:: shell
+
+    date
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Sat Jan  1 00:01:02 UTC 2000
+
+3. 查看rtc时钟，输入指令：
+
+.. code-block:: shell
+
+    hwclock -f /dev/rtc0
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Sat Jan  1 00:01:04 UTC 2000
+
+4. 设置系统时间并将系统时间写入rtc
+
+.. code-block:: shell
+
+    date -s "2025-01-24 14:00:00" && hwclock -w -f /dev/rtc0
+
+5. 查看有没有成功写入，输入指令如下：
+
+.. code-block:: shell
+
+    hwclock -f /dev/rtc0
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Fri Jan 24 14:00:17 2025  0.000000 seconds
+
+|   与系统时间差不多，表示成功写入rtc。
+
+5. 设备断电重启，查看rtc时钟，输入指令如下：
+
+.. code-block:: shell
+
+    hwclock -f /dev/rtc0
+
+|   输出信息：
+
+.. code-block:: shell
+
+    Wed May 14 10:30:43 2025  0.000000 seconds
+
+|   rtc时间在原来的时间上继续走，表明rtc测试通过
+
+ADC测试
+---------
+
+|   接口丝印：J12
+|   测试说明：ADC引脚默认是低电平
+|   测试操作
+
+1. 输入如下指令
+
+.. code-block:: shell
+
+    cd /sys/bus/iio/devices/iio:device0
+    cat in_voltage2_raw
+
+|   输出：
+
+.. code-block:: shell
+
+    0
+
+|   2.J12：1接上1.8v，输入如下命令：
+
+.. code-block:: shell
+
+    cat in_voltage3_raw
+
+|   输出：
+
+.. code-block:: shell
+
+    2412
+
+HDMI_TX测试
+-------------
+
+|   接口丝印：J5
+|   测试说明：
+|   测试操作：
+|   将HDMI接口的屏幕和开发板上对应丝印接口连接，便会出现系统的画面。
+
+摄像头测试
+-----------
+
+|   接口丝印：CSI1、CSI2
+|   测试说明：
+|   测试操作：
+
+1. 关掉开发板电源，摄像头朝向缺口处安装,启动东开发板。
+2. 确定摄像头接口并运行命令确定摄像头连接的 MIPI CSI 接口（如 CSI1），运行以下命令（以 CSI1 为例）：
+
+.. code-block:: shell
+
+    cam-test  /usr/share/camera_json/csi1_camera_detect.json
+
+3. 如果成功，如下示例输出，系统会自动生成可用的 JSON 文件到 /usr/share/camera_json/ 目录。如果失败，说明没有支持此摄像头，或者硬件有问题:
+
+.. code-block:: shell
+
+    ...
+    I: cam_sensors_module.c(240): "detect ov5695_spm sensors in csi1: success, set 2592x1944 to 1920x1080"
+    I: auto_detect_camera(1430): "auto detect sensor ===================== finish "
+    I: update_json_file(732): "save json to /usr/share/camera_json/csi1_camera_auto.json success"
+
+4. 启动CSI
+
+.. code-block:: shell
+
+    WAYLAND_DISPLAY=wayland-1 XDG_RUNTIME_DIR=/root/ \
+    gst-launch-1.0 -v \
+    spacemitsrc location=/usr/share/camera_json/csi1_camera_auto.json ! \
+    queue ! \
+    waylandsink sync=0 render-rectangle="<0,0,1280,720>"
+
+|   可以看到摄像头采集的画面。
+
+MIPI_DSI测试（缺5inch屏验证）
+------------------------------
+
+|   接口丝印：CON2
+|   测试说明：
+|   测试操作：
+
+1. 关掉开发板电源，接上mipi屏幕,启动东开发板。
+2. 可以看到启动log和系统界面。
+
+GPIO测试
+----------
+
++--------+----------+----------+----------+----------+-----+-----+----------+
+| 丝印   | 1        | 3        | 5        | 7        | 11  | ... | 16       |
++--------+----------+----------+----------+----------+-----+-----+----------+
+| GIPO   | GPIO1_B4 | GPIO1_B5 | GPIO1_B6 | GPIO1_B7 | GND | ... | GPIO1_C7 |
++--------+----------+----------+----------+----------+-----+-----+----------+
+| 高电平 | 1.8V     | 1.8V     | 1.8V     | 1.8V     | -   | ... | 1.8V     |
++--------+----------+----------+----------+----------+-----+-----+----------+
+
+|   测试说明：Usage: ./gpio_test <gpio_num> [0\1\irq]
+|   测试操作
+
+1. 输入如下指令使GPIO1_B4处于高电平：
+
+.. code-block:: shell
+
+    ./test_app/gpio_test.out GPIO1_B4 1
+
+|   输出
+
+.. code-block:: shell
+
+    Set GPIO44 HIGH
+
+|   使用万用表测该管脚，3.3V表示测试成功。
+
+2. 输入如下指令使GPIO1_B4处于低电平：
+
+.. code-block:: shell
+
+    ./test_app/gpio_test.out GPIO1_B4 0
+
+|   输出
+
+.. code-block:: shell
+
+    Set GPIO44 LOW
+
+|   使用万用表测该管脚，0V表示测试成功。
+
+3. 中断检测，触发方式为下降沿触发，将管脚J23：1和J23：2使用杜邦线连接，输入如下指令使管脚进入中断检测
+
+.. code-block:: shell
+
+    ./test_app/gpio_test.out GPIO1_B4 irq &
+
+|   把GPIO3_A6拉高再拉低，以达到下降沿触发条件
+
+.. code-block:: shell
+
+    ./test_app/gpio_test.out GPIO1_B5 1
+    ./test_app/gpio_test.out GPIO1_B5 0
+
+|   输出
+
+.. code-block:: shell
+
+    GPIO44 interrupt detected! Value: 0
+
+|   如上结果达到测试如此预期，表示测试成功。
+
+4G
+-----
+
+|   接口丝印：U20
+|   测试说明：
+|   测试操作：
+|   把天线接到U21
+|   输入命令：
+
+.. code-block:: shell
+
+    export OUT_IO_OUT_NUM=23
+    echo ${OUT_IO_OUT_NUM} > /sys/class/gpio/export
+    echo "out" > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/direction
+    echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+    export OUT_IO_OUT_NUM=48
+    echo ${OUT_IO_OUT_NUM} > /sys/class/gpio/export
+    echo "out" > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/direction
+    echo 0 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+    export OUT_IO_OUT_NUM=24
+    echo ${OUT_IO_OUT_NUM} > /sys/class/gpio/export
+    echo "out" > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/direction
+    echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+
+|   输出信息：
+
+.. code-block:: shell
+
+    [   34.053593] usb 1-1.4: new high-speed USB device number 4 using mv-ehci
+    [   34.169682] cdc_ether 1-1.4:1.0 eth2: register 'cdc_ether' at usb-mv-ehci1-1.4, CDC Ethernet Device, 22:89:84:6a:96:ab
+    [   34.193272] usbcore: registered new interface driver usbserial_generic
+    [   34.200001] usbserial: USB Serial support registered for generic
+    [   34.213736] usbcore: registered new interface driver option
+    [   34.219453] usbserial: USB Serial support registered for GSM modem (1-port)
+    [   34.226740] option 1-1.4:1.2: GSM modem (1-port) converter detected
+    [   34.233444] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB0
+    [   34.240608] option 1-1.4:1.3: GSM modem (1-port) converter detected
+    [   34.247249] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB1
+    [   34.254438] option 1-1.4:1.4: GSM modem (1-port) converter detected
+    [   34.261082] usb 1-1.4: GSM modem (1-port) converter now attached to ttyUSB2
+
+|   再输入
+
+.. code-block:: shell
+
+    echo -e "AT+QNETDEVCTL?\r\n" > /dev/ttyUSB1
+    echo -e "AT+QGMR\r\n" > /dev/ttyUSB1
+    echo -e "AT+CPIN?\r\n" > /dev/ttyUSB1
+    echo -e "AT+CEREG?\r\n" > /dev/ttyUSB1
+    echo -e "AT+QNETDEVCTL=3,1,1\r\n" > /dev/ttyUSB1
+
+|   验证网络连接：
+
+.. code-block:: shell
+
+    ping -I eth2 www.baidu.com -4 -c 3
+
+|   输出信息：
+
+.. code-block:: shell
+
+    PING www.a.shifen.com (183.240.99.224) from 192.168.43.100 eth2: 56(84) bytes of data.
+    64 bytes from 183.240.99.224 (183.240.99.224): icmp_seq=1 ttl=51 time=119 ms
+    64 bytes from 183.240.99.224 (183.240.99.224): icmp_seq=2 ttl=51 time=106 ms
+    64 bytes from 183.240.99.224 (183.240.99.224): icmp_seq=3 ttl=51 time=117 ms
+
+    --- www.a.shifen.com ping statistics ---
+    3 packets transmitted, 3 received, 0% packet loss, time 2002ms
+    rtt min/avg/max/mdev = 106.129/114.143/119.065/5.716 ms
+
+|   如上结果达到测试如此预期，表示测试成功。

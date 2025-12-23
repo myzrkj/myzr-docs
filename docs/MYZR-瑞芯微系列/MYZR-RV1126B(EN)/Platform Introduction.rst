@@ -8,7 +8,7 @@ Product Overview
 - **NPU**: Built-in self-developed NPU with a computing power of up to 3Tops, supporting data types such as INT8/INT16/FP16, as well as weight sparsification, W4A16/W8A16 mixed-precision quantization and Transformer optimization technology. It can smoothly run large language models and multimodal models with a parameter scale of less than 2B.
 - **Memory**: Supports 32-bit DDR3/DDR3L/LPDDR3/DDR4/LPDDR4 memory, as well as storage devices such as eMMC 4.51, SPI Flash, and Nand Flash, and also supports fast startup.
 - **Display**: Equipped with MIPI-DSI/RGB interface, it can support display output up to 1080P60fps. At the same time, it integrates a 2D graphics engine, supporting image rotation, mirroring, scaling and other operations.
-- **Multimedia Interface**: Supports 4*MIPI CSI/sub LVDS and DVP interfaces (BT.656/BT.1120), which can connect multiple cameras. In terms of video encoding and decoding, it supports 4K H.264/H.265 30fps video encoding and decoding, and can also realize encoding of 3840 x 2160@30 fps + 720p@30 fps and decoding of 3840 x 2160@30 encoding + 3840 x 2160@30 fps.
+- **Multimedia Interface**: Supports 4*MIPI CSI/sub LVDS and DVP interfaces (BT.656/BT.1120), which can connect multiple cameras. In terms of video encoding and decoding, it supports 4K H.264/H.265 30fps video encoding and decoding, and can also realize encoding of 3840 x 2160\@30 fps + 720p\@30 fps and decoding of 3840 x 2160\@30 encoding + 3840 x 2160\@30 fps.
 - **Other Interfaces**: Added USB 3.0 interface to provide higher data transmission rate; built-in 100M Ethernet PHY to simplify network interface design; integrated audio codec (Audio Codec) to support high-quality audio processing.
 
 

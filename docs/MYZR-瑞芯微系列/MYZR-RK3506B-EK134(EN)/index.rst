@@ -1,5 +1,5 @@
 
-MYZR-RK3506-EK134(EN)
+MYZR-RK3506B-EK134(EN)
 =======================
 
 .. toctree:: 

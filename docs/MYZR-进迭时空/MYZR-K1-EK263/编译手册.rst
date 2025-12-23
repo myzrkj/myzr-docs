@@ -1,0 +1,156 @@
+编译手册
+=========
+
+开发环境
+---------
+
+操作系统
+~~~~~~~~~
+
+|   笔者使用的是：Ubuntu 20.04
+
+安装依赖
+~~~~~~~~~
+
+|   Ubuntu 20.04 or higher:
+
+.. code-block:: shell
+
+    sudo apt-get install git build-essential cpio unzip rsync file bc wget python3 python-is-python3 libncurses5-dev libssl-dev dosfstools mtools u-boot-tools flex bison python3-pip
+    sudo pip3 install pyyaml
+
+配置
+~~~~~~
+
+**buildroot**
+
+|   配置：
+
+.. code-block:: shell
+
+    make menuconfig
+
+|   保存配置，默认保存到buildroot-ext/configs/spacemit_k1_v2_defconfig：
+
+.. code-block:: shell
+
+    make savedefconfig
+
+**linux**
+
+|   配置：
+
+.. code-block:: shell
+
+    make linux-menuconfig
+
+|   保存配置，默认保存到bsp-src/linux-6.6/arch/riscv/configs/k1_defconfig
+
+.. code-block:: shell
+
+    make linux-update-defconfig
+
+**u-boot**
+
+|   配置：
+
+.. code-block:: shell
+
+    make uboot-menuconfig
+
+|   保存配置，默认保存到bsp-src/uboot-2022.10/configs/k1_defconfig
+
+.. code-block:: shell
+
+    make uboot-update-defconfig
+
+完整编译
+----------
+
+.. code-block:: shell
+
+    make envconfig
+
+|   生成的文件bianbu-linux-2.2/output\k1_v2/images/bianbu-linux-k1_v2.zip。
+
+单独编译
+----------
+
+编译指定包
+~~~~~~~~~~~
+
+**编译内核：**
+
+.. code-block:: shell
+
+    make linux-rebuild
+
+**编译u-boot：**
+
+.. code-block:: shell
+
+    make uboot-rebuild
+
+|   编译指定包之后，可以将编译文件打包成bianbu-linux-2.2/output\k1_v2/images/bianbu-linux-k1_v2.zip。
+
+.. code-block:: shell
+
+    make
+
+**编译k1x-cam**
+
+.. code-block:: shell
+
+    make k1x-cam-rebuild
+
+|   buildroot支持编译指定package，可以make help查看指南。
+
+gcc单独编译
+~~~~~~~~~~~~
+
+**搭建环境**
+
+|   交叉编译器下载地址：http://archive.spacemit.com/toolchain/，解压即可使用。
+|   例如spacemit-toolchain-linux-glibc-x86_64-v1.0.0.tar.xz
+
+.. code-block:: shell
+
+    sudo tar -Jxf /path/to/spacemit-toolchain-linux-glibc-x86_64-v1.0.0.tar.xz -C /opt
+
+|   设置环境变量：
+
+.. code-block:: shell
+
+    export PATH=/opt/spacemit-toolchain-linux-glibc-x86_64-v0.3.3/bin:$PATH
+    export CROSS_COMPILE=riscv64-unknown-linux-gnu-
+    export ARCH=riscv
+
+**编译 opensbi**
+
+.. code-block:: shell
+
+    cd bsp-src/opensbi
+    make -j$(nproc) PLATFORM_DEFCONFIG=k1_defconfig PLATFORM=generic
+
+|   编译最终生成 platform/generic/firmware/fw_dynamic.itb。
+
+**编译 u-boot**
+
+.. code-block:: shell
+
+    cd bsp-src/uboot-2022.10
+    make k1_defconfig
+    make -j$(nproc)
+
+|   编译会根据 board/spacemit/k1-x/k1-x.env 生成 u-boot-env-default.bin，对应分区表 env 分区的镜像，以及生成 FSBL.bin 和 u-boot.itb。
+
+**编译linux**
+
+.. code-block:: shell
+
+    cd bsp-src/linux-6.6
+    make k1_defconfig
+    LOCALVERSION="" make -j$(nproc)
+
+|   编译最终生产Image和k1-x_deb1.dtb。
+
