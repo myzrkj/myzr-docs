@@ -30,6 +30,10 @@ Core Board Introduction
 
 - size view
 
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/核心板尺寸图1.jpg
+   :alt: 核心板尺寸图1.jpg
+   :width: 60%
+
 .. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/核心板尺寸图.png
    :alt: 核心板尺寸图.png
    :width: 60%
