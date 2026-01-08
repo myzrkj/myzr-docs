@@ -20,7 +20,7 @@ Key Features
 
 - **High-performance Heterogeneous Multi-core Architecture**:
 
-- Dual-core Arm Cortex-A76 (1.8 GHz): Handles general-purpose operating systems (such as Linux) and complex applications.
+- Dual-core Arm Cortex-A55 (1.8 GHz): Handles general-purpose operating systems (such as Linux) and complex applications.
 - Dual-core Arm Cortex-R8 (1.0 GHz): Responsible for real-time control tasks.
 - Dual-core Renesas self-developed DSP (1.0 GHz): Optimized for vision processing and AI inference.
 - IMR (Intelligent Reconfigurable Processor): A hardware accelerator that supports real-time image processing (e.g., ISP, noise reduction, HDR).
