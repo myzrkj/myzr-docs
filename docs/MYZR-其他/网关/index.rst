@@ -4,7 +4,6 @@
 .. toctree:: 
    :maxdepth: 1
 
-
    GW510/index
    GW305/index
    GW300/index

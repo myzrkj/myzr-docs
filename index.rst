@@ -53,6 +53,7 @@
    docs/MYZR-全志系列/MYZR-R16-EK166/index
    docs/MYZR-全志系列/MYZR-R16-EK166(EN)/index
 
+
 .. toctree::
    :maxdepth: 1
    :caption: MYZR-SigmaStar系列
@@ -81,6 +82,7 @@
    docs/MYZR-iMX8系列/MYZR-IMX8M-EVK/index
    docs/MYZR-iMX8系列/MYZR-IMX8Mmini-EK240/index
    docs/MYZR-iMX8系列/MYZR-IMX8Mmini-EK240(EN)/index
+
 
 .. toctree::
    :maxdepth: 1
@@ -113,7 +115,6 @@
    docs/MYZR-ST系列/MYZR-STM32MP15-EK152(EN)/index
 
 
-
 .. toctree::
    :maxdepth: 1
    :caption: MYZR-iMX6系列
@@ -136,6 +137,7 @@
    docs/MYZR-其他/网关/index            
 
    docs/MYZR-其他/index                                                                                
+
 
 Indices and tables
 ==================
