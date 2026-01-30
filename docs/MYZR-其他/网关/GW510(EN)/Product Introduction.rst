@@ -99,17 +99,20 @@ Product Introduction
 
 .. figure:: /image/MYZR-其他/网关/GW510/产品介绍1.png
    :alt: 产品介绍1.png
+   :width: 60%
 
 **2.1.2 Side View**
 
 .. figure:: /image/MYZR-其他/网关/GW510/产品介绍2.png
    :alt: 产品介绍2.png
+   :width: 60%
 
 2.2 Product Dimensions
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: /image/MYZR-其他/网关/GW510/产品介绍3.png
    :alt: 产品介绍3.png
+   :width: 60%
 
 2.3 Product Interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -118,6 +121,7 @@ Product Introduction
 
 .. figure:: /image/MYZR-其他/网关/GW510/产品介绍4.png
    :alt: 产品介绍4.png
+   :width: 60%
 
 +--------------------+-----------------------------------------------------------------+
 | Hardware Interface |                      Interface Description                      |
@@ -141,6 +145,7 @@ Product Introduction
 
 .. figure:: /image/MYZR-其他/网关/GW510/产品介绍5.png
    :alt: 产品介绍5.png
+   :width: 60%
 
 +--------------------+--------------------------------------------------+
 | Hardware Interface |              Interface Description               |
@@ -155,3 +160,4 @@ Product Introduction
 
 .. figure:: /image/MYZR-其他/网关/GW510/产品介绍6.png
    :alt: 产品介绍6.png
+   :width: 60%

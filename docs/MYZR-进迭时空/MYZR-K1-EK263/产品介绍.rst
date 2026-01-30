@@ -62,9 +62,11 @@
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/核心板尺寸图.png
    :alt: 核心板尺寸图.png
+   :width: 60%
 
 底板介绍
 ---------
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/底板尺寸图.png
    :alt: 底板尺寸图.png
+   :width: 60%

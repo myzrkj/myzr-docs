@@ -6,6 +6,7 @@
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/产品简介1.png
    :alt: 产品简介1.png
+   :width: 60%
 
 1. 概述
 ---------
@@ -228,3 +229,4 @@ Audio
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/产品简介2.png
    :alt: 产品简介2.png
+   :width: 60%

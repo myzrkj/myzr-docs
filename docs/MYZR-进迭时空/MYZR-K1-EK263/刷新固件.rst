@@ -25,16 +25,19 @@ Titan Flasher刷机工具安装流程
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件1.png
    :alt: 刷新固件1.png
+   :width: 60%
 
 3. 可以点击浏览（B），选择安装的位置,这里不做演示，然后点击安装（I）
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件2.png
    :alt: 刷新固件2.png
+   :width: 60%
 
 4. 可以选择不运行titanflasher,点击完成（F）
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件3.png
    :alt: 刷新固件3.png
+   :width: 60%
 
 Titan Flasher刷机工具的使用流程
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -43,16 +46,19 @@ Titan Flasher刷机工具的使用流程
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件4.png
    :alt: 刷新固件4.png
+   :width: 60%
 
 2. 点击研发工具
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件5.png
    :alt: 刷新固件5.png
+   :width: 60%
 
 3. 点击单机烧录
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件6.png
    :alt: 刷新固件6.png
+   :width: 60%
 
 4. type-c的一端连接U18，另一端连接到电脑的后置USB口；把开发板的SW2拨码开关拨到刷机模式；CON1接12V电源并把POW_KEY拨到ON给开发板上电。
 
@@ -70,31 +76,37 @@ Titan Flasher刷机工具的使用流程
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件7.png
    :alt: 刷新固件7.png
+   :width: 60%
 
 |   几秒钟后会识别到设备
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件8.png
    :alt: 刷新固件8.png
+   :width: 60%
 
 6. 点击选择刷机文件
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件9.png
    :alt: 刷新固件9.png
+   :width: 60%
 
 7. 双击bianbu-linux-k1_v2.zip
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件10.png
    :alt: 刷新固件10.png
+   :width: 60%
 
 8. 选择完成后，点击开始刷机,调试串口和HDMI有连接的，可以看到烧录信息
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件11.png
    :alt: 刷新固件11.png
+   :width: 60%
 
 9. 等待，烧录成功
 
 .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/刷新固件12.png
    :alt: 刷新固件12.png
+   :width: 60%
 
 单独烧录内核和设备树
 ---------------------

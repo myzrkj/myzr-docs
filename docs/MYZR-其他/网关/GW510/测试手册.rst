@@ -8,31 +8,31 @@
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册1.png
    :alt: 测试手册1.png
-   :width: 90%
+   :width: 60%
 
 2. 打开串口终端如xhell,输入网关默认ip地址192.168.131.81,协议选择ssh，最后点连接
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册2.png
    :alt: 测试手册2.png
-   :width: 90%
+   :width: 60%
 
 3. 连接成功后弹出如下信息接收主机密钥，点击接收并保存
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册3.png
    :alt: 测试手册3.png
-   :width: 90%
+   :width: 60%
 
 4. 保存后弹出如下，输入用户名root，点击确定
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册4.png
    :alt: 测试手册4.png
-   :width: 90%
+   :width: 60%
 
 5. 能进入系统表示网口ssh登录成功
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册5.png
    :alt: 测试手册5.png
-   :width: 90%
+   :width: 60%
 
 网口1测试
 -----------
@@ -662,7 +662,7 @@ WiFi STA测试
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册6.png
    :alt: 测试手册6.png
-   :width: 90%
+   :width: 60%
 
 |  当网关运行./n0x002时，此页面会收到07 00 93 00 31 32 33 34 35
 |  当用节点发送信息给网关时，请按此页面配置点击发送00 ff 00 01 31 32 33 34 35 36,点击发送前请在网关终端运行./serial_test.out /dev/ttyS1 1使网关进入接收状态，以接收节点发过来的12345
@@ -747,7 +747,7 @@ do测试
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册7.png
    :alt: 测试手册7.png
-   :width: 90%
+   :width: 60%
 
 |  注意：电压设置3.3V，电流设置为0.1A，过流保护设置为0.12A。
 
@@ -802,7 +802,7 @@ di测试
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册8.png
    :alt: 测试手册8.png
-   :width: 90%
+   :width: 60%
 
 2. IN0+引脚接3.3V电源，IN0-引脚接地。
 

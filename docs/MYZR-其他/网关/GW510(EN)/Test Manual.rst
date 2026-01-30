@@ -8,31 +8,31 @@ Ethernet Port 0 Test
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册1.png
    :alt: 测试手册1.png
-   :width: 90%
+   :width: 60%
 
 2. Open a serial terminal such as Xhell, enter the default gateway IP address 192.168.131.81, select SSH as the protocol, and click Connect at last
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册2.png
    :alt: 测试手册2.png
-   :width: 90%
+   :width: 60%
 
 3. After a successful connection, the following message pops up to receive the host key, click to receive and save it
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册3.png
    :alt: 测试手册3.png
-   :width: 90%
+   :width: 60%
 
 4. After saving, the following interface pops up, enter the username **root** and click OK
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册4.png
    :alt: 测试手册4.png
-   :width: 90%
+   :width: 60%
 
 5. Successful access to the system indicates that the SSH login via the Ethernet port is successful
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册5.png
    :alt: 测试手册5.png
-   :width: 90%
+   :width: 60%
 
 Ethernet Port 1 Test
 -----------------------
@@ -662,7 +662,7 @@ Bluetooth
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册6.png
    :alt: 测试手册6.png
-   :width: 90%
+   :width: 60%
 
 |  When the gateway runs **./n0x002**, this page will receive **07 00 93 00 31 32 33 34 35**
 |  When sending information from the node to the gateway, configure the page as above and click to send **00 ff 00 01 31 32 33 34 35 36**. Before sending, run **./serial_test.out /dev/ttyS1 1** on the gateway terminal to make the gateway enter the receiving state for receiving **123456** sent by the node.
@@ -747,7 +747,7 @@ DO Test
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册7.png
    :alt: 测试手册7.png
-   :width: 90%
+   :width: 60%
 
 |  **Note**: Set the voltage to 3.3V, the current to 0.1A, and the overcurrent protection to 0.12A.
 
@@ -802,7 +802,7 @@ DI Test
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册8.png
    :alt: 测试手册8.png
-   :width: 90%
+   :width: 60%
 
 2. Connect the IN0+ pin to a 3.3V power supply and the IN0- pin to GND.
 
