@@ -1,5 +1,5 @@
-GW200(EN)
-===========
+Product Introduction
+=======================
 
 Product Specification
 ------------------------

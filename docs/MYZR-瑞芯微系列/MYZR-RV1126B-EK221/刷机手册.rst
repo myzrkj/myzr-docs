@@ -8,16 +8,16 @@
 2. 解压后进入 DriverAssitant_v5.13 文件夹。
 3. 双击 DriverInstall.exe 程序进项驱动安装，安装步骤如下所示。
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机1.png
    :alt: 刷机1.png
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机2.png
    :alt: 刷机2.png
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机3.png
    :alt: 刷机3.png
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机4.png
    :alt: 刷机4.png
 
 使用 USB 转 Type-C 数据线刷机
@@ -27,47 +27,47 @@
 2. 解压 DriverAssitant_v5.13.zip 压缩包，进入解压后的文件夹，找到 DriverInstall.exe 程序，双击安装。
 
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机5.png
    :alt: 刷机5.png
 
 3. 解压 RKDevTool_Release_v3.15.zip 压缩包，进入解压后的文件，找到 RKDevTool.exe 程序，双击打开。
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机6.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机6.png
    :alt: 刷机6.png
 
 4. 全局烧录
 
 |  双击打开 RKDevTool.exe 程序后，点击“升级固件”，然后点击“固件”按钮，选择相应的 img 文件，点击“切换”按钮，将模式切换到“LOADER”模式，点击“升级”按钮，查看右边字符，显示“下载固件成功”则烧入成功。
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机7.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机7.png
    :alt: 刷机7.png
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机8.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机8.png
    :alt: 刷机8.png
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机9.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机9.png
    :alt: 刷机9.png
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机10.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机10.png
    :alt: 刷机10.png
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机11.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机11.png
    :alt: 刷机11.png
 
 5. 单独或多个烧录
 
 - 先确定各个部分的地址
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机12.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机12.png
    :alt: 刷机12.png
 
 - 然后一直点击确定
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机13.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机13.png
    :alt: 刷机13.png
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机14.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机14.png
    :alt: 刷机14.png
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/刷机15.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/刷机15.png
    :alt: 刷机15.png

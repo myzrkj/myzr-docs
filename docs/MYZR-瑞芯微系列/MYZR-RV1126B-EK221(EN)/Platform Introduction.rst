@@ -35,7 +35,7 @@ Main Features
 Processor Block Diagram
 --------------------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/处理器框图.jpg
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/处理器框图.jpg
    :alt: 处理器框图.jpg
 
 

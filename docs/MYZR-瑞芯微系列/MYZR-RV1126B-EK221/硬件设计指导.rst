@@ -6,7 +6,7 @@
 
 |   RV1126B UART Debug默认选择在PMUIO0域的UART0_RX_M2/UART0_TX_M2， 默认波特率为1500000bps。  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw1-1.png
    :alt: hw1-1.png
    :width: 90%
 
@@ -16,24 +16,24 @@
 - 外部 USB 转 UART 的转接芯片， VCCIO 供电建议从主板的 PMUIO0_VCC3V3 电源域取电，避免 SOC 下电时的电压倒灌；
 - 如果需要使用 UART Debug，建议预留 2.54 排针或测试点， UART 的电路如下图所示， 串接的 510 ohm 电阻不得删减，并增加 TVS 管，加强抗静电浪涌能力，防止开发过程损坏芯片管脚。  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw1-2.png
    :alt: hw1-2.png
    :width: 90%
 
 - 或者可以采用CH340T芯片，转为USB信号。
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw1-3.png
    :alt: hw1-3.png
    :width: 90%
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw1-4.png
    :alt: hw1-4.png
    :width: 90%
 
 二、OTG电路
 -------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw2-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw2-1.png
    :alt: hw2-1.png
    :width: 90%
 
@@ -46,7 +46,7 @@
 12V输入
 ~~~~~~~~~
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw3-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw3-1.png
    :alt: hw3-1.png
    :width: 90%
 
@@ -56,7 +56,7 @@
 5V
 ~~~~
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw3-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw3-2.png
    :alt: hw3-2.png
    :width: 90%
 
@@ -66,7 +66,7 @@
 3.3V
 ~~~~~~
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw3-3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw3-3.png
    :alt: hw3-3.png
    :width: 90%
 
@@ -79,14 +79,14 @@
 |   1、使用USB2514B芯片。可以一括四路USB。
 |   2、加入过流保护芯片。
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw4-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw4-1.png
    :alt: hw4-1.png
    :width: 90%
 
 五、USB3.0
 ------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw5-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw5-1.png
    :alt: hw5-1.png
    :width: 90%
 
@@ -94,14 +94,14 @@
 |   2、USB2.0的信号需要串联2.0R电阻。
 |   3、加入了过流保护。
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw5-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw5-2.png
    :alt: hw5-2.png
    :width: 90%
 
 六、MIPI-CSI
 --------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw6-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw6-1.png
    :alt: hw6-1.png
    :width: 90%
 
@@ -123,7 +123,7 @@
 七、MIPI-DSI
 --------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw7-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw7-1.png
    :alt: hw7-1.png
    :width: 90%
 
@@ -158,7 +158,7 @@
 
 |   LCDC TX接口的信号连接如下图所示：  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw8-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw8-1.png
    :alt: hw8-1.png
    :width: 90%
 
@@ -174,7 +174,7 @@
 |   RV1126B 提供了丰富的音频接口能力与资源，共提供了 3 组 SAI 接口、 1 组 PDM 接口、 1 组 DSM 接口、 2 组 Audio ADC，以及 2 组 ASRC 处理单元。  
 |   RV1126B音频子系统框图如下，包括了对外/对内接口相关信息：  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-1.png
    :alt: hw9-1.png
    :width: 90%
 
@@ -282,7 +282,7 @@
 |   两组 PDM 都工作在主接收模式（ master receive mode，即 RV1126B 提供 PDM 时钟、接收数据），支持 8 通道输入能力， 16 至 32bits 的位宽，最高到 192kHz 的采样率。
 |   下图是 PDM 接口的数据格式， PDM_DATA 由 Data(R)和 Data(L)组成， PDM 是 1bit 采样接口，分别在 CLK 的上升沿、下降沿采样这两个 Data(L)和 Data(R)，即每根 PDM_SDIx 数据线可传输 2 个声道的音频数据。因此， 1 组 PDM 的四根 SDIx 数据线可以满足最多接入 8 个麦克风的需求（或 6 个麦克风+2 个回采声道，共 8 声道）。  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-2.png
    :alt: hw9-2.png
    :width: 90%
 
@@ -346,7 +346,7 @@
 
 |   DSM 音频（ Digital Signal Modulator） 指的是将音频 PCM 数据进行直接比特流数字编码（ Direct Stream Digital）转换输出的 1bit 信号流数据，在需要音频输出的设计中，接口输出的数字信号，经过一阶 RC 低通滤波处理后得到模拟音频信号输出。 DSM 原理如下图所示：  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-3.png
    :alt: hw9-3.png
    :width: 90%
 
@@ -398,11 +398,11 @@
 |   RV1126B内置2个AUDIO ADC，均支持差分MIC输入，使用时请注意：
 |   MIC差分输入参考电路如下图：  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-4.png
    :alt: hw9-4.png
    :width: 90%
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-5.png
    :alt: hw9-5.png
    :width: 90%
 
@@ -437,13 +437,13 @@
 |   本章节对于常用的音频外设场景，给出了连接建议，用户可参考使用。  
 |   RV1126B可以通过SAI信号，连接音频DAC或CODEC（如RK730） 实现模拟输出，再通过音频功放实现功率放大驱动喇叭，如下图所示：  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-6.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-6.png
    :alt: hw9-6.png
    :width: 90%
 
 |   对于低成本方案的喇叭放音需求， 可以使用RV1126B的DSM滤波输出，再通过音频功放实现功率放大驱动喇叭，如下图所示：  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-7.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-7.png
    :alt: hw9-7.png
    :width: 90%
 
@@ -451,19 +451,19 @@
 
 |   1、使用内置 ACODEC 的差分 ADC 实现模拟信号输入；  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-8.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-8.png
    :alt: hw9-8.png
    :width: 90%
 
 |   2、PDM 接口连接 PDM 麦，或者使用 SAI/I2S/PDM 接口的 ADC，外接模拟 MIC 来实现 ； 
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-9.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-9.png
    :alt: hw9-9.png
    :width: 90%
 
 |   3、使用 Codec（如 RK730） 来实现相关功能，如下图所示；  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-10.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-10.png
    :alt: hw9-10.png
    :width: 90%
 
@@ -472,11 +472,11 @@
 
 |   GMAC复用在两处不同的电源域， GMAC_M0复用在VCCIO6电源域， GMAC_M1复用在VCCIO5电源域。  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-1.png
    :alt: hw10-1.png
    :width: 90%
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-2.png
    :alt: hw10-2.png
    :width: 90%
 
@@ -521,37 +521,37 @@
 
 |   RGMII GEPHY 工作时钟使用外置 25MHz 晶体  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-3.png
    :alt: hw10-3.png
    :width: 90%
 
 |   RGMII GEPHY 工作时钟使用RV1126B 提供的 25MHz  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-4.png
    :alt: hw10-4.png
    :width: 90%
 
 |   RMII RMII FEPHY 工作时钟使用 25MHz 晶体， ETH_MCLK_Mx 采用输出模式，当 RMII 接口的参考时钟， FEPHY 的 TXCLK 需要配置为输入模式  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-5.png
    :alt: hw10-5.png
    :width: 90%
 
 |   RMII 使用 SOC 提供的 25MHz 替代 FEPHY晶体， ETH_MCLK_Mx 采用输出模式，当 RMII 接口的参考时钟， FEPHY 的 TXCLK 需要配置为输入模式  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-6.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-6.png
    :alt: hw10-6.png
    :width: 90%
 
 |   FEPHY 工作时钟使用外置 25MHz 晶体， ETHx_MCLK_Mx 采用输入模式， RMII 接口的参考时钟由 FEPHY 提供， FEPHY 的 TXCLK 需要配置为输出模式  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-7.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-7.png
    :alt: hw10-7.png
    :width: 90%
 
 |   RMII 使用 SOC 提供的 25MHz 替代 FEPHY晶体， ETH_MCLK_Mx 采用输入模式， RMII 接口的参考时钟由 FEPHY 提供， FEPHY 的 TXCLK 需要配置为输出模式  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-8.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-8.png
    :alt: hw10-8.png
    :width: 90%
 
@@ -575,7 +575,7 @@
 |   RV1126B内置的FEPHY，可以实现百兆以太网功能， 同一时间与GMAC_M0/GMAC_M1只能选择其中之一进行使用。
 |   FEPHY接口的信号连接如下图所示：
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-9.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-9.png
    :alt: hw10-9.png
    :width: 90%
 
@@ -613,7 +613,7 @@
 - UART1~7 支持 RS485 自动收发功能。
 - UART0 默认为烧录、打印串口
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw11-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw11-1.png
    :alt: hw11-1.png
    :width: 90%
 
@@ -650,7 +650,7 @@
 十二、RS232
 -------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw12-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw12-1.png
    :alt: hw12-1.png
    :width: 90%
 
@@ -660,7 +660,7 @@
 十三、RS485
 -------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw13-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw13-1.png
    :alt: hw13-1.png
    :width: 90%
 
@@ -670,7 +670,7 @@
 十四、CAN
 -----------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw14-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw14-1.png
    :alt: hw14-1.png
    :width: 90%
 
@@ -683,7 +683,7 @@
 |   考虑不同产品应用灵活性， 2个CAN分别复用在几个不同的电源域，用后缀M0/M1区分不同复用位置。IOMUX_M0/M1不能同时使用，分配时只能选择其中一组，例如：选择了CAN_M0，就不能再选择CAN_M1。
 |   CAN接口的信号连接如下图所示：  
   
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw14-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw14-2.png
    :alt: hw14-2.png
    :width: 90%
 
@@ -704,7 +704,7 @@
 |   考虑不同产品应用灵活性， 6个I2C分别复用在几个不同的电源域，用后缀M0/M1/M2/M3区分不同复用位置。 IOMUX_M0/M1/M2/M3不能同时使用，分配时只能选择其中一组，例如：不能选择了I2C1_M0，又选择了I2C1_M1、 I2C1_M2或I2C1_M3。
 |   I2C接口的信号连接如下图所示：  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw15-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw15-1.png
    :alt: hw15-1.png
    :width: 90%
 
@@ -860,7 +860,7 @@
   - 红外接收头输出电平必须和 RV1126B IO 电平匹配；
   - 红外接收头输出脚建议串 22 ohm 电阻并对 1nF 电容，再连接到 RV1126B，加强抗静电浪涌能力。
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw17-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw17-1.png
    :alt: hw17-1.png
    :width: 90%
 
@@ -871,7 +871,7 @@
 十八、WIFI&BT
 ---------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw18-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw18-1.png
    :alt: hw18-1.png
    :width: 90%
 
@@ -881,7 +881,7 @@
 十九、按键
 -----------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw19-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw19-1.png
    :alt: hw19-1.png
    :width: 90%
 
@@ -893,7 +893,7 @@
 二十、排针
 -----------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw20-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw20-1.png
    :alt: hw20-1.png
    :width: 90%
 

@@ -1,0 +1,839 @@
+测试手册
+==========
+
+网口0测试
+-----------
+
+1. 用网线将主机与开发板网口1相连，并将主机IP地址改为与网关同一网段，如192.168.131.99
+
+.. figure:: /image/MYZR-其他/网关/GW510/测试手册1.png
+   :alt: 测试手册1.png
+   :width: 90%
+
+2. 打开串口终端如xhell,输入网关默认ip地址192.168.131.81,协议选择ssh，最后点连接
+
+.. figure:: /image/MYZR-其他/网关/GW510/测试手册2.png
+   :alt: 测试手册2.png
+   :width: 90%
+
+3. 连接成功后弹出如下信息接收主机密钥，点击接收并保存
+
+.. figure:: /image/MYZR-其他/网关/GW510/测试手册3.png
+   :alt: 测试手册3.png
+   :width: 90%
+
+4. 保存后弹出如下，输入用户名root，点击确定
+
+.. figure:: /image/MYZR-其他/网关/GW510/测试手册4.png
+   :alt: 测试手册4.png
+   :width: 90%
+
+5. 能进入系统表示网口ssh登录成功
+
+.. figure:: /image/MYZR-其他/网关/GW510/测试手册5.png
+   :alt: 测试手册5.png
+   :width: 90%
+
+网口1测试
+-----------
+
+|  【测试说明】：采用开发板向PC发送ICMP报文的方式进行测试
+|  【接口标识】：J2
+|  【系统设备】：/dev/eth1
+|  【测试操作】：
+
+1. 使用网线连接开发板网口和电脑的网口，串口显示信息：
+
+.. code-block:: shell
+
+   [emac_phy_link_adjust] EMAC Link Up
+
+2. 获取网口1 IP地址，输入指令如下：
+
+.. code-block:: shell
+
+   udhcpc -i eth1
+
+3. 输出信息如下：
+
+.. code-block:: shell
+
+   udhcpc: started, v1.37.0
+   udhcpc: broadcasting discover
+   udhcpc: broadcasting select for 192.168.128.194, server 192.168.128.1
+   udhcpc: lease of 192.168.128.194 obtained from 192.168.128.1, lease time 300
+   deleting routers
+   adding dns 192.168.128.1
+
+4. 验证网口1网络，输入指令如下：
+
+.. code-block:: shell
+
+   ping -I eth1 www.baidu.com -c 3
+
+5. 输出信息如下：“0% packet loss”表示测试通过
+
+.. code-block:: shell
+
+   PING www.baidu.com (183.2.172.177): 56 data bytes
+   64 bytes from 183.2.172.177: seq=0 ttl=54 time=6.859 ms
+   64 bytes from 183.2.172.177: seq=1 ttl=54 time=6.508 ms
+   64 bytes from 183.2.172.177: seq=2 ttl=54 time=6.886 ms
+
+   --- www.baidu.com ping statistics ---
+   3 packets transmitted, 3 packets received, 0% packet loss
+   round-trip min/avg/max = 6.508/6.751/6.886 ms
+
+SD接口测试
+------------
+
+|  【测试说明】：插入TF卡。
+|  【接口标识】：U19
+|  【系统设备】：/dev/mmcblk0 mmcblk0p1
+|  【测试操作】：
+
+1. 将TF卡安装到SD接口，开发会输出如下信息：
+
+.. code-block:: shell
+
+   >> [Hal_CARD_SetBustiming] LS mode. <<
+   SDMMC0 >> [Hal_CARD_SetBustiming] HS mode. <<
+
+2. 输入如下指令，可查看sd卡信息：
+
+.. code-block:: shell
+
+   fdisk -l
+
+|  信息如下
+
+.. code-block:: shell
+
+   Disk /dev/mmcblk0: 7388 MB, 7746879488 bytes, 15130624 sectors
+   938 cylinders, 256 heads, 63 sectors/track
+   Units: sectors of 1 * 512 = 512 bytes
+
+   Device       Boot StartCHS    EndCHS        StartLBA     EndLBA    Sectors  Size Id Type
+   /dev/mmcblk0p1 *  1023,255,63 1023,255,63       2048   15130623   15128576 7387M  c Win95 FAT32 (LBA)
+   Partition 1 has different physical/logical start (non-Linux?):
+        phys=(1023,255,63) logical=(0,32,33)
+   Partition 1 has different physical/logical end:
+        phys=(1023,255,63) logical=(938,40,40)
+
+3. 将TF拔出，输出信息如下：
+
+.. code-block:: shell
+
+|  SDMMC0 >> [Hal_CARD_SetBustiming] LS mode. <<
+|  SDMMC0 >> [Hal_CARD_SetBustiming] DEFS mode. <<
+
+|  结果：操作时的现象符合正确预期，表示 TF 热插拔正常
+
+RTC测试
+---------
+
+|  【测试说明】：读取并设置时间，断电重启后检查时间是否正确
+|  【接口标识】：CON1
+|  【系统设备】：/dev/rtc0
+|  【测试操作】：
+
+1. 设备通电，查看当前系统时钟，输入指令如下：
+
+.. code-block:: shell
+
+   date
+
+|  输出信息：
+
+.. code-block:: shell
+
+   Sat Jan  1 00:26:33 UTC 2000
+
+2. 查看rtc时钟，输入指令如下：
+
+.. code-block:: shell
+
+   hwclock
+
+|  输出信息：
+
+.. code-block:: shell
+
+   Sat Jan  1 00:26:54 2000  0.000000 seconds
+
+3. 设置系统时间，输入指令如下:
+
+.. code-block:: shell
+
+   date -s "2026-1-29 9:30:00"
+
+4. 将系统时间写入rtc，并查看，输入指令如下：
+
+.. code-block:: shell
+
+   hwclock -w
+   hwclock
+
+5. 断电，查看有没有成功写入，输入指令如下：
+
+.. code-block:: shell
+
+   hwclock
+
+|  输出信息：
+
+.. code-block:: shell
+
+   Thu Jan 29 09:32:10 2026  0.000000 seconds
+
+|  结果：与系统时间差不多并继续走，表示成功写入rtc。
+
+RS232测试
+-----------
+
+|  【测试说明】：短接232_TX1,232_RX1  232_TX2,232_RX2进行自收发测试
+|  【接口标识】：​232_TX1,232_RX1  232_TX2,232_RX2
+|  【系统设备】：/dev/ttyS4,ttyS5
+|  【测试操作】：
+
+1. 用杜邦线短接232_TX1,232_RX1
+2. 进入测试目录，输入指令如下：
+
+.. code-block:: shell
+
+   cd /customer/app/
+
+3. 运行测试程序，输入指令如下：
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS4 "www.myzr.com.cn"
+
+|  输出信息如下：
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x77          Character: w 
+   ASCII: 0x77          Character: w 
+   ASCII: 0x77          Character: w 
+   ASCII: 0x2e          Character: . 
+   ASCII: 0x6d          Character: m 
+   ASCII: 0x79          Character: y 
+   ASCII: 0x7a          Character: z 
+   ASCII: 0x72          Character: r 
+   ASCII: 0x2e          Character: . 
+   ASCII: 0x63          Character: c 
+   ASCII: 0x6f          Character: o 
+   ASCII: 0x6d          Character: m 
+   ASCII: 0x2e          Character: . 
+   ASCII: 0x63          Character: c 
+   ASCII: 0x6e          Character: n 
+   ASCII: 0x0          Character:  
+
+4. 用杜邦线短接232_TX2,232_RX2
+5. 进入测试目录，输入指令如下：
+
+.. code-block:: shell
+
+   cd /customer/app/
+
+6. 运行测试程序，输入指令如下：
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS5 "www.myzr.com.cn"
+
+|  输出信息如下：
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x77          Character: w 
+   ASCII: 0x77          Character: w 
+   ASCII: 0x77          Character: w 
+   ASCII: 0x2e          Character: . 
+   ASCII: 0x6d          Character: m 
+   ASCII: 0x79          Character: y 
+   ASCII: 0x7a          Character: z 
+   ASCII: 0x72          Character: r 
+   ASCII: 0x2e          Character: . 
+   ASCII: 0x63          Character: c 
+   ASCII: 0x6f          Character: o 
+   ASCII: 0x6d          Character: m 
+   ASCII: 0x2e          Character: . 
+   ASCII: 0x63          Character: c 
+   ASCII: 0x6e          Character: n 
+   ASCII: 0x0          Character:  
+
+RS485测试
+-----------
+
+|  【测试说明】：通过485-USB转换头与电脑互联进行收发测试
+|  【接口标识】：485_A1,485_B1,485_A2,485_B2,485_A3,485_B3
+|  【系统设备】：/dev/ttyS2，/dev/ttyS6，/dev/ttyS7
+|  【测试操作】：​
+
+1. 使用485-USB转换头连接开发板和电脑(A接A,B接B)
+2. 使用Xshell打开对应串口,将波特率设置成115200，数据为8位，停止位1位
+3. 进入测试目录，输入如下命令：
+
+.. code-block:: shell
+
+   cd /customer/app/
+
+4. 运行测试，输入如下指令：
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS2 "www.myzr.com.cn"
+
+|  结果可以看到485串口终端输出
+
+.. code-block:: shell
+
+   www.myzr.com.cn
+
+5. 在485串口终端输入123(不带显示），可在板子终端看到123
+
+.. code-block:: shell
+
+   root@myzr:/customer/app# ./serial_test.out /dev/ttyS6 "www.myzr.com.cn"
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0xbf          Character: ¿ 
+   ASCII: 0x7f          Character: 
+   ASCII: 0xfb          Character: 
+   ASCII: 0xbf          Character: ¿ 
+   ASCII: 0xfe          Character: þ 
+   ASCII: 0xbf          Character: ¿ 
+   ASCII: 0xbe          Character: ¾ 
+   ASCII: 0x80          Character:  
+   ASCII: 0x31          Character: 1 
+   ASCII: 0x32          Character: 2 
+   ASCII: 0x33          Character: 3 
+   ASCII: 0xd           Character: 
+
+6. 其中485_A2,485_B2,对应ttyS6，485_A3,485_B3对应ttyS7，测试方法与上面一致。
+
+继电器测试
+------------
+
+|  【测试说明】：对GPIO引脚进行设置高低电平进行测试吸合
+|  【接口标识】：j8,j9
+|  【系统设备】：
+|  【测试操作】：​
+
+1. 输入以下指令对（j8继电器）GPIO设置高低电平进行测试吸合
+
+.. code-block:: shell
+
+   echo 121 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio121/direction
+   echo 1 > /sys/class/gpio/gpio121/value
+   echo 0 > /sys/class/gpio/gpio121/value
+
+|  结果：会听继电器到吸合的声音
+
+2. 输入以下指令对（j9继电器）GPIO设置高低电平进行测试吸合
+
+.. code-block:: shell
+
+   echo 122 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio122/direction
+   echo 1 > /sys/class/gpio/gpio122/value
+   echo 0 > /sys/class/gpio/gpio122/value
+
+|  结果：会听继电器到吸合的声音
+
+LED测试
+---------
+
+|  【测试说明】：设置GPIO引脚高低电平来测试LED亮灭
+|  【接口标识】：P3
+|  【系统设备】：LED
+|  【测试操作】：​
+
+1. 输入以下指令对（中间灯）GPIO设置高电平进行亮灯测试
+
+.. code-block:: shell
+
+   echo 98 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio98/direction
+   echo 1 > /sys/class/gpio/gpio98/value
+
+|  结果：中间灯亮则正常。
+
+2. 输入以下指令对（中间灯）GPIO设置低电平进行灭灯测试
+
+.. code-block:: shell
+
+   echo 0 > /sys/class/gpio/gpio98/value
+
+|  结果：中间灯灭则正常。
+
+3. 输入以下指令对（底下灯）GPIO设置高电平进行亮灯测试
+
+.. code-block:: shell
+
+   echo 82 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio82/direction
+   echo 1 > /sys/class/gpio/gpio82/value
+
+|  结果：底下灯亮则正常。
+
+4. 输入以下指令对（底下灯）GPIO设置低电平进行灭灯测试
+
+.. code-block:: shell
+
+   echo 0 > /sys/class/gpio/gpio82/value
+
+|  结果：底下灯灭则正常。
+
+4G测试
+--------
+
+|  【测试说明】：4G连接成功后，开发板向外网发送ICMP报文来验证连接正常
+|  【接口标识】：U38
+|  【系统设备】：/dev/ttyUSB1，usb0
+|  【测试操作】：
+
+1. ​把4G天线连接到”U3”接口上，把SIM卡插到“J3”卡槽
+2. 对4G_PWRKEY1引脚设置高电平来开机4G，输入命令如下：
+
+.. code-block:: shell
+
+   echo 98 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio98/direction
+   echo 1 > /sys/class/gpio/gpio98/value
+   echo 64 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio64/direction
+   echo 1 > /sys/class/gpio/gpio64/value
+
+3. 输入以下指令，适配启动4G
+
+.. code-block:: shell
+
+   echo -e "AT+QNETDEVCTL=3,1,1\r\n" > /dev/ttyUSB1
+
+4. 输入以下指令，查看4G是否启动成功
+
+.. code-block:: shell
+
+   lsusb
+
+|  输出信息如下，出现Quectel EC801E-CN表示成功，如果没有需等待1分钟：
+
+.. code-block:: shell
+
+   Bus 001 Device 001: ID 1d6b:0002 Linux 6.1.111-rt42 ehci_hcd EHCI Host Controller
+   Bus 001 Device 003: ID 0bda:d723 Realtek 802.11n WLAN Adapter
+   Bus 001 Device 002: ID 1a40:0101 USB 2.0 Hub
+   Bus 001 Device 005: ID 2c7c:0903 Quectel EC801E-CN
+
+5. 输入以下指令，获取IP
+
+.. code-block:: shell
+
+   udhcpc -i usb0
+
+|  输出信息如下：
+
+.. code-block:: shell
+
+   udhcpc: started, v1.37.0
+   udhcpc: broadcasting discover
+   udhcpc: broadcasting select for 192.168.43.100, server 192.168.43.1
+   udhcpc: lease of 192.168.43.100 obtained from 192.168.43.1, lease time 86400
+   deleting routers
+   adding dns 192.168.43.2
+   adding dns 192.168.43.3
+
+6. 输入以下指令，进行4G验证：
+
+.. code-block:: shell
+
+   ping -I usb0 www.baidu.com -c 3
+
+|  输出信息如下：“0% packet loss”表示测试通过
+
+.. code-block:: shell
+
+   PING www.baidu.com (183.240.99.224): 56 data bytes
+   64 bytes from 183.240.99.224: seq=0 ttl=51 time=56.363 ms
+   64 bytes from 183.240.99.224: seq=1 ttl=51 time=56.105 ms
+   64 bytes from 183.240.99.224: seq=2 ttl=51 time=55.599 ms
+
+   --- www.baidu.com ping statistics ---
+   3 packets transmitted, 3 packets received, 0% packet loss
+   round-trip min/avg/max = 55.599/56.022/56.363 ms
+
+WiFi STA测试
+--------------
+
+|  【测试说明】：WiFi连接成功后，开发板向外网发送ICMP报文来验证连接正常
+|  【接口标识】：U41
+|  【系统设备】：​wlan0
+|  【测试操作】：​
+
+1. 把WIFI天线连接到”U40”接口上
+2. 生成 SSID 的 WPA PSK 文件，MY-WIFI My202412是wifi名和密码，输入指令如下：
+
+.. code-block:: shell
+
+   wpa_passphrase MY-WIFI My202412 > /etc/wpa_supplicant.conf
+   wpa_passphrase MYZR-WiFi-5G Myzr2012 > /etc/wpa_supplicant.conf
+
+4. 连接，输入指令如下：
+
+.. code-block:: shell
+
+   wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+
+5. 输出信息：
+
+.. code-block:: shell
+
+   Successfully initialized wpa_supplicant
+   nl80211: kernel reports: Authentication algorithm number required
+   [  266.744713] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+
+6. 获取IP，输入指令如下:
+
+.. code-block:: shell
+
+   udhcpc -i wlan0
+
+|  输出信息,：
+
+.. code-block:: shell
+
+   udhcpc: started, v1.36.0
+   udhcpc: broadcasting discover
+   udhcpc: broadcasting select for 192.168.43.35, server 192.
+   udhcpc: lease of 192.168.43.35 obtained from 192.168.43.1, lease time 3600
+   deleting routers
+   adding dns 192.168.43.1
+
+7. 测试连接，输入指令如下：
+
+.. code-block:: shell
+
+   ping -I wlan0 www.baidu.com -c 3
+
+|  输出信息：结果：”0% packet loss”表示wifi连接正常
+
+.. code-block:: shell
+
+   PING www.baidu.com (183.2.172.177) from 192.168.61.73 wlan0: 56(84) bytes of data.
+   64 bytes from 183.2.172.177: icmp_seq=1 ttl=54 time=10.0 ms
+   64 bytes from 183.2.172.177: icmp_seq=2 ttl=54 time=13.2 ms
+   64 bytes from 183.2.172.177: icmp_seq=3 ttl=54 time=14.5 ms
+
+   --- www.baidu.com ping statistics ---
+   3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+   rtt min/avg/max/mdev = 10.031/12.576/14.482/1.872 ms
+
+蓝牙
+------
+
+|  【测试说明】：网关连接成功后，网关与节点进行收发来验证连接正常
+|  【接口标识】：U53
+|  【系统设备】：/dev/ttyS3
+|  【测试操作】：​
+
+**连接两个开发板，一个蓝牙模块为G(mesh)为网关,一个蓝牙模块为N(mesh)为节点**
+
+1. 两个终端都进入测试应用目录，输入命令如下：
+
+.. code-block:: shell
+
+   cd /customer/app
+
+2. 在网关终端输入以下指令
+
+.. code-block:: shell
+
+   ./wg
+
+|  输出信息如下，说明网关已连接节点
+
+.. code-block:: shell
+
+   ===== Bluetooth Gateway Config Tool (Linux) =====
+   Serial port /dev/ttyS3 opened successfully (Baudrate: 4098)
+
+   ===== Step 1: Read Gateway Info =====
+   Send: E9 FF 0C 
+   Recv: 1C 00 91 8B 01 AE 24 1C D2 6E BC B0 8E EA B1 B9 C8 EC D1 8A A3 00 00 00 11 22 33 44 00 00 03 00 91 8C 01 
+
+   ===== Step 2: Set Gateway Key =====
+   Send: E9 FF 09 AE 24 1C D2 6E BC B0 8E EA B1 B9 C8 EC D1 8A A3 00 00 00 11 22 33 44 01 00 
+   Recv: 06 00 91 9A 11 22 33 44 
+
+   ===== Step 3: Set Gateway Params =====
+   Send: E9 FF 0D 01 00 02 19 B1 24 E7 99 B7 9B D3 10 82 B6 C8 A9 A9 56 
+
+   ===== Step 4: Scan Nodes =====
+   Send: E9 FF 00 
+
+   ===== Step 5: Set Broadcast Filter =====
+   Send: E9 FF 08 4E AC 57 38 C1 A4 
+
+   ===== Step 6: Config Node Params =====
+   Send: E9 FF 0A AE 24 1C D2 6E BC B0 8E EA B1 B9 C8 EC D1 8A A3 00 00 00 11 22 33 44 02 00 
+
+   ===== Step 7: Bind Operation =====
+   Send: E9 FF 0B 00 00 00 60 96 47 71 73 4F BD 76 E3 B4 05 19 D1 D9 4A 48 
+   Recv: 09 00 91 B5 01 00 02 00 80 08 FF 
+   Recv: 09 00 91 B5 01 00 02 00 80 08 FF 
+   Recv: 03 00 91 8A 02 
+   Recv: 03 00 91 82 01 
+
+   ===== All Config Steps Completed. Serial Port Closed =====
+
+3. 在节点终端输入以下指令，使节点进入接收状态
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS1 1
+
+4. 在网关终端输入以下指令，发送12345给节点
+
+.. code-block:: shell
+
+   ./n0x002
+
+|  此时节点终端可以接收到12345，信息如下
+
+.. code-block:: shell
+
+   root@myzr:/customer/app# ./serial_test.out /dev/ttyS3 1
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x7          Character:  
+   ASCII: 0x0          Character:  
+   ASCII: 0x93          Character:  
+   ASCII: 0x0          Character:  
+   ASCII: 0x31          Character: 1 
+   ASCII: 0x32          Character: 2 
+   ASCII: 0x33          Character: 3 
+   ASCII: 0x34          Character: 4 
+   ASCII: 0x35          Character: 5 
+
+5. 在网关终端输入以下指令，使网关进入接收状态
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS1 1
+
+6. 在节点终端输入以下指令，发送12345给网关
+
+.. code-block:: shell
+
+   ./a
+
+|  此时网关终端可以接收到12345，信息如下
+
+.. code-block:: shell
+
+   root@myzr:/customer/app# ./serial_test.out /dev/ttyS3 1
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0xc          Character: 
+
+   ASCII: 0x0          Character:  
+   ASCII: 0x91          Character:  
+   ASCII: 0x81          Character:  
+   ASCII: 0x3          Character:  
+   ASCII: 0x0          Character:  
+   ASCII: 0x1          Character:  
+   ASCII: 0x0          Character:  
+   ASCII: 0x52          Character: R 
+   ASCII: 0x31          Character: 1 
+   ASCII: 0x32          Character: 2 
+   ASCII: 0x33          Character: 3 
+   ASCII: 0x34          Character: 4 
+   ASCII: 0x35          Character: 5 
+
+7. 如果节点用模块的话，请使用串口软件，串口软件配置如下
+
+.. figure:: /image/MYZR-其他/网关/GW510/测试手册6.png
+   :alt: 测试手册6.png
+   :width: 90%
+
+|  当网关运行./n0x002时，此页面会收到07 00 93 00 31 32 33 34 35
+|  当用节点发送信息给网关时，请按此页面配置点击发送00 ff 00 01 31 32 33 34 35 36,点击发送前请在网关终端运行./serial_test.out /dev/ttyS1 1使网关进入接收状态，以接收节点发过来的12345
+
+lora测试
+----------
+
+|  【测试说明】：开启两个开发终端进行收发验证连接正常
+|  【接口标识】：U51
+|  【系统设备】：​/dev/ttyS3
+|  【测试操作】：​
+
+1. 把天线连接到”U51”接口上
+2. 进入测试目录，输入以下指令
+
+.. code-block:: shell
+
+   cd /customer/app/
+
+3. 配置工作模式(M0=1,M1=0),输入指令如下：（两个终端都需要配置）
+
+.. code-block:: shell
+
+   echo 96 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio96/direction
+   echo 1 > /sys/class/gpio/gpio96/value
+   echo 97 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio97/direction
+   echo 0 > /sys/class/gpio/gpio97/value
+
+4. 在终端2，输入指令如下：
+
+.. code-block:: shell
+
+   ./lora /dev/ttyS1 12345
+
+5. 输出信息：
+
+.. code-block:: shell
+
+   Sent: 12345
+   Entering receive mode...
+
+6. 在终端1，输入指令如下:
+
+.. code-block:: shell
+
+   ./lora /dev/ttyS1 12345
+
+7. 此时观察终端2，会接收输出信息如下：
+
+.. code-block:: shell
+
+   Sent: 12345
+   Entering receive mode...
+   Received: 123456
+
+8. 此时关闭终端2接收，向终端1发送信息，输入指令如下：
+
+.. code-block:: shell
+
+   ^C（CTRL C 停止接收）
+   ./lora /dev/ttyS3 12345
+
+9. 此时观察终端1，会接收输出信息如下：
+
+.. code-block:: shell
+
+   Sent: 123456
+   Entering receive mode...
+   Received: 12345
+
+do测试
+--------
+
+|  【测试说明】：验证输入输出功能
+|  【接口标识】：OUT0+,OUT0-
+|  【系统设备】：
+|  【测试操作】：​​
+
+1. DO测试接线图
+
+.. figure:: /image/MYZR-其他/网关/GW510/测试手册7.png
+   :alt: 测试手册7.png
+   :width: 90%
+
+|  注意：电压设置3.3V，电流设置为0.1A，过流保护设置为0.12A。
+
+2. OUT+引脚接3.3V电源，用示波器或万用表测OUT-引脚。OUT-默认是低电平，OUT+引脚接3.3V电源后，OUT-是3V-3.3V。也可以用以下指令查看引脚状态.
+3. 输入以下指令，进行拉高测试
+
+.. code-block:: shell
+
+   echo 126 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio126/direction
+   echo 1 > /sys/class/gpio/gpio126/value
+
+|  此时，用示波器或万用表测OUT-引脚，可以看到OUT-是3V-3.3V
+|  也可以用以下指令查看引脚状态.
+
+.. code-block:: shell
+
+   echo 126 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio126/direction
+   cat /sys/class/gpio/gpio126/value
+
+|  输出信息为1
+
+4. 输入以下指令，进行拉低测试
+
+.. code-block:: shell
+
+   echo 126 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio126/direction
+   echo 0 > /sys/class/gpio/gpio126/value
+
+|  此时，用示波器或万用表测OUT-引脚，可以看到OUT-是0V
+|  也可以用以下指令查看引脚状态.
+
+.. code-block:: shell
+
+   echo 126 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio126/direction
+   cat /sys/class/gpio/gpio126/value
+
+|  输出信息为0
+
+di测试
+--------
+
+|  【测试说明】：验证输入输出功能 
+|  【接口标识】：IN0+,IN0-
+|  【系统设备】：​
+|  【测试操作】：
+
+1. DI测试接线图
+
+.. figure:: /image/MYZR-其他/网关/GW510/测试手册8.png
+   :alt: 测试手册8.png
+   :width: 90%
+
+2. IN0+引脚接3.3V电源，IN0-引脚接地。
+
+|  注意：电压设置3.3V，电流设置为0.1A，过流保护设置为0.12A。
+
+3. IN0+引脚接3.3V电源不开启时，读取电平为1。
+
+.. code-block:: shell
+
+   echo 125 > /sys/class/gpio/export
+   echo in > /sys/class/gpio/gpio125/direction
+   cat /sys/class/gpio/gpio125/value
+
+|  测试结果：显示1表示成功
+
+.. code-block:: shell
+
+   root@myzr:~# cat /sys/class/gpio/gpio125/value
+   1
+
+|  IN0+引脚接3.3V电源，IN0-引脚接地开启时，读取电平为0。
+
+.. code-block:: shell
+
+   echo 125 > /sys/class/gpio/export
+   echo in > /sys/class/gpio/gpio125/direction
+   cat /sys/class/gpio/gpio125/value
+
+|  测试结果：显示0表示失败
+
+.. code-block:: shell
+
+   root@myzr:~# cat /sys/class/gpio/gpio125/value
+   0

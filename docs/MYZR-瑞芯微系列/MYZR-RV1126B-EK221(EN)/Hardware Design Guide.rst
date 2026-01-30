@@ -6,7 +6,7 @@ Hardware Design Guide
 
 |   The default UART Debug of RV1126B is selected as UART0_RX_M2/UART0_TX_M2 in the PMUIO0 domain, with a default baud rate of 1500000bps.  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw1-1.png
    :alt: hw1-1.png
    :width: 90%
 
@@ -16,24 +16,24 @@ Hardware Design Guide
 - For the external USB-to-UART adapter chip, it is recommended to take power for VCCIO from the PMUIO0_VCC3V3 power domain of the motherboard to avoid voltage backflow when the SOC is powered off;
 - If UART Debug needs to be used, it is recommended to reserve 2.54 pin headers or test points. The UART circuit is shown in the following figure. The series 510 ohm resistor must not be omitted, and a TVS tube should be added to enhance anti-static surge capability and prevent damage to chip pins during development.  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw1-2.png
    :alt: hw1-2.png
    :width: 90%
 
 - Alternatively, the CH340T chip can be used to convert to USB signals.
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw1-3.png
    :alt: hw1-3.png
    :width: 90%
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw1-4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw1-4.png
    :alt: hw1-4.png
    :width: 90%
 
 2. OTG Circuit
 ----------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw2-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw2-1.png
    :alt: hw2-1.png
    :width: 90%
 
@@ -46,7 +46,7 @@ Hardware Design Guide
 12V Input
 ~~~~~~~~~~~
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw3-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw3-1.png
    :alt: hw3-1.png
    :width: 90%
 
@@ -56,7 +56,7 @@ Hardware Design Guide
 5V
 ~~~~
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw3-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw3-2.png
    :alt: hw3-2.png
    :width: 90%
 
@@ -66,7 +66,7 @@ Hardware Design Guide
 3.3V
 ~~~~~~
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw3-3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw3-3.png
    :alt: hw3-3.png
    :width: 90%
 
@@ -79,14 +79,14 @@ Hardware Design Guide
 |   1. Uses the USB2514B chip, which can expand to four USB ports at once.
 |   2. Adds an overcurrent protection chip.
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw4-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw4-1.png
    :alt: hw4-1.png
    :width: 90%
 
 5. USB3.0
 ------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw5-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw5-1.png
    :alt: hw5-1.png
    :width: 90%
 
@@ -94,14 +94,14 @@ Hardware Design Guide
 |   2. A 2.0R resistor must be connected in series with the USB2.0 signal.
 |   3. Overcurrent protection is added.
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw5-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw5-2.png
    :alt: hw5-2.png
    :width: 90%
 
 6. MIPI-CSI
 --------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw6-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw6-1.png
    :alt: hw6-1.png
    :width: 90%
 
@@ -123,7 +123,7 @@ Hardware Design Guide
 7. MIPI-DSI
 --------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw7-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw7-1.png
    :alt: hw7-1.png
    :width: 90%
 
@@ -158,7 +158,7 @@ Hardware Design Guide
 
 |   The signal connection of the LCDC TX interface is shown in the following figure:  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw8-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw8-1.png
    :alt: hw8-1.png
    :width: 90%
 
@@ -174,7 +174,7 @@ Hardware Design Guide
 |   RV1126B provides rich audio interface capabilities and resources, including 3 groups of SAI interfaces, 1 group of PDM interfaces, 1 group of DSM interfaces, 2 groups of Audio ADCs, and 2 groups of ASRC processing units.  
 |   The block diagram of the RV1126B audio subsystem is shown below, including information about external/internal interfaces:  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-1.png
    :alt: hw9-1.png
    :width: 90%
 
@@ -282,7 +282,7 @@ Hardware Design Guide
 |   Both groups of PDM work in master receive mode (i.e., RV1126B provides PDM clock and receives data), supporting 8-channel input capability, bit widths from 16 to 32 bits, and a maximum sampling rate of 192kHz.
 |   The following figure shows the data format of the PDM interface. PDM_DATA is composed of Data(R) and Data(L). PDM is a 1-bit sampling interface that samples these two Data(L) and Data(R) on the rising edge and falling edge of the CLK respectively, that is, each PDM_SDIx data line can transmit audio data of 2 channels. Therefore, the four SDIx data lines of one group of PDM can meet the requirement of connecting up to 8 microphones (or 6 microphones + 2 loopback channels, totaling 8 channels).  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-2.png
    :alt: hw9-2.png
    :width: 90%
 
@@ -346,7 +346,7 @@ Hardware Design Guide
 
 |   DSM Audio (Digital Signal Modulator) refers to a 1-bit signal stream data obtained by converting audio PCM data through Direct Stream Digital encoding. In designs requiring audio output, the digital signal output by the interface is processed by a first-order RC low-pass filter to obtain an analog audio signal output. The principle of DSM is shown in the following figure:  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-3.png
    :alt: hw9-3.png
    :width: 90%
 
@@ -398,11 +398,11 @@ Hardware Design Guide
 |   RV1126B has 2 built-in AUDIO ADCs, both supporting differential MIC input. The following points should be noted when using:
 |   The reference circuit for differential MIC input is shown in the following figure:  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-4.png
    :alt: hw9-4.png
    :width: 90%
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-5.png
    :alt: hw9-5.png
    :width: 90%
 
@@ -437,13 +437,13 @@ Hardware Design Guide
 |   This section provides connection suggestions for common audio peripheral scenarios, which users can refer to.  
 |   RV1126B can connect to an audio DAC or CODEC (such as RK730) through SAI signals to achieve analog output, and then achieve power amplification through an audio power amplifier to drive speakers, as shown in the following figure:  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-6.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-6.png
    :alt: hw9-6.png
    :width: 90%
 
 |   For the speaker playback requirement of low-cost solutions, the DSM filtered output of RV1126B can be used, and then power amplification can be achieved through an audio power amplifier to drive speakers, as shown in the following figure:  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-7.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-7.png
    :alt: hw9-7.png
    :width: 90%
 
@@ -451,19 +451,19 @@ Hardware Design Guide
 
 |   1. Use the built-in differential ADC of ACODEC to achieve analog signal input;  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-8.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-8.png
    :alt: hw9-8.png
    :width: 90%
 
 |   2. Connect a PDM microphone through the PDM interface, or use an ADC with SAI/I2S/PDM interface to connect an external analog MIC; 
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-9.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-9.png
    :alt: hw9-9.png
    :width: 90%
 
 |   3. Use a Codec (such as RK730) to achieve related functions, as shown in the following figure;  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw9-10.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw9-10.png
    :alt: hw9-10.png
    :width: 90%
 
@@ -472,11 +472,11 @@ Hardware Design Guide
 
 |   GMAC is multiplexed in two different power domains: GMAC_M0 is multiplexed in the VCCIO6 power domain, and GMAC_M1 is multiplexed in the VCCIO5 power domain.  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-1.png
    :alt: hw10-1.png
    :width: 90%
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-2.png
    :alt: hw10-2.png
    :width: 90%
 
@@ -521,37 +521,37 @@ Hardware Design Guide
 
 |   The working clock of RGMII GEPHY uses an external 25MHz crystal  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-3.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-3.png
    :alt: hw10-3.png
    :width: 90%
 
 |   The working clock of RGMII GEPHY uses the 25MHz provided by RV1126B  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-4.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-4.png
    :alt: hw10-4.png
    :width: 90%
 
 |   The working clock of RMII FEPHY uses a 25MHz crystal, ETH_MCLK_Mx adopts output mode as the reference clock of the RMII interface, and the TXCLK of FEPHY needs to be configured as input mode  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-5.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-5.png
    :alt: hw10-5.png
    :width: 90%
 
 |   RMII uses the 25MHz provided by the SOC instead of the FEPHY crystal, ETH_MCLK_Mx adopts output mode as the reference clock of the RMII interface, and the TXCLK of FEPHY needs to be configured as input mode  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-6.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-6.png
    :alt: hw10-6.png
    :width: 90%
 
 |   The working clock of FEPHY uses an external 25MHz crystal, ETHx_MCLK_Mx adopts input mode, the reference clock of the RMII interface is provided by FEPHY, and the TXCLK of FEPHY needs to be configured as output mode  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-7.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-7.png
    :alt: hw10-7.png
    :width: 90%
 
 |   RMII uses the 25MHz provided by the SOC instead of the FEPHY crystal, ETH_MCLK_Mx adopts input mode, the reference clock of the RMII interface is provided by FEPHY, and the TXCLK of FEPHY needs to be configured as output mode  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-8.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-8.png
    :alt: hw10-8.png
    :width: 90%
 
@@ -576,7 +576,7 @@ Hardware Design Guide
 |   The built-in FEPHY of RV1126B can realize 100M Ethernet function, and only one of GMAC_M0/GMAC_M1 can be selected for use at the same time.
 |   The signal connection of the FEPHY interface is shown in the following figure:
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw10-9.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw10-9.png
    :alt: hw10-9.png
    :width: 90%
 
@@ -619,7 +619,7 @@ Hardware Design Guide
 - UART1~7 support RS485 automatic transceiving function.
 - UART0 is the default programming and printing serial port
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw11-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw11-1.png
    :alt: hw11-1.png
 
 |   Considering the flexibility of different product applications, the 8 UARTs are respectively multiplexed in several different power domains, distinguished by suffixes M0/M1/M2/M3 for different multiplexing positions. M0/M1/M2/M3 cannot be used at the same time. Only one group can be selected during allocation. It is not allowed to select M0 for some signals, M1 for others, and M2 for others. This function is not supported. Among the 8 UARTs, only UART0 does not have flow control function, and the rest UART1~7 all have flow control function.
@@ -654,7 +654,7 @@ Hardware Design Guide
 12. RS232
 ------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw12-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw12-1.png
    :alt: hw12-1.png
    :width: 90%
 
@@ -664,7 +664,7 @@ Hardware Design Guide
 13. RS485
 ------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw13-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw13-1.png
    :alt: hw13-1.png
    :width: 90%
 
@@ -674,7 +674,7 @@ Hardware Design Guide
 14. CAN
 ----------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw14-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw14-1.png
    :alt: hw14-1.png
    :width: 90%
 
@@ -687,7 +687,7 @@ Hardware Design Guide
 |   Considering the flexibility of different product applications, the 2 CANs are respectively multiplexed in several different power domains, distinguished by suffixes M0/M1 for different multiplexing positions. IOMUX_M0/M1 cannot be used at the same time. Only one group can be selected during allocation. For example: if CAN_M0 is selected, CAN_M1 cannot be selected again.
 |   The signal connection of the CAN interface is shown in the following figure:  
   
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw14-2.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw14-2.png
    :alt: hw14-2.png
    :width: 90%
 
@@ -708,7 +708,7 @@ Hardware Design Guide
 |   Considering the flexibility of different product applications, the 6 I2Cs are respectively multiplexed in several different power domains, distinguished by suffixes M0/M1/M2/M3 for different multiplexing positions. IOMUX_M0/M1/M2/M3 cannot be used at the same time. Only one group can be selected during allocation. For example: I2C1_M0 cannot be selected together with I2C1_M1, I2C1_M2, or I2C1_M3.
 |   The signal connection of the I2C interface is shown in the following figure:  
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw15-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw15-1.png
    :alt: hw15-1.png
    :width: 90%
 
@@ -873,7 +873,7 @@ Hardware Design Guide
   - The output level of the infrared receiver must match the RV1126B IO level;
   - It is recommended to connect a 22ohm resistor in series and a 1nF capacitor in parallel to the output pin of the infrared receiver before connecting to RV1126B to enhance anti-static surge capability.
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw17-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw17-1.png
    :alt: hw17-1.png
    :width: 90%
 
@@ -884,7 +884,7 @@ Hardware Design Guide
 18. WIFI&BT
 --------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw18-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw18-1.png
    :alt: hw18-1.png
    :width: 90%
 
@@ -894,7 +894,7 @@ Hardware Design Guide
 19. Buttons
 --------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw19-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw19-1.png
    :alt: hw19-1.png
    :width: 90%
 
@@ -904,7 +904,7 @@ Hardware Design Guide
 20. Pin Header
 ----------------
 
-.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B/hw20-1.png
+.. image:: /image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/hw20-1.png
    :alt: hw20-1.png
    :width: 90%
 

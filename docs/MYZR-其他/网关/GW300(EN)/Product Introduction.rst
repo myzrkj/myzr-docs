@@ -1,5 +1,5 @@
-GW300(EN)
-============
+Product Introduction
+======================
 
 Product Specification
 ------------------------
