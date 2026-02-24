@@ -5,4 +5,5 @@ GW510-4G(EN)
    :maxdepth: 3
    
    Product Introduction
-   Test Guide
+   Test Manual
+   RS485 to MQTT Transparent Transmission Example

@@ -2,59 +2,59 @@ Test Manual
 =============
 
 Ethernet Port 0 Test
------------------------
+----------------------
 
-1. Connect the host to Ethernet Port 1 of the development board with a network cable, and set the host IP address to the same network segment as the gateway, e.g., 192.168.131.99
+1. Connect the host PC to Ethernet port 1 of the development board using an Ethernet cable, and set the host IP address to the same subnet as the gateway, e.g., 192.168.131.99
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册1.png
    :alt: 测试手册1.png
    :width: 60%
 
-2. Open a serial terminal such as Xhell, enter the default gateway IP address 192.168.131.81, select SSH as the protocol, and click Connect at last
+2. Open a serial terminal such as Xshell, enter the default gateway IP address 192.168.131.81, select SSH protocol, and click Connect.
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册2.png
    :alt: 测试手册2.png
    :width: 60%
 
-3. After a successful connection, the following message pops up to receive the host key, click to receive and save it
+3. After a successful connection, the following message will pop up to receive the host key; click **Receive & Save**.
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册3.png
    :alt: 测试手册3.png
    :width: 60%
 
-4. After saving, the following interface pops up, enter the username **root** and click OK
+4. After saving, the following dialog will appear; enter username `root` and click OK.
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册4.png
    :alt: 测试手册4.png
    :width: 60%
 
-5. Successful access to the system indicates that the SSH login via the Ethernet port is successful
+5. Being able to log into the system indicates successful SSH login via Ethernet.
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册5.png
    :alt: 测试手册5.png
    :width: 60%
 
 Ethernet Port 1 Test
------------------------
+----------------------
 
 |  **Test Description**: Test by sending ICMP packets from the development board to the PC
-|  **Interface Identifier**: J2
+|  **Interface Label**: J2
 |  **System Device**: /dev/eth1
-|  **Test Operations**:
+|  **Test Procedure**:
 
-1. Connect the Ethernet port of the development board to the Ethernet port of the PC with a network cable, the serial port displays the information:
+1. Connect the Ethernet port of the development board to the PC using an Ethernet cable. Serial output:
 
 .. code-block:: shell
 
    [emac_phy_link_adjust] EMAC Link Up
 
-2. Obtain the IP address of Ethernet Port 1, enter the following command:
+2. Obtain the IP address for Ethernet port 1 using the following command:
 
 .. code-block:: shell
 
    udhcpc -i eth1
 
-3. The output information is as follows:
+3. Example output:
 
 .. code-block:: shell
 
@@ -65,13 +65,13 @@ Ethernet Port 1 Test
    deleting routers
    adding dns 192.168.128.1
 
-4. Verify the network of Ethernet Port 1, enter the following command:
+4. Verify Ethernet port 1 network connectivity using the following command:
 
 .. code-block:: shell
 
    ping -I eth1 www.baidu.com -c 3
 
-5. The output information is as follows: **0% packet loss** indicates the test is passed
+5. Example output: `0% packet loss` means the test passed.
 
 .. code-block:: shell
 
@@ -85,27 +85,27 @@ Ethernet Port 1 Test
    round-trip min/avg/max = 6.508/6.751/6.886 ms
 
 SD Interface Test
---------------------
+-------------------
 
 |  **Test Description**: Insert a TF card.
-|  **Interface Identifier**: U19
+|  **Interface Label**: U19
 |  **System Device**: /dev/mmcblk0 mmcblk0p1
-|  **Test Operations**:
+|  **Test Procedure**:
 
-1. Install the TF card into the SD interface, the development board outputs the following information:
+1. Insert the TF card into the SD interface. The development board will output:
 
 .. code-block:: shell
 
    >> [Hal_CARD_SetBustiming] LS mode. <<
    SDMMC0 >> [Hal_CARD_SetBustiming] HS mode. <<
 
-2. Enter the following command to view the SD card information:
+2. Enter the following command to view SD card information:
 
 .. code-block:: shell
 
    fdisk -l
 
-|  The information is as follows:
+|  Output as follows:
 
 .. code-block:: shell
 
@@ -120,96 +120,96 @@ SD Interface Test
    Partition 1 has different physical/logical end:
         phys=(1023,255,63) logical=(938,40,40)
 
-3. Pull out the TF card, the output information is as follows:
+3. Remove the TF card; output as follows:
 
 .. code-block:: shell
 
-|  SDMMC0 >> [Hal_CARD_SetBustiming] LS mode. <<
-|  SDMMC0 >> [Hal_CARD_SetBustiming] DEFS mode. <<
+   SDMMC0 >> [Hal_CARD_SetBustiming] LS mode. <<
+   SDMMC0 >> [Hal_CARD_SetBustiming] DEFS mode. <<
 
-|  **Result**: The phenomenon during operation is in line with the expected correct behavior, indicating normal hot plug of the TF card.
+|  **Result**: The operation behavior matches expectations, indicating normal TF card hot-plug.
 
 RTC Test
 ----------
 
-|  **Test Description**: Read and set the time, check if the time is correct after power off and restart
-|  **Interface Identifier**: CON1
+|  **Test Description**: Read and set time; check time correctness after power-off and reboot.
+|  **Interface Label**: CON1
 |  **System Device**: /dev/rtc0
-|  **Test Operations**:
+|  **Test Procedure**:
 
-1. Power on the device, view the current system clock, enter the following command:
+1. Power on the device, check current system time:
 
 .. code-block:: shell
 
    date
 
-|  Output information:
+|  Output example:
 
 .. code-block:: shell
 
    Sat Jan  1 00:26:33 UTC 2000
 
-2. View the RTC clock, enter the following command:
+2. Check RTC clock:
 
 .. code-block:: shell
 
    hwclock
 
-|  Output information:
+|  Output example:
 
 .. code-block:: shell
 
    Sat Jan  1 00:26:54 2000  0.000000 seconds
 
-3. Set the system time, enter the following command:
+3. Set system time:
 
 .. code-block:: shell
 
    date -s "2026-1-29 9:30:00"
 
-4. Write the system time to RTC and check it, enter the following commands:
+4. Write system time to RTC and verify:
 
 .. code-block:: shell
 
    hwclock -w
    hwclock
 
-5. Power off the device and check if the time is successfully written, enter the following command:
+5. Power off, then check if time was saved correctly:
 
 .. code-block:: shell
 
    hwclock
 
-|  Output information:
+|  Output example:
 
 .. code-block:: shell
 
    Thu Jan 29 09:32:10 2026  0.000000 seconds
 
-|  **Result**: The time is approximately the same as the system time and keeps running, indicating the time is successfully written to RTC.
+|  **Result**: Time is close to the set value and continues running, indicating successful write to RTC.
 
 RS232 Test
--------------
+------------
 
-|  **Test Description**: Short-circuit 232_TX1 & 232_RX1, 232_TX2 & 232_RX2 for self-transmission and reception test
-|  **Interface Identifier**: 232_TX1,232_RX1  232_TX2,232_RX2
-|  **System Device**: /dev/ttyS4,ttyS5
-|  **Test Operations**:
+|  **Test Description**: Loopback test by shorting 232_TX1↔232_RX1 and 232_TX2↔232_RX2.
+|  **Interface Label**: 232_TX1,232_RX1  232_TX2,232_RX2
+|  **System Device**: /dev/ttyS4, ttyS5
+|  **Test Procedure**:
 
-1. Short-circuit 232_TX1 and 232_RX1 with a Dupont wire
-2. Enter the test directory, enter the following command:
+1. Short 232_TX1 and 232_RX1 using a Dupont wire.
+2. Enter the test directory:
 
 .. code-block:: shell
 
    cd /customer/app/
 
-3. Run the test program, enter the following command:
+3. Run the test program:
 
 .. code-block:: shell
 
    ./serial_test.out /dev/ttyS4 "www.myzr.com.cn"
 
-|  The output information is as follows:
+|  Output example:
 
 .. code-block:: shell
 
@@ -232,20 +232,20 @@ RS232 Test
    ASCII: 0x6e          Character: n 
    ASCII: 0x0          Character:  
 
-4. Short-circuit 232_TX2 and 232_RX2 with a Dupont wire
-5. Enter the test directory, enter the following command:
+4. Short 232_TX2 and 232_RX2 using a Dupont wire.
+5. Enter the test directory:
 
 .. code-block:: shell
 
    cd /customer/app/
 
-6. Run the test program, enter the following command:
+6. Run the test program:
 
 .. code-block:: shell
 
    ./serial_test.out /dev/ttyS5 "www.myzr.com.cn"
 
-|  The output information is as follows:
+|  Output example:
 
 .. code-block:: shell
 
@@ -269,34 +269,34 @@ RS232 Test
    ASCII: 0x0          Character:  
 
 RS485 Test
--------------
+------------
 
-|  **Test Description**: Interconnect with the PC via a 485-USB converter for transmission and reception test
-|  **Interface Identifier**: 485_A1,485_B1,485_A2,485_B2,485_A3,485_B3
+|  **Test Description**: Transmit/receive test via RS485‑USB adapter connected to PC.
+|  **Interface Label**: 485_A1,485_B1,485_A2,485_B2,485_A3,485_B3
 |  **System Device**: /dev/ttyS2，/dev/ttyS6，/dev/ttyS7
-|  **Test Operations**:
+|  **Test Procedure**:
 
-1. Connect the development board to the PC with a 485-USB converter (A to A, B to B)
-2. Open the corresponding serial port with Xshell, set the baud rate to 115200, 8 data bits, 1 stop bit
-3. Enter the test directory, enter the following command:
+1. Connect the development board and PC using an RS485‑USB adapter (A↔A, B↔B).
+2. Open the corresponding serial port in Xshell; set baud rate 115200, data bits 8, stop bit 1.
+3. Enter the test directory:
 
 .. code-block:: shell
 
    cd /customer/app/
 
-4. Run the test, enter the following command:
+4. Run the test:
 
 .. code-block:: shell
 
    ./serial_test.out /dev/ttyS2 "www.myzr.com.cn"
 
-|  The result can be seen from the output of the 485 serial terminal:
+|  The RS485 serial terminal will output:
 
 .. code-block:: shell
 
    www.myzr.com.cn
 
-5. Enter **123** (without display) in the 485 serial terminal, and **123** can be seen in the board terminal
+5. Enter `123` in the RS485 serial terminal (no echo); it will be displayed on the board terminal.
 
 .. code-block:: shell
 
@@ -316,17 +316,17 @@ RS485 Test
    ASCII: 0x33          Character: 3 
    ASCII: 0xd           Character: 
 
-6. 485_A2 & 485_B2 correspond to ttyS6, 485_A3 & 485_B3 correspond to ttyS7, the test method is the same as above.
+6. 485_A2,485_B2 correspond to ttyS6; 485_A3,485_B3 correspond to ttyS7. Test procedure is the same as above.
 
 Relay Test
--------------
+------------
 
-|  **Test Description**: Set high and low levels for GPIO pins to test the pull-in of the relay
-|  **Interface Identifier**: J8,J9
+|  **Test Description**: Test pull-in by setting GPIO pins high/low.
+|  **Interface Label**: J8, J9
 |  **System Device**:
-|  **Test Operations**:
+|  **Test Procedure**:
 
-1. Enter the following commands to set high and low levels for the GPIO pin (J8 relay) to test its pull-in:
+1. Enter the following commands to test relay J8 pull-in by toggling GPIO:
 
 .. code-block:: shell
 
@@ -335,9 +335,9 @@ Relay Test
    echo 1 > /sys/class/gpio/gpio121/value
    echo 0 > /sys/class/gpio/gpio121/value
 
-|  **Result**: The pull-in sound of the relay can be heard.
+|  **Result**: Relay pull-in sound can be heard.
 
-2. Enter the following commands to set high and low levels for the GPIO pin (J9 relay) to test its pull-in:
+2. Enter the following commands to test relay J9 pull-in by toggling GPIO:
 
 .. code-block:: shell
 
@@ -346,17 +346,17 @@ Relay Test
    echo 1 > /sys/class/gpio/gpio122/value
    echo 0 > /sys/class/gpio/gpio122/value
 
-|  **Result**: The pull-in sound of the relay can be heard.
+|  **Result**: Relay pull-in sound can be heard.
 
 LED Test
------------
+----------
 
-|  **Test Description**: Set high and low levels for GPIO pins to test the on and off of the LED
-|  **Interface Identifier**: P3
+|  **Test Description**: Test LED on/off by setting GPIO pins high/low.
+|  **Interface Label**: P3
 |  **System Device**: LED
-|  **Test Operations**:
+|  **Test Procedure**:
 
-1. Enter the following commands to set a high level for the GPIO pin (middle LED) to test the light-on function:
+1. Set GPIO high to turn on the middle LED:
 
 .. code-block:: shell
 
@@ -364,17 +364,17 @@ LED Test
    echo out > /sys/class/gpio/gpio98/direction
    echo 1 > /sys/class/gpio/gpio98/value
 
-|  **Result**: Normal if the middle LED is on.
+|  **Result**: Middle LED lights up → normal.
 
-2. Enter the following command to set a low level for the GPIO pin (middle LED) to test the light-off function:
+2. Set GPIO low to turn off the middle LED:
 
 .. code-block:: shell
 
    echo 0 > /sys/class/gpio/gpio98/value
 
-|  **Result**: Normal if the middle LED is off.
+|  **Result**: Middle LED turns off → normal.
 
-3. Enter the following commands to set a high level for the GPIO pin (bottom LED) to test the light-on function:
+3. Set GPIO high to turn on the bottom LED:
 
 .. code-block:: shell
 
@@ -382,26 +382,26 @@ LED Test
    echo out > /sys/class/gpio/gpio82/direction
    echo 1 > /sys/class/gpio/gpio82/value
 
-|  **Result**: Normal if the bottom LED is on.
+|  **Result**: Bottom LED lights up → normal.
 
-4. Enter the following command to set a low level for the GPIO pin (bottom LED) to test the light-off function:
+4. Set GPIO low to turn off the bottom LED:
 
 .. code-block:: shell
 
    echo 0 > /sys/class/gpio/gpio82/value
 
-|  **Result**: Normal if the bottom LED is off.
+|  **Result**: Bottom LED turns off → normal.
 
 4G Test
 ---------
 
-|  **Test Description**: After the 4G connection is successful, the development board sends ICMP packets to the external network to verify the normal connection
-|  **Interface Identifier**: U38
+|  **Test Description**: After successful 4G connection, verify by sending ICMP packets to the external network.
+|  **Interface Label**: U38
 |  **System Device**: /dev/ttyUSB1，usb0
-|  **Test Operations**:
+|  **Test Procedure**:
 
-1. Connect the 4G antenna to the **U3** interface and insert the SIM card into the **J3** card slot
-2. Set a high level for the 4G_PWRKEY1 pin to power on the 4G module, enter the following commands:
+1. Connect the 4G antenna to interface “U3” and insert the SIM card into slot “J3”.
+2. Set pin 4G_PWRKEY1 high to power on the 4G module:
 
 .. code-block:: shell
 
@@ -412,19 +412,19 @@ LED Test
    echo out > /sys/class/gpio/gpio64/direction
    echo 1 > /sys/class/gpio/gpio64/value
 
-3. Enter the following command to adapt and start the 4G module:
+3. Initialize and start 4G:
 
 .. code-block:: shell
 
    echo -e "AT+QNETDEVCTL=3,1,1\r\n" > /dev/ttyUSB1
 
-4. Enter the following command to check if the 4G module is started successfully:
+4. Check if 4G module is detected:
 
 .. code-block:: shell
 
    lsusb
 
-|  The output information is as follows, the appearance of **Quectel EC801E-CN** indicates success; wait for 1 minute if it does not appear:
+|  If `Quectel EC801E-CN` appears, startup succeeded. Wait 1 minute if not found:
 
 .. code-block:: shell
 
@@ -433,13 +433,13 @@ LED Test
    Bus 001 Device 002: ID 1a40:0101 USB 2.0 Hub
    Bus 001 Device 005: ID 2c7c:0903 Quectel EC801E-CN
 
-5. Enter the following command to obtain an IP address:
+5. Obtain IP address:
 
 .. code-block:: shell
 
    udhcpc -i usb0
 
-|  The output information is as follows:
+|  Example output:
 
 .. code-block:: shell
 
@@ -451,13 +451,13 @@ LED Test
    adding dns 192.168.43.2
    adding dns 192.168.43.3
 
-6. Enter the following command to verify the 4G connection:
+6. Verify 4G connection:
 
 .. code-block:: shell
 
    ping -I usb0 www.baidu.com -c 3
 
-|  The output information is as follows: **0% packet loss** indicates the test is passed
+|  `0% packet loss` means the test passed.
 
 .. code-block:: shell
 
@@ -471,28 +471,28 @@ LED Test
    round-trip min/avg/max = 55.599/56.022/56.363 ms
 
 WiFi STA Test
-----------------
+---------------
 
-|  **Test Description**: After the WiFi connection is successful, the development board sends ICMP packets to the external network to verify the normal connection
-|  **Interface Identifier**: U41
+|  **Test Description**: After successful WiFi connection, verify by sending ICMP packets to the external network.
+|  **Interface Label**: U41
 |  **System Device**: wlan0
-|  **Test Operations**:
+|  **Test Procedure**:
 
-1. Connect the WiFi antenna to the **U40** interface
-2. Generate a WPA PSK file for the SSID, where **MY-WIFI** is the WiFi name and **My202412** is the password, enter the following commands:
+1. Connect the WiFi antenna to interface “U40”.
+2. Generate WPA PSK file for SSID (example: MY‑WIFI My202412):
 
 .. code-block:: shell
 
    wpa_passphrase MY-WIFI My202412 > /etc/wpa_supplicant.conf
    wpa_passphrase MYZR-WiFi-5G Myzr2012 > /etc/wpa_supplicant.conf
 
-4. Establish the connection, enter the following command:
+4. Connect to WiFi:
 
 .. code-block:: shell
 
    wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
 
-5. Output information:
+5. Example output:
 
 .. code-block:: shell
 
@@ -500,13 +500,13 @@ WiFi STA Test
    nl80211: kernel reports: Authentication algorithm number required
    [  266.744713] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
 
-6. Obtain an IP address, enter the following command:
+6. Obtain IP address:
 
 .. code-block:: shell
 
    udhcpc -i wlan0
 
-|  Output information:
+|  Example output:
 
 .. code-block:: shell
 
@@ -517,13 +517,13 @@ WiFi STA Test
    deleting routers
    adding dns 192.168.43.1
 
-7. Test the connection, enter the following command:
+7. Test connection:
 
 .. code-block:: shell
 
    ping -I wlan0 www.baidu.com -c 3
 
-|  Output information: **0% packet loss** indicates the WiFi connection is normal
+|  `0% packet loss` means normal WiFi connection.
 
 .. code-block:: shell
 
@@ -537,28 +537,28 @@ WiFi STA Test
    rtt min/avg/max/mdev = 10.031/12.576/14.482/1.872 ms
 
 Bluetooth
-------------
+-----------
 
-|  **Test Description**: After the gateway connection is successful, the gateway and the node perform transmission and reception to verify the normal connection
-|  **Interface Identifier**: U53
+|  **Test Description**: After gateway connection is successful, verify communication by sending/receiving data between gateway and node.
+|  **Interface Label**: U53
 |  **System Device**: /dev/ttyS3
-|  **Test Operations**:
+|  **Test Procedure**:
 
-**Connect two development boards, one with the Bluetooth module set as G(mesh) (gateway) and the other as N(mesh) (node)**
+**Connect two development boards: one Bluetooth module as G(mesh) gateway, the other as N(mesh) node.**
 
-1. Enter the test application directory on both terminals, enter the following command:
+1. Enter the test application directory on both terminals:
 
 .. code-block:: shell
 
    cd /customer/app
 
-2. Enter the following command on the gateway terminal:
+2. On the gateway terminal, run:
 
 .. code-block:: shell
 
    ./wg
 
-|  The output information is as follows, indicating the gateway has connected to the node:
+|  Output below indicates gateway connected to node:
 
 .. code-block:: shell
 
@@ -594,19 +594,19 @@ Bluetooth
 
    ===== All Config Steps Completed. Serial Port Closed =====
 
-3. Enter the following command on the node terminal to make the node enter the receiving state:
+3. On the node terminal, put node into receive mode:
 
 .. code-block:: shell
 
    ./serial_test.out /dev/ttyS1 1
 
-4. Enter the following command on the gateway terminal to send **12345** to the node:
+4. On the gateway terminal, send `12345` to the node:
 
 .. code-block:: shell
 
    ./n0x002
 
-|  At this time, the node terminal can receive 12345, the information is as follows:
+|  The node terminal will receive `12345`:
 
 .. code-block:: shell
 
@@ -623,19 +623,19 @@ Bluetooth
    ASCII: 0x34          Character: 4 
    ASCII: 0x35          Character: 5 
 
-5. Enter the following command on the gateway terminal to make the gateway enter the receiving state:
+5. On the gateway terminal, put gateway into receive mode:
 
 .. code-block:: shell
 
    ./serial_test.out /dev/ttyS1 1
 
-6. Enter the following command on the node terminal to send **12345** to the gateway:
+6. On the node terminal, send `12345` to the gateway:
 
 .. code-block:: shell
 
    ./a
 
-|  At this time, the gateway terminal can receive 12345, the information is as follows:
+|  The gateway terminal will receive `12345`:
 
 .. code-block:: shell
 
@@ -658,31 +658,32 @@ Bluetooth
    ASCII: 0x34          Character: 4 
    ASCII: 0x35          Character: 5 
 
-7. If a module is used for the node, use a serial port software with the following configuration:
+7. If using a module as the node, use a serial tool with the following configuration:
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册6.png
    :alt: 测试手册6.png
    :width: 60%
 
-|  When the gateway runs **./n0x002**, this page will receive **07 00 93 00 31 32 33 34 35**
-|  When sending information from the node to the gateway, configure the page as above and click to send **00 ff 00 01 31 32 33 34 35 36**. Before sending, run **./serial_test.out /dev/ttyS1 1** on the gateway terminal to make the gateway enter the receiving state for receiving **123456** sent by the node.
+|  When the gateway runs `./n0x002`, this tool will receive: `07 00 93 00 31 32 33 34 35`
+|  To send from node to gateway: configure as shown, send `00 ff 00 01 31 32 33 34 35 36`.
+|  First run `./serial_test.out /dev/ttyS1 1` on the gateway to enable reception.
 
 LoRa Test
-------------
+-----------
 
-|  **Test Description**: Start two development terminals for transmission and reception to verify the normal connection
-|  **Interface Identifier**: U51
+|  **Test Description**: Open two development terminals for transmit/receive verification.
+|  **Interface Label**: U51
 |  **System Device**: /dev/ttyS3
-|  **Test Operations**:
+|  **Test Procedure**:
 
-1. Connect the antenna to the **U51** interface
-2. Enter the test directory, enter the following command:
+1. Connect the antenna to interface “U51”.
+2. Enter the test directory:
 
 .. code-block:: shell
 
    cd /customer/app/
 
-3. Configure the working mode (M0=1,M1=0), enter the following commands (required for both terminals):
+3. Set operating mode (M0=1, M1=0) on **both terminals**:
 
 .. code-block:: shell
 
@@ -693,26 +694,26 @@ LoRa Test
    echo out > /sys/class/gpio/gpio97/direction
    echo 0 > /sys/class/gpio/gpio97/value
 
-4. On Terminal 2, enter the following command:
+4. On Terminal 2:
 
 .. code-block:: shell
 
    ./lora /dev/ttyS1 12345
 
-5. Output information:
+5. Output:
 
 .. code-block:: shell
 
    Sent: 12345
    Entering receive mode...
 
-6. On Terminal 1, enter the following command:
+6. On Terminal 1:
 
 .. code-block:: shell
 
-   ./lora /dev/ttyS1 12345
+   ./lora /dev/ttyS1 123456
 
-7. Observe Terminal 2 at this time, the received output information is as follows:
+7. Terminal 2 will receive:
 
 .. code-block:: shell
 
@@ -720,14 +721,14 @@ LoRa Test
    Entering receive mode...
    Received: 123456
 
-8. Stop the reception on Terminal 2 at this time and send information to Terminal 1, enter the following commands:
+8. Stop reception on Terminal 2 (Ctrl+C), then send to Terminal 1:
 
 .. code-block:: shell
 
-   ^C（CTRL C Stop receiving）
+   ^C
    ./lora /dev/ttyS3 12345
 
-9. Observe Terminal 1 at this time, the received output information is as follows:
+9. Terminal 1 will receive:
 
 .. code-block:: shell
 
@@ -736,23 +737,26 @@ LoRa Test
    Received: 12345
 
 DO Test
-----------
+---------
 
-|  **Test Description**: Verify the input and output functions
-|  **Interface Identifier**: OUT0+,OUT0-
+|  **Test Description**: Verify digital output function.
+|  **Interface Label**: OUT0+, OUT0-
 |  **System Device**:
-|  **Test Operations**:
+|  **Test Procedure**:
 
-1. DO Test Wiring Diagram
+1. DO test wiring diagram:
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册7.png
    :alt: 测试手册7.png
    :width: 60%
 
-|  **Note**: Set the voltage to 3.3V, the current to 0.1A, and the overcurrent protection to 0.12A.
+|  Note: Voltage = 3.3V, Current = 0.1A, Overcurrent protection = 0.12A.
 
-2. Connect the OUT+ pin to a 3.3V power supply, and measure the OUT- pin with an oscilloscope or multimeter. The OUT- pin is at low level by default, and will be at 3V-3.3V after the OUT+ pin is connected to a 3.3V power supply. You can also view the pin status with the following commands.
-3. Enter the following commands to perform the pull-up test:
+2. Connect OUT+ to 3.3V power supply. Measure OUT− with oscilloscope or multimeter:
+   OUT− is low by default; after connecting OUT+ to 3.3V, OUT− is 3V–3.3V.
+   You may also check pin status via commands.
+
+3. Set pin high test:
 
 .. code-block:: shell
 
@@ -760,8 +764,8 @@ DO Test
    echo out > /sys/class/gpio/gpio126/direction
    echo 1 > /sys/class/gpio/gpio126/value
 
-|  At this time, measure the OUT- pin with an oscilloscope or multimeter, and the voltage of OUT- will be 3V-3.3V.
-|  You can also view the pin status with the following commands:
+|  Measure OUT−: 3V–3.3V.
+|  Check status:
 
 .. code-block:: shell
 
@@ -769,9 +773,9 @@ DO Test
    echo out > /sys/class/gpio/gpio126/direction
    cat /sys/class/gpio/gpio126/value
 
-|  The output information is **1**.
+|  Output = 1.
 
-4. Enter the following commands to perform the pull-down test:
+4. Set pin low test:
 
 .. code-block:: shell
 
@@ -779,8 +783,8 @@ DO Test
    echo out > /sys/class/gpio/gpio126/direction
    echo 0 > /sys/class/gpio/gpio126/value
 
-|  At this time, measure the OUT- pin with an oscilloscope or multimeter, and the voltage of OUT- will be 0V.
-|  You can also view the pin status with the following commands:
+|  Measure OUT−: 0V.
+|  Check status:
 
 .. code-block:: shell
 
@@ -788,27 +792,27 @@ DO Test
    echo out > /sys/class/gpio/gpio126/direction
    cat /sys/class/gpio/gpio126/value
 
-|  The output information is **0**.
+|  Output = 0.
 
 DI Test
-----------
+---------
 
-|  **Test Description**: Verify the input and output functions
-|  **Interface Identifier**: IN0+,IN0-
+|  **Test Description**: Verify digital input function.
+|  **Interface Label**: IN0+, IN0-
 |  **System Device**:
-|  **Test Operations**:
+|  **Test Procedure**:
 
-1. DI Test Wiring Diagram
+1. DI test wiring diagram:
 
 .. figure:: /image/MYZR-其他/网关/GW510/测试手册8.png
    :alt: 测试手册8.png
    :width: 60%
 
-2. Connect the IN0+ pin to a 3.3V power supply and the IN0- pin to GND.
+2. Connect IN0+ to 3.3V power supply, IN0− to GND.
 
-|  **Note**: Set the voltage to 3.3V, the current to 0.1A, and the overcurrent protection to 0.12A.
+|  Note: Voltage = 3.3V, Current = 0.1A, Overcurrent protection = 0.12A.
 
-3. When the 3.3V power supply for the IN0+ pin is not turned on, the read level is **1**:
+3. When IN0+ (3.3V) is **off**, read logic level = 1.
 
 .. code-block:: shell
 
@@ -816,14 +820,14 @@ DI Test
    echo in > /sys/class/gpio/gpio125/direction
    cat /sys/class/gpio/gpio125/value
 
-|  **Test Result**: Success if **1** is displayed.
+|  Result: `1` → OK.
 
 .. code-block:: shell
 
    root@myzr:~# cat /sys/class/gpio/gpio125/value
    1
 
-|  When the 3.3V power supply for the IN0+ pin is turned on and the IN0- pin is connected to GND, the read level is **0**:
+|  When IN0+ (3.3V) and IN0− (GND) are **on**, read logic level = 0.
 
 .. code-block:: shell
 
@@ -831,7 +835,7 @@ DI Test
    echo in > /sys/class/gpio/gpio125/direction
    cat /sys/class/gpio/gpio125/value
 
-|  **Test Result**: Failure if **0** is displayed.
+|  Result: `0` → normal response.
 
 .. code-block:: shell
 
