@@ -6,7 +6,7 @@ Core Board Specifications
 
 - Specification parameters (shall include temperature parameters and supported system versions)
 
-**MY-RK3588-B360 Core Board Interface Parameters**
+**Core Board Interface Parameters**
 
 +-----------------------------+----------------+-----------------------+---------------------------------------------------------------------------------------+
 | Interface Specification     | Interface Type | Max Cfg Interface Cnt | Description                                                                           |
