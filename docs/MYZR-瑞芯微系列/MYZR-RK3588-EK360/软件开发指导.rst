@@ -271,6 +271,7 @@ debian12
 
     cd u-boot/
     make clean
+
 2. 回到SDK主目录，并进行uboot单独编译
 
 .. code-block:: shell

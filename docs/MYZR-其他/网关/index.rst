@@ -1,5 +1,5 @@
-网关
-======
+网关(Gateway)
+==============
 
 .. toctree:: 
    :maxdepth: 1

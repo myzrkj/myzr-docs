@@ -16,7 +16,11 @@ Linux源码编译
 下载源码包
 ~~~~~~~~~~~
 
-1. 下载rk3568源码包，路径为：3.软件资料-->3.1源码-->MYZR-RK3568pi_Linux-4.19_20250417.tar.bz
+1. 下载rk3568源码包,rk3568提供内核版本为4.19和5.10两个版本的sdk,任意选一个版本下载即可，
+
+|   内核4.19的sdk路径为：3.软件资料-->3.1源码-->Buildroot-->MYZR-RK3568pi_Linux-4.19_20250722.tar.bz2
+|   内核5.10的sdk路径为：3.软件资料-->3.1源码-->Linux-5.10.209-->MYZR-RK3568pi_Linux-5.10_20250827.tar.bz2
+
 2. 创建编译目录:
 
 .. code-block:: shell
@@ -27,7 +31,7 @@ Linux源码编译
 
 .. code-block:: shell
 
-    tar xvf MYZR-RK3568pi_Linux-4.19_20250417.tar.bz -C ~/my-work/RK3568/02_sources/
+    tar -xjf MYZR-RK3568pi_Linux-4.19_20250722.tar.bz2 -C ~/my-work/RK3568/02_sources/
 
 依赖安装
 ~~~~~~~~~
@@ -46,15 +50,21 @@ Linux源码编译
 SDK配置加载
 ~~~~~~~~~~~~~
 
-|   首次编译需要加载SDK配置文件，进入RK356X_Linux目录，输入如下命令加载配置文件：
+|   首次编译需要加载SDK配置文件，输入如下命令，进入SDK目录(RK356X_Linux或rk356x_linux5.10)下：
+|   内核4.19sdk用以下指令加载配置文件：
 
 .. code-block:: shell
 
-    cd RK356X_Linux
     ./build.sh BoardConfig-rk3568-myzr.mk
 
+|   内核5.10sdk用以下指令加载配置文件：
+
+.. code-block:: shell
+
+    ./build.sh myzr_rk3568_ddr4_defconfig
+
 整体编译
-~~~~~~~~~~
+~~~~~~~~~
 
 1. 运行整体编译(编译时间较长)，输入如下命令:
 
@@ -63,7 +73,6 @@ SDK配置加载
     ./build.sh
 
 2. 编译成功后在rockdev/目录下可看到相关镜像，其中update.img是所有镜像的集合
-
 
 单独编译uboot
 ~~~~~~~~~~~~~~~
@@ -100,7 +109,7 @@ SDK配置加载
     ./build.sh kernel
 
 单独编译recovery
-~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~
 
 |   在SDK主目录下输入如下命令:
 
@@ -109,7 +118,7 @@ SDK配置加载
     ./build.sh recovery
 
 单独编译buildroot
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 |   在SDK主目录下输入如下命令:
 

@@ -10,29 +10,33 @@ Linux Source Code Compilation
 Compilation Environment Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. The compilation host must run on the Ubuntu system, with a version of Ubuntu 20.04 or higher. The author's host system is Ubuntu 20.04.
-2. The host must be connected to the external network because some files need to be downloaded during the system compilation process.
+1. Compilation must be performed on a host running Ubuntu system, with version Ubuntu 20.04 or above. The author's host system is Ubuntu 20.04.
+2. The host must be able to connect to the external network, as some files need to be downloaded during the system compilation process.
 
-Downloading the Source Code Package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Download Source Code Package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Download the rk3568 source code package from the path: 3. Software Materials --> 3.1 Source Code --> MYZR-RK3568pi_Linux-4.19_20250417.tar.bz
-2. Create a compilation directory:
+1. Download the rk3568 source code package. The rk3568 provides two SDK versions with kernel 4.19 and 5.10; either version can be downloaded.
+
+|   SDK path for kernel 4.19: 3.Software Resources --> 3.1 Source Code --> Buildroot --> MYZR-RK3568pi_Linux-4.19_20250722.tar.bz2
+|   SDK path for kernel 5.10: 3.Software Resources --> 3.1 Source Code --> Linux-5.10.209 --> MYZR-RK3568pi_Linux-5.10_20250827.tar.bz2
+
+2. Create compilation directory:
 
 .. code-block:: shell
 
     mkdir -p ~/my-work/RK3568/02_sources/
 
-3. Place the source code in the newly created directory and decompress it:
+3. Place the source code in the newly created directory and extract it:
 
 .. code-block:: shell
 
-    tar xvf MYZR-RK3568pi_Linux-4.19_20250417.tar.bz -C ~/my-work/RK3568/02_sources/
+    tar -xjf MYZR-RK3568pi_Linux-4.19_20250722.tar.bz2 -C ~/my-work/RK3568/02_sources/
 
-Dependency Installation
-~~~~~~~~~~~~~~~~~~~~~~~~~
+Install Dependencies
+~~~~~~~~~~~~~~~~~~~~~~
 
-   For the first compilation, some dependencies may need to be installed. The following are some dependencies that the host may need to install:
+|   Some dependencies may need to be installed for the first compilation. Below are some possible dependencies to be installed on the host:
 
 .. code-block:: shell
 
@@ -43,101 +47,107 @@ Dependency Installation
     device-tree-compiler libncurses-dev \
     time python3 rsync python-is-python3
 
-SDK Configuration Loading
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Load SDK Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   For the first compilation, you need to load the SDK configuration file. Enter the RK356X_Linux directory and enter the following command to load the configuration file:
+|   The SDK configuration file needs to be loaded for the first compilation. Enter the following command to go to the SDK directory (RK356X_Linux or rk356x_linux5.10):
+|   For kernel 4.19 SDK, load the configuration file with the following command:
 
 .. code-block:: shell
 
-    cd RK356X_Linux
     ./build.sh BoardConfig-rk3568-myzr.mk
 
-Overall Compilation
-~~~~~~~~~~~~~~~~~~~~~
+|   For kernel 5.10 SDK, load the configuration file with the following command:
 
-1. Run the overall compilation (the compilation time is relatively long) by entering the following command:
+.. code-block:: shell
+
+    ./build.sh myzr_rk3568_ddr4_defconfig
+
+Full Compilation
+~~~~~~~~~~~~~~~~~~~
+
+1. Run full compilation (long compilation time) with the following command:
 
 .. code-block:: shell
 
     ./build.sh
 
-2. After successful compilation, you can see the relevant images in the rockdev/ directory, where update.img is a collection of all images.
+2. After successful compilation, relevant images can be found in the rockdev/ directory, where update.img is the collection of all images.
 
+Compile U-Boot Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Compiling U-Boot Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. You can clear the generated files before compilation.
+1. Clean generated files before compilation:
 
 .. code-block:: shell
 
     cd u-boot/
     make clean
 
-2. Return to the SDK main directory and compile U-Boot separately.
+2. Return to the SDK main directory and compile uboot separately:
 
 .. code-block:: shell
 
     cd ../
     ./build.sh uboot
 
-Compiling Kernel Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compile Kernel Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. You can clear the generated files before compilation.
+1. Clean generated files before compilation:
 
 .. code-block:: shell
 
     cd kernel/
     make clean
 
-2. Return to the SDK main directory and compile the kernel separately.
+2. Return to the SDK main directory and compile kernel separately:
 
 .. code-block:: shell
 
     cd ../
     ./build.sh kernel
 
-Compiling Recovery Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compile Recovery Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   Enter the following command in the SDK main directory:
+|   Enter the following command in the SDK main directory:
 
 .. code-block:: shell
 
     ./build.sh recovery
 
-Compiling Buildroot Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compile Buildroot Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   Enter the following command in the SDK main directory:
+|   Enter the following command in the SDK main directory:
 
 .. code-block:: shell
 
     ./build.sh rootfs
 
-Packaging Firmware
-~~~~~~~~~~~~~~~~~~~~
+Package Firmware
+~~~~~~~~~~~~~~~~~~
 
-   Enter the following command in the SDK main directory:
+|   Enter the following command in the SDK main directory:
 
 .. code-block:: shell
 
     ./mkfirmware.sh
 
-Packaging update.img
-~~~~~~~~~~~~~~~~~~~~~~
+Package update.img
+~~~~~~~~~~~~~~~~~~~~
 
-1. In the rockdev directory under the SDK, you can see the packaged image update.img.
-2. Enter the following command in the SDK main directory to complete the image packaging:
+1. The packaged image update.img can be found in the rockdev directory under the SDK.
+2. Image packaging can be completed by entering the following command in the SDK main directory:
 
 .. code-block:: shell
 
     ./build.sh updateimg
 
-   After completing the above operations, you can re-flash the device according to the flashing manual.
-   Finally, it is prompted that the user should re-flash and test.
+|   After completing the above operations, you can re-flash the firmware according to the flashing manual.
+|   Finally, the user is reminded to re-flash and test the firmware.
+
 
 
 Android Source Code Compilation
