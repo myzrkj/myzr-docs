@@ -3,9 +3,205 @@ Software Development Guide
 
 .. include:: /docs/COMMON/MYZR-RK3588-EK360 Development Environment.rst
 
+Linux Source Code Compilation
+--------------------------------
 
-Source Code Compilation
--------------------------
+Compilation Environment Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. The compilation host must run on an Ubuntu system with version 20.04 or higher. The author's host system is Ubuntu 20.04.
+2. The host must have internet access, as the compilation process requires downloading certain files.
+
+Downloading Source Code Package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Download the rk3588 source code package from the path: 3. Software Materials --> 3.1 Source Code --> rk3588-linux.tar.xz
+2. Create a compilation directory:
+
+.. code-block:: shell
+
+    mkdir -p ~/my-work/RK3588/02_sources/
+
+3. Place the source code in the newly created directory and extract it:
+
+.. code-block:: shell
+
+    tar xvf rk3588-linux.tar.xz -C ~/my-work/RK3588/02_sources/
+
+Dependency Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   First-time compilation may require installing certain dependencies. Below are some dependencies that the host may need:
+
+.. code-block:: shell
+
+    sudo apt-get install uuid uuid-dev zlib1g-dev liblz-dev liblzo2-2 liblzo2-dev lzop \
+    git curl u-boot-tools mtd-utils openjdk-8-jdk device-tree-compiler \
+    gdisk m4 zlib1g-dev git gnupg flex bison gperf libsdl1.2-dev libesd-java \
+    squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev pngcrush schedtool \
+    libxml2 libxml2-utils xsltproc lzop libc6-dev schedtool g++-multilib lib32z1-dev \
+    lib32ncurses-dev lib32readline-dev gcc-multilib libswitch-perl libssl-dev unzip \
+    zip liblz4-tool git ssh make gcc libssl-dev liblz4-tool vim expect \
+    g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support \
+    qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib \
+    unzip device-tree-compiler python3-pip libncurses5-dev rsync subversion python-protobuf \
+    sed make binutils build-essential gcc g++ wget python-is-python2 libncurses5 bzr cvs git mercurial \
+    patch gzip bzip2 perl tar cpio unzip rsync file bc wget qemu-user-static live-build android-sdk-libsparse-utils android-sdk-ext4-utils -y libicu-dev
+
+
+Overall Compilation
+~~~~~~~~~~~~~~~~~~~~~
+
+1. Run the overall compilation (which takes a long time) with the following commands:
+
+buildroot
+^^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh buildroot_update
+
+ubuntu20
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh ubuntu20_update
+
+ubuntu22
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh ubuntu22_update
+
+debian11
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh debian11_update
+
+debian12
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh debian12_update
+
+2. After successful compilation, relevant images can be found in the rockdev/ directory, where update.img is a collection of all images.
+
+
+Compile uboot separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Clear generated files before compilation
+
+.. code-block:: shell
+
+    cd u-boot/
+    make clean
+
+2. Return to the SDK main directory and compile uboot separately
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh uboot
+
+Compile the Kernel separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Clear generated files before compilation
+
+.. code-block:: shell
+
+    cd kernel/
+    make clean
+
+2. Return to the SDK main directory and compile kernel separately
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh kernel
+
+Compile recovery separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   Enter the following command in the SDK main directory:
+
+.. code-block:: shell
+
+    ./build.sh recovery
+
+
+Compile rootfs separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   Enter the following command in the SDK main directory:
+
+buildroot
+^^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh rootfs
+
+ubantu20
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh ubuntu20
+
+ubantu22
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh ubuntu22
+
+debian11
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh debian11
+
+debian12
+^^^^^^^^^^
+
+.. code-block:: shell
+
+    ./build.sh debian12
+
+
+Package firmware
+~~~~~~~~~~~~~~~~~~
+
+|   Enter the following command in the SDK main directory:
+
+.. code-block:: shell
+
+    ./mkfirmware.sh
+
+Package update.img
+~~~~~~~~~~~~~~~~~~~~~
+
+1. Package the image into update.img in rockdev
+2. Enter the following command in the SDK main directory:
+
+.. code-block:: shell
+
+    ./build.sh updateimg
+
+|   After completing the above operations, you can re-flash the device according to the flashing manual
+|   Finally, remind the user that they should re-flash and test the device.
+
+
+Android Source Code Compilation
+---------------------------------
 
 Compilation Environment Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -4,8 +4,157 @@ Software Development Guide
 .. include:: /docs/COMMON/MYZR-RK3588-EK360 Development Environment.rst
 
 
-Source Code Compilation
--------------------------
+Linux Source Code Compilation
+--------------------------------
+
+Compilation Environment Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   The compilation host must run on the Ubuntu system, and the version must be Ubuntu 20.04 or higher. The author's host system is Ubuntu 20.04.
+
+Downloading the Source Code Package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Download the rk3576 source code package from the path: 3. Software Materials --> 3.1 Source Code --> XX
+2. Create a compilation directory:
+
+.. code-block:: shell
+
+    mkdir -p ~/my-work/RK3576/02_sources/
+
+3. Place the source code in the newly created directory and unzip it:
+
+.. code-block:: shell
+
+    tar xvf XX -C ~/my-work/RK3576/02_sources/
+
+Dependency Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   For the first compilation, some dependencies may need to be installed. The following are some dependencies that the host may need to install:
+
+.. code-block:: shell
+
+    sudo apt-get install uuid uuid-dev zlib1g-dev liblz-dev liblzo2-2 liblzo2-dev lzop git curl u-boot-tools mtd-utils openjdk-8-jdk device-tree-compiler gdisk m4 gnupg flex bison gperf libsdl1.2-dev libesd-java squashfs-tools build-essential zip libncurses5-dev pngcrush schedtool libxml2 libxml2-utils xsltproc libc6-dev g++-multilib lib32z1-dev lib32ncurses-dev lib32readline-dev gcc-multilib libswitch-perl libssl-dev unzip liblz4-tool ssh make vim expect patchelf chrpath gawk texinfo diffstat binfmt-support qemu-user-static live-build fakeroot cmake python3-pip rsync subversion python-protobuf sed binutils wget python-is-python2 libncurses5 bzr cvs mercurial patch gzip bzip2 perl tar cpio file bc android-sdk-libsparse-utils android-sdk-ext4-utils -y
+
+Overall Compilation
+~~~~~~~~~~~~~~~~~~~~~
+
+1. Run the overall compilation (the compilation time is relatively long) and enter the following command:
+
+**buildroot**
+
+.. code-block:: shell
+
+    ./build.sh buildroot_update
+
+**ubuntu22**
+
+.. code-block:: shell
+
+    ./build.sh ubuntu22_update
+
+**debian12**
+
+.. code-block:: shell
+
+    ./build.sh debian12_update
+
+2. After successful compilation, relevant images can be seen in the rockdev/ directory, where update.img is a collection of all images.
+
+
+Compiling U-Boot Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Clear generated files before compilation
+
+.. code-block:: shell
+
+    cd u-boot/
+    make clean
+
+2. Return to the SDK main directory and compile uboot separately
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh uboot
+
+
+Compiling Kernel Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Clear generated files before compilation
+
+.. code-block:: shell
+
+    cd kernel/
+    make clean
+
+2. Return to the SDK main directory and compile the kernel separately
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh kernel
+
+Compiling Recovery Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   Enter the following command in the SDK main directory:
+
+.. code-block:: shell
+
+    ./build.sh recovery
+
+Compiling Rootfs Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   Enter the following command in the SDK main directory:
+
+**buildroot**
+
+.. code-block:: shell
+
+    ./build.sh buildroot
+
+**ubuntu22**
+
+.. code-block:: shell
+
+    ./build.sh ubuntu22
+
+**debian12**
+
+.. code-block:: shell
+
+    ./build.sh debian12
+
+Packaging Firmware
+~~~~~~~~~~~~~~~~~~~~
+
+|   Enter the following command in the SDK main directory:
+
+.. code-block:: shell
+
+    ./build.sh firmware
+
+Packaging update.img
+~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Package the image into update.img in rockdev
+2. Enter the following command in the SDK main directory:
+
+.. code-block:: shell
+
+    ./build.sh updateimg
+
+|   After completing the above operations, you can re-flash the device according to the flashing manual.
+|   Finally, it is prompted that the user should re-flash and test.
+
+
+Android Source Code Compilation
+----------------------------------
 
 Compilation Environment Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

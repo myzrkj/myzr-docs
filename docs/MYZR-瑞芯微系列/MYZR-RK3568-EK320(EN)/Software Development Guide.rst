@@ -4,8 +4,144 @@ Software Development Guide
 .. include:: /docs/COMMON/MYZR-RK3588-EK360 Development Environment.rst
 
 
-Source Code Compilation
--------------------------
+Linux Source Code Compilation
+-------------------------------
+
+Compilation Environment Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. The compilation host must run on the Ubuntu system, with a version of Ubuntu 20.04 or higher. The author's host system is Ubuntu 20.04.
+2. The host must be connected to the external network because some files need to be downloaded during the system compilation process.
+
+Downloading the Source Code Package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Download the rk3568 source code package from the path: 3. Software Materials --> 3.1 Source Code --> MYZR-RK3568pi_Linux-4.19_20250417.tar.bz
+2. Create a compilation directory:
+
+.. code-block:: shell
+
+    mkdir -p ~/my-work/RK3568/02_sources/
+
+3. Place the source code in the newly created directory and decompress it:
+
+.. code-block:: shell
+
+    tar xvf MYZR-RK3568pi_Linux-4.19_20250417.tar.bz -C ~/my-work/RK3568/02_sources/
+
+Dependency Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   For the first compilation, some dependencies may need to be installed. The following are some dependencies that the host may need to install:
+
+.. code-block:: shell
+
+    sudo apt-get install git ssh make gcc libssl-dev liblz4-tool \
+    expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support \
+    qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib \
+    unzip \
+    device-tree-compiler libncurses-dev \
+    time python3 rsync python-is-python3
+
+SDK Configuration Loading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   For the first compilation, you need to load the SDK configuration file. Enter the RK356X_Linux directory and enter the following command to load the configuration file:
+
+.. code-block:: shell
+
+    cd RK356X_Linux
+    ./build.sh BoardConfig-rk3568-myzr.mk
+
+Overall Compilation
+~~~~~~~~~~~~~~~~~~~~~
+
+1. Run the overall compilation (the compilation time is relatively long) by entering the following command:
+
+.. code-block:: shell
+
+    ./build.sh
+
+2. After successful compilation, you can see the relevant images in the rockdev/ directory, where update.img is a collection of all images.
+
+
+Compiling U-Boot Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. You can clear the generated files before compilation.
+
+.. code-block:: shell
+
+    cd u-boot/
+    make clean
+
+2. Return to the SDK main directory and compile U-Boot separately.
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh uboot
+
+Compiling Kernel Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. You can clear the generated files before compilation.
+
+.. code-block:: shell
+
+    cd kernel/
+    make clean
+
+2. Return to the SDK main directory and compile the kernel separately.
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh kernel
+
+Compiling Recovery Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Enter the following command in the SDK main directory:
+
+.. code-block:: shell
+
+    ./build.sh recovery
+
+Compiling Buildroot Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Enter the following command in the SDK main directory:
+
+.. code-block:: shell
+
+    ./build.sh rootfs
+
+Packaging Firmware
+~~~~~~~~~~~~~~~~~~~~
+
+   Enter the following command in the SDK main directory:
+
+.. code-block:: shell
+
+    ./mkfirmware.sh
+
+Packaging update.img
+~~~~~~~~~~~~~~~~~~~~~~
+
+1. In the rockdev directory under the SDK, you can see the packaged image update.img.
+2. Enter the following command in the SDK main directory to complete the image packaging:
+
+.. code-block:: shell
+
+    ./build.sh updateimg
+
+   After completing the above operations, you can re-flash the device according to the flashing manual.
+   Finally, it is prompted that the user should re-flash and test.
+
+
+Android Source Code Compilation
+---------------------------------
 
 Compilation Environment Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

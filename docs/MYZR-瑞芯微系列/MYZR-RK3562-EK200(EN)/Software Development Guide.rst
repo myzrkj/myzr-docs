@@ -4,8 +4,143 @@ Software Development Guide
 .. include:: /docs/COMMON/MYZR-RK3588-EK360 Development Environment.rst
 
 
-Source Code Compilation
---------------------------
+Linux Source Code Compilation
+-------------------------------
+
+Compilation Environment Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. The compilation host must run on an Ubuntu system with a version of **Ubuntu 20.04 or higher**. The author's host system is Ubuntu 20.04.
+2. The host must have access to the external network, as downloading certain files is required during the system compilation process.
+
+Downloading the Source Code Package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Download the RK3562 source code package from the path: 3. Software Materials --> 3.1 Source Code --> rk3562-linux.tar.xz
+2. Create a compilation directory:
+
+.. code-block:: shell
+
+    mkdir -p ~/my-work/RK3562/02_sources/
+
+3. Place the source code in the newly created directory and extract it:
+
+.. code-block:: shell
+
+    tar xvf rk3562-linux.tar.xz -C ~/my-work/RK3562/02_sources/
+
+Dependency Installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   For the first compilation, you may need to install certain dependencies. The following are some dependencies that the host may require:
+
+.. code-block:: shell
+
+    sudo apt-get install -y git ssh make gcc libssl-dev liblz4-tool expect expect-dev g++ patchelf 
+    chrpath gawk texinfo chrpath diffstat binfmt-support qemu-user-static live-build bison flex 
+    fakeroot rsync cmake gcc-multilib g++-multilib unzip device-tree-compiler ncurses-dev 
+    libgucharmap-2-90-dev bzip2 expat gpgv2 cpp-aarch64-linux-gnu libgmp-dev libmpc-dev bc 
+    python-is-python3 python2 libpkgconf-dev
+
+SDK Configuration Loading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   For the first compilation, you need to load the SDK configuration file. Navigate to the rk3562_sdk directory and enter the following command to load the configuration file:
+
+.. code-block:: shell
+
+    ./build.sh myzr_rk3562_evb_defconfig
+    cd buildroot/
+    ./envsetup.sh rockchip_rk3562
+
+Full Compilation
+~~~~~~~~~~~~~~~~~~
+
+1. Return to the main SDK directory and run the full compilation (the compilation process takes a long time) by entering the following command:
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh
+
+2. After successful compilation, you can find the relevant images in the rockdev/ directory, where **update.img** is a collection of all images.
+
+Independent U-Boot Compilation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Clear the generated files before compilation:
+
+.. code-block:: shell
+
+    cd u-boot/
+    make clean
+
+2. Return to the main SDK directory and compile U-Boot independently:
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh uboot
+
+Independent Kernel Compilation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Clear the generated files before compilation:
+
+.. code-block:: shell
+
+    cd kernel/
+    make clean
+
+2. Return to the main SDK directory and compile the Kernel independently:
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh kernel
+
+Independent Recovery Compilation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   Enter the following command in the main SDK directory:
+
+.. code-block:: shell
+
+    ./build.sh recovery
+
+Independent Buildroot Compilation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   Enter the following command in the main SDK directory:
+
+.. code-block:: shell
+
+    ./build.sh rootfs
+
+Firmware Packaging
+~~~~~~~~~~~~~~~~~~~~
+
+|   Enter the following command in the main SDK directory:
+
+.. code-block:: shell
+
+    ./build.sh firmware
+
+update.img Packaging
+~~~~~~~~~~~~~~~~~~~~~~
+
+1. Package the images into update.img in the output/update/Image directory under the SDK.
+2. Enter the following command in the main SDK directory:
+
+.. code-block:: shell
+
+    ./build.sh updateimg
+
+|   After completing the above operations, you can re-flash the device according to the flashing manual.
+
+
+Android Source Code Compilation
+---------------------------------
 
 Compilation Environment Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
