@@ -8,149 +8,128 @@ Source Code Compilation
 -------------------------
 
 Compilation Environment Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|   The compilation host must run on the Ubuntu system, and the version must be Ubuntu 20.04 or higher. The author's host system is Ubuntu 20.04.
+1. Compilation must be performed on a host in a Linux environment; Ubuntu 20.04 is recommended.
+2. The host must have internet access, as certain files need to be downloaded during system compilation.
 
-Downloading the Source Code Package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Download Source Code Package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Download the rk3576 source code package from the path: 3. Software Materials --> 3.1 Source Code --> XX
+1. From the network disk directory, download the source code package MYZR-RK3576_Android14_20260407.tar.gz (please download all split volumes from the network disk and merge them to obtain this archive).
 2. Create a compilation directory:
 
 .. code-block:: shell
 
-    mkdir -p ~/my-work/RK3576/02_sources/
+    mkdir ~/my-work/rk3576/05_android -p
 
-3. Place the source code in the newly created directory and unzip it:
-
-.. code-block:: shell
-
-    tar xvf XX -C ~/my-work/RK3576/02_sources/
-
-Dependency Installation
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-|   For the first compilation, some dependencies may need to be installed. The following are some dependencies that the host may need to install:
+3. Place the source code in this directory and extract it:
 
 .. code-block:: shell
 
-    sudo apt-get install uuid uuid-dev zlib1g-dev liblz-dev liblzo2-2 liblzo2-dev lzop git curl u-boot-tools mtd-utils openjdk-8-jdk device-tree-compiler gdisk m4 gnupg flex bison gperf libsdl1.2-dev libesd-java squashfs-tools build-essential zip libncurses5-dev pngcrush schedtool libxml2 libxml2-utils xsltproc libc6-dev g++-multilib lib32z1-dev lib32ncurses-dev lib32readline-dev gcc-multilib libswitch-perl libssl-dev unzip liblz4-tool ssh make vim expect patchelf chrpath gawk texinfo diffstat binfmt-support qemu-user-static live-build fakeroot cmake python3-pip rsync subversion python-protobuf sed binutils wget python-is-python2 libncurses5 bzr cvs mercurial patch gzip bzip2 perl tar cpio file bc android-sdk-libsparse-utils android-sdk-ext4-utils -y
+    tar xvf MYZR-RK3576_Android14_20260407.tar.gz -C ~/my-work/rk3576/05_android/
 
-Overall Compilation
-~~~~~~~~~~~~~~~~~~~~~
+Configure Compilation Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Run the overall compilation (the compilation time is relatively long) and enter the following command:
-
-**buildroot**
-
-.. code-block:: shell
-
-    ./build.sh buildroot_update
-
-**ubuntu22**
+1. Environment configuration is required every time a new terminal is opened.
+2. Enter the rk3576_android14 directory.
+3. Run the following command to configure the Java environment:
 
 .. code-block:: shell
 
-    ./build.sh ubuntu22_update
+    source javaenv.sh
 
-**debian12**
+4. Run the following command to configure the compilation environment:
 
 .. code-block:: shell
 
-    ./build.sh debian12_update
+    source build/envsetup.sh
 
-2. After successful compilation, relevant images can be seen in the rockdev/ directory, where update.img is a collection of all images.
+5. Run the following command to configure the platform environment:
 
+.. code-block:: shell
 
-Compiling U-Boot Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    lunch myzr_rk3576-userdebug
 
-1. Clear generated files before compilation
+|   Or run the compilation script directly in the SDK:
+
+.. code-block:: shell
+
+    ./make_rk3576.sh
+
+Full Compilation
+~~~~~~~~~~~~~~~~~~
+
+1. Full compilation builds the entire Android system, including kernel, u-boot, Android, and recovery.
+2. Run the following command:
+
+.. code-block:: shell
+
+    ./build.sh -AUCKu
+
+3. Compilation takes a long time. Compilation on a 16-thread host takes about 4 hours (for reference only!).
+4. After successful compilation, the relevant images can be found in the rockdev/Image-myzr_rk3576/ directory, where update.img is the combined image of all components.
+
+Compile U-Boot Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Clear generated files before compilation:
 
 .. code-block:: shell
 
     cd u-boot/
     make clean
 
-2. Return to the SDK main directory and compile uboot separately
+2. Return to the SDK root directory and compile U-Boot separately:
 
 .. code-block:: shell
 
     cd ../
-    ./build.sh uboot
+    ./build.sh -U
 
+Compile Kernel Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Compiling Kernel Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Clear generated files before compilation
+1. Clear generated files before compilation:
 
 .. code-block:: shell
 
     cd kernel/
     make clean
 
-2. Return to the SDK main directory and compile the kernel separately
+2. Return to the SDK root directory and compile the kernel separately:
 
 .. code-block:: shell
 
     cd ../
-    ./build.sh kernel
+    ./build.sh -CKA
 
-Compiling Recovery Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-|   Enter the following command in the SDK main directory:
+3. Or compile using the kernel script:
 
 .. code-block:: shell
 
-    ./build.sh recovery
+    cd kernel-6.1/
+    ./makekernel.sh
 
-Compiling Rootfs Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compile Android Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|   Enter the following command in the SDK main directory:
-
-**buildroot**
-
-.. code-block:: shell
-
-    ./build.sh buildroot
-
-**ubuntu22**
+1. In the SDK root directory:
 
 .. code-block:: shell
 
-    ./build.sh ubuntu22
+    ./build.sh -A
 
-**debian12**
+Package update.img
+~~~~~~~~~~~~~~~~~~
 
-.. code-block:: shell
-
-    ./build.sh debian12
-
-Packaging Firmware
-~~~~~~~~~~~~~~~~~~~~
-
-|   Enter the following command in the SDK main directory:
+1. Package images into update.img in the rockdev directory.
+2. In the SDK root directory:
 
 .. code-block:: shell
 
-    ./build.sh firmware
-
-Packaging update.img
-~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Package the image into update.img in rockdev
-2. Enter the following command in the SDK main directory:
-
-.. code-block:: shell
-
-    ./build.sh updateimg
-
-|   After completing the above operations, you can re-flash the device according to the flashing manual.
-|   Finally, it is prompted that the user should re-flash and test.
+    ./build.sh -u
 
 Development Guide
 --------------------

@@ -10,63 +10,63 @@
 编译环境要求
 ~~~~~~~~~~~~~
 
-1. 编译主机需在ubuntu系统中进行，且版本需Ubuntu 20.04以上，笔者主机系统为Ubuntu 20.04
+1. 编译主机需在linux环境中进行，推荐主机系统为Ubuntu 20.04
 2. 主机需可连接外网，因为编译系统过程需要下载某些文件。
 
 下载源码包
 ~~~~~~~~~~~
 
-1. 下载rk3568源码包，路径为：3.软件资料-->3.1源码-->MYZR-RK3568pi_Linux-4.19_20250417.tar.bz
-2. 创建编译目录:
+1. 网盘目录下，下载源码包 MYZR-RK3568PI_Android11_20250716.tar.bz2(请将网盘内分卷文件下载后合并可以得到该压缩包)
+2. 创建编译目录：
 
 .. code-block:: shell
 
-    mkdir -p ~/my-work/RK3568/02_sources/
+    mkdir ~/my-work/rk3568/05_android -p
 
-3. 把源码放到刚创建的目录中，并进行解压：
-
-.. code-block:: shell
-
-    tar xvf MYZR-RK3568pi_Linux-4.19_20250417.tar.bz -C ~/my-work/RK3568/02_sources/
-
-依赖安装
-~~~~~~~~~
-
-|   首次编译可能需要安装某些依赖，下面给出主机可能需要安装的某些依赖:
+3. 把源码放到此目录中，并进行解压：
 
 .. code-block:: shell
 
-    sudo apt-get install git ssh make gcc libssl-dev liblz4-tool \
-    expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support \
-    qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib \
-    unzip \
-    device-tree-compiler libncurses-dev \
-    time python3 rsync python-is-python3
+    tar xvf MYZR-RK3568PI_Android11_20250716.tar.bz2  -C ~/my-work/rk3568/05_android/
 
-SDK配置加载
-~~~~~~~~~~~~~
+配置编译环境
+~~~~~~~~~~~~~~
 
-|   首次编译需要加载SDK配置文件，进入RK356X_Linux目录，输入如下命令加载配置文件：
+1. 每次打开一个新的终端，都需要进行一个环境配置
+2. 进入RK356X_Android11目录
+3. 输入如下命令配置java环境：
 
 .. code-block:: shell
 
-    cd RK356X_Linux
-    ./build.sh BoardConfig-rk3568-myzr.mk
+    source javaenv.sh
+
+4. 输入如下命令配置编译环境：
+
+.. code-block:: shell
+
+    source build/envsetup.sh
+
+5. 输入如下命令配置平台环境：
+
+.. code-block:: shell
+
+    lunch rk3568_r-userdebug
 
 整体编译
 ~~~~~~~~~~
 
-1. 运行整体编译(编译时间较长)，输入如下命令:
+1. 整体编译将整个android系统，包括kernel、uboot、android、recovery。
+2. 输入如下命令：
 
 .. code-block:: shell
 
-    ./build.sh
+    ./build.sh -AUCKu
 
-2. 编译成功后在rockdev/目录下可看到相关镜像，其中update.img是所有镜像的集合
+3. 编译时间较长，本人使用16线程主机编译需要4个小时时间（仅作参考！）
+4. 成功编译后在rockdev/Image-rk3568_r/目录下可看到相关镜像，其中update.img是所有镜像的集合。
 
-
-单独编译uboot
-~~~~~~~~~~~~~~~
+单独编译 uboot
+~~~~~~~~~~~~~~~~
 
 1. 编译前可先清除生成文件
 
@@ -80,10 +80,10 @@ SDK配置加载
 .. code-block:: shell
 
     cd ../
-    ./build.sh uboot
+    ./build.sh -U
 
-单独编译Kernel
-~~~~~~~~~~~~~~~
+单独编译 Kernel
+~~~~~~~~~~~~~~~~
 
 1. 编译前可先清除生成文件
 
@@ -97,47 +97,33 @@ SDK配置加载
 .. code-block:: shell
 
     cd ../
-    ./build.sh kernel
+    ./build.sh -CKA
 
-单独编译recovery
-~~~~~~~~~~~~~~~~~
-
-|   在SDK主目录下输入如下命令:
+3. 或使用kernel脚本进行编译
 
 .. code-block:: shell
 
-    ./build.sh recovery
+    cd kernel/
+    ./make.sh
 
-单独编译buildroot
+单独编译 android
 ~~~~~~~~~~~~~~~~~~
 
-|   在SDK主目录下输入如下命令:
+1. 在SDK主目录下
 
 .. code-block:: shell
 
-    ./build.sh rootfs
-
-打包固件
-~~~~~~~~~
-
-|   在SDK主目录下输入如下命令:
-
-.. code-block:: shell
-
-    ./mkfirmware.sh
+    ./build.sh -A
 
 打包update.img
 ~~~~~~~~~~~~~~~~
 
-1. 在SDK下的rockdev目录里可以看到打包好的镜像update.img
-2. 在SDK主目录下输入如下命令可完成镜像打包:
+1. 在rockdev将镜像打包成update.img
+2. 在SDK主目录下
 
 .. code-block:: shell
 
-    ./build.sh updateimg
-
-|   完成上述操作后可按照刷机手册重新刷机
-|   最后提示用户应该重新刷机测试
+    ./build.sh -u
 
 
 开发指导

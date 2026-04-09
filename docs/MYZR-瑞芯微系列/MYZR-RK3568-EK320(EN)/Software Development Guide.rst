@@ -10,135 +10,143 @@ Source Code Compilation
 Compilation Environment Requirements
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. The compilation host must run on the Ubuntu system, with a version of Ubuntu 20.04 or higher. The author's host system is Ubuntu 20.04.
-2. The host must be connected to the external network because some files need to be downloaded during the system compilation process.
+1. Compilation must be performed on a host in a Linux environment; Ubuntu 20.04 is recommended as the host OS.
+2. The host must have internet access, as some files need to be downloaded during system compilation.
 
 Downloading the Source Code Package
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Download the rk3568 source code package from the path: 3. Software Materials --> 3.1 Source Code --> MYZR-RK3568pi_Linux-4.19_20250417.tar.bz
+1. From the cloud drive directory, download the source code package MYZR-RK3568PI_Android11_20250716.tar.bz2 (please download all split volumes from the cloud drive and merge them to obtain this archive).
+2. Create the compilation directory:
+
+.. code-block:: shell
+
+    mkdir ~/my-work/rk3568/05_android -p
+
+3. Place the source code in this directory and extract it:
+
+.. code-block:: shell
+
+    tar xvf MYZR-RK3568PI_Android11_20250716.tar.bz2  -C ~/my-work/rk3568/05_android/
+
+
+Configure Compilation Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Compilation must be performed on a host in a Linux environment; Ubuntu 20.04 is recommended.
+2. The host must have internet access, as certain files need to be downloaded during system compilation.
+
+Download Source Code Package
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. From the network disk directory, download the source code package MYZR-RK3568PI_Android11_20250716.tar.bz2 (please download all split volumes from the network disk and merge them to obtain this archive).
 2. Create a compilation directory:
 
 .. code-block:: shell
 
-    mkdir -p ~/my-work/RK3568/02_sources/
+    mkdir ~/my-work/rk3568/05_android -p
 
-3. Place the source code in the newly created directory and decompress it:
-
-.. code-block:: shell
-
-    tar xvf MYZR-RK3568pi_Linux-4.19_20250417.tar.bz -C ~/my-work/RK3568/02_sources/
-
-Dependency Installation
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-   For the first compilation, some dependencies may need to be installed. The following are some dependencies that the host may need to install:
+3. Place the source code in this directory and extract it:
 
 .. code-block:: shell
 
-    sudo apt-get install git ssh make gcc libssl-dev liblz4-tool \
-    expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support \
-    qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib \
-    unzip \
-    device-tree-compiler libncurses-dev \
-    time python3 rsync python-is-python3
+    tar xvf MYZR-RK3568PI_Android11_20250716.tar.bz2  -C ~/my-work/rk3568/05_android/
 
-SDK Configuration Loading
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configure Compilation Environment
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   For the first compilation, you need to load the SDK configuration file. Enter the RK356X_Linux directory and enter the following command to load the configuration file:
+1. Environment configuration is required every time a new terminal is opened.
+2. Enter the RK356X_Android11 directory.
+3. Run the following command to configure the Java environment:
 
 .. code-block:: shell
 
-    cd RK356X_Linux
-    ./build.sh BoardConfig-rk3568-myzr.mk
+    source javaenv.sh
 
-Overall Compilation
-~~~~~~~~~~~~~~~~~~~~~
-
-1. Run the overall compilation (the compilation time is relatively long) by entering the following command:
+4. Run the following command to configure the compilation environment:
 
 .. code-block:: shell
 
-    ./build.sh
+    source build/envsetup.sh
 
-2. After successful compilation, you can see the relevant images in the rockdev/ directory, where update.img is a collection of all images.
+5. Run the following command to configure the platform environment:
 
+.. code-block:: shell
 
-Compiling U-Boot Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    lunch rk3568_r-userdebug
 
-1. You can clear the generated files before compilation.
+Full Compilation
+~~~~~~~~~~~~~~~~~~
+
+1. Full compilation builds the entire Android system, including kernel, u-boot, Android, and recovery.
+2. Run the following command:
+
+.. code-block:: shell
+
+    ./build.sh -AUCKu
+
+3. Compilation takes a long time. Compilation on a 16-thread host takes about 4 hours (for reference only!).
+4. After successful compilation, the relevant images can be found in the rockdev/Image-rk3568_r/ directory, where update.img is the combined image of all components.
+
+Compile U-Boot Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Clear generated files before compilation:
 
 .. code-block:: shell
 
     cd u-boot/
     make clean
 
-2. Return to the SDK main directory and compile U-Boot separately.
+2. Return to the SDK root directory and compile U-Boot separately:
 
 .. code-block:: shell
 
     cd ../
-    ./build.sh uboot
+    ./build.sh -U
 
-Compiling Kernel Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compile Kernel Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. You can clear the generated files before compilation.
+1. Clear generated files before compilation:
 
 .. code-block:: shell
 
     cd kernel/
     make clean
 
-2. Return to the SDK main directory and compile the kernel separately.
+2. Return to the SDK root directory and compile the kernel separately:
 
 .. code-block:: shell
 
     cd ../
-    ./build.sh kernel
+    ./build.sh -CKA
 
-Compiling Recovery Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-   Enter the following command in the SDK main directory:
+3. Or compile using the kernel script:
 
 .. code-block:: shell
 
-    ./build.sh recovery
+    cd kernel/
+    ./make.sh
 
-Compiling Buildroot Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Compile Android Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   Enter the following command in the SDK main directory:
+1. In the SDK root directory:
 
 .. code-block:: shell
 
-    ./build.sh rootfs
+    ./build.sh -A
 
-Packaging Firmware
+Package update.img
 ~~~~~~~~~~~~~~~~~~~~
 
-   Enter the following command in the SDK main directory:
+1. Package images into update.img in the rockdev directory.
+2. In the SDK root directory:
 
 .. code-block:: shell
 
-    ./mkfirmware.sh
-
-Packaging update.img
-~~~~~~~~~~~~~~~~~~~~~~
-
-1. In the rockdev directory under the SDK, you can see the packaged image update.img.
-2. Enter the following command in the SDK main directory to complete the image packaging:
-
-.. code-block:: shell
-
-    ./build.sh updateimg
-
-   After completing the above operations, you can re-flash the device according to the flashing manual.
-   Finally, it is prompted that the user should re-flash and test.
-
+    ./build.sh -u
 
 Development Guide
 -------------------

@@ -7,8 +7,8 @@ Development Board Connection
 Connection of Serial Cable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Connect one end of the serial cable to the "J9" port of the development board, and the other end to the serial port of the computer.
-2. Refer to :doc:`《Xshell Reference Manual》</docs/COMMON/Xshell.RM.参考手册>` to create a new serial session and open the session.
+1. Connect one end of the serial cable to the "J9" serial port on the development board (refer to the silkscreen diagram), and the other end to the serial port on your computer.
+2. Create a new serial session and open it by referring to :doc:`Xshell Reference Manual</docs/COMMON/Xshell.RM.参考手册>`.
 
 Connection of Network Cable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

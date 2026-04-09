@@ -3,68 +3,75 @@
 
 .. include:: /docs/COMMON/MYZR-RK3588-EK360开发环境搭建手册.rst
 
-
 源码编译
 ---------
 
 编译环境要求
 ~~~~~~~~~~~~~
 
-|   编译主机需在ubuntu系统中进行，且版本需Ubuntu 20.04以上，笔者主机系统为Ubuntu 20.04
+1. 编译主机需在linux环境中进行，推荐主机系统为Ubuntu 20.04
+2. 主机需可连接外网，因为编译系统过程需要下载某些文件。
 
 下载源码包
 ~~~~~~~~~~~~
 
-1. 下载rk3576源码包，路径为：3.软件资料-->3.1源码-->XX
+1. 网盘目录下，下载源码包 MYZR-RK3576_Android14_20260407.tar.gz(请将网盘内分卷文件下载后合并可以得到该压缩包)
 2. 创建编译目录:
 
 .. code-block:: shell
 
-    mkdir -p ~/my-work/RK3576/02_sources/
+    mkdir ~/my-work/rk3576/05_android -p
 
-3. 把源码放到刚创建的目录中，并进行解压：
-
-.. code-block:: shell
-
-    tar xvf XX -C ~/my-work/RK3576/02_sources/
-
-依赖安装
-~~~~~~~~~~
-
-|   首次编译可能需要安装某些依赖，下面给出主机可能需要安装的某些依赖:
+3. 把源码放到此目录中，并进行解压：
 
 .. code-block:: shell
 
-    sudo apt-get install uuid uuid-dev zlib1g-dev liblz-dev liblzo2-2 liblzo2-dev lzop git curl u-boot-tools mtd-utils openjdk-8-jdk device-tree-compiler gdisk m4 gnupg flex bison gperf libsdl1.2-dev libesd-java squashfs-tools build-essential zip libncurses5-dev pngcrush schedtool libxml2 libxml2-utils xsltproc libc6-dev g++-multilib lib32z1-dev lib32ncurses-dev lib32readline-dev gcc-multilib libswitch-perl libssl-dev unzip liblz4-tool ssh make vim expect patchelf chrpath gawk texinfo diffstat binfmt-support qemu-user-static live-build fakeroot cmake python3-pip rsync subversion python-protobuf sed binutils wget python-is-python2 libncurses5 bzr cvs mercurial patch gzip bzip2 perl tar cpio file bc android-sdk-libsparse-utils android-sdk-ext4-utils -y
+    tar xvf MYZR-RK3576_Android14_20260407.tar.gz -C ~/my-work/rk3576/05_android/
+
+配置编译环境
+~~~~~~~~~~~~~~
+
+1. 每次打开一个新的终端，都需要进行一个环境配置
+2. 进入rk3576_android14目录
+3. 输入如下命令配置java环境：
+
+.. code-block:: shell
+
+    source javaenv.sh
+
+4. 输入如下命令配置编译环境：
+
+.. code-block:: shell
+
+    source build/envsetup.sh
+
+5. 输入如下命令配置平台环境：
+
+.. code-block:: shell
+
+    lunch myzr_rk3576-userdebug
+
+|   或者在sdk下直接运行编译脚本：
+
+.. code-block:: shell
+
+    ./make_rk3576.sh
 
 整体编译
-~~~~~~~~~
+~~~~~~~~~~
 
-1. 运行整体编译(编译时间较长)，输入如下命令:
-
-**buildroot**
-
-.. code-block:: shell
-
-    ./build.sh buildroot_update
-
-**ubantu22**
+1. 整体编译将整个android系统，包括kernel、uboot、android、recovery。
+2. 输入如下命令：
 
 .. code-block:: shell
 
-    ./build.sh ubuntu22_update
+    ./build.sh -AUCKu
 
-**debian12**
+3. 编译时间较长，本人使用16线程主机编译需要4个小时时间（仅作参考！）
+4. 成功编译后在rockdev/Image-myzr_rk3576/目录下可看到相关镜像，其中update.img是所有镜像的集合。
 
-.. code-block:: shell
-
-    ./build.sh debian12_update
-
-2. 编译成功后在rockdev/目录下可看到相关镜像，其中update.img是所有镜像的集合
-
-
-单独编译uboot
-~~~~~~~~~~~~~~~
+单独编译 uboot
+~~~~~~~~~~~~~~~~
 
 1. 编译前可先清除生成文件
 
@@ -78,11 +85,10 @@
 .. code-block:: shell
 
     cd ../
-    ./build.sh uboot
+    ./build.sh -U
 
-
-单独编译Kernel
-~~~~~~~~~~~~~~~~
+单独编译 Kernel
+~~~~~~~~~~~~~~~~~
 
 1. 编译前可先清除生成文件
 
@@ -96,61 +102,34 @@
 .. code-block:: shell
 
     cd ../
-    ./build.sh kernel
+    ./build.sh -CKA
 
-单独编译recovery
-~~~~~~~~~~~~~~~~~
-
-|   在SDK主目录下输入如下命令:
+3. 或使用kernel脚本进行编译
 
 .. code-block:: shell
 
-    ./build.sh recovery
+    cd kernel-6.1/
+    ./makekernel.sh
 
-单独编译rootfs
-~~~~~~~~~~~~~~~~
+单独编译 android
+~~~~~~~~~~~~~~~~~~
 
-|   在SDK主目录下输入如下命令:
-
-**buildroot**
-
-.. code-block:: shell
-
-    ./build.sh buildroot
-
-**ubantu22**
+1. 在SDK主目录下
 
 .. code-block:: shell
 
-    ./build.sh ubuntu22
-
-**debian12**
-
-.. code-block:: shell
-
-    ./build.sh debian12
-
-打包固件
-~~~~~~~~~
-
-|   在SDK主目录下输入如下命令:
-
-.. code-block:: shell
-
-    ./build.sh firmware
+    ./build.sh -A
 
 打包update.img
 ~~~~~~~~~~~~~~~~
 
 1. 在rockdev将镜像打包成update.img
-2. 在SDK主目录下输入如下命令:
+2. 在SDK主目录下
 
 .. code-block:: shell
 
-    ./build.sh updateimg
+    ./build.sh -u
 
-|   完成上述操作后可按照刷机手册重新刷机
-|   最后提示用户应该重新刷机测试
 
 开发指导
 ---------
