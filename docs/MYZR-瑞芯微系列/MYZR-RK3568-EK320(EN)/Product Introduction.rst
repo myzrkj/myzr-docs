@@ -65,6 +65,7 @@ Signal Definition
 
 - Refer to the network disk: 2. Hardware Data -> 2.1- Principle and PCB -> Core Board Schematic Diagram
 
+
 Core Board Introduction
 --------------------------
 
@@ -89,19 +90,29 @@ Core Board Introduction
 Base Board Introduction
 --------------------------
 
-- Front view of the base board
+- Front view of the core board
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/底板正面图.jpg
    :alt: 底板正面图.jpg
    :width: 60%
 
-- Interface diagram of the base board
+- Back view of the core board
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/底板背面图.jpg
+   :alt: 底板背面图.jpg
+   :width: 60%
+
+- Dimension drawing of the core board
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/底板接口图.jpg
    :alt: 底板接口图.jpg
    :width: 60%
 
-- Dimension drawing of the base board
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/底板接口图2.jpg
+   :alt: 底板接口图2.jpg
+   :width: 60%
+
+- Base Plate Dimension Drawing
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/底板尺寸图.png
    :alt: 底板尺寸图.png

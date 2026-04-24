@@ -97,10 +97,20 @@
    :alt: 底板正面图.jpg
    :width: 60%
 
+- 底板背面图
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/底板背面图.jpg
+   :alt: 底板背面图.jpg
+   :width: 60%
+
 - 底板接口图
 
 .. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/底板接口图.jpg
    :alt: 底板接口图.jpg
+   :width: 60%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/底板接口图2.jpg
+   :alt: 底板接口图2.jpg
    :width: 60%
 
 - 底板尺寸图
