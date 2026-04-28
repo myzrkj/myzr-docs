@@ -90,6 +90,7 @@
    :caption: MYZR-iMX9系列
 
    docs/MYZR-iMX9系列/MYZR-I.MX93/index
+   docs/MYZR-iMX9系列/MYZR-I.MX93(EN)/index
 
 
 .. toctree::
