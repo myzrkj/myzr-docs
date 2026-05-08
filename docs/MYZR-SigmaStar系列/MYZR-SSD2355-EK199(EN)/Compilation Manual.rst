@@ -1,17 +1,17 @@
-编译手册
-=========
+Compilation Manual
+====================
 
-编译环境
-----------
+Compilation Environment
+-------------------------
 
-- ubuntu版本：ubuntu20.04
-- 软件包安装：
+- Ubuntu Version: Ubuntu 20.04
+- Software Package Installation:
 
 .. code-block:: shell
+  
+  sudo apt-get install libc6-dev-i386 lib32z1 libuuid1 cmake libncurses5-dev libncursesw5-dev bc xz-utils automake libtool libevdev-dev pkg-config mtd-utils bison flex libssl-dev libmpc-dev squashfs-tools gawk make gcc git python rename
 
-  sudo apt-get install libc6-dev-i386 lib32z1  libuuid1 cmake libncurses5-dev libncursesw5-dev bc xz-utils automake libtool libevdev-dev pkg-config mtd-utils  bison flex libssl-dev libmpc-dev squashfs-tools gawk make gcc git python rename
-
-- 编译脚本默认使用的是bash，要求系统的默认shell为bash，可通过ls -la /bin/sh命令来确认。以最常用的Ubuntu为例，高版本的Ubuntu默认shell为dash，修改方式如下：
+- The compilation script uses **bash** by default. The system default shell must be bash. Run `ls -la /bin/sh` to check. Taking Ubuntu as an example, newer Ubuntu versions use dash as the default shell. Modify it as follows:
 
 .. code-block:: shell
 
@@ -19,16 +19,16 @@
   lrwxrwxrwx 1 root root 4 Jun 15 08:49 /bin/sh -> dash
 
   $ sudo dpkg-reconfigure dash
-  #在弹出的界面选择<NO>
+  # Select <NO> in the pop-up interface
 
   $ ls -la /bin/sh
   lrwxrwxrwx 1 root root 4 Jun 15 08:49 /bin/sh -> bash
 
-| 设置默认python版本为python2.x (ubuntu20.04不需要配置，默认是python2.x)
-| python2与python3的语义有差别，SDK编译脚本使用的是python2的语义，因此需要将系统默认python版本设置为python2.x，修改方式请参考网络上的相关文档，比如使用update-alternatives工具来配置。
+| Set the default Python version to Python 2.x(No configuration required for Ubuntu 20.04; Python 2.x is default)
+| There are syntax differences between Python 2 and Python 3. The SDK compilation script follows Python 2 syntax, so the system default Python must be set to Python 2.x. Refer to online documents for configuration methods, such as using the `update-alternatives` tool.
 
-源码与交叉编译
----------------
+Source Code & Cross Compilation
+---------------------------------
 
 .. code-block:: shell
 
@@ -40,7 +40,7 @@
   $ mkdir ~/ssd2355/tool/toolchain -p
   $ tar -xvf ./aarch64-unknown-linux-gcc-12.4.0-glibc-2.37-gnu.tar.gz -C ~/ssd2355/tool/toolchain
 
-- 设置交叉编译工具
+- Configure Cross Compilation Toolchain
 
 .. code-block:: shell
 
@@ -49,31 +49,34 @@
   export ARCH=arm64
   ${CROSS_COMPILE}gcc -v
 
-全局编译
----------
+Global Compilation
+--------------------
 
 .. code-block:: shell
 
-  #全局编译，只要运行，会把boot,kernel，project，sdk编译
+  # Global compilation: compile boot, kernel, project and SDK altogether
   $ cd ~/ssd2355/source/project/
   make dispcam_pcupid.spinand.glibc-12.4.0-squashfs.ssz001a.1024.bga_ddr4_riscv_defconfig
   make image -j16
   ./image/makefiletools/script/make_usb_factory_sigmastar.sh
 
-  #编译完成后生成的images在project/image/output/images#注意：#首次编译请务必在project下执行make clean;make image -j8命令完整编译（包含整编boot/kernel）#为增加调试效率，除首次编译外，后续debug可以直接在project下编译对应修改模块然后重新快速打包即可，例如：
-  #仅编译kernel：
+  # Compiled images are generated under project/image/output/images
+  # Note: For the first compilation, execute make clean; make image -j8 under project for full compilation (including full build of boot/kernel)
+  # To improve debugging efficiency, after the first compilation, you can compile modified modules separately and repackage quickly during subsequent debugging, for example:
+
+  # Compile kernel only:
   $ cd ~/ssd2355/source/project/
   $ make linux-kernel_clean;make linux-kernel -j8
 
-  #仅编译boot：
+  # Compile boot only:
   $ cd ~/ssd2355/source/project/
   $ make boot_clean;make boot -j8
 
-  #仅快速打包sdk image：
+  # Quick repackage SDK image only:
   $ cd ~/ssd2355/source/project/
   $ make image-fast-nocheck -j8
 
-- kernel设备树文件
+- Kernel Device Tree Files
 
 .. code-block:: shell
 
@@ -81,16 +84,16 @@
   ssd2355/source/kernel/arch/arm64/boot/dts/sstar/pcupid-ssz001a-s01a.dts
   ssd2355/source/kernel/arch/arm64/boot/dts/sstar/pcupid-ssz001a-s01a-padmux.dtsi
 
--  menuconfig配置
+- Menuconfig Configuration
 
 .. code-block:: shell
 
-  #boot​
-  make ARCH=arm64 menuconfig​
+  # Boot
+  make ARCH=arm64 menuconfig
   make savedefconfig
   cp defconfig configs/pcupid_ssz001a_s01a_spinand_arm64_defconfig
 
-  #kernel
+  # Kernel
   make ARCH=arm64 menuconfig
   make savedefconfig
   cp defconfig arch/arm64/configs/pcupid_ssz001a_s01a_spinand_defconfig

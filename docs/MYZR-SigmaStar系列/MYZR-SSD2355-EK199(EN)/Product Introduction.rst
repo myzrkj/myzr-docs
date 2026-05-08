@@ -4,9 +4,9 @@ Product Introduction
 Core Board Specifications
 ---------------------------
 
-- Specification parameters (shall include temperature parameters and supported system versions)
+- Specification parameters
 
-|  MY-RK3588-B360 Core Board Interface Parameters
+|  MYZR-SSD2355-LB199 Core Board Interface Parameters
 
 +-----------------------------+--------------+---------------------------------+--------------------------------------------------------------------------------+
 | Interface Specification     |              | Maximum Configurable Interfaces | Description                                                                    |
