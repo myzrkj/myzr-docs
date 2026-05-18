@@ -1,5 +1,3 @@
-# .readthedocs.yaml
-# Read the Docs configuration file
 version: 2
 
 build:
@@ -7,24 +5,20 @@ build:
   tools:
     python: "3.10"
   commands:
+    # 安装依赖
     - pip install --upgrade pip setuptools
     - pip install -r requirements.txt
     - pip install .
 
-    # 清理旧文件
-    - rm -rf _doctree _build html .doctree
+    # 编译 中文 → 输出到 RTD 目录下的 zh
+    - sphinx-build -b html -c . zh $READTHEDOCS_OUTPUT/html/zh
 
-    # 编译中英文
-    - sphinx-build -b html -c . zh html/zh
-    - sphinx-build -b html -c . en html/en
+    # 编译 英文 → 输出到 RTD 目录下的 en
+    - sphinx-build -b html -c . en $READTHEDOCS_OUTPUT/html/en
 
-    # 复制到 Read the Docs 输出目录
-    - mkdir -p _readthedocs/html
-    - cp -r html/* _readthedocs/html/
+    # ✅ 强制创建根目录 index.html（解决报错）
+    - echo '<meta http-equiv="refresh" content="0;url=zh/index.html">' > $READTHEDOCS_OUTPUT/html/index.html
 
-    # ✅ 关键修复：创建根目录 index.html 自动跳转中文
-    - echo '<meta http-equiv="refresh" content="0;url=zh/index.html">' > _readthedocs/html/index.html
-
-# 自定义命令模式下，这两项必须删除，否则会冲突
-sphin: false
+# 👇 必须禁用这两项！否则必报错！
+sphinx: false
 python: false
