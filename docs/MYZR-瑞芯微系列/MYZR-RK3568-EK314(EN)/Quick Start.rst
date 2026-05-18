@@ -28,7 +28,7 @@ Quick Start for Using the Development Board
 
 **Reading and completing the content and operations in this section for the first time will take approximately half a day.**
 
-1. After receiving the development board, the first thing to do is prepare for using it, and installing terminal software is necessary. Open the :doc:`《XShell reference manual》</docs/COMMON/Terminal software XShell reference manual>` and follow the "Software Download and Installation" section to install the terminal software.
+1. After receiving the development board, the first thing to do is prepare for using it, and installing terminal software is necessary. Open the :doc:`《XShell reference manual》</docs/COMMON/Xshell.RM Reference Manual >` and follow the "Software Download and Installation" section to install the terminal software.
 2. After installing the terminal software, open the **"Startup Manual"** and follow the document to start the development board.
 3. Once the development board starts successfully, open the corresponding **"Flashing Manual"** to perform a flashing operation. The purpose is to familiarize yourself with the burning process and prepare for the next functional verification.
 4. After the development board is flashed, open the corresponding **"Test Manual"** to conduct a round of tests to verify that all functions of the development board are normal.

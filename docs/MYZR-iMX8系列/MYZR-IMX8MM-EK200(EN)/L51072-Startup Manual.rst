@@ -13,7 +13,7 @@ Connect the Serial Cable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Connect one end of the serial cable to the "P2" port on the development board, and the other end to the computer's serial port or USB port.
-2. Refer to the :doc:`《Xshell Reference Manual》 </docs/COMMON/Terminal software XShell reference manual>` to create a new serial session and open it.
+2. Refer to the :doc:`《Xshell Reference Manual》 </docs/COMMON/Xshell.RM Reference Manual >` to create a new serial session and open it.
 
 Connect the Ethernet Cable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~

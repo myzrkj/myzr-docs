@@ -51,7 +51,7 @@ Development Board Connection
 **Serial Cable Connection**
 
 |  Connect the Debug serial connector to the Debug_232 interface, then use a USB-to-serial cable to connect the computer's serial port and the Debug serial connector.
-|  Refer to :doc:`《Terminal Software XShell Reference Manual》 </docs/COMMON/Xshell.RM.参考手册>` to create a new serial session and open the session.
+|  Refer to :doc:`《Xshell.RM Reference Manual 》 </docs/COMMON/Xshell.RM.参考手册>` to create a new serial session and open the session.
 
 **Ethernet Cable Connection**
 

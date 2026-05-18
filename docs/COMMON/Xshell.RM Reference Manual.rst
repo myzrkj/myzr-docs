@@ -1,5 +1,5 @@
-Terminal software XShell reference manual
-===========================================
+Xshell.RM Reference Manual 
+============================
 
 Software Download and Installation
 ------------------------------------

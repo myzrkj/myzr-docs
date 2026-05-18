@@ -17,10 +17,10 @@ Link to manual
   :doc:`《Linux-4.1.15》<MYZR-IMX6-EK140P Linux-4.1.15 Test Manual>`
 
 | **Development Environment Guidance Manual**：
-  :doc:`《Ubuntu14.04+Win10 (Recommended)》 </docs/COMMON/MYZR Win10 VB5212 U14045 x64 Env>`
-  :doc:`《Ubuntu12.04+Win10》</docs/COMMON/MYZR Win10 VB5118 U12045 x64 Env>`
-  :doc:`《Ubuntu12.04+Win7》</docs/COMMON/MYZR Win7 VB4340 U12045 x64 Env>`
-  :doc:`《Terminal Software Reference Manual》</docs/COMMON/Terminal software XShell reference manual>`
+  :doc:`《Ubuntu14.04+Win10 (Recommended)》 </docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit Dev Env Guide>`
+  :doc:`《Ubuntu12.04+Win10》</docs/COMMON/MYZR Windows-10 VirtualBox-5.1.18 Ubuntu-12.04.5 64-bit Dev Env Guide>`
+  :doc:`《Ubuntu12.04+Win7》</docs/COMMON/MYZR Windows-7 VirtualBox-4.3.40 Ubuntu-12.04.5 64-bit Dev Env Guide>`
+  :doc:`《Terminal Software Reference Manual》</docs/COMMON/Xshell.RM Reference Manual >`
 
 | **Build Manual**：
   :doc:`《Linux-4.1.15》<MYZR-IMX6 Linux-4.1.15 Build Reference Manual>`
@@ -33,7 +33,7 @@ The first part of the development board USES a quick start
 
 **This part of the content and operation, the first reading and completion of about half a day**
 
-1. After getting the development board, the first thing is to prepare for the use of the development board, installation of terminal software is necessary.Open :doc:`《Terminal Software Reference Manual》</docs/COMMON/Terminal software XShell reference manual>` ，refer to **Software Download and Installation** to install the terminal software.
+1. After getting the development board, the first thing is to prepare for the use of the development board, installation of terminal software is necessary.Open :doc:`《Terminal Software Reference Manual》</docs/COMMON/Xshell.RM Reference Manual >` ，refer to **Software Download and Installation** to install the terminal software.
 2. After the installation of terminal software, open :doc:`《Quick Start》<MYZR-IMX6-EK140P Quick Start>`, refer to the document to start the development board.
 3. After the development board is started successfully, refer to :doc:`《Burning Manual》<MYZR-IMX6 MfgTool-v2.6 User Guide(EN)>` for a burn.The purpose is to familiarize yourself with the burn operation and prepare for the next functional verification.
 4. After the development board is burned, open the corresponding **【Test Manual】** and conduct a test to verify that all functions of the development board are normal.

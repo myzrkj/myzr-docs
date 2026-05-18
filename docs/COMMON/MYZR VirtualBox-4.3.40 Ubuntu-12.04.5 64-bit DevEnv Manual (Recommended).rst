@@ -1,5 +1,5 @@
-MYZR VirtualBox-4.3.40 Ubutnu-12.04.5 x64 VMware Development (Recommended)
-=============================================================================
+MYZR VirtualBox-4.3.40 Ubuntu-12.04.5 64-bit DevEnv Manual (Recommended)
+===========================================================================
 
 Download relevant resources
 -----------------------------

@@ -13,7 +13,7 @@ Instructions for use of this document
 **Link to manual**
 
 |   Test Manual： :doc:`《Linux-4.9.84》<MYZR-SSD20X-MB096 Linux-4.9.84 Test Manual>`
-|   Development Environment Guidance Manual： :doc:`《Ubuntu14.04+Win10》</docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit dev env Manual>`
+|   Development Environment Guidance Manual： :doc:`《Ubuntu14.04+Win10》</docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit Dev Env Guide>`
 |   Build Manual： :doc:`《Linux-4.9.84》<MYZR-SSD20X-CB096 Hardware Introduction>`
 
 **Description:**
@@ -25,7 +25,7 @@ The first part of the development board USES a quick start
 
 **This part of the content and operation, the first reading and completion of about half a day**
 
-1. 1. After getting the development board, the first thing is to prepare for the use of the development board, installation of terminal software is necessary.Open :doc:`《Terminal Software Reference Manual》</docs/COMMON/Terminal software XShell reference manual>`，refer to Software Download and Installation to install the terminal software.
+1. 1. After getting the development board, the first thing is to prepare for the use of the development board, installation of terminal software is necessary.Open :doc:`《Terminal Software Reference Manual》</docs/COMMON/Xshell.RM Reference Manual >`，refer to Software Download and Installation to install the terminal software.
 2. After the installation of terminal software, open :doc:`《Quick Start》<MYZR-SSD20X-CB096 Quick Start>` ，refer to the document to start the development board.
 3. After the development board is started successfully, refer to :doc:`《Burning Manual》<MYZR-SSD20X-CB096 Burning Manual>` for a burn.The purpose is to familiarize yourself with the burn operation and prepare for the next functional verification.
 4. After the development board is burned, open the corresponding **【Test Manual】** and conduct a test to verify that all functions of the development board are normal.

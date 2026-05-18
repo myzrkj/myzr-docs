@@ -1,9 +1,8 @@
-
 硬件手册
 --------
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   HM.CB300.硬件手册
-   HM.MB300.硬件手册
+   /docs/MYZR-iMX8系列/MYZR-IMX8M-EK300/MYZR-IMX8M-CB300 硬件介绍
+   /docs/MYZR-iMX8系列/MYZR-IMX8M-EK300/MYZR-IMX8M-MB300 硬件介绍

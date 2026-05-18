@@ -17,9 +17,9 @@ Instructions for use of this document
   :doc:`《Linux-4.1.15》 <./MYZR-IMX6-EK336 Linux-4.1.15 Test Manual v2.0>`
 
 |   Development Environment Guidance Manual：
-  :doc:`《Ubuntu14.04+Win10 (Recommended)》 </docs/COMMON/MYZR Win10 VB5212 U14045 x64 Env>`,
-  :doc:`《Ubuntu12.04+Win10》 </docs/COMMON/MYZR Win10 VB5118 U12045 x64 Env>`,
-  :doc:`《Ubuntu12.04+Win7》 </docs/COMMON/MYZR Win7 VB4340 U12045 x64 Env>`
+  :doc:`《Ubuntu14.04+Win10 (Recommended)》 </docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit Dev Env Guide>`,
+  :doc:`《Ubuntu12.04+Win10》 </docs/COMMON/MYZR Windows-10 VirtualBox-5.1.18 Ubuntu-12.04.5 64-bit Dev Env Guide>`,
+  :doc:`《Ubuntu12.04+Win7》 </docs/COMMON/MYZR Windows-7 VirtualBox-4.3.40 Ubuntu-12.04.5 64-bit Dev Env Guide>`
 
 |   Build Manual：
   :doc:`《Linux-3.14.52》 <./MYZR-IMX6-A9 Linux-3.14.52 Build Manual v2.0>`,

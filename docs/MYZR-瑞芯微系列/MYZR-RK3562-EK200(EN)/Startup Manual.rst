@@ -8,7 +8,7 @@ Serial Cable Connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Connect one end of the Type-C cable to the "CON4" port on the development board, and the other end to the rear USB port of the computer.
-2. Refer to the :doc:`《XShell reference manual》</docs/COMMON/Terminal software XShell reference manual>` to create a new serial session and open the session.
+2. Refer to the :doc:`《XShell reference manual》</docs/COMMON/Xshell.RM Reference Manual >` to create a new serial session and open the session.
 
 Ethernet Cable Connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

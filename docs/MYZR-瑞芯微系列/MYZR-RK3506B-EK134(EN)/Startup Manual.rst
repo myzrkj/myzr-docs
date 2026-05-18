@@ -8,7 +8,7 @@ Serial Cable Connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Use a Type-C cable to connect the "CON4" interface of the evaluation board to the USB interface of the PC.
-2. Refer to the :doc:`《Xshell Reference Manual》</docs/COMMON/Terminal software XShell reference manual>` to create a new serial session and open the session.
+2. Refer to the :doc:`《Xshell Reference Manual》</docs/COMMON/Xshell.RM Reference Manual >` to create a new serial session and open the session.
 
 Ethernet Cable Connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

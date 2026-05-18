@@ -15,9 +15,9 @@ Manual Links
 
 | **Test Manual**: :doc:`《Linux-5.10.131》<RZG Test Manual>`
 | **Development Environment Guide Manual**:
-  :doc:`《Ubuntu14.04+Win10 (Recommended)》</docs/COMMON/MYZR Win10 VB5212 U14045 x64 Env>`
-  :doc:`《Ubuntu12.04+Win10》</docs/COMMON/MYZR Win10 VB5118 U12045 x64 Env>`
-  :doc:`《Ubuntu12.04+Win7》</docs/COMMON/MYZR Win7 VB4340 U12045 x64 Env>`
+  :doc:`《Ubuntu14.04+Win10 (Recommended)》</docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit Dev Env Guide>`
+  :doc:`《Ubuntu12.04+Win10》</docs/COMMON/MYZR Windows-10 VirtualBox-5.1.18 Ubuntu-12.04.5 64-bit Dev Env Guide>`
+  :doc:`《Ubuntu12.04+Win7》</docs/COMMON/MYZR Windows-7 VirtualBox-4.3.40 Ubuntu-12.04.5 64-bit Dev Env Guide>`
 | **Compilation Manual**: :doc:`《Linux-5.10.131》<MYZR-RZG-EK200 Compilation Reference Manual>`
 
 Additional Notes
@@ -30,7 +30,7 @@ Part 1: Quick Start for Development Board Usage
 
 **It takes approximately half a day to read through and complete the content and operations in this part for the first time.**
 
-1. After receiving the development board, the first step is to prepare for its use, and installing terminal software is essential. Open :doc:`《Terminal Software Reference Manual》</docs/COMMON/Terminal software XShell reference manual>` and follow the "Software Download and Installation" section to install the terminal software.
+1. After receiving the development board, the first step is to prepare for its use, and installing terminal software is essential. Open :doc:`《Terminal Software Reference Manual》</docs/COMMON/Xshell.RM Reference Manual >` and follow the "Software Download and Installation" section to install the terminal software.
 2. Once the terminal software is installed, open :doc:`《Startup Manual》<MYZR-RZG-EK200 Startup Manual>` and follow the instructions to start the development board.
 3. After the development board starts successfully, perform a flashing operation by following the guidelines in :doc:`《Flashing Guide Manual》<MYZR-RZ-EK200 Programming Manual>`. The purpose is to familiarize yourself with the flashing process and prepare for the subsequent function verification.
 4. After the development board flashing is completed, open the corresponding **[Test Manual]** and conduct a full test to verify that all functions of the development board are working properly.

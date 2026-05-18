@@ -13,7 +13,7 @@ Serial Cable Connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Connect one end of the serial cable to the "CON9" port of the development board, and the other end to the serial port or USB port of the computer.
-2. Refer to the :doc:`《Xshell Reference Manual》 </docs/COMMON/Terminal software XShell reference manual>` to create a new serial session and open it.
+2. Refer to the :doc:`《Xshell Reference Manual》 </docs/COMMON/Xshell.RM Reference Manual >` to create a new serial session and open it.
 
 Ethernet Cable Connection
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

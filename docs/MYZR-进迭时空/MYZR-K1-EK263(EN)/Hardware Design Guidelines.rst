@@ -216,10 +216,12 @@ USB2.0+USB3.0
 
 1. ESD protection shall be configured for USB3.0 signals. The parasitic capacitance of ESD devices shall be less than 0.5pF, and ESD devices shall be placed close to the USB connector.
 2. USB3_RXP/N
+
 - If the connected device is an IC or module, a 100nF capacitor shall be connected in series with RX differential signals at the device end.
 - If the connected device is a socket, RX differential signals shall be directly connected without series capacitors.
 
 3. USB3_TXP/N
+
 - If the connected device is an IC or module, a 100nF capacitor shall be connected in series with TX differential signals at the K1 end.
 - If the connected device is a socket, a 100nF capacitor shall be connected in series with TX differential signals near the socket.
 
@@ -484,6 +486,7 @@ PCB Layout Guidelines
 +--------------------------------------------+-------------------+-----------+
 
 | (13) High-speed Differential Signals
+
 - Avoid discontinuous trace impedance.
 - Increase spacing between adjacent high-speed traces to reduce crosstalk.
 - Maintain equal spacing, width and length for DP/DM traces. Strict time delay matching is mandatory for high-speed differential pairs to prevent communication failure; meander lines are adopted for length matching and delay control.
@@ -538,7 +541,8 @@ PCB Layout Guidelines
 
 - Ensure continuous ground return paths. Ground (GND) serves as the main return path and shall be kept continuous without splits or interruptions for stable signal reflux.
 
-(14) USB 2.0 Layout
+| (14) USB 2.0 Layout
+
 - Minimize the length of high-speed USB signal traces between chips and connectors.
 - Control USB routing length with differential pair length error less than 0.12mm.
 - Maintain a minimum spacing of 50mil (1.27mm) between high-speed clock/cyclic signals and parallel DP/DM traces.
@@ -550,7 +554,8 @@ PCB Layout Guidelines
    :alt: 硬件手册61.png
    :width: 90%
 
-(15) Ethernet Layout
+| (15) Ethernet Layout
+
 - Adopt daisy-chain routing for multiple PHY chips on the MDIO bus without branch routing.
 - RGMII interface includes transmit, receive and control signals with 50Ω±10% impedance control.
 - Limit the routing length of transmit and receive signals within 100mm with intra-group length error less than 2.54mm.
@@ -559,20 +564,24 @@ PCB Layout Guidelines
 - Place power inductors of on-chip DCDC circuits close to chips for minimal loop length and complete ground return.
 - Reserve series resistors on data lines and place them near the signal source.
 
-(16) CAN Layout
+| (16) CAN Layout
+
 - Adopt differential routing for CAN signals and reserve 120Ω terminal resistors.
 - Reserve ground pins at external ports.
 
-(17) 485 Layout
+| (17) 485 Layout
+
 - Adopt differential routing for 485 signals and reserve 120Ω terminal resistors.
 - The 485 bus works in half-duplex mode with dedicated transceiving control circuits.
 - Reserve ground pins at external ports.
 
-(18) Audio Layout
+| (18) Audio Layout
+
 - Isolate analog audio signals from digital signals and apply ground shielding to ensure complete reference ground.
 - Use wide traces for analog signal routing.
 
-(19) WIFI Layout
+| (19) WIFI Layout
+
 - Implement ground shielding for WIFI antenna traces.
 - Use wide traces and avoid 90°/45° sharp corners; adopt arc routing for turns and keep traces straight as much as possible.
 - Route other signal traces away from WIFI modules.

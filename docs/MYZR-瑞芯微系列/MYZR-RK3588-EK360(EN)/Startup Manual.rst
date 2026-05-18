@@ -22,7 +22,7 @@ Connection of the Serial Cable
 | Pin | GND | RX  | TX  | 3.3V |
 +-----+-----+-----+-----+------+
 
-2. Refer to the :doc:`"Xshell Reference Manual" </docs/COMMON/Terminal software XShell reference manual>` to create a new serial session and open the session.
+2. Refer to the :doc:`"Xshell Reference Manual" </docs/COMMON/Xshell.RM Reference Manual >` to create a new serial session and open the session.
 
 Connection of the Network Cable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

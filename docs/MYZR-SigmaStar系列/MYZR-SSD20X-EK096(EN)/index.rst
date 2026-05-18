@@ -38,7 +38,7 @@ Development Environment Guidebook
 .. toctree::
    :maxdepth: 1
 
-   /docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit dev env Manual
+   /docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit Dev Env Guide
 
 Compilation Manual
 ~~~~~~~~~~~~~~~~~~~~

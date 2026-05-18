@@ -1,5 +1,5 @@
-MYZR VMware-10.0.5 Ubutnu-12.04.5 x64 VMware Development (Old)
-=================================================================
+MYZR VMware-10.0.5 Ubuntu-12.04.5 64-bit Dev Manual (Old)
+============================================================
 
 Install and configure the development environment
 ----------------------------------------------------

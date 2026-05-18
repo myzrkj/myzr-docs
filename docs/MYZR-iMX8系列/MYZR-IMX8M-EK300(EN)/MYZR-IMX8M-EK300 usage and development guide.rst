@@ -16,9 +16,9 @@ Manual link
 
 | **Test Manual:** :doc:`《Linux-4.14.98》 <./MYZR-IMX8M-EK300 Linux-4.14.98 Test Manual>`
 | **Development Environment Guidance Manual:**
- :doc:`《Ubuntu14.04+Win10 (Recommended)》 </docs/COMMON/MYZR Win10 VB5212 U14045 x64 Env>`,
- :doc:`《Ubuntu12.04+Win10》 </docs/COMMON/MYZR Win10 VB5118 U12045 x64 Env>`,  
- :doc:`《Ubuntu12.04+Win7》 </docs/COMMON/MYZR Win7 VB4340 U12045 x64 Env>`
+ :doc:`《Ubuntu14.04+Win10 (Recommended)》 </docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit Dev Env Guide>`,
+ :doc:`《Ubuntu12.04+Win10》 </docs/COMMON/MYZR Windows-10 VirtualBox-5.1.18 Ubuntu-12.04.5 64-bit Dev Env Guide>`,  
+ :doc:`《Ubuntu12.04+Win7》 </docs/COMMON/MYZR Windows-7 VirtualBox-4.3.40 Ubuntu-12.04.5 64-bit Dev Env Guide>`
 | **Compilation Manual:** 
  :doc:`《Linux-4.14.98》 <./MYZR-IMX8M-EK300 Linux-4.14.98 compilation reference manual>`
 | **Driver and device manual:** :doc:`《Linux-4.14.98》 <./MYZR-IMX8M-EK300 Devices and Drivers>`
@@ -33,7 +33,7 @@ Part 1 Quick Start
 
 **This part of content and operation, it takes about half a day to read and complete the first time**
 
-1. 1. After getting the development board, the first thing is to prepare for using the development board. It is necessary to install terminal software. Open :doc:`《Terminal software XShell reference manual》 </docs/COMMON/Terminal software XShell reference manual>` ，and refer to **Software Download and Installation** to install the terminal software.
+1. 1. After getting the development board, the first thing is to prepare for using the development board. It is necessary to install terminal software. Open :doc:`《Xshell.RM Reference Manual 》 </docs/COMMON/Xshell.RM Reference Manual >` ，and refer to **Software Download and Installation** to install the terminal software.
 2. After the terminal software is installed, open :doc:`《Startup Manual》 <./MYZR-IMX8M-EK300 Startup Manual>` , and start the development board with reference to the document.
 3. After the development board is successfully started, refer to :doc:`《Programming Guide》 <./MYZR-IMX8M-EK300 Programming Manual>` for one programming. The purpose is to become familiar with the programming operation and prepare for the next functional verification.
 4. After the development board is burned, open the corresponding **【Test Manual】** and perform a test to verify that the development board functions properly.
@@ -67,7 +67,7 @@ Part III Advanced Software Development Guide
 Part 4 Hardware Development Guide
 ------------------------------------
 
-1. First, it is necessary for the hardware engineer to understand the introduction and basic principles of the baseboard of our development board. For details, please refer to :doc:`《Backplane Hardware Introduction》 <./MYZR-IMX8M-MB300 hardware introduction>` 。
+1. First, it is necessary for the hardware engineer to understand the introduction and basic principles of the baseboard of our development board. For details, please refer to :doc:`《Backplane Hardware Introduction》 <./MYZR-IMX8M-MB300 Hardware Introduction>` 。
 2. The hardware engineer opens the network disk, downloads the hardware schematic file for reference, or designs based on our schematic.
 3. If some interfaces and functions need to be changed, please refer to ** Pin definition & detailed function description in :doc:`《Core Board Hardware Introduction》 <./MYZR-IMX8M-CB300 Hardware Introduction>`. For more details, please refer to "1.1_NXP-Document-> IMX8MDQLQRM_Rev0.pdf"
 

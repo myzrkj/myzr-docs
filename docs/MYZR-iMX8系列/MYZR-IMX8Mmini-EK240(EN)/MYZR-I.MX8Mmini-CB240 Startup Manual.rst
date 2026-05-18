@@ -11,7 +11,7 @@ Development board connection
 **Serial cable connection**
 
 |  Connect one end of the serial cable to the "DEBUG" port of the development board, and connect the other end to the serial port or USB port of the computer. 
-|  Reference [Terminal Software XShell Reference Manual] Create a new serial port session and open the session.
+|  Reference [Xshell.RM Reference Manual ] Create a new serial port session and open the session.
 
 **Network cable connection**
 

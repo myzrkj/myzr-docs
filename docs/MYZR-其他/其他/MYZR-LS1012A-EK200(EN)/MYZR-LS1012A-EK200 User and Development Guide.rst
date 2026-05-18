@@ -14,9 +14,9 @@ Instructions for Using This Document
 
 |  **Test Manual:** :doc:`《Linux-4.4.98》 <./MYZR-LS1012A-EK200 Linux-4.4.98 Test Manual>`
 |  **Development Environment Guide Manuals:**
- :doc:`《Ubuntu14.04+Win10 (Recommended)》 </docs/COMMON/MYZR Win10 VB5212 U14045 x64 Env>`,
- :doc:`《Ubuntu12.04+Win10》 </docs/COMMON/MYZR Win10 VB5118 U12045 x64 Env>`,  
- :doc:`《Ubuntu12.04+Win7》 </docs/COMMON/MYZR Win7 VB4340 U12045 x64 Env>`
+ :doc:`《Ubuntu14.04+Win10 (Recommended)》 </docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit Dev Env Guide>`,
+ :doc:`《Ubuntu12.04+Win10》 </docs/COMMON/MYZR Windows-10 VirtualBox-5.1.18 Ubuntu-12.04.5 64-bit Dev Env Guide>`,  
+ :doc:`《Ubuntu12.04+Win7》 </docs/COMMON/MYZR Windows-7 VirtualBox-4.3.40 Ubuntu-12.04.5 64-bit Dev Env Guide>`
 |  **Compilation Manual:** :doc:`《Linux-4.4.98》 <./MYZR-LS1012A-EK200 Linux-4.4.98 Compilation Reference Manual>`
 |  **Driver and Device Manual:** :doc:`《Linux-4.4.98》 <./MYZR-LS1012A-EK200 L4498 Driver and Device>`
 
@@ -31,7 +31,7 @@ Part 1: Quick Start for Development Board Usage
 
 |  **It takes approximately half a day to read and complete the content and operations in this part for the first time.**
 
-1. After receiving the development board, the first step is to prepare for its use, and installing terminal software is essential. Open the :doc:`《Terminal Software Reference Manual》 </docs/COMMON/Terminal software XShell reference manual>` and follow the **Software Download and Installation** section to install the terminal software.
+1. After receiving the development board, the first step is to prepare for its use, and installing terminal software is essential. Open the :doc:`《Terminal Software Reference Manual》 </docs/COMMON/Xshell.RM Reference Manual >` and follow the **Software Download and Installation** section to install the terminal software.
 2. After installing the terminal software, open the :doc:`《Startup Manual》 <./MYZR-LS1012A-EK200 Startup Manual>` and follow the document to start the development board.
 3. Once the development board starts successfully, perform a flashing operation by following the instructions in the :doc:`《Flashing Manual》 <./MYZR-LS1012A-EK200 Programming Guide>`. The purpose is to familiarize yourself with the flashing operation and prepare for the next function verification.
 4. After completing the flashing of the development board, open the corresponding **[Test Manual]** and conduct a test to verify that all functions of the development board are normal.

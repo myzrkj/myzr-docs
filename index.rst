@@ -78,10 +78,12 @@
    docs/MYZR-iMX8系列/MYZR-IMX8MM-EK200/index
    docs/MYZR-iMX8系列/MYZR-IMX8MM-EK200(EN)/index
    docs/MYZR-iMX8系列/MYZR-IMX8MQ-EK300-RevE/index
+   docs/MYZR-iMX8系列/MYZR-IMX8MQ-EK300-RevE(EN)/index
    
    docs/MYZR-iMX8系列/MYZR-IMX8M-EK300/index
    docs/MYZR-iMX8系列/MYZR-IMX8M-EK300(EN)/index
    docs/MYZR-iMX8系列/MYZR-IMX8M-EVK/index
+   docs/MYZR-iMX8系列/MYZR-IMX8M-EVK(EN)/index
    docs/MYZR-iMX8系列/MYZR-IMX8Mmini-EK240/index
    docs/MYZR-iMX8系列/MYZR-IMX8Mmini-EK240(EN)/index
 
@@ -133,13 +135,31 @@
    docs/MYZR-iMX6系列/MYZR-IMX6-EK336/index
    docs/MYZR-iMX6系列/MYZR-IMX6-EK336(EN)/index
 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-网关
+
+   docs/MYZR-其他/网关/GW510/index
+   docs/MYZR-其他/网关/GW510(EN)/index
+   docs/MYZR-其他/网关/GW305/index
+   docs/MYZR-其他/网关/GW305(EN)/index
+   docs/MYZR-其他/网关/GW300/index
+   docs/MYZR-其他/网关/GW300(EN)/index
+   docs/MYZR-其他/网关/GW200/index
+   docs/MYZR-其他/网关/GW200(EN)/index
+
+
 .. toctree::
    :maxdepth: 1
    :caption: MYZR-其他
 
-   docs/MYZR-其他/网关/index            
-
-   docs/MYZR-其他/index                                                                                
+   docs/MYZR-其他/其他/MYZR-IMX28-EK142/index
+   docs/MYZR-其他/其他/MYZR-IMX28-EK142(EN)/index
+   docs/MYZR-其他/其他/MYZR-LS1012A-EK200/index
+   docs/MYZR-其他/其他/MYZR-LS1012A-EK200(EN)/index
+   docs/MYZR-其他/其他/MYZR-SAMA5-EK200/index
+   docs/MYZR-其他/其他/MYZR-SAMA5-EK200(EN)/index
 
 
 Indices and tables

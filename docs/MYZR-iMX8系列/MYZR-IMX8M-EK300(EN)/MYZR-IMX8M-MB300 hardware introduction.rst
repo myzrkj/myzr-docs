@@ -1,4 +1,4 @@
-MYZR-IMX8M-MB300 hardware introduction
+MYZR-IMX8M-MB300 Hardware Introduction
 =========================================
 
 Interface overview

@@ -82,7 +82,7 @@ Burn system for development board
 **Connect development board and computer**
 
 1. Connect the development board and computer with the MiniUSB cable(to ensure the stability of the burn, use the computer's rear USB port. If USB HUB is used, connect to USB HUB).
-2. Connect the development board and computer with a serial port line, refer to :doc:`《Terminal Software Reference Manual》 </docs/COMMON/Terminal software XShell reference manual>` In **connection to session** Open serial session.
+2. Connect the development board and computer with a serial port line, refer to :doc:`《Terminal Software Reference Manual》 </docs/COMMON/Xshell.RM Reference Manual >` In **connection to session** Open serial session.
 3. Connect the power cord for the development board and then power it.
 
 **Burn system to development board**

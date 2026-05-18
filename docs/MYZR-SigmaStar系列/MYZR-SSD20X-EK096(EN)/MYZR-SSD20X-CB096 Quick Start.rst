@@ -5,7 +5,7 @@ The connection of the serial port line
 -----------------------------------------
 
 |  Connect one end of the serial port cable to the P5 port of the development board, and the other end to the serial or USB port of the computer. (Use the serial port adapter cable we provide)
-|  Refer to the :doc:`《Terminal Software Reference Manual》</docs/COMMON/Terminal software XShell reference manual>` to create a new serial session and open the session.
+|  Refer to the :doc:`《Terminal Software Reference Manual》</docs/COMMON/Xshell.RM Reference Manual >` to create a new serial session and open the session.
 
 The connection of the power cord
 ----------------------------------

@@ -31,8 +31,8 @@ Environment
    .. toctree::
       :maxdepth: 1
 
-      /docs/COMMON/MYZR VirtualBox-4.3.40 Ubutnu-12.04.5 x64 VMware Development (Recommended)
-      /docs/COMMON/MYZR VMware-10.0.5 Ubutnu-12.04.5 x64 VMware Development (Old)
+      /docs/COMMON/MYZR VirtualBox-4.3.40 Ubuntu-12.04.5 64-bit DevEnv Manual (Recommended)
+      /docs/COMMON/MYZR VMware-10.0.5 Ubuntu12.04.5 64-bit DevEnv Manual (old)
 
 Building
 """"""""""

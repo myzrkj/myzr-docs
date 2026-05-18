@@ -343,6 +343,7 @@ M.2 Interface Test
 2. Create mount point and mount NVMe disk:
 
 .. code-block:: shell
+
     mkdir -p /mnt/nvme
     mount /dev/nvme0n1p1 /mnt/nvme
 

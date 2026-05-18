@@ -14,7 +14,7 @@ Manual Links
 ~~~~~~~~~~~~~~
 
 | Test Manual: :doc:`《Linux-3.10.65》<MYZR-A40I-EK204 Linux-3.10.65 Test Manual>`
-| Development Environment Guide Manual: :doc:`《Ubuntu14.04+Win10》</docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit dev env Manual>`
+| Development Environment Guide Manual: :doc:`《Ubuntu14.04+Win10》</docs/COMMON/MYZR Windows-10 VirtualBox-5.2.12 Ubuntu-14.04.5 64-bit Dev Env Guide>`
 | Compilation Manual:
   :doc:`《Linux-3.10.65》<MYZR-A40I-EK204 Linux-3.10.65 Compilation Reference Manual>`
   :doc:`《android》<MYZR-A40I-EK204 Android Compilation Reference Manual>`
@@ -30,7 +30,7 @@ Part 1: Quick Start for Development Board Usage
 
 **It takes approximately half a day to read and complete the content and operations in this part for the first time.**
 
-1. After receiving the development board, the first thing to do is prepare for using it, and installing terminal software is essential. Open the :doc:`《Terminal software XShell reference manual》</docs/COMMON/Terminal software XShell reference manual>` and follow the "Software Download and Installation" section to install the terminal software.
+1. After receiving the development board, the first thing to do is prepare for using it, and installing terminal software is essential. Open the :doc:`《Xshell.RM Reference Manual 》</docs/COMMON/Xshell.RM Reference Manual >` and follow the "Software Download and Installation" section to install the terminal software.
 2. After installing the terminal software, open the :doc:`《Startup Manual》<MYZR-A40I-CB204 Startup Manual>` and follow the document to start the development board.
 3. Once the development board starts successfully, perform a flashing operation by following the :doc:`《linux-3.10.65 Programming Manual》<MYZR-A40I-CB204 Programming Manual>`. The purpose is to familiarize yourself with the flashing operation and prepare for the next function verification.
 4. After the development board is flashed successfully, open the corresponding **[Test Manual]** and conduct a test to verify that all functions of the development board are normal.

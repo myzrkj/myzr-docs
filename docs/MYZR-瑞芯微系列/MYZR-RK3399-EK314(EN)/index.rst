@@ -44,7 +44,7 @@ Terminal software
 .. toctree::
    :maxdepth: 1
 
-   /docs/COMMON/Terminal software XShell reference manual
+   /docs/COMMON/Xshell.RM Reference Manual 
 
 Development
 ~~~~~~~~~~~~~
