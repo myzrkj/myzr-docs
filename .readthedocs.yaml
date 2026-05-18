@@ -1,37 +1,30 @@
 # .readthedocs.yaml
 # Read the Docs configuration file
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
-
-# Required
 version: 2
 
-# Set the version of Python and other tools you might need
 build:
   os: ubuntu-22.04
   tools:
     python: "3.10"
-  # 自定义构建命令（核心：分别编译中英文）
   commands:
     - pip install --upgrade pip setuptools
     - pip install -r requirements.txt
     - pip install .
+
     # 清理旧文件
-    - rm -rf _doctree/ _build/ html/ .doctree/
-    # 编译中文
+    - rm -rf _doctree _build html .doctree
+
+    # 编译中英文
     - sphinx-build -b html -c . zh html/zh
-    # 编译英文
     - sphinx-build -b html -c . en html/en
-    # 把结果输出到 RTD 要求的目录
+
+    # 复制到 Read the Docs 输出目录
     - mkdir -p _readthedocs/html
     - cp -r html/* _readthedocs/html/
 
-# 关闭默认 sphinx 构建（使用自定义命令）
-sphinx:
-  builder: html
-  configuration: conf.py
+    # ✅ 关键修复：创建根目录 index.html 自动跳转中文
+    - echo '<meta http-equiv="refresh" content="0;url=zh/index.html">' > _readthedocs/html/index.html
 
-python:
-  install:
-    - requirements: requirements.txt
-    - method: pip
-      path: .
+# 自定义命令模式下，这两项必须删除，否则会冲突
+sphin: false
+python: false
