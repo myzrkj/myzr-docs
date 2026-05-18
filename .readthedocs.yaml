@@ -7,31 +7,25 @@ version: 2
 
 # Set the version of Python and other tools you might need
 build:
-  os: ubuntu-22.04
-  tools:
-    python: "3.10"
-  # 自定义构建命令（核心：分别编译中英文）
-  commands:
-    - pip install --upgrade pip setuptools
-    - pip install -r requirements.txt
-    - pip install .
-    # 清理旧文件
-    - rm -rf _doctree/ _build/ html/ .doctree/
-    # 编译中文
-    - sphinx-build -b html -c . zh html/zh
-    # 编译英文
-    - sphinx-build -b html -c . en html/en
-    # 把结果输出到 RTD 要求的目录
-    - mkdir -p _readthedocs/html
-    - cp -r html/* _readthedocs/html/
+   os: ubuntu-22.04
+   tools:
+     python: "3.10"
+     # You can also specify other tool versions:
+     # nodejs: "16"
+     # rust: "1.55"
+     # golang: "1.17"
 
-# 关闭默认 sphinx 构建（使用自定义命令）
+# Build documentation in the docs/ directory with Sphinx
 sphinx:
-  builder: html
-  configuration: conf.py
+   configuration: conf.py
 
+# If using Sphinx, optionally build your docs in additional formats such as PDF
+# formats:
+#    - pdf
+
+# Optionally declare the Python requirements required to build your docs
 python:
-  install:
-    - requirements: requirements.txt
-    - method: pip
-      path: .
+   install:
+   - requirements: requirements.txt
+   - method: pip
+     path: .
