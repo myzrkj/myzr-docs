@@ -5,16 +5,13 @@ build:
   tools:
     python: "3.10"
   commands:
-    # 安装依赖
-    - pip install --upgrade pip setuptools
+    - pip install -U pip setuptools
     - pip install -r requirements.txt
     - pip install .
 
-    # 编译 中文 → 输出到 RTD 目录下的 zh
-    - sphinx-build -b html -c . zh $READTHEDOCS_OUTPUT/html/zh
+    # 直接编译中英文到 RTD 官方目录
+    - sphinx-build -b html -c . zh "$READTHEDOCS_OUTPUT/html/zh"
+    - sphinx-build -b html -c . en "$READTHEDOCS_OUTPUT/html/en"
 
-    # 编译 英文 → 输出到 RTD 目录下的 en
-    - sphinx-build -b html -c . en $READTHEDOCS_OUTPUT/html/en
-
-    # ✅ 强制创建根目录 index.html（解决报错）
-    - echo '<meta http-equiv="refresh" content="0;url=zh/index.html">' > $READTHEDOCS_OUTPUT/html/index.html
+    # 最安全的跳转首页（不会报错）
+    - sh -c 'printf "<meta http-equiv=\"refresh\" content=\"0;url=zh/index.html\">" > "$READTHEDOCS_OUTPUT/html/index.html"'
