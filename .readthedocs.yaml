@@ -13,5 +13,6 @@ build:
     - sphinx-build -b html -c . zh $READTHEDOCS_OUTPUT/html/zh
     - sphinx-build -b html -c . en $READTHEDOCS_OUTPUT/html/en
 
-    # 创建首页跳转
-    - echo x > $READTHEDOCS_OUTPUT/html/index.html
+    # 首页：自动跳中文文档
+    - echo '<!DOCTYPE html>' > $READTHEDOCS_OUTPUT/html/index.html
+    - echo '<meta http-equiv="refresh" content="0;url=zh/">' >> $READTHEDOCS_OUTPUT/html/index.html
