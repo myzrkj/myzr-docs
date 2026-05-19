@@ -14,4 +14,4 @@ build:
     - sphinx-build -b html -c . en $READTHEDOCS_OUTPUT/html/en
 
     # 创建首页跳转
-    - echo "OK" > $READTHEDOCS_OUTPUT/html/index.html
+    - echo x > $READTHEDOCS_OUTPUT/html/index.html
