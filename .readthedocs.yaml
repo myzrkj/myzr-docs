@@ -18,7 +18,3 @@ build:
 
     # ✅ 强制创建根目录 index.html（解决报错）
     - echo '<meta http-equiv="refresh" content="0;url=zh/index.html">' > $READTHEDOCS_OUTPUT/html/index.html
-
-# 👇 必须禁用这两项！否则必报错！
-sphinx: false
-python: false
