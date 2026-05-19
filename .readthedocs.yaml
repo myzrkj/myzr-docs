@@ -9,9 +9,9 @@ build:
     - pip install -r requirements.txt
     - pip install .
 
-    # 直接编译到 zh / en
+    # 编译中英文
     - sphinx-build -b html -c . zh $READTHEDOCS_OUTPUT/html/zh
     - sphinx-build -b html -c . en $READTHEDOCS_OUTPUT/html/en
 
-    # 创建空 index.html
-    - touch $READTHEDOCS_OUTPUT/html/index.html
+    # 复制项目里的 index.html 到根目录
+    - cp index.html $READTHEDOCS_OUTPUT/html/
