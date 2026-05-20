@@ -9,9 +9,7 @@ build:
     - pip install -r requirements.txt
     - pip install .
 
-    # 构建到 RTD 系统默认路径
-    - sphinx-build -b html -c . zh $READTHEDOCS_OUTPUT/html/zh-cn/latest
+    - sphinx-build -b html -c . zh $READTHEDOCS_OUTPUT/html/zh_cn/latest
     - sphinx-build -b html -c . en $READTHEDOCS_OUTPUT/html/en/latest
 
-    # 空文件骗过检查
     - touch $READTHEDOCS_OUTPUT/html/index.html

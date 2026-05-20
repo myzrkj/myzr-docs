@@ -17,7 +17,7 @@ const btn = document.getElementById('langBtn');
 const path = window.location.pathname;
 
 // 自动识别当前语言
-if (path.includes('/zh-cn/latest/')) {
+if (path.includes('/zh_cn/latest/')) {
   btn.innerText = '中 / EN';
 } else if (path.includes('/en/latest/')) {
   btn.innerText = 'EN / 中';
@@ -37,10 +37,10 @@ btn.addEventListener('mouseleave', () => {
 
 // 点击切换语言（适配 RTD 真实路径）
 btn.addEventListener('click', () => {
-  if (path.includes('/zh-cn/latest/')) {
+  if (path.includes('/zh_cn/latest/')) {
     window.location.href = "/en/latest/";
   } else {
-    window.location.href = "/zh-cn/latest/";
+    window.location.href = "/zh_cn/latest/";
   }
 });
 </script>
