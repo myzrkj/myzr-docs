@@ -2,7 +2,7 @@
 import os
 
 # 中文配置
-language = 'zh_CN'
+language = 'zh'
 master_doc = 'index'
 
 project = '明远智睿文档'
