@@ -487,9 +487,6 @@ USB Camera
 
 
 
-Test Manual
-=============
-
 M.2 SSD
 ---------
 
