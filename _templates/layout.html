@@ -13,40 +13,61 @@
 </div>
 
 <script>
-  const btn = document.getElementById('langBtn');
-  const path = window.location.pathname;
+document.addEventListener('DOMContentLoaded', function(){
+    const btn = document.getElementById('langBtn');
+    const path = window.location.pathname;
+    const isProd = path.includes('/latest/');
+    const hasZh = path.includes('/zh/');
+    const hasEn = path.includes('/en/');
 
-  // 自动判断语言显示按钮文字
-  if (path.includes('/zh/')) {
-    btn.innerText = '中 / EN';
-  } else if (path.includes('/en/')) {
-    btn.innerText = 'EN / 中';
-  }
-
-  // 鼠标悬浮：高亮非常明显 + 放大 + 加深底色
-  btn.addEventListener('mouseenter', () => {
-    btn.style.background = '#005999';
-    btn.style.transform = 'scale(1.08)';
-    btn.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
-  });
-  // 鼠标离开恢复原样
-  btn.addEventListener('mouseleave', () => {
-    btn.style.background = '#2980b9';
-    btn.style.transform = 'scale(1)';
-    btn.style.boxShadow = 'none';
-  });
-
-  // 点击跳转
-  btn.addEventListener('click', () => {
-    if (path.includes('/zh/')) {
-      window.location.href = "/en/index.html";
-    } else if (path.includes('/en/')) {
-      window.location.href = "/zh/index.html";
+    // 按钮文字
+    if (hasZh) {
+        btn.innerText = '中 / EN';
+    } else if (hasEn) {
+        btn.innerText = 'EN / 中';
+    } else {
+        btn.innerText = '中 / EN';
     }
-    else {
-      window.location.href = "/en/index.html";
-    }
-  });
+
+    // 悬浮样式
+    btn.onmouseenter = function(){
+        this.style.background = '#005999';
+        this.style.transform = 'scale(1.08)';
+        this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+    };
+    btn.onmouseleave = function(){
+        this.style.background = '#2980b9';
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = 'none';
+    };
+
+    btn.onclick = function(){
+        let targetUrl;
+
+        // 优先判断环境：本地 / 生产
+        if (!isProd) {
+            // 本地环境
+            if (path === '/' || hasZh) {
+                // 根目录 或 当前中文 → 跳英文首页
+                targetUrl = '/en/index.html';
+            } else {
+                // 当前英文 → 跳中文首页
+                targetUrl = '/zh/index.html';
+            }
+        } else {
+            // 生产环境(RTD)
+            if (path === '/' || hasZh) {
+                // 根目录 或 当前中文 → 跳英文首页
+                targetUrl = '/zh-cn/latest/en/index.html';
+            } else {
+                // 当前英文 → 跳中文首页
+                targetUrl = '/zh-cn/latest/zh/index.html';
+            }
+        }
+
+        location.href = targetUrl;
+    };
+});
 </script>
 
 {{ super() }}
