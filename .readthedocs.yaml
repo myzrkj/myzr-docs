@@ -5,23 +5,19 @@ build:
   tools:
     python: "3.10"
   commands:
-    # 命令出错立即终止，方便排查构建异常
-    - set -euo pipefail
-    # 依赖安装
+    # 仅保留 set -e，兼容POSIX sh，去掉 pipefail
+    - set -e
     - pip install -U pip setuptools wheel
     - pip install -r requirements.txt
     - pip install .
 
-    # 分别构建中英文档
     - sphinx-build -b html -c ./ ./zh "${READTHEDOCS_OUTPUT}/html/zh"
     - sphinx-build -b html -c ./ ./en "${READTHEDOCS_OUTPUT}/html/en"
 
-    # 软链接中文到html根目录，生成 /index.html 修复RTD校验报错
+    # 进入输出目录，中文全站软链到根，生成 index.html
     - cd "${READTHEDOCS_OUTPUT}/html"
     - ln -sf zh/* ./
-    # 单独链接隐藏文件(.js/.css/.ico等)
     - find ./zh -maxdepth 1 -type f -name ".*" -exec ln -sf {} ./ \;
 
-# Sphinx配置：警告不阻断编译，避免构建中断缺失html
 sphinx:
   fail_on_warning: false
