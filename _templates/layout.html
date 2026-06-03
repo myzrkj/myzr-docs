@@ -17,15 +17,13 @@ document.addEventListener('DOMContentLoaded', function(){
     const btn = document.getElementById('langBtn');
     const path = window.location.pathname;
     const isProd = path.includes('/latest/');
-    const hasZh = path.includes('/zh/');
-    const hasEn = path.includes('/en/');
+    const inZh = path.includes('/zh/');
+    const inEn = path.includes('/en/');
 
     // 按钮文字
-    if (hasZh) {
-        btn.innerText = '中 / EN';
-    } else if (hasEn) {
+    if(inEn){
         btn.innerText = 'EN / 中';
-    } else {
+    }else{
         btn.innerText = '中 / EN';
     }
 
@@ -43,28 +41,36 @@ document.addEventListener('DOMContentLoaded', function(){
 
     btn.onclick = function(){
         let targetUrl;
-
-        // 优先判断环境：本地 / 生产
-        if (!isProd) {
-            // 本地环境
-            if (path === '/' || hasZh) {
-                // 根目录 或 当前中文 → 跳英文首页
-                targetUrl = '/en/index.html';
-            } else {
-                // 当前英文 → 跳中文首页
-                targetUrl = '/zh/index.html';
+        // 本地环境
+        if(!isProd){
+            // 当前在英文目录 → 切回站点根(中文首页)
+            if(inEn){
+                targetUrl = '/';
             }
-        } else {
-            // 生产环境(RTD)
-            if (path === '/' || hasZh) {
-                // 根目录 或 当前中文 → 跳英文首页
-                targetUrl = '/zh-cn/latest/en/index.html';
-            } else {
-                // 当前英文 → 跳中文首页
-                targetUrl = '/zh-cn/latest/zh/index.html';
+            // 当前在根目录(中文首页) → 切英文首页
+            else {
+                targetUrl = '/en/';
             }
         }
-
+        // RTD生产
+        else {
+            const base_zh = '/zh-cn/latest/';
+            const base_en = '/en/latest/en/';
+            // 当前中文页面，切英文
+            if (path.startsWith(base_zh)) {
+                const sub = path.slice(base_zh.length);
+                targetUrl = base_en + sub;
+            }
+            // 当前英文页面，切中文
+            else if (path.startsWith(base_en)) {
+                const sub = path.slice(base_en.length);
+                targetUrl = base_zh + sub;
+            }
+            // 异常兜底跳转中文首页
+            else {
+                targetUrl = base_zh;
+            }
+        }
         location.href = targetUrl;
     };
 });
