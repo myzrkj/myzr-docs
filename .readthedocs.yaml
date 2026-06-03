@@ -5,19 +5,20 @@ build:
   tools:
     python: "3.10"
   commands:
-    # 仅保留 set -e，兼容POSIX sh，去掉 pipefail
     - set -e
     - pip install -U pip setuptools wheel
     - pip install -r requirements.txt
     - pip install .
 
+    # 构建中英文
     - sphinx-build -b html -c ./ ./zh "${READTHEDOCS_OUTPUT}/html/zh"
     - sphinx-build -b html -c ./ ./en "${READTHEDOCS_OUTPUT}/html/en"
 
-    # 进入输出目录，中文全站软链到根，生成 index.html
     - cd "${READTHEDOCS_OUTPUT}/html"
-    - ln -sf zh/* ./
-    - find ./zh -maxdepth 1 -type f -name ".*" -exec ln -sf {} ./ \;
+    # 只拷贝文件，不覆盖已有目录
+    - find zh -maxdepth 1 -type f -exec cp -f {} ./ \;
+    # 拷贝根目录隐藏文件 .js/.css/.ico
+    - find zh -maxdepth 1 -type f -name ".*" -exec cp -f {} ./ \;
 
 sphinx:
   fail_on_warning: false
