@@ -57,14 +57,12 @@ document.addEventListener('DOMContentLoaded', function(){
             const base_zh = '/zh-cn/latest/';
             const base_en = '/zh-cn/latest/en/';
             // 当前中文页面，切英文
-            if (path.startsWith(base_zh)) {
-                const sub = path.slice(base_zh.length);
-                targetUrl = base_en + sub;
+            if(path.startsWith(base_zh)){
+                targetUrl = base_en;
             }
             // 当前英文页面，切中文
-            else if (path.startsWith(base_en)) {
-                const sub = path.slice(base_en.length);
-                targetUrl = base_zh + sub;
+            else if (path.startsWith(base_en)){
+                targetUrl = base_zh;
             }
             // 异常兜底跳转中文首页
             else {
