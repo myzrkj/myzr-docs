@@ -56,17 +56,11 @@ document.addEventListener('DOMContentLoaded', function(){
         else {
             const base_zh = '/zh-cn/latest/';
             const base_en = '/zh-cn/latest/en/';
-            // 当前中文页面，切英文
-            if(path.startsWith(base_zh)){
+            // 优先判断英文
+            if (path.startsWith(base_en)) {
+                targetUrl = base_zh;
+            } else {
                 targetUrl = base_en;
-            }
-            // 当前英文页面，切中文
-            else if (path.startsWith(base_en)){
-                targetUrl = base_zh;
-            }
-            // 异常兜底跳转中文首页
-            else {
-                targetUrl = base_zh;
             }
         }
         location.href = targetUrl;
