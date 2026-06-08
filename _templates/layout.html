@@ -1,0 +1,72 @@
+{% extends "!layout.html" %}
+
+{% block extrahead %}
+    <link href="{{ pathto("_static/style.css", True) }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block document %}
+<!-- 全局中英文切换按钮（所有页面顶部自动显示） -->
+<div style="text-align: right; margin-bottom: 20px;">
+  <button id="langBtn" style="padding: 8px 16px; background: #2980b9; color: white; border: none; border-radius: 6px; cursor: pointer; font-size:14px; transition: all 0.1s ease; font-weight: bold;">
+    中 / EN
+  </button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    const btn = document.getElementById('langBtn');
+    const path = window.location.pathname;
+    const isProd = path.includes('/latest/');
+    const inZh = path.includes('/zh/');
+    const inEn = path.includes('/en/');
+
+    // 按钮文字
+    if(inEn){
+        btn.innerText = 'EN / 中';
+    }else{
+        btn.innerText = '中 / EN';
+    }
+
+    // 悬浮样式
+    btn.onmouseenter = function(){
+        this.style.background = '#005999';
+        this.style.transform = 'scale(1.08)';
+        this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+    };
+    btn.onmouseleave = function(){
+        this.style.background = '#2980b9';
+        this.style.transform = 'scale(1)';
+        this.style.boxShadow = 'none';
+    };
+
+    btn.onclick = function(){
+        let targetUrl;
+        // 本地环境
+        if(!isProd){
+            // 当前在英文目录 → 切回站点根(中文首页)
+            if(inEn){
+                targetUrl = '/';
+            }
+            // 当前在根目录(中文首页) → 切英文首页
+            else {
+                targetUrl = '/en/';
+            }
+        }
+        // RTD生产
+        else {
+            const base_zh = '/zh-cn/latest/';
+            const base_en = '/zh-cn/latest/en/';
+            // 优先判断英文
+            if (path.startsWith(base_en)) {
+                targetUrl = base_zh;
+            } else {
+                targetUrl = base_en;
+            }
+        }
+        location.href = targetUrl;
+    };
+});
+</script>
+
+{{ super() }}
+{% endblock %}
