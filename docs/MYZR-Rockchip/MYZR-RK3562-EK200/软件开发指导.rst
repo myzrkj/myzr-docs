@@ -1,0 +1,620 @@
+软件开发指导
+==============
+
+.. include:: /docs/COMMON/MYZR-RK3588-EK360开发环境搭建手册.rst
+
+
+Linux源码编译
+--------------
+
+编译环境要求
+~~~~~~~~~~~~~
+
+1. 编译主机需在ubuntu系统中进行，且版本需Ubuntu 20.04以上，笔者主机系统为Ubuntu 20.04
+2. 主机需可连接外网，因为编译系统过程需要下载某些文件。
+
+下载源码包
+~~~~~~~~~~~
+
+1. 下载rk3562源码包，路径为：3.软件资料-->3.1源码-->rk3562-linux.tar.xz
+2. 创建编译目录:
+
+.. code-block:: shell
+
+    mkdir -p ~/my-work/RK3562/02_sources/
+
+3. 把源码放到刚创建的目录中，并进行解压：
+
+.. code-block:: shell
+
+    tar xvf rk3562-linux.tar.xz -C ~/my-work/RK3562/02_sources/
+
+依赖安装
+~~~~~~~~~~
+
+|   首次编译可能需要安装某些依赖，下面给出主机可能需要安装的某些依赖:
+
+.. code-block:: shell
+
+    sudo apt-get install -y git ssh make gcc libssl-dev liblz4-tool expect expect-dev g++ patchelf 
+    chrpath gawk texinfo chrpath diffstat binfmt-support qemu-user-static live-build bison flex 
+    fakeroot rsync cmake gcc-multilib g++-multilib unzip device-tree-compiler ncurses-dev 
+    libgucharmap-2-90-dev bzip2 expat gpgv2 cpp-aarch64-linux-gnu libgmp-dev libmpc-dev bc 
+    python-is-python3 python2 libpkgconf-dev
+
+SDK配置加载
+~~~~~~~~~~~~~
+
+|   首次编译需要加载SDK配置文件，进入rk3562_sdk目录，输入如下命令加载配置文件：
+
+.. code-block:: shell
+
+    ./build.sh myzr_rk3562_evb_defconfig
+    cd buildroot/
+    ./envsetup.sh rockchip_rk3562
+
+整体编译
+~~~~~~~~~
+
+1. 回到SDK主目录，运行整体编译(编译时间较长)，输入如下命令:
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh
+
+2. 编译成功后在rockdev/目录下可看到相关镜像，其中update.img是所有镜像的集合
+
+单独编译uboot
+~~~~~~~~~~~~~~~
+
+1. 编译前可先清除生成文件
+
+.. code-block:: shell
+
+    cd u-boot/
+    make clean
+
+2. 回到SDK主目录，并进行uboot单独编译
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh uboot
+
+单独编译Kernel
+~~~~~~~~~~~~~~~~
+
+1. 编译前可先清除生成文件
+
+.. code-block:: shell
+
+    cd kernel/
+    make clean
+
+2. 回到SDK主目录，并进行kernel单独编译
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh kernel
+
+单独编译recovery
+~~~~~~~~~~~~~~~~~~
+
+|   在SDK主目录下输入如下命令:
+
+.. code-block:: shell
+
+    ./build.sh recovery
+
+单独编译buildroot
+~~~~~~~~~~~~~~~~~~~
+
+|   在SDK主目录下输入如下命令:
+
+.. code-block:: shell
+
+    ./build.sh rootfs
+
+打包固件
+~~~~~~~~~
+
+|   在SDK主目录下输入如下命令:
+
+.. code-block:: shell
+
+    ./build.sh firmware
+
+打包update.img
+~~~~~~~~~~~~~~~~
+
+1. 在SDK下的output/update/Image⽬录将镜像打包成update.img
+2. 在SDK主目录下输入如下命令:
+
+.. code-block:: shell
+
+    ./build.sh updateimg
+
+|   完成上述操作后可按照刷机手册重新刷机
+
+
+安卓源码编译
+-------------
+
+编译环境要求
+~~~~~~~~~~~~~
+
+1. 编译主机需在linux环境中进行，推荐主机系统为Ubuntu 20.04
+2. 主机需可连接外网，因为编译系统过程需要下载某些文件。
+
+下载源码包
+~~~~~~~~~~~
+
+1. 网盘目录下，下载源码包 MYZR-RK3562_Android13_20260407.tar.bz2(请将网盘内分卷文件下载后合并可以得到该压缩包) 
+2. 创建编译目录：
+
+.. code-block:: shell
+
+    mkdir ~/my-work/rk3562/05_android -p
+
+3. 把源码放到此目录中，并进行解压：
+
+.. code-block:: shell
+
+    tar xvf MYZR-RK3562_Android13_20260407.tar.bz2  -C ~/my-work/rk3562/05_android/
+
+配置编译环境
+~~~~~~~~~~~~~
+
+1. 每次打开一个新的终端，都需要进行一个环境配置
+2. 进入RK3562_Android13.0_SDK目录
+3. 输入如下命令配置java环境：
+
+.. code-block:: shell
+
+    source javaenv.sh
+
+4. 输入如下命令配置编译环境：
+
+.. code-block:: shell
+
+    source build/envsetup.sh
+
+5. 输入如下命令配置平台环境：
+
+.. code-block:: shell
+
+    lunch rk3562_t-userdebug
+
+整体编译
+~~~~~~~~~
+
+1. 整体编译将整个android系统，包括kernel、uboot、android、recovery。
+2. 输入如下命令：
+
+.. code-block:: shell
+
+    ./build.sh -AUCKu
+
+3. 编译时间较长，本人使用16线程主机编译需要4个小时时间（仅作参考！）
+4. 成功编译后在rockdev/Image-rk3562_t/目录下可看到相关镜像，其中update.img是所有镜像的集合。
+
+单独编译 uboot
+~~~~~~~~~~~~~~~
+
+1. 编译前可先清除生成文件
+
+.. code-block:: shell
+
+    cd u-boot/
+    make clean
+
+2. 回到SDK主目录，并进行uboot单独编译
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh -U
+
+单独编译 Kernel
+~~~~~~~~~~~~~~~~
+
+1. 编译前可先清除生成文件
+
+.. code-block:: shell
+
+    cd kernel/
+    make clean
+
+2. 回到SDK主目录，并进行kernel单独编译
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh -CKA
+
+单独编译 android
+~~~~~~~~~~~~~~~~~
+
+1. 在SDK主目录下
+
+.. code-block:: shell
+
+    ./build.sh -A
+
+打包update.img
+~~~~~~~~~~~~~~~~
+
+1. 在rockdev将镜像打包成update.img
+2. 在SDK主目录下
+
+.. code-block:: shell
+
+    ./build.sh -u
+
+开发指导
+----------
+
+|   关键文件路径及作用说明。
+
+UBOOT板级文件
+~~~~~~~~~~~~~~~
+
+|   u-boot 板级文件位置：u-boot/board/rockchip/myzr_rk3562
+|   u-boot 板级配置文件：include/configs/myzr_rk3562.h
+|   u-boot 板级编译配置文件：configs/myzr_rk3562_defconfig
+
+Linux内核板级文件
+~~~~~~~~~~~~~~~~~~
+
+|   内核板级编译配置文件：kernel-5.10/arch/arm64/configs/rockchip_linux_defconfig
+|   内核板级设备树文件：
+
+1. kernel-5.10/arch/arm64/boot/dts/rockchip/myzr-rk3562-ek200.dts（默认设备树，适用于hdmi显示屏）
+2. kernel-5.10/arch/arm64/boot/dts/rockchip/myzr-rk3562-ek200-lvds-lcd.dtsi（备用，适用于lvds lcd显示屏）
+3. kernel-5.10/arch/arm64/boot/dts/rockchip/myzr-rk3562-ek200-mipi-lcd.dtsi（备用，适用于mipi lcd显示屏）
+
+Ethernet
+~~~~~~~~~~
+
+|   开发板有俩个网口：CON8、CON9，以CON8说明，CON9同理
+|   俩个网口都⽀持连接外网。
+
+1. dts配置
+
+|   1.1 公共的配置
+|   kernel-5.10/arch/arm64/boot/dts/rockchip/rk3562.dtsi
+
+.. code-block:: shell
+
+    gmac0: ethernet@ffa80000 {
+        compatible = "rockchip,rk3562-gmac", "snps,dwmac-4.20a";
+        reg = <0x0 0xffa80000 0x0 0x10000>;
+        interrupts = <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>,
+                     <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>;
+        interrupt-names = "macirq", "eth_wake_irq";
+        rockchip,grf = <&sys_grf>;
+        rockchip,php_grf = <&ioc_grf>;
+        clocks = <&cru CLK_GMAC_125M_CRU_I>, <&cru CLK_GMAC_50M_CRU_I>,
+                 <&cru PCLK_GMAC>, <&cru ACLK_GMAC>;
+        clock-names = "stmmaceth", "clk_mac_ref",
+                      "pclk_mac", "aclk_mac";
+        resets = <&cru SRST_A_GMAC>;
+        reset-names = "stmmaceth";
+        rockchip,csu = <&csu CSU_GMAC_ACLK>, <&csu CSU_GMAC_PCLK>;
+        rockchip,csu-names = "aclk", "pclk";
+        snps,mixed-burst;
+        snps,tso;
+        snps,axi-config = <&gmac0_stmmac_axi_setup>;
+        snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
+        snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
+        status = "disabled";
+        mdio0: mdio {
+            compatible = "snps,dwmac-mdio";
+            #address-cells = <0x1>;
+            #size-cells = <0x0>;
+    };
+
+|   1.2 板级的配置
+|   kernel-5.10/arch/arm64/boot/dts/rockchip/myzr-rk3562-ek200.dts
+
+.. code-block:: shell
+
+    &gmac0 {
+        snps,reset-gpio = <&gpio3 RK_PD0 GPIO_ACTIVE_LOW>;
+        snps,reset-delays-us = <20000 20000 100000>;
+        tx_delay = <0x38>;
+        rx_delay = <0x1e>;
+        pinctrl-0 = <&rgmiim0_miim
+                    &rgmiim0_tx_bus2
+                    &rgmiim0_rx_bus2
+                    &rgmiim0_rgmii_clk
+                    &rgmiim0_rgmii_bus>;
+        phy-handle = <&rgmii_phy>;
+    };
+
+2. 如果网口没有自动获取ip
+
+|   等待或者电脑网络适配器能上网的网口关掉共享给以太网网口并重新开启共享，再重启板⼦便能⾃动获取ip。
+
+GPIO
+~~~~~~~
+
+**1. GPIO驱动架构**
+
+|   RK3562的GPIO功能通过三级架构实现：硬件层由芯片内置的5组GPIO控制器（对应设备节点gpiochip0~4）直接管理各组32个引脚，厂商已提供底层寄存器驱动；内核层通过Linux GPIO子系统抽象硬件差异，向上提供标准API（如gpiod接口），供内核驱动以统一方式操作任意引脚（如设置方向、读写电平）；用户层则借助Sysfs模块（/sys/class/gpio）将GPIO子系统接口导入到用户空间，无需编写代码即可通过命令行直接控制引脚（导出、方向配置、电平读写）。整套机制中，硬件驱动由芯片厂商完成，Linux内核实现通用抽象，开发者既可基于内核API编程控制GPIO，也可通过Sysfs快速调试。
+|   这里讲一下如何通过用户层，来直接通过命令行控制GPIO（方向/电平）。
+
+**2. 引脚命名规则**
+
+|   RK3562的GPIO分为5组（GPIO0~GPIO4），每组又以 A0~A7, B0~B7, C0~C7, D0~D7 作为编号区分。例如：
+
+- GPIO0_D0表示第0组（GPIO4）的D组第0个引脚。
+- GPIO4_B5表示第4组（GPIO4）的B组第5个引脚。
+
+**3. GPIO引脚编号的计算公式**
+
+|   bank：GPIO组号（0~4）。
+|   group：字母对应的组内序号（A=0，B=1，C=2，D=3）。
+|   X：组内具体编号（0~7）。
+|   number：组内编号，通过以下公式计算：
+|   GPIO 小组编号计算公式：number = group * 8 + X
+|   GPIO pin 编号计算公式：pin = bank * 32 + number
+|   下面演示GPIO4_B5 pin 脚计算方法：
+|   bank = 4 （GPIO4）。
+|   group = 1（B组对应1）。
+|   X = 5 （B5的5）。
+|   number = group * 8 + X = 1 * 8 + 5 = 13。
+|   pin = bank*32 + number= 4 * 32 + 13 = 141。
+
+**4. 通过/sys/class/gpio目录控制GPIO**
+
+|   在Linux中，最常见的读写GPIO方式就是用GPIO sysfs interface， 是通过操作 /sys/class/gpio 目录下的 export 、 unexport 、gpio{N}/direction, gpio{N} /value （用实际引脚号替代{N}）等文件实现的，经常出现shell脚本里面。 
+
+.. code-block:: shell
+
+    echo 141 > /sys/class/gpio/export       #使能引脚GPIO4_B5
+    echo out > gpio141/direction              # 设置引脚为输出模式
+    echo 1 > gpio141/value                     # 设置引脚为高电平
+    cat /sys/class/gpio/gpio141/value        # 读取引脚的值
+    echo 141 > /sys/class/gpio/unexport   # 释放GPIO
+
+|   注意事项：部分GPIO无法导出可能被复用为其他功能（如UART、I2C），需通过设备树确认实际用途。
+
+PWM
+~~~~~~
+
+**1. PWM 硬件与驱动框架**
+
+|   在RK3562平台上，PWM硬件驱动通过计数器与比较器协同工作：APB总线时钟源经分频器调整后驱动计数器周期性递增/递减，达到预设周期值后自动复位生成基础信号；比较器实时比对计数器值与占空比阈值，输出高低电平，并通过极性控制位切换normal（高有效）或inversed（低有效）模式。用户层通过/sys/class/pwm接口或内核API（如pwm_config）控制，核心层由pwm_chip管理控制器资源并注册接口，底层硬件适配层需实现pwm_ops操作集（含config、enable等函数），直接操作PWM寄存器完成频率、占空比及使能配置。
+
+**2. PWM设备树配置**
+
+|   以PWM14_M0为例，在rk3562.dtsi文件中配置时钟及管脚：
+
+.. code-block:: shell
+
+    pwm14: pwm@ff720020 {
+            compatible = "rockchip,rk3562-pwm", "rockchip,rk3328-pwm";
+            reg = <0x0 0xff720020 0x0 0x10>;
+            interrupts = <GIC_SPI 26 IRQ_TYPE_LEVEL_HIGH>;
+            #pwm-cells = <3>;
+            pinctrl-names = "active";
+            pinctrl-0 = <&pwm14m0_pins>;
+            clocks = <&cru CLK_PWM3_PERI>, <&cru PCLK_PWM3_PERI>;
+            clock-names = "pwm", "pclk";
+            status = "disabled";
+    };
+
+|   在myzr-rk3562-ek200-lvds-lcd.dtsi中添加节点
+
+.. code-block:: shell
+
+    &pwm14 {
+        status = "okay";
+        pinctrl-names = "active";
+        pinctrl-0 = <&pwm14m0_pins>;  // 确保引脚复用配置正确
+    };
+
+|   添加pwm客户端设备节点
+|   在需要使用PWM的设备节点（如背光等）中引用PWM控制器并设置参数（若无需使用设备，可以不做配置）。以下是通用配置示例：
+
+.. code-block:: shell
+
+    // 示例：配置PWM14_M0输出到某个设备（如背光）
+    / {
+        pwm_dev: pwm-dev {
+            compatible = "pwm-device";
+            pwms = <&pwm14 0 10000000 1>; // 关键参数设置
+            duty-cycle = <5000000>;    // 占空比50%
+            pinctrl-names = "default";
+            pinctrl-0 = <&pwm14m0_pins>;// 确保与控制器配置一致
+        };
+    };
+
+|   驱动匹配：compatible = “pwm-device” 触发内核中对应compatible的PWM驱动，驱动通过of_device_id表匹配节点后，调用probe函数初始化硬件。
+|   PWM参数传递：pwms = <&pwm14 0 10000000 1> 绑定pwm14控制器的0号通道，设置周期为10ms（10000000ns，对应100Hz频率），极性为1（高电平有效）duty_ns = 5000000 指定初始占空比为5ms（50%占空比），驱动通过pwm_config()写入硬件寄存器。
+|   控制器使能：&pwm14 { status=”okay” } 启用SoC内部的PWM14硬件控制器，底层驱动将初始化其时钟和复位信号，映射寄存器物理地址到内核虚拟地址。
+|   整个过程通过设备树将硬件参数直达驱动，实现PWM波形输出（PWM被初始化配置为频率100Hz，占空比50%，极性反向）。
+
+**3. Sysfs接口操作PWM**
+
+1. 查找PWM控制器路径
+
+|   输入指令：
+
+.. code-block:: shell
+
+    ls /sys/class/pwm  # 显示所有PWM控制器，例如pwmchip0、pwmchip1等
+
+|   RK3562的PWM控制器命名为pwmchip*，需根据设备树中&pwm14的地址确认具体编号。这里假设pwm14对应pwmchip3。
+
+2. 导出PWM通道
+
+.. code-block:: shell
+
+    echo 0 > /sys/class/pwm/pwmchip3/export  # 导出pwm14的0号通道
+
+|   执行后将生成/sys/class/pwm/pwmchip3/pwm0目录。
+
+3. 配置周期与占空比
+
+|   输入指令：
+
+.. code-block:: shell
+
+    echo 10000000 > /sys/class/pwm/pwmchip3/pwm0/period     # 设置10ms周期（100Hz）
+    echo 5000000 > /sys/class/pwm/pwmchip3/pwm0/duty_cycle  # 设置5ms占空比（50%）
+    echo 1 > /sys/class/pwm/pwmchip3/pwm0/enable            # 启用PWM输出
+
+|   参数单位为纳秒，需注意占空比不能超过周期值。
+|   注意事项：若导出或使能失败，需检查确定通道是否被其他比如串口功能占用。
+
+4. 动态调整占空比
+
+.. code-block:: shell
+
+    echo 7000000 > /sys/class/pwm/pwmchip3/pwm0/duty_cycle  # 调整为70%占空比
+
+I2C
+~~~~~
+
+**1. I2C 子系统架构概述**
+
+|   在 RK3562 平台中，I2C 控制器基于标准 Linux I2C 框架实现，其核心分为硬件抽象层（适配器驱动）和设备驱动层。硬件层通过 i2c_adapter 抽象 I2C 总线控制器，设备层通过 i2c_client 描述从机设备，两者通过 i2c_driver 实现驱动逻辑。RK3562 的 I2C 控制器支持多主模式、时钟分频（最高 400kHz）及中断/DMA 传输，其物理层遵循开漏输出特性，通过 GPIO 复用实现 SCL/SDA 信号。
+
+**2. I2C设备树配置（以I2C1上挂载gt911触摸芯片为例）**
+
+|   打开myzr-rk3562-ek200-lvds-lcd.dts进行配置
+
+.. code-block:: shell
+
+    &i2c1 {
+            gt911@5d {
+                    status = "okay";
+                    compatible = "goodix,gt911";
+                    reg = <0x5d>;
+                    pinctrl-names = "default";
+                    pinctrl-0 = <>911_int>;
+                    interrupt-parent = <&gpio4>;
+                    interrupts = <8 0>;
+                    irq-gpios = <&gpio4 RK_PB0 0>;
+                    reset-gpios = <&gpio3 RK_PB0 0>;
+            };
+    };
+
+|   在该节点中， 内核通过compatible字符串匹配驱动。例如，驱动代码中gt9xx.c需定义相同的 of_device_id 表：
+
+.. code-block:: shell
+
+    static struct of_device_id goodix_ts_dt_ids[] = {
+        { .compatible = "goodix,gt9xx" },
+        { }
+    };
+
+|   设备在 I2C 总线上的地址（0x14）,驱动通过 i2c_client 结构体获取reg地址。而pinctrl-\*引用 touch_gpio 节点来配置 GPIO 的复用功能和电气属性。
+|   驱动与设备树匹配，compatible 值与驱动匹配时，内核调用 .probe() 函数，在probe函数中驱动将会从设备树获取配置包括引脚配置，芯片型号等信息。
+|   当设备在i2c上注册成功，利用指令：
+
+.. code-block:: shell
+
+    i2cdetect -y 1
+
+|   可以看到i2c1上地址5d出现字母“UU”，代表该设备在i2c上成功挂载。
+
+SPI
+~~~~~~
+
+**1. Linux SPI 框架概述**
+
+|   Linux SPI框架为内核提供了标准化的SPI设备驱动支持体系，其核心由SPI Core、控制器驱动层、设备抽象层和用户空间接口构成。SPI Core作为框架中枢，承担总线管理、设备注册及标准传输API的维护，通过spi_alloc_device()和spi_add_device()实现控制器与从设备的动态绑定。硬件相关的SPI控制器驱动需实现时钟配置、数据传输等底层操作，每个控制器对应struct spi_controller实例；而连接的从设备则通过struct spi_device结构体描述，包含设备地址、片选和通信模式等参数。数据传输核心机制通过spi_sync()等同步/异步接口触发控制器实现的传输回调函数，支持DMA和中断两种传输模式。该框架还通过/dev/spidev*设备节点向用户空间开放SPI接口，从而可以实现从应用层来操作硬件寄存器。
+
+**2. SPI设备树配置（以SPI0_M0为例，在J9扩展接口mosi和miso和对应17和19引脚）**
+
+.. code-block:: shell
+
+    &spi0 {
+      status = "okay";
+      pinctrl-names = "default";
+      pinctrl-0 = <&spi0m0_pins>; // 指定M0模式引脚组
+      #address-cells = <1>;
+      #size-cells = <0>;
+
+      spidev@0{
+          compatible = "spidev";
+          reg = <0>;
+          spi-max-frequency = <10000000>;// 最大频率10MHz
+      };
+    };
+
+|   内核在启动时解析此节点，调用drivers/spi/spi-rockchip.c 中的驱动代码初始化 SPI0 控制器，注册为 /sys/bus/spi/devices/spi0.0。SPI设备通过片选信号（Chip Select, CS）寻址，#address-cells=1 表示 reg 属性对应 CS 编号（如 reg=<0> 表示使用 SPI0 的 CS0 线），在生成 SPI 设备时，内核根据 reg 值控制对应的 GPIO 引脚输出低电平以激活目标设备。
+|   在compatible=”spidev”匹配成功后，将触发内核加载 drivers/spi/spidev.c，创建设备节点 /dev/spidev0.0。用户态程序无需开发内核驱动，可直接通过 ioctl(SPI_IOC_MESSAGE) 或 write() 等系统调用发起 SPI 数据传输请求。该请求经 spidev 驱动接收后，内核会通过 spi_async() 接口将数据传输任务提交至 SPI 控制器驱动（如 SPI0 控制器），最终由硬件控制器根据配置的时钟极性、速率等参数生成 SCK 信号，通过 MOSI 引脚发送数据流，并同步从 MISO 引脚读取响应数据，完成全双工通信过程。
+
+**3. 调试工具**
+
+|   短接SPI0_M0的mosi和miso，运行文件系统中的spi测试程序
+
+.. code-block:: shell
+
+    =====> Input:
+    ./test_app/spidev_test -D /dev/spidev0.0
+    =====> Output:
+    spi mode: 0
+    bits per word: 8
+    max speed: 500000 Hz (500 KHz)
+    
+    FF FF FF FF FF FF
+    40 00 00 00 00 95
+    FF FF FF FF FF FF
+    FF FF FF FF FF FF
+    FF FF FF FF FF FF
+    DE AD BE EF BA AD
+    F0 0D
+
+|   代表spi功能正常。
+
+UART
+~~~~~~~
+
+**1. 设备树配置以（UART6_M0为例，在J8扩展接口上对应7和9引脚）**
+
+.. code-block:: shell
+
+    &uart6 {
+        status ="okay";
+        pinctrl-name = "default";
+        pinctrl-0 = <&uart6m0_xfer>;
+    };
+
+|   pinctrl-0 = <&uart6m0_xfer>的作用，绑定UART6的TX/RX引脚到uart6m0_xfer复用组。
+|   uart6m0_xfer在rk3562-pinctrl.dtsi中已定义：
+
+.. code-block:: shell
+
+    uart6m0_xfer: uart6m0-xfer {
+            rockchip,pins =
+                    /* uart6_rx_m0 */
+                    <0 RK_PC7 1 &pcfg_pull_up>,
+                  /* uart6_tx_m0 */
+                    <0 RK_PC6 1 &pcfg_pull_up>;
+    };
+
+|   设备树配置好之后，UART6在系统中注册为/dev/ttyS6，可通过ls /dev/ttyS*验证。
+
+**2. 调试工具**
+
+|   将uart6m0的rx tx短接，利用文件系统/test_app内放置的测试文件进行收发测试：
+
+.. code-block:: shell
+
+    =====> Input:
+    # ./test_app/serial_test.out /dev/ttyS6 "myzr"
+    =====> Output:
+    Starting send data...finish
+    Starting receive data:
+    ASCII: 0x6d          Character: m 
+    ASCII: 0x79          Character: y 
+    ASCII: 0x7a          Character: z 
+    ASCII: 0x72          Character: r 
+    ASCII: 0x0           Character: 

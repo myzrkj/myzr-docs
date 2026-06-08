@@ -1,0 +1,105 @@
+启动手册
+==========
+
+开发板连接
+-----------
+
+检查电源开关
+~~~~~~~~~~~~~
+
+|   把开发板的电源开关“SW1”的“o”按下，以确保开发板电源开关处于断开状态。
+
+串口线的连接
+~~~~~~~~~~~~~
+
+1. 把Type-C线的一端连接到开发板的“Debug”口，另一端连接到电脑的串口。
+2. 参考 :doc:`《Xshell 参考手册》</docs/COMMON/Xshell.RM.参考手册>` 新建串口会话并打开会话。
+
+网线的连接
+~~~~~~~~~~~
+
+|   把网线的一端连接到“J11”或“J12”，另一端连接到电脑的网口。
+
+下载线的连接
+~~~~~~~~~~~~~
+
+|   把Type-C线的一端连接J2，另一端连接到电脑的后置USB口。
+
+电源线的连接
+~~~~~~~~~~~~~
+
+|   把12V-5A电源适配器的一端连接到开发板的“J1”，另一端插入到市电（220V的交流电）插座。
+
+HDMI显示屏连接
+~~~~~~~~~~~~~~~
+
+|   将 HDMI显示屏连接线的一端接到开发板的J10，另一端接到 HDMI 显示屏，并为 HDMI显示屏上电。
+
+
+启动开发板
+-----------
+
+检查开发板的启动模式拨码
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|   把开发板的“SW1”拨码开关拨到 启动模式。
+|   注：拨码开关的ON 是I那一边，OFF (0) 是O的那一边。
+
+为开发板上电
+~~~~~~~~~~~~~~
+
+|   把开发板的电源开关SW1的“I”按下，以使开发板电源开关打开。
+
+开发板的启动信息解读
+----------------------
+
+|   开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
+
+
+.. code-block:: shell
+
+    U-Boot 2017.09-gbe3408d-dirty #root (Jun 05 2025 - 01:17:48 +0000)
+
+    Model: MYZR-RK3576 board
+    MPIDR: 0x0
+    PreSerial: 0, raw, 0x2ad40000
+    DRAM:  4 GiB
+    Sysmem: init
+    Relocation Offset: bda1b000
+    Relocation fdt: fb9f9c10 - fb9fecd8
+    CR: M/C/I
+    Using default environment
+
+    optee api revision: 2.0
+    mmc@2a310000: 1, mmc@2a330000: 0
+    Bootdev(atags): mmc 0
+    MMC0: HS400 Enhanced Strobe, 200Mhz
+    PartType: EFI
+    TEEC: Waring: Could not find security partition
+    DM: v2
+    boot mode: None
+  
+U-Boot 信息
+~~~~~~~~~~~~~
+
+|   启动信息中 U-Boot 2017.09-gbe3408d-dirty #root (Jun 05 2025 - 01:17:48 +0000) 包含以下信息：
+|   【u-boot版本】 ：2017.09；
+|   【源码的版本号】 ：gbe3408d；
+|   【u-boot文件的编译时间】 ：Jun 05 2025 - 01:17:48 +0000。
+
+内核信息
+~~~~~~~~~~
+
+|   启动信息中  Linux version 6.1.75 (tangbin@myzr-u2004) (aarch64-none-linux-gnu-gcc (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621, GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #1 SMP Thu Jun  5 01:44:23 UTC 2025 包含以下信息：
+|   【内核版本】 ：Linux- 6.1.75；
+|   【编译内核的GCC版本】 ： 10.3.1；
+|   【内核文件的编译时间】 ：Thu Jun  5 01:44:23 UTC 2025。
+
+开发板登录
+~~~~~~~~~~~~
+
+
+|   启动系统完后自动登录，按任意键输入：
+|   【用户名】 ：root
+|   【密码】 ：无
+|   提示：登录后可以通过“passwd”命令来设置和修改密码。

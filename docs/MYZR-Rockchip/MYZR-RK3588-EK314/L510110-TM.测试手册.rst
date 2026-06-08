@@ -1,0 +1,613 @@
+测试手册
+========
+
+
+
+RTC
+---
+
++ 设备接口：/dev/rtc
+
++ 测试说明：RTC 测试需要安装纽扣电池，电池位置在丝印 BT1。
+
+**功能测试**
+
++ **RTC时间**
+
+  1）说明：设置RTC时间，之后断电重启后再核对RTC时间
+
+  2）操作
+
+    a）设置 RTC 时间，具体操作如下：
+
+    + 输入指令更新系统时间：
+
+    .. code-block:: shell
+
+       date -s "2023-02-06 12:34:56"
+
+    + 可以看到系统当前时间更新为设置的时间：
+
+    .. code-block:: text
+
+      Mon Feb  6 12:34:56 UTC 2023
+
+    + 输入指令设置系统时间到 RTC：
+
+    .. code-block:: shell
+
+      hwclock -w 
+
+    b）断电重启设备。
+
+    c）核对 RTC 时间，具体操作如下：
+
+    + 输入指令：
+
+    .. code-block:: shell
+
+       hwclock 
+
+    + 可以看到RTC存储的时间与我们设置的时间基本相同，类似如下：
+
+    .. code-block:: text
+
+      2023-02-06 12:35:34.485664+00:00
+
+  3）结果：执行操作后，核对 RTC 时间基本没有问题，且操作过程中的输出符合预期即功能正常。
+
+
+网口
+----
+
+  + 接口丝印：J14（ETH1），J15（ETH2）
+  + 系统接口：eth0（ETH1），enP3p49s0（ETH2）
+
+**功能测试**
+
++ **网口一**
+
+  1）说明：采用开发板向PC发送ICMP报文的方式进行测试
+
+  2）操作
+
+    a）配置电脑有线网卡IP为 192.168.137.99。
+
+    b）把开发板的这个网口用网线跟电脑网口连接起来。
+
+    c）配置开发板网口IP，具体配置命令如下：
+
+    .. code-block:: shell
+
+      ifconfig enP3p49s0 down
+      ifconfig eth0 up
+      ifconfig eth0 192.168.137.81
+
+    d）执行网口测试命令
+
+    + 输入指令：
+
+    .. code-block:: shell
+
+      ping 192.168.137.99 -c 2 -w 4
+
+    + 输出信息：
+
+    .. code-block:: text
+
+      PING 192.168.137.99 (192.168.137.99) 56(84) bytes of data.
+      64 bytes from 192.168.137.99: icmp_seq-1 ttl-64 time-1.35 ms
+      64 bytes from 192.168.137.99: icmp_seq-2 ttl-64 time-1.35 ms
+
+      --- 192.168.137.99 ping statistics ---
+      2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+      rtt min/avg/max/mdev - 1.347/1.347/1.348/0.000 ms
+
+  3）结果：“0% packet loss”表示测试通过。
+
++ **网口二**
+
+  1）说明：采用开发板向PC发送ICMP报文的方式进行测试
+
+  2）操作
+
+    a）配置电脑有线网卡IP为 192.168.137.99。
+
+    b）把开发板的这个网口用网线跟电脑网口连接起来。
+
+    c）配置开发板网口IP，具体配置命令如下：
+
+    .. code-block:: shell
+
+      ifconfig eth0 down
+      ifconfig enP3p49s0 up
+      ifconfig enP3p49s0 192.168.137.82
+
+    d）执行网口测试命令
+
+    + 输入指令：
+
+    .. code-block:: shell
+
+      ping 192.168.137.99 -c 2 -w 4
+
+    + 输出信息：
+
+    .. code-block:: text
+
+      PING 192.168.137.99 (192.168.137.99) 56(84) bytes of data.
+      64 bytes from 192.168.137.99: icmp_seq-1 ttl-64 time-0.595 ms
+      64 bytes from 192.168.137.99: icmp_seq-2 ttl-64 time-0.843 ms
+
+      --- 192.168.137.99 ping statistics ---
+      2 packets transmitted, 2 received, 0% packet loss, time 1001ms
+      rtt min/avg/max/mdev - 0.595/0.719/0.843/0.124 ms
+
+  3）结果：“0% packet loss”表示测试通过。
+
+
+音频
+----
+
++ 接口丝印：P15
+
+**功能测试**
+
+  1）说明：播放音频文件进行测试。
+
+  2）操作
+
+    a）把耳机或喇叭插入丝印 P15 对应的接口。
+
+    b）输入命令进行测试：
+
+    .. code-block:: shell
+
+      aplay /mytest.wav
+
+  3）结果：执行测试命令时，耳机可以听到声音，即功能正常。
+
+
+录音
+----
+
++ 接口丝印：P15
+
+**功能测试**
+
+  1）说明：录制并播放录音文件进行测试。
+
+  2）操作
+
+    a）把耳机或喇叭插入丝印 P15 对应的接口。
+
+    b）输入命令进行测试：
+
+    .. code-block:: shell
+
+      arecord -d 5 -f S16_LE record.wav
+      aplay record.wav
+
+  3）结果：执行测试命令时，耳机可以听到录制声音，即功能正常。
+
+
+USB 2.0
+-------
+
++ 接口丝印：P2、P3
+
+**功能测试**
+
+  1）说明：采用插拔USB存储设备（U盘）的方式进行测试
+
+  2）操作：
+
+    a）将USB设备插入底板USB接口，系统会输出类似如下信息:
+
+    .. code-block:: text
+
+      [   27.275918] usb 1-1.3: new high-speed USB device number 4 using ehci-platform
+      [   27.378130] usb 1-1.3: New USB device found, idVendor=3535, idProduct=5678, bcdDevice= 2.00
+      [   27.378205] usb 1-1.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+      [   27.378229] usb 1-1.3: Product: U330
+      [   27.378250] usb 1-1.3: Manufacturer: aigo
+      [   27.378271] usb 1-1.3: SerialNumber: FC003F045D904
+      [   27.379869] usb-storage 1-1.3:1.0: USB Mass Storage device detected
+      [   27.380603] scsi host1: usb-storage 1-1.3:1.0
+      [   28.308636] GobiNet::QMIWDASetDataFormat qmap settings qmap_version=9, rx_size=31744, tx_size=4096
+      [   28.308713] GobiNet::QMIWDASetDataFormat qmap settings ul_data_aggregation_max_size=4096, ul_data_aggregation_max_datagrams=11
+      [   28.394213] scsi 1:0:0:0: Direct-Access     aigo     U330             2.00 PQ: 0 ANSI: 4
+      [   28.397070] sd 1:0:0:0: [sda] 61440000 512-byte logical blocks: (31.5 GB/29.3 GiB)
+      [   28.397742] sd 1:0:0:0: [sda] Write Protect is off
+      [   28.398481] sd 1:0:0:0: [sda] No Caching mode page found
+      [   28.398494] sd 1:0:0:0: [sda] Assuming drive cache: write through
+      [   28.429520]  sda: sda1
+      [   28.435849] sd 1:0:0:0: [sda] Attached SCSI removable disk
+      [   28.608386] FAT-fs (sda1): utf8 is not a recommended IO charset for FAT filesystems, filesystem will be case sensitive!
+      [   28.612929] FAT-fs (sda1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+
+    b）将USB设备从底板拔出，系统会输出类似如下信息：
+
+    .. code-block:: text
+
+      [   76.699501] usb 1-1.3: USB disconnect, device number 4
+
+
+USB 3.0
+-------
+
++ 接口丝印：J3
+
+**功能测试**
+
+  1）说明：采用插拔USB存储设备（U盘）的方式进行测试
+
+  2）操作：
+
+    a）将USB设备插入底板USB接口，系统会输出类似如下信息:
+
+    .. code-block:: text
+
+      [  105.772698] usb 8-1: new SuperSpeed Gen 1 USB device number 2 using xhci-hcd
+      [  105.793382] usb 8-1: LPM exit latency is zeroed, disabling LPM.
+      [  105.794348] usb 8-1: New USB device found, idVendor=3535, idProduct=5678, bcdDevice= 2.00
+      [  105.794383] usb 8-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+      [  105.794447] usb 8-1: Product: U330
+      [  105.794469] usb 8-1: Manufacturer: aigo
+      [  105.794491] usb 8-1: SerialNumber: FC003F045D904
+      [  105.796915] usb-storage 8-1:1.0: USB Mass Storage device detected
+      [  105.797741] scsi host1: usb-storage 8-1:1.0
+      [  106.820335] scsi 1:0:0:0: Direct-Access     aigo     U330             2.00 PQ: 0 ANSI: 4
+      [  106.822236] sd 1:0:0:0: [sda] 61440000 512-byte logical blocks: (31.5 GB/29.3 GiB)
+      [  106.822937] sd 1:0:0:0: [sda] Write Protect is off
+      [  106.823212] sd 1:0:0:0: [sda] No Caching mode page found
+      [  106.823234] sd 1:0:0:0: [sda] Assuming drive cache: write through
+      [  106.859545]  sda: sda1
+      [  106.862227] sd 1:0:0:0: [sda] Attached SCSI removable disk
+      [  106.973622] FAT-fs (sda1): utf8 is not a recommended IO charset for FAT filesystems, filesystem will be case sensitive!
+      [  106.977205] FAT-fs (sda1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+
+    b）将USB设备从底板拔出，系统会输出类似如下信息：
+
+    .. code-block:: text
+
+      [  110.135778] usb 8-1: USB disconnect, device number 2
+
+
+TF卡
+----
+
++ 接口丝印：J5
+
+**功能测试**
+
+  .. note:: 设备的 TF 卡接口支持热插拔，TF 卡座是自弹式。
+
++ TF卡插入测试
+
+  1）说明：插入 TF 卡，观察设备能否正确识别到卡。
+
+  2）操作
+
+    a）用一张 TF 卡，插入到设备的 TF 卡接口。
+
+    b）输出信息类似如下：
+
+    .. code-block:: text
+
+      ...
+      mmc1: new ultra high speed SDR104 SDHC card at address 0001
+      mmcblk1: mmc1:0001 SD16G 14.9 GiB
+      ...
+
+  3）结果：操作后输出信息符合正确预期，表示正确识别到 TF 卡。
+
++ TF卡弹出测试
+
+  1）弹出 TF 卡，观察设备能否正确响应。
+
+  2）操作
+
+    a）往 TF 卡插入方向往里按（听到“咔”一声松手，TF卡会弹出）。
+
+    b）输出信息类似如下：
+
+    .. code-block:: text
+
+      ...
+      mmc1: card 0001 removed
+      ...
+
+  3）结果：操作时的现象符合正确预期，表示 TF 热插拔正常。
+
+
+红外
+----
+
++ 接口丝印：IR1
+
+**功能测试**
+
+1）说明：通过接收红外信息，打印出相应数据。
+
+  2）操作
+
+    a）准备一个红外遥控器，或手机的红外遥控app。
+
+    b）开发板打开相关打印开关：
+
+    .. code-block:: text
+
+      echo 1 > /sys/module/rockchip_pwm_remotectl/parameters/code_print
+      echo 1 > /sys/module/rockchip_pwm_remotectl/parameters/dbg_level
+
+    c）使用遥控器对准红外接口按下任意按钮
+
+    d）开发板看到返回相关按钮信息即为成功接收到。
+
+
+WiFi
+--------
+
++ 接口丝印：U27
+
+**功能测试**
+
+  1）说明：WIFI连接到AP后，开发板向外网发送ICMP报文来验证连接正常。
+
+  2）操作：
+    a）把WIFI天线连接到“ANT2/ANT1”接口上
+    b）生成 SSID 的 WPA PSK 文件，输入：
+
+    .. code-block:: shell
+
+      wpa_passphrase MYZR-WIFI myzr2012 > /etc/wpa_supplicant.conf
+
+    c）连接：
+
+    .. code-block:: shell
+
+      wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf 
+
+    d）获取IP：
+
+    .. code-block:: shell
+
+      udhcpc -i wlan0
+
+    e）测试连接：
+
+    .. code-block:: shell
+
+      ping -I wlan0 www.baidu.com
+
+
+蓝牙
+--------
+
++ 接口丝印：U27
+
+**功能测试**
+
+  1）说明：扫描到蓝牙设备后，发送L2CAP回应请求并接收回答。
+
+  2）操作：
+    a）把天线连接到“ANT2/ANT3”接口上
+    b）初始化和启动蓝牙：
+
+    .. code-block:: shell
+      
+      hciconfig hci0 up
+
+    c）扫描外部蓝牙设备：
+
+    .. code-block:: shell
+
+       hcitool scan 
+
+    扫出我手机蓝牙地址：
+
+    .. code-block:: shell
+
+       88:46:04:4C:11:A7   Redmi K40
+
+    d）发送发送L2CAP包测试：
+
+    .. code-block:: shell
+
+      l2ping 88:46:04:4C:11:A7
+
+    连接成功显示：
+
+    .. code-block:: shell
+
+      Ping: 88:46:04:4C:11:A7 from B0:F1:EC:A7:E8:03 (data size 44) ...
+      44 bytes from 88:46:04:4C:11:A7 id 0 time 44.84ms
+      44 bytes from 88:46:04:4C:11:A7 id 1 time 28.58ms
+      44 bytes from 88:46:04:4C:11:A7 id 2 time 46.05ms
+      44 bytes from 88:46:04:4C:11:A7 id 3 time 44.86ms
+      44 bytes from 88:46:04:4C:11:A7 id 4 time 44.67ms
+      44 bytes from 88:46:04:4C:11:A7 id 5 time 52.32ms
+      44 bytes from 88:46:04:4C:11:A7 id 6 time 24.86ms
+      44 bytes from 88:46:04:4C:11:A7 id 7 time 59.71ms
+      ^C8 sent, 8 received, 0% loss
+
+
+5G模块RM500Q
+--------------
+
++ 接口丝印：J19
+
+**功能测试**
+
+  1）接上5G模块RM500Q，接上5G天线和SIM卡
+
+  2）启动开发板。
+  
+  3）输入如下命令进行拨号：
+
+  .. code-block:: shell
+
+    /quectel-CM &
+
+  4）测试连接情况
+
+  .. code-block:: shell
+
+    ping -I rmnet_mhi0.1 www.baidu.com
+
+
+M2硬盘
+-----------
+
++ 接口丝印：J21
+
+**功能测试**
+
+  1）接上M2硬盘
+
+  2）启动开发板。
+  
+  3）输入如下命令查看pci总线设备：
+
+  .. code-block:: shell
+
+    lspci
+
+  输出
+
+  .. code-block:: shell
+
+    21:00.0 Class 0108: 126f:2263
+    20:00.0 Class 0604: 1d87:3588
+
+
+  4）挂载硬盘
+
+  .. code-block:: shell
+
+    mkdir /nvme
+    mount /dev/nvme0n1p1 /nvme/
+
+  5）查看挂载情况
+
+  .. code-block:: shell
+
+    df -h
+
+  6）可看到如下
+
+  .. code-block:: shell
+
+    /dev/nvme0n1p1  120G  108M  120G   1% /nvme
+
+
+sata硬盘
+-----------
+
++ 接口丝印：J18、J2
+
+**功能测试**
+
+  1）接上sata硬盘
+
+  2）启动开发板。
+  
+  3）挂载硬盘
+
+  .. code-block:: shell
+
+    mkdir /sata
+    mount /dev/sda1 /sata/
+
+  5）查看挂载情况
+
+  .. code-block:: shell
+
+    df -h
+
+  6）可看到如下
+
+  .. code-block:: shell
+
+    /dev/sda1       932G   16G  917G   2% /sata
+
+
+
+视频播放
+--------
+
+**功能测试**
+
+  1）接上显示屏，启动开发板
+
+  2）点击GUI桌面的test_gst_multivideo.sh即可看到多路视频同时播放。
+
+  3）使用gst命令单个视频播放：
+
+  .. code-block:: shell
+
+    gst-launch-1.0 playbin uri=file:///oem/SampleVideo_1280x720_5mb.mp4 video-sink="waylandsink"
+
+
+
+TYPEC全功能
+-----------
+
++ 接口丝印：J4
+
+**功能测试**
+
+  1）typeC接口可做usb-host功能：接上typeC转USBA转接头，再接上usb3.0 U盘。可识别并自动挂载U盘
+
+  2）typeC接口可做usb-device：typeC线连接电脑和J4接口，启动开发板可看到启动了adb服务。
+
+  3）typeC接口可做DP显示：烧录DP-TYPEC镜像，使用typeC转接线连接带typeC接口的的显示，启动可正常显示。
+
+
+
+摄像头模块
+------------
+
++ 接口丝印：P10
+
+**功能测试**
+
+  1）接上显示屏和摄像头模块，启动开发板
+
+  2）点击GUI桌面的camera_rkisp_test.sh即可实时观看摄像头拍摄的画面
+
+  3）使用gst命令实时观看摄像头拍摄的画面
+
+.. code-block:: shell
+  
+  gst-launch-1.0 v4l2src device=/dev/video-camera0 ! video/x-raw,format=NV12,width=640,height=480,framerate=30/1 ! waylandsink
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+::
+
+   --------------------------------------------------------------------------------
+   * 珠海明远智睿科技有限公司
+   * ZhuHai MYZR Technology CO.,LTD.
+   * Latest Update: 2023/4/26
+   * Supporter: Kuangwh
+   --------------------------------------------------------------------------------
+

@@ -1,0 +1,114 @@
+
+启动手册
+========
+
+开发板连接
+----------
+
+检查电源开关
+~~~~~~~~~~~~
+
+| 　　把开发板的电源开关“SW1”的“o”按下，以确保开发板电源开关处于断开状态。
+
+串口线的连接
+~~~~~~~~~~~~
+
+| 　　1. 把串口线的一端连接到开发板的“J22”口，另一端连接到电脑的串口或USB口。                                                                     
+| 　　2. 参考  :doc:`《Xshell 参考手册》 </docs/COMMON/Xshell.RM.参考手册>`  新建串口会话并打开会话。      
+
+网线的连接
+~~~~~~~~~~
+
+| 　　把网线的一端连接到“J14”或“J15”，另一端连接到电脑的网口。
+
+下载线的连接
+~~~~~~~~~~~~
+
+| 　　把typeC线的一端连接J4，另一端连接到电脑的后置USB口。
+
+电源线的连接
+~~~~~~~~~~~~
+
+| 　　把电源适配器的一端连接到开发板的“J1”，另一端插入到市电（220V的交流电）插座。
+         
+
+启动开发板
+----------
+
+| 　　把开发板的电源开关“SWITCH”的“-”按下，以使开发板电源开关打开。
+
+开发板的启动信息解读
+--------------------
+
+| 　　开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
+
+::
+
+   U-Boot 2017.09-g32640b0ada-230713-dirty #kuangwh (Dec 21 2023 - 11:52:41 +0800)
+
+   Model: MYZR RK3588 Evaluation Board
+   MPIDR: 0x81000000
+   PreSerial: 2, raw, 0xfeb50000
+   DRAM:  4 GiB
+   Sysmem: init
+   Relocation Offset: eda1d000
+   Relocation fdt: eb9fa280 - eb9fecc8
+   CR: M/C/I
+   Using default environment
+
+   DM: v2
+   mmc@fe2c0000: 1, mmc@fe2e0000: 0
+   Bootdev(atags): mmc 0
+   MMC0: HS400 Enhanced Strobe, 200Mhz
+   PartType: EFI
+   boot mode: None
+   ........
+   Starting kernel ...
+
+   [    2.175016] Booting Linux on physical CPU 0x0000000000 [0x412fd050]
+   [    2.175034] Linux version 5.10.110 (kuangwh@myzr-7a9b) (aarch64-none-linux-gnu-gcc 
+   (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621,
+    GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) 
+    #17 SMP Fri Jan 5 10:22:17 CST 2024
+   ............
+
+   root@rk3588:/# 
+
+U-Boot 信息
+~~~~~~~~~~~
+
+| 　　启动信息中 ``U-Boot 2017.09-g32640b0ada-230713-dirty #kuangwh (Dec 21 2023 - 11:52:41 +0800)`` 包含以下信息：
+| 　　【u-boot版本】 ：2017.09；
+| 　　【u-boot文件的编译时间】 ：Dec 21 2023 - 11:52:41 +0800。
+
+内核信息
+~~~~~~~~
+
+| 　　启动信息中 ``Linux version 5.10.110 (kuangwh@myzr-7a9b) (aarch64-none-linux-gnu-gcc 
+   (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1 20210621,
+    GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) 
+    #17 SMP Fri Jan 5 10:22:17 CST 2024`` 包含以下信息：
+| 　　【内核版本】 ：Linux- 5.10.110；
+| 　　【编译内核的GCC版本】 ： 10.3.1；
+| 　　【内核文件的编译时间】 ：Fri Jan 5 10:22:17 CST 2024。
+ 
+
+开发板登录
+----------
+
+| 　　启动系统完后输出 ``root@rk3588:/#`` 时，可以登录：
+| 　　【用户名】 ：root
+| 　　【密码】 ：无
+|     ``注：出厂系统自动登录，无需输入用户名和密码``
+| 　　**提示**：登录后可以通过“passwd”命令来设置和修改密码。
+
+--------------------------------------------------------------------------------
+
+::
+
+   --------------------------------------------------------------------------------
+   * 珠海明远智睿科技有限公司  
+   * ZhuHai MYZR Technology CO.,LTD.
+   * Latest Update: 2024/1/10  
+   * Supporter: kuangwh
+   --------------------------------------------------------------------------------

@@ -1,0 +1,509 @@
+硬件设计指导
+=============
+
+1、电源
+---------
+
+|  电源适配器输入 12V/3A 电源，通过前端降压变换器（buck）电源后,得到系统电源 VCC5V0_SYS_S5， 然后系统电压提供给 PMIC 电源管理芯片， 输出不同电压供系统使用。  
+|  上电时序：
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导1.png
+   :alt: 硬件设计指导1.png
+   :width: 90%
+
+**12V**
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导2.png
+   :alt: 硬件设计指导2.png
+   :width: 90%
+
+**5V**
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导3.png
+   :alt: 硬件设计指导3.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导4.png
+   :alt: 硬件设计指导4.png
+   :width: 90%
+
+**3.3V**
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导5.png
+   :alt: 硬件设计指导5.png
+   :width: 90%
+
+**VCC3.3_RTC**
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导6.png
+   :alt: 硬件设计指导6.png
+   :width: 90%
+
+**1.8V**
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导7.png
+   :alt: 硬件设计指导7.png
+   :width: 90%
+
+
+2、烧录
+---------
+
+|  USB3 OTG0 控制器支持 SS/HS/FS/LS，内嵌的 USB2.0（HS/FS/LS）信号采用 USB2.0 OTG PHY，信号名见下图的红色方框内； RK3576 默认使用该接口做 Fireware 的 Download， 应用中请务必要预留出此接口。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导8.png
+   :alt: 硬件设计指导8.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导9.png
+   :alt: 硬件设计指导9.png
+   :width: 90%
+
+3、USB
+---------
+
+USB3.0
+~~~~~~~~~
+
+|  USB2/USB3 设计中请注意：
+|  ⚫ USB2_OTG0_DP/USB2_OTG0_DM 是系统固件烧写口，如果产品不用这个接口，在调试与生产过程中必须要预留此接口，不然会无法调试及生产烧写固件；
+|  ⚫ USB2_OTG0_ID 内部有大概 12Kohm 电阻上拉到 USB2_OTG_AVDD1V8；
+|  ⚫ USB20_OTG0_VBUSDET 是 OTG 和 Device 模式检测脚，芯片内部有一个下拉 40Kohm 的电阻；高为 DEVICE 设备， 2.7-3.3V，TYP： 3.0V，建议在管脚放置一个 100nF 电容。  OTG 模式可以设置以下三种模式：
+|  ⚫ OTG 模式：根据 ID 脚状态自动切换是 Device 模式或 HOST 模式，ID 高为 Device，ID 拉低为HOST，处在 Device 模式时，还会判断 VBUSDET 脚是否为高（大于 2.3V），如果为高，才会拉高 DP，开始枚举；
+|  ⚫ Device 模式：设置为这个模式时，无需 ID 脚，只需判断 VBUSDET 脚是否为高（大于 2.3V），  如果为高，才会拉高 DP，开始枚举；
+|  ⚫ HOST 模式：设置为这个模式时， ID 和 VBUSDET 状态都无需要关心。（如果产品只需要 HOST模式，但是由于 USB2_OTG0_DP/ USB2_OTG0_DM 是系统固件烧写口，在调试与生产过程都需要用这个口，烧写和 adb 调试时，需要设置成 Device 模式，因此 USB2_OTG0_VBUSDET 信号也必须接）。在 uboot 起来前默认为 Device 模式，进 uboot 后，可根据实际需求配置这三种模式。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导10.png
+   :alt: 硬件设计指导10.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导11.png
+   :alt: 硬件设计指导11.png
+   :width: 90%
+
+USB2.0
+~~~~~~~~
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导12.png
+   :alt: 硬件设计指导12.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导13.png
+   :alt: 硬件设计指导13.png
+   :width: 90%
+
+4、WIFI
+---------
+
+|  WIFI天线的走线，注意要用Π型电路滤波。
+|  WIFI天线的走线最好全程包地。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导14.png
+   :alt: 硬件设计指导14.png
+   :width: 90%
+
+5、SD卡
+---------
+
+|  RK3576 集成了2个SDMMC控制器，均可支持 SDIO3.0 协议，以及 MMC V4.51 协议。4 线的数据总线宽度；支持 SDR104 模式， 速率最高可以达到 200MHz。
+
+**SDMMC0 接口**
+
+|  ⚫ SDMMC0 接口复用在 VCCIO1 电源域；
+|  ⚫ SDMMC0 支持 System Boot，默认分配接 SD 卡功能； 支持 EMMC/UFS 为空片时，通过 SD 卡来升级固件，同时也支持 EMMC/UFS 启动后， 通过 SD 卡对 EMMC/UFS 进行固件升级；
+|  ⚫ SDMMC0 与 JTAG 等功能复用在一起，默认通过 SDMMC_DETN 状态进行功能选择，具体请参考 2.1.6 小节描述；
+|  ⚫ VCCIO1 供电电源，需要外部提供 3.3V 或 1.8V 供电；
+|  ⚫ 当接 SDIO 设备时：根据外设以及实际运行的模式供 1.8V 或 3.3V；  当通过连接器实现板对板连接时，建议串接一定阻值的电阻(22ohm-100ohm 之间，具体以能满足SI 测试为准)，并预留 TVS 器件；
+|  ⚫ 当接 SD卡使用时，需要注意以下问题：
+
+1. SD 卡的 VDD 脚供电电压为 3.3V，去耦电容不得删减，布局时，要靠近卡座放置；
+2. SDMMC_D[3： 0]， SDMMC_CMD， SDMMC_CLK 需串接 22ohm 电阻，SDMMC_DETN 串接 100ohm 电阻；
+3. SDMMC_D[3： 0]， SDMMC_CMD， SDMMC_CLK， SDMMC_DETN 信号在 SD 卡位置需要放置 ESD 器件，需要支持 SD3.0 模式， ESD 器件的结电容必须小于 1pF，如只需支持 SD2.0模式， ESD 器件的结电容可放宽到 9pF；
+4. 使用 SDMMC0 的探测 BOOT 档位时，SDMMC0_PWREN所在的 GPIO0_B6会输出高电平，SDMMC0_PWREN 直接用于控制 SD 卡供电 Load switch 的使能，不需要通过三极管取反。需要注意， 如果SDMMC0探测SDMMC0_PWREN的拉高过程会影响外设状态，那么需要注意不要使用这个 IO 来控制敏感的外设，比如当 SARADC_IN0_BOOT 配置为 Config8 档位时， UFS 启动后，还会去探测 SD 卡， SDMMC0_PWREN 会拉高一下， 此时如果硬件上没有 SD 卡时，需要注意不要使用这个 IO 来控制敏感的外设，建议不需要 SD 卡时， SARADC_IN0_BOOT 配置选择 Config7 来代替 Config8；
+5. SDMMC 接 SD 卡时，需要注意 SD 卡供电的设计，要保证 SD 卡供电电源下电速度够快，避免快速插拔时，下电不完全又重新上电，导致 SD 卡的逻辑混乱；
+6. 针对低功耗场景，需要考虑有 SD 卡接入时， SDMMC0_DETN 会一直拉低，则此时电流会比较大，针对功耗比较敏感的客户，建议软件把 SoC 的内部 SDMMC0_DETN 引脚的上下拉配置为高阻态，同时将外部上拉电阻改大为 100k。  
+7. SDMMC0 接口上下拉和匹配设计推荐如表： 
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导15.png
+   :alt: 硬件设计指导15.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导16.png
+   :alt: 硬件设计指导16.png
+   :width: 90%
+
+**SDMMC1 接口**
+
+|  ⚫ SDMMC1 接口复用两个位置，一个在 VCCIO3 电源域，一个在 VCCIO4 电源域，只能使用其中一个，要么全部用 VCCIO3 电源域，要么全部用 VCCIO4 电源域，不支持有些使用 VCCIO3 电源域，有些使用 VCCIO4 电源域；
+|  ⚫ 不支持 System Boot；
+|  ⚫ VCCIO3、 VCCIO4 供电电源为 1.8V or 3.3V，根据外设需要选择对应的电压，需要注意和外设的  SDMMC1 接口上下拉和匹配设计推荐如表：  当通过连接器实现板对板连接时，建议串接一定阻值的电阻(22ohm-100ohm 之间，具体以能满足 SI 测试为准)，并预留 TVS 器件。
+|  ⚫ SDMMC 接 Wi-Fi 时注意点：
+
+1. 请确保模组的 IO 电平与 CPU 的 IO 电平保持一致，否则需要做电平匹配处理；
+2. 晶体负载电容请根据实际使用的晶体的 CL 电容值选择，并控制常温下的频率容限在 10ppm以内；
+3. 天线预留π型电路用于天线匹配调节；
+4. 确认 PCM 与 UART 接口的连接方向，如 IN 和 OUT、 TXD 和 RXD；
+5. 如果需要使用 32.768k 时钟输入的模组， RTC 芯片输出需要上拉电阻且上拉电压或分压需要满足 Wi-Fi 模组的参数。  
+
+6、MIPI-CSI
+--------------
+
+|  RK3576 有两个 MIPI DPHY CSI RX 接口，都支持 MIPI V1.2 版本，每个通道最大传输速率为 2.5Gbps。  MIPI DPHY CSI1/2 RX 接口模式支持情况：
+|  ⚫ 支持 4Lane 模式， MIPI_DPHY_CSI1_RX_D[3:0]数据参考 MIPI_DPHY_CSI1_RX_CLK
+|  ⚫ 支持 2Lane+2Lane 模式：
+|  ◼ MIPI DPHY CSI1_RX_D[1:0]数据参考 MIPI_DPHY_CSI1_RX_CLK
+|  ◼ MIPI DPHY CSI2_RX_D[1:0]数据参考 MIPI_DPHY_CSI2_RX_CLK  
+|  MIPI DPHY CSI3/4 RX 接口模式支持情况：
+|  ⚫ 支持 4Lane 模式， MIPI_DPHY_CSI3_RX_D[3:0]数据参考 MIPI_DPHY_CSI3_RX_CLK
+|  ⚫ 支持 2Lane+2Lane 模式：
+|  ◼ MIPI DPHY CSI3_RX_D[1:0]数据参考 MIPI_DPHY_CSI3_RX_CLK
+|  ◼ MIPI DPHY CSI4_RX_D[1:0]数据参考 MIPI_DPHY_CSI4_RX_CLK  
+|  RK3576 有一个 MIPI DCPHY CSI RX Combo PHY； DPHY 支持 V2.0 版本， CPHY 支持 V1.1 版本。DPHY 模式有 4Lane，最高传输速率 4.5Gbps/Lane； CPHY 模式有 3Trios，最高传输速率 5.7Gbps/Trio。  DPHY 和 CPHY 配置支持情况：
+|  ⚫ MIPI DCPHY Combo PHY 的 TX 和 RX 只能支持同时配置成 DPHY TX、 DPHY RX 模式，或同时配置成 CPHY TX、 CPHY RX 模式。不支持一个配置成 DPHY TX 一个配置成 CPHY RX， 或者一个配置成 CPHY TX 一个配置成 DPHY RX。MIPI DCPHY 工作在 DPHY 模式时支持情况：
+|  ⚫ 支持 4Lane/2Lane/1Lane 模式， MIPI_DPHY_CSI0_RX[3:0]数据参考 MIPI_DPHY_CSI0_RX_CLK  不支持拆分成 2Lane+2Lane
+|  MIPI DCPHY 工作在 CPHY 模式时支持情况：
+|  ⚫ 支持 0/1/2 Trio，每个 Trio 有 Trio_A/Trio_B/Trio_C 3 根线， MIPI_CPHY_CSI_RX_TRIO[2:0]_A，
+|  MIPI_CPHY_CSI_RX_TRIO[2:0]_B， MIPI_CPHY_CSI_RX_TRIO[2:0]_C。
+|  MIPI DCPHY CSI RX Combo PHY 设计中清注意：
+|  ⚫ 为提高 MIPI DCPHY CSI RX Combo PHY 性能， PHY 各路电源的去耦电容不得删除，布局时请靠近管脚放置（注意 MIPI DCPHY CSI RX 和 MIPI DCPHY DSI TX 电源合并同一路）；
+|  ⚫ MIPI_DCPHY_AVDD 电压选择：当 MIPI 速率大于 DPHY 2.5Gbps 或 CPHY 1.5Gsps 时，MIPI_DCPHY_AVDD 电压配置成 0.85V；当 MIPI 速率小于 DPHY 2.5Gbps 或 CPHY 1.5Gsps 时，MIPI_DCPHY_AVDD 电压配置成 0.75V，MIPI_DCPHY_VREG 的 1uF 电容不可删除，布局时，必须靠近对应管脚放置；Camera 的 DVDD 供电有 1.2V/1.5V/1.8V 等不同情况，请根据 Camera 的规格书提供准确的电源，参考电路默认是 1.2V；
+|  ⚫ 有些 Camera 的 DVDD 电流比较大，超过 100mA 建议使用 DCDC 供电；  Camera 的几路电源有上电时序要求，请根据 Camera 的规格书相应调整上电时序，参考图默认上电时序为： 1.8V-->1.2V-->2.8V；
+|  ⚫ 使用 CIF 接口的 Camera 时，要注意 Camera 的 DOVDD（IO 电源）与 VCCIO6 供电必须用相同的电压；
+|  ⚫ 使用两个 Camera 时，可根据需求实际情况电源分开或合并，参考图默认是分开；
+|  ⚫ 若 Camera 带 AF 功能，则 VCC2V8_AF 需要单独供电；或是与 AVCC2V8_DVP 共用，必须用磁珠隔离；
+|  ⚫ Camera 的所有电源的去耦电容不得删减，必须保留，靠近座子放置；
+|  ⚫ Camera 的 PWDN 信号必须使用 GPIO 控制， GPIO 电平必须和 Camera IO 电平匹配；
+|  ⚫ Camera 的 Reset 信号建议使用 GPIO 控制， GPIO 电平必须和 Camera IO 电平匹配， Reset 信号的100nF 电容不得删除，靠近座子放置，加强抗静电能力；
+|  ⚫ Camera 的 MCLK 可以从以下获取：
+|  ◼ VI_CIF_CLKOUT
+|  ◼ REF_CLK0_OUT/REF_CLK1_OUT/REF_CLK2_OUT
+|  ◼ CAM_CLK0_OUT/CAM_CLK1_OUT/CAM_CLK2_OUT
+|  ◼ 注意：时钟的电平必须和 Camera IO 电平匹配，如果不匹配，必须电平转换或电阻分压使电平匹配；
+|  ⚫ 如果两个 Camera 同型号，要注意 I2C 地址是否一样，如果地址也一样，那么需要两个 I2C 总线  
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导17.png
+   :alt: 硬件设计指导17.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导18.png
+   :alt: 硬件设计指导18.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导19.png
+   :alt: 硬件设计指导16.png
+   :width: 90%
+
+7、MIPI-DSI
+--------------
+
+|  RK3576 芯片的 VOP 显示输出处理器，它从系统存储器的帧缓冲器中读取视频数据和 UI 数据，执行相应的处理，如裁剪、色域空间转换、缩放和叠加，并输出到每个高速显示接口。
+|  有三个 Port 输出，可以从 DP、 HDMI/eDP、 MIPI DSI、 LCDC(Parallel Interface)视频接口输出。最大的视频输出能力：
+|  (1) 三屏异显方案，如 4096x2160@60Hz， 2560x1600@60Hz， 1920x1080@60Hz；
+|  (2) 双屏异显方案，如 4096x2160@120Hz， 2560x1600@60Hz。
+|  VOP 和视频接口输出路径图：
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导20.png
+   :alt: 硬件设计指导20.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导21.png
+   :alt: 硬件设计指导21.png
+   :width: 90%
+
+8、HDMI
+----------
+
+|  RK3576 内置一个 HDMI/eDP TX Combo PHY。HDMI/eDP TX Combo PHY 支持以下两个模式：
+|  ⚫ HDMI TX 模式： 最高支持 HDMI2.1，支持 HDMI FRL 模式并向下兼容 HDMI TMDS 模式，支持RGB/YUV444/YUV422/YUV420(Up to 10bit)格式。
+|  ⚫ eDP TX 模式： 最高支持 eDP1.3， 最大分辨率支持 4K@60Hz，支持 RGB/YUV444/YUV422(Up to 10bit)格式。  
+|  HDMI/EDP_TX_REXT 是 HDMI/eDP Combo PHY 的外置参考电阻管脚，外接对地 8.2K 精度为 1%的电阻，不得更改电阻值，布局时靠近 RK3576 芯片管脚放置。  \
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导22.png
+   :alt: 硬件设计指导22.png
+   :width: 90%
+
+|  ⚫ HDMI2.1 TX 模式
+|  RK3576 支持 HDMI2.1 并向下兼容 HDMI2.0 和 HDMI1.4。HDMI2.1 工作在 FRL 模式； HDMI2.0 及以下模式时，工作在 TMDS 模式。采用 AC 耦合电压模式驱动器。
+|  AC 耦合电容容值采用 220nF，不得随意更改，交流耦合电容建议使用 0201 封装，更低的 ESR 和 ESL，也可减少线路上的阻抗变化。
+|  工作在 HDMI2.1 模式， HDMI_TX_ON_H 配置为低电平，四个 MOS 管不导通。
+|  ⚫ 工作在 HDMI2.0 及以下模式时， HDMI_TX_ON_H 配置为高电平， MOS 管会导通，对地 590ohm电阻与 Sink 端上拉 50ohm 电阻形成一个直流偏置，大约 3V。
+|  ⚫ 如果只要工作在 HDMI2.0 及以下模式时，外接是 HDMI A 座，可以考虑省成本方案，考虑需要过 HDMI 认证，可删除三个 MOS 管，对地 590ohm 电阻合并之后和 MOS 连接， AC 电容不能删减，见如下设计示意图。
+|  ⚫ 如果只要工作在 HDMI2.0 及以下模式时，板上对接 HDMI 接收芯片（比如 RK628F），不需要HDMI_TX_ON_H 控制 MOS 管打开/关闭， MOS 管可以全部删除，只留 8 个 590ohm 直接接地， AC 电容不能删减。  
+|  HDMI2.1 的连接座上 HPDIN 信号与 HDMI_TX_SBDN 复用，检测到 HDMI 设备插入时， HDMITX_HPDIN_M0 输出高电平通知 RK3576。  
+|  HDMI_TX_HPDIN 复用到普通 GPIO 域中，电平随所在电源域电压，电源域供电电压有更改，外围电路的上拉电阻电源也必须同步调整。
+|  HDMI_TX_HPDIN 分别复用在两个不同的电源域，一个在 VCCIO6 电源域的 IO 上面，一个在 PMUIO1电源域的 IO 上面。  
+|  为加强抗静电能力，信号上必须预留 ESD 器件， HDMI2.1 信号的 ESD 寄生电容不得超过 0.2pF，其它信号的 ESD 寄生电容建议使用不超过 1pF。  
+|  eDP TX 模式
+|  支持 eDP V1.3 版本，总共 4Lane， eDP TX 最大输出分辨率可达 4K@60Hz ◼ 每个 Lane 速率可支持 1.62/2.7/5.4Gbps；
+|  ◼ 支持 1Lane 或 2Lane 或 4Lane 模式；
+|  ◼ 支持 AUX 通道，速率可达 1Mbps；
+|  ◼ 不支持 Swap。
+|  eDP_TX_D0P/D0N、 eDP_TX_D1P/D1N、 eDP_TX_D2P/D2N、 eDP_TX_D3P/D3N 需要串接的 100nF 交流耦合电容，交流耦合电容建议使用 0201 封装，更低的 ESR 和 ESL，也可减少线路上的阻抗变化，布局时，靠近 RK3576 管脚放置。  
+|  eDP_TX_AUXP/AUXN 需要靠近接口端串接 100nF 交流耦合电容， AUXP 需要预留对地 100Kohm 电阻， AUXN 预留 100K 电阻上拉到 3.3V。在 eDP V12 协议版本以上的，上下拉电阻可以不贴。  
+|  RK3576 有一个 MIPI D-PHY/C-PHY Combo PHY TX：
+|  ⚫ D-PHY 支持 V2.0 版本， D-PHY 模式有 0/1/2/3 Lane，每个 Lane 2 根线； 最高传输速率 2.5Gbps/Lane。
+|  ⚫ MIPI_DPHY_TX 最大分辨率支持 2560x1600@60Hz。
+|  ⚫ C-PHY 支持 V1.1 版本， C-PHY 模式有 0/1/2 Trio，每个 Trio A/B/C 3 根线； 最高传输速率1.7Gsps/Trio。
+|  ⚫ MIPI_CPHY_TX 最大分辨率支持 2560x1600@60Hz。  
+|  RK3576 LCDC TX 接口，支持并行 24bit RGB 模式、 16bit BT1120 模式、 8bit BT656 模式以及 MCU模式，其中， RGB、 BT1120 以及 BT656 的分辨率支持如下：
+|  24bit RGB 模式：最大输出分辨率可达 1920x1080@60Hz；
+|  16bit BT1120 模式：最大输出分辨率可达 1920x1080@60Hz；
+|  8bit BT656 模式：最大分辨率为 720x576@60Hz 支持 PAL 和 NTSC；  
+|  RGB/BT1120/MCU 输出接口设计中请注意：
+|  ⚫ 这些并行信号输出接口电源域为 VCCIO5 供电，实际产品设计中，需要根据外设的实际 IO 供电要求（1.8V or 3.3V）选择对应的供电，必须保持一致；
+|  ⚫ 为提高并行信号输出接口性能， VCCIO5 电源的去耦电容不得删除，布局时请靠近管脚放置。  
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导23.png
+   :alt: 硬件设计指导23.png
+   :width: 90%
+
+9、以太网
+-----------
+
+|  RGMII/RMII 接口设计中请注意：
+
+|  ⚫ GMAC0 存在两组复用。 GMAC0_M0 复用在 VCCIO5 电源域，可支持 1.8V 或 3.3V 电平，由VCCIO5_VCC （Pin 2A4+2A5）决定。 GMAC0_M1 复用在 VCCIO4 电源域，可支持 1.8V 或3.3V 电平，由 VCCIO4_VCC（Pin 2A7）决定。
+|  ⚫ GMAC1 存在两组复用。 GMAC1_M0 复用在 VCCIO4 电源域，可支持 1.8V 或 3.3V 电平，由VCCIO4_VCC（Pin 2A7）决定。 GMAC1_M1 复用在 VCCIO3 电源域，可支持 1.8V 或 3.3V 电平，由 VCCIO3_VCC（Pin 2B10）决定。
+|  ⚫ GMACx_M0， GMACx _M1 两处复用，只能使用其中一组，不能同时使用，例如不能同时使用GMAC0_M0 和 GMAC0_M1。
+|  ⚫ 建议 RGMII/RMII 优先采用 1.8V 电平，能获得更好的信号质量。
+|  ⚫ 为提高 RGMII/RMII 接口性能，所在 VCCIOx_VCC 电源的去耦电容不得删除，布局时请靠近管脚放置。
+|  ⚫ ETH_CLK0_25M_OUT_Mx 需在 RK3576 端预留串接 0 ohm 电阻，根据实际情况有条件提高信号质量。
+|  ⚫ ETH_CLK1_25M_OUT_Mx 需在 RK3576 端预留串接 0 ohm 电阻，根据实际情况有条件提高信号质量。
+|  ⚫ TXD0~TXD3， TXCLK， TXCTL 需在 RK3576 端预留串接 0 ohm 电阻，根据实际情况有条件提高信号质量。
+|  ⚫ RXD0~RXD3， RXCLK， RXCTL 需在 PHY 端串接 22 ohm 电阻，以提高信号质量。  
+|  在 RGMII 模式下， RK3576 芯片内部 TX/RX 时钟路径集成了 delayline，支持调整；参考图默认配置是： TXCLK 与 data 之间时序由 MAC 来控制， RXCLK 与 data 之间时序由 PHY 来控制（如使用 RTL8211F/FI 即 RXCLK 默认开启 2nS delay，其它 PHY 要注意这个配置）。  
+|  Ethernet PHY 的 Reset 信号需要用 GPIO 来控制， GPIO 电平必须和 PHY IO 电平匹配，靠近PHY 管脚必须增加 100nF 电容，加强抗静电能力，注意： RTL8211F/FI 的复位管脚只支持 3.3V电平。
+|  ⚫ RTL8211F/FI 的 INTB/PMEB 为开漏输出，外部必须增加上拉电阻。
+|  ⚫ PHY 使用外置晶体时，晶体电容请根据实际使用的晶体的负载电容值选择，控制频偏在+/-20ppm 以内。
+|  ⚫ RTL8211F/FI 的 RSET 管脚外接电阻为 2.49K ohm 精度为 1%，不得随意修改。
+|  ⚫ PHY 的初始化硬件配置必须和实际需求匹配。
+|  ⚫ MDIO 必须外部加上拉电阻，推荐 1.5-1.8Kohm，上拉电源必须和 IO 电源保持一致。
+|  ⚫ RTL8211F/FI 的变压器中心抽头的连接必须按照参考图接，如果换其它 Ethernet PHY，那么变压器中心抽头的连接，建议参考各 Ethernet PHY 厂家的参考设计，因为不同的 PHY 厂家会有不同的连接方式。
+|  ⚫ 1000pF 隔离电容建议采用高压安规电容，有足够大的电气间隙保证雷击的安全性。
+|  ⚫ 网络变压器高压侧的 75 ohm 电阻建议采用 0805 以上的封装。
+|  ⚫ 雷击防护等级达到 4KV 以上需要增加防雷管，普通的隔离变压器只能满足 2KV 等级要求。
+|  ⚫ 如果有雷击差分测试要求， MDI 差分对间需要增加 TVS 管。
+|  ⚫ 务必确认 RJ45 封装和原理图是否一致，RJ45 有分 Tab down 和 Tab up，信号顺序刚好是相反，如果使用 RTL8211F/FI 建议采用 Tab down， MDI 顺序是顺的。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导24.png
+   :alt: 硬件设计指导24.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导25.png
+   :alt: 硬件设计指导25.png
+   :width: 90%
+
+音频
+------
+
+|  RK3576 提供了丰富的音频接口能力与资源，共提供了 10 组 SAI 接口、 2 组 PDM 接口、 6 个 SPDIF_TX接口、 3 个 SPDIF_RX 接口、 1 组 DSM 接口，同时新增了 4 组 ASRC 处理单元。
+|  其中对外提供了 5 组 SAI 接口、 2 组 PDM 接口、 2 个 SPDIF_TX 接口、 2 个 SPDIF_RX 接口、 1 组DSM 接口，这些接口的 IO 域复用情况以及所属电源域如下表所示，供用户灵活分配选用。  
+|  RK3576 总共提供了 10 组 SAI 接口，其中 5 组对外引出。SAI 接口的全称为串行音频接口（Serial Audio Interface），是一种用于数字音频数据通信的串行接口，支持广泛的音频协议，支持 PCM、 I2S 和 TDM 等标准格式，可满足单声道、立体声以及多声道音频传输。作为应用最广泛的数字音频接口， SAI 可用于音频 ADC、音频 DAC、音频 Codec、 DSP 等外设的通讯，也可为视频输入/输出接口提供集成的音频输入与输出支持。RK3576 的 SAI 接口具有如下特性：
+|  ⚫ 支持 8 至 32bits 的位宽，包括常见的如 32bits、 24bits、 16bits；
+|  ⚫ 支持高至 128 通道（slots）；
+|  ⚫ 支持单声道（Mono）模式；
+|  ⚫ 主模式（Master）下的 TX/RX、从模式（Slave）下的 RX， SCLK 设计速率上限为 50M；
+|  ⚫ 从模式（Slave）下的 TX， SCLK 设计速率上限为 25M；
+|  以对外 SAI 接口举例， SAI0、 SAI1 支持 4TX Lanes+4RX Lanes， SAI2、 SAI3、 SAI4 支持 1TX Lanes +1RX Lanes，这里的 TX 代表输出数据线 SDOx、 RX 代表输入数据线 SDIx。每根 TX 或 RX 数据线的采样率上限可按如下计算： IO rate / ( slots * width )， slots 为通道数、 width 为位宽。为提高 SAI 接口性能， 对应 VCCIO 电源域的去耦电容不得删除，布局时请靠近管脚放置；
+|  ⚫ 当通过连接器实现板对板连接时，建议时钟/控制/信号都串接一定阻值的电阻(22ohm-100ohm 之间，具体以能满足 SI 测试为准)，并预留 TVS 器件。  
+|  对于喇叭放音需求，实现方案如下， RK3576 通过 I2S 连接 Codec 或音频 DAC 实现模拟输出，再通过音频功放实现功率放大驱动喇叭。  
+|  在 AIOT 的参考图以及 EVB 板上，使用了一颗ES8388的 Codec 来实现上述功能，如下图。在实际图纸设计中，请注意和 Codec 连接的控制信号、 I2C 信号、音频信号的电平配置，确保匹配。
+|  如果直接套用参考设计的电路，相关模拟接口和耳机、 LINEOUT、 MIC 建议尽可能保持一致，这样可以套用 SDK 软件的配置。如有调整，则需要自行修改代码，确保耳机切换、功放使能等逻辑和物理上音频通道的对应。  
+|  需要特别说明的是，参考设计使用了带 DET 检测的耳机接口，默认开启 HP_DET_L 引脚的内部上拉。该处配置应根据实际使用的耳机座子类型进行调整。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导26.png
+   :alt: 硬件设计指导26.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导27.png
+   :alt: 硬件设计指导27.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导28.png
+   :alt: 硬件设计指导28.png
+   :width: 90%
+
+4G
+-----
+
+|  此4G模块用到了一组USB信号。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导29.png
+   :alt: 硬件设计指导29.png
+   :width: 90%
+
+PCIE
+------
+
+|  SATA 设计中请注意：
+|  ⚫ Slot 设计时，外围电路及电源需要满足 Spec 要求；
+|  ⚫ 一个 SATA 接口外接 SATA PM 时，最多只能支持 5 个 Port，不支持多个 SATA PM 超过 6 个 Port以上；
+|  ⚫ SATA 接口的 TXP/N， RXP/N 差分信号上串接的 10nF 交流耦合电容， AC 耦合电容建议使用 0201封装，更低的 ESR 和 ESL，也可减少线路上的阻抗变化；
+|  ⚫ eSATA 接口座子所有信号都必须增加 ESD 器件，布局时靠近座子放置， ESD 寄生电容不得超过0.4pF；  RK3576 拥有 2 个 PCIe2.1 控制器，两个都只支持 RC 模式(RC 是 Root Complex 缩写)，不支持 EP，如下：
+|  (1) Controller 0(1Lane)， PCIe0 Controller x1 Lane(Only RC)
+|  (2) Controller 1(1Lane)， PCIe1 Controller x1 Lane(Only RC)
+|  2 个 PCIe2.1 控制器与 SATA3.1/USB3.2_Gen1x1 组成两个 Combo PHY，一个是 PCIe2.1/SATA3.1 Combo PHY0、 另一个是 PCIe2.1/SATA3.1/USB3.2_Gen1x1 Combo PHY1。  
+|  PCIe2.1 设计中请注意：
+|  ⚫ Slot 设计时，外围电路及电源需要满足 Spec 要求；
+|  ⚫ PCIe2.1 接口的 TXP/N 差分信号上串接的 100nF 交流耦合电容， AC 耦合电容建议使用 0201 封装，更低的 ESR 和 ESL，也可减少线路上的阻抗变化；
+|  ⚫ PCIe2.1 的 TXP 和 TXN 信号支持极性反转（polarity inversion）功能，此功能是协议层的支持，无需软件做任何配置和修改；
+|  ⚫ PCIE0/1_CLKREQN 必须使用功能脚，不能用 GPIO 替代；
+|  ⚫ PCIE0/1_PERSTN/WAKEN/PRSNT 在 RK3576 上面不指定特定的 IO，直接使用电平匹配的 GPIO口来做控制功能脚就可以；
+|  ⚫ 标准的 PCIe Slot： PCIEx_CLKREQN， PCIEx_WAKEN， PCIEx_PERSTN 正常为 3.3V 电平，需要注意做好 RK3576 端的电平匹配。
+|  ⚫ 使用 PCIe 功能的时候，复用的 SATA/USB 功能无法使用， SATA/USB 对应的功能详见其模块说明。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导30.png
+   :alt: 硬件设计指导30.png
+   :width: 90%
+
+按键
+------
+
+|  分别为V+、V-，MENU_Key，ESC_Key，MASKROM，RESET，PWR_ON OFF
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导31.png
+   :alt: 硬件设计指导31.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导32.png
+   :alt: 硬件设计指导32.png
+   :width: 90%
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导33.png
+   :alt: 硬件设计指导33.png
+   :width: 90%
+
+传感器
+--------
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导34.png
+   :alt: 硬件设计指导34.png
+   :width: 90%
+
+CAN
+------
+
+|  RK3576 芯片拥有 2 个 CAN 控制器， 支持最高 5M 的速率， 支持以下功能：
+|  ⚫ 支持 CAN FD；
+|  ⚫ 支持 1Mbps。
+|  考虑不同产品应用灵活性， 2 个 CAN 分别复用在几个不同的电源域，用后缀_M0/_M1/_M2/_M3 区分不同复用位置。 _M0/_M1/_M2/_M3 不能同时使用，分配时只能选择其中一组，例如：选择了 CAN_M0，就不能再选择 CAN_M1。  
+|  当通过连接器实现板对板连接时，建议串接一定阻值的电阻(22ohm-100ohm 之间，具体以能满足 SI 测试为准)，并预留 TVS 器件。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导35.png
+   :alt: 硬件设计指导35.png
+   :width: 90%
+
+RS485
+-------
+
+1. 终端电阻匹配
+
+  - 总线两端需安装120Ω终端电阻，消除信号反射，尤其长距离传输时（超过100米必须配置）。
+  - 多分支网络需根据拓扑调整阻抗匹配。
+
+2. 布线规范
+
+  - 使用双绞屏蔽线（如AWG22），降低电磁干扰（EMI）。
+  - 避免与强电线路平行走线，交叉时保持直角。
+  - 总线长度不超过1200米（波特率≤100kbps时），更高波特率需缩短距离。
+
+3. 接地与防干扰
+
+  - 单点接地，避免地环路电流，推荐使用屏蔽层单端接地。
+  - 雷击风险环境加装TVS二极管或隔离模块（如ADM2483）。
+
+4. 拓扑结构
+
+  - 优先采用线性总线拓扑，分支长度不超过1米。
+  - 星型或环形拓扑需加装中继器或信号分配器。
+
+5. 设备配置
+
+  - 确保所有节点处于同一网络，地址唯一，波特率、数据位、停止位一致。
+  - 半双工通信时，启用流控或软件防冲突机制。
+
+6. 电源与偏置
+
+  - 无通信时，通过上下拉电阻（通常4.7kΩ）维持AB线电压差，防止“悬空”状态误触发。
+  - 隔离电源设计可提升抗干扰能力。
+
+7. 浪涌保护
+
+  - 户外应用需在总线入口加装气体放电管或专用防雷模块（如Bourns TBU系列）。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导36.png
+   :alt: 硬件设计指导36.png
+   :width: 90%
+
+LED
+------
+
+|  RK3576底板上有三个LED灯，一个表示12V电源，一个表示5V电源，还有一个表示系统灯。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导37.png
+   :alt: 硬件设计指导37.png
+   :width: 90%
+
+SARADC
+---------
+
+|  RK3576 集成了一个分辨率为 12bit 的 SARADC 控制器， 速度达到 1MS/s， 输入电压范围为 0-1.8V，可提供 8 路 SARADC 输入。
+|  SARADC_IN0_BOOT 专用于 SYSTEM BOOT 启动顺序的设置，不能用于其它功能，通过上下拉电阻分压采样得到的值，用来判断从哪个接口进行 BOOT，设置如下表：（Rup/Rdown 代表上、下拉电阻）
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导38.png
+   :alt: 硬件设计指导38.png
+   :width: 90%
+
+|  若 Rup=DNP， Rdown=10K； RK3576 设备连接好 USB 线，此时上电，系统可以直接进入 Maskrom。
+|  SARADC_IN1 当做按键的键值输入采样，并复用为 Recovery 模式按键（不可修改）。
+|  SARADC_IN1 通过 10Kohm 1%上拉电阻上拉到 VCCA_1V8_S0，默认为高电平（1.8V），在没有按键动作且系统已经烧录固件的前提下，上电直接进入系统；若系统启动时 Recovery 模式按键处于按下状态，即将 SARADC_IN1 保持为低电平（0V），则 RK3576 进入 Loader 烧写模式，当 PC 识别到 USB 设备时，松开按键使 SARADC_IN1 恢复为高电平（1.8V），即可进行固件烧写。因此，在产品未有按键情况下，  SARADC_IN1 悬空时，会不定态，可能会影响开机，所以 SARADC_IN1 的 10Kohm 1%上拉电阻必须保留，不可删减，保证默认的正常启动判断；为了方便开发， SARADC_  IN1 建议预留按键或预留测试点。  
+|  RK3576 上，按键阵列采用并联型，可以通过增减按键并调整分压电阻比例来调整输入键值，实现多键输入以满足客户产品需求； 设计中建议任意两个按键键值之差必须大于 300， 即中心电压差必须大于132mV。  
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导39.png
+   :alt: 硬件设计指导39.png
+   :width: 90%
+
+FAN
+------
+
+|  采用PWM控制。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导40.png
+   :alt: 硬件设计指导40.png
+   :width: 90%
+
+Debug
+--------
+
+|  Debug采用Type-C接口，采用CH340T芯片，TTL转为USB信号。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导41.png
+   :alt: 硬件设计指导41.png
+   :width: 90%
+
+GPIO
+-------
+
+|  这是预留出来的GPIO，其中包括3.3V电源和5V电源和GND。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导42.png
+   :alt: 硬件设计指导42.png
+   :width: 90%
+
+红外
+-------
+
+|  当红外接收头信号输入时，需要注意以下：
+|  ◼ 待机下，要支持红外接收头唤醒，而且考虑低功耗（即 LOGIC_DVDD 电源断电方案），只能选择 PWM0_CH0/ PWM0_CH1 当红外接收头输入；
+|  ◼ 红外接收头的电源需要使用 VCC_3V3_S3 供电；
+|  ◼ 红外接收头的电源需要 22-100ohm 电阻和 10uF 以上电容进行 RC 滤波；
+|  ◼ 红外接收头默认采用 38KHz，如果换成其它频率软件需要相应稍调；
+|  ◼ 红外接收头输出脚电平必须和 RK3576 IO 电平匹配；
+|  ◼ 红外接收头输出脚建议串 22 ohm 电阻并对 1nF 电容，再连接到 RK3576，加强抗静电浪涌能力。  
+|  红外接收头布局时，应远离无线模块天线，如 Wi-Fi 天线，以免无线传输数据时，影响红外信号接收。
+|  ◼ 红外接收头布局应避开板上 LED 光源直射，避免 LED 闪烁频率影响红外接收。
+|  ◼ IR 信号建议全程包地处理，无法包地处理，建议和其它信号间隔： ≥2 倍线宽 。
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3576-EK288/硬件设计指导43.png
+   :alt: 硬件设计指导43.png
+   :width: 90%

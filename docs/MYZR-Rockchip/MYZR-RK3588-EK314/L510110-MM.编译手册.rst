@@ -1,0 +1,164 @@
+编译手册
+========
+
+
+编译环境要求
+--------------
+
+1. 编译主机需在ubuntu系统中进行，且版本需Ubuntu 20.04以上，本人主机系统为Ubuntu 20.04
+
+2. 主机需可连接外网，因为编译系统过程需要下载某些文件。
+
+
+下载源码包
+-----------
+
+1. 网盘中02_源码目录下，下载源码包 MYZR-RK3588_Linux-5.10_20240110.tar.bz2 
+
+2. 创建编译目录：
+
+.. code-block:: shell
+
+    mkdir ~/my-work/RK3588/02_sources/ -p
+
+3. 把源码放到此目录中，并进行解压：
+
+.. code-block:: shell
+
+    tar xvf MYZR-RK3588_Linux-5.10_20240110.tar.bz2 -C ~/my-work/RK3588/02_sources/
+
+
+依赖安装
+--------------
+
+1. 首次编译可能需要安装某些依赖，下面给出主机可能需要安装的某些依赖：
+
+.. code-block:: shell
+
+    sudo apt-get install repo git ssh make gcc libssl-dev liblz4-tool \
+    expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support \
+    qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib \
+    unzip \
+    device-tree-compiler ncurses-dev \
+
+
+SDK配置加载
+------------
+
+1. 首次编译需要加载SDK配置文件
+
+2. 进入rk3588_sdk目录
+
+3. 输入如下命令加载配置文件：
+
+.. code-block:: shell
+
+    ./build.sh BoardConfig-rk3588-myzr.mk
+
+
+整体编译
+-----------
+
+1. 整体编译将整个SDK一次性进行完整编译，包括kernel、uboot、rootfs、recovery。
+
+2. 输入如下命令：
+
+.. code-block:: shell
+
+    ./build.sh
+
+3. 编译时间较长，本人使用24线程主机编译需要3个小时时间（仅作参考！）
+
+4. 成功编译后在rockdev/目录下可看到相关镜像，其中update.img是所有镜像的集合。
+
+
+单独编译 uboot 
+--------------
+
+1. 编译前可先清除生成文件
+
+.. code-block:: shell
+
+    cd u-boot/
+    make clean
+
+2. 回到SDK主目录，并进行uboot单独编译
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh uboot
+
+
+单独编译 Kernel
+---------------
+
+1. 编译前可先清除生成文件
+
+.. code-block:: shell
+
+    cd kernel/
+    make clean
+
+2. 回到SDK主目录，并进行kernel单独编译
+
+.. code-block:: shell
+
+    cd ../
+    ./build.sh kernel
+
+
+单独编译 recovery
+-----------------
+
+1. 在SDK主目录下
+
+.. code-block:: shell
+
+    ./build.sh recovery
+
+    
+单独编译 buildroot
+------------------
+
+1. 在SDK主目录下
+
+.. code-block:: shell
+
+    ./build.sh rootfs
+
+
+打包固件
+--------
+
+1. 固件打包。将相关镜像链接到rockdev目录下
+
+2. 在SDK主目录下
+
+.. code-block:: shell
+
+    ./mkfirmware.sh
+
+
+打包update.img
+--------------
+
+1. 在rockdev将镜像打包成update.img
+
+2. 在SDK主目录下
+
+.. code-block:: shell
+
+    ./build.sh updateimg
+
+
+--------------------------------------------------------------------------------
+
+::
+
+    --------------------------------------------------------------------------------
+    * 珠海明远智睿科技有限公司
+    * ZhuHai MYZR Technology CO.,LTD.
+    * Latest Update: 2024/1/10
+    * Supporter: Kuangwh
+    --------------------------------------------------------------------------------

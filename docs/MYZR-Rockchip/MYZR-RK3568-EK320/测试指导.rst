@@ -1,0 +1,267 @@
+测试指导
+=========
+
+网口测试
+----------
+
+网口1
+~~~~~~~
+
+|   接口丝印：U9
+|   系统接口：eth0
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+
+|   测试操作
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口
+3. 查看开发板网口1信息，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0
+
+4. 配置网口1的IPV4 IP，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0 192.168.137.18 netmask 255.255.255.0
+
+5. 再次查看开发板网口1信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth0
+
+6. 输入指令如下进行验证网口1：
+
+.. code-block:: shell
+
+    ping -I eth0 192.168.137.99 -c 3
+
+|   "0% packet loss"表示测试通过
+
+
+
+网口2
+~~~~~~~
+
+|   接口丝印：U5
+|   系统接口：eth1
+|   测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+
+|   测试操作
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口
+3. 查看开发板网口2信息，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1
+
+4. 配置网口2的IPV4 IP，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1 192.168.137.22 netmask 255.255.255.0
+
+5. 再次查看开发板网口2信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+
+.. code-block:: shell
+
+    ifconfig eth1
+
+6. 输入指令如下进行验证网口2：
+
+.. code-block:: shell
+
+    ping -I eth1 192.168.137.99 -c 3
+
+|   "0% packet loss"表示测试通过
+
+
+USB测试
+---------
+
+|   接口丝印：J1
+|   测试说明：采用插拔USB存储设备（U盘）的方式进行测试
+
+|   测试操作
+
+1. 将U盘插入底板USB接口，系统会输出类似如下信息
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试1.png
+   :alt: 测试1.png
+
+2. 将U盘从底板拔出，系统会输出类似如下信息
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试2.png
+   :alt: 测试2.png
+
+SD接口测试
+-----------
+
+|   接口丝印：J12
+|   测试说明：采用插拔TF卡的方式进行测试
+
+|   测试操作
+
+1. 将TF卡安装到SD接口，开发板会输出如下信息：
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试3.png
+   :alt: 测试3.png
+
+2. 将TF拔出，输出信息如下：
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试4.png
+   :alt: 测试4.png
+
+音频播放测试
+--------------
+
+|   接口丝印：P1
+|   测试说明：播放音频文件验证开发板的音频播放功能
+
+|   测试操作
+
+1. 把耳机或者喇叭接入丝印对应的接口
+2. 输入指令如下进行测试：
+
+.. code-block:: shell
+
+    aplay ./mytest.wav
+
+|   耳机或者喇叭有声音输出表示音频播放测试通过
+
+录音测试
+----------
+
+|   接口丝印：P1
+|   测试说明：录制并播放录音文件进行测试
+
+|   测试操作
+
+1. 把带MIC的耳机插入丝印对应的接口
+2. 输入如下指令进行4秒的录音：
+
+.. code-block:: shell
+
+    arecord -d 4 -f S16_LE record.wav
+
+3. 播放录制的音频文件，输入如下指令：
+
+.. code-block:: shell
+
+    aplay record.wav
+
+|   耳机有录制声音输出表示录音测试通过
+
+
+M.2接口测试
+------------
+
+|   接口丝印：J7
+|   测试说明：挂载硬盘后查看挂载情况
+
+|   测试操作
+
+1. 开发板断电，接上M.2接口硬盘后启动开发板
+2. 创建挂载点并挂载硬盘，输入指令如下：
+
+.. code:: shell
+
+    mkdir /nvme    
+    mount /dev/nvme0n1p1 /nvme/
+
+3. 查看挂载情况，输入指令如下：
+
+.. code:: shell
+
+    df -h
+
+4. 挂载成功可获取如下类似输出信息：
+
+.. code:: shell
+
+    /dev/nvme0n1p1  499M  10M  490M  2%  /nvme
+
+5. 卸载硬盘，输入指令如下：
+
+.. code:: shell
+
+    umount /nvme
+
+uart测试
+----------
+
+|   接口丝印：J14
+|   测试说明：采用uart自发自收的方式进行测试
+
+|   测试操作
+
+1. 短接J14-33(UART3_TX_M1)和J14-35(UART3_RX_M1)引脚
+2. 输入指令如下进行收发测试：
+
+.. code-block:: shell
+
+    ./serial_test.out /dev/ttyS3 "myzr"
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试5.png
+   :alt: 测试5.png
+
+|   执行测试指令后输出如上类似信息表示uart测试通过，按下'Ctrl + C'退出
+
+
+SPI接口测试
+-------------
+
+|   接口丝印：J14
+|   测试说明：采用spi自发自收的方式进行测试
+
+|   测试操作
+
+1. 短接J14-19(HDMIRX_INT_L_GPIO4_C3)和J14-21(UART9_TX_M1)引脚
+2. 输入指令如下进行收发测试：
+
+.. code-block:: shell
+
+    ./spidev_test -D /dev/spidev3.0
+
+.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/测试6.png
+   :alt: 测试6.png
+
+|   执行测试指令后输出如上类似信息表示spi测试通过
+
+
+红外测试
+----------
+
+|   接口丝印：IR1
+|   测试说明：通过接收红外信息，打印出相应数据
+
+|   测试操作
+
+1. 准备一个红外遥控器，或手机的红外遥控app
+2. 打开相关打印开关，输入指令如下：
+
+.. code-block:: shell
+
+    echo 1 > /sys/module/rockchip_pwm_remotectl/parameters/code_print
+    echo 1 > /sys/module/rockchip_pwm_remotectl/parameters/dbg_level
+
+3. 使用遥控器对准红外接口按下任意按钮
+4. 开发板看到返回相关按钮信息即为成功接收到
+
+
+显示屏
+--------
+
+|   接口丝印：J2
+|   测试说明：查看开发板上电启动显示屏是否正常显示
+
+|   测试操作
+
+1. 将一个HDMI接口的屏幕和开发板上的HDMI接口连接，启动开发板
+
+|   显示屏正常显示表示测试通过
