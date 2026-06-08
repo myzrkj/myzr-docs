@@ -1,0 +1,1162 @@
+测试手册
+=========
+
+网口0
+-------
+
+|  【测试说明】：采用开发板向PC发送ICMP报文的方式进行测试
+|  【接口标识】：ETH1
+|  【系统设备】：eth0
+|  【测试操作】：
+
+1. 使用网线连接开发板网口和电脑的网口，输入以下指令开启网口0
+
+.. code-block:: shell
+
+   ifconfig eth0 up
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   [emac_phy_link_adjust] EMAC Link Up
+
+2. 输入以下指令，获取网口IP
+
+.. code-block:: shell
+
+   udhcpc -i eth0 -s /etc/init.d/udhcpc.script
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   / # udhcpc -i eth0 -s /etc/init.d/udhcpc.script
+   udhcpc (v1.20.2) started
+   Setting IP address 0.0.0.0 on eth0
+   Sending discover...
+   Sending select for 192.168.128.40...
+   Lease of 192.168.128.40 obtained, lease time 300
+   Setting IP address 192.168.128.40 on eth0
+   Deleting routers
+   route: SIOCDELRT: No such process
+   Adding router 192.168.128.1
+   Recreating /customer/resolv.conf
+    Adding DNS server 192.168.128.1
+
+3. 输入以下指令进行网口验证
+
+.. code-block:: shell
+
+   ping baidu.com -c 4
+
+|  输出信息如下：“0% packet loss”表示测试通过
+
+.. code-block:: shell
+
+    # ping baidu.com -c 4
+   PING baidu.com (124.237.177.164): 56 data bytes
+   64 bytes from 124.237.177.164: seq=0 ttl=53 time=35.747 ms
+   64 bytes from 124.237.177.164: seq=1 ttl=53 time=35.424 ms
+   64 bytes from 124.237.177.164: seq=2 ttl=53 time=35.335 ms
+   64 bytes from 124.237.177.164: seq=3 ttl=53 time=35.782 ms
+   --- baidu.com ping statistics ---
+   4 packets transmitted, 4 packets received, 0% packet loss
+
+网口1
+-------
+
+|  【测试说明】：采用开发板向PC发送ICMP报文的方式进行测试
+|  【接口标识】：ETH2
+|  【系统设备】：eth1
+|  【测试操作】：
+
+1. 使用网线连接开发板网口和电脑的网口，输入以下指令开启网口0
+
+.. code-block:: shell
+
+   ifconfig eth1 up
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   [emac_phy_link_adjust] EMAC Link Up
+
+2. 输入以下指令，获取网口IP
+
+.. code-block:: shell
+
+   udhcpc -i eth1 -s /etc/init.d/udhcpc.script
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   / # udhcpc -i eth1 -s /etc/init.d/udhcpc.script
+   udhcpc (v1.20.2) started
+   Setting IP address 0.0.0.0 on eth1
+   Sending discover...
+   Sending select for 192.168.128.40...
+   Lease of 192.168.128.40 obtained, lease time 300
+   Setting IP address 192.168.128.40 on eth1
+   Deleting routers
+   route: SIOCDELRT: No such process
+   Adding router 192.168.128.1
+   Recreating /customer/resolv.conf
+    Adding DNS server 192.168.128.1
+   mount: mounting /customer/resolv.conf on /etc/resolv.conf failed: No such file or directory
+
+3. 输入以下指令进行网口验证
+
+.. code-block:: shell
+
+   ping baidu.com -c 4
+
+|  输出信息如下：“0% packet loss”表示测试通过
+
+.. code-block:: shell
+
+    # ping baidu.com -c 4
+   PING baidu.com (124.237.177.164): 56 data bytes
+   64 bytes from 124.237.177.164: seq=0 ttl=53 time=35.747 ms
+   64 bytes from 124.237.177.164: seq=1 ttl=53 time=35.424 ms
+   64 bytes from 124.237.177.164: seq=2 ttl=53 time=35.335 ms
+   64 bytes from 124.237.177.164: seq=3 ttl=53 time=35.782 ms
+   --- baidu.com ping statistics ---
+   4 packets transmitted, 4 packets received, 0% packet loss
+
+usb
+-----
+
+|  【测试说明】：采用热插拔的方式进行测试
+|  【接口标识】：HOST
+|  【系统设备】：/dev/sda1 
+|  【测试操作】：
+
+1. 需要拉高PM_SAR_GPIO4才能识别出设备，输入以下指令
+
+.. code-block:: shell
+
+   echo 147 > /sys/class/gpio/export​
+   echo out > /sys/class/gpio/gpio147/direction​
+   echo 1 > /sys/class/gpio/gpio147/value
+
+2. 插入u盘输入以下指令，查看u盘信息
+
+.. code-block:: shell
+
+   fdisk -l
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   Disk /dev/sda: 247.9 GB, 247993466880 bytes
+   256 heads, 63 sectors/track, 30032 cylinders
+   Units = cylinders of 16128 * 512 = 8257536 bytes
+      Device Boot      Start         End      Blocks  Id System
+   /dev/sda1               1       30033   242181088+ 83 Linux
+
+sd卡
+------
+
+|  【测试说明】：采用热插拔的方式进行测试
+|  【接口标识】：SD
+|  【系统设备】：/dev/mmcblk0p1
+|  【测试操作】：
+
+1. 插入sd卡，输入以下指令查看sd卡信息
+
+.. code-block:: shell
+
+   fdisk -l
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   Disk /dev/mmcblk0: 7746 MB, 7746879488 bytes
+   256 heads, 63 sectors/track, 938 cylinders
+   Units = cylinders of 16128 * 512 = 8257536 bytes
+
+           Device Boot      Start         End      Blocks  Id System
+   /dev/mmcblk0p1   *           1         939     7564288   c Win95 FAT32 (LBA)
+   Partition 1 has different physical/logical beginnings (non-Linux?):
+        phys=(1023, 255, 63) logical=(0, 32, 33)
+   Partition 1 has different physical/logical endings:
+        phys=(1023, 255, 63) logical=(938, 40, 40)
+
+gpio
+-------
+
+|  【测试说明】：采用对引脚拉高拉低的方式进行测试
+|  【接口标识】：
+|  【系统设备】：​/sys/class/gpio/
+|  【测试操作】：​
+|  GPIOE_01（面对网口方向左边排针数字4的位置）
+
+1. 输入以下指令，对gpioe_01进行拉高
+
+.. code-block:: shell
+
+   echo 10 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio10/direction
+   echo 1 > /sys/class/gpio/gpio10/value
+   cat /sys/class/gpio/gpio10/value
+
+|  此时用万用表测该引脚可看到为高电平3.3v
+
+2. 输入以下指令，对gpioe_01进行拉低
+
+.. code-block:: shell
+
+   echo 0 > /sys/class/gpio/gpio10/value
+   cat /sys/class/gpio/gpio10/value
+
+|  此时用万用表测该引脚可看到为低电平0v
+|  GPIOE_02（面对网口方向左边排针数字6的对面引脚的位置）
+
+1. 输入以下指令，对gpioe_02进行拉高
+
+.. code-block:: shell
+
+   echo 11 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio11/direction
+   echo 1 > /sys/class/gpio/gpio11/value
+   cat /sys/class/gpio/gpio11/value
+
+|  此时用万用表测该引脚可看到为高电平3.3v
+
+2. 输入以下指令，对gpioe_02进行拉低
+
+.. code-block:: shell
+
+   echo 0 > /sys/class/gpio/gpio11/value
+   cat /sys/class/gpio/gpio11/value
+
+|  此时用万用表测该引脚可看到为低电平0v
+|  GPIOE_03（面对网口方向左边排针数字5的对面引脚的位置）
+
+1. 输入以下指令，对gpioe_03进行拉高
+
+.. code-block:: shell
+
+   echo 12 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio12/direction
+   echo 1 > /sys/class/gpio/gpio12/value
+   cat /sys/class/gpio/gpio12/value
+
+|  此时用万用表测该引脚可看到为高电平3.3v
+
+2. 输入以下指令，对gpioe_03进行拉低
+
+.. code-block:: shell
+
+   echo 0 > /sys/class/gpio/gpio12/value
+   cat /sys/class/gpio/gpio12/value
+
+|  此时用万用表测该引脚可看到为低电平0v
+|  GPIOE_04（面对网口方向左边排针数字-6的位置）
+
+1. 输入以下指令，对gpioe_04进行拉高
+
+.. code-block:: shell
+
+   echo 13 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio13/direction
+   echo 1 > /sys/class/gpio/gpio13/value
+   cat /sys/class/gpio/gpio13/value
+
+|  此时用万用表测该引脚可看到为高电平3.3v
+
+2. 输入以下指令，对gpioe_04进行拉低
+
+.. code-block:: shell
+
+   echo 0 > /sys/class/gpio/gpio13/value
+   cat /sys/class/gpio/gpio13/value
+
+|  此时用万用表测该引脚可看到为低电平0v
+|  GPIOE_05（面对网口方向左边排针数字-5的对面的位置）
+
+1. 输入以下指令，对gpioe_05进行拉高
+
+.. code-block:: shell
+
+   echo 14 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio14/direction
+   echo 1 > /sys/class/gpio/gpio14/value
+   cat /sys/class/gpio/gpio14/value
+
+|  此时用万用表测该引脚可看到为高电平3.3v
+
+2. 输入以下指令，对gpioe_05进行拉低
+
+.. code-block:: shell
+
+   echo 0 > /sys/class/gpio/gpio14/value
+   cat /sys/class/gpio/gpio14/value
+
+|  此时用万用表测该引脚可看到为低电平0v
+
+led
+------
+
+|  【测试说明】：采用对引脚拉高拉低的方式进行测试
+|  【接口标识】：led2 ,led3,led4
+|  【系统设备】：
+|  【测试操作】：
+|  led2
+
+1. 输入以下指令，led2亮
+
+.. code-block:: shell
+
+   echo 75 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio75/direction
+   echo 1 > /sys/class/gpio/gpio75/value
+
+2. 输入以下指令，led2灭
+
+.. code-block:: shell
+
+   echo 0 > /sys/class/gpio/gpio75/value
+
+|  LED3
+
+1. 输入以下指令，led3亮
+
+.. code-block:: shell
+
+   echo 74 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio74/direction
+   echo 1 > /sys/class/gpio/gpio74/value
+
+2. 输入以下指令，led3灭
+
+.. code-block:: shell
+
+   echo 0 > /sys/class/gpio/gpio74/value
+
+|  LED4
+
+1. 输入以下指令，led4亮
+
+.. code-block:: shell
+
+   echo 69 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio69/direction
+   echo 1 > /sys/class/gpio/gpio69/value
+
+1. 输入以下指令，led4灭
+
+.. code-block:: shell
+
+   echo 0  > /sys/class/gpio/gpio69/value
+
+i2c
+------
+
+|  【测试说明】：采用对i2c设备读取地址的方式进行测试
+|  【接口标识】：
+|  【系统设备】：​ttyS2,ttyS3,ttyS4
+|  【测试操作】：
+|  i2c2
+
+1. 进入测试目录，输入以下指令
+
+.. code-block:: shell
+
+   cd /customer
+
+2. 将i2c设备的两个引脚scl,sda引脚与i2c0的scl,sda相接，gnd接开发板的gnd，测试用的i2c设备的地址是0x3c,输入以下指令读取i2c设备
+
+.. code-block:: shell
+
+   ./i2cdump -f -y 2 0x3c
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   /customer # ./i2cdump -f -y 2 0x3c
+   No size specified (using byte-data access)
+        0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f    0123456789abcdef
+   00: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   10: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   20: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   30: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   40: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   50: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   60: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   70: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   80: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   90: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   a0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   b0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   c0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   d0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   e0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   f0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+
+|  i2c3
+
+1. 进入测试目录，输入以下指令
+
+.. code-block:: shell
+
+   cd /customer
+
+2. 将i2c设备的两个引脚scl,sda引脚与i2c0的scl,sda相接，gnd接开发板的gnd，测试用的i2c设备的地址是0x3c,输入以下指令读取i2c设备
+
+.. code-block:: shell
+
+   ./i2cdump -f -y 3 0x3c
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   /customer # ./i2cdump -f -y 3 0x3c
+   No size specified (using byte-data access)
+        0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f    0123456789abcdef
+   00: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   10: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   20: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   30: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   40: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   50: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   60: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   70: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   80: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   90: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   a0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   b0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   c0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   d0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   e0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   f0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+
+|  i2c4
+
+1. 进入测试目录，输入以下指令
+
+.. code-block:: shell
+
+   cd /customer
+
+2. 将i2c设备的两个引脚scl,sda引脚与i2c0的scl,sda相接，gnd接开发板的gnd，测试用的i2c设备的地址是0x3c,输入以下指令读取i2c设备
+
+.. code-block:: shell
+
+   ./i2cdump -f -y 4 0x3c
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   /customer # ./i2cdump -f -y 4 0x3c
+   No size specified (using byte-data access)
+        0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f    0123456789abcdef
+   00: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   10: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   20: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   30: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   40: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   50: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   60: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   70: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   80: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   90: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   a0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   b0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   c0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   d0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   e0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+   f0: 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42 42    BBBBBBBBBBBBBBBB
+
+WiFi
+-------
+
+|  【测试说明】：将2.4G天线连接至开发板WIFI(CON23)接口，开发板向外网发送ICMP报文来验证连接正常。
+|  【接口标识】：u23
+|  【系统设备】：wlan0
+|  【测试操作】
+|  WiFi密码修改
+
+.. code-block:: shell
+
+   # 1. 编辑配置文件（你的步骤正确，确认 ssid 和 psk 与热点一致）
+   vi /customer/wifi/wpa_supplicant.conf
+   # 配置文件内容（无需修改，确保 ssid="iQOO"、psk="1234567890"）
+   ctrl_interface=/tmp/wifi/run/wpa_supplicant
+   update_config=1
+   network={
+   ssid="iQOO"//WiFi名称
+   psk="1234567890"//WiFi密码
+   }
+
+1. 输入以下指令，设置路径
+
+.. code-block:: shell
+
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/customer/wifi/
+
+2. 输入以下指令，启用WiFi
+
+.. code-block:: shell
+
+   ifconfig wlan0 up
+
+|  输出信息如下，按回车
+
+.. code-block:: shell
+
+   RTW: ==> rtl8723du_hal_deinit
+   RTW: CardDisableRTL8723du(wlan0): bMacPwrCtrlOn=1
+   RTW: SetHwReg: bMacPwrCtrlOn=0
+   RTW: <=== rtw_ips_pwr_down..................... in 40ms
+   按回车
+
+3. 输入以下指令，创建接口
+
+.. code-block:: shell
+
+   mkdir -p /tmp/wifi/run
+
+4. 输入以下指令，启动WiFi
+
+.. code-block:: shell
+
+   /customer/wifi/wpa_supplicant -Dnl80211 -i wlan0 -c /customer/wifi/wpa_supplicant.conf -d &
+
+|  输出信息如下，按回车
+
+.. code-block:: shell
+
+   RTW: WARN Invalid hw_rate 0xff in hw_rate_to_m_rate
+   RTW: WARN Invalid hw_rate 0xff in hw_rate_to_m_rate
+   EAPOL: startWhen --> 0
+   EAPOL: disable timer tick
+   RTW: rtw_set_ps_mode(wlan0) Enter 802.11 power save - WIFI-TRAFFIC_IDLE
+   RTW: rtl8723d_set_FwPwrMode_cmd(): FW LPS mode = 2, SmartPS=2
+   按回车
+
+5. 输入以下指令，启动获取WiFi IP
+
+.. code-block:: shell
+
+   udhcpc -q -i wlan0 -s /etc/init.d/udhcpc.script &
+
+|  输出信息如下，按回车
+
+.. code-block:: shell
+
+   Lease of 192.168.112.202 obtained, lease time 3599
+   Setting IP address 192.168.112.202 on wlan0
+   Deleting routers
+   route: SIOCDELRT: No such process
+   Adding router 192.168.112.210
+   Recreating /customer/resolv.conf
+    Adding DNS server 192.168.112.210
+   RTW: rtw_set_ps_mode(wlan0) Enter 802.11 power save - WIFI-TRAFFIC_IDLE
+   RTW: rtl8723d_set_FwPwrMode_cmd(): FW LPS mode = 2, SmartPS=2
+   RTW: rtl8723d_fill_default_txdesc(wlan0): SP Packet(0x0806) rate=0x0 SeqNum = 5
+   按回车
+
+5. 输入以下指令，验证WiFi
+
+.. code-block:: shell
+
+   ping www.baidu.com -c 3
+
+|  输出信息如下，0% packe表示正常，按回车
+
+.. code-block:: shell
+
+   / # ping www.baidu.com -c 3
+   PING www.baidu.com (183.2.172.177): 56 data bRTW: rtw_set_ps_mode(wlan0) Leave 802.11 power save - WIFI-LPS_CTRL_LEAVE
+   RTW: rtl8723d_set_FwPwrMode_cmd(): FW LPS mode = 0, SmartPS=2
+   ytes
+   64 bytes from 183.2.172.177: seq=0 ttl=52 time=56.453 ms
+   64 bytes from 183.2.172.177: seq=1 ttl=52 time=34.263 ms
+   64 bytes from 183.2.172.177: seq=2 ttl=52 time=35.835 ms
+
+   --- www.baidu.com ping statistics ---
+   3 packets transmitted, 3 packets received, 0% packet loss
+   round-trip min/avg/max = 34.263/42.183/56.453 ms
+   / # RTW: rtw_set_ps_mode(wlan0) Enter 802.11 power save - WIFI-TRAFFIC_IDLE
+   RTW: rtl8723d_set_FwPwrMode_cmd(): FW LPS mode = 2, SmartPS=2
+   RTW: rtl8723d_fill_default_txdesc(wlan0): SP Packet(0x0806) rate=0x0 SeqNum = 11
+   RTW: rtl8723d_fill_default_txdesc(wlan0): SP Packet(0x0806) rate=0x0 Se
+
+耳机测试
+-----------
+
+|  【测试说明】：用音频文件对耳机进行测试
+|  【接口标识】：J3
+|  【系统设备】：
+|  【测试操作】：
+
+1. 插入耳机并输入以下指令
+
+.. code-block:: shell
+
+   cd customer
+   ./prog_audio_ai_ao_demo playback -i dac -f ./sample-9s.wav -a 0 -d 0 -c 2 -t 20 -v 60
+
+2. 此时耳机双声道都能听到
+
+SPEAKER*2
+------------
+
+|  【测试说明】：用音频文件对SPEAKER进行测试
+|  【接口标识】：P1,P2
+|  【系统设备】：​
+|  【测试操作】：​
+
+1. 插入喇叭并输入以下指令
+
+.. code-block:: shell
+
+   cd customer
+   ./prog_audio_ai_ao_demo playback -i dac -f ./sample-9s.wav -a 0 -d 0 -c 2 -t 20 -v 60
+
+2. 此时spk1,spk2都能听到
+
+录音
+------
+
+|  【测试说明】：生成录音文件并播放测试
+|  【接口标识】：J3（耳机MIC1）,MIC0,MIC2
+|  【系统设备】：​
+|  【测试操作】：​
+
+1. 把耳机插入并输入以下指令
+
+.. code-block:: shell
+
+   cd /customer
+   ./prog_audio_ai_ao_demo capture -i adc_a -F test_amic1.wav -A 0 -D 0 -R 8000 -C 2 -T 10 -V 60
+
+2. 可对耳机说话至录音结束
+3. 录音结束后输入以下指令播放刚刚录的音频
+
+.. code-block:: shell
+
+   ./prog_audio_ai_ao_demo playback -i dac -f ./test_amic1.wav -a 0 -d 0 -c 2 -t 20 -v 80
+
+4. 此时插入喇叭到spk1或者插入耳机，喇叭就会有声音，耳机的右声道会有声音
+5. 把录音设备插入MIC0，并输入以下指令
+
+.. code-block:: shell
+
+   cd /customer
+   ./prog_audio_ai_ao_demo capture -i adc_a -F test_amic0.wav -A 0 -D 0 -R 8000 -C 2 -T 10 -V 60
+
+6. 可对录音设备说话至录音结束
+7. 录音结束后输入以下指令播放刚刚录的音频
+
+.. code-block:: shell
+
+   ./prog_audio_ai_ao_demo playback -i dac -f ./test_amic0.wav -a 0 -d 0 -c 2 -t 20 -v 80
+
+8. 此时插入喇叭到spk2或者插入耳机，喇叭就会有声音，耳机的左声道会有声音
+9. 把录音设备插入MIC2，并输入以下指令
+
+.. code-block:: shell
+
+   cd /customer
+   ./prog_audio_ai_ao_demo capture -i adc_b -F test_amic2.wav -A 0 -D 0 -R 8000 -C 2 -T 10 -V 60
+
+10. 可对录音设备说话至录音结束
+11. 录音结束后输入以下指令播放刚刚录的音频
+
+.. code-block:: shell
+
+   ./prog_audio_ai_ao_demo playback -i dac -f ./test_amic2.wav -a 0 -d 0 -c 2 -t 20 -v 80
+
+12. 此时插入喇叭到spk1,spk2或者插入耳机，喇叭就会有声音，耳机的左右声道会有声音
+
+.. code-block:: shell
+
+   #MIC0
+   录音测试
+   ./prog_audio_ai_ao_demo capture -i adc_a -F test_amic0.wav -A 0 -D 0 -R 8000 -C 2 -T 10 -V 60
+   #MIC1
+   录音测试
+   ./prog_audio_ai_ao_demo capture -i adc_a -F test_amic2.wav -A 0 -D 0 -R 8000 -C 2 -T 10 -V 60
+   #MIC2
+   录音测试
+   ./prog_audio_ai_ao_demo capture -i adc_b -F test_amic2.wav -A 0 -D 0 -R 8000 -C 2 -T 10 -V 60
+   播放录音
+   ./prog_audio_ai_ao_demo playback -i dac -f ./test_amic0.wav -a 0 -d 0 -c 2 -t 20 -v 80
+   ./prog_audio_ai_ao_demo playback -i dac -f ./test_amic1.wav -a 0 -d 0 -c 2 -t 20 -v 80
+   ./prog_audio_ai_ao_demo playback -i dac -f ./test_amic2.wav -a 0 -d 0 -c 2 -t 20 -v 80
+
+pwm
+------
+
+|  【测试说明】：用示波器对pwm引脚进行波形查看测试
+|  【接口标识】：
+|  【系统设备】：sys/class/sstar/pwm/
+|  【测试操作】：​
+|  普通pwm
+
+1. 输入以下指令，对pwm3进行配置
+
+.. code-block:: shell
+
+   cd sys/class/sstar/pwm/group0
+   /sys/devices/virtual/sstar/pwm/group2 # cd pwm3
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 1000000  > period
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 500000   > duty
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo normal   > polarity
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 1        > enable
+
+|  此时网口方向朝向你，在上面这排引脚的下面右数第3个引脚用示波器测试可以看出波形
+
+1. 输入以下指令，对pwm6进行配置
+
+.. code-block:: shell
+
+   cd sys/class/sstar/pwm/group1
+   /sys/devices/virtual/sstar/pwm/group2 # cd pwm6
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 1000000  > period
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 500000   > duty
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo normal   > polarity
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 1        > enable
+
+|  此时网口方向朝向你，在上面这排引脚的下面右数第2个引脚用示波器测试可以看出波形
+
+2. 输入以下指令，对pwm7进行配置
+
+.. code-block:: shell
+
+   cd sys/class/sstar/pwm/group1
+   /sys/devices/virtual/sstar/pwm/group2 # cd pwm7
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 1000000  > period
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 500000   > duty
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo normal   > polarity
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 1        > enable
+
+|  此时网口方向朝向你，在上面这排引脚的下面右数第4个引脚用示波器测试可以看出波形
+
+2. 输入以下指令，对pwm8进行配置
+
+.. code-block:: shell
+
+   cd sys/class/sstar/pwm/group2
+   /sys/devices/virtual/sstar/pwm/group2 # cd pwm8
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 1000000  > period
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 500000   > duty
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo normal   > polarity
+   /sys/devices/virtual/sstar/pwm/group2/pwm8 # echo 1        > enable
+
+|  此时网口方向朝向你，在上面这排引脚的下面右数第6个引脚用示波器测试可以看出波形
+
+rs232
+--------
+
+|  【测试说明】：短接232_TX1,232_RX1  232_TX2,232_RX2进行自收发测试
+|  【接口标识】：232_TX1,232_RX1  232_TX2,232_RX2
+|  【系统设备】：/dev/ttyS4,ttyS5
+|  【测试操作】：​
+|  232-1
+
+1. 用杜邦线短接232_TX1,232_RX1
+2. 进入测试目录，输入以下指令：
+
+.. code-block:: shell
+
+   cd customer/
+
+3. 运行测试程序，输入以下指令：
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS3 12345
+
+|  输出信息如下：
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x31          Character: 1 
+   ASCII: 0x32          Character: 2 
+   ASCII: 0x33          Character: 3 
+   ASCII: 0x34          Character: 4 
+   ASCII: 0x35          Character: 5 
+
+|  232-2
+
+1. 用杜邦线短接232_TX2,232_RX2
+2. 进入测试目录，输入以下指令：
+
+.. code-block:: shell
+
+   cd customer/
+
+3. 运行测试程序，输入以下指令：
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS2 12345
+
+|  输出信息如下：
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x31          Character: 1 
+   ASCII: 0x32          Character: 2 
+   ASCII: 0x33          Character: 3 
+   ASCII: 0x34          Character: 4 
+   ASCII: 0x35          Character: 5 
+
+rs485
+--------
+
+|  【测试说明】：通过485-USB转换头与电脑互联进行收发测试
+|  【接口标识】：485_A1,485_B1,485_A2,485_B2
+|  【系统设备】：/dev/ttyS1,ttyS8
+|  【测试操作】：​​
+|  rs485-1
+
+1. 使用485-USB转换头连接开发板和电脑(A接A,B接B)
+2. 使用Xshell打开对应串口,将波特兰设置成115200，数据为8位，停止位1位
+3. 进入测试目录，输入如下命令：
+
+.. code-block:: shell
+
+   cd customer/
+
+4. 运行测试，输入如下指令：
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS1 12345
+
+|  结果可以看到485串口终端输出
+
+.. code-block:: shell
+
+   Connecting to COM5...
+   Connected.
+
+   12345
+
+5. 在485串口终端输入6(不带显示），可在板子终端看到6
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x36          Character: 6 
+
+|  rs485-2
+
+1. 使用485-USB转换头连接开发板和电脑(A接A,B接B)
+2. 使用Xshell打开对应串口,将波特兰设置成115200，数据为8位，停止位1位
+3. 进入测试目录，输入如下命令：
+
+.. code-block:: shell
+
+   cd /customer/
+
+4. 运行测试，输入如下指令：
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS8 12345
+
+|  结果可以看到485串口终端输出
+
+.. code-block:: shell
+
+   Connecting to COM5...
+   Connected.
+
+   12345
+
+5. 在485串口终端输入6(不带显示），可在板子终端看到6
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x36          Character: 6 
+
+uart
+-------
+
+|  【测试说明】：短接相关引脚进行自收发测试
+|  【接口标识】：
+|  【系统设备】：/dev/ttyS4,ttyS5,ttyS7
+|  【测试操作】：​
+|  uart4
+
+1. 短接RX4_3,TX4_3引脚进行自收发测试
+2. 进入测试目录，输入如下命令：​
+
+.. code-block:: shell
+
+   cd /customer/
+
+3. 运行测试，输入如下指令：
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS4 12345
+
+|  输出信息如下：
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x31          Character: 1 
+   ASCII: 0x32          Character: 2 
+   ASCII: 0x33          Character: 3 
+   ASCII: 0x34          Character: 4 
+   ASCII: 0x35          Character: 5 
+
+|  uart5
+
+1. 短接TX5_1,RX5_1（-10上下）引脚进行自收发测试
+2. 进入测试目录，输入如下命令：​
+
+.. code-block:: shell
+
+   cd customer/
+
+3. 运行测试，输入如下指令：
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS5 12345
+
+|  输出信息如下：
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x31          Character: 1 
+   ASCII: 0x32          Character: 2 
+   ASCII: 0x33          Character: 3 
+   ASCII: 0x34          Character: 4 
+   ASCII: 0x35          Character: 5 
+
+|  uart7
+
+1. 短接RX7_3 TX7_3引脚进行自收发测试
+2. 进入测试目录，输入如下命令：​
+
+.. code-block:: shell
+
+   cd /customer/
+
+3. 运行测试，输入如下指令：
+
+.. code-block:: shell
+
+   ./serial_test.out /dev/ttyS7 12345
+
+|  输出信息如下：
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x31          Character: 1 
+   ASCII: 0x32          Character: 2 
+   ASCII: 0x33          Character: 3 
+   ASCII: 0x34          Character: 4 
+   ASCII: 0x35          Character: 5 
+
+4g
+-----
+
+|  【测试说明】：将2.4G天线连接至EC204g模块接口，开发板向外网发送ICMP报文来验证连接正常。
+|  【接口标识】：CON6
+|  【系统设备】：usb0
+|  【测试操作】
+
+1. 进入测试应用路径，输入以下指令
+
+.. code-block:: shell
+
+   cd customer/
+
+2. 输入以下指令启动4g
+
+.. code-block:: shell
+
+   ./4g
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   /customer # ./4g
+   正在启动 4G 网络...
+   udhcpc (v1.20.2) started
+   Sending discover...
+   Sending select for 192.168.225.59...
+   Lease of 192.168.225.59 obtained, lease time 43200
+   4G 网络启动成功！
+   当前 usb0 接口信息：
+   usb0      Link encap:Ethernet  HWaddr 3A:87:28:7B:48:CE  
+             inet addr:192.168.225.59  Bcast:192.168.225.255  Mask:255.255.255.0
+             UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+             RX packets:2 errors:0 dropped:0 overruns:0 frame:0
+             TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
+             collisions:0 txqueuelen:1000 
+             RX bytes:674 (674.0 B)  TX bytes:656 (656.0 B)
+
+
+   开始解析 www.baidu.com 的 IP（最多重试 3 次）...
+   第 1 次尝试（ping）解析 www.baidu.com...
+   第 2 次尝试（ping）解析 www.baidu.com...
+   第 3 次尝试（ping）解析 www.baidu.com...
+
+   ping 解析失败，尝试用 nslookup 解析...
+   解析成功（nslookup）：www.baidu.com 的 IP 是 183.2.172.177
+
+   路由信息：
+
+|  此时如以上信息可知www.baidu.com 的 IP 是 183.2.172.177，输入以下指令ping百度
+
+.. code-block:: shell
+
+   ping 183.2.172.177
+
+|  输出信息如下，0% packet loss表示正常
+
+.. code-block:: shell
+
+   /customer # ping 183.2.172.177
+   PING 183.2.172.177 (183.2.172.177): 56 data bytes
+   64 bytes from 183.2.172.177: seq=0 ttl=52 time=37.138 ms
+   64 bytes from 183.2.172.177: seq=1 ttl=52 time=71.735 ms
+   64 bytes from 183.2.172.177: seq=2 ttl=52 time=76.311 ms
+   64 bytes from 183.2.172.177: seq=3 ttl=52 time=69.584 ms
+   64 bytes from 183.2.172.177: seq=4 ttl=52 time=65.987 ms
+   64 bytes from 183.2.172.177: seq=5 ttl=52 time=61.267 ms
+   ^C
+   --- 183.2.172.177 ping statistics ---
+   6 packets transmitted, 6 packets received, 0% packet loss
+
+蓝牙
+------
+
+|  【测试说明】：将2.4G天线连接至U23蓝牙WiFi模块接口，开发板向外网发送ICMP报文来验证连接正常。
+|  【接口标识】：U23
+|  【系统设备】：hci0
+|  【测试操作】
+
+1. 输入以下指令，开启蓝牙
+
+.. code-block:: shell
+
+   hciconfig hci0 up
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   rtk_btusb: btusb_open hdev->promisc ==0
+
+2. 输入以下指令扫描蓝牙设备，可打开手机蓝牙
+
+.. code-block:: shell
+
+   hcitool scan
+
+|  输出信息如下
+
+.. code-block:: shell
+
+   Scanning ...
+           DC:0D:30:5C:4C:93        n/a
+           A8:13:06:20:06:54        iQOO Neo5
+           A8:E5:44:99:28:F8        n/a
+
+3. 我的手机蓝牙是A8:13:06:20:06:54        iQOO Neo5，因此输入以下指令连接蓝牙
+
+.. code-block:: shell
+
+   l2ping A8:13:06:20:06:54
+
+|  输出信息如下，0% loss表示通过
+
+.. code-block:: shell
+
+   / # l2ping A8:13:06:20:06:54
+   Ping: A8:13:06:20:06:54 from 94:BA:06:78:1C:E7 (data size 44) ...
+   44 bytes from A8:13:06:20:06:54 id 0 time 5.01ms
+   44 bytes from A8:13:06:20:06:54 id 1 time 88.41ms
+   ^C2 sent, 2 received, 0% loss
+
+mipi
+-------
+
+|  接好转接板和线，上电能显示logo则正常
+
+摄像头
+--------
+
+|  【测试说明】：将mipi屏幕和摄像头模块接好验证摄像头正常。
+|  【接口标识】：U19
+|  【系统设备】：
+|  【测试操作】:
+
+1. 输入以下指令，开启摄像头
+
+.. code-block:: shell
+
+   cd customer
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/customer/3rd_party_libs/ffmpeg/lib
+   ./prog_disp_sensor2Panel_demo -c 1 -n 0 -p 1 -t 0 -r 90 -d 1 -m model/yolov8n_800x480_P3P_fixed.sim_sgsimg.img -f font/default.ttf
+
+2. mipi屏幕显示出摄像头画面则正常
+
+触摸
+------
+
+|  【测试说明】：对mipi屏幕进行触摸来验证触摸功能是否正常。
+|  【接口标识】：CON5 DSI
+|  【系统设备】：​dev/input/event5
+|  【测试操作】:
+
+1. 将mipi屏幕接好在开发板上，运行以下指令开启触摸事件
+
+.. code-block:: shell
+
+   cd /customer
+   ./my-evtest5
+
+2. 运行之后对屏幕进行触摸会显示坐标信息如下
+
+.. code-block:: shell
+
+   /customer # ./my-evtest5
+   === My EVTest - Touch Screen Debug Tool ===
+   Input device ID: bus 0x0018 vendor 0x0000 product 0x0000 version 0x0000
+   Input device name: "sitronix_ts_i2c"
+   Selected device: /dev/input/event5
+   Testing ... (interrupt to exit)
+
+   Event: time 49.628822, type 3 (EV_ABS), code 57 (ABS_MT_TRACKING_ID), value 0
+   Event: time 49.629267, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 132 (X=132)
+   Event: time 49.629292, type 3 (EV_ABS), code 54 (ABS_MT_POSITION_Y), value 451 (Y=451)
+   Event: time 49.629315, type 3 (EV_ABS), code 48 (UNKNOWN), value 1
+   Event: time 49.629336, type 3 (EV_ABS), code 58 (UNKNOWN), value 255
+   Event: time 49.629363, type 1 (EV_KEY), code 330 (BTN_TOUCH), value 1 (PRESS)
+   Event: time 49.629386, type 0 (EV_SYN), code 0 (UNKNOWN), value 0
+   Event: time 49.687312, type 3 (EV_ABS), code 53 (ABS_MT_POSITION_X), value 134 (X=134)
+   Event: time 49.687353, type 0 (EV_SYN), code 0 (UNKNOWN), value 0
