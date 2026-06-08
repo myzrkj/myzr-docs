@@ -1,0 +1,412 @@
+Linux-3.0.35 编译参考手册 v3.0
+================================
+
+下载相关文件
+-------------
+
+**交叉编译工具链**
+
+|   A9系列：打开网盘到 2.1_OS_Linux-3.0.35 -> 03_toolchain，下载 MY-IMX-A9 目录。
+
+**源码**
+
+|   u-boot：打开网盘到 2.1_OS_Linux-3.0.35 -> 02_source，下载 u-boot-2016.03-\*.tar.bz2 (源码包版本号需svn315及以上)。
+|   Kernel：打开网盘到 2.1_OS_Linux-3.0.35 -> 02_source，下载 linux-3.0.35-\*.tar.bz2 (源码包版本号需svn31及以上)。
+
+
+安装交叉编译工具链
+------------------
+
+- 解压交叉编译工具链
+
+.. code-block:: shell
+
+    =====> Input:
+    tar xf gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12.tar.bz2 -C /home/myzr/my-work/03_toolchain
+
+- 复制工具链配置文件
+
+.. code-block:: shell
+
+    =====> Input:
+    cp environment-setup-gcc-4.6-arm.sh /home/myzr/my-work/03_toolchaingcc-4.6.2-glibc-2.13-linaro-multilib-2011.12/
+
+- source 工具链配置文件
+
+.. code-block:: shell
+
+    =====> Input:
+    source /home/myzr/my-work/03_toolchain/gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12/environment-setup-gcc-4.6-arm.sh
+
+- 检验交叉编译工具安装
+
+.. code-block:: shell
+
+    =====> Input:
+    ${CROSS_COMPILE}gcc -v
+
+    =====> Output: 
+    Using built-in specs.
+    COLLECT_GCC=arm-fsl-linux-gnueabi-gcc
+    COLLECT_LTO_WRAPPER=/home/myzr/my-work/03_toolchain/gcc-4.6.2-glibc-2.13-linaro-multilib-2011.12/fsl-linaro-toolchain/bin/../libexec/gcc/arm-fsl-linux-gnueabi/4.6.2/lto-wrapper
+    Target: arm-fsl-linux-gnueabi
+    Configured with: /work/build/.build/src/gcc-linaro-4.6-2011.06-0/configure --build=i686-build_pc-linux-gnu --host=i686-build_pc-linux-gnu --target=arm-fsl-linux-gnueabi --prefix=/work/fsl-linaro-toolchain-2.13 --with-sysroot=/work/fsl-linaro-toolchain-2.13/arm-fsl-linux-gnueabi/multi-libs --enable-languages=c,c++ --with-pkgversion='Freescale MAD -- Linaro 2011.07 -- Built at 2011/08/10 09:20' --enable-__cxa_atexit --disable-libmudflap --disable-libgomp --disable-libssp --with-gmp=/work/build/.build/arm-fsl-linux-gnueabi/build/static --with-mpfr=/work/build/.build/arm-fsl-linux-gnueabi/build/static --with-mpc=/work/build/.build/arm-fsl-linux-gnueabi/build/static --with-ppl=/work/build/.build/arm-fsl-linux-gnueabi/build/static --with-cloog=/work/build/.build/arm-fsl-linux-gnueabi/build/static --with-libelf=/work/build/.build/arm-fsl-linux-gnueabi/build/static --with-host-libstdcxx='-static-libgcc -Wl,-Bstatic,-lstdc++,-Bdynamic -lm -L/work/build/.build/arm-fsl-linux-gnueabi/build/static/lib -lpwl' --enable-threads=posix --enable-target-optspace --enable-plugin --enable-multilib --with-local-prefix=/work/fsl-linaro-toolchain-2.13/arm-fsl-linux-gnueabi/multi-libs --disable-nls --enable-c99 --enable-long-long --with-system-zlib
+    Thread model: posix
+    gcc version 4.6.2 20110630 (prerelease) (Freescale MAD -- Linaro 2011.07 -- Built at 2011/08/10 09:20) 
+
+|   Note: CROSS_COMPILE是设置的宏，${CROSS_COMPILE}gcc中的"$"不能去掉
+
+u-boot编译
+-----------
+
+**编译前的准备**
+
+- 创建编译工作目录
+
+.. code-block:: shell
+
+    =====> Input:
+    mkdir ~/my-work/02_source/ -p
+
+- 解压源码包到工作目录
+
+.. code-block:: shell
+
+    =====> Input:
+    tar xf u-boot-2016.03-svn*.tar.bz2 -C ~/my-work/02_source/
+
+**编译u-boot目标文件**
+
+- 进入源码目录
+
+.. code-block:: shell
+
+    =====> Input:
+    cd ~/my-work/02_source/u-boot-2016.03
+
+- 生成目标开发板的 .config 文件
+
+.. code-block:: shell
+
+    =====> Input:
+    make myimx6ek200-6q-1g_defconfig
+
+    =====> Output: 
+      HOSTCC  scripts/basic/fixdep
+      HOSTCC  scripts/kconfig/conf.o
+      SHIPPED scripts/kconfig/zconf.tab.c
+      SHIPPED scripts/kconfig/zconf.lex.c
+      SHIPPED scripts/kconfig/zconf.hash.c
+      HOSTCC  scripts/kconfig/zconf.tab.o
+      HOSTLD  scripts/kconfig/conf
+    #
+    # configuration written to .config
+    #
+
+|   【注意】：上面 **make** 后面的 **myimx6ek200-6q-1g_defconfig** 改为与开发板型号对应的配置文件。
+
+.. code-block:: shell
+
+    ********** MYZR-IMX6-EK200 **********
+    myimx6ek200-6q-1g_defconfig     myimx6ek200-6q-2g_defconfig     myimx6ek200-6q-512m_defconfig  
+    myimx6ek200-6u-1g_defconfig     myimx6ek200-6u-2g_defconfig     myimx6ek200-6u-512m_defconfig  
+    myimx6ek200-6s-512m_defconfig   myimx6ek200-6s-1g_defconfig     myimx6ek200-6s-128m_defconfig  
+    myimx6ek200-6qp-1g_defconfig    myimx6ek200-6qp-2g_defconfig    myimx6ek200-6qp-512m_defconfig  
+
+    ********** MYZR-IMX6-EK314 **********
+    myimx6ek314-6q-1g_defconfig     myimx6ek314-6q-2g_defconfig     myimx6ek314-6q-512m_defconfig  
+    myimx6ek314-6u-1g_defconfig     myimx6ek314-6u-2g_defconfig     myimx6ek314-6u-512m_defconfig  
+    myimx6ek314-6s-512m_defconfig   myimx6ek314-6s-1g_defconfig     myimx6ek314-6s-128m_defconfig  
+    myimx6ek314-6qp-1g_defconfig    myimx6ek314-6qp-2g_defconfig    myimx6ek314-6qp-512m_defconfig  
+
+- 执行编译
+
+.. code-block:: shell
+
+    =====> Input:
+    make 
+
+    =====> Output: 
+    scripts/kconfig/conf  --silentoldconfig Kconfig
+      CHK     include/config.h
+      UPD     include/config.h
+      GEN     include/autoconf.mk
+      GEN     include/autoconf.mk.dep
+      CHK     include/config/uboot.release
+      CHK     include/generated/timestamp_autogenerated.h
+      CFG     u-boot.cfg
+      ......
+      LD      u-boot
+      OBJCOPY u-boot-nodtb.bin
+      OBJCOPY u-boot.srec
+      SYM     u-boot.sym
+      COPY    u-boot.bin
+      CFGS    board/myzr/myimx6/myimx6a9-6q-ddr3.cfg.cfgtmp
+      MKIMAGE u-boot.imx
+
+|   Note: 如果有提示 “cc1: error”，通常是交叉编译工具的配置没生效，可以按前面 “交叉编译工具链安装” 中的 “source 工具链配置文件” 操作一次后再执行此步骤。
+
+- u-boot 目标文件
+
+|   u-boot.imx 即目标文件。
+
+**编译u-boot环境变量脚本**
+
+.. code-block:: shell
+
+    =====> Input:
+    mkimage -A arm -O linux -T script -C none -a 0 -e 0 -n "myzr bootscripts" -d board/myzr/bootscripts/myimx6a9_l3035_script.cmd my_environment.scr
+
+    =====> Output: 
+    Image Name:   myzr bootscripts
+    Created:      Wed Jan  2 09:39:38 2019
+    Image Type:   ARM Linux Script (uncompressed)
+    Data Size:    2090 Bytes = 2.04 kB = 0.00 MB
+    Load Address: 00000000
+    Entry Point:  00000000
+    Contents:
+       Image 0: 2082 Bytes = 2.03 kB = 0.00 MB
+
+**目标文件**
+
+|   u-boot.imx 和 my_environment.scr 即编译得到的目标文件，保存这两个文件
+
+
+内核编译
+---------
+
+**编译前的准备**
+
+- 创建编译工作目录
+
+.. code-block:: shell
+
+    =====> Input:
+    mkdir ~/my-work/02_source/ -p
+
+- 解压源码包到工作目录
+
+.. code-block:: shell
+
+    =====> Input:
+    tar xf linux-3.0.35-svn*.tar.bz2 -C ~/my-work/02_source/
+
+**编译内核目标文件**
+
+- 进入源码目录
+
+.. code-block:: shell
+
+    =====> Input:
+    cd ~/my-work/02_source/linux-3.0.35
+
+- 生成目标平台的 .config 文件
+
+.. code-block:: shell
+
+    =====> Input:
+    make myimx6a9_defconfig
+
+    =====> Output: 
+      HOSTCC  scripts/basic/fixdep
+      HOSTCC  scripts/kconfig/conf.o
+      SHIPPED scripts/kconfig/zconf.tab.c
+      SHIPPED scripts/kconfig/lex.zconf.c
+      SHIPPED scripts/kconfig/zconf.hash.c
+      HOSTCC  scripts/kconfig/zconf.tab.o
+      HOSTLD  scripts/kconfig/conf
+    #
+    # configuration written to .config
+    #
+
+|   Note: 如果有“Can't find default configuration "arch/x86/configs” 的错误，是因为交叉编译工具链的配置没有生效，可以按前面 “交叉编译工具链安装” 中的 “source 工具链配置文件” 操作一次后再执行此步骤
+
+- 编译内核目标文件
+
+.. code-block:: shell
+
+    =====> Input:
+    make zImage
+
+    =====> Output: 
+    scripts/kconfig/conf --silentoldconfig Kconfig
+      CHK     include/linux/version.h
+      UPD     include/linux/version.h
+      CHK     include/generated/utsrelease.h
+      UPD     include/generated/utsrelease.h
+      Generating include/generated/mach-types.h
+      CC      kernel/bounds.s
+      ......
+      AS      arch/arm/boot/compressed/piggy.gzip.o
+      LD      arch/arm/boot/compressed/vmlinux
+      OBJCOPY arch/arm/boot/zImage
+      Kernel: arch/arm/boot/zImage is ready
+
+- 内核目标文件
+
+|   arch/arm/boot/zImage 即内核目标文件
+
+**编译内核模块包**
+
+- 执行编译
+
+.. code-block:: shell
+
+    =====> Input:
+    make modules
+
+    =====> Output: 
+      CHK     include/linux/version.h
+      CHK     include/generated/utsrelease.h
+    make[1]: “include/generated/mach-types.h”是最新的。
+      CALL    scripts/checksyscalls.sh
+      CC [M]  fs/autofs4/init.o
+      ......
+      LD [M]  drivers/usb/gadget/g_serial.ko
+      LD [M]  fs/nls/nls_ascii.ko
+      LD [M]  fs/autofs4/autofs4.ko
+      LD [M]  fs/nls/nls_utf8.ko
+
+- 创建内核模块的保存目录
+
+.. code-block:: shell
+
+    =====> Input:
+    mkdir modules
+
+- 安装内核模块到指定目录
+
+.. code-block:: shell
+
+    =====> Input:
+    make modules_install INSTALL_MOD_PATH=./modules
+
+    =====> Output: 
+      INSTALL crypto/tcrypt.ko
+      INSTALL drivers/gpu/drm/drm.ko
+      INSTALL drivers/gpu/drm/vivante/vivante.ko
+      ......
+      INSTALL fs/autofs4/autofs4.ko
+      INSTALL fs/nls/nls_ascii.ko
+      INSTALL fs/nls/nls_utf8.ko
+      DEPMOD  3.0.35-myimx6a9-svn42
+
+- 打包内核模块文件
+
+.. code-block:: shell
+
+    =====> Input:
+    tar cjf kernel-modules.tar.bz2 -C modules lib
+
+**目标文件**
+
+|   zImage 和 kernel-modules.tar.bz2 即编译得到的目标文件，保存这两个文件
+
+
+Linux C程序编译
+----------------
+
+**准备源码**
+
+|   打开网盘到 5_MY-Demo -> MY-Linux-C-Demo，下载 hello.c 文件，并复制到虚拟机。
+
+**编译目标文件**
+
+.. code-block:: shell
+
+    =====> Input:
+    ${CROSS_COMPILE}gcc hello.c -o hello.out
+
+|   Note: 如果有“未找到命令”的信息，是因为交叉编译工具链的配置没有生效，可以按前面 “交叉编译工具链安装” 中的 “source 工具链配置文件” 操作一次后再执行此步骤
+
+**运行Linux C目标程序**
+
+- 把编译得到的 hello.out 复制到开发板上
+- 在开发板上运行Linux C目标程序
+
+.. code-block:: shell
+
+    =====> Input:
+    chmod +x ./hello.out
+    ./hello.out
+
+    =====> Output:
+    MYZR Technology Co.,Ltd.
+
+    Web:  http://www.myzr.com.cn/
+    Wiki: http://wiki.myzr.com.cn/
+    BBS:  http://bbs.myzr.com.cn/
+
+    Tel: 0756-3628023/3628021
+    E-mail: service@myzr.com.cn
+
+在文件系统增加自己的应用
+------------------------
+
+**准备工作**
+
+- 创建编译工作目录
+
+.. code-block:: shell
+
+    =====> Input:
+    mkdir ~/my-work/04_image -p
+
+- 将烧录工具上的文件系统 Profiles\Linux\OS Firmware\image-L3.0.35-rootfs/rootfs-linux*.tar.bz2 复制到 ~/my-work/04_image
+- 创建存放文件系统的目录
+
+.. code-block:: shell
+
+    =====> Input:
+    mkdir  rootfs-linux-qt4
+
+|   【注意】：上面的 rootfs-linux-qt4 改为与文件系统压缩包对应的名称。
+
+.. code-block:: shell
+
+    rootfs-linux-qt4
+    rootfs-linux-minimal
+    rootfs-linux
+
+- 解压文件系统压缩包并进入到解压目录
+
+.. code-block:: shell
+
+    =====> Input:
+    tar jxvf rootfs-linux*.tar.bz2 -C rootfs-linux*/
+    cd rootfs-linux*
+
+- 创建存放应用的目录并将应用复制到此目录
+
+.. code-block:: shell
+
+    =====> Input:
+    mkdir my-demo 
+    cp /home/myzr/my-work/02_source/hello.out my-demo
+
+- 重新压缩文件系统
+
+.. code-block:: shell
+
+    =====> Input:
+    sudo tar cjvf ../rootfs-linux-qt4.tar.bz2 *
+    cd ..
+
+|   【注意】：上面的 rootfs-linux-qt4.tar.bz2 改为文件系统压缩包对应的名称。
+
+.. code-block:: shell
+
+    rootfs-linux-qt4.tar.bz2
+    rootfs-linux-minimal.tar.bz2
+    rootfs-linux.tar.bz2
+
+|   最后将压缩好的包复制到烧录工具相应的目录进行烧写
+
+::
+
+    --------------------------------------------------------------------------------
+    * 珠海明远智睿科技有限公司  
+    * ZhuHai MYZR Technology CO.,LTD.
+    * Latest Update: 2019/01/02  
+    * Supporter: Tang Bin
+    --------------------------------------------------------------------------------
