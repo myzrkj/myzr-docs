@@ -1,0 +1,58 @@
+产品介绍
+=========
+
+核心板规格
+-----------
+
+- 规格参数（应包括温度参数、支持的系统版本）
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/核心板接口参数.jpg
+   :alt: 核心板接口参数.jpg
+   :width: 60%
+
+信号定义
+---------
+
+- 参考网盘 2.硬件资料 -> 2.1-原理和PCB -> 核心板原理图
+
+核心板介绍
+-----------
+
+- 正面图
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/核心板正面图.jpg
+   :alt: 核心板正面图.jpg
+   :width: 60%
+
+- 背面图
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/核心板背面图.jpg
+   :alt: 核心板背面图.jpg
+   :width: 60%
+
+- 尺寸图
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/核心板尺寸图.jpg
+   :alt: 核心板尺寸图.jpg
+   :width: 60%
+
+底板介绍
+---------
+
+- 正面图
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/底板正面图.jpg
+   :alt: 底板正面图.jpg
+   :width: 60%
+
+- 接口图
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/底板接口图.jpg
+   :alt: 底板接口图.jpg
+   :width: 60%
+
+- 尺寸图
+
+.. figure:: /image/MYZR-瑞萨系列/MYZR-RZV2H-EK320/底板尺寸图.jpg
+   :alt: 底板尺寸图.jpg
+   :width: 60%
