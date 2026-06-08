@@ -1,0 +1,227 @@
+编译手册
+========
+
+准备编译环境
+------------
+
+
+安装交叉编译工具
+~~~~~~~~~~~~~~~~~~
+
+1. 准备交叉编译工具文件
+
+　　在网盘下载“st-image-weston-openstlinux-weston-stm32mp1-x86_64-toolchain-4.0.4-openstlinux-5.15-yocto-kirkstone-mp1-v22.11.23.sh”后，把文件传输到 x86_64 Linux 主机中。
+
+
+2. 执行安装
+
+.. code-block:: shell
+
+    # =====> Input:
+
+    # 创建安装目录，把编译链放到该目录下
+    mkdir ~/my-work/stm32mp13/03_sdk -p
+
+    # 添加可执行权限
+    chmod +x st-image-weston-openstlinux-weston-stm32mp1-x86_64-toolchain-4.0.4-openstlinux-5.15-yocto-kirkstone-mp1-v22.11.23.sh 
+
+    # 安装
+    ./st-image-weston-openstlinux-weston-stm32mp1-x86_64-toolchain-4.0.4-openstlinux-5.15-yocto-kirkstone-mp1-v22.11.23.sh 
+
+    # 安装过程中要求输入安装目录，同样是安装在这个目录中
+    Enter target directory for SDK (default: /opt/st/stm32mp1/4.0.4-openstlinux-5.15-yocto-kirkstone-mp1-v22.11.23): /home/kuangwh/my-work/stm32mp13/03_sdk
+    
+
+3. 配置交叉编译环境
+
+    安装成功后，在03目录下有一个environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi脚本，输入如下命令：
+
+.. code-block:: shell
+
+    source environment-setup-cortexa7t2hf-neon-vfpv4-ostl-linux-gnueabi
+
+4. 验证
+
+.. code-block:: shell
+
+    $CC -v
+
+输出如下信息代表环境配置成功：
+
+.. code-block:: shell
+
+    Using built-in specs.
+    COLLECT_GCC=arm-ostl-linux-gnueabi-gcc
+    COLLECT_LTO_WRAPPER=/home/kuangwh/my-work/stm32mp13/03_sdk/sysroots/x86_64-ostl_sdk-linux/usr/libexec/arm-ostl-linux-gnueabi/gcc/arm-ostl-linux-gnueabi/11.3.0/lto-wrapper
+    Target: arm-ostl-linux-gnueabi
+    。。。。
+    Supported LTO compression algorithms: zlib zstd
+    gcc version 11.3.0 (GCC) 
+
+.. note:: 在每次打开终端窗口后都需要进行一次source配置。
+
+
+
+下载源码包
+-----------
+
+1. 网盘中02_源码目录下，下载源码包 en.SOURCES-stm32mp1-openstlinux-5.15.tar.bz2 
+
+2. 创建编译目录：
+
+.. code-block:: shell
+
+    mkdir ~/my-work/stm32mp13/02_sources -p
+
+3. 把源码放到此目录中，并进行解压：
+
+.. code-block:: shell
+
+    tar xvf en.SOURCES-stm32mp1-openstlinux-5.15.tar.bz2 -C ~/my-work/stm32mp13/02_sources/
+
+
+编译 tf-a 
+--------------
+
+1. 进入tf-a-stm32mp-v2.6-stm32mp-r2-r0目录，解压tf-a源码：
+
+.. code-block:: shell
+
+    tar xvf tf-a-stm32mp-v2.6-stm32mp-r2.tar.bz2 
+
+2. 解压后，进入tf-a-stm32mp-v2.6-stm32mp-r2目录中
+
+3. 在此目录下，可看到有一个编译脚本 build-512m.sh ，直接运行此脚本进行编译：
+
+.. code-block:: shell
+
+    ./build-512m.sh 
+
+4. 编译完成后，在~/my-work/stm32mp13/02_sources/FIP_artifacts目录下会对镜像进行更新。
+
+
+编译 optee 
+------------
+
+1. 进入optee-os-stm32mp-3.16.0-stm32mp-r2-r0，解压源码：
+
+.. code-block:: shell
+
+    tar xvf optee-os-stm32mp-3.16.0-stm32mp-r2.tar.bz2 
+
+2. 解压后，进入optee-os-stm32mp-3.16.0-stm32mp-r2目录中
+
+3. 在此目录下，可看到有一个编译脚本 build-512m.sh ，直接运行此脚本进行编译：
+
+.. code-block:: shell
+
+    ./build-512m.sh 
+
+4. 编译完成后，在~/my-work/stm32mp13/02_sources/FIP_artifacts目录下会对镜像进行更新。
+
+
+编译 uboot 
+-----------
+
+1. 进入u-boot-stm32mp-v2021.10-stm32mp-r2-r0，解压源码：
+
+.. code-block:: shell
+
+    tar xvf u-boot-stm32mp-v2021.10-stm32mp-r2.tar.bz2 
+
+2. 解压后，进入u-boot-stm32mp-v2021.10-stm32mp-r2目录中
+
+3. 在此目录下输入，如下命令进行配置和编译打包等：
+
+.. code-block:: shell
+
+    export FIP_DEPLOYDIR_ROOT=$PWD/../../FIP_artifacts
+    make -f $PWD/../Makefile.sdk DEPLOYDIR=$FIP_DEPLOYDIR_ROOT/u-boot UBOOT_CONFIG=trusted UBOOT_DEFCONFIG=myzrstm32mp13_defconfig UBOOT_BINARY=u-boot.dtb DEVICETREE=myzr-stm32mp13-512m all
+
+4. 编译完成后，在~/my-work/stm32mp13/02_sources/FIP_artifacts目录下会对镜像进行更新。
+
+
+编译 内核
+----------
+
+1. 进入linux-stm32mp-5.15.67-stm32mp-r2-r0，解压源码：
+
+.. code-block:: shell
+
+    tar xvf linux-5.15.67.tar.bz2
+
+2. 解压后，进入linux-5.15.67目录中
+
+3. 生成.config文件
+
+.. code-block:: shell
+
+    make myzr-stm32mp13_defconfig 
+
+4. 编译内核目标文件
+
+.. code-block:: shell
+
+    make -j16 uImage LOADADDR=0xC2000040
+
+5. 编译设备树文件
+
+.. code-block:: shell
+
+    make myzr-stm32mp13.dtb
+
+6. 编译内核模块包
+
+.. code-block:: shell
+
+    # 进行编译
+    make -j16 modules
+    # 进入安装
+    make INSTALL_MOD_PATH="$PWD/install_artifact" modules_install
+    # 删除无关目录文件
+    rm install_artifact/lib/modules/5.15.67/source
+    rm install_artifact/lib/modules/5.15.67/build
+    # strip内核模块
+    find install_artifact/ -name "*.ko" | xargs $STRIP --strip-debug --remove-section=.comment --remove-section=.note --preserve-dates
+    # 打包内核模块
+    cd install_artifact
+    tar cjf modules.tar.bz2 *
+
+7. 镜像文件
+
+    - 内核镜像文件在：arch/arm/boot/uImage
+
+    - 内核设备树文件在： arch/arm/boot/dts/myzr/myzr-stm32mp13.dtb
+
+    - 内核模块包在： install_artifact/modules.tar.bz2
+
+8. 镜像文件更新
+
+    - 内核镜像文件更新：把内核镜像uImage拷贝到开发板中，并替换掉 /boot/uImage
+
+    - 内核设备树文件更新：把设备树文件myzr-stm32mp13.dtb拷贝到开发板中，并替换掉 /boot/myzr-stm32mp13.dtb
+
+    - 内核模块包更新：把内核模块包拷贝到开发板中，通过如下命令进行解压：
+
+    .. code-block:: shell
+
+        tar xvf modules.tar.bz2 -C /
+
+    解压完成后，输入如下命令进行重启开发板：
+
+    .. code-block:: shell
+
+        depmod  -a
+        sync
+        reboot
+
+
+
+::
+
+   --------------------------------------------------------------------------------
+   * 珠海明远智睿科技有限公司
+   * ZhuHai MYZR Technology CO.,LTD.
+   * Latest Update: 2023/9/12
+   * Supporter: Kuangwh
+   --------------------------------------------------------------------------------
