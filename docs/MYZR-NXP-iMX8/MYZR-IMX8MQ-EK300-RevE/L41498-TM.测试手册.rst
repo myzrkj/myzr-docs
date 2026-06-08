@@ -1,0 +1,599 @@
+
+.. _test_manual.测试手册:
+
+
+测试参考手册
+============
+
+测试概览 
+--------
+
++----------+----------+-----+----------+----------+-----+----------+----------+
+| 测试项   | 测试结果 |     | 测试项   | 测试结果 |     | 测试项   | 测试结果 |
++==========+==========+=====+==========+==========+=====+==========+==========+
+| 指示灯   | Pass     |     | 复位按键 | Pass     |     | 功能按键 | Pass     |
++----------+----------+-----+----------+----------+-----+----------+----------+
+| 网口     | Pass     |     | I2C      | Pass     |     | UART     | Pass     |
++----------+----------+-----+----------+----------+-----+----------+----------+
+| GPIO     | Pass     |     | SPI      | Pass     |     | 音频     | Pass     |
++----------+----------+-----+----------+----------+-----+----------+----------+
+| TF卡     | Pass     |     | USB      | Pass     |     | HDMI     | Pass     |
++----------+----------+-----+----------+----------+-----+----------+----------+
+
+设备信息
+--------
+
+**硬件版本**
+
++ **核心板**：MYZR_IMX8MQ_CB300_RevD
++ **主板**：MYZR_IMX8MQ_MB300_RevE
+
+
+**软件版本**
+
++ **image**：Image-4.14.98-g8390a69729ee
++ **fdt_file**：myimx8mek300-8mq-tm-4.14.98-g8390a69729ee.dtb
++ **kernel-modules**：kernel-modules-4.14.98-g8390a69729ee.tar.bz2
+
+
+指示灯
+------
+
+  接口丝印：D7
+
+**功能测试**
+
+  1）说明：D7用于指示主板电源状态。
+
+  2）操作：给设备上电，D7亮起。给设备断电，D7灭。
+
+  3）结果：操作时，指示灯状态能够对应，即功能正常。
+
+
+复位按键
+--------
+
++ 接口丝印：SW2
+
+**功能测试**
+
+  1）说明：短按复位按键可以使设备电源复位。
+
+  2）操作：在主板电源开启的情况下，短按复位按键即可使设备电源复位。
+  
+  3）结果：按下并松开复位按键时，主板重新启动，即功能正常。
+
+
+CPU温度
+-------
+
++ 系统接口：/sys/class/thermal/thermal_zone0/temp
+
+**功能测试**
+
+  1）说明：系统支持读取CPU温度传感器数据。
+
+  2）操作
+  
+    + 输入命令：
+  
+    .. code-block:: shell
+
+       cat /sys/class/thermal/thermal_zone0/temp
+  
+    + 输出信息：
+  
+    .. code-block:: text
+
+       58000
+
+    .. note:: 输出的数值除以1000即摄氏温度
+  
+  3）结果：输入命令后，输出信息正常，即功能正常。
+
+
+功能按键
+--------
+
++ 接口丝印：SW6，SW8，SW9，SW10
++ 系统接口：/dev/input/event2
+
+**功能测试**
+
+  1）说明：使用 evtest 工具进行测试。
+
+  2）操作
+    a）输入指令运行测试工具：
+
+    + 输入指令：
+  
+    .. code-block:: shell
+
+      evtest /dev/input/event2
+  
+    + 输出信息（可以看到4个按键注册的键值）：
+  
+    .. code-block:: text
+
+       Input driver version is 1.0.1
+       Input device ID: bus 0x19 vendor 0x1 product 0x1 version 0x100
+       Input device name: "gpio-keys"
+       Supported events:
+         Event type 0 (EV_SYN)
+         Event type 1 (EV_KEY)
+           Event code 106 (KEY_RIGHT)
+           Event code 108 (KEY_DOWN)
+           Event code 109 (KEY_PAGEDOWN)
+           Event code 110 (KEY_INSERT)
+       Properties:
+       Testing ... (interrupt to exit)  
+
+    b）分别按下 SW6，SW8，SW9，SW10。
+
+    + 可以看到如下信息：
+
+    .. code-block:: text
+
+       Event: time 1550694816.550833, type 1 (EV_KEY), code 106 (KEY_RIGHT), value 1
+       Event: time 1550694816.550833, -------------- SYN_REPORT ------------
+       Event: time 1550694816.746817, type 1 (EV_KEY), code 106 (KEY_RIGHT), value 0
+       Event: time 1550694816.746817, -------------- SYN_REPORT ------------
+       Event: time 1550694820.171340, type 1 (EV_KEY), code 108 (KEY_DOWN), value 1
+       Event: time 1550694820.171340, -------------- SYN_REPORT ------------
+       Event: time 1550694820.442814, type 1 (EV_KEY), code 108 (KEY_DOWN), value 0
+       Event: time 1550694820.442814, -------------- SYN_REPORT ------------
+       Event: time 1550694822.090817, type 1 (EV_KEY), code 109 (KEY_PAGEDOWN), value 1
+       Event: time 1550694822.090817, -------------- SYN_REPORT ------------
+       Event: time 1550694822.326761, type 1 (EV_KEY), code 109 (KEY_PAGEDOWN), value 0
+       Event: time 1550694822.326761, -------------- SYN_REPORT ------------
+       Event: time 1550694823.898812, type 1 (EV_KEY), code 110 (KEY_INSERT), value 1
+       Event: time 1550694823.898812, -------------- SYN_REPORT ------------
+       Event: time 1550694824.146815, type 1 (EV_KEY), code 110 (KEY_INSERT), value 0
+       Event: time 1550694824.146815, -------------- SYN_REPORT ------------
+
+  .. note:: 按 Ctrl + C 可以退出测试。
+
+  3）结果：操作时的输出信息符合正确预期即功能正常。
+
+
+网口
+----
+
+  + 接口丝印：J16
+  + 系统接口：eth0
+
+**功能测试**
+  
+  1）说明：采用设备向PC发送ICMP报文的方式进行测试
+
+  2）操作
+
+    a）配置电脑有线网卡IP为 192.168.137.99。
+
+    b）把开发板的这个网口用网线跟电脑网口连接起来。
+
+    c）配置开发板网口IP，具体配置命令如下：
+
+    .. code-block:: shell
+
+      ifconfig eth0 up
+      ifconfig eth0 192.168.137.81
+
+    d）执行网口测试命令
+
+    + 输入指令：
+
+    .. code-block:: shell
+
+      ping 192.168.137.99 -c 2 -w 4 
+
+    + 输出信息：
+
+    .. code-block:: text
+
+      PING 192.168.137.99 (192.168.137.99) 56(84) bytes of data.
+      64 bytes from 192.168.137.99: icmp_seq-1 ttl-64 time-1.43 ms
+      64 bytes from 192.168.137.99: icmp_seq-2 ttl-64 time-1.53 ms
+
+      --- 192.168.137.99 ping statistics ---
+      2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+      rtt min/avg/max/mdev - 1.437/1.487/1.538/0.063 ms
+
+  3）结果：“0% packet loss”表示测试通过。
+
+
+I2C
+---
+
+**功能测试**
+
+  1）说明：执行 I2C 检测指令并观察结果。
+
+  2）操作
+  
+    a）检测系统的 I2C 总线
+
+    + 输入命令：
+
+    .. code-block:: shell
+
+        i2cdetect -l
+
+    + 输出信息类似如下，表示检测到 I2C 0、1、2 和 HDMI 的适配器。
+
+    .. code-block:: text
+
+       i2c-1	i2c       	30a30000.i2c                    	I2C adapter
+       i2c-2	i2c       	30a40000.i2c                    	I2C adapter
+       i2c-0	i2c       	30a20000.i2c                    	I2C adapter
+      
+    b）检测总线上的 I2C 设备
+
+    + 输入命令：
+    
+    .. code-block:: shell
+
+      i2cdetect -y 2
+
+    .. note:: i2cdetect 带的参数 2 可以是上一步检测出的总线序号，如 0、1。
+
+    + 输出有类似如下信息，非 “\--” 表示在 I2C 总线对应地址检测到设备。
+
+    .. code-block:: text
+
+           0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+      00:                         -- -- -- -- -- -- -- -- 
+      10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+      20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+      30: -- -- -- -- -- -- -- -- UU -- -- -- -- -- -- -- 
+      40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+      50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+      60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 6f 
+      70: -- -- -- -- -- -- -- --                         
+
+  3）结果：操作过程中的输出信息与预期基本一致，即功能正常。
+
+
+UART
+------
+
++----------+----------+-----------+--------------+----------+
+| 接口位置 | 管脚位置 | 管脚配置  | 系统接口     | 接口功能 |
++----------+----------+-----------+--------------+----------+
+| J21      | P3:3     | UART1_TXD | /dev/ttymxc0 | 调试串口 |
++          +----------+-----------+              +          +
+|          | P3:2     | UART1_RXD |              |          |
++----------+----------+-----------+--------------+----------+
+| J20      | P4:3     | UART2_TXD |              | MCU串口  |
++          +----------+-----------+--------------+          +
+|          | P4:2     | UART2_RXD |              |          |
++----------+----------+-----------+--------------+----------+
+
+  +----------+-----------+----------------+--+----------+-----------+----------------+
+  | 接口位置 | 管脚配置  | 系统接口       |  | 接口位置 | 管脚配置  | 系统接口       |
+  +----------+-----------+----------------+--+----------+-----------+----------------+
+  | P22:35   | UART3_RXD | /dev/ttymxc2   |  | P21:2    | UART4_RXD | /dev/ttymxc3   |
+  +----------+-----------+                +  +----------+-----------+                +
+  | P22:37   | UART3_TXD |                |  | P21:4    | UART4_TXD |                |
+  +----------+-----------+----------------+  +----------+-----------+----------------+
+  | J17:1    | RS232_RX1 | /dev/ttyXRUSB0 |  | J17:7    | RS485_A1  | /dev/ttyXRUSB2 |
+  +----------+-----------+                +  +----------+-----------+                +
+  | J17:3    | RS232_TX1 |                |  | J17:9    | RS485_B1  |                |
+  +----------+-----------+----------------+  +----------+-----------+----------------+
+  | J17:2    | RS232_RX2 | /dev/ttyXRUSB1 |  | J17:8    | RS485_A2  | /dev/ttyXRUSB3 |
+  +----------+-----------+                +  +----------+-----------+                +
+  | J17:4    | RS232_TX2 |                |  | J17:10   | RS485_B2  |                |
+  +----------+-----------+----------------+--+----------+-----------+----------------+
+
+**功能测试**
+
+  1）说明：使用串口自发自收的方式进行测试。
+
+  2）操作
+
+    a）使用杜邦线连接 P22:35 和 P22:37。
+
+    b）运行测试程序：
+
+    + 输入命令：
+  
+    .. code-block:: shell
+
+      /my-demo/serial_test_arm64.out /dev/ttymxc2 "www.myzr.com.cn"
+
+    + 输出信息：
+
+    .. code-block:: text
+
+       Starting send data...finish
+       Starting receive data:
+       ASCII: 0x77 	 Character: w 
+       ASCII: 0x77 	 Character: w 
+       ASCII: 0x77 	 Character: w 
+       ASCII: 0x2e 	 Character: . 
+       ASCII: 0x6d 	 Character: m 
+       ASCII: 0x79 	 Character: y 
+       ASCII: 0x7a 	 Character: z 
+       ASCII: 0x72 	 Character: r 
+       ASCII: 0x2e 	 Character: . 
+       ASCII: 0x63 	 Character: c 
+       ASCII: 0x6f 	 Character: o 
+       ASCII: 0x6d 	 Character: m 
+       ASCII: 0x2e 	 Character: . 
+       ASCII: 0x63 	 Character: c 
+       ASCII: 0x6e 	 Character: n 
+       ASCII: 0x0 	 Character:  
+
+  3）结果：执行测试操作后，输入信息符合正确预期即功能正常。
+
+
+GPIO
+-------
+
++----------+------------+-------+
+| 管脚位置 | 管脚配置   | IO 号 |
++----------+------------+-------+
+| P21:16   | GPIO4_IO22 | 118   |
++----------+------------+-------+
+| P21:31   | GPIO1_IO0  | 32    |
++----------+------------+-------+
+| P22:38   | GPIO5_IO1  | 129   |
++----------+------------+-------+
+| P22:40   | GPIO4_IO30 | 126   |
++----------+------------+-------+
+
+**功能测试**
+
++ GPIO 输出测试
+
+  1）说明：通过系统的接口控制 GPIO 的输出电平。
+
+  2）操作
+
+    a）输入命令导出 IO 操作接口并配置为输出：
+
+    .. code-block:: shell
+
+      export OUT_IO_OUT_NUM-129
+      echo ${OUT_IO_OUT_NUM} > /sys/class/gpio/export
+      echo "out" > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/direction
+
+    b）输入命令控制 IO 输出高电平：
+
+    .. code-block:: shell
+
+       echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+
+    .. note:: 这时用万用表测试对应的管脚，电压应当是 3.3V。
+
+    c）控制 IO 输出低电平：
+
+    .. code-block:: shell
+
+       echo 0 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+
+    .. note:: 这时用万用表测试 J13:16，电压应当是 3.3V。
+
+  3）结果：在测试操作中控制IO电平时，测得的电压与预期符合即正常。
+
+
++ GPIO 输入测试
+
+  1）说明：通过系统的接口配置并读取GPIO的输入电平。
+
+  2）操作
+  
+    a）用杜邦线或跳线帽连接 P22 的 38 和 40 脚。
+
+    b）输入命令导出 IO 操作接口并配置为输入：
+
+    .. code-block:: shell
+
+       export OUT_IO_IN_NUM-126
+       echo ${OUT_IO_IN_NUM} > /sys/class/gpio/export
+       echo "in" > /sys/class/gpio/gpio${OUT_IO_IN_NUM}/direction
+
+    c）输入命令控制 P22:38 输出高电平并读取 P22:40 的输入电平：
+
+    .. code-block:: shell
+
+       # 注释：控制 P22:38 IO 输出高电平
+       echo 1 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+       # 注释：读取 IO 的输入电平
+       cat /sys/class/gpio/gpio${OUT_IO_IN_NUM}/value
+
+    .. note:: 这时命令行界面终端应当输出字符“1”（表示高电平）。
+
+    d）输入命令控制 P22:38 输出低电平并读取 P22:40 的输入电平：
+
+    .. code-block:: shell
+
+       # 注释：控制 P22:38 IO 输出低电平
+       echo 0 > /sys/class/gpio/gpio${OUT_IO_OUT_NUM}/value
+       # 注释：读取 IO 的输入电平
+       cat /sys/class/gpio/gpio${OUT_IO_IN_NUM}/value
+
+    .. note:: 这时命令行界面终端应当输出字符“0”（表示低电平）。
+
+  3）结果：在测试操作中，读取到的电平符合正确预期，即功能正常。
+
+
+SPI
+---
+
++----------+-----------+------------------+
+| 管脚位置 | 管脚配置  | 系统接口         |
++----------+-----------+------------------+
+| P22:27   | SPI1_SCLK | /dev/spidev0.0   |
++----------+-----------+                  +
+| P22:29   | SPI1_MISO |                  |
++----------+-----------+                  +
+| P22:31   | SPI1_MOSI |                  |
++----------+-----------+                  +
+| P22:33   | SPI1_SS   |                  |
++----------+-----------+------------------+
+| P22:19   | SPI2_SCLK | /dev/spidev1.0   |
++----------+-----------+                  +
+| P22:21   | SPI2_MISO |                  |
++----------+-----------+                  +
+| P22:23   | SPI2_MOSI |                  |
++----------+-----------+                  +
+| P22:25   | SPI2_SS   |                  |
++----------+-----------+------------------+
+
+**功能测试**
+
+  1）说明：通过 SPI 接口发送字符串。
+
+  .. note:: 在内核源码的 tools/spi/ 目录下有 spidev_test.c 测试程序，可以自己编译。
+
+  2）操作
+
+  + 使用跳线连接 SPI 的 MISO 和 MOSI
+
+  + 输入命令运行测试程序：
+
+  .. code-block:: shell
+
+     /my-demo/spidev_test -D /dev/spidev0.0 -v -p my_spi_test_string
+
+  .. note:: “my_spi_test_string” 是通过 spi 发送的字符串。
+
+  + 可以看到输出信息类似如下：
+
+  .. code-block:: text
+
+      spi mode: 0x0
+      bits per word: 8
+      max speed: 500000 Hz (500 KHz)
+      TX | 6D 79 5F 73 70 69 5F 74 65 73 74 5F 73 74 72 69 6E 67 __ __ __ __ __ __ __ __ __ __ __ __ __ __  | my_spi_test_string
+      RX | 6D 79 5F 73 70 69 5F 74 65 73 74 5F 73 74 72 69 6E 67 __ __ __ __ __ __ __ __ __ __ __ __ __ __  | my_spi_test_string
+
+  3）结果：看到的输出信息符合正确预期，表示发送成功。
+
+
+音频
+----
+
++ 系统接口：wm8524-audio
+
+**功能测试**
+
+  1）说明：播放音频文件进行测试。
+
+  2）操作
+
+    a）把耳机或喇叭插入丝印 P1 对应的接口。
+
+    b）输入命令进行测试：
+
+    .. code-block:: shell
+
+      aplay /unit_tests/ASRC/audio8k16S.wav
+
+  3）结果：执行测试命令时，耳机可以听到声音，即功能正常。
+
+
+TF卡
+----
+
++ 接口丝印：J5
+
+**功能测试**
+
+  .. note:: 设备的 TF 卡接口支持热插拔，TF 卡座是自弹式。
+
++ TF卡插入测试
+
+  1）说明：插入 TF 卡，观察设备能否正确识别到卡。
+
+  2）操作
+    
+    a）用一张 TF 卡，插入到设备的 TF 卡接口。
+
+    b）输出信息类似如下：
+
+    .. code-block:: text
+
+       ...
+       mmc1: new high speed SDHC card at address 0001
+       mmcblk1: mmc1:0001 TF 4G 3.68 GiB 
+       ...
+
+  3）结果：操作后输出信息符合正确预期，表示正确识别到 TF 卡。
+
+
++ TF卡弹出测试
+
+  1）弹出 TF 卡，观察设备能否正确响应。
+
+  2）操作
+  
+    a）往 TF 卡插入方向往里按（听到“咔”一声松手，TF卡会弹出）。
+
+    b）输出信息类似如下：
+
+    .. code-block:: text
+
+      ...
+      mmc1: card 0001 removed
+      ...
+
+  3）结果：操作时的现象符合正确预期，表示 TF 热插拔正常。
+
+
+USB
+---
+
++ 接口丝印：J18
+
+**功能测试**
+
++ USB设备识别
+
+  1）说明：插入 U 盘，观察设备能否正确响应。
+
+  2）操作：
+
+    a）用一个 U 盘，插入到设备的 USB 接口。
+
+    b）输出信息类似如下：
+
+    .. code-block:: text
+
+       ...
+       usb 1-1.2: new high-speed USB device number 4 using xhci-hcd
+       usb-storage 1-1.2:1.0: USB Mass Storage device detected
+       scsi host0: usb-storage 1-1.2:1.0
+       ...
+
+  3）结果：操作后输出信息符合正确预期，表示正确识别到 U 盘。
+
++ U 盘拔出测试
+
+  1）拔出 U 盘，观察设备能否正确响应。
+
+  2）操作：拔出 U 盘，可以看到输出信息类似如下：
+
+    .. code-block:: text
+
+      ...
+      usb 1-1.2: USB disconnect, device number 4
+      ...
+
+  3）结果：操作时的现象符合正确预期，表示 U 盘拔出正常。
+
+
+HDMI
+----
+
++ 接口丝印：J11
+
+**功能测试**
+
+  1）说明：设备会识别到 HDMI 显示设备并启用，不支持转接（如HDMI转VGA）。
+
+  2）操作：连接 HDMI 显示屏，并为设备重新上电。
+
+  3）结果：设备启动过程中，HDMI显示屏会有显示，即表示功能正常。
+

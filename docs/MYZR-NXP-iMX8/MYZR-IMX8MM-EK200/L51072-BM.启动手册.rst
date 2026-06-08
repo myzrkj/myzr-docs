@@ -1,0 +1,128 @@
+
+启动手册
+========
+
+开发板连接
+----------
+
+检查电源开关
+~~~~~~~~~~~~
+
+| 　　把开发板的电源开关“J2”的“o”按下，以确保开发板电源开关处于断开状态。
+
+串口线的连接
+~~~~~~~~~~~~
+
+| 　　1. 把串口线的一端连接到开发板的“P2”口，另一端连接到电脑的串口或USB口。                                                                     
+| 　　2. 参考  :doc:`《Xshell 参考手册》 </docs/COMMON/Xshell.RM.参考手册>`  新建串口会话并打开会话。      
+
+网线的连接
+~~~~~~~~~~
+
+| 　　把网线的一端连接到“U10”，另一端连接到电脑的网口。
+
+下载线的连接
+~~~~~~~~~~~~
+
+| 　　把双头 USB线的一端连接J14，另一端连接到电脑的后置USB口。
+
+电源线的连接
+~~~~~~~~~~~~
+
+| 　　把电源适配器的一端连接到开发板的“J1”，另一端插入到市电（220V的交流电）插座。
+
+启动开发板
+----------
+
+检查开发板的启动模式拨码
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+| 　　把开发板的“SW1”拨码开关拨到 *启动模式*。
+
+========== ========== ========== ========== ========== 
+BOOT_MODE0 BOOT_MODE1 BOOT_MODE2 BOOT_MODE3 描述 
+========== ========== ========== ========== ========== 
+1          0          1          0          刷机模式
+0          1          1          0          启动模式
+========== ========== ========== ========== ========== 
+
+| 　　注：拨码开关的ON (1) 是字母那一边，OFF (0) 是数字的那一边。
+
+为开发板上电
+~~~~~~~~~~~~
+
+|     把开发板的电源开关“SWITCH”的“-”按下，以使开发板电源开关打开。这时可以看到开发板LED灯有部分亮起来了。
+
+开发板的启动信息解读
+--------------------
+
+|     开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
+
+::
+
+   U-Boot 2021.04-gf0666134 (May 04 2023 - 15:53:36 +0800)
+
+   CPU:   i.MX8MMQ rev1.0 1800 MHz (running at 1200 MHz)
+   CPU:   Commercial temperature grade (0C to 95C) at 41C
+   Reset cause: POR
+   Model: MYZR i.MX8MMini EK200 board
+   DRAM:  2 GiB
+   tcpc_init: Can't find device id=0x52
+   setup_typec: tcpc port2 init failed, err=-19
+   tcpc_init: Can't find device id=0x50
+   setup_typec: tcpc port1 init failed, err=-19
+   MMC:   FSL_SDHC: 1, FSL_SDHC: 2
+   Loading Environment from MMC... *** Warning - bad CRC, using default environment
+
+   ........
+   Moving Image from 0x40480000 to 0x40600000, end=42240000
+   ## Flattened Device Tree blob at 43000000
+     Booting using the fdt blob at 0x43000000
+     Using Device Tree in place at 0000000043000000, end 000000004300e306
+   adv7535_mipi2hdmi adv7535@3d: Can't find cec device id=0x3c
+   fail to probe panel device adv7535@3d
+   mxs_video lcdif@32e00000: failed to get any video link display timings
+   probe video device failed, ret -22
+
+   Starting kernel ...
+
+   [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+   [    0.000000] Linux version 5.10.72-g492a823d1cf5-dirty (zhongjy@myzr-8a09) (aarch64-linux-gnu-gcc (Linaro GCC 7.5-2019.12) 7.5.0, GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706) #1 SMP PREEMPT Mon May 8 08:25:31 UTC 2023
+
+   ............
+   NXP i.MX Release Distro 5.10-hardknott imx8mm-ddr4-evk ttymxc1
+
+U-Boot 信息
+~~~~~~~~~~~
+
+| 　　启动信息中 ``U-Boot 2021.04-gf0666134 (May 04 2023 - 15:53:36  +0800)`` 包含以下信息：
+| 　　【u-boot版本】：U-Boot 2021.04；
+| 　　【源码的版本号】：gf0666134；
+| 　　【u-boot文件的编译时间】：May 04 2023 - 15:53:36 +0800。
+
+内核信息
+~~~~~~~~
+
+| 　　启动信息中 ``Linux version 5.10.72-g492a823d1cf5-dirty (zhongjy@myzr-8a09) (aarch64-linux-gnu-gcc (Linaro GCC 7.5-2019.12) 7.5.0, GNU ld (Linaro_Binutils-2019.12) 2.28.2.20170706) #1 SMP PREEMPT Mon May 8 08:25:31 UTC 2023`` 包含以下信息：
+| 　　【内核版本】：5.10.72-g492a823d1cf5-dirty；
+| 　　【编译内核的GCC版本】： 7.5；
+| 　　【内核文件的编译时间】： Mon May 8 08:25:31 UTC 2023。
+
+开发板登录
+----------
+
+| 　　启动系统完后输出 ``imx8mm-ddr4-evk login:`` 时，可以登录：
+| 　　【用户名】：root
+| 　　【密码】：无
+| 　　**提示**：登录后可以通过“passwd”命令来设置和修改密码。
+
+--------------------------------------------------------------------------------
+
+::
+
+   --------------------------------------------------------------------------------
+   * 珠海明远智睿科技有限公司  
+   * ZhuHai MYZR Technology CO.,LTD.
+   * Latest Update: 2023/5/08  
+   * Supporter: Zhong JiaYi
+   --------------------------------------------------------------------------------
