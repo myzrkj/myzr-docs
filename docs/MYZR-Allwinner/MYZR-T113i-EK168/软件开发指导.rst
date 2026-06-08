@@ -1,0 +1,345 @@
+软件开发指导
+==============
+
+编译手册
+----------
+
+编译环境要求
+~~~~~~~~~~~~~
+
+1. 编译主机需在ubuntu系统中进行，笔者主机系统为Ubuntu 20.04，推荐使用与笔者相同版本的Ubuntu，避免因为版本不同导致一些工具出现兼容问题。
+2. 主机需可连接外网，因为编译系统过程需要下载某些文件。
+3. 部分文件的代码语法与python3有冲突，推荐使用python2。
+
+下载源码包
+~~~~~~~~~~~
+
+1. 下载Tina5.0源码包。
+2. 创建编译目录：
+
+.. code-block:: shell
+
+   mkdir -p ~/my-work/Tina5.0/
+
+3. 把源码放到刚创建的目录中，并进行解压：
+
+.. code-block:: shell
+
+   tar xvf 133-tina5.0-20240926-v1.1.tar.gz -C ~/my-work/Tina5.0/
+
+Linux 系统镜像编译及生成
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. 编译环境配置
+
+|  进入Tina5.0目录，执行如下命令，清除旧的编译和配置生成文件，初始化环境变量：
+
+.. code-block:: shell
+
+   cd Tina5.0
+   ./build.sh distclean
+
+   cd Tina5.0
+   source build/envsetup.sh
+
+2. 开发板型号选择
+
+|  执行如下命令选择开发板型号：
+
+.. code-block:: shell
+
+   lunch
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册1.png
+   :alt: 编译手册1.jpg
+
+3. 配置信息
+
+|  执行如下命令配置开发板的相关信息：
+
+.. code-block:: shell
+
+   ./build.sh config
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册2.png
+   :alt: 编译手册2.jpg
+
+4. 编译 LinuxSDK
+
+|  执行如下命令，对 LinuxSDK 进行整体编译：
+
+.. code-block:: shell
+
+   ./build.sh
+
+5. 打包镜像
+
+|  执行如下命令，打包生成 Linux 系统镜像：
+
+.. code-block:: shell
+
+   ./build.sh pack
+
+6. 局部编译
+
+|  在Tina5.0目录下执行如下命令，单独编译kernel：
+
+.. code-block:: shell
+
+   ./build.sh kernel
+
+|  打包生成 boot.fex 文件，路径为：/out/t113_i/evb1_auto/pack_out
+
+.. code-block:: shell
+
+   ./build.sh pack
+
+|  将 boot.fex 添加进系统文件下，执行如下命令：
+
+.. code-block:: shell
+
+   dd if=boot.fex of=/dev/mmcblk1p4
+
+   reboot
+
+|  在Tina5.0目录下执行如下命令，单独编译bootloader：
+
+.. code-block:: shell
+
+   ./build.sh buildroot_rootfs
+
+
+编译过程中可能遇见的问题
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. 执行./build.sh时遇见路径错误
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册3.png
+   :alt: 编译手册3.jpg
+
+|  执行以下指令
+
+.. code-block:: shell
+
+   cd ./rtos/lichee/rtos
+
+   make distclean
+
+|  若在执行make distclean时，遇见语法问题：
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册4.png
+   :alt: 编译手册4.jpg
+
+|  执行以下指令，检查当前使用的 python 版本，若当前使用的为 python3，则需修改为 python2
+
+.. code-block:: shell
+
+   python --version
+
+2. 显示无法找到文件drv_type.h文件：
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册5.png
+   :alt: 编译手册5.jpg
+
+|  执行以下指令：
+
+.. code-block:: shell
+
+   vim ./kernel/linux-5.4/drivers/net/wireless/realtek/rtl8723du/Makefile
+
+|  找到如下代码：
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册6.png
+   :alt: 编译手册6.jpg
+
+|  修改代码如下图所示，或修改为当前 PC 机的绝对路径：
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/编译手册7.png
+   :alt: 编译手册7.jpg
+
+
+开发指导
+---------
+
+U-Boot板级文件
+~~~~~~~~~~~~~~~~
+
+- u-boot设备树文件：/brandy/brandy-2.0/u-boot-2018/arch/arm/dts/sun8iw20p1-soc-system.dts
+   /device/config/chips/t113_i/configs/evb1_auto/uboot-board.dts
+
+- u-boot板级配置文件：/brandy/brandy-2.0/u-boot-2018/include/configs/sun8iw20p1.h
+- u-boot极级编译配置文件：/brandy/brandy-2.0/u-boot-2018/configs/sun8iw20p1_auto_t113_i_defconfig
+
+Linux 内核板级文件
+~~~~~~~~~~~~~~~~~~~
+
+- 内核板级编译配置文件：device/config/chips/t113_i/configs/evb1_auto/linux-5.4/board.dts
+- 内核板级设备树文件：device/config/chips/t113_i/configs/evb1_auto/linux-5.4/config-5.4
+
+CAN
+~~~~~
+
+1. CAN 简介
+
+|  CAN(Controller Area Network)总线，即控制器局域网总线，是一种有效支持分布式控制或实时控制的串行通信网络。CAN总线是一种在汽车上广泛采用的总线协议，被设计作为汽车环境中的微控制器通讯。 如果想了解更多的内容可以参考CAN应用报告
+
+2. DTS 节点配置
+
+|  内核设备树 device/config/chips/t113_i/configs/evb1_auto/linux-5.4/board.dts
+
+.. code-block:: shell
+
+   can0: can@0x0 {
+                   #address-cells = <1>;
+                   #size-cells = <0>;
+                   compatible = "allwinner,sun8i-awlink";
+                   device_type = "awlink0";
+                   id = <0>;
+                   /*
+                   status = "disabled";
+                   */
+                   status = "okay";
+           };
+   can1: can@0x1 {
+                   #address-cells = <1>;
+                   #size-cells = <0>;
+                   compatible = "allwinner,sun8i-awlink";
+                   device_type = "awlink1";
+                   id = <1>;
+                   /*
+                   status = "disabled";/
+                   */
+                   status = "okay";
+           };
+
+3. 更多指令
+
+.. code-block:: shell
+
+   1、 ip link set awlinkX down                 //关闭can设备；
+   2、 ip link set awlinkX up                   //开启can设备；
+   3、 ip -details link show awlinkX                 //显示can设备详细信息；
+   4、 candump awlinkX                          //接收can总线发来数据；
+   5、 ifconfig awlinkX down                         //关闭can设备，以便配置;6、 ip link set canX up type can bitrate 250000 //设置can波特率
+   7、 conconfig awlinkX bitrate + 波特率；
+   8、 canconfig awlinkX start                 //启动can设备；
+   9、 canconfig awlinkX ctrlmode loopback on //回环测试；
+   10、canconfig awlinkX restart                 // 重启can设备；
+   11、canconfig awlinkX stop                 //停止can设备；
+   12、canecho awlinkX                         //查看can设备总线状态；
+   13、cansend awlinkX --identifier=ID+数据         //发送数据；
+   14、candump awlinkX --filter=ID：mask        //使用滤波器接收ID匹配的数据
+
+UART
+~~~~~~
+
+1. UART 简介
+
+|  ART（Universal Asynchronous Receiver/Transmitter）是一种通用异步串行通信接口
+
+2. DTS 节点配置
+
+|  内核设备树 device/config/chips/t113_i/configs/evb1_auto/linux-5.4/board.dts
+
+.. code-block:: shell
+
+   &uart0 {
+       pinctrl-names = "default", "sleep";
+       pinctrl-0 = <&uart0_pins_a>;
+       pinctrl-1 = <&uart0_pins_b>;
+           status = "okay";
+   };
+   
+   &uart1 {
+           pinctrl-names = "default", "sleep";
+           pinctrl-0 = <&uart1_pins_a>;
+           pinctrl-1 = <&uart1_pins_b>;
+           status = "okay";
+   };
+   
+   &uart2 {
+           pinctrl-names = "default", "sleep";
+           pinctrl-0 = <&uart2_pins_a>;
+           pinctrl-1 = <&uart2_pins_b>;
+           /*
+           status = "disabled";
+           */
+           status = "okay";
+   };
+   
+   &uart3 {
+           pinctrl-names = "default", "sleep";
+           pinctrl-0 = <&uart3_pins_a>;
+           pinctrl-1 = <&uart3_pins_b>;
+       /*
+       status = "disabled";
+       */
+       status = "okay";
+   };
+   
+   
+   &uart4 {
+           pinctrl-names = "default", "sleep";
+           pinctrl-0 = <&uart4_pins_a>;
+           pinctrl-1 = <&uart4_pins_b>;
+           status = "okay";
+   };
+   
+   &uart5 {
+           pinctrl-names = "default", "sleep";
+           pinctrl-0 = <&uart5_pins_a>;
+           pinctrl-1 = <&uart5_pins_b>;
+           status = "okay";
+   };
+
+GPIO
+~~~~~~~
+
+1. GPIO 简介
+
+|  GPIO，全称 General-Purpose Input/Output（通用输入输出），是一种软件运行期间能够动态配置和控制的通用引脚。 所有的 GPIO 在上电后的初始状态都是输入模式，可以通过软件设为上拉或下拉，也可以设置为中断脚，驱动强度都是可编程的，其核心是填充 GPIO bank 的方法和参数，并调用 gpiochip_add 注册到内核中。
+
+2. GPIO引脚编号计算
+
+|  GPIO pin脚计算公式：pin = bank * 32 + number
+|  引脚命名分别为：PB x、PC x、PD x、PE x、PF x、PG x。
+|  下面演示PC0引脚计算方法：
+|  因为没有被命名为PA的引脚，所以PC0引脚的bank等于2，
+|  Pin = 2 * 32 + 0 = 64
+
+3. 中断
+
+|  IRQ_TYPE_LEVEL_LOW 表示中断由低电平触发，当该引脚接收到低电平信号时可以触发中断函数。 这里还可以配置成如下：
+|  IRQ_TYPE_NONE //默认值，无定义中断触发类型
+|  IRQ_TYPE_EDGE_RISING //上升沿触发
+|  IRQ_TYPE_EDGE_FALLING //下降沿触发
+|  IRQ_TYPE_EDGE_BOTH //上升沿和下降沿都触发
+|  IRQ_TYPE_LEVEL_HIGH //高电平触发
+|  IRQ_TYPE_LEVEL_LOW //低电平触发
+
+4. GPIO 调试接口
+
+|  Debugfs 文件系统目的是为开发人员提供更多内核数据，方便调试。 这里 GPIO 的调试也可以用 Debugfs 文件系统，获得更多的内核信息。GPIO 在 Debugfs 文件系统中的接口为 /sys/kernel/debug/gpio，可以这样读取该接口的信息：
+
+.. code-block:: shell
+
+   ## 手动挂载 debugfs
+   mount -t debugfs none /sys/kernel/debug
+
+   cat sys/kernel/debug/gpio
+   gpiochip0: GPIOs 0-223, parent: platform/2000000.pinctrl, 2000000.pinctrl:
+    gpio-44  (                    |usb0-vbus           ) out lo 
+    gpio-64  (                    |heartbeat           ) out lo 
+    gpio-65  (                    |disk                ) out lo 
+    gpio-108 (                    |bt_hostwake         ) in  hi 
+    gpio-109 (                    |bt_wake             ) out lo 
+    gpio-130 (                    |otg_id              ) in  hi IRQ 
+    gpio-166 (                    |cd                  ) in  hi ACTIVE LOW
+    gpio-203 (                    |user-led0           ) out lo 
+
+HDMI
+~~~~~~~
+
+|  硬件上有一个HDMI显示输出接口，通过LT8912B芯片实现MIPI转HDMI显示输出。
+|  内核驱动文件：kernel/linux-5.4/drivers/video/fbdev/sunxi/disp2/disp/lcd/lt8912b.c
+|  u-boot驱动文件：brandy/brandy-2.0/u-boot-2018/drivers/video/sunxi/disp2/disp/lcd/lt8912b.c

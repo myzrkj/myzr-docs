@@ -1,0 +1,296 @@
+测试指导
+=========
+
+|  提示：因为测试过程中部分指令的使用或者文件的修改需要使用root权限，建议测试开始前使用以下指令切换为root用户再开始测试。
+
+.. code-block:: shell
+
+   su -
+
+GPIO测试
+----------
+
+|  在引脚测试前需要知道相应引脚的引脚编号，AllwinnerPin 是一款全志芯片引脚编号计算器软件。
+|  我们以J11排针的PH6引脚为例，先将PH6输入到AllwinnerPin 里并点击计算，
+
+.. figure:: /image/MYZR-全志系列/MYZR-H618-EK120/测试1.png
+   :alt: 测试1.png
+
+|  可以得到引脚编号，利用指令可以控制该引脚
+
+.. code-block:: shell
+
+   echo 230 > /sys/class/gpio/export #导出引脚
+   echo out > /sys/class/gpio/gpio230/direction #设置为输出模式
+   echo 1 > /sys/class/gpio/gpio230/value #设置为高电平
+
+|  此时用指令:
+
+.. code-block:: shell
+
+   cat /sys/class/gpio/gpio230/value
+
+|  应该返回1代表引脚已经被设置为高电平，或者用万用表测量PH6，此时引脚电压应该为3.3V。
+
+网口测试
+----------
+
+|  接口丝印：J6
+|  系统接口：eth0
+|  测试说明：采用开发板向PC发送ICMP报文的方式进行测试
+|  测试操作
+
+1. 配置电脑有线网卡IP为 192.168.137.99
+2. 使用网线连接开发板网口和电脑的网口
+3. 查看开发板网口1信息，输入指令如下：
+
+.. code-block:: shell
+
+   ifconfig eth0
+
+4. 配置网口1的IPV4 IP，输入指令如下：
+
+.. code-block:: shell
+
+   ifconfig eth0 192.168.137.18 netmask 255.255.255.0
+
+5. 再次查看开发板网口1信息，确认 IPv4 地址是否成功配置，如未成功配置请从步骤4开始重新执行操作，输入指令如下：
+
+.. code-block:: shell
+
+   ifconfig eth0
+
+6. 输入指令如下进行验证网口1：
+
+.. code-block:: shell
+
+   ping -I eth0 192.168.137.99 -c 3
+
+|  "0% packet loss"表示测试通过
+
+
+USB测试
+---------
+
+|  接口丝印：J4
+|  测试说明：采用插拔USB存储设备（U盘）的方式进行测试
+|  测试操作
+
+1. 将U盘插入底板USB接口
+
+|  输入指令：
+
+.. code-block:: shell
+
+   lsblk -d -o NAME,SIZE,MODEL,VENDOR,TRAN | grep -v "loop\|mmcblk"
+
+|  可以看到类似如下返回信息代表USB接口识别成功：
+
+.. code-block:: shell
+
+   NAME           SIZE MODEL VENDOR   TRAN
+   sda            7.5G UDisk General  usb
+
+音频播放测试
+--------------
+
+|  接口丝印：P1
+|  测试说明：播放音频文件验证开发板的音频播放功能
+|  测试操作
+
+1. 把耳机或者喇叭接入丝印对应的接口
+2. 输入指令如下进行测试：
+
+.. code-block:: shell
+
+   aplay /mytest.wav
+
+|  耳机有声音输出表示音频播放测试通过
+
+
+UART测试
+----------
+
+|  接口丝印：J11
+|  测试说明：采用uart自发自收的方式进行测试
+|  测试前准备：开发板启动后修改/boot/uEnv.txt文件，添加
+
+.. code-block:: shell
+
+   overlays=h618-myzr-uart5-overlay.dtbo
+
+|  然后保存退出后重启开发板。
+|  测试操作
+
+1. 短接J11-PH2(UART5_TX)和J11-PH3(UART5_RX)引脚(请对照丝印图)
+2. 输入指令如下进行收发测试：
+
+.. code-block:: shell
+
+   /serial_test /dev/ttyAS5 "myzr"
+
+|  执行测试指令后输出如下类似信息表示uart测试通过，按下'Ctrl + C'退出
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x6d          Character: m 
+   ASCII: 0x79          Character: y 
+   ASCII: 0x7a          Character: z 
+   ASCII: 0x72          Character: r 
+   ASCII: 0x0          Character:  
+
+
+SPI测试
+---------
+
+|  接口丝印：J11
+|  测试说明：采用spi自发自收的方式进行测试
+|  测试前准备：开发板启动后修改/boot/uEnv.txt文件，添加
+
+.. code-block:: shell
+
+   overlays=h618-myzr-spi1-overlay.dtbo
+
+|  然后保存退出后重启开发板。
+|  测试操作
+
+1. 短接J11-PH7(SPI1.0_MOSI)和J11-PH8(SPI1.0_MISO)引脚
+2. 输入指令如下进行收发测试：
+
+.. code-block:: shell
+
+   /spidev_test -D /dev/spidev1.0
+
+|  执行测试指令后输出如下类似信息表示spi测试通过：
+
+.. code-block:: shell
+
+   spi mode: 0
+   bits per word: 8
+   max speed: 100000 Hz (100 KHz)
+
+   FF FF FF FF FF FF 
+   40 00 00 00 00 95 
+   FF FF FF FF FF FF 
+   FF FF FF FF FF FF 
+   FF FF FF FF FF FF 
+   DE AD BE EF BA AD 
+   F0 0D 
+
+|  说明：spidev1.0和spidev1.1接口仅对应的片选信号不同
+
+
+红外测试
+----------
+
+|  接口丝印：J8
+|  测试说明：通过接收红外信息，打印出相应数据
+|  测试操作
+
+1. 用手机的红外遥控app，选择海信电视遥控器
+2. 打开相关打印开关，输入指令如下：
+
+.. code-block:: shell
+
+   hexdump /dev/input/event0
+
+3. 使用遥控器对准红外接口按下任意按钮
+4. 开发板看到返回相关按钮信息即为成功接收到。可以看到类似如下的返回信息：
+
+.. code-block:: shell
+
+   0000000 a71e 6899 0000 0000 1280 0007 0000 0000
+   0000010 0004 0004 000d 01bf a71e 6899 0000 0000
+   0000020 1280 0007 0000 0000 0000 0000 0000 0000
+   0000030 a71e 6899 0000 0000 5e17 000a 0000 0000
+   0000040 0004 0004 000d 00bf a71e 6899 0000 0000
+   0000050 5e17 000a 0000 0000 0000 0000 0000 0000
+ 
+
+wifi测试
+-----------
+
+|  天线接口丝印：CN1
+|  测试说明：测试前需要接上天线,WIFI连接到AP后，开发板向外网发送ICMP报文来验证连接正常。
+|  测试操作
+|  生成 SSID 的 WPA PSK 文件，输入：
+
+.. code-block:: shell
+
+   wpa_passphrase MY-WIFI My202412 > /etc/wpa_supplicant.conf
+
+|  连接：
+
+.. code-block:: shell
+
+   wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+
+|  获取ip:
+
+.. code-block:: shell
+
+   dhclient -v wlan0 
+
+|  测试连接：
+
+.. code-block:: shell
+
+   ping 8.8.8.8
+
+|  执行测试指令后输出如下类似信息表示wifi测试通过，按下'Ctrl + C'退出
+
+.. code-block:: shell
+
+   PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+   64 bytes from 8.8.8.8: icmp_seq=1 ttl=115 time=182 ms
+   64 bytes from 8.8.8.8: icmp_seq=4 ttl=115 time=41.6 ms
+   64 bytes from 8.8.8.8: icmp_seq=7 ttl=115 time=47.7 ms
+   64 bytes from 8.8.8.8: icmp_seq=8 ttl=115 time=98.3 ms
+
+蓝牙测试
+----------
+
+|  天线接口丝印：CN1
+|  测试说明：测试前需要接上天线,扫描到蓝牙设备后，发送L2CAP回应请求并接收回答。
+|  在系统内部内置 bluetoothctl 命令行工具，直接输入指令完成蓝牙的启动和连接：
+
+.. code-block:: shell
+
+   # 1. 进入蓝牙控制终端
+   bluetoothctl
+
+   # 2. 开启蓝牙并初始化（逐行执行）
+   [bluetooth]# power on
+   [bluetooth]# agent on
+   [bluetooth]# default-agent
+
+   # 3. 扫描周围设备（持续10秒）
+   [bluetooth]# scan on
+   # 等待出现目标设备（如：60:C7:BE:27:3E:CE myzr）
+   # 按Ctrl+C停止扫描
+
+   # 4. 配对连接设备（替换为实际MAC）
+   [bluetooth]# trust 60:C7:BE:27:3E:CE
+   [bluetooth]# pair 60:C7:BE:27:3E:CE
+   # 手机端确认配对码（在串口终端输入 yes）
+
+   # 5. 验证连接状态
+   [bluetooth]# info 60:C7:BE:27:3E:CE
+   # 检查 "Connected: yes" 和 "Paired: yes"
+
+   # 6. 断开连接
+   [bluetooth]# disconnect 60:C7:BE:27:3E:CE
+   [bluetooth]# remove 60:C7:BE:27:3E:CE
+   [bluetooth]# exit
+
+
+显示屏
+--------
+
+|  接口丝印：J5
+|  测试说明：查看开发板上电启动显示屏是否正常显示
+|  测试操作
+|  将一个HDMI接口的屏幕和开发板上的HDMI接口连接，启动开发板
+|  显示屏正常显示表示测试通过

@@ -1,0 +1,82 @@
+刷新固件
+=========
+
+准备工作：
+----------
+
+1. 准备一张容量不小于16G的SD卡（因为烧录镜像前需要对SD卡进行格式化，请务必提前备份好SD卡内的数据），并准备一个读卡器 2.运行软件 SD Card Formatter 对SD卡进行格式化操作
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件1.png
+   :alt: 刷新固件1.png
+   :width: 60%
+
+烧写镜像：
+-----------
+
+1. 运行balenaEtcher，可以看到如下界面，
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件2.png
+   :alt: 刷新固件2.png
+   :width: 60%
+
+2. 点击“从文件烧录”，选择要烧录的linux镜像
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件3.png
+   :alt: 刷新固件3.png
+   :width: 60%
+
+3. 点击选择目标磁盘，选择准备工作中已经格式化的SD卡：
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件4.png
+   :alt: 刷新固件4.png
+   :width: 60%
+
+4. 点击“现在烧录”后等待烧录完成
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件5.png
+   :alt: 刷新固件5.png
+   :width: 60%
+
+5. 烧录完成，将SD卡插入开发板，上电启动
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件6.png
+   :alt: 刷新固件6.png
+   :width: 60%
+
+|  提示：ubuntu和debian镜像目前仅支持SD卡烧录,如需要烧写进emmc，请执行以下“镜像从SD卡下载到eMMC”的操作。
+
+
+镜像从SD卡下载到eMMC
+----------------------
+
+|  启动系统后在终端执行以下命令
+
+.. code-block:: shell
+
+   sudo nand-sata-install 2 1
+
+|  回车，输入密码：myzr
+|  等待烧录完成：
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件7.png
+   :alt: 刷新固件7.png
+   :width: 60%
+
+|  烧录完成：
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件8.png
+   :alt: 刷新固件8.png
+   :width: 60%
+
+|  回车，回车后给开发板断电，然后取下SD卡即可使用emmc启动系统。
+|  注意回车后出现以下类似返回为正常现象：
+
+.. image:: /image/MYZR-全志系列/MYZR-H618-EK120/刷新固件9.png
+   :alt: 刷新固件9.png
+   :width: 60%
+
+|  如需执行emmc擦除，执行：
+
+.. code-block:: shell
+
+   mkfs.ext4 /dev/mmcblk0

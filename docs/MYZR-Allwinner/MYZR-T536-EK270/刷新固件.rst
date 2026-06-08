@@ -1,0 +1,90 @@
+刷新固件
+=========
+
+通过USB刷机
+-------------
+
+安装PhoenixSuit软件
+~~~~~~~~~~~~~~~~~~~~~
+
+- 从下载的网盘资料中找到PhoenixSuit安装包，路径为：3.软件资料-->3.2-工具-->PhoenixSuit_msi V1.19.zip
+- 解压PhoenixSuit_msi V1.19.zip后进入PhoenixSuit_msi V1.19文件夹
+- 直接双击PhoenixSuit_CN.msi程序进行安装，安装步骤如下:
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件1.png
+   :alt: 刷新固件1.jpg
+   :width: 60%
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件2.png
+   :alt: 刷新固件2.jpg
+   :width: 60%
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件3.png
+   :alt: 刷新固件3.jpg
+   :width: 60%
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件4.png
+   :alt: 刷新固件4.jpg
+   :width: 60%
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件5.png
+   :alt: 刷新固件5.jpg
+   :width: 60%
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件6.png
+   :alt: 刷新固件6.jpg
+   :width: 60%
+
+刷机
+~~~~~~~
+
+- 打开PhoenixSuit，用Type-C线连接开发板和电脑，给开发板上电
+- 开发板启动完成后可以点击立即升级，或者上电前长按KEY3，就能直接烧录
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件7.png
+   :alt: 刷新固件7.jpg
+   :width: 60%
+
+- 烧写界面如下
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件8.png
+   :alt: 刷新固件8.jpg
+   :width: 60%
+
+- 烧写完成重新启动开发板即可
+
+通过TF卡刷机
+-------------
+
+制作烧写卡
+~~~~~~~~~~~
+
+- 从下载的网盘资料中找到PhoenixCard V4.3.1.zip，路径为：3.软件资料-->3.2-工具-->PhoenixCard V4.3.1.zip
+- 解压PhoenixCard V4.3.1.zip，打开解压后的文件，找到并双击打开 PhoenixCard.exe。
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件9.png
+   :alt: 刷新固件9.jpg
+   :width: 60%
+
+- 将TF卡通过读卡器与电脑连接(注意：文件烧录至TF卡时会自动格式化TF卡)，等待软件识别到TF卡，识别成功如下
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件10.png
+   :alt: 刷新固件10.jpg
+   :width: 60%
+
+- 点击固件选择要烧录的文件，"制作卡的种类"选择"量产卡"，点击烧卡
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件11.png
+   :alt: 刷新固件11.jpg
+   :width: 60%
+
+- 等待烧录完成，烧录完成输出信息如下
+
+.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/刷新固件12.png
+   :alt: 刷新固件12.jpg
+   :width: 60%
+
+刷机
+~~~~~~
+
+|  制作完烧写卡后，将烧写卡插入开发板 TF 卡槽，上电启动，待串口终端有如下打印信息说明系统烧录完成。此时拔出烧写卡，重新启动开发板便可进到烧录后的系统

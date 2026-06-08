@@ -1,0 +1,78 @@
+刷新固件
+=========
+
+使用TF卡刷机
+-------------
+
+|   使用 PhoenixCard 工具可以将 Linux 系统镜像文件通过读卡器固化到 SD 卡上，将 SD 卡制作成 “启动卡” 或者 “量产卡”。
+
+1. 将空白的 SD 卡通过读卡器连接至电脑主机，双击打开 PhoenixCard 系统固化工具。
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/刷新固件1.png
+   :alt: 刷新固件1.jpg
+   :width: 60%
+
+2. 工具运行后会自动识别到连接至电脑主机的 SD。
+3. 点击 “固件” 选择需要烧录的目标镜像，选择 “启动卡” ，最后选择 “烧卡” 。
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/刷新固件2.png
+   :alt: 刷新固件2.jpg
+   :width: 60%
+
+4. 烧录完成
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/刷新固件3.png
+   :alt: 刷新固件3.jpg
+   :width: 60%
+
+5. 启动开发板：
+
+|   把开发板断电，将烧入完成的TF卡插入开发板Micro SD（CON7）接口，SW2拨码开关拨为0,使能Micro SD接口。并为开发板上电，开发板即可正常启动。
+
+
+
+使用USB转Type-C数据线刷机
+--------------------------
+
+1. 使用Type-C线将开发板USB0 DRD接口连接至PC机USB接口。
+2. 双击PhoenixSuit_CN.msi进行安装，默认安装选项即可，安装完成将在桌面生成快捷方式。
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/刷新固件4.png
+   :alt: 刷新固件4.jpg
+   :width: 60%
+
+3. 双击打开PhoenixSuit工具，点击“一键刷机”，然后点击“浏览”，选择Linux系统镜像文件。
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/刷新固件5.png
+   :alt: 刷新固件5.jpg
+   :width: 60%
+
+4. 将开发板断电，长按KEY1按键，在将开发板上电，当PhoenixSuit工具出现如下图界面后，松开KEY1按键，在PhoenixSuit工具界面选择 “是”。
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/刷新固件6.png
+   :alt: 刷新固件6.jpg
+   :width: 60%
+
+5. 出现如下界面，表示刷机完成。
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/刷新固件7.png
+   :alt: 刷新固件7.jpg
+   :width: 60%
+
+6. 将开发板断电，SW2拨码开关拨为1，重新上电，开发板会自动从EMMC启动系统。
+
+
+分区烧录
+----------
+
+|   请打开PhoenixSuit工具，点击 “一键刷机”，然后选择系统镜像文件后，勾选 “单个或多个分区” 选项，勾选后会出现以下分区选项，可根据实际需要勾选对应分区进行固化；若全不选，则仅下载boot0，boot1，即 boot_package.fex文件，可用于更新U-Boot与设备树。
+
+.. image:: /image/MYZR-全志系列/MYZR-T113-i-EK168/刷新固件8.png
+   :alt: 刷新固件8.jpg
+   :width: 60%
+
+|  BOOT-RESOURCE：存放bootlogo等资源。
+|  ENV：存放U-Boot环境变量env.fex。
+|  ENV-REDUND：存放U-Boot环境变量env.fex。
+|  BOOT：存放内核镜像boot.fex。
+|  ROOTFS：存放文件系统镜像rootfs.fex。

@@ -1,0 +1,31 @@
+软件开发指导
+=============
+
+编译手册
+----------
+
+1. 下载源码：打开网盘到 3.软件资料 -> linux-5.4（ubuntu），下载 3.4-源码 目录。
+2. 将已经下载的SDK压缩包MYZR-H618-EK120_20250812.tar.gz解压后，进入到目录myzr-h618-ek120
+
+.. code-block:: shell
+
+    cd myzr-h618-ek120
+
+|   在myzr-h618-ek120目录下，运行编译脚本
+
+.. code-block:: shell
+
+    ./build.sh
+
+|   可以看到如下选择项
+
+.. figure:: /image/MYZR-全志系列/MYZR-H618-EK120/编译固件1.png
+   :alt: 编译固件1.png
+
+|   首次编译建议选择 “Build all step”回车后选择开发板型号和将要构建的系统类型后回车，编译脚本将自动完成编译和打包的整个过程。也可以单步构建，从step1到step4逐步进行构建。
+
+|   编译完成后可以在以下路径找到生成的镜像,例如：
+
+.. code-block:: shell
+
+    myzr-h618-ek120/out/images/myzr-h618-ek120-*/myzr-h618-ek120-*.img

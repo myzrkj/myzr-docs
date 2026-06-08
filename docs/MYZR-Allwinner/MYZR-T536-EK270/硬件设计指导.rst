@@ -1,0 +1,651 @@
+硬件设计指导
+=============
+
+前 言
+-------
+
+|  本文档主要介绍 MYZR_T536-MB的底板硬件接口资源以及设计注意事项等内容。
+|  T536MX-CXX/T536MX-CEN2 处理器的 IO 电平标准一般为 1.8V、 3.3V，上拉电源一般不超过 3.3V 或 1.8V，当外接信号电平与 IO 电平不匹配时，中间需增加电平转换芯片或信号隔离芯片。按键或接口需考虑 ESD 设计， ESD 器件选型时需注意结电容是否偏大，否则可能会影响到信号通信。  
+
+1  电源
+---------
+
+|  底板由 12V 直流电源供电， CON2 和 CON3 为电源输入连接器。 CON2 为 3pin 规格的绿色连接器，间距为 3.81mm。 CON3 为 DC-005 电源接口，可接外径 5.5mm、内径 2.1mm的电源插头。 SW1 为电源拨动开关，使用时请根据附近的 ON/OFF 丝印进行选择。  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件1.jpg
+   :alt: 硬件1.jpg
+
+|  电源输入端提供过流保护、过压保护、防反插及快速掉电等电路保护功能。
+
+**（1）输入级电源保护电路设计，如下图所示。**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件2.png
+   :alt: 硬件2.png
+
+|  VDD_12V_MAIN 通过不同电源芯片转为核心板及底板外设的供电。 核心板提供底板辅助电源信号VDD_3V3_SOM_OUT，用于控制评估底板各路电源上电时序。
+|  评估板推荐的上电时序： 12V DC 供电（VDD_12V_MAIN） -> 核心板供电（VDD_5V_SO M） -> 核心板配置底板辅助电源（VDD_3V3_SOM_OUT） -> 底板外设供电 -> 系统复位（AF 27/RESETn/PU/1V8），如下图所示。  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件3.png
+   :alt: 硬件3.png
+
+1.1 核心板电源
+~~~~~~~~~~~~~~~~
+
+|  VDD_12V_MAIN 通过 `silergy（矽力杰） <https://list.szlcsc.com/brand/897.html?spm=sc.gb.xh1.zy.p___sc.gb.hd.ss&lcsc_vid=RlReVAJXE1JcBlNeQ1IKXwdWTgBcA1VSQAcLAQVQQwAxVlNSQFdfUFZQRlBWVDtW>`_ 的SY8113BADC DCDC电源芯片产生一路 5V 电源，用于 SOM-TLT536 核心板的供电， 该电源网络名为 VDD_5V_SOM，最大电流供给能力为3A。该电源使能由输入VDD_12V_MAIN 分压提供，实现上电即使能的时序控制。为保护核心板及方便测量电压电流，电源路径中已串接保险丝 F2。  
+
+**（1）VDD_5V_SOM 电源设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件4.png
+   :alt: 硬件4.png
+
+|  **注意：** 为保证核心板长期稳定可靠工作，请按我司提供的工作电压典型值（5.0V）要求为核心板供电。  
+
+
+1.2 底板外设电源
+~~~~~~~~~~~~~~~~~~
+
+
+|  VDD_12V_MAIN 通过 4 个 `silergy（矽力杰） <https://list.szlcsc.com/brand/897.html?spm=sc.gb.xh1.zy.p___sc.gb.hd.ss&lcsc_vid=RlReVAJXE1JcBlNeQ1IKXwdWTgBcA1VSQAcLAQVQQwAxVlNSQFdfUFZQRlBWVDtW>`_ 的SY8113BADC DCDC电源芯片产生4路评估底板外设电源，网络名分别为： VDD_5V_MAIN、 VDD_3V3_MAIN、 VDD_3V3_PCIE、VDD_1V8_MAIN，最大电流供给能力为 3A。4 路电源使能统一由核心板 VDD_3V3_SOM_OUT 信号提供，实现核心板电源上电早于外设电源上电的时序控制。  
+
+**（1）VDD_5V_MAIN 电源设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件5.png
+   :alt: 硬件5.png
+
+**（2）VDD_3V3_MAIN 电源设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件6.png
+   :alt: 硬件6.png
+
+**（3）VDD_3V3_PCIE 电源设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件7.png
+   :alt: 硬件7.png
+
+**（4）VDD_1V8_MAIN 电源设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件8.png
+   :alt: 硬件8.png
+
+**设计注意事项：**
+
+|  核心板提供的 VDD_3V3_SOM_OUT 电源输出，供电能力≤500mA，主要用于控制评估底板各路电源的上电时序，以及核心板配置相关电路的供电（如 BOOT SET、 Micro SD、看门狗等电路），请勿用于其他外设的供电。  
+
+1.3 隔离电源
+~~~~~~~~~~~~~~
+
+|  VDD_5V_MAIN 通过金升阳科技（MORNSUN）的 B0505S-1WR3L 隔离电源模块产生一路5V DC 隔离电源，用于评估底板隔离电路的供电，网络名为 VDD_5V_ISO1 和 VDD_5V_IS O2，最大电流供给能力为 200mA，可提供 3000V DC 的直流隔离能力。  
+
+**（1） VDD_5V_ISO1 电源设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件9.png
+   :alt: 硬件9.png
+
+**（2）VDD_5V_ISO2 电源设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件10.png
+   :alt: 硬件10.png
+
+**设计注意事项：**
+
+|  （1） 底板设计时，若无需输入级保护电路的部分或全部功能，可适当裁剪。
+|  （2） 底板电源设计可根据实际电路设计进行增减，建议参考我司上电时序进行底板电源的使能控制。
+|  （3） 核心板供电请参考我司评估底板电源电路设计， 注意核心板供电为 5.0V。
+|  （4） VDD_5V_SOM 在核心板内部未预留总电源输入的储能大电容。底板设计时，请在靠近核心板LGA焊盘位置放置总容值为 50uF 左右的储能电容。
+|  （5） 为使 VDD_5V_MAIN、 VDD_3V3_MAIN、 VDD_3V3_PCIE 和 VDD_1V8_MAIN 满足系统上电、掉电时序要求，需使用核心板输出 VDD_3V3_SOM_OUT 来控制 VDD_5V_MA IN、 VDD_3V3_MAIN、 VDD_3V3_PCIE 和 VDD_1V8_MAIN 的电源使能，使评估底板 V DD_5V_MAIN、 VDD_3V3_MAIN、 VDD_3V3_PEIE 和 VDD_1V8_MAIN 电源在 VDD_3V3 _SOM_OUT 之后、在 AF27/RESETn/PU/1V8 复位信号之前上电（详情见评估底板推荐上电时序）。  
+
+2 系统启动说明
+----------------
+
+|  系统上电后，由 CPU 内部 BootRom 的引导代码依次从 SD 卡、 eMMC FLASH 检测 SPL启动程序，从第一个包含 SPL 启动程序的设备开始启动。 SPL 启动后，将优先从 SD 系统卡（非常规 SD 卡）引导 U-Boot 镜像， 否则，将从原启动设备引导 U-Boot 镜像。  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件11.png
+   :alt: 硬件11.png
+
+**设计注意事项：**
+
+|  （1） K28/BOOT-SEL/PU/1V8 为启动配置引脚， 在核心板板已接 10K 电阻上拉至 1.8V 电源，已接 3.9K 电阻下拉到地，启动方式默认顺序为 SD 卡、 eMMC FLASH。
+|  （2） 当 KEY3 按键按下，并将评估板重新上电，此时 AD21/FEL/PU/3V3 引脚输入为低电平， CPU 将进入 Mandatory Update Process 模式，可通过 USB2.0 DRD 接口进行固件升级。  
+
+3  LED
+--------
+
+|  底板提供电源指示灯，用户可编程指示灯及模块状态指示灯，分别为 LED1~LED4，采用贴片封装。  
+
+3.1 电源指示灯
+~~~~~~~~~~~~~~~
+
+**（1）底板板电源指示灯电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件12.png
+   :alt: 硬件12.png
+
+3.2 用户可编程指示灯
+~~~~~~~~~~~~~~~~~~~~~
+
+|  底板提供 2 个用户可编程指示灯 LED2 和 LED3，高电平点亮，颜色为绿色，通过CPU 的 PA7、 PJ19 引脚控制。  
+
+**（1）底板板电源指示灯电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件13.png
+   :alt: 硬件13.png
+
+3.3 模块状态指示灯
+~~~~~~~~~~~~~~~~~~~
+
+**（1） 4G/5G 模块状态指示灯电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件14.png
+   :alt: 硬件14.png
+
+4  KEY
+--------
+
+|  底板包含1个系统复位按键RESETn（KEY1）， 1个PMIC开关机按键PWRON（KEY2）， 1 个 FEL 按键 FEL（KEY3）、 2 个用户输入按键 USER1（KEY4）、 USER2（KEY5）。  
+
+
+4.1 RESETn 复位按键
+~~~~~~~~~~~~~~~~~~~~~
+
+|  KEY1 为底板 RESETn 复位按键，控制 CPU 和 PMIC 的复位引脚。 
+
+**（1） RESETn 按键电路设计**   
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件15.png
+   :alt: 硬件15.png
+
+**设计注意事项：**
+
+|  （1） AF27/RESETn/PU/1V8 为核心板的复位输入引脚， 核心板内部已上拉 10K 电阻，默认情况请悬空处理，以避免影响上电时序。  
+
+
+4.2 PWRON 按键
+~~~~~~~~~~~~~~~~
+
+|  KEY2 为 PMIC 开关机按键，按键状态通过 PWRON 引脚输入至 PMIC。
+
+**（1） PWRON 按键电路设计**    
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件16.png
+   :alt: 硬件16.png
+
+**设计注意事项：**
+
+|  （1） PWRON 为 PMIC 的开关机控制引脚， 在 PMIC 内部已上拉，默认情况请悬空处理。
+|  PWRON 按键电路设计  
+
+4.3 FEL 按键
+~~~~~~~~~~~~~~
+
+|  KEY3 为 FEL 按键，系统重新上电时，若检测到 AD21/FEL/PU/3V3 信号为低电平， CP U 将进入 Mandatory Update Process 模式， 可通过 USB2.0 DRD 接口进行固件升级。  
+
+**（1）FEL 按键电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件17.png
+   :alt: 硬件17.png
+
+4.4 用户输入按键
+~~~~~~~~~~~~~~~~~
+
+|  KEY4（USER1）， KEY5（USER2）为用户输入按键， KEY4 按键状态通过 GPADC2_0 引脚输入至 CPU， KEY5 按键状态通过 PA9 引脚输入至 CPU。  
+
+**（1）用户输入按键电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件18.png
+   :alt: 硬件18.png
+
+**设计注意事项：**
+
+|  （1） L27/GPADC2-0/KEY1/1V8 的电压输入范围为 0~1.8V，评估底板可通过分压电阻将输入电压控制在 0~1.8V 之间。由于 L27/GPADC2-0/KEY1/1V8 信号在核心板内部未预留上拉电阻，因此默认情况下请为该信号提供 10K 上拉电阻。  
+
+
+5  串口
+---------
+
+|  底板板载 13 路串口， CON5 为 USB TO UART0 调试串口， CON9 为 RS232 S-UA RT1 串口， CON10 为 RS232 UART6 串口， J20 含有 RS485 UART1、 RS485 UART2、 RS485 UART3、 RS485 UART4、 RS485 UART9 和 RS485 UART11 串口。 CON29 为 TTL S-UART0 串口并与 WiFi/BT 模块复用， CON28 为 TTL UART5 串口， CON30 为 TTL UART12 串口并与 E XPORT1 复用， CON31 为 TTL UART7 串口并与 EXPORT1 复用。    
+
+5.1 USB TO UART0 串口
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+|  底板通过沁恒微电子（WCH）的CH340T芯片将UART0转换为Type-C连接器（CON5）引出，作为系统调试串口使用。CH340T使用来自Type-C数据线的5V（网络名为UART_VBUS）外部供电。  
+
+**（1）USB TO UART0 电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件19.png
+   :alt: 硬件19.png
+
+**设计注意事项：**
+
+|  （1） 底板设计时， 建议采用 RS0102YVS8（U7）电平转换隔离方案，以避免调试串口 RX端在底板上电前提前带电，向核心板引脚灌输电流，导致系统无法启动。
+|  （2） CPU 引脚 UART0-TX、 UART0-RX 电平皆为 3.3V， 请勿使用 5V 电平接口的调试工具直接连接，否则将导致 CPU 损坏。
+|  （3） 注意 USB 信号需做 90ohm 差分阻抗匹配。
+|  （4） ESD 器件需靠近连接器 Type-C 接口布局，走线经过 ESD 后连接至 CH340T。
+|  （5） 底板设计时， 建议在 AG26/UART0-RX/Debug/3V3 网络添加 2.2K 电阻上拉至VDD_3V3_MAIN， 以避免调试串口 RX 端在底板上电时电平不稳定，误入 U-Boot 模式。   
+
+5.2 RS232 UART6/S-UART1 串口
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|  底板采用芯力特电子（SIT）的单电源双通道 RS232 收发器 SIT3232EEUE 方案，通过UART6 和 S-UART1 各引出一路 RS232 串口，使用 DB9 连接器（CON9 和 CON10） 。SIT3232EEUE 符合 TIA/EIA-232 标准，速率可高达到 120Kbps。  
+
+**（1）RS232 UART6 串口电路设计**
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件20.png
+   :alt: 硬件20.png
+
+**（2）RS232 S-UART1 串口电路设计**
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件21.png
+   :alt: 硬件21.png
+
+5.3 RS485 UART1/UART2/UART3/UART4/UART9/UART11 串口
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|  底板采用川土微电子（CHIPANALOG）的隔离式半双工 RS485 收发器 CA-IS3082WX方案，通过 UART1、 UART2、 UART3、 UART4、 UART9 和 UART11 引出六路 RS485 串口。六路 RS485 串口使用 2x 9pin 规格绿色连接器（J20），间距为 3.81mm。CA-IS3082WX 符合 TIA/EIA-485-A 标准，支持 5kVrms 绝缘耐受电压，总线共模工作范围： -7V~+12V， 并提供高达 0.5Mbps 的通信速率。  
+
+**（1）RS485串口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件22.png
+   :alt: 硬件22.png
+
+**设计注意事项：**
+
+|  （1） CA-IS3082WX 是隔离 RS485 收发器；其中 Vcc1（pin1）和 GND1（pin2/7/8）为逻辑侧端口的供电， Vcc2（pin16）和 GND2（pin9/10/15）是总线侧端口的供电。 Vcc1 对 Vcc2 应电气隔离， GND1 和 GND2 不共地，且器件布局及走线上注意做隔离设计， 否则无法达到隔离接口的设计目的。建议参考我司评估底板原理图设计， 使用隔离电源给 Vcc2供电。
+|  （2） Vcc1 提供 2.375V~5.5V 的宽 IO 供电范围，总线侧电源 Vcc2 提供 3.0V~5.5V 的 RS4 85 总线供电范围。（3） RS485 收发器的管脚 A/B（pin12/13）连接至绿色端子连接器之间的走线，需按差分信号进行走线。  
+
+5.4 TTL UART5/S-UART0/UART7/UART12 串口
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|  UART5、S-UART0、UART7 和 UART12 分别通过 4pin 规格、2.54mm 间距白色排针端子，直接引出 TTL 电平测试引脚。
+
+**注意：**
+
+|  （1） TTL S-UART0 与 WiFi/BT 模块（U56）存在复用，两个功能不可同时使用， 如需使用WiFi 蓝牙功能时， CON29 的第 3 和第 4 针脚不能用跳线帽连接或引出连接到其他串口设备。
+|  （2） TTL UART7 和 TTL UART12 与 EXPORT1 接口的 Local Bus 总线存在复用， 如需使用 Local Bus 总线功能时， CON30 和 CON31 的第 3 和第 4 针脚不能用跳线帽连接或引出连接到其他串口设备。  
+
+**TTL UART5/S-UART0TTL UART7/UART12 串口电路设计**
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件23.png
+   :alt: 硬件23.png
+
+6  CAN-FD 接口
+----------------
+
+|  底板采用纳芯微电子（NOVOSENSE）的双通道数字隔离 CAN 收发器 NSI1042-DSWV R 方案，引出四路 CAN-FD 接口。 四路 CAN-FD 接口使用 2x 6pin 规格绿色连接器（J14），间距为 3.81mm。NSI1042-DSWVR 符合 ISO11898-2 标准，支持 5kVrms 绝缘耐受电压和 150kVrus 共模瞬变抗扰度，总线共模工作范围： -30V~+30V， 最高通信速率可达 5Mbps。
+
+|  **备注：** CPU 的 CAN 控制器 IP 设计可达 10Mbps，而 CAN 收发器最高通信速率为 5Mbps，因此评估板最高支持 5Mbps 通信速率。  
+
+**（1）CAN-FD 接口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件24.png
+   :alt: 硬件24.png
+
+**设计注意事项：**
+
+|  （1） NSI1042-DSWVR 为隔离 CAN 收发器。 其中 VCC1（pin1）和 GND1（pin4）为逻辑侧端口的供电， VCC2（pin8）和 GND2（pin5）为总线侧端口的供电。 VCC1 对 VCC2 应电气隔离， GND1 和 GND2 不共地，且器件布局及走线上注意做隔离设计， 否则无法达到隔离接口的设计目的。建议参考我司使用隔离电源给 VCC2 供电。
+|  （2） VCC1 提供 2.5V~5.5V 的宽 IO 供电范围， VCC2 提供 4.5V~5.5V 的 CAN 总线侧供电范围。
+|  （3） CANH（pin7）和 CANL（pin6）与绿色端子连接器之间的走线，需按差分信号进行走线。
+|  （4） CANH（pin7）和 CANL（pin6）应并联一个精度为 1%的终端匹配电阻（R128、 R130、 R135、R136）。终端匹配电阻的大小由传输电缆的特性阻抗所决定，一般为 120ohm。
+|  （5） 建议参考评估底板使用的 ESD 器件型号 PESD2CANFD24V-K，或使用其他电容值小于或等于 15pF 的 ESD 器件，且共模电压值至少需要支持+/-12V。  
+
+7  Micro SD 接口
+------------------
+
+|  底板通过 SDC0 总线（4bit 数据线）引出一路 Micro SD 接口，采用规格为外壳带压片的外焊式 Micro SD 连接器（CON7）。
+
+**（1）Micro SD 接口电路设计**    
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件25.png
+   :alt: 硬件25.png
+
+**设计注意事项：**
+
+|  （1） 底板设计时， 需将 Micro SD 座子外壳的 SHIELD[1:4]引脚连接至数字地，在 Micro SD 卡插入后， C/D 引脚的弹片与外壳接触，使 C/D 引脚接地为低电平，系统判断有Micro SD 卡插入。
+|  （2） 建议使用核心板的输出电源 VDD_3V3_SOM_OUT 给 Micro SD（CON7）供电。不建议使用 VDD_3V3_MAIN 供电，否则将可能因该电源存在供电延迟，导致系统无法正确读取到 Micro SD 卡设备而启动失败。
+|  （3） SDC0 总线时钟频率最大为 200MHz，建议 D0~D3 信号相对 CLK 等长控制<50mil，单端 50ohm，核心板信号走线长度请查阅我司核心板硬件说明书。
+
+8  外部 RTC
+--------------
+
+|  底板采用华冠半导体（HGSEMi）的串行实时时钟芯片 DS1307ZM/TR（U11），拓展外部 RTC 功能。 CON6 为外部 RTC 电路的 CR2032 规格纽扣电池安装座，可适配纽扣电池ML2032（3V 可充）、 CR2032（3V 不可充）。使用 ML2032 电池时，可将跳线帽插入 2pin排针 J2 实现充电。使用 CR2032 电池时，请勿将跳线帽插入 J2。  
+
+**（1）外部 RTC 电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件26.png
+   :alt: 硬件26.png
+
+**设计注意事项：**
+
+|  （1） 核心板通过 TWI2 总线与 DS1307ZM/TR 进行通信，核心板内部未在 TWI2 总线设计上拉电阻至 3.3V 电源，使用 E19/TWI2-SCK/3V3 和 E15/TWI2-SDA/3V3 作为 TWI2 功能时需设计外部上拉电阻至 3.3V 电源。（2） U11 可选用 DS1307ZM/TR 和 DS1340Z-33+。若设计选贴 DS1340Z-33+时，需将 FB 3 实贴， FB2 空贴，并使用 VDD_3V3_MAIN 进行供电。  
+
+9  外部 Watchdog
+------------------
+
+|  底板采用圣邦微（SGMICRO）的外部硬件看门狗芯片 SGM820B-3.0XTDB8G/TR（U10），拓展外部 Watchdog 功能。 J1 为 Watchdog 功能配置接口，采用 2.54mm 间距、 3pin 排针方式，可通过跳线帽配置使能 Watchdog 功能。 硬件上可通过调整 C66 电容容值配置 Wa tchdog 超时时长。
+
+|  **注意：** 当核心板 PMIC 进入保护或休眠时，底板的 VDD_3V3_MAIN 电源掉电将导致看门狗失效。  
+
+**（1）外部 Watchdog 电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件27.png
+   :alt: 硬件27.png
+
+**设计注意事项：**
+
+|  （1） 底板设计时，看门狗的复位输出引脚 pin7 应连接至复位信号 AF27/RESETn/PU/1V8。
+|  （2） 由于 AF27/RESETn/PU/1V8 的电平为 1.8V， SGM820B-3.0XTDB8G/TR 为 3.3V 供电，因此为了防止复位引脚过压，使用二极管进行连接。
+|  （3） 建议预留排针的方式配置使能 Watchdog 功能， 否则在 Watchdog 工作状态时进行 USB 烧写， 会出现未及时使能 Watchdog 功能使系统复位，最终影响 USB 烧写的情况 。
+
+10  FAN 供电接口
+----------------------
+
+|  J3 为散热器风扇（FAN）电源接口，采用 3pin 排针端子方式， 12V 供电，间距为 2.54mm。  
+
+**（1）FAN 供电接口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件28.png
+   :alt: 硬件28.png
+
+11  AUDIO 接口
+----------------
+
+|  底板采用顺芯半导体（EVEREST-SEMI）公司的 ES8388 音频编解码器，引出 MIC IN （与原生的 LINEOUT 共用 CON18 接口） 音频接口，均采用 3.5mm 音频插座。CPU 通过 I2S2 总线与 ES8388 进行通信，采用 TWI3 进行配置，地址为 0x11。  
+
+**（1）AUDIO 接口电路设计**  
+
+**A. LINE OUT**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件29.png
+   :alt: 硬件29.png
+
+**B. MIC IN**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件30.png
+   :alt: 硬件30.png
+
+**设计注意事项：**
+
+|  （1） HP OUT/MIC IN 音频座子检测到耳机插入时， HP_DET_L 信号为高电平， 若未检测到耳机插入时， HP_DET_L 信号为低电平。
+|  （2） 核心板通过 TWI3 总线与 ES8388 进行通信，核心板内部未在 TWI3 总线设计上拉电阻至 3.3V 电源，使用 G7/TWI3-SCK/3V3 和 F7/TWI3-SDA/3V3 作为 TWI3 功能时需设计外部上拉电阻至 3.3V 电源。  
+
+12  LVDS OUT 接口
+-------------------
+
+|  CON19 为双路 16bit LVDS OUT 接口，采用 2x 15pin 排针，间距为 2.0mm， 包含 LVDS信号及供电电源。 CON20 为 BACK LIGHT 背光控制接口，采用 6pin 白色端子座，间距为2.0mm。J10 为 RES TS 电阻触摸屏接口，采用 4pin 排针，间距为 2.54mm。J11 为 CAP TS（LVDS）电容触摸屏接口，采用 6pin FFC 连接器，间距为 0.5mm，核心板使用 TWI2 总线与其连接实现通信。  
+
+**（1）LVDS OUT 接口电路设计**
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件31.png
+   :alt: 硬件31.png
+
+**设计注意事项：**
+
+|  （1） LVDS 支持配置为两个 Single-link 模式实现同显，单独使用一个 LVDS 为 Single-link模式时需使用 LVDS0。
+|  （2） 建议 LVDS 差分对内等长小于 5mil，对间等长要求小于 30mil，差分阻抗控制100ohm。  
+
+13  MIPI DSI 接口
+------------------- 
+
+|  CON21 为 MIPI DSI 接口，采用 30pin FFC 连接器，间距为 0.5mm。
+
+|  **注意：** 需要设计者，另外设计MIPI 转接板。
+
+**（1）MIPI DSI 接口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件32.png
+   :alt: 硬件32.png
+
+**设计MIPI 转接板注意事项：**
+
+|  （1） 为确保 CAP TS（MIPI）的 nINT 引脚功能正常，请添加 100K 上拉电阻。
+|  （2） 如需将 CAP TS（MIPI）的 nINT 引脚替换为其他的 GPIO， 需使用支持中断功能的 GPIO引脚（所有 GPIO 都支持 CPU 中断功能）。
+|  （3） 由于 MIPI DSI 接口与 LVDS OUT、 HDMI OUT 接口的信号存在复用关系，同时它们的电容触摸屏接口也存在共用信号，因此 MIPI DSI、 LVDS OUT 和 HDMI OUT 接口仅能同时使用其中一个。
+|  （4）建议 DSI 差分信号对内等长<5mil，对间等长<30mil，差分阻抗 100ohm。
+
+
+14  HDMI OUT 接口
+-------------------
+
+|  底板采用帝奥微电子（Dioo）的十通道双掷 MIPI 开关 DIO1647WL36（U63）和龙讯半导体（Lontium）的视频信号转换芯片 LT8912B（U64）方案，通过 MIPI DSI 总线拓展引出 HDM I OUT（CON22）接口，采用标准 19pin HDMI 连接器。
+|  LT8912B 采用 1.8V 供电，符合 HDMI1.4，支持 1080P HDMI 输出，支持 7 位自动或手动输出摆幅校准和支持热插头检测等功能。
+|  DIO1647WL36 是一款 10 通道（4 对数据差分对和 1 对时钟差分对）的差分 MIPI 双掷开关芯片，速率高达 3.5Gbps，供电电压范围 1.65V~5V。 
+
+**（1）HDMI OUT 接口电路设计**   
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件33.png
+   :alt: 硬件33.png
+
+**设计注意事项：**
+
+|  （1） 由于 HDMI OUT 信号由 MIPI DSI 信号通过 LT8912B 芯片转换引出，同时 MIPI DSI 接口与 LVDS OUT 接口的信号存在复用关系，并且其电容触摸屏接口也存在共用信号，因此 MIPI DSI、 LVDS OUT、 HDMI OUT 接口仅能同时使用其中一个。
+|  （2） E15/TWI2-SDA/3V3 和 E19/TWI2-SCL/3V3 的 IO 电平为 3.3V，需转换为 1.8V 电平后再连接至 LT8912B 芯片。
+|  （3） HDMI 座的 HPLG 信号需通过 NPN 三极管电平转换输出 1.8V 信号连接至 LT8912B芯片。当外部设备接入时，会将此信号拉高。
+|  （4） 为防止核心板掉电时，屏幕通过 HDMI 接口馈电，需参考评估底板电路添加二极管（D27）器件。
+|  （5） 建议 HDMI 差分对内等长小于 5mil，对间等长要求小于 100mil，差分阻抗控制 100ohm。
+
+15  USB 接口
+-------------
+
+|  底板引出三路 USB 接口。CON11 为 USB2.0 HOST 接口，采用双层 Type-A 连接器； CON12 为 USB2.0 DRD 接口，采用 Type-C 连接器。 
+
+15.1 USB2.0 HOST 接口
+~~~~~~~~~~~~~~~~~~~~~~~
+
+|  底板采用沁恒微电子（WCH）的四端口 USB2.0 HUB 控制器芯片 CH334H（U37 和 U 38），将 USB1 总线通过二级 USB HUB 进行四路信号拓展，将其中两路引出至 USB2.0 H OST 接口（CON11）。CH334H 芯片符合 USB2.0 协议规范，上行端口支持 USB2.0 高速和全速，下行端口支持 USB2.0 高速 480Mbps，全速 12Mbps 和低速 1.5Mbps。  
+
+**（1）USB2.0 HOST 接口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件34.png
+   :alt: 硬件34.png
+
+15.2 USB2.0 DRD 接口
+~~~~~~~~~~~~~~~~~~~~~~~
+
+|  底板通过 USB0 总线引出 USB0-DP 和 USB0-DM 信号，作为 USB2.0 DRD 使用， CON12 为 USB2.0 DRD 接口，采用 16pin Type-C 母座。评估底板采用电阻（R466）加二极管（D16）方案对 USB0-ID 信号电平的变化进行检测，可实现切换 HOST 和 DEVICE 功能， 同时预留韦尔半导体（WILLSEMI）的 Type-C 控制芯片 WUS B3801Q-12/TR 的方案电路，以实现 OTG 通信角色的检测功能。  
+
+**（1）USB2.0 DRD 接口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件35.png
+   :alt: 硬件35.png
+
+**设计注意事项：**
+
+|  （1） USB 信号最大速率为 480Mbps，差分建议对内等长<5mil，差分阻抗 90Ω。 
+|  （2） 若 U42 的 INT_N/OUT3 引脚需分配使用其他 GPIO，请使用 CPU 支持中断功能的 G PIO 引脚（所有 GPIO 都支持 CPU 中断功能）。 
+|  （3） 电阻（R466）加二极管（D16）方案中当接入 DEVICE 设备时， CC1 和 CC2 信号被下拉至GND，二极管（D16）导通， AB27/PL9/USB0-ID/3V3 信号为低电平，则评估板切换为 HO ST 功能；当与 PC 机连接时， CC1 和 CC2 信号被上拉至 5V 电源，二极管（D16）不导通， AB27/PL9/USB0-ID/3V3 信号为高电平，则评估板切换为 DEVICE 功能。当两个评估板对接时， AB27/PL9/USB0-ID/3V3 信号电平不能实现自动切换，只可手动配置两底个板的角色。  
+|  （4） WUSB3801Q-12/TR 芯片方案中 Type-C 连接器的 CC1 和 CC2 状态通过该芯片内部状态机自动检测并在寄存器映射中更新，若检测到 CC 通道是作为 SRC 或 DRP 时，该芯片的 ID 引脚则输出低电平。若两个评估板对接时，需手动配置其中一个评估板的角色，才可使另外一个评估板自动切换角色。  
+
+
+16  Ethernet 接口
+--------------------
+
+|  板底板共引出 4 个网口，包含 2 个 ETH RGMII 千兆网口和 2 个 ETH USB 百兆网口。 CPU 的内部集成 2 个 GMAC 控制器，支持 2 路原生 RGMII 千兆网口。  
+
+16.1 ETH1 RGMII/ETH2 RGMII 千兆网口
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|  底板通过国产厂家裕太微电子（Motorcomm）公司的 YT8531H-CA 集成以太网收发器方案，提供 2 路 10/100/1000Mbps 自适应以太网。两路 Ethernet 均采用内置隔离变压器的千兆 RJ45 插座， 均使用独立的 RGMII 总线、 MDIO 总线实现 PHY 通信以及配置。其中， ETH1 RGMII（CON16）由 GMAC0 总线控制， ETH2 RGMII（CON15）由 GMAC1 总线控制。
+|  YT8531H-CA 符合 10BASE-Te、 100BASE-TX 和 1000BASE-T IEEE 802.3 标准，提供交叉检测、自动校正、极性校正和自适应均衡等功能。  
+
+**（1）ETH1 RGMII 接口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件36.png
+   :alt: 硬件36.png
+
+**（2）ETH2 RGMII 接口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件37.png
+   :alt: 硬件37.png
+
+**设计注意事项：**
+
+|  （1） 由于 ETH1 RGMII/ETH2 RGMII 的引脚电平为 3.3V，因此需将 YT8531H-CA 的 CFG _LDO[1:0]配置 00，将 PHY 芯片电平配置为 3.3V， 并使用外部 3.3V 供电输入至 DVDD _RGMII（YT8531H-CA 芯片的 pin28）。
+|  （2） XTAL_I、XTAL_O 引脚接入 25MHz 无源晶振。如需使用 25MHz 有源晶振，可从 XTAL_I引脚接入，并将 XTAL_O 引脚悬空处理。
+|  （3） 评估底板采用的 YT8531H-CA 方案，使用了内部产生的 1.1V 电压（ETH0_1V1_ETH0L、ETH0_1V1_ETH1L）进行核心逻辑供电，无需额外提供 1.1V 电压。 ETH0_1V1_ETH0L、ETH0_1V1_ETH1L 请勿用于其它负载供电，其中与 LX 引脚（pin30）连接的电感应尽量靠近芯片放置，不大于 200mil，电感两端的线宽应大于 60mil。
+|  （4） YT8531H-CA 芯片要求在供电稳定后保持 100ms，再拉高复位信号；推荐使用 IO控制 PHY 芯片的复位。  
+|  （5） PCB 布局布线说明：
+
+ | a） MDIx_P/N 信号注意按 100ohm 差分信号走线，晶振提供的时钟信号建议包地处理。
+ | b） ESD 器件注意放置于紧靠 RJ45 的位置，需 ESD 保护的信号线应直接穿过 ESD 引脚再连通后方电路。
+ | c） 靠近 RJ45 连接器的 RCLAMP0524P 为 10pin 封装的 ESD 器件，请注意并排的 2 个引脚（如 IN1 和 OUT1、   IN2 和 OUT2）在 ESD 器件内部并无连接，实际设计中应将对应引脚直接外部短接处理，即对应引脚的网络名需保持一致。
+ | d） RGMII 总线中的收发两组信号应分别做 50mil 等长处理， 收发两组信号间做 100mil以内等长处理，单端阻抗 50ohm。 
+
+16.2 ETH3(USB)/ETH4(USB)百兆网口
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+|  底板采用和芯润德科技的 SR9900AI 集成以太网控制电路方案， 使用沁恒微电子（WCH）的 4 端口 USB2.0 HUB 控制器芯片 CH334H（U37）， 通过一级 USB HUB 将 USB20_HO ST1 总线拓展出 4 路 USB2.0 信号，将其中 2 路进行 USB2.0 转 10/100Mbps 自适应以太网，使用内置隔离变压器的百兆 RJ45 插座（CON13、 CON14），设计方案如下图。  
+
+**(1) USB 信号分配示意图**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件38.png
+   :alt: 硬件38.png
+
+|  SR9900AI 符合 IEEE 802.3 10Base-T/100Base-TX 和 IEEE 802.3 100Base-FX 标准，提供极性、相位偏移校正，网线交叉检测及自动校正等功能。 
+
+**(2) ETH3(USB)百兆网口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件39.png
+   :alt: 硬件39.png
+
+**(3) ETH4(USB)百兆网口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件40.png
+   :alt: 硬件40.png
+
+**设计注意事项：**
+
+|  （1） 由于 ETH3（USB）/ETH4（USB）网口电源重新上电时间（掉电再重新上电）要求大于100ms， 因此建议使用 GPIO 信号控制 SR9900AI 芯片的电源上电，以满足上电顺序要求。
+|  （2） SR9900AI 芯片管脚 10、 12 为芯片内部稳压电路电源输出引脚。
+|  （3） 评估板的 SR9900AI 管脚 10 为双电源设计，评估板 VDD_3V3_MAIN 与 SR9900AI 内部的 3.3V 稳压电路电源输出并联，与 SR9900AI 官方参考电路设计一致。  
+
+17  WiFi/BT 模块
+-------------------
+
+|  U56 为板载 WiFi5&Bluetooth4.2 模块， 型号为： 移远 FCS950RACMD， 采用邮票孔连接方式。评估底板通过 SDIO 3.0、 I2S（PCM）和 UART 总线与 WiFi5&Bluetooth4.2 模块连接，实现 WiFi/BT 的高速率传输与蓝牙语音功能， WiFi/BT 共用一个外接天线。  
+
+**注意：**
+
+|  （1） FCS950RACMD 模块的芯片生产商为台系厂家。
+|  （2） WiFi/BT 模块与评估板白色端子 CON29 复用， 如需使用 WiFi/BT 模块， 请注意CON29 的第 3 与第 4 针脚不可用跳线帽连接或引出连接至其他串口设备。  
+
+**WiFi/BT 模块电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件41.png
+   :alt: 硬件41.png
+
+**设计注意事项：**
+
+|  （1） 为满足 SDIO 3.0，建议 D0~D3 相对 CLK 等长控制<50mil，单端 50ohm，核心板信号走线长度请查阅我司核心板硬件说明书。
+|  （2） T536 的 PL 和 PM 组 GPIO 在待机休眠时不掉电，若需使用 WiFi/BT 模块的休眠唤醒功能， 请将模块的中断唤醒源接至 PL 或 PM 的 GPIO 上， PL 和 PM 为 3.3V 电平，另外注意电平匹配。  
+
+18  4G 模块
+------------- 
+
+|  底板通过 Mini PCIe 插槽引出 4G 模块拓展接口 CON23，  
+|  底板采用沁恒微电子（WCH）的 4 端口 USB2.0 HUB 控制器芯片 CH334H（U37），将 U SB1 总线通过一级 USB HUB 进行四路信号拓展，然后将其中 1 路引出进行 4G 模块拓展。
+|  CON24 为 4G 模块和 5G 模块共用的 Micro SIM 卡座，采用插卡自弹形式，不带检测引脚。 
+
+**（1）4G 模块拓展接口电路设计（不含 SIM 卡座）**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件42.png
+   :alt: 硬件42.png
+
+**设计注意事项：**
+
+|  （1） 为保证 Mini PCIe 4G 模块的电源稳定供应，其 3.3V 电源需由 MIC29302S/TR（U69）独立供电，至少提供 3A 电流输出。如要替换其他电源，建议使用 LDO，详细请参考Mini PCIe 4G 模块数据手册要求。
+|  （2） 由于评估底板 4G 模块和 5G 模块由同一对 USB2.0（USB1）信号经过一级和二级 USB HUB 分出，并且共用同一个 Micro SIM 卡座，因此 4G 模块和 5G 模块不能同时使用。
+|  （3） USB 差分信号建议对内等长<5mil，差分阻抗 90ohm。  
+
+19  M.2 PCIe NVMe 固态硬盘/5G 模块
+------------------------------------
+
+|  底板通过 M.2 B Key 插槽引出 NVMe/5G 模块拓展接口 CON25，可适配 M.2 B Key接口类型的 NVMe 固态硬盘及移远 RM500UCNVAA-D10-SNADA 5G 模块。
+|  底板通过 PCIe 2.0 总线及与 4G 模块接口共用的 USB2.0 信号进行 NVMe 固态硬盘/5G 模块的拓展。
+
+|  **注意：** 5G 模块的 USB2.0 信号由 USB1 总线经过二级 USB HUB 分出。  
+
+**（1）M.2 PCIe NVMe 固态硬盘/5G 模块拓展接口电路设计** 
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件43.png
+   :alt: 硬件43.png
+
+**设计注意事项：**
+
+|  （1） 为保证稳定的 VDD_3V3_PCIE 电源输出，推荐使用 EC2232E（U71）进行独立供电。
+|  （2） CLKREQ 和 PEWAKE 需使用功能引脚，不能用 GPIO 替代。
+|  （3） PERST 可选择功能引脚，亦可使用 GPIO 替代。  
+
+20  JTAG 接口
+---------------
+
+|  CON8 为 JTAG 仿真调试接口，采用 20pin 简易牛角座连接器，间距为 2.54mm，可适配 J-Link V9 和 CKLink-lite 仿真下载器。  
+
+**(1)JTAG 接口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件44.png
+   :alt: 硬件44.png
+
+**设计注意事项：**
+
+|  （1） 由于 JTAG 电源电路有馈电风险，因此设计 JTAG 接口时建议在 JTAG 的供电线路中串联二极管，避免外部仿真器馈电。
+|  （2） JTAG 接口符合 IEEE1149.1 标准， PC 机可通过 SWD 模式将仿真器连接至 JTAG 接口调试芯片内部的 ARM Core。  
+|  （3） ARM 端 JTAG 和 RISC-V 端共用一个 JTAG 接口， ARM 端使用 J-LINK V9 仿真下载器， RISC-V 端使用 CKLink-lite 仿真下载器。
+|  （4） T536支持通过配置JTAG-SEL引脚的状态切换JTAG功能从PB组或PF组的IO复用。JTAG-SEL 引脚为低电平时， JTAG 信号从 PB 组 IO 复用，默认为从 PF 组 IO 复用，评估底板的 JTAG 功能从 PB 组复用，参考以下电路设计：  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件45.png
+   :alt: 硬件45.png
+
+21  PLP 接口
+-------------- 
+
+|  底板通过 8pin、 2.0mm 间距的白色端子座引出 PLP 接口（CON4），可适配创龙科技的 TL-PLP（掉电保护模块）。  
+
+**（1） PLP 接口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件46.png
+   :alt: 硬件46.png
+
+**设计注意事项：**
+
+|  （1） 底板设计时，如需考虑电源突然下电对系统数据存储带来的风险，建议保留 PLP （掉电保护）接口。 实现底板突然掉电时，切换为 TL-PLP 模块供电，使系统在完成数据保存后再断电。
+|  （2） CON4 的第 1 脚是掉电检测输入信号，建议添加 10K 上拉电阻，第 2 脚是关断供电输出信号。
+|  （3） 由于法拉电容在首次充电时会出现比较大的电流，充电瞬时电流最大达到 1.7A，因此在设计 5V 的电源时，需注意考虑电源的负载能力，避免因 5V 给掉电保护模块充电而导致该电源不稳定。  
+
+23  EXPORT 拓展接口
+---------------------
+
+23.1 EXPORT1 接口
+~~~~~~~~~~~~~~~~~~~
+
+|  CON26 为 EXPORT1 接口，采用爱特姆科技（ATOM）的 2x 40pin 工业级 B2B 公座连接器BTB050080-M1D，间距 0.5mm，高度 1.0mm，合高为 4.0mm，引出 CPU 的 LBUS0/SPI 等总线信号。
+|  **注意：** EXPORT1 接口与评估板白色端子 CON30 和 CON31 复用， 如需使用 EXPORT1 接口的 LBUS 功能时， CON30 和 CON31 的第 3 和第 4 针脚不可用跳线帽连接或引出连接其他串口设备。  
+
+**（1）EXPORT1 拓展接口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件47.png
+   :alt: 硬件47.png
+
+**设计注意事项：**
+
+（1） LBUS 信号走线等长<120mil，单端 50ohm，差分 100ohm，核心板信号走线长度请查阅我司核心板硬件说明书。  
+
+23.2 EXPORT2 接口
+~~~~~~~~~~~~~~~~~~~
+
+|  底板提供包含 19 路 GPADC、 1 路 LRADC、 1 路不可屏蔽中断（NMI）和 2 路 GPIO的 EXPORT2 接口 CON27，采用 2x 15pin 排母引出，间距为 2.54mm。备注： EXPORT2 的所有 ADC 通道（包含 GPADC 和 LRADC） 、不可屏蔽中断均为 1.8V 电平，其余两个 GPIO 为 3.3V 电平，请勿将 EXPORT2 的 GPIO 直接连接 GPADC 或 LRADC。  
+
+**（1）EXPORT2 拓展接口电路设计**  
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件48.png
+   :alt: 硬件48.png
+
+**设计注意事项：**
+
+|  （1） GPADC 的采样频率最大为 1MHz，满量程输入电压范围为 0~1.8V，底板设计时需注意输入信号请勿超过电压要求范围，否则可能会损坏核心板。
+|  （2） LRADC的采样频率最大为2kHz，分辨率为6bit，满量程输入电压范围是0~1.286V，建议只用作按键检测输入，并且需要确保每个按键的键值之间电压差大于 0.2V 以上，分压电阻需采用 1%精度的高精密电阻。可参考如下设计：
+
+|  LRADC 按键检测电路设计    
+
+.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件49.png
+   :alt: 硬件49.png
+
+|  （3） LRADC 的最大安全输入电压为 1.8V，不使用 LRADC 时需连接 100K 上拉电阻至 1. 8V 电源或确认软件关闭 LRADC 相关配置后才可悬空。底板设计时需注意输入信号请勿超过电压要求范围，否则可能会损坏核心板。  
