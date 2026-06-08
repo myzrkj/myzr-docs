@@ -1,0 +1,600 @@
+硬件设计指导
+=============
+
+1、Boot/Download Selection电路
+-------------------------------
+
+|   K1分别支持TF Card、EMMC、SPI NOR、SPI NAND等启动，并可选择USB或者Uart下载。开发板通过SW2拨码开关控制QSPI_DATA[3:0]信号进行配置
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册1.jpg
+   :alt: 硬件手册1.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. 拨码开关处需加ESD防护器件
+2. QSPI_DATA[3:0]默认低电平，注意上拉电平是否与IO电平匹配。如下图所示，通过拨码开关控制BOOT信号的高低电平，从而达到Boot/Download模式的选择
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册2.png
+   :alt: 硬件手册2.png
+   :width: 90%
+
+2、复位电路
+------------
+
+|   K1硬件复位通过由外部控制，低电平有效。SW3电源复位按键，SW4系统复位按键。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册3.jpg
+   :alt: 硬件手册3.jpg
+   :width: 90%
+ 
+**设计要点：**
+
+1. 管脚需要增加 10nF 电容，⽤来消除复位信号上的抖动，增强抗⼲扰能⼒，防⽌误触发导致的系统 异常复位 
+2. RESET_IN_N ⽹络的上拉电源必须和 IO 电源域（即上拉到VCC18_GPIO）保持⼀致
+3. P1的PGOOD信号与K1的RESET_IN_N信号直接连接，按键复位K1+P（PMIC芯片）
+4. 若与其他复位来源复⽤，需要增加与⾮⻔或者⼆极管隔离
+5. 按键处加ESD防护器件
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册4.png
+   :alt: 硬件手册4.png
+   :width: 90%
+
+3、TF卡
+--------
+
+|   K1 有 2 个MMC 接⼝，MMC1⽀持 3.3V/1.8V 电平，MMC2接⼝电平只⽀持 1.8V。MMC1/2 ⽀持对接 SDIO 接⼝ WIFI，SD Card。U5 为 Micro SD 卡接口， 通过 MMC1 总线引出，采用 4bit 数据线模式。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册5.jpg
+   :alt: 硬件手册5.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. MMC_CLK信号是否有串接22R（核心板上已接）
+2. 若信号要接上拉电阻，注意上拉电平是否与IO电平匹配
+3. TF卡座子处接ESD防护器件
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册6.png
+   :alt: 硬件手册6.png
+   :width: 90%
+
+4、PCIE
+---------
+
+|   K1 提供3 个 PCIE 接⼝。PCIE PortA Gen2x1；PCIE PortB Gen2x2；PCIE PortC Gen2x2。J2为M.2 Key M座子，可外接SSD。J3为M.2 Key E座子，可外接WIFI模块。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册7.jpg
+   :alt: 硬件手册7.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. PCIE_RXP/N
+
+|   如果对接器件是 IC，那么 RX 差分信号必须在对接器件端串联220nF 电容。 
+|   如果对接器件是 PCIE 插槽， RX 差分信号直接连接⾄插槽管脚上⽆需串联电容。 
+
+2. PCIE_TXP/N
+
+|   差分信号必须在 K1 端串联 220nF 电容进⾏ AC耦合（核心板上已串联） 
+
+3. PCIE_REFCLKP/N ⽀持两种时钟⽅案： 
+
+|   K1 给对接器件提供时钟。PCIE 差分时钟信号直接连接。 
+|   外部器件给 K1 提供时钟。PCIE 差分时钟信号在外部器件源端必须加 49.9Ω 下拉电阻。时钟偏差约束±300ppm，符合PCIE协议规范。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册8.png
+   :alt: 硬件手册8.png
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册9.png
+   :alt: 硬件手册9.png
+   :width: 90%
+
+5、Audio
+----------
+
+|   K1⽀持 2路全双工 I2S 接口。开发板上通过ES8326B音频编解码芯片，引出HP、MIC、SPK等功能。J14为耳机座子，采用4 节、3.5mm音频插座，SPK采用2.5mm间距的线对板针座（P1、P2）。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册10.jpg
+   :alt: 硬件手册10.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. 插入检测引脚注意加上拉
+2. ES8326B芯片的CPVDD需要外加LDO，此电路为耳放的供电，尽量保持较干净的电流状态。因耳放电流较大，所以不建议用RC电流来优化电源噪音
+3. 数字地和模拟地通过0R电阻进行隔离
+4. 音频座子需加ESD防护器件
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册11.png
+   :alt: 硬件手册11.png
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册12.png
+   :alt: 硬件手册12.png
+   :width: 90%
+
+6、CSI
+--------
+
+|   K1差分视频输⼊接口⽀持4lane+4lane输⼊或4lane+2lane+2lane输⼊，每一通道最高支持1.5Gbps。4lane+2lane+2lane输⼊模式下，⽀持三摄同时出图，但ISP只能处理两路，剩余1路摄像头可以是YUV或RAW，不能经过ISP处理，只能通过ccic dma模块dump数据到ddr中。 
+
+- MIPI CSI1 
+
+|   四对差分数据参考 MIPI_CSI0_CK1XP/N 差分时钟采样； 
+
+- MIPI_CSI2 
+
+|   [2 Lane模式]：MIPI_CSI3_D2P/N、MIPI_CSI3_D3P/N两对差分数据参考 MIPI_CSI2_CKP/N 差分时钟采样 
+
+- MIPI_CSI3
+
+|   [2 Lane模式]：MIPI_CSI3_D0P/N、MIPI_CSI3_D1P/N 参考 MIPI_CSI3_CKP/N 时钟采样。 
+|   [4 Lane模式]：MIPI_CSI3_D0P/N、MIPI_CSI3_D1P/N ,MIPI_CSI3_D2P/N、MIPI_CSI3_D3P/N 参考MIPI_CSI3_CKP/N 差分时钟采样。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册13.png
+   :alt: 硬件手册13.png
+   :width: 90%
+
+|   U12、U13为CSI接口，采用2mm间距的简牛座
+
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册14.jpg
+   :alt: 硬件手册14.jpg
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册15.png
+   :alt: 硬件手册15.png
+   :width: 90%
+
+7、DSI
+--------
+
+|   K1 内置了⼀个4Lane的 MIPI TX PHY，⽤于对接 MIPI 接⼝的 LCD 屏,每条通道最高支持1200Mbps。CON2为 MIPI_DSI的接口，采用 30pin,间距为0.5mm的FPC 连接器。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册16.jpg
+   :alt: 硬件手册16.jpg
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册17.png
+   :alt: 硬件手册17.png
+   :width: 90%
+
+8、HDMI
+---------
+
+|   K1 内置了⼀个 HDMI PHY，最高支持1920x1440@60Hz。J5为HDMI OUT接口，采用标准的HDMI 母座。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册18.jpg
+   :alt: 硬件手册18.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. HDMI 信号上要有 ESD 保护，ESD 器件靠近 HDMI 连接器放置。ESD 器件寄⽣电容⼩于 0.3pF； 
+2. HDMI_SCL，HDMI_SDA，HDMI_CEC，HDMI_HPD信号，需要外围电路处理，使⽤专⽤HDMI芯⽚或者分⽴电平转换。电平转换要求：HDMI_SCL，HDMI_SDA转换为5V，HDMI_CEC需要电平转为3.3V。外接⼝输⼊的HDMI_HPD需要电平转换成1.8V后输⼊芯⽚
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册19.png
+   :alt: 硬件手册19.png
+   :width: 90%
+
+9、USB 2.0
+------------
+
+|   K1 提供 3 个 USB2.0 接口，支持高速模式(480Mbps)、全速模式(12Mbps)、低速模式(1.5Mbps)。  其中有USB0、USB2⽀持 OTG。
+
+Download
+~~~~~~~~~~
+
+|   U18为Download接口，采用Tpye-C座子。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册20.jpg
+   :alt: 硬件手册20.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. VBUS检测信号电平为1.8V ，通过电阻分压到1.8V
+2. USB0默认为Device，ID悬空即可。CC引脚下拉5.1K电阻到GND
+3. USB2.0 信号上要有 ESD 保护措施，ESD 器件的寄⽣电容要求⼩于 1pF，ESD 器件靠近USB接口放
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册21.png
+   :alt: 硬件手册21.png
+   :width: 90%
+
+USB2.0+USB3.0
+~~~~~~~~~~~~~~~~
+
+|   K1 ⽀持1 个 USB3.0 接口，与PCIEA 接口复⽤。J6为 USB2.0+USB3.0接口。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册22.jpg
+   :alt: 硬件手册22.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. USB3.0 信号上要有 ESD 保护措施，ESD 器件的寄⽣电容要求⼩于 0.5pF，ESD 器 件靠近 USB 接⼝放置。 
+2. USB3_RXP/N 
+
+- 如果对接器件是 IC 或模组，那么 RX 差分信号需要在对接器件端串联 100nF 电容。 
+- 如果对接器件是插座，那么 RX 差分信号直接连接⾄插座，⽆需串联电容。 
+
+3. USB3_TXP/N 
+
+- 如果对接器件是 IC 或模组，那么 TX 差分信号需要在K1 端串联 100nF 电容。 
+- 如果对接器件是插座，那么 TX 差分信号需要在靠近插座的位置串联 100nF 电容。
+
+4. 注意加过流保护
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册23.png
+   :alt: 硬件手册23.png
+   :width: 90%
+
+USB HUB
+~~~~~~~~~
+
+|   通过 USB HUB 芯片将 USB1 总线拓展为 4 路 USB HOST 总线。
+
+**设计要点：**
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册24.png
+   :alt: 硬件手册24.png
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册25.png
+   :alt: 硬件手册25.png
+   :width: 90%
+
+4G
+~~~~~
+
+|   通过U20（ EC801ECNCG-N01-SNNSA）模组引出4G功能。J7为自弹式SIM 卡座子。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册26.jpg
+   :alt: 硬件手册26.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. 4G需要大电流以及稳定的电压，可单独用一个DCDC为其供电
+2. SIM卡座子需加ESD防护器件
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册27.png
+   :alt: 硬件手册27.png
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册28.png
+   :alt: 硬件手册28.png
+   :width: 90%
+
+WIFI+BT
+~~~~~~~~~~
+
+|   U22为BL-8723DU模块,支持2.4GWIFI和5.0蓝牙。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册29.jpg
+   :alt: 硬件手册29.jpg
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册30.png
+   :alt: 硬件手册30.png
+   :width: 90%
+
+10、UART
+----------
+
+|   K1 有10组 UART 接口，其中 UART0为调试口。
+
+Debug
+~~~~~~~
+
+|   通过 CH340T 芯片将 UART0 转成 Type-C 接口，作为系统调试串口使用。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册31.jpg
+   :alt: 硬件手册31.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. 为避免 RX 端在底板上电前带电，向 CPU 灌输电流，影响 CPU 正常启动。底板设计时，需加电平转换芯片进行隔离
+2. CH340T使用外部的5V供电，CH340T芯片的5号引脚（V3）需接一个电容到GND
+3. Type-C座子处需加ESD防护器件
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册32.png
+   :alt: 硬件手册32.png
+   :width: 90%
+
+RS232 & RS485
+~~~~~~~~~~~~~~~~
+
+|   RS232和RS485都采用了绿色的凤凰端子（J8、J9）做为输入输出口。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册33.jpg
+   :alt: 硬件手册33.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. RS485电路采用的是自收发，需注意RS1G14XC5  （反相器）有一定的延迟时间，可能会对高速通信有影响，不适合用于波特率较高的通信场所
+2. RS485需加120欧的终端匹配电阻
+3. RS232、RS485座子处需加ESD防护器件
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册34.png
+   :alt: 硬件手册34.png
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册35.png
+   :alt: 硬件手册35.png
+   :width: 90%
+
+11、RGMII
+-----------
+
+|   K1支持两路10/100/1000 Mbps RGMII。U26、U28为ETH接口，采用汉仁的RJ45座子。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册36.jpg
+   :alt: 硬件手册36.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. 注意复位、中断、MDIO信号是否有接上拉电阻。MDIO信号的上拉电阻阻值大小需查看PYH芯片数据手册。同时要注意PYH芯片的RESET引脚上电时序，在PYH芯片上电稳定后至少有10ms的RESET信号（具体请查看芯片数据手册)。RBIAS引脚必须接2.49K（±1%）电阻到GND。
+2. 注意核心板RGMII信号的I/O电平与PHY芯片I/O电平是否匹配。K1的RGMII信号的I/O电平为1V8，所以要将PYH芯片的I/O电平配置为1V8
+3. 以太网座子的灯也是通过CFG_LDO[1:0]信号控制。所以在配置灯信号时，要根据PYH芯片的I/O电平配置
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册37.png
+   :alt: 硬件手册37.png
+   :width: 90%
+
+4. 确定PYH芯片的是电压驱动还是电流驱动，若是电流驱动则RJ45座子的中心抽头接电源，若是电压驱动则直接个电容到GND
+5. 配置PHY地址。若共用一个MAC时，需要配置不同的PYH地址
+6. 以太网座子处需加ESD防护器件
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册38.png
+   :alt: 硬件手册38.png
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册39.png
+   :alt: 硬件手册39.png
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册40.png
+   :alt: 硬件手册40.png
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册41.png
+   :alt: 硬件手册41.png
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册42.png
+   :alt: 硬件手册42.png
+   :width: 90%
+
+12、CAN
+---------
+
+|   K1支持1路CAN-FD。CAN采用绿色的凤凰端子（J13）做为输入输出口。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册43.jpg
+   :alt: 硬件手册43.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. CAN需加120欧的终端匹配电阻
+2. CAN座子处需加ESD防护器件
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册44.png
+   :alt: 硬件手册44.png
+   :width: 90%
+
+13、RTC
+---------
+
+|   通过U35(HYM8563S)引出RTC功能。U36为电池纽扣座子。
+
+**设计要点：**
+
+1. I2C注意接上拉电阻
+2. 加 D26（肖特基二极管），防止纽扣电池的电流入
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册45.png
+   :alt: 硬件手册45.png
+   :width: 90%
+
+14、ADC
+---------
+
+|   ADC采用2.54的排针做为接口。
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册46.jpg
+   :alt: 硬件手册46.jpg
+   :width: 90%
+
+**设计要点：**
+
+|   座子处需加ESD防护器件
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册47.png
+   :alt: 硬件手册47.png
+   :width: 90%
+
+15、电源
+----------
+
+|   采用 12V 直流输入电源输入，再通过DCDC芯片输出5V、4V、3V3等电压供给板子用。电源电路具备反接保护、过流过压保护、快速放电等功能。底板采用SY8386J DCDC芯片最大输出6A。CON1 为采用 12V 直流输入 DC-005 电源接口，可接外径 5.5mm、内径 2.1mm 的电源插头。J1为 12V 直流输入绿色凤凰端子，3pin 规格，间距 3.5mm。SW1 为电源拨动开关。  
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册48.jpg
+   :alt: 硬件手册48.jpg
+   :width: 90%
+
+**设计要点：**
+
+1. 底板模块的电要比核心板的电慢上，通过核心板上的PMIC芯片输出的电控制底板DCDC的使能端
+2. 快速放电电路要注意过大电流，器件选型（Q3、R8）要注意
+3. 防反接、开关控制电路要注意MOS管的漏源电压、连续漏极电流
+4. 电源输入处要接TVS防护器件
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册49.png
+   :alt: 硬件手册49.png
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册50.png
+   :alt: 硬件手册50.png
+   :width: 90%
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册51.png
+   :alt: 硬件手册51.png
+   :width: 90%
+
+PCB
+------
+
+|   PCB layout注意要点：
+|   （1）确保电源线和地线在整个回路线宽足够，电源回流快。
+|   （2）尽可能保证地平面的完整性，以及确保GND平面的连续性
+|   （3）电容要尽可能靠近芯片引脚，使回流更快。一般容值小的在前，大的在后
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册52.png
+   :alt: 硬件手册52.png
+   :width: 90%
+
+|   （4）数字地和模拟地要区分开
+|   （5）ESD保护器件要尽可能靠近接口
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册53.png
+   :alt: 硬件手册53.png
+   :width: 90%
+
+|   （6）非屏蔽型电感需割铜，割到地平面。且下方不走线
+|   （7）一体成型电感下方可铺地
+|   （8）时钟和高速信号的布线应至少距离板的边缘250mil，距离开关电源电感、MOS 管至少500mil
+|   （9）时钟要和完整的地平面相邻，必要时做包地处理
+|   （10）晶振附近或者下方不要布其他信号线，晶振最好包地
+|   （11）复位信号远离时钟线以及开关电源开关电路
+|   （12）阻抗建议
+
++--------------------------------------+------------+------+
+| 信号分组                             | 阻抗       | 精度 |
++--------------------------------------+------------+------+
+| 无特殊要求的单端信号                 | 50Ω 单端   | ±10% |
++--------------------------------------+------------+------+
+| USB 差分信号                         | 90Ω  差分  | ±10% |
++--------------------------------------+------------+------+
+| 差分信号（包括 Ethernet，DSI，LVDS） | 100Ω  差分 | ±10% |
++--------------------------------------+------------+------+
+
+|   （13）高速差分信号
+
+- 避免走线阻抗不连续
+- 高速信号线之间如果距离太近，很容易产生串扰，尽可能增加走线之间的间距
+- DP和DM走线要做等间距、等宽、等长，高速差分信号线对两信号线必须保证严格的时滞，否则很有可能通讯失败。故为了满足这一要求，可以通过蛇形线来实现等长，进而满足时滞要求
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册54.png
+   :alt: 硬件手册54.png
+   :width: 90%
+
+- 当信号用于多个复用功能且需要做等长时，需建立信号的起始端到模块终端的Pin Pair，再用Pin Pair拉等长
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册55.png
+   :alt: 硬件手册55.png
+   :width: 90%
+
+- 在差分线对内禁止布置过孔或者元器件
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册56.png
+   :alt: 硬件手册56.png
+   :width: 90%
+
+- DP和DM走线不应穿过参考平面中的平面分裂或空隙
+- DP和DM走线不应与其他信号交叉。如果它们交叉，则将数字电源平面或地平面置于两者之间
+- 尽量减少DP和DM走线弯曲的次数。但如果需要90°拐弯时，可以用两个45°代替
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 0
+
+   * - .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册57.png
+          :width: 100%
+          :align: center
+          :alt: 硬件手册57.png
+          
+     - .. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册58.png
+          :width: 100%
+          :align: center
+          :alt: 硬件手册58.png
+
+- 为了防止噪声，尽量减少DP和DM走线的弯曲次数和过孔数量，并且这些信号线应布线在固态的GND参考平面上。DP和DM走线应该有相同数量的过孔。尽量避免过孔和层的变化。建议使用顶层或底层进行信号线布线
+- DP和DM不能靠近其他信号。特别要注意时钟和数据总线的噪声
+- DP和DM走线两侧最好由GND平面屏蔽
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册59.png
+   :alt: 硬件手册59.png
+   :width: 90%
+
+- 将GND回路过孔与差分对过孔相邻
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册60.png
+   :alt: 硬件手册60.png
+   :width: 90%
+
+- 返回路径应与地连续。就是返回路径通常通过地（GND）来实现。为了确保有效、稳定地回流，地线（GND）应该尽量保持连续，避免分裂或中断。
+
+（14）USB 2.0
+
+- 芯片与连接器之间的USB高速信号走线应尽可能短
+- USB布线长度不宜过长，差分对内信号长度误差不超过0.12mm
+- 与DP和DM并行的高速时钟和周期信号走线彼此之间的距离应至少为50mil （1.27 mm）
+- 低速和非周期信号走线之间的距离应至少为20mil （0.51 mm）
+- DP和DM（同对）走线之间的距离应至少为7.5 mils （0.2 mm）
+- DP和DM（差分对）走线间距不小于20mil (0.51 mm)
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册61.png
+   :alt: 硬件手册61.png
+   :width: 90%
+
+（15）Ethernet
+
+- MDIO总线上挂载多个PHY芯片时，使用串联方式，不要分叉布线
+- RGMII接口分为发送信号，接收信号和控制信号，各组阻抗控制在50Ω±10%
+- 发送信号和接收信号，布线长度不超过100mm，组内信号长度误差不超过2.54mm
+- MDI接口采用差分布线，阻抗100Ω±10%
+- MDI组内差分误差不超过0.12mm
+- 芯片内部DCDC连接的功率电感要靠近芯片保证回路最短，并且保证地回路的完整
+- 数据线上预留的串联电阻需要靠近源端放置
+
+（16）CAN
+
+- CAN使用差分布线，预留120Ω终端电阻
+- 连接端口建议预留地信号
+
+（17）485
+
+- 485使用差分布线，预留120Ω终端电阻
+- 485总线采用半双工模式传输，需要做收发控制
+- 连接端口建议预留地信号
+
+（18）AUDIO
+
+- 音频信号为模拟信号，需要与数字信号进行隔离，必要时做包地处理，保证参考地的完整性
+- 模拟信号走线时线宽要尽量粗一些
+
+（19）WIFI
+
+- WIFI天线信号要包地
+- 走线宽度要粗一些。不能有90°或45°拐角，尽可能为直线，若需拐弯则用圆弧走线。
+- 信号线尽可能远离WIFI模块
+
+.. figure:: /image/MYZR-进迭时空/MYZR-K1-EK263/硬件手册62.png
+   :alt: 硬件手册62.png
+   :width: 90%
+
+
+
+
+
+
+
+
