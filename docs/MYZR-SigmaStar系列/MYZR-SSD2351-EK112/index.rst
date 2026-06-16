@@ -1,45 +1,14 @@
 MYZR-SSD2351-EK112
 ===================
 
-硬件手册
----------
+.. toctree:: 
+   :maxdepth: 3
 
-.. 核心板
-.. ~~~~~~~~
-
-.. toctree::
-   :maxdepth: 1
-
-   MYZR-SSD2351-EK112硬件手册
-
-编译手册
----------
-
-.. toctree::
-   :maxdepth: 1
-
-   MYZR-SSD2351-EK112编译手册
-
-烧录手册
----------
-
-.. toctree::
-   :maxdepth: 1
-
-   MYZR-SSD2351-EK112烧录手册
-
-测试手册
----------
-
-.. toctree::
-   :maxdepth: 1
-
-   MYZR-SSD2351-EK112测试手册
-
-启动手册
----------
-
-.. toctree::
-   :maxdepth: 1
-
-   MYZR-SSD2351-EK112快速启动手册
+   产品订购信息
+   平台介绍
+   产品介绍
+   启动手册
+   测试指导
+   烧录手册
+   硬件开发指导
+   软件手册
