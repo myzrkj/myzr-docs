@@ -32,22 +32,21 @@ python2与python3的语义有差别，SDK编译脚本使用的是python2的语�
 
 **解压源码和交叉编译**
 
-- boot-Pcupid_DLD00V2.2.9.tar.gz: Uboot源码 
-- kernel-Pcupid_DLD00V2.2.9.tar.gz: kernel源码 
-- project-Pcupid_DLD00V2.2.9.tar.gz:编译制作image的部分，包含非开源部分的lib/ko，以及对外api头文件参考 
-- sdk-Pcupid_DLD00V2.2.9.tar.gz:测试Demo/应用打包框架部分 
-- arm-sigmastar-linux-gcc-12.4.0-uclibc-1.0.46-gnueabihf.tar.xz: 交叉编译工具 
+- boot-Pcupid_DLD00V2.3.3*.tar.gz: Uboot源码
+- kernel-Pcupid_DLD00V2.3.3*.gz: kernel源码
+- project-Pcupid_DLD00V2.3.3*.tar.gz:编译制作image的部分，包含非开源部分的lib/ko，以及对外api头文件参考(squashfs编译后是只读的系统，ubifs编译后是可读写的系统，建议用ubifs版本)
+- sdk-Pcupid_DLD00V2.3.3*.tar.gz:测试Demo/应用打包框架部分
+- aarch64-unknown-linux-gcc-12.4.0-glibc-2.37-gnu.tar.xz:  交叉编译工具
 
 .. code-block:: shell
 
     $ mkdir ~/ssd2351/source -p
-    $ tar zxvf boot-Pcupid_DLD00V2.2.9*.tar.gz -C ~/ssd2351/source
-    $ tar zxvf kernel-Pcupid_DLD00V2.2.9*.tar.gz -C ~/ssd2351/source
-    $ tar zxvf project-Pcupid_DLD00V2.2.9*.tar.gz -C ~/ssd2351/source
-    $ tar zxvf sdk-Pcupid_DLD00V2.2.9*.tar.gz -C ~/ssd2351/source
+    $ tar zxvf boot-Pcupid_DLD00V2.3.3*.tar.gz -C ~/ssd2351/source
+    $ tar zxvf kernel-Pcupid_DLD00V2.3.3*.tar.gz -C ~/ssd2351/source
+    $ tar zxvf project-Pcupid_DLD00V2.3.3*.tar.gz -C ~/ssd2351/source
+    $ tar zxvf sdk-Pcupid_DLD00V2.3.3*.tar.gz -C ~/ssd2351/source
     $ mkdir ~/ssd2351/tool/toolchain -p
-    $ tar -xvf ./arm-sigmastar-linux-gcc-12.4.0-uclibc-1.0.46-gnueabihf.tar.xz -C ~/ssd2351/tool/toolchain
-
+    $ tar -xvf aarch64-unknown-linux-gcc-12.4.0-glibc-2.37-gnu.tar.xz -C ~/ssd2351/tool/toolchain
 **设置交叉编译工具**
 
 .. code-block:: shell

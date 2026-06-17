@@ -28,10 +28,9 @@ SSD2351是由中国星宸科技（SigmaStar）推出的面向工业AIoT与智能
 处理器框图
 ------------
 
-.. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/处理器框图.png
-   :alt: 处理器框图
-   :width: 90%
-   
+.. figure:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/处理器框图.png
+   :alt: 处理器框图.png
+   :width: 60%
 处理器特性
 -----------
 
