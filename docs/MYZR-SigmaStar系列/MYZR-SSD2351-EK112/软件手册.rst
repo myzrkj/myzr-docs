@@ -51,9 +51,9 @@ python2与python3的语义有差别，SDK编译脚本使用的是python2的语�
 
 .. code-block:: shell
 
-    $ export PATH=~/ssd2351/tool/toolchain/arm-sigmastar-linux-gcc-12.4.0-uclibc-1.0.46-gnueabihf/bin:$PATH
-    $ export CROSS_COMPILE=arm-sigmastar-linux-uclibcgnueabihf-12.4.0-
-    $ export ARCH=arm
+    $ export PATH=~/ssd2351/tool/toolchain/aarch64-unknown-linux-gcc-12.4.0-glibc-2.37-gnu/bin:$PATH
+    $ export CROSS_COMPILE=aarch64-unknown-linux-gnu-12.4.0-
+    $ export ARCH=arm64
     $ ${CROSS_COMPILE}gcc -v
 
 **全局编译**
@@ -100,7 +100,7 @@ python2与python3的语义有差别，SDK编译脚本使用的是python2的语�
 .. code-block:: shell
 
     $ cd ~/ssd2351/source/boot
-    $ make pcupid_ssm001c_s01a_spinand_defconfig
+    $ make pcupid_ssm001c_s01a_spinand_arm64_defconfig
     $ make clean;make -j8;
 #注意：在boot目录下单独编译需要先将生成image手动release到project对应目录之后打包才行
 
@@ -166,4 +166,4 @@ python2与python3的语义有差别，SDK编译脚本使用的是python2的语�
     # 保存配置
     $ make savedefconfig
     # 复制到默认配置
-    $ cp defconfig arch/arm/configs/pcupid_ssm001c_s01a_spinand_voip_defconfig
+    $ cp defconfig arch/arm64/configs/pcupid_ssm001c_s01a_spinand_voip_defconfig
