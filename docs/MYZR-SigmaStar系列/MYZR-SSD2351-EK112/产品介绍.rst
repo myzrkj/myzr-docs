@@ -1,3 +1,13 @@
+
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;  /* 一级标题字体颜色 */
+   }
+   </style>
+
+
 产品介绍
 =====================
 
@@ -23,8 +33,42 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 核心板规格
 -----------
 
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+       text-align: center;  /* 表头居中 */
+   }
+     td {
+       border: 1px solid #ddd;
+       padding: 8px;
+       text-align: center;  /* 第一行内容居中 */
+   }
+
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
+
 +------+----------------+---------------------------------------------------+
-| 序号 | 参数           | 值                                                |
+| 序号 | 参数           | .. centered :: 值                                 |
 +======+================+===================================================+
 | 1    | 型号           | MYZR-SSD2351-CB112                                |
 +------+----------------+---------------------------------------------------+
@@ -47,11 +91,11 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/核心板正面.jpg
    :alt: 核心板正面
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/核心板反面.jpg
    :alt: 核心板反面
-   :width: 90%
+   :width: 100%
 
 .. raw:: html
 
@@ -63,9 +107,39 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/核心板结构参数.png
    :alt: 核心板结构参数
-   :width: 93%
+   :width: 100%
 
 **核心板命名规则及可选配置**
+
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
 
 +---------------------------+-------------------------------------------------------------------------------------------+
 |     核心板型号            | 命名规则                                                                                  |
@@ -90,6 +164,36 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 **接口资源**
 
 注：表中参数为硬件设计或 CPU 理论值
+
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
 
 +--------------+-----------+------------------+--------------------------------------------------------------------------+
 | 接口分类     | 接口规格  | 最大可配置接口数 | 描述                                                                     |
@@ -125,6 +229,36 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 
 **供电模式**
 
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
+
 +----------+----------+--------+--------+--------+------+------------+
 | 功能     | 引脚标号 |              规格               | 说明       |
 |          |          +--------+--------+--------+------+            |
@@ -134,6 +268,36 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 +----------+----------+--------+--------+--------+------+------------+
 
 **工作环境**
+
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
 
 +----------+--------+--------+--------+-------+-------------------------+
 | 参数     |             规格                 |     说明                |     
@@ -156,6 +320,36 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 
 **是否支持快启动及快启时间**
 
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
+
 +----------+----------+----------------+
 | 项目     | 支持情况 | 时间           |
 +==========+==========+================+
@@ -163,6 +357,36 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 +----------+----------+----------------+
 
 **核心板/开发板功耗**
+
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
 
 +-----------------+----------+----------+----------+----------+
 | 类型            | 测试项目                                  |
@@ -185,6 +409,36 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 **信号定义**
 
 核心板引脚定义
+
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
 
 ================================== ==================================== ============================= ==================
  Pin NO.                            Pin Name                             功能描述                        管脚电压
@@ -320,11 +574,11 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/开发正.png
    :alt: 开发正
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/开发反.png
    :alt: 开发反
-   :width: 90%
+   :width: 100%
 
 .. raw:: html
 
@@ -334,7 +588,7 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/主板尺寸.png
    :alt: 主板尺寸.png
-   :width: 90%
+   :width: 100%
 
 **开发板接口图**
 
@@ -342,9 +596,39 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/接口图.jpg
    :alt: 接口图.jpg
-   :width: 90%
+   :width: 100%
 
 **开发板基础参数**
+
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
 
 ====  ==============  ==========================
 序号  项目             规格
@@ -358,6 +642,36 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 ====  ==============  ==========================
 
 **开发板标配及可选配件**
+
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
 
 +--------------------+----------------------------------------+----------------------------------------+
 | 型号               | 开发板标配                                                                      |
@@ -373,6 +687,36 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 开发板搭配MYZR-SSD2351-CB112核心板使用，集成开发调试所需的全部常用接口，方便用户进行系统开发与功能验证。
 
 **开发板资源**
+
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
 
 ====  ==============  ================================================  =====================  ========
 序号  接口             功能                                              接口形式                丝印
@@ -442,5 +786,3 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 
 -  布线：成组等长，组内线长偏差控制严格
 -  功能：串口调试、系统日志查看、开发调试
-
-

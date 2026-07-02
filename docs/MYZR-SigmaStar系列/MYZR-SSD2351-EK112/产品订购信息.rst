@@ -1,3 +1,13 @@
+
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;  /* 一级标题字体颜色 */
+   }
+   </style>
+
+
 产品订购信息
 =====================
 
@@ -5,6 +15,6 @@
 
 - 【商务及开发资料】联系您的明远智睿销售经理
 
-.. figure:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/天猫店铺.png
-   :alt: 天猫店铺.png
-   :width: 30%
+.. figure:: /image/MYZR-SigmaStar系列/MYZR-SSD2351/天猫.png
+   :alt: 天猫.png
+   :width: 100%
