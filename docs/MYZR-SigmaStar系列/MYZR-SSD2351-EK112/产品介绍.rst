@@ -584,6 +584,7 @@ MYZR-SSD2351-CB112核心板基于SSD2351处理器设计，集成处理器运行�
 
     </div>
 
+
 **开发板尺寸机械图**
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/主板尺寸.png
