@@ -1,72 +1,285 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: green;
+   }
+   </style>
+
 启动手册
-=========
+========
 
 开发板连接
------------
+----------
 
-串口线的连接
-~~~~~~~~~~~~~
+准备工作
+--------
 
-1. 把串口线的一端连接到开发板的“J9”（请参考丝印图）串口，另一端连接到电脑的串口
-2. 参考 :doc:`《Xshell 参考手册》</docs/COMMON/Xshell.RM.参考手册>` 新建串口会话并打开会话。
+.. raw:: html
 
-网线的连接
-~~~~~~~~~~~
+   <style>
+   table {
+       width: 100%;
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   table td:nth-child(1) { width: 50%; }
+   table td:nth-child(2) { width: 50%; }
+   th {
+       background-color: #4CAF50;
+       color: white;
+       text-align: center;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+       text-align: center;
+   }
+   </style>
 
-|   把网线的一端连接到“U9”，另一端连接到电脑的网口。
++----------------------+--------------------------------------+
+| .. centered ::  检查并核对开发板配件                        |
++======================+======================================+
+| 核心板               | 1片                                  |
++----------------------+--------------------------------------+
+| 主板                 | 1片                                  |
++----------------------+--------------------------------------+
+| 电源                 | 1个，5V                              |
++----------------------+--------------------------------------+
+| 烧录线               | 1条，USB 公对公                      |
++----------------------+--------------------------------------+
+| 串口线               | 1条，TTL模块和若干杜板线             |
++----------------------+--------------------------------------+
+| 网线                 | 1条                                  |
++----------------------+--------------------------------------+
+| FPC线                | 1条，nPin，同侧/异侧（选配）         |
++----------------------+--------------------------------------+
+| 显示屏               | 1片（选配8寸MIPI屏）                 |
++----------------------+--------------------------------------+
+| 摄像头               | 1个（选配OV8858 MIPI接口摄像头模组） |
++----------------------+--------------------------------------+
 
-下载线的连接
-~~~~~~~~~~~~~
+屏幕接法注意事项
+~~~~~~~~~~~~~~~~
 
-|   把双头USB线的一端连接U9，另一端连接到电脑的后置USB口。
+* 请严格按照图所示屏幕接法进行，接口没有防呆
 
-电源线的连接
-~~~~~~~~~~~~~
+* 接反会导致屏幕及板子损坏
 
-|   把电源适配器的一端连接到开发板的“J15”，另一端插入到市电（220V的交流电）插座。
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/屏幕接法注意事项.png
+   :alt: 屏幕接法注意事项
+   :width: 90%
 
-HDMI显示屏连接
+RK3568开发板 8寸MIPI触摸屏屏接法示意
+
+检查电源开关
+~~~~~~~~~~~~
+
+上电启动，无断电电源开关。
+
+串口参数设置
+~~~~~~~~~~~~
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   table td:nth-child(1) { width: 25%; }
+   table td:nth-child(2) { width: 25%; }
+   table td:nth-child(3) { width: 25%; }
+   table td:nth-child(4) { width: 25%; }
+   th {
+       background-color: #4CAF50;
+       color: white;
+       text-align: center;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+       text-align: center;
+   }
+   </style>
+
++--------+--------+--------+--------+
+| 波特率 | 数据位 | 停止位 | 校验位 |
++========+========+========+========+
+| 115200 | 8bit   | 1bit   | none   |
++--------+--------+--------+--------+
+
+拨码设置以及TTL串口模块
+~~~~~~~~~~~~~~~~~~~~~~~
+
+该开发板没有拨码开关
+
+TTL串口模块接法
 ~~~~~~~~~~~~~~~
 
-|   将 HDMI显示屏连接线的一端接到开发板的J2，另一端接到 HDMI 显示屏，并为 HDMI显示屏上电。
-|   注意： HDMI 显示屏的分辨率建议使用 1080P，以及使用HDMI 接口的显示屏，而不是转接为 HDMI 接口的。
+开发板用的type-c调试端口
+
+下载线的连接
+~~~~~~~~~~~~
+
+把type-C接口的USB线的一端连接开发板U4，另一端连接到电脑的后置USB口。
+
+电源线的连接
+~~~~~~~~~~~~
+
+把电源适配器（5V输出）的一端连接到开发板的“J15”，另一端插入到市电（220V的交流电）插座。
+
+串口线的连接
+~~~~~~~~~~~~
+
+1. 把串口线的一端连接到开发板的“J9”（请参考丝印图）串口，另一端连接到电脑的串口。
+
+2. 参考 《Xshell 参考手册》 新建串口会话并打开会话。
+
+网线的连接
+~~~~~~~~~~
+
+把网线的一端连接到“U9”，另一端连接到电脑的网口。
+
+HDMI显示屏连接
+~~~~~~~~~~~~~~
+
+将 HDMI显示屏连接线的一端接到开发板的J2，另一端接到 HDMI 显示屏，并为 HDMI显示屏上电。
+
+**注意： HDMI 显示屏的分辨率建议使用 1080P，以及使用HDMI 接口的显示屏，而不是转接为 HDMI 接口的。**
 
 启动开发板
-~~~~~~~~~~~
+----------
 
 为开发板上电
-^^^^^^^^^^^^^
+~~~~~~~~~~~~
 
-|   把电源适配器插入开发板的J15座子，给板子供电。
+把电源适配器插入开发板的J15座子，给板子供电。
+
+拨码设置
+^^^^^^^^
+
+开发板上面没有拨码开关
 
 开发板的启动信息解读
-~~~~~~~~~~~~~~~~~~~~
+--------------------
 
-|   开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
+开发板通电后在串口终端软件上可以看到开发板输出的启动信息。
 
-.. code:: shell
+.. code-block:: shell
 
-    U-Boot SPL 2017.09-gaaca6ffec1-211203 #zzz (Dec 03 2021 - 18:42:16)
-    Linux version 4.19.232 (zhengc@myzr-92aa) (gcc version 10.3.1 20210621 (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)), GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #4 SMP Tue Apr 15 17:28:04 CST 2025
-    vcc3v3_pcie: disabling
+   U-Boot SPL 2017.09-gaaca6ffec1-211203 #zzz (Dec 03 2021 - 18:42:16)
+   Linux version 4.19.232 (zhengc@myzr-92aa) (gcc version 10.3.1 20210621 (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)), GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #4 SMP Tue Apr 15 17:28:04 CST 2025
 
-U-Boot 信息
-^^^^^^^^^^^^
+U-Boot信息
+~~~~~~~~~~
 
-|   启动信息中 U-Boot SPL 2017.09-gaaca6ffec1-211203 #zzz (Dec 03 2021 - 18:42:16)包含以下信息：
-|   【u-boot版本】 ：2017.09；
-|   【源码的版本号】 ：gaaca6ffec1；
-|   【u-boot文件的编译时间】 ：Dec 03 2021 - 18:42:16。
+启动信息中 U-Boot SPL 2017.09-gaaca6ffec1-211203 #zzz (Dec 03 2021 - 18:42:16)包含以下信息：
 
-内核信息
-^^^^^^^^^
+【u-boot版本】 ：2017.09；
 
-|   启动信息中 Linux version 4.19.232 (zhengc@myzr-92aa) (gcc version 10.3.1 20210621 (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)), GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #4 SMP Tue Apr 15 17:28:04 CST 2025包含以下信息：
-|   【内核版本】 ：Linux- 4.19.232 ；
-|   【编译内核的GCC版本】 ： 10.3.1；
-|   【内核文件的编译时间】 ：Tue Apr 15 17:28:04 CST 2025。
+【源码的版本号】 ：gaaca6ffec1；
 
-开发板登录
+【u-boot文件的编译时间】 ：Dec 03 2021 - 18:42:16。
+
+Linux内核信息
+~~~~~~~~~~~~~
+
+启动信息中 Linux version 4.19.232 (zhengc@myzr-92aa) (gcc version 10.3.1 20210621 (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)), GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 2.36.1.20210621) #4 SMP Tue Apr 15 17:28:04 CST 2025包含以下信息：
+
+【内核版本】 ：Linux- 4.19.232 ；
+
+【编译内核的GCC版本】 ： 10.3.1；
+
+【内核文件的编译时间】 ：Tue Apr 15 17:28:04 CST 2025。
+
+开发板的登录
+------------
+
+串口登录
+~~~~~~~~
+
+.. code-block:: shell
+
+   #用TTL模块，把电脑和板子连接起来。插入TYPEC线，开机
+   # 敲回车登陆
+   DDR V1.16 6f71c736ce typ 23/03/02-20:01:48
+   LPDDR4X, 324MHz -> 1560MHz(final freq)
+   BW=32 Col=10 Bk=8 CS0 Row=16 CS=1 Die BW=16 Size=2048MB
+   ddr read/write/CA training complete
+   U-Boot SPL 2017.09-gaaca6ffec1-211203
+   MMC2 init failed(-95), switch to MMC1
+   SPL: A/B-slot: _a, successful: 0, tries-remain: 7
+   sha256 check: atf/uboot/fdt/optee all OK
+   Jumping to U-Boot via ARM Trusted Firmware
+   Total: 316.785 ms
+   NOTICE:  BL31: v2.3():v2.3-578-gaef7950e4
+   GICv3 driver initialized in EL3
+   dfs DDR fsp_param: 1560/324/528/780MHz
+   I/TC: OP-TEE version: 3.13.0-651-gd84087907
+   Primary CPU switching to normal world boot
+   Entry point address = 0xa00000
+   U-Boot 2017.09 (Aug 18 2025 - 09:12:07 +0000)
+   Model: MYZR RK3568 Evaluation Board
+   DRAM:  2 GiB
+   dwmmc@fe2b0000: 1, dwmmc@fe2c0000: 2, sdhci@fe310000: 0
+   MMC0: HS200, 200Mhz
+   PMIC:  RK8090
+   VOP0/VOP1 actived, DSI 800x1280p0 enabled
+   hdmi@fe0a0000 disconnected
+   Net:   eth1: ethernet@fe010000, eth0: ethernet@fe2a0000
+   Loading kernel/fdt from FIT Image, sha256 verify OK
+   Booting Linux using fdt blob
+   [    2.489574] [WLAN_RFKILL]: wifi_chip_type = ap6398s
+   [    2.490327] [BT_RFKILL]: bt shut off power
+   [    2.493889] Btrfs loaded
+   [    2.495116] rga2: Driver loaded successfully ver:3.2.63318
+   [    2.518796] mpp_rkvenc probing start
+   [    2.520267] mpp_rkvdec2 probing start
+   [    2.528377] mmc0: new HS200 MMC card at address 0001
+   [    2.529456] mmcblk0: mmc0:0001 H8G4a2 7.28 GiB
+   [    2.536419] mali fde60000.gpu: Kernel DDK version g7p1-01bet0
+   [    2.537124] rockchip-dmc dmc initialized
+   [    2.550130] rk817-codec probed
+   [    2.562049] RKNPU fde40000.npu: iommu mode enabled
+   [    2.588662] cfg80211: failed to load regulatory.db
+   [    2.611547] EXT4-fs (mmcblk0p6): mounted root filesystem
+   [    2.645286] Run /sbin/init as init process
+   [    2.848688] rk-pcie Linking... LTSSM is 0x3
+   [    5.227449] eth0: stmmac_hw_setup: DMA engine initialization failed
+   [    5.334656] eth1: stmmac_hw_setup: DMA engine initialization failed
+   [    6.250461] RTW: rtl8723du driver init start
+
+adb连接登录
 ~~~~~~~~~~~
 
-|   启动系统完后，按回车键可以登录;
+该内核版本没有ADB
+
+网线ssh登录
+~~~~~~~~~~~
+
+.. code-block:: shell
+
+   #插上网线自动获取IP192.168.128.88
+   #用户名：root  密码：rockchip
+   Connecting to 192.168.128.88:22...
+   Connection established.
+   To escape to local shell, press 'Ctrl+Alt+]'.
+   
+   sh: line 1: /usr/bin/xauth: No such file or directory
+   root@RK356X:~#
+
+对于buildroot系统，登录账户和密码为root rockchip
+
+对于debian系统账号和密码：
+
+普通用户：linaro linaro
+
+root用户：root linaro
+
+对于ubuntu系统账号和密码：
+
+普通用户：myzr myzr
+
+root用户：root root
