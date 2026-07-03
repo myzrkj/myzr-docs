@@ -1,3 +1,13 @@
+
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;  /* 一级标题字体颜色 */
+   }
+   </style>
+
+
 启动手册
 =====================
 注意：以下针对ubifs版本系统
@@ -5,6 +15,40 @@
 开发板连接
 -----------
 **准备工作**
+
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+       text-align: center;  /* 表头居中 */
+   }
+     td {
+       border: 1px solid #ddd;
+       padding: 8px;
+       text-align: center;  /* 第一行内容居中 */
+   }
+
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
+   </style>
 
 +--------------+--------+
 | 检查并核对开发板配件  |
@@ -22,7 +66,7 @@
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/接线方向.jpg
    :alt: 接线方向.jpg
-   :width: 90%
+   :width: 100%
 
 **检查电源开关**
 
