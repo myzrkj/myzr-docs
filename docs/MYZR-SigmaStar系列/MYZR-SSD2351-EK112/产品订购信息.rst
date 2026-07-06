@@ -17,4 +17,4 @@
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/天猫.png
    :alt: 天猫.png
-   :width: 100%
+   :width: 50%
