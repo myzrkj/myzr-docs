@@ -15,6 +15,6 @@
 
 .. figure:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/天猫店铺.png
    :alt: 天猫店铺.png
-   :width: 100%
+   :width: 50%
 
 

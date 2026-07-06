@@ -7,7 +7,7 @@
    </style>
 
 产品介绍
-========
+==========
 
 核心板介绍
 ----------
@@ -38,30 +38,29 @@ MYZR-RK3568核心板采用LGA盲埋沉金工艺设计，将RK3568处理器、电
 
    <style>
    table {
-       width: 100%;  /* 统一宽度 */
-       border-collapse: collapse;
-   }
-   table td:nth-child(1) { width: 10%; }   /* 第1列宽度 */
-   table td:nth-child(2) { width: 20%; }   /* 第2列宽度 */
-   table td:nth-child(3) { width: 70%; }   /* 第3列宽度 */
-   </style>
-
-.. raw:: html
-
-   <style>
-   table {
        border-collapse: collapse;
        background-color: #f5f5f5;
    }
    th {
        background-color: #4CAF50;
        color: white;
-       text-align: center;
    }
    td {
        border: 1px solid #ddd;
        padding: 8px;
-       text-align: center;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
    }
    </style>
 
@@ -125,32 +124,29 @@ MYZR-RK3568核心板采用LGA盲埋沉金工艺设计，将RK3568处理器、电
 
    <style>
    table {
-       width: 100%;  /* 统一宽度 */
-       border-collapse: collapse;
-   }
-   table td:nth-child(1) { width: 20%; }   /* 第1列宽度 */
-   table td:nth-child(2) { width: 35%; }   /* 第2列宽度 */
-   table td:nth-child(3) { width: 15%; }   /* 第3列宽度 */
-   table td:nth-child(4) { width: 15%; }   /* 第4列宽度 */
-   table td:nth-child(5) { width: 15%; }   /* 第5列宽度 */
-   </style>
-
-.. raw:: html
-
-   <style>
-   table {
        border-collapse: collapse;
        background-color: #f5f5f5;
    }
    th {
        background-color: #4CAF50;
        color: white;
-       text-align: center;
    }
    td {
        border: 1px solid #ddd;
        padding: 8px;
-       text-align: center;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
    }
    </style>
 
@@ -203,15 +199,17 @@ MYZR-RK3568核心板采用LGA盲埋沉金工艺设计，将RK3568处理器、电
    }
    </style>
 
+.. raw:: html
+
    <style>
    table {
        width: 100%;  /* 统一宽度 */
        border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
    }
-   table td:nth-child(1) { width: 10%; }   /* 第1列宽度 */
-   table td:nth-child(2) { width: 10%; }   /* 第2列宽度 */
-   table td:nth-child(3) { width: 10%; }   /* 第3列宽度 */
-   table td:nth-child(4) { width: 70%; }   /* 第4列宽度 */
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
    </style>
 
 
@@ -295,16 +293,13 @@ MYZR-RK3568核心板采用LGA盲埋沉金工艺设计，将RK3568处理器、电
 
    <style>
    table {
-       width: 100%;
+       width: 100%;  /* 统一宽度 */
        border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
    }
-   table td:nth-child(1) { width: 14.3%; }
-   table td:nth-child(2) { width: 14.3%; }
-   table td:nth-child(3) { width: 14.3%; }
-   table td:nth-child(4) { width: 14.3%; }
-   table td:nth-child(5) { width: 14.3%; }
-   table td:nth-child(6) { width: 14.3%; }
-   table td:nth-child(7) { width: 14.2%; }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
    </style>
 
 +----------+----------+------+------+------+------+----------+
@@ -322,15 +317,30 @@ MYZR-RK3568核心板采用LGA盲埋沉金工艺设计，将RK3568处理器、电
 
    <style>
    table {
-       width: 100%;
        border-collapse: collapse;
+       background-color: #f5f5f5;
    }
-   table td:nth-child(1) { width: 16.7%; }
-   table td:nth-child(2) { width: 16.7%; }
-   table td:nth-child(3) { width: 16.7%; }
-   table td:nth-child(4) { width: 16.7%; }
-   table td:nth-child(5) { width: 16.7%; }
-   table td:nth-child(6) { width: 16.5%; }
+   th {
+       background-color: #4CAF50;
+       color: white;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+   }
+   </style>
+
+.. raw:: html
+
+   <style>
+   table {
+       width: 100%;  /* 统一宽度 */
+       border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
+   }
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
    </style>
 
 +--------+------+------+------+------+------------------------+
@@ -376,14 +386,17 @@ BOOT配置方式参考原理图。
    }
    </style>
 
+.. raw:: html
+
    <style>
    table {
        width: 100%;  /* 统一宽度 */
        border-collapse: collapse;
+       table-layout: auto;  /* 列宽自动分配 */
    }
-   table td:nth-child(1) { width: 30%; }   /* 第1列宽度 */
-   table td:nth-child(2) { width: 30%; }   /* 第2列宽度 */
-   table td:nth-child(3) { width: 40%; }   /* 第3列宽度 */
+   td {
+       word-wrap: break-word;  /* 内容过长自动换行 */
+   }
    </style>
    
 +--------+----------+------------------+
