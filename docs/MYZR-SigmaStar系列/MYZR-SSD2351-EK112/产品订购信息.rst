@@ -15,6 +15,6 @@
 
 - 【商务及开发资料】联系您的明远智睿销售经理
 
-.. figure:: ../../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/天猫.png
+.. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2351/天猫.png
    :alt: 天猫.png
-   :width: 100%
+   :width: 50%
