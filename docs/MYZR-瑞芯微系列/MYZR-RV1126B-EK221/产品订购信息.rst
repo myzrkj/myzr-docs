@@ -1,0 +1,18 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: green;
+   }
+   </style>
+
+产品订购信息
+======
+
+【天猫】明远智睿工业旗舰店:https://mingyuanzhiruigy.tmall.com/
+
+【商务】联系您的明远智睿销售经理
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/产品订购信息.png
+   :alt: 产品订购信息
+   :width: 30%

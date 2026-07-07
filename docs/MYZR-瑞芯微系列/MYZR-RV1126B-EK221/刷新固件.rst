@@ -1,0 +1,82 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: green;
+   }
+   </style>
+
+刷新固件
+====
+
+安装DriverAssitant驱动
+------------------
+
+* 从下载的网盘资料中找到RockchipUSB驱动安装包,路径为:3.软件资料-->3.2-工具-->DriverAssitant_v5.11.zip
+
+* 解压DriverAssitant_v5.11.zip后进入DriverAssitant_v5.11文件夹
+
+* 直接双击DriverInstall.exe程序进行驱动安装,安装步骤如下:
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/安装DriverAssitant驱动.png
+   :alt: 安装DriverAssitant驱动
+   :width: 30%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/安装DriverAssitant驱动_02.png
+   :alt: 安装DriverAssitant驱动
+   :width: 30%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/安装DriverAssitant驱动_03.png
+   :alt: 安装DriverAssitant驱动
+   :width: 30%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/安装DriverAssitant驱动_04.png
+   :alt: 安装DriverAssitant驱动
+   :width: 30%
+
+使用RKDevTool工具进行刷机
+-----------------
+
+* 从下载的网盘资料中找到RKDevTool驱动安装包,路径为:3.软件资料-->3.2-工具-->RKDevTool_Release_v3.15.zip
+
+* 解压RKDevTool_Release_v3.15.zip后进入RKDevTool_Release_v3.15文件夹
+
+* 双击RKDevTool.exe打开程序
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机.png
+   :alt: 使用RKDevTool工具进行刷机
+   :width: 30%
+
+* 点击进入"升级固件"界面
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_02.png
+   :alt: 使用RKDevTool工具进行刷机
+   :width: 30%
+
+* 点击"固件"按钮,然后选择相应的img镜像文件
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_03.png
+   :alt: 使用RKDevTool工具进行刷机
+   :width: 30%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_04.png
+   :alt: 使用RKDevTool工具进行刷机
+   :width: 30%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_05.png
+   :alt: 使用RKDevTool工具进行刷机
+   :width: 30%
+
+* 开发板接上烧录线,按住开发板SW8按键,再给开发板上电,上电3秒左右可看到开发板进入了download模式
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_06.png
+   :alt: 使用RKDevTool工具进行刷机
+   :width: 30%
+
+* 点击"升级"按钮进行刷机,刷成功右边显示成功字符
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_07.png
+   :alt: 使用RKDevTool工具进行刷机
+   :width: 30%
+
+* 烧录完成后,开发板重新上电。

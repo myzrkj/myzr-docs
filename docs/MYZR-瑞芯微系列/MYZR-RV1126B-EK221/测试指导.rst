@@ -1,0 +1,564 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: green;
+   }
+   </style>
+
+测试指导
+====
+
+USB测试
+-----
+
+接口丝印:
+
+* USB 2.0 : J1
+
+* USB 3.0 : USB 3.0
+
+测试说明:采用插拔USB存储设备(U盘)的方式进行测试。
+
+测试操作:
+
+1. 将USB设备插入底板的USB接口,系统会输出如下类似信息:
+
+.. code-block:: shell
+
+   [   19.961327 ] usb 1-1.1: new high-speed USB device number 4 using ehci-
+   platform
+   [   20.072318 ] usb 1-1.1: New USB device found, idVendor=ffff, idProduct=5678,
+   bcdDevice= 2.00
+   [   20.072353 ] usb 1-1.1: New USB device strings: Mfr=1, Product=2,
+   SerialNumber=3
+   [   20.072372 ] usb 1-1.1: Product: Disk 2.0
+   [   20.072386 ] usb 1-1.1: Manufacturer: USB
+   [   20.072400 ] usb 1-1.1: SerialNumber: 5299291115661588161
+   [   20.073438 ] usb-storage 1-1.1:1.0: USB Mass Storage device detected
+   [   20.074332 ] scsi host0: usb-storage 1-1.1 :1.0
+   [   21.082808 ] scsi 0:0:0:0: Direct-Access     VendorCo ProductCode      2.00
+   PQ: 0 ANSI: 4
+   [   21.085385 ] sd 0:0:0:0:  [sda] 31129600 512-byte logical blocks: (15.9
+   GB/14.8 GiB)
+   [   21.086132 ] sd 0:0:0:0:  [sda] Write Protect is off
+   [   21.086877 ] sd 0:0:0:0:  [sda] No Caching mode page found
+   [   21.086889 ] sd 0:0:0:0:  [sda] Assuming drive cache: write through
+   [   21.091631 ]  sda: sda1
+   [   21.092478 ] sd 0:0:0:0:  [sda] Attached SCSI removable disk
+   [   21.321373 ] FAT-fs (sda1): utf8 is not a recommended IO charset for FAT
+   filesystems, filesystem will be case sensitive!
+   [   21.325508 ] FAT-fs (sda1): Volume was not properly unmounted. Some data may
+   be corrupt. Please run fsck.
+
+2. 将USB设备从底板USB接口拔出,系统会输出如下类似信息:
+
+.. code-block:: shell
+
+   [   90.139509] usb 1-1.1: USB disconnect, device number 4
+
+SD卡接口测试
+-------
+
+接口丝印:TF
+
+测试说明:采用插拔TF卡的方式进行测试。
+
+测试操作:
+
+1. 将TF卡插入底板的TF卡接口,系统会输出如下类似信息:
+
+.. code-block:: shell
+
+   [  432.796162] mmc_host mmc1: Bus speed (slot 0) = 400000Hz (slot req
+   400000Hz, actual 400000HZ div = 0)
+   [  432.881908] mmc_host mmc1: Bus speed (slot 0) = 50000000Hz (slot req
+   50000000Hz, actual 50000000HZ div = 0)
+   [  432.881993] mmc1: new high speed SDHC card at address 1234
+   [  432.883524] mmcblk1: mmc1:1234 SA08G 7.21 GiB
+   [  432.885458]  mmcblk1: p1
+   [  433.089059] FAT-fs (mmcblk1p1): utf8 is not a recommended IO charset for
+   FAT filesystems, filesystem will be case sensitive!
+   [  433.097212] FAT-fs (mmcblk1p1): Volume was not properly unmounted. Some
+   data may be corrupt. Please run fsck.
+
+2. 将TF卡从底板TF卡接口拔出,系统会输出如下类似信息:
+
+.. code-block:: shell
+
+   [  518.934035] mmc1: card 1234 removed
+
+网口测试
+-----------------
+
+网口一
+~~~~~~~~~~~~~
+
+接口丝印:100M
+
+系统接口:eth0
+
+测试说明:采用开发板向PC发送ICM P报文的方式进行测试
+
+测试操作:
+
+1. 配置电脑有线网卡IP为192.168.137.99。
+
+2. 使用网线连接开发板网口和电脑的网口,串口显示信息:
+
+.. code-block:: shell
+
+   [  975.297225] rk_gmac-dwmac 21c70000.ethernet eth0: Link is Up - 100Mbps/Full
+   - flow control rx/tx
+   [  975.297294] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+
+3. 默认自动获取IP地址,但测试是配置静态ip来测,具体配置指令如下:
+
+.. code-block:: shell
+
+   ifconfig eth0 up
+   ifconfig eth0 192.168.137.81
+
+4. 输入指令如下进行验证网口二:
+
+.. code-block:: shell
+
+   ping -I eth0 192.168.137.99 -c 2 -w 4
+
+5. 系统会输出如下类似信息:
+
+.. code-block:: shell
+
+   PING 192.168.137.99  (192.168.137.99 ) from 192.168.137.17  eth0: 56(84) bytes  of
+   data.
+   64 bytes from 192.168.137.99 : icmp_seq= 1 ttl= 128 time= 1.28 ms
+   64 bytes from 192.168.137.99 : icmp_seq= 2 ttl= 128 time= 0.378  ms
+   --- 192.168.137.99  ping statistics ---
+   2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+   rtt min/avg/ max/mdev = 0.378 /0.829 /1.280 /0.451  ms
+
+网口二
+~~~~~~~~~~~~~
+
+接口丝印:1000
+
+系统接口:eth0
+
+测试说明:采用开发板向PC发送ICM P报文的方式进行测试
+
+测试操作:
+
+1. 配置电脑有线网卡IP为192.168.137.99。
+
+2. 使用网线连接开发板网口和电脑的网口,串口显示信息:
+
+.. code-block:: shell
+
+   [  975.297225] rk_gmac-dwmac 21c70000.ethernet eth0: Link is Up - 1Gbps/Full -
+   flow control rx/tx
+   [  975.297294] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+
+3. 默认自动获取IP地址,但测试是配置静态ip来测,具体配置指令如下:
+
+.. code-block:: shell
+
+   ifconfig eth0 up
+   ifconfig eth0 192.168.137.81
+
+4. 输入指令如下进行验证网口二:
+
+.. code-block:: shell
+
+   ping -I eth0 192.168.137.99 -c 2 -w 4
+
+5. 系统会输出如下类似信息:
+
+.. code-block:: shell
+
+   PING 192.168.137.99  (192.168.137.99 ) from 192.168.137.17  eth0: 56(84) bytes  of
+   data.
+   64 bytes from 192.168.137.99 : icmp_seq= 1 ttl= 128 time= 1.28 ms
+   64 bytes from 192.168.137.99 : icmp_seq= 2 ttl= 128 time= 0.378  ms
+   --- 192.168.137.99  ping statistics ---
+   2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+   rtt min/avg/ max/mdev = 0.378 /0.829 /1.280 /0.451  ms
+
+WIFI测试
+------
+
+接口丝印:WIFI/BT
+
+系统接口:wlan0
+
+测试说明:WIFI连接到AP后,开发板向外网发送ICM P报文来验证连接正常
+
+测试操作:
+
+1. 把WIFI天线连接到U17接口上。
+
+2. 输入如下指令,生成SSID的WPAPSK文件。
+
+.. code-block:: shell
+
+   ### wpa_passphrase 命 wpa_passphrase + wifi 名  + wifi 密  > 令 格 式 : 称 码
+   /etc/wpa_supplicant.conf
+   wpa_passphrase realme fgew5678 > /etc/wpa_supplicant.conf
+   wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+
+3. 系统输出如下类似信息:
+
+.. code-block:: shell
+
+   Successfully initialized wpa_supplicantt -B -i wlan0 -c
+   /etc/wpa_supplicant.conf
+   [   19.936696] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+
+4. 自动获取IP地址
+
+.. code-block:: shell
+
+   udhcpc -i wlan0
+
+5. 系统输出如下类似信息:
+
+.. code-block:: shell
+
+   udhcpc: started, v1.36.1
+   udhcpc: broadcasting discover
+   udhcpc: broadcasting select for 192.168.66.26, server 192.168.66.130
+   udhcpc: lease of 192.168.66.26 obtained from 192.168.66.130, lease time 3600
+   deleting routers
+   adding dns 192.168.66.130
+
+6. 连接测试,输入以下指令:
+
+.. code-block:: shell
+
+   ping -I wlan0 www.baidu.com -c 2 -w 4
+
+输出打印信息
+
+.. code-block:: shell
+
+   PING www.baidu.com ( 183.2.172.177 ) from 192.168.66.26  wlan0: 56(84) bytes  of
+   data.
+   64 bytes from 183.2.172.177 : icmp_seq= 1 ttl= 53 time= 224 ms
+   64 bytes from 183.2.172.177 : icmp_seq= 2 ttl= 53 time= 217 ms
+   --- www.baidu.com ping statistics ---
+   2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+   rtt min/avg/ max/mdev = 216.994 /220.289 /223.584 /3.295  ms
+
+蓝牙测试
+----
+
+接口丝印:WIFI/BT
+
+测试说明:扫描到蓝牙设备后,发送L2CAP回应请求并接收回答
+
+测试操作:
+
+1. 把天线连接到U17接口上。
+
+2. 输入指令,启动蓝牙:
+
+.. code-block:: shell
+
+   hciconfig hci0 up
+
+3. 输入指令,扫描外部蓝牙设备:
+
+.. code-block:: shell
+
+   hcitool scan
+
+4. 系统打印如下类型信息:
+
+.. code-block:: shell
+
+   Scanning ...
+   E4:33:AE:6D:77:96        n/a
+   DC:0D:30:5C:4C:93        XP-236B-L
+
+5. 输入指令,发送L2CAP包测试:
+
+.. code-block:: shell
+
+   l2ping DC:0D:30:5C:4C:93
+
+输出以下信息:
+
+.. code-block:: shell
+
+   Ping: DC:0D: 30:5C:4C: 93 from 94:BA:06: 78:1B:33 (data size 44) ...
+   0 bytes from DC:0D: 30:5C:4C: 93 id 0 time 3.89ms
+   0 bytes from DC:0D: 30:5C:4C: 93 id 1 time 24.91 ms
+   0 bytes from DC:0D: 30:5C:4C: 93 id 2 time 48.93 ms
+   0 bytes from DC:0D: 30:5C:4C: 93 id 3 time 37.43 ms
+   0 bytes from DC:0D: 30:5C:4C: 93 id 4 time 27.48 ms
+   5 sent, 5 received, 0% loss
+
+音频播放测试
+------
+
+接口丝印:Audio
+
+测试说明:播放音频文件验证评估板的音频播放功能
+
+测试操作:
+
+1. 将喇叭连接丝印对应的接口
+
+2. 输入如下指令,进行播放测试:
+
+查看声卡以及编号:
+
+.. code-block:: shell
+
+   aplay -l
+
+指定播放设备和音频
+
+.. code-block:: shell
+
+   aplay -D hw:0,0 sample-9s.wav
+
+若喇叭有声音输出则表示音频播放功能正常。
+
+MIPI_DSI测试
+----------
+
+接口丝印:DSI
+
+测试操作:
+
+1. 关闭开发板电源,通过软排线连接MIPI屏和底板上的MIPI_DSI接口,重新启动开发板。
+
+2. 启动开发板后,可以看到MIPI屏显示启动log和系统界面。
+
+MIPI_CSI测试
+----------
+
+CSI0
+~~~~
+
+接口丝印:CSI0
+
+测试操作:
+
+1. 关闭开发板电源,摄像头朝向缺口处安装,重新启动开发板。
+
+2. 输入指令,查看是否检测到video设备:
+
+.. code-block:: shell
+
+   v4l2-ctl --list-devices
+
+输出如下类似信息:
+
+.. code-block:: shell
+
+   rkisp_mainpath (platform:rkisp-vir0):
+   /dev/video23
+   /dev/video24
+   /dev/video25
+   /dev/video26
+   /dev/video27
+   /dev/video30
+   /dev/media3
+   rkisp_mainpath (platform:rkisp-vir1):
+   /dev/video31
+   /dev/video32
+   /dev/video33
+   /dev/video34
+   /dev/video35
+   /dev/video38
+   /dev/media4
+
+3. 输入指令,开启摄像头。
+
+.. code-block:: shell
+
+   gst-launch-1.0 v4l2src device=/dev/video23 ! 'video/x-
+   raw,format=NV12,width=800,height=1280,framerate=30/1'  ! autovideosink
+
+输出打印信息
+
+.. code-block:: shell
+
+   Setting pipeline to PAUSED ...
+   Using mplane plugin for capture
+   Pipeline is live and does not need PREROLL ...
+   Pipeline is PREROLLED ...
+   Setting pipeline to PLAYING ...
+   New clock: GstSystemClock
+   [  173.556450 ] rkisp_hw 21d00000.isp: set isp clk = 297000000Hz
+   [  173.556583 ] rkcif-mipi-lvds: stream[0] start streaming
+   [  173.556841 ] rockchip-mipi-csi2 mipi0-csi2: stream on, src_sd:
+   0000000001c7d66b, sd_name:rockchip-csi2-dphy0
+   [  173.556853 ] rockchip-mipi-csi2 mipi0-csi2: stream ON
+   [  173.556891 ] rockchip-csi2-dphy0: dphy0, data_rate_mbps 840
+   [  173.556918 ] rockchip-csi2-dphy csi2-dphy0: csi2_dphy_s_stream stream on:1,
+   dphy1, ret 0
+   Redistribute latency...
+   0:00:04.2 / 99:99:99.
+
+可以在屏幕上看到摄像头采集的实时画面。
+
+CSI1
+~~~~
+
+接口丝印:CSI1
+
+测试操作:
+
+1. 关闭开发板电源,摄像头朝向缺口处安装,重新启动开发板。
+
+2. 输入指令,查看是否检测到video设备:
+
+.. code-block:: shell
+
+   v4l2-ctl --list-devices
+
+输出如下类似信息:
+
+.. code-block:: shell
+
+   rkisp_mainpath (platform:rkisp-vir0):
+   /dev/video23
+   /dev/video24
+   /dev/video25
+   /dev/video26
+   /dev/video27
+   /dev/video30
+   /dev/media3
+   rkisp_mainpath (platform:rkisp-vir1):
+   /dev/video31
+   /dev/video32
+   /dev/video33
+   /dev/video34
+   /dev/video35
+   /dev/video38
+   /dev/media4
+
+3. 输入指令,开启摄像头。
+
+.. code-block:: shell
+
+   gst-launch-1.0 v4l2src device=/dev/video31 ! 'video/x-
+   raw,format=NV12,width=800,height=1280,framerate=30/1'  ! autovideosink
+
+输出打印信息
+
+.. code-block:: shell
+
+   Setting pipeline to PAUSED ...
+   Using mplane plugin for capture
+   Pipeline is live and does not need PREROLL ...
+   Pipeline is PREROLLED ...
+   Setting pipeline to PLAYING ...
+   New clock: GstSystemClock
+   [   19.709846 ] rkisp_hw 21d00000.isp: set isp clk = 297000000Hz
+   [   19.709977 ] rkcif-mipi-lvds2: stream[0] start streaming
+   [   19.710234 ] rockchip-mipi-csi2 mipi2-csi2: stream on, src_sd:
+   0000000061a9e163, sd_name:rockchip-csi2-dphy3
+   [   19.710247 ] rockchip-mipi-csi2 mipi2-csi2: stream ON
+   [   19.710280 ] rockchip-csi2-dphy3: dphy4, data_rate_mbps 840
+   [   19.710307 ] rockchip-csi2-dphy csi2-dphy3: csi2_dphy_s_stream stream on:1,
+   dphy4, ret 0
+   Redistribute latency...
+   0:00:02.6 / 99:99:99.
+
+这一在屏幕上看到摄像头采集的实时画面。
+
+RS232测试
+-------
+
+接口丝印:RS232
+
+测试说明:通过232-USB转换头与电脑互联进行收发测试
+
+测试操作:
+
+1. 使用485-USB转换头连接开发板和电脑。
+
+2. 使用Xshell打开对应串口,将波特兰设置成115200,数据为8位,停止位1位。
+
+3. 输入如下命令
+
+.. code-block:: shell
+
+   ./usr/serial_test.out /dev/ttyS2 "MYZR"
+
+可以看到RS232串口终端输出MYZR,然后进入接收模式。
+
+4. 在RS485串口终端,直接输入123(不显示),板子输出结果:
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x31          Character: 1
+   ASCII: 0x32          Character: 2
+   ASCII: 0x33          Character: 3
+
+RS485测试
+-------
+
+接口丝印:RS485
+
+测试说明:通过485-USB转换头与电脑互联进行收发测试
+
+测试操作:
+
+1. 使用485-USB转换头连接开发板和电脑,板子边缘三角形标志为1脚B,对应转接头B,2脚A对应A
+
+2. 使用Xshell打开对应串口,将波特兰设置成115200,数据为8位,停止位1位
+
+3. 输入如下指令:
+
+.. code-block:: shell
+
+   ./usr/serial_test.out /dev/ttyS1 "MYZR"
+
+可以看到RS485串口终端输出MYZR,然后进入接收模式。
+
+4. 在RS485串口终端,直接输入123(不显示),板子输出结果:
+
+.. code-block:: shell
+
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x31          Character: 1
+   ASCII: 0x32          Character: 2
+   ASCII: 0x33          Character: 3
+
+CAN测试
+-----
+
+接口丝印:CAN
+
+测试说明:使用杜邦线连接两组CAN总线,通过互发互收的方式进行测试
+
+测试操作:
+
+1. 使用杜邦线将两个CAN接口互相连接。
+
+2. 在终端输入如下命令配置CAN接口:
+
+.. code-block:: shell
+
+   ip link set can0 type can bitrate 500000 dbitrate 2000000 fd on
+   ip link set can0 up
+
+3. 在终端看到类似信息输出,表示启用成功:
+
+.. code-block:: shell
+
+   link becomes ready
+
+4. 终端输入如下命令使CAN接口在后台接收,并串口终端输入指令使CAN接口发送测试数据:
+
+.. code-block:: shell
+
+   candump can0 &
+   cansend can0 123 #11223344
