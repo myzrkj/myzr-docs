@@ -96,7 +96,7 @@ MYZR-RV1126B核心板基于RV1126B处理器开发,集成主控所需DDR内存、
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/核心板正反图.png
    :alt: MYZR-RV1126B核心板正面图
-   :width: 30%
+   :width: 100%
 
 **MYZR-RV1126B核心板正面图**
 
@@ -107,7 +107,7 @@ MYZR-RV1126B核心板基于RV1126B处理器开发,集成主控所需DDR内存、
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/核心板背面图.jpg
    :alt: MYZR-RV1126B核心板反面图
-   :width: 30%
+   :width: 100%
 
 **MYZR-RV1126B核心板反面图**
 
@@ -118,7 +118,7 @@ MYZR-RV1126B核心板基于RV1126B处理器开发,集成主控所需DDR内存、
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/核心板尺寸图.jpg
    :alt: 核心板尺寸图
-   :width: 30%
+   :width: 100%
 
 核心板命名规则及可选配置
 ~~~~~~~~~~~~
@@ -422,7 +422,7 @@ MYZR-RV1126B核心板基于RV1126B处理器开发,集成主控所需DDR内存、
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/核心板贴片_安装示意图.png
    :alt: 核心板贴片/安装示意图
-   :width: 30%
+   :width: 100%
 
 信号定义
 ----
@@ -1136,27 +1136,46 @@ MYZR-RV1126B核心板基于RV1126B处理器开发,集成主控所需DDR内存、
 开发板正反图片
 -------
 
+.. raw:: html
+
+   <div style="display: flex; justify-content: space-around;">
+   <div style="text-align: center; width: 45%;">
+
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/开发板.png
-   :alt: 开发板正反图片
-   :width: 30%
+   :alt: 开发板正面图
+   :width: 100%
+
+**开发板正面图**
+
+.. raw:: html
+
+   </div>
+   <div style="text-align: center; width: 45%;">
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/开发板_02.png
-   :alt: 开发板正反图片
-   :width: 30%
+   :alt: 开发板反面图
+   :width: 100%
+
+**开发板反面图**
+
+.. raw:: html
+
+   </div>
+   </div>
 
 开发板尺寸机械图
 --------
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/开发板尺寸机械图.jpg
    :alt: 开发板尺寸机械图
-   :width: 30%  
+   :width: 100%  
 
 开发板接口图
 ------
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/开发板接口图.jpg
    :alt: 开发板接口图
-   :width: 30%  
+   :width: 100%  
 
 开发板基础参数
 -------

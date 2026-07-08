@@ -80,7 +80,7 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/屏幕接法.png
    :alt: 屏幕接法注意事项
-   :width: 30%
+   :width: 100%
 
 RV1126B开发板5寸MIPI触摸显示屏接法示意
 
@@ -91,7 +91,7 @@ OV5695摄像头直连开发板可支持双摄
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/摄像头的连接.png
    :alt: MIPI CSI摄像头的连接
-   :width: 30%
+   :width: 100%
 
 RV1126B开发板摄像头接法示意图
 

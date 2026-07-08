@@ -15,4 +15,4 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/产品订购信息.png
    :alt: 产品订购信息
-   :width: 30%
+   :width: 50%

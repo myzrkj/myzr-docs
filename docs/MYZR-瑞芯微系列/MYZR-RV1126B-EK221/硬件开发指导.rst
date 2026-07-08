@@ -29,7 +29,7 @@ RV1126BUARTDebug默认选择在PMUIO0域的UART0_RX_M 2/UART0_TX_M 2,默认波�
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/Debug电路.png
    :alt: Debug电路
-   :width: 30%
+   :width: 100%
 
 UART接口的使用注意事项:
 
@@ -45,24 +45,24 @@ UART接口的使用注意事项:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/Debug电路_02.png
    :alt: Debug电路
-   :width: 30%
+   :width: 100%
 
 * 或者可以采用CH340T芯片,转为USB信号。
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/Debug电路_03.png
    :alt: Debug电路
-   :width: 30%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/Debug电路_04.png
    :alt: Debug电路
-   :width: 30%
+   :width: 100%
 
 OTG电路
 -----
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/OTG电路.png
    :alt: OTG电路
-   :width: 30%
+   :width: 100%
 
 1、请注意接口处加入ESD防护。
 
@@ -76,7 +76,7 @@ OTG电路
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/12V输入.png
    :alt: 1. 12V输入
-   :width: 30%
+   :width: 100%
 
 1、此电路具有过压保护,过流保护,防反接。
 
@@ -87,7 +87,7 @@ OTG电路
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/5V.png
    :alt: 2. 5V
-   :width: 30%
+   :width: 100%
 
 1、使用SY8113BADC的DCDC芯片。
 
@@ -98,7 +98,7 @@ OTG电路
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/3.3V.png
    :alt: 3. 3.3V
-   :width: 30%
+   :width: 100%
 
 1、使用SY8113BADC的DCDC芯片。
 
@@ -113,14 +113,14 @@ USB-HUB电路
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/USB-HUB电路.png
    :alt: USB-HUB电路
-   :width: 30%
+   :width: 100%
 
 USB3.0
 ------
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/USB3.0.png
    :alt: USB3.0
-   :width: 30%
+   :width: 100%
 
 1、USB3.0的信号的TX需要加0.1uF的电容。
 
@@ -130,14 +130,14 @@ USB3.0
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/USB3.0_02.png
    :alt: USB3.0
-   :width: 30%
+   :width: 100%
 
 MIPI-CSI
 --------
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/MIPI-CSI.png
    :alt: MIPI-CSI
-   :width: 30%
+   :width: 100%
 
 * Camera的DVDD供电有1.2V/1.5V/1.8V等不同情况,请根据Camera的规格书提供准确的电源;
 
@@ -174,7 +174,7 @@ MIPI-DSI
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/MIPI-DSI.png
    :alt: MIPI-DSI
-   :width: 30%
+   :width: 100%
 
 RV1126B有一个MIPIDPHYDSITX,支持MIPIV1.2版本,总共4Lane,通道支持的最大传输速率为1.5Gbps/Lane,最大分辨率支持1920x1080@60Hz。
 
@@ -247,7 +247,7 @@ LCDCTX接口的信号连接如下图所示:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/LCD.png
    :alt: LCD
-   :width: 30%
+   :width: 100%
 
 LCDCTX接口的设计注意事项:
 
@@ -266,7 +266,7 @@ RV1126B音频子系统框图如下,包括了对外/对内接口相关信息:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/音频接口.png
    :alt: 音频接口
-   :width: 30%
+   :width: 100%
 
 音频设计上需要注意:
 
@@ -559,7 +559,7 @@ RV1126B总共提供了1组8通道的PDM 接口,PDM 接口的全称为脉冲密�
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/音频接口_05.png
    :alt: 音频接口
-   :width: 30%
+   :width: 100%
 
 常见的采样率与PDM _CLK的对应关系如下表,在硬件调测时可以对照进行参考。时钟信号的质量对PDM 录音质量有直接影响,因此在PLL分频时候,需要使用小数PLL+整数分频的方式。
 
@@ -753,7 +753,7 @@ DSM 音频(DigitalSignalM odulator)指的是将音频PCM 数据进行直接比�
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/音频接口_09.png
    :alt: 音频接口
-   :width: 30%
+   :width: 100%
 
 DSM 音频是一种低成本的音频输出方案,对于有音质需求的场景,还是建议外挂音频Codec或DAC实现音频输出。下表为200Kohm负载下,DSM 音频差分输出的音频指标:
 
@@ -915,11 +915,11 @@ MIC差分输入参考电路如下图:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/音频接口_12.png
    :alt: 音频接口
-   :width: 30%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/音频接口_13.png
    :alt: 音频接口
-   :width: 30%
+   :width: 100%
 
 AudioADC接口的设计注意事项:
 
@@ -993,17 +993,17 @@ RV1126B可以通过SAI信号,连接音频DAC或CODEC(如RK730)实现模拟输出
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/音频接口_15.png
    :alt: 音频接口
-   :width: 30%
+   :width: 100%
 
 对于低成本方案的喇叭放音需求,可以使用RV1126B的DSM 滤波输出,再通过音频功放实现功率放大驱动喇叭,如下图所示:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/音频接口_16.png
    :alt: 音频接口
-   :width: 30%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/音频接口_17.png
    :alt: 音频接口
-   :width: 30%
+   :width: 100%
 
 对于录音的需求,有以下几种实现方式:
 
@@ -1011,19 +1011,19 @@ RV1126B可以通过SAI信号,连接音频DAC或CODEC(如RK730)实现模拟输出
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/音频接口_18.png
    :alt: 音频接口
-   :width: 30%
+   :width: 100%
 
 2、PDM 接口连接PDM 麦,或者使用SAI/I2S/PDM 接口的ADC,外接模拟MIC来实现;
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/音频接口_19.png
    :alt: 音频接口
-   :width: 30%
+   :width: 100%
 
 3、使用Codec(如RK730)来实现相关功能,如下图所示;
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/音频接口_20.png
    :alt: 音频接口
-   :width: 30%
+   :width: 100%
 
 RGMII/RMII接口
 ------------
@@ -1032,11 +1032,11 @@ GMAC复用在两处不同的电源域,GMAC_M0复用在VCCIO6电源域,GMAC_M1复
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/RGMII_RMII接口.png
    :alt: RGMII/RMII接口
-   :width: 30%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/RGMII_RMII接口_02.png
    :alt: RGMII/RMII接口
-   :width: 30%
+   :width: 100%
 
 1、两路以太网都采用3.3V的电平。
 
@@ -1163,37 +1163,37 @@ RGM IIGEPHY工作时钟使用外置25MHz晶体
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/RGMII_RMII接口_04.png
    :alt: RGMII/RMII接口
-   :width: 30%
+   :width: 100%
 
 RGM IIGEPHY工作时钟使用RV1126B提供的25MHz
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/RGMII_RMII接口_05.png
    :alt: RGMII/RMII接口
-   :width: 30%
+   :width: 100%
 
 RMIIRMIIFEPHY工作时钟使用25MHz晶体,ETH_MCLK_Mx采用输出模式,当RMII接口的参考时钟,FEPHY的TXCLK需要配置为输入模式
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/RGMII_RMII接口_06.png
    :alt: RGMII/RMII接口
-   :width: 30%
+   :width: 100%
 
 RMII使用SOC提供的25MHz替代FEPHY晶体,ETH_MCLK_Mx采用输出模式,当RMII接口的参考时钟,FEPHY的TXCLK需要配置为输入模式
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/RGMII_RMII接口_07.png
    :alt: RGMII/RMII接口
-   :width: 30%
+   :width: 100%
 
 FEPHY工作时钟使用外置25MHz晶体,ETHx_MCLK_Mx采用输入模式,RMII接口的参考时钟由FEPHY提供,FEPHY的TXCLK需要配置为输出模式
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/RGMII_RMII接口_08.png
    :alt: RGMII/RMII接口
-   :width: 30%
+   :width: 100%
 
 RMII使用SOC提供的25MHz替代FEPHY晶体,ETH_MCLK_Mx采用输入模式,RMII接口的参考时钟由FEPHY提供,FEPHY的TXCLK需要配置为输出模式
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/RGMII_RMII接口_09.png
    :alt: RGMII/RMII接口
-   :width: 30%
+   :width: 100%
 
 RGM II/RMII接口的设计注意事项:
 
@@ -1232,7 +1232,7 @@ FEPHY接口的信号连接如下图所示:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/RGMII_RMII接口_10.png
    :alt: RGMII/RMII接口
-   :width: 30%
+   :width: 100%
 
 FEPHY接口的设计注意事项:
  
@@ -1320,7 +1320,7 @@ RV1126B芯片拥有8个UART控制器,支持以下功能:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/UART接口.png
    :alt: UART接口
-   :width: 30%
+   :width: 100%
 
 考虑不同产品应用灵活性,8个UART分别复用在几个不同的电源域,用后缀M0/M1/M 2/M 3区分不同复用位置。M0/M1/M 2/M 3不能同时使用,分配时只能选择其中一组,不能有些信号选择M0,有些选择M1,有些选择M 2,这个功能不支持。8个UART中只有UART0不带流控功能,其余UART1~7均带流控功能。
 
@@ -1403,7 +1403,7 @@ RS232
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/RS232.png
    :alt: RS232
-   :width: 30%
+   :width: 100%
 
 1、注意接口处加ESD防护。
 
@@ -1414,7 +1414,7 @@ RS485
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/RS485.png
    :alt: RS485
-   :width: 30%
+   :width: 100%
 
 1、注意接口处加ESD防护。
 
@@ -1425,7 +1425,7 @@ CAN
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/CAN.png
    :alt: CAN
-   :width: 30%
+   :width: 100%
 
 RV1126B芯片拥有2个CAN控制器,支持以下功能:
 
@@ -1439,7 +1439,7 @@ CAN接口的信号连接如下图所示:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/CAN_02.png
    :alt: CAN
-   :width: 30%
+   :width: 100%
 
 CAN接口的设计注意事项:
 
@@ -1464,7 +1464,7 @@ I2C接口的信号连接如下图所示:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/I2C.png
    :alt: I2C
-   :width: 30%
+   :width: 100%
 
 I2C接口分布情况如下表:
 
@@ -1892,7 +1892,7 @@ PWM 接口的设计注意事项:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/PWM_03.png
    :alt: PWM
-   :width: 30%
+   :width: 100%
 
 红外接收头布局时,应远离无线模块天线,如Wi-Fi天线,以免无线传输数据时,影响红外信号接收。
 
@@ -1905,7 +1905,7 @@ WIFI&BT
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/WIFI&BT.png
    :alt: WIFI&BT
-   :width: 30%
+   :width: 100%
 
 1、使用的BL-8723DU 模块。
 
@@ -1916,7 +1916,7 @@ WIFI&BT
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/按键.png
    :alt: 按键
-   :width: 30%
+   :width: 100%
 
 开发板使用SARADC_IN0(ESC/RECOVERY、MENU 、LEFT、RIGHT)作为按键检测口,支持13位分辨率。4个ADCKEY按键可以通过软件自行配置用途。
 
@@ -1927,7 +1927,7 @@ WIFI&BT
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/排针.png
    :alt: 排针
-   :width: 30%
+   :width: 100%
 
 1.40Pin的排针。
 

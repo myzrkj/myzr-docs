@@ -20,19 +20,19 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/安装DriverAssitant驱动.png
    :alt: 安装DriverAssitant驱动
-   :width: 30%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/安装DriverAssitant驱动_02.png
    :alt: 安装DriverAssitant驱动
-   :width: 30%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/安装DriverAssitant驱动_03.png
    :alt: 安装DriverAssitant驱动
-   :width: 30%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/安装DriverAssitant驱动_04.png
    :alt: 安装DriverAssitant驱动
-   :width: 30%
+   :width: 100%
 
 使用RKDevTool工具进行刷机
 -----------------
@@ -45,38 +45,38 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机.png
    :alt: 使用RKDevTool工具进行刷机
-   :width: 30%
+   :width: 100%
 
 * 点击进入"升级固件"界面
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_02.png
    :alt: 使用RKDevTool工具进行刷机
-   :width: 30%
+   :width: 100%
 
 * 点击"固件"按钮,然后选择相应的img镜像文件
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_03.png
    :alt: 使用RKDevTool工具进行刷机
-   :width: 30%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_04.png
    :alt: 使用RKDevTool工具进行刷机
-   :width: 30%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_05.png
    :alt: 使用RKDevTool工具进行刷机
-   :width: 30%
+   :width: 100%
 
 * 开发板接上烧录线,按住开发板SW8按键,再给开发板上电,上电3秒左右可看到开发板进入了download模式
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_06.png
    :alt: 使用RKDevTool工具进行刷机
-   :width: 30%
+   :width: 100%
 
 * 点击"升级"按钮进行刷机,刷成功右边显示成功字符
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/使用RKDevTool工具进行刷机_07.png
    :alt: 使用RKDevTool工具进行刷机
-   :width: 30%
+   :width: 100%
 
 * 烧录完成后,开发板重新上电。
