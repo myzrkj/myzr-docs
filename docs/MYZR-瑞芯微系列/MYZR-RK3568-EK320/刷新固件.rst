@@ -20,19 +20,19 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装DriverAssitant驱动.png
    :alt: 安装DriverAssitant驱动
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装DriverAssitant驱动_02.png
    :alt: 安装DriverAssitant驱动_02
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装DriverAssitant驱动_03.png
    :alt: 安装DriverAssitant驱动_03
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装DriverAssitant驱动_04.png
    :alt: 安装DriverAssitant驱动_04
-   :width: 90%
+   :width: 100%
 
 使用RKDevTool工具进行刷机
 -------------------------
@@ -45,7 +45,7 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/使用RKDevTool工具进行刷机.png
    :alt: 使用RKDevTool工具进行刷机
-   :width: 90%
+   :width: 100%
 
 单独烧录
 ~~~~~~~~
@@ -57,29 +57,29 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录uboot.png
    :alt: 烧录uboot
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录uboot_02.png
    :alt: 烧录uboot_02
-   :width: 90%
+   :width: 100%
 
 * 如下图顺序操作完成勾选，点击"设备分区表"后在弹窗点击"是"
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录uboot_03.png
    :alt: 烧录uboot_03
-   :width: 90%
+   :width: 100%
 
 * 点击"确定"，完成读取分区表
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录uboot_04.png
    :alt: 烧录uboot_04
-   :width: 90%
+   :width: 100%
 
 * 点击"执行"按钮进行uboot烧录，烧录成功右边会显示下载完成
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录uboot_05.png
    :alt: 烧录uboot_05
-   :width: 90%
+   :width: 100%
 
 烧录boot
 ^^^^^^^^
@@ -88,29 +88,29 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录boot.png
    :alt: 烧录boot
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录boot_02.png
    :alt: 烧录boot_02
-   :width: 90%
+   :width: 100%
 
 * 如下图顺序操作完成勾选，点击"设备分区表"后在弹窗点击"是"
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录boot_03.png
    :alt: 烧录boot_03
-   :width: 90%
+   :width: 100%
 
 * 点击"确定"，完成读取分区表
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录boot_04.png
    :alt: 烧录boot_04
-   :width: 90%
+   :width: 100%
 
 * 点击"执行"按钮进行boot烧录，烧录成功右边会显示下载完成
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录boot_05.png
    :alt: 烧录boot_05
-   :width: 90%
+   :width: 100%
 
 烧录recovery
 ^^^^^^^^^^^^
@@ -119,29 +119,29 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录recovery.png
    :alt: 烧录recovery
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录recovery_02.png
    :alt: 烧录recovery_02
-   :width: 90%
+   :width: 100%
 
 * 如下图顺序操作完成勾选，点击"设备分区表"后在弹窗点击"是"
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录recovery_03.png
    :alt: 烧录recovery_03
-   :width: 90%
+   :width: 100%
 
 * 点击"确定"，完成读取分区表
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录recovery_04.png
    :alt: 烧录recovery_04
-   :width: 90%
+   :width: 100%
 
 * 点击"执行"按钮进行recovery烧录，烧录成功右边会显示下载完成
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录recovery_05.png
    :alt: 烧录recovery_05
-   :width: 90%
+   :width: 100%
 
 烧录rootfs
 ^^^^^^^^^^
@@ -150,29 +150,29 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录rootfs.png
    :alt: 烧录rootfs
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录rootfs_02.png
    :alt: 烧录rootfs_02
-   :width: 90%
+   :width: 100%
 
 * 如下图顺序操作完成勾选，点击"设备分区表"后在弹窗点击"是"
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录rootfs_03.png
    :alt: 烧录rootfs_03
-   :width: 90%
+   :width: 100%
 
 * 点击"确定"，完成读取分区表
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录rootfs_04.png
    :alt: 烧录rootfs_04
-   :width: 90%
+   :width: 100%
 
 * 点击"执行"按钮进行rootfs烧录，烧录成功右边会显示下载完成
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/烧录rootfs_05.png 
    :alt: 烧录rootfs_05
-   :width: 90%
+   :width: 100%
 
 完整烧录
 ~~~~~~~~
@@ -181,32 +181,32 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/完整烧录.png
    :alt: 完整烧录
-   :width: 90%
+   :width: 100%
 
 * 点击"固件"按钮，然后选择相应的img镜像文件
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/完整烧录_02.png
    :alt: 完整烧录_02
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/完整烧录_03.png
    :alt: 完整烧录_03
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/完整烧录_04.png
    :alt: 完整烧录_04
-   :width: 90%
+   :width: 100%
 
 * 开发板的Type-C接口U4（对照丝印图确定按键）接上烧录线，按住开发板VOL+按键(对照丝印图确定按键)，再给开发板上电，上电3秒左右可看到开发板进入了download模式
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/完整烧录_05.png
    :alt: 完整烧录_05
-   :width: 90%
+   :width: 100%
 
 * 点击"升级"按钮进行刷机，刷成功右边显示成功字符
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/完整烧录_06.png
    :alt: 完整烧录_06
-   :width: 90%
+   :width: 100%
 
 * 烧录完成后，开发板系统会自动重启。

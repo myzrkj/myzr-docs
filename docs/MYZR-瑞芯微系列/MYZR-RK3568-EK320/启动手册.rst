@@ -68,7 +68,7 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/屏幕接法注意事项.png
    :alt: 屏幕接法注意事项
-   :width: 90%
+   :width: 100%
 
 RK3568开发板 8寸MIPI触摸屏屏接法示意
 

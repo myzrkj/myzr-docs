@@ -107,13 +107,13 @@ USB测试
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320 /USB测试.png
    :alt: USB测试
-   :width: 90%
+   :width: 100%
 
 2.将U盘从底板拔出，系统会输出类似如下信息
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/USB测试_02.png
    :alt: USB测试_02
-   :width: 90%
+   :width: 100%
 
 SD接口测试
 ----------
@@ -128,13 +128,13 @@ SD接口测试
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/SD接口测试.jpeg
    :alt: SD接口测试
-   :width: 90%
+   :width: 100%
 
 2.将TF拔出，输出信息如下：
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/SD接口测试_02.png
    :alt: SD接口测试_02
-   :width: 90%
+   :width: 100%
 
 音频播放测试
 ------------
@@ -264,7 +264,7 @@ uart测试
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/uart测试.png
    :alt: uart测试
-   :width: 90%
+   :width: 100%
 
 执行测试指令后输出如上类似信息表示uart测试通过，按下'Ctrl + C'退出
 
@@ -287,7 +287,7 @@ SPI接口测试
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/SPI接口测试.png
    :alt: SPI接口测试
-   :width: 90%
+   :width: 100%
 
 执行测试指令后输出如上类似信息表示spi测试通过
 

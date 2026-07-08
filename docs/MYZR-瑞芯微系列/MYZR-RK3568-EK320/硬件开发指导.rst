@@ -27,11 +27,11 @@ ESD、EMC、EMI设计注意事项。
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/核心板引脚原理图.png
    :alt: 核心板引脚原理图
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/核心板引脚原理图_02.png
    :alt: 核心板引脚原理图_02
-   :width: 90%
+   :width: 100%
 
 开发板40Pin引脚定义
 -------------------
@@ -41,7 +41,7 @@ ESD、EMC、EMI设计注意事项。
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/40Pin引脚原理图.png
    :alt: 40Pin引脚原理图
-   :width: 90%
+   :width: 100%
 
 底板原理图
 ----------
@@ -55,40 +55,40 @@ ESD、EMC、EMI设计注意事项。
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/电源管理.png
    :alt: 电源管理
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/电源管理_02.png
    :alt: 电源管理_02
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/电源管理_03.png
    :alt: 电源管理_03
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/电源管理_04.png
    :alt: 电源管理_04
-   :width: 90%
+   :width: 100%
 
 按键电路
 ~~~~~~~~
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/按键电路.png
    :alt: 按键电路
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/按键电路_02.png
    :alt: 按键电路_02
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/按键电路_03.png
    :alt: 按键电路_03
-   :width: 90%
+   :width: 100%
 
 按钮 PCB 如下图所示:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/按键电路_04.png
    :alt: 按键电路_04
-   :width: 90%
+   :width: 100%
 
 TF Card电路
 ~~~~~~~~~~~
@@ -97,7 +97,7 @@ TF 卡槽位于主板正面，为自弹式TF卡座，最大支持512G的MicroSD�
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/TFCard电路.png
    :alt: TFCard电路
-   :width: 90%
+   :width: 100%
 
 SIM电路
 ~~~~~~~
@@ -106,7 +106,7 @@ SIM卡槽位于主板正面，支持的SIM卡尺寸为NanoSIM，其信号线直�
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/SIM电路.png
    :alt: SIM电路
-   :width: 90%
+   :width: 100%
 
 以太网电路
 ~~~~~~~~~~
@@ -117,11 +117,11 @@ ETH0部分原理图如下图所示：
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/以太网电路.png
    :alt: 以太网电路
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/以太网电路_02.png
    :alt: 以太网电路_02
-   :width: 90%
+   :width: 100%
 
 USB3.0/2.0电路
 ~~~~~~~~~~~~~~
@@ -130,7 +130,7 @@ RK3568芯片内置一个USB3.0OTG控制器、两个USB2.0HOST控制器和一个U
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/USB3.0_2.0电路.png
    :alt: USB3.0_2.0电路
-   :width: 90%
+   :width: 100%
 
 一路USB3.0HOST1信号连接到了板载USB3.0接口（内芯为蓝色）；板载USB3.0接口为USB3.2 Gen1，相当于USB3.1Gen1和USB3.0，最高数据速率可达5Gbps，并向下兼容USB2.0。
 
@@ -138,7 +138,7 @@ RK3568芯片内置一个USB3.0OTG控制器、两个USB2.0HOST控制器和一个U
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/USB3.0_2.0电路_02.png
    :alt: USB3.0_2.0电路_02
-   :width: 90%
+   :width: 100%
 
 MIPI DSI电路
 ~~~~~~~~~~~~
@@ -149,7 +149,7 @@ MIPIDSI接口原理图如图所示:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/MIPIDSI电路.png
    :alt: MIPIDSI电路
-   :width: 90%
+   :width: 100%
 
 HDMI TX电路
 ~~~~~~~~~~~
@@ -160,7 +160,7 @@ HDMI TX接口原理图如图所示:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/HDMITX电路.png
    :alt: HDMITX电路
-   :width: 90%
+   :width: 100%
 
 Audio电路
 ~~~~~~~~~
@@ -173,7 +173,7 @@ Audio电路
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/Audio电路.png
    :alt: Audio电路
-   :width: 90%
+   :width: 100%
 
 其中，HPL_OUT为耳机左声道音频输出信号，HPR_OUT 为右声道音频输出信号，HP_SNS为耳机参考地，MIC1_INP为麦克风负信号输入，MIC1_INN为麦克风 正信号输入，SARADC_VIN2_HP_HOOK为耳机线控检测信号，SPKN_OUT为扬声器（喇叭）音频负输出， SPKP_OUT为扬声器（喇叭）音频正输出。
 
@@ -188,7 +188,7 @@ M2-B电路连接如下图所示:
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/MINIPCI-E电路.png
    :alt: MINIPCI-E电路
-   :width: 90%
+   :width: 100%
 
 Debug调试串口电路
 ~~~~~~~~~~~~~~~~~
@@ -199,7 +199,7 @@ Debug调试串口电路
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/Debug调试串口电路.png
    :alt: Debug调试串口电路
-   :width: 90%
+   :width: 100%
 
 设计注意事项：
 
@@ -220,7 +220,7 @@ FAN风扇驱动原理图如下图所示：
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/FAN电路.png
    :alt: FAN电路
-   :width: 90%
+   :width: 100%
 
 RTC电路
 ~~~~~~~
@@ -231,7 +231,7 @@ RTC接口原理图如下图所示：
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/RTC电路.png
    :alt: RTC电路
-   :width: 90%
+   :width: 100%
 
 IR 电路
 ~~~~~~~
@@ -242,7 +242,7 @@ IR 红外接收头为IR1，采用的是IRM_3638红外遥控接收头，IR红外�
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/IR电路.png
    :alt: IR电路
-   :width: 90%
+   :width: 100%
 
 MIPI CSI电路
 ~~~~~~~~~~~~
@@ -251,7 +251,7 @@ MIPI CSI电路
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/MIPICSI电路.png
    :alt: MIPICSI电路
-   :width: 90%
+   :width: 100%
 
 M2电路
 ~~~~~~
@@ -262,13 +262,13 @@ M2电路
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/M2电路.png
    :alt: M2电路
-   :width: 90%
+   :width: 100%
 
 M2接口的电路原理图如下图所示：
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/M2电路_02.png
    :alt: M2电路_02
-   :width: 90%
+   :width: 100%
 
 M2接口可用来连接2280、2260规格M.Key接口的NVME固态硬盘。
 

@@ -24,27 +24,27 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件.png
    :alt: 安装虚拟机软件
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件_02.png
    :alt: 安装虚拟机软件_02
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件_03.png
    :alt: 安装虚拟机软件_03
-   :width: 90%
+   :width: 100%
 
    .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件_04.png
    :alt: 安装虚拟机软件_04
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件_05.png
    :alt: 安装虚拟机软件_05
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件_06.png
    :alt: 安装虚拟机软件_06
-   :width: 90%
+   :width: 100%
 
 为虚拟机配置 Windows
 ~~~~~~~~~~~~~~~~~~~~
@@ -54,144 +54,144 @@
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡.jpeg
    :alt: 添加Windows网卡
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_02.jpeg
    :alt: 添加Windows网卡_02
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_03.jpeg 
    :alt: 添加Windows网卡_03
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_04.jpeg
    :alt: 添加Windows网卡_04
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_05.jpeg
    :alt: 添加Windows网卡_05
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_06.jpeg
    :alt: 添加Windows网卡_06
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_07.jpeg
    :alt: 添加Windows网卡_07
-   :width: 90%
+   :width: 100%
 
 配置 Windows 网卡
 ^^^^^^^^^^^^^^^^^
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/配置Windows网卡.jpeg
    :alt: 配置Windows网卡
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/配置Windows网卡_02.jpeg
    :alt: 配置Windows网卡_02
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/配置Windows网卡_03.jpeg
    :alt: 配置Windows网卡_03
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/配置Windows网卡_04.jpeg
    :alt: 配置Windows网卡_04
-   :width: 90%
+   :width: 100%
 
 导入虚拟机系统
 ^^^^^^^^^^^^^^
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/导入虚拟机系统.png
    :alt: 导入虚拟机系统
-   :width: 90%
+   :width: 100%
    
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/导入虚拟机系统_02.png
    :alt: 导入虚拟机系统_02
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/导入虚拟机系统_03.png
    :alt: 导入虚拟机系统_03
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/导入虚拟机系统_04.png
    :alt: 导入虚拟机系统_04
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/导入虚拟机系统_05.png
    :alt: 导入虚拟机系统_05
-   :width: 90%
+   :width: 100%
 
 虚拟机设置
 ~~~~~~~~~~
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置.png
    :alt: 虚拟机设置
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_02.png
    :alt: 虚拟机设置_02
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_03.png    
    :alt: 虚拟机设置_03
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_04.png
    :alt: 虚拟机设置_04
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_05.png
    :alt: 虚拟机设置_05
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_06.png
    :alt: 虚拟机设置_06
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_07.png
    :alt: 虚拟机设置_07
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_08.png
    :alt: 虚拟机设置_08
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_09.png 
    :alt: 虚拟机设置_09
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_10.png
    :alt: 虚拟机设置_10
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_11.png
    :alt: 虚拟机设置_11
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_12.png
    :alt: 虚拟机设置_12
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_13.png
    :alt: 虚拟机设置_13
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_14.png
    :alt: 虚拟机设置_14
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_15.png
    :alt: 虚拟机设置_15
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_16.png
    :alt: 虚拟机设置_16
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_17.png
    :alt: 虚拟机设置_17
-   :width: 90%
+   :width: 100%
 
 虚拟机与PC互传文件
 ~~~~~~~~~~~~~~~~~~
@@ -202,57 +202,57 @@ Samba如下
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件.png
    :alt: 虚拟机与PC互传文件
-   :width: 90%
+   :width: 100%
 
 SSH如下
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_02.png
    :alt: 虚拟机与PC互传文件_02
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_03.png
    :alt: 虚拟机与PC互传文件_03
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_04.png
    :alt: 虚拟机与PC互传文件_04
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_05.png
    :alt: 虚拟机与PC互传文件_05
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_06.png
    :alt: 虚拟机与PC互传文件_06
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_07.png
    :alt: 虚拟机与PC互传文件_07
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_08.png
    :alt: 虚拟机与PC互传文件_08
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_09.png
    :alt: 虚拟机与PC互传文件_09
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_10.png
    :alt: 虚拟机与PC互传文件_10
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_11.png
    :alt: 虚拟机与PC互传文件_11
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_12.png
    :alt: 虚拟机与PC互传文件_12
-   :width: 90%
+   :width: 100%
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_13.png
    :alt: 虚拟机与PC互传文件_13
-   :width: 90%
+   :width: 100%
 
 虚拟机使用
 ~~~~~~~~~~
