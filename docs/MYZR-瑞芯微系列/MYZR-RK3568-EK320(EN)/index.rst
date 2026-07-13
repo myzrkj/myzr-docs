@@ -1,15 +1,22 @@
+.. raw:: html
 
-MYZR-RK3568-EK320(EN)
-========================
+   <style>
+   h1 {
+       color: green;
+   }
+   </style>
+
+MYZR-RK3568-EK320
+===================
 
 .. toctree:: 
-   :maxdepth: 3
+   :maxdepth: 2
 
+   Product Ordering Information
    Platform Introduction
    Product Introduction
-   Quick Start
-   Startup Manual
+   Boot Manual
    Test Guide
-   Update Firmware
-   Hardware Design Guide
+   Firmware Update
+   Hardware Development Guide
    Software Development Guide

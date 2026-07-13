@@ -1,535 +1,755 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: green;
+   }
+   </style>
+
 Software Development Guide
-============================
+=========================
 
-.. include:: /docs/COMMON/MYZR-RK3588-EK360 Dev Env Setup Manual.rst
+Development Environment
+-----------------------
 
+File Download
+~~~~~~~~~~~~~
 
-Linux Source Code Compilation
--------------------------------
+Find and download the VirtualBox installation package from the cloud materials. Path: 1.General Materials --> 1.3-Tools --> VirtualBox-5.2.12 --> VirtualBox-5.2.12-122591-Win.exe
+
+Install Virtual Machine Software
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Double-click the downloaded VirtualBox-5.2.12-122591-Win.exe and follow the installation steps below:
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件.png
+   :alt: Install Virtual Machine Software
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件_02.png
+   :alt: Install Virtual Machine Software_02
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件_03.png
+   :alt: Install Virtual Machine Software_03
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件_04.png
+   :alt: Install Virtual Machine Software_04
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件_05.png
+   :alt: Install Virtual Machine Software_05
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/安装虚拟机软件_06.png
+   :alt: Install Virtual Machine Software_06
+   :width: 100%
+
+Configure Windows for Virtual Machine
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Add Windows Network Adapter
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡.jpeg
+   :alt: Add Windows Network Adapter
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_02.jpeg
+   :alt: Add Windows Network Adapter_02
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_03.jpeg 
+   :alt: Add Windows Network Adapter_03
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_04.jpeg
+   :alt: Add Windows Network Adapter_04
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_05.jpeg
+   :alt: Add Windows Network Adapter_05
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_06.jpeg
+   :alt: Add Windows Network Adapter_06
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/添加Windows网卡_07.jpeg
+   :alt: Add Windows Network Adapter_07
+   :width: 100%
+
+Configure Windows Network Adapter
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/配置Windows网卡.jpeg
+   :alt: Configure Windows Network Adapter
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/配置Windows网卡_02.jpeg
+   :alt: Configure Windows Network Adapter_02
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/配置Windows网卡_03.jpeg
+   :alt: Configure Windows Network Adapter_03
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/配置Windows网卡_04.jpeg
+   :alt: Configure Windows Network Adapter_04
+   :width: 100%
+
+Import Virtual Machine System
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/导入虚拟机系统.png
+   :alt: Import Virtual Machine System
+   :width: 100%
+   
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/导入虚拟机系统_02.png
+   :alt: Import Virtual Machine System_02
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/导入虚拟机系统_03.png
+   :alt: Import Virtual Machine System_03
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/导入虚拟机系统_04.png
+   :alt: Import Virtual Machine System_04
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/导入虚拟机系统_05.png
+   :alt: Import Virtual Machine System_05
+   :width: 100%
+
+Virtual Machine Settings
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置.png
+   :alt: Virtual Machine Settings
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_02.png
+   :alt: Virtual Machine Settings_02
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_03.png    
+   :alt: Virtual Machine Settings_03
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_04.png
+   :alt: Virtual Machine Settings_04
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_05.png
+   :alt: Virtual Machine Settings_05
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_06.png
+   :alt: Virtual Machine Settings_06
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_07.png
+   :alt: Virtual Machine Settings_07
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_08.png
+   :alt: Virtual Machine Settings_08
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_09.png 
+   :alt: Virtual Machine Settings_09
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_10.png
+   :alt: Virtual Machine Settings_10
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_11.png
+   :alt: Virtual Machine Settings_11
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_12.png
+   :alt: Virtual Machine Settings_12
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_13.png
+   :alt: Virtual Machine Settings_13
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_14.png
+   :alt: Virtual Machine Settings_14
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_15.png
+   :alt: Virtual Machine Settings_15
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_16.png
+   :alt: Virtual Machine Settings_16
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机设置_17.png
+   :alt: Virtual Machine Settings_17
+   :width: 100%
+
+File Transfer Between Virtual Machine and PC
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Files can be transferred using Samba or SSH.
+
+Samba:
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件.png
+   :alt: File Transfer Between VM and PC
+   :width: 100%
+
+SSH:
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_02.png
+   :alt: File Transfer Between VM and PC_02
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_03.png
+   :alt: File Transfer Between VM and PC_03
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_04.png
+   :alt: File Transfer Between VM and PC_04
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_05.png
+   :alt: File Transfer Between VM and PC_05
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_06.png
+   :alt: File Transfer Between VM and PC_06
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_07.png
+   :alt: File Transfer Between VM and PC_07
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_08.png
+   :alt: File Transfer Between VM and PC_08
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_09.png
+   :alt: File Transfer Between VM and PC_09
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_10.png
+   :alt: File Transfer Between VM and PC_10
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_11.png
+   :alt: File Transfer Between VM and PC_11
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_12.png
+   :alt: File Transfer Between VM and PC_12
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3568-EK320/虚拟机与PC互传文件_13.png
+   :alt: File Transfer Between VM and PC_13
+   :width: 100%
+
+Virtual Machine Usage
+~~~~~~~~~~~~~~~~~~~~~
+
+User Accounts and Passwords
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Default User: tangb, UserName: myzr, Password: myzr2012
+
+Super User: root, UserName: root, Password: myzr2012
+
+Source Code Compilation
+-----------------------
 
 Compilation Environment Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Compilation must be performed on a host running Ubuntu system, with version Ubuntu 20.04 or above. The author's host system is Ubuntu 20.04.
-2. The host must be able to connect to the external network, as some files need to be downloaded during the system compilation process.
+1. Compilation must be performed on Ubuntu system, version 20.04 or above. The author's host system is Ubuntu 20.04.
+
+2. The host must have internet access, as the compilation process requires downloading certain files.
 
 Download Source Code Package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Download the rk3568 source code package. The rk3568 provides two SDK versions with kernel 4.19 and 5.10; either version can be downloaded.
+1. Download the rk3568 source code package. RK3568 provides SDKs for two kernel versions: 4.19 and 5.10. Download either version:
 
-|   SDK path for kernel 4.19: 3.Software Resources --> 3.1 Source Code --> Buildroot --> MYZR-RK3568pi_Linux-4.19_20250722.tar.bz2
-|   SDK path for kernel 5.10: 3.Software Resources --> 3.1 Source Code --> Linux-5.10.209 --> MYZR-RK3568pi_Linux-5.10_20250827.tar.bz2
+   SDK path for kernel 4.19: 3.Software Materials --> 3.1 Source Code --> Buildroot --> MYZR-RK3568pi_Linux-4.19_20250722.tar.bz2
+
+   SDK path for kernel 5.10: 3.Software Materials --> 3.1 Source Code --> Linux-5.10.209 --> MYZR-RK3568pi_Linux-5.10_20250827.tar.bz2
 
 2. Create compilation directory:
 
-.. code-block:: shell
+   .. code-block:: Bash
 
-    mkdir -p ~/my-work/RK3568/02_sources/
+      mkdir -p ~/my-work/RK3568/02_sources/
 
-3. Place the source code in the newly created directory and extract it:
+3. Place the source code in the newly created directory and extract:
 
-.. code-block:: shell
+   .. code-block:: Bash
 
-    tar -xjf MYZR-RK3568pi_Linux-4.19_20250722.tar.bz2 -C ~/my-work/RK3568/02_sources/
+      tar -xjf MYZR-RK3568pi_Linux-4.19_20250722.tar.bz2 -C ~/my-work/RK3568/02_sources/
 
-Install Dependencies
-~~~~~~~~~~~~~~~~~~~~~~
+Dependency Installation
+~~~~~~~~~~~~~~~~~~~~~~~
 
-|   Some dependencies may need to be installed for the first compilation. Below are some possible dependencies to be installed on the host:
+First-time compilation may require installing dependencies. Below are some dependencies that may need to be installed:
 
-.. code-block:: shell
+.. code-block:: Bash
 
-    sudo apt-get install git ssh make gcc libssl-dev liblz4-tool \
-    expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support \
-    qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib \
-    unzip \
-    device-tree-compiler libncurses-dev \
-    time python3 rsync python-is-python3
+   sudo apt-get install git ssh make gcc libssl-dev liblz4-tool \
+   expect g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support \
+   qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib \
+   unzip \
+   device-tree-compiler libncurses-dev \
+   time python3 rsync python-is-python3
 
-Load SDK Configuration
+SDK Configuration Loading
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|   The SDK configuration file needs to be loaded for the first compilation. Enter the following command to go to the SDK directory (RK356X_Linux or rk356x_linux5.10):
-|   For kernel 4.19 SDK, load the configuration file with the following command:
+First-time compilation requires loading the SDK configuration file. Enter the following command to navigate to the SDK directory (RK356X_Linux or rk356x_linux5.10):
 
-.. code-block:: shell
+For kernel 4.19 SDK, use the following command to load the configuration file:
 
-    ./build.sh BoardConfig-rk3568-myzr.mk
+.. code-block:: Bash
 
-|   For kernel 5.10 SDK, load the configuration file with the following command:
+   ./build.sh BoardConfig-rk3568-myzr.mk
 
-.. code-block:: shell
+For kernel 5.10 SDK, use the following command to load the configuration file:
 
-    ./build.sh myzr_rk3568_ddr4_defconfig
+.. code-block:: 
+
+   ./build.sh myzr_rk3568_ddr4_defconfig
 
 Full Compilation
-~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 
-1. Run full compilation (long compilation time) with the following command:
+1. Run full compilation (this may take a long time), enter the following command:
 
-.. code-block:: shell
+   .. code-block:: Bash
 
-    ./build.sh
+      ./build.sh
 
-2. After successful compilation, relevant images can be found in the rockdev/ directory, where update.img is the collection of all images.
+2. After successful compilation, the images can be found in the rockdev/ directory, where update.img contains all images.
 
 Compile U-Boot Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Clean generated files before compilation:
 
-.. code-block:: shell
+   .. code-block:: Bash
 
-    cd u-boot/
-    make clean
-
-2. Return to the SDK main directory and compile uboot separately:
-
-.. code-block:: shell
-
-    cd ../
-    ./build.sh uboot
-
-Compile Kernel Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Clean generated files before compilation:
-
-.. code-block:: shell
-
-    cd kernel/
-    make clean
-
-2. Return to the SDK main directory and compile kernel separately:
-
-.. code-block:: shell
-
-    cd ../
-    ./build.sh kernel
-
-Compile Recovery Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-|   Enter the following command in the SDK main directory:
-
-.. code-block:: shell
-
-    ./build.sh recovery
-
-Compile Buildroot Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-|   Enter the following command in the SDK main directory:
-
-.. code-block:: shell
-
-    ./build.sh rootfs
-
-Package Firmware
-~~~~~~~~~~~~~~~~~~
-
-|   Enter the following command in the SDK main directory:
-
-.. code-block:: shell
-
-    ./mkfirmware.sh
-
-Package update.img
-~~~~~~~~~~~~~~~~~~~~
-
-1. The packaged image update.img can be found in the rockdev directory under the SDK.
-2. Image packaging can be completed by entering the following command in the SDK main directory:
-
-.. code-block:: shell
-
-    ./build.sh updateimg
-
-|   After completing the above operations, you can re-flash the firmware according to the flashing manual.
-|   Finally, the user is reminded to re-flash and test the firmware.
-
-
-
-Android Source Code Compilation
----------------------------------
-
-Compilation Environment Requirements
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Compilation must be performed on a host in a Linux environment; Ubuntu 20.04 is recommended as the host OS.
-2. The host must have internet access, as some files need to be downloaded during system compilation.
-
-Downloading the Source Code Package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. From the cloud drive directory, download the source code package MYZR-RK3568PI_Android11_20250716.tar.bz2 (please download all split volumes from the cloud drive and merge them to obtain this archive).
-2. Create the compilation directory:
-
-.. code-block:: shell
-
-    mkdir ~/my-work/rk3568/05_android -p
-
-3. Place the source code in this directory and extract it:
-
-.. code-block:: shell
-
-    tar xvf MYZR-RK3568PI_Android11_20250716.tar.bz2  -C ~/my-work/rk3568/05_android/
-
-
-Configure Compilation Environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Compilation must be performed on a host in a Linux environment; Ubuntu 20.04 is recommended.
-2. The host must have internet access, as certain files need to be downloaded during system compilation.
-
-Download Source Code Package
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. From the network disk directory, download the source code package MYZR-RK3568PI_Android11_20250716.tar.bz2 (please download all split volumes from the network disk and merge them to obtain this archive).
-2. Create a compilation directory:
-
-.. code-block:: shell
-
-    mkdir ~/my-work/rk3568/05_android -p
-
-3. Place the source code in this directory and extract it:
-
-.. code-block:: shell
-
-    tar xvf MYZR-RK3568PI_Android11_20250716.tar.bz2  -C ~/my-work/rk3568/05_android/
-
-Configure Compilation Environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Environment configuration is required every time a new terminal is opened.
-2. Enter the RK356X_Android11 directory.
-3. Run the following command to configure the Java environment:
-
-.. code-block:: shell
-
-    source javaenv.sh
-
-4. Run the following command to configure the compilation environment:
-
-.. code-block:: shell
-
-    source build/envsetup.sh
-
-5. Run the following command to configure the platform environment:
-
-.. code-block:: shell
-
-    lunch rk3568_r-userdebug
-
-Full Compilation
-~~~~~~~~~~~~~~~~~~
-
-1. Full compilation builds the entire Android system, including kernel, u-boot, Android, and recovery.
-2. Run the following command:
-
-.. code-block:: shell
-
-    ./build.sh -AUCKu
-
-3. Compilation takes a long time. Compilation on a 16-thread host takes about 4 hours (for reference only!).
-4. After successful compilation, the relevant images can be found in the rockdev/Image-rk3568_r/ directory, where update.img is the combined image of all components.
-
-Compile U-Boot Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Clear generated files before compilation:
-
-.. code-block:: shell
-
-    cd u-boot/
-    make clean
+      cd u-boot/
+      make clean
 
 2. Return to the SDK root directory and compile U-Boot separately:
 
-.. code-block:: shell
+   .. code-block:: Bash
 
-    cd ../
-    ./build.sh -U
+      cd ../
+      ./build.sh uboot
 
 Compile Kernel Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Clear generated files before compilation:
-
-.. code-block:: shell
-
-    cd kernel/
-    make clean
-
-2. Return to the SDK root directory and compile the kernel separately:
-
-.. code-block:: shell
-
-    cd ../
-    ./build.sh -CKA
-
-3. Or compile using the kernel script:
-
-.. code-block:: shell
-
-    cd kernel/
-    ./make.sh
-
-Compile Android Separately
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. In the SDK root directory:
-
-.. code-block:: shell
-
-    ./build.sh -A
-
-Package update.img
-~~~~~~~~~~~~~~~~~~~~
-
-1. Package images into update.img in the rockdev directory.
-2. In the SDK root directory:
-
-.. code-block:: shell
-
-    ./build.sh -u
-
-Development Guide
--------------------
-
-UBOOT Board-Level Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   The location of U-Boot board-level files: u-boot/board/rockchip/myzr_rk3568
-   U-Boot board-level configuration file: u-boot/include/configs/myzr_rk3568.h
-   U-Boot board-level compilation configuration file: u-boot/configs/myzr-rk3568_defconfig
+1. Clean generated files before compilation:
+
+   .. code-block:: Bash
+
+      cd kernel/
+      make clean
+
+2. Return to the SDK root directory and compile Kernel separately:
+
+   .. code-block:: Bash
+
+      cd ../
+      ./build.sh kernel
+
+Compile Recovery Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Enter the following command in the SDK root directory:
+
+.. code-block:: Bash
+
+   ./build.sh recovery
+
+Compile Buildroot Separately
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Enter the following command in the SDK root directory:
+
+.. code-block:: Bash
+
+   ./build.sh rootfs
+
+Package Firmware
+~~~~~~~~~~~~~~~~
+
+Enter the following command in the SDK root directory:
+
+.. code-block:: Bash
+
+   ./mkfirmware.sh
+
+Package update.img
+~~~~~~~~~~~~~~~~~~
+
+1. The packaged image update.img can be found in the rockdev directory under the SDK.
+
+2. Enter the following command in the SDK root directory to complete image packaging:
+
+   .. code-block:: Bash
+
+      ./build.sh updateimg
+
+After completing the above operations, follow the flashing manual to re-flash the firmware.
+
+Finally, remind the user to re-flash and test.
+
+Development Guide
+-----------------
+
+UBOOT Board-Level Files
+~~~~~~~~~~~~~~~~~~~~~~~
+
+U-Boot board-level files location: u-boot/board/rockchip/myzr_rk3568
+
+U-Boot board-level configuration file: u-boot/include/configs/myzr_rk3568.h
+
+U-Boot board-level compilation configuration file: u-boot/configs/myzr-rk3568_defconfig
 
 Linux Kernel Board-Level Files
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   Kernel board-level compilation configuration file: kernel/arch/arm64/configs/myzr_rk_defconfig
-   Kernel board-level device tree files: kernel/arch/arm64/boot/dts/rockchip/myzr*.dts
-   Kernel development reference manual: "Reference Manual.pdf" in the network disk
+Kernel board-level compilation configuration file: kernel/arch/arm64/configs/myzr_rk_defconfig
+
+Kernel board-level device tree files: kernel/arch/arm64/boot/dts/rockchip/myzr*.dts*
+
+Kernel development reference manual: *Reference Manual*.pdf in the cloud materials
 
 GPIO
-~~~~~
+~~~~
 
 1. GPIO Driver Architecture
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   The GPIO function of RK3568 is implemented through a three-level architecture: The hardware layer is directly managed by the chip's built-in 5 groups of GPIO controllers (corresponding to device nodes gpiochip0~4) for 32 pins in each group, and the manufacturer has provided the underlying register driver; The kernel layer abstracts hardware differences through the Linux GPIO subsystem and provides standard APIs (such as gpiod interfaces) upward, allowing kernel drivers to operate any pin in a unified way (such as setting direction, reading and writing levels); The user layer imports the GPIO subsystem interface into user space with the help of the Sysfs module (/sys/class/gpio), enabling direct control of pins through the command line (exporting, direction configuration, level reading and writing) without writing code. In the entire mechanism, the hardware driver is completed by the chip manufacturer, the Linux kernel implements general abstraction, and developers can either control GPIO based on kernel API programming or quickly debug through Sysfs.
-   Here, let's talk about how to directly control GPIO (direction/level) through the command line at the user layer.
+The GPIO functionality of RK3568 is implemented through a three-level architecture: The hardware layer directly manages 32 pins per group through 5 built-in GPIO controllers (corresponding to device nodes ``gpiochip0~4``), with low-level register drivers provided by the manufacturer; The kernel layer abstracts hardware differences through the Linux GPIO subsystem and provides standard APIs (such as ``gpiod`` interface) for kernel drivers to operate any pin in a unified manner (e.g., setting direction, reading/writing levels); The user layer uses the Sysfs module (``/sys/class/gpio``) to expose the GPIO subsystem interface to user space, allowing direct pin control (export, direction configuration, level read/write) via command line without writing code. In this mechanism, hardware drivers are completed by the chip manufacturer, the Linux kernel implements general abstraction, and developers can control GPIO either through kernel API programming or through Sysfs for rapid debugging.
 
-2. Pin Naming Rules
+This section describes how to directly control GPIO (direction/level) through the command line in user space.
 
-   The GPIO of RK3568 is divided into 5 groups (GPIO0~GPIO4), and each group contains 32 pins: A0-A7, B0-B7, C0-C7, D0-D7. For example:
+2. Pin Naming Convention
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-- GPIO4_D5 indicates the 5th pin of group D in the 4th group (GPIO4).
-- GPIO0_B7 indicates the 7th pin of group B in the 0th group (GPIO0).
+RK3568's GPIO is divided into 5 groups (GPIO0~GPIO4), each containing 32 pins: A0-A7, B0-B7, C0-C7, D0-D7. For example:
 
-3. Calculation Formula for GPIO Pin Number
+- GPIO4_D5 represents the 5th pin in group D of the 4th group (GPIO4).
 
-.. code-block:: shell
+- GPIO0_B7 represents the 7th pin in group B of the 0th group (GPIO0).
 
-    pin = bank * 32 + number
+3. GPIO Pin Number Calculation Formula
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   bank: GPIO group number (0~4).
-   number: intra-group number, calculated by the following formula:
+.. code-block:: 
 
-.. code-block:: shell
+   pin = bank * 32 + number
 
-    number = group * 8 + X
+bank: GPIO group number (0~4).
 
-   group: the intra-group sequence number corresponding to the letter (A=0, B=1, C=2, D=3).
-   X: the specific number within the group (0~7).
-   For example, GPIO4_D5:
-   bank = 4 (GPIO4).
-   group = 3 (group D corresponds to 3).
-   X = 5 (the 5 in D5).
-   number = 3*8 +5 = 29.
-   pin = 4*32 +29 = 157.
+number: intragroup number, calculated by the following formula:
 
-4. Controlling GPIO through the /sys/class/gpio Directory
+.. code-block:: 
 
-.. code-block:: shell
+   number = group * 8 + X
 
-    echo 157 > /sys/class/gpio/export     # Export GPIO157
-    echo out > gpio157/direction          # Set to output mode
-    echo 1 > gpio157/value                # Output high level
-    echo 157 > /sys/class/gpio/unexport   # Release GPIO
+group: intragroup index corresponding to the letter (A=0, B=1, C=2, D=3).
 
-   Note: Some GPIOs cannot be exported may be multiplexed for other functions (such as UART, I2C), so you need to confirm the actual use through the device tree.
+X: specific number within the group (0~7).
+
+For example, GPIO4_D5:
+
+bank = 4 (GPIO4).
+
+group = 3 (D group corresponds to 3).
+
+X = 5 (the 5 in D5).
+
+number = 3*8 + 5 = 29.
+
+pin = 4*32 + 29 = 157.
+
+4. Control GPIO via /sys/class/gpio Directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+   echo 157 > /sys/class/gpio/export     # Export GPIO157
+   echo out > gpio157/direction          # Set as output mode
+   echo 1 > gpio157/value                # Output high level
+   echo 157 > /sys/class/gpio/unexport   # Release GPIO
+
+.. note::
+
+   Note: Some GPIOs may not be exportable if they are multiplexed for other functions (e.g., UART, I2C). Verify actual usage through the device tree.
 
 PWM
-~~~~~
+~~~
 
 1. PWM Hardware and Driver Framework
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   On the RK3568 platform, the PWM hardware driver works together through counters and comparators: The APB bus clock source is adjusted by a frequency divider to drive the counter to increment/decrement periodically, and automatically resets to generate a basic signal after reaching the preset period value; The comparator compares the counter value with the duty cycle threshold in real-time, outputs high and low levels, and switches between normal (high active) or inversed (low active) modes through the polarity control bit. The user layer controls through the /sys/class/pwm interface or kernel API (such as pwm_config). The core layer manages controller resources and registers interfaces through pwm_chip, and the underlying hardware adaptation layer needs to implement the pwm_ops operation set (including config, enable and other functions) to directly operate PWM registers to complete frequency, duty cycle and enable configuration.
+On the RK3568 platform, the PWM hardware driver works through a counter and comparator: The APB bus clock source drives the counter to increment/decrement periodically after frequency division. When the preset period value is reached, it automatically resets to generate a basic signal; The comparator compares the counter value with the duty cycle threshold in real-time, outputs high/low levels, and switches between normal (high active) or inversed (low active) mode through the polarity control bit. The user layer controls PWM through the /sys/class/pwm interface or kernel APIs (such as pwm_config). The core layer manages controller resources through pwm_chip and registers interfaces. The low-level hardware adaptation layer needs to implement the pwm_ops operation set (including config, enable, etc.) to directly operate PWM registers for frequency, duty cycle, and enable configuration.
 
-2. PWM Device Tree Configuration (taking PWM14_M0 as an example, corresponding to pin 12 on the J14 expansion interface)
+2. PWM Device Tree Configuration (Taking PWM14_M0 as an example, corresponding to pin 12 on J14 expansion interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   Configure the clock and pins in the rk3568.dtsi file:
+Configure clock and pins in rk3568.dtsi file:
 
-.. code-block:: shell
+.. code-block:: 
 
-    pwm14: pwm@fe700020 {
-            compatible = "rockchip,rk3568-pwm", "rockchip,rk3328-pwm";
-            reg = <0x0 0xfe700020 0x0 0x10>;
-            #pwm-cells = <3>;
-            pinctrl-names = "active";
-            pinctrl-0 = <&pwm14m0_pins>;
-            clocks = <&cru CLK_PWM3>, <&cru PCLK_PWM3>;
-            clock-names = "pwm", "pclk";
-            status = "disabled";
-    };
+   pwm14: pwm@fe700020 {
+           compatible = "rockchip,rk3568-pwm", "rockchip,rk3328-pwm";
+           reg = <0x0 0xfe700020 0x0 0x10>;
+           #pwm-cells = <3>;
+           pinctrl-names = "active";
+           pinctrl-0 = <&pwm14m0_pins>;
+           clocks = <&cru CLK_PWM3>, <&cru PCLK_PWM3>;
+           clock-names = "pwm", "pclk";
+           status = "disabled";
+     };
 
-   Add a node in myzr-rk3568.dtsi:
+Add node in myzr-rk3568.dtsi:
 
-.. code-block:: shell
+.. code-block:: 
 
-    &pwm14 {
-        status = "okay";
-        pinctrl-names = "active";
-        pinctrl-0 = <&pwm14m0_pins>;  // Ensure the pin multiplexing configuration is correct
-    };
+   &pwm14 {
+       status = "okay";
+       pinctrl-names = "active";
+       pinctrl-0 = <&pwm14m0_pins>;  // Ensure pin multiplexing configuration is correct
+   };
 
-   Add a PWM client device node.
-   Reference the PWM controller and set parameters in the device node that needs to use PWM (such as backlight, buzzer, etc.) (If the device is not needed, no configuration is required). The following is a general configuration example:
+Add PWM client device node:
 
-.. code-block:: shell
+Reference the PWM controller and set parameters in the device node that needs to use PWM (such as backlight, buzzer, etc.). (If no device needs to use PWM, this configuration can be skipped). Below is a general configuration example:
 
-    // Example: Configure PWM14_M0 output to a device (such as backlight)
-    / {
-        pwm_dev: pwm-dev {
-            compatible = "pwm-device";
-            pwms = <&pwm14 0 10000000 1>; // Key parameter settings
-            duty-cycle = <5000000>;    // 50% duty cycle
-            pinctrl-names = "default";
-            pinctrl-0 = <&pwm14m0_pins>;// Ensure consistency with the controller configuration
-        };
-    };
+.. code-block:: 
 
-   Driver matching: compatible = "pwm-device" triggers the PWM driver corresponding to compatible in the kernel. After the driver matches the node through the of_device_id table, it calls the probe function to initialize the hardware.
-   PWM parameter transmission: pwms = <&pwm14 0 10000000 1> binds channel 0 of the pwm14 controller, sets the period to 10ms (10000000ns, corresponding to 100Hz frequency), and the polarity to 1 (high level active).
-   duty_ns = 5000000 specifies the initial duty cycle as 5ms (50% duty cycle), and the driver writes to the hardware register through pwm_config().
-   Controller enabling: &pwm14 { status="okay" } enables the PWM14 hardware controller inside the SoC. The underlying driver will initialize its clock and reset signal, and map the physical address of the register to the kernel virtual address.
-   The entire process transmits hardware parameters directly to the driver through the device tree to realize PWM waveform output (PWM is initialized and configured to a frequency of 100Hz, a duty cycle of 50%, and inverted polarity).
+   // Example: Configure PWM14_M0 output to a device (e.g., backlight)
+   / {
+       pwm_dev: pwm-dev {
+           compatible = "pwm-device";
+           pwms = <&pwm14 0 10000000 1>; // Key parameter setting
+           duty-cycle = <5000000>;    // 50% duty cycle
+           pinctrl-names = "default";
+           pinctrl-0 = <&pwm14m0_pins>; // Ensure consistency with controller configuration
+       };
+   };
 
-3. Operating PWM through Sysfs Interface
+Driver matching: ``compatible = "pwm-device"`` triggers the PWM driver in the kernel with the corresponding compatible string. After the driver matches the node through the ``of_device_id`` table, it calls the ``probe`` function to initialize the hardware.
 
-1. Find the PWM controller path
+PWM parameter passing: ``pwms = <&pwm14 0 10000000 1>`` binds channel 0 of the pwm14 controller, sets the period to 10ms (10000000ns, corresponding to 100Hz frequency), and polarity to 1 (high level active).
 
-   Enter the command:
+``duty_ns = 5000000`` specifies an initial duty cycle of 5ms (50% duty cycle). The driver writes this to hardware registers through ``pwm_config()``.
 
-.. code-block:: shell
+Controller enable: ``&pwm14 { status="okay" }`` enables the PWM14 hardware controller inside the SoC. The underlying driver will initialize its clock and reset signals, mapping the physical register address to the kernel virtual address.
 
-    ls /sys/class/pwm  # Display all PWM controllers, such as pwmchip0, pwmchip1, etc.
+The entire process passes hardware parameters directly to the driver through the device tree, achieving PWM waveform output (PWM is initialized with 100Hz frequency, 50% duty cycle, and inverted polarity).
 
-   The PWM controllers of RK3568 are named pwmchip*. You need to confirm the specific number according to the address of &pwm14 in the device tree. Here, it is assumed that pwm14 corresponds to pwmchip3.
+3. Operate PWM via Sysfs Interface
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-2. Export the PWM channel
+1. Find PWM controller path
 
-.. code-block:: shell
+   Enter command:
 
-    echo 0 > /sys/class/pwm/pwmchip3/export  # Export channel 0 of pwm14
+   .. code-block:: 
 
-   After execution, the /sys/class/pwm/pwmchip3/pwm0 directory will be generated.
+      ls /sys/class/pwm  # Display all PWM controllers, e.g., pwmchip0, pwmchip1, etc.
 
-3. Configure the period and duty cycle
+   RK3568's PWM controllers are named ``pwmchip*``. Confirm the specific number based on the address of ``&pwm14`` in the device tree. Assume pwm14 corresponds to ``pwmchip3``.
 
-   Enter the command:
+2. Export PWM channel
 
-.. code-block:: shell
+   .. code-block:: 
 
-    echo 10000000 > /sys/class/pwm/pwmchip3/pwm0/period    # Set a 10ms period (100Hz)
-    echo 5000000 > /sys/class/pwm/pwmchip3/pwm0/duty_cycle  # Set a 5ms duty cycle (50%)
-    echo 1 > /sys/class/pwm/pwmchip3/pwm0/enable            # Enable PWM output
+      echo 0 > /sys/class/pwm/pwmchip3/export  # Export channel 0 of pwm14
 
-   The parameter unit is nanoseconds, and note that the duty cycle cannot exceed the period value.
-   Note: If exporting or enabling fails, you need to check to determine whether the channel is occupied by other functions such as the serial port.
+   After execution, the ``/sys/class/pwm/pwmchip3/pwm0`` directory will be created.
 
-4. Dynamically adjust the duty cycle
+3. Configure period and duty cycle
 
-.. code-block:: shell
+   Enter commands:
 
-    # Adjust to 70% duty cycle
+   .. code-block:: bash
+
+      echo 10000000 > /sys/class/pwm/pwmchip3/pwm0/period    # Set 10ms period (100Hz)
+      echo 5000000 > /sys/class/pwm/pwmchip3/pwm0/duty_cycle  # Set 5ms duty cycle (50%)
+      echo 1 > /sys/class/pwm/pwmchip3/pwm0/enable            # Enable PWM output
+
+   Parameters are in nanoseconds. Note that duty cycle cannot exceed the period value.
+
+   .. note::
+
+      Note: If export or enable fails, check if the channel is occupied by other functions such as UART.
+
+4. Dynamically adjust duty cycle
+
+   .. code-block:: 
+
+      # Adjust to 70% duty cycle
 
 UART
-~~~~~~
+~~~~
 
-1. Device Tree Configuration (taking UART3_M1 as an example, corresponding to pins 33 and 35 on the J14 expansion interface)
+1. Device Tree Configuration (Taking UART3_M1 as an example, corresponding to pins 33 and 35 on J14 expansion interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: shell
+.. code-block:: 
 
-    &uart3 {
-        status ="okay"; 
-        pinctrl-name = "default"; 
-        pinctrl-0 = <&uart3m1_xfer>; 
-    };
+   &uart3 {
+       status ="okay";
+       pinctrl-name = "default";
+       pinctrl-0 = <&uart3m1_xfer>;
+   };
 
-   The role of pinctrl-0 = <&uart3m1_xfer> is to bind the TX/RX pins of UART3 to the uart3m1_xfer multiplexing group.
-   uart3m1_xfer has been defined in rk3568-pinctrl.dtsi:
+The role of ``pinctrl-0 = <&uart3m1_xfer>`` is to bind the TX/RX pins of UART3 to the ``uart3m1_xfer`` multiplexing group.
 
-.. code-block:: shell
+``uart3m1_xfer`` is already defined in ``rk3568-pinctrl.dtsi``:
 
-    uart3m1_xfer: uart3m1-xfer {
-        rockchip,pins =
-            /* uart3_rxm1 */
-            <3 RK_PC0 4 &pcfg_pull_up>,
-            /* uart3_txm1 */
-            <3 RK_PB7 4 &pcfg_pull_up>;
-    };
+.. code-block:: 
 
-   After the device tree is configured, UART3 is registered as /dev/ttyS3 in the system, which can be verified by ls /dev/ttyS*.
+   uart3m1_xfer: uart3m1-xfer {
+       rockchip,pins =
+           /* uart3_rxm1 */
+           <3 RK_PC0 4 &pcfg_pull_up>,
+           /* uart3_txm1 */
+           <3 RK_PB7 4 &pcfg_pull_up>;
+   };
+
+After the device tree is configured, UART3 is registered as ``/dev/ttyS3`` in the system. Verify with ``ls /dev/ttyS*``.
 
 2. Debugging Tools
+^^^^^^^^^^^^^^^^^^
 
-   Short-circuit the rx and tx of uart3m1, and use the test file placed in the file system for transceiver testing:
+Short the rx and tx of ``uart3m1``, and use the test file placed in the filesystem for transceiver testing:
 
-.. code-block:: shell
+.. code-block:: yaml
 
-    =====> Input:
-    # /my-demo/serial_test.out /dev/ttyS3 "myzr"
-    =====> Output:
-    Starting send data...finish
-    Starting receive data:
-    ASCII: 0x6d      Character: m
-    ASCII: 0x79      Character: y
-    ASCII: 0x7a      Character: z
-    ASCII: 0x72      Character: r
-    ASCII: 0x0   Character:
+   =====> Input:
+   # /my-demo/serial_test.out /dev/ttyS3 "myzr"
+   =====> Output:
+   Starting send data...finish
+   Starting receive data:
+   ASCII: 0x6d      Character: m
+   ASCII: 0x79      Character: y
+   ASCII: 0x7a      Character: z
+   ASCII: 0x72      Character: r
+   ASCII: 0x0   Character:
 
 I2C
-~~~~~
+~~~
 
-1. Overview of I2C Subsystem Architecture
+1. I2C Subsystem Architecture Overview
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-   In the RK3568 platform, the I2C controller is implemented based on the standard Linux I2C framework, and its core is divided into a hardware abstraction layer (adapter driver) and a device driver layer. The hardware layer abstracts the I2C bus controller through i2c_adapter, and the device layer describes the slave device through i2c_client. Both implement the driver logic through i2c_driver. The I2C controller of RK3568 supports multi-master mode, clock frequency division (up to 400kHz), and interrupt/DMA transmission. Its physical layer follows the open-drain output characteristic and realizes SCL/SDA signals through GPIO multiplexing.
+On the RK3568 platform, the I2C controller is implemented based on the standard Linux I2C framework, which is divided into hardware abstraction layer (adapter driver) and device driver layer. The hardware layer abstracts the I2C bus controller through ``i2c_adapter``, and the device layer describes slave devices through ``i2c_client``. The driver logic is implemented through ``i2c_driver``. RK3568's I2C controller supports multi-master mode, clock division (up to 400kHz), and interrupt/DMA transmission. Its physical layer follows open-drain output characteristics, and SCL/SDA signals are implemented through GPIO multiplexing.
 
-2. I2C Device Tree Configuration (taking a touch chip mounted on I2C1 as an example)
+2. I2C Device Tree Configuration (Taking touch chip mounted on I2C1 as an example)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: shell
+.. code-block:: 
 
-    &i2c1 {
-        status = "okay";
+   &i2c1 {
+       status = "okay";
 
-        gt1x: gt1x@14 {
-            compatible = "goodix,gt1x";
-            reg = <0x14>;
-            pinctrl-names = "default";
-            pinctrl-0 = <&touch_gpio>;
-            goodix,rst-gpio = <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
-            goodix,irq-gpio = <&gpio0 RK_PB5 IRQ_TYPE_LEVEL_LOW>;
-        };
-    };
+       gt1x: gt1x@14 {
+           compatible = "goodix,gt1x";
+           reg = <0x14>;
+           pinctrl-names = "default";
+           pinctrl-0 = <&touch_gpio>;
+           goodix,rst-gpio = <&gpio0 RK_PB6 GPIO_ACTIVE_HIGH>;
+           goodix,irq-gpio = <&gpio0 RK_PB5 IRQ_TYPE_LEVEL_LOW>;
+       };
+   };
 
-   In this node, the kernel matches the driver through the compatible string. For example, the same of_device_id table must be defined in the driver code:
+In this node, the kernel matches the driver through the ``compatible`` string. For example, the driver code needs to define the same ``of_device_id`` table:
 
-.. code-block:: shell
+.. code-block:: 
 
-    static const struct of_device_id gt1x_of_match[] = {
-        { .compatible = "goodix,gt1x" },
-        {}
-    };
+   static const struct of_device_id gt1x_of_match[] = {
+       { .compatible = "goodix,gt1x" },
+       {}
+   };
 
-   The
+The address of the device on the I2C bus (0x14). The driver obtains the reg address through the ``i2c_client`` structure. ``pinctrl-*`` references the ``touch_gpio`` node to configure the multiplexing function and electrical properties of GPIO.
+
+Driver and device tree matching: When the ``compatible`` value matches the driver, the kernel calls the ``.probe()`` function. In the probe function, the driver will obtain configurations from the device tree including pin configuration, chip model, etc.
+
+When the device is successfully registered on I2C, use the command:
+
+.. code-block:: 
+
+   i2cdetect -y 1
+
+You can see the letter "UU" appearing at address 14 on i2c1, indicating that the device is successfully mounted on I2C.
+
+SPI
+~~~
+
+1. Linux SPI Framework Overview
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The Linux SPI framework provides a standardized SPI device driver support system for the kernel, consisting of SPI Core, controller driver layer, device abstraction layer, and user space interface. As the framework hub, SPI Core manages the bus, registers devices, and maintains standard transmission APIs. It dynamically binds controllers and slave devices through spi_alloc_device() and spi_add_device(). Hardware-related SPI controller drivers need to implement low-level operations such as clock configuration and data transmission. Each controller corresponds to a struct spi_controller instance; connected slave devices are described through struct spi_device structures, including parameters such as device address, chip select, and communication mode. The core data transmission mechanism triggers the transmission callback function implemented by the controller through synchronous/asynchronous interfaces such as spi_sync(), supporting both DMA and interrupt transmission modes. The framework also exposes SPI interfaces to user space through /dev/spidev* device nodes, enabling hardware register operations from the application layer.
+
+2. SPI Device Tree Configuration (Taking SPI3_M1 as an example, miso and mosi correspond to pins 19 and 21 on J14 expansion interface)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: c++
+
+   &spi3 {
+       status = "okay";
+       pinctrl-names = "default";
+       pinctrl-0 = <&spi3m1_pins>;  // Specify M1 mode pin group
+       #address-cells = <1>;
+       #size-cells = <0>;
+
+       spidev@0 {
+           compatible = "spidev";
+           reg = <0>;
+           spi-max-frequency = <10000000>;  // Maximum frequency 10MHz
+       };
+   };
+
+When the kernel parses this node during startup, it calls the driver code in ``drivers/spi/spi-rockchip.c`` to initialize the SPI3 controller and registers it as ``/sys/bus/spi/devices/spi3.0``. SPI devices are addressed through Chip Select (CS) signals. ``#address-cells=1`` means the ``reg`` attribute corresponds to the CS number (e.g., ``reg=<0>`` means using CS0 line of SPI3). When generating an SPI device, the kernel controls the corresponding GPIO pin to output low level according to the ``reg`` value to activate the target device.
+
+After ``compatible="spidev"`` matches successfully, the kernel loads ``drivers/spi/spidev.c`` and creates the device node ``/dev/spidev3.0``. User-mode programs do not need to develop kernel drivers and can directly initiate SPI data transmission requests through system calls such as ``ioctl(SPI_IOC_MESSAGE)`` or ``write()``. After the request is received by the ``spidev`` driver, the kernel submits the data transmission task to the SPI controller driver (such as SPI3 controller) through the ``spi_async()`` interface. Finally, the hardware controller generates SCK signals according to the configured clock polarity, rate, and other parameters, sends data streams through the MOSI pin, and synchronously reads response data from the MISO pin to complete full-duplex communication.
+
+3. Debugging Tools
+^^^^^^^^^^^^^^^^^^
+
+Short miso and mosi of SPI3_M1, run the SPI test program in the filesystem:
+
+.. code-block:: 
+
+   =====> Input:
+   ./spidev_test -D /dev/spidev3.0
+   =====> Output:
+   spi mode: 0
+   bits per word: 8
+   max speed: 500000 Hz (500 KHz)
+
+   FF FF FF FF FF FF
+   40 00 00 00 00 95
+   FF FF FF FF FF FF
+   FF FF FF FF FF FF
+   FF FF FF FF FF FF
+   DE AD BE EF BA AD
+   F0 0D
+
+Indicates SPI function is normal.
