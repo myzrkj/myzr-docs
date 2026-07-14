@@ -1,9 +1,14 @@
-GW510-4G(EN)
-==============
+MYZR-SSD2351-GW510(EN)
+=======================
 
 .. toctree:: 
-   :maxdepth: 3
+   :maxdepth: 2
    
+   Product Ordering Information
+   Platform Introduction
    Product Introduction
-   Test Manual
-   RS485 to MQTT Transparent Transmission Example
+   Boot Manual
+   Test Guide
+   Programming Guide
+   Hardware Development Guide
+   Software Manual
