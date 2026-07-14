@@ -6,7 +6,7 @@
    }
    </style>
 
-MYZR-RK3568-EK320
+MYZR-RK3568-EK320(EN)
 ===================
 
 .. toctree:: 
