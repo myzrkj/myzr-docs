@@ -1,14 +1,22 @@
+.. raw:: html
 
-MYZR-RV1126B-EK221(EN)
-========================
+   <style>
+   h1 {
+       color: green;
+   }
+   </style>
 
-.. toctree:: 
-   :maxdepth: 3
+MYZR-RV1126B-EK221
+============
 
+.. toctree::
+   :maxdepth: 2
+
+   Product Ordering Information
    Platform Introduction
    Product Introduction
-   Startup Manual
-   Testing Manual
-   Firmware Flashing Manual
-   Hardware Design Guide
-   Compilation Manual
+   Boot Manual
+   Test Guide
+   Firmware Update
+   Hardware Development Guide
+   Software Development Guide
