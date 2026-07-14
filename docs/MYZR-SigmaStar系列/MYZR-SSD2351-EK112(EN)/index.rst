@@ -1,4 +1,4 @@
-MYZR-SSD2351-EK112
+MYZR-SSD2351-EK112(EN)
 ===================
 
 .. toctree:: 
