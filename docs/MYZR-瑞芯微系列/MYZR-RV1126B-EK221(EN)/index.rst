@@ -6,7 +6,7 @@
    }
    </style>
 
-MYZR-RV1126B-EK221
+MYZR-RV1126B-EK221(EN)
 ============
 
 .. toctree::
