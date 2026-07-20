@@ -1,14 +1,15 @@
+
 MYZR-RK3562-EK200(EN)
-=======================
+=================
 
-.. toctree:: 
-   :maxdepth: 3
+.. toctree::
+   :maxdepth: 2
 
+   Product Ordering Information
    Platform Introduction
    Product Introduction
-   Quick Start
-   Startup Manual
+   Boot Manual
    Test Guide
-   Firmware Flashing
-   Hardware Design Guide
+   Firmware Update
+   Hardware Development Guide
    Software Development Guide
