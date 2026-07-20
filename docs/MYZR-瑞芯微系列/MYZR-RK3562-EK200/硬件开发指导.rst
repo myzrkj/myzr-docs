@@ -1,0 +1,392 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
+
+硬件开发指导
+============
+
+核心板引脚原理图
+----------------
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导1.png
+   :alt: 硬件设计指导1.png
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导2.png
+   :alt: 硬件设计指导2.png
+   :width: 100%
+
+底板原理图
+----------
+
+电源管理
+~~~~~~~~
+
+评估底板共有一路电源输入接口，其中 J15 为 12V 直流电源供电接口，采用 DC-005电源连接器。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导3.png
+   :alt: 硬件设计指导3.png
+   :width: 100%
+
+VDD_12V_MAIN 通过多路电源芯片转为核心板及评估底板外设供电。为了满足 CPU的 GPIO 电源早于外设电源上电的时序，评估板推荐的上电时序：12V DC 供电(VDD_12V_MAIN) -> 核心板供电 (VDD_3V3_SOM) -> 核心板配置底板辅助电源(VDD_3V3_SOM_OUT) -> 底板外设供电(VDD_1V8_MAIN) -> 底板外设供电(VDD_5V_MAIN)-> 系统复位(1P12/RESETn/PU/3V3) -> 核心板音频电源(VDD_3V3_ACODEC) -> 底板外设供电(VDD_3V3_MAIN)，推荐上电时序设计如下图所示。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导4.png
+   :alt: 硬件设计指导4.png
+   :width: 100%
+
+图 11 评估底板推荐上电时序
+
+VDD_12V_MAIN 通过芯强微电子(Ecranic)的 EC2232E DCDC 电源芯片产生一路 3.3V 电源，用于核心板的供电，网络名为 VDD_3V3_SOM，最大电流供给能力为 3A。
+
+该电源使能由输入电压分压提供，实现上电即使能的时序控制。为保护核心板及方便测量电压电流，电源路径已串接保险丝 F2。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导5.png
+   :alt: 硬件设计指导5.png
+   :width: 100%
+
+核心板提供 VDD_3V3_SOM_OUT 和 VDD_3V3_ACODEC 电源输出，供电能力≤200mA，VDD_3V3_SOM_OUT 主要用于控制评估底板的部分电源上电，以及核心板配置相关电路的供电（如 BOOT SET、DEBUG UART、Micro SD 等电路）；VDD_3V3_ACODEC 主要用于控制评估底板的其他部分电源上电，核心板输出的这两个电源除了作为这些功能使用外，请勿用于其他外设的供电。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导6.png
+   :alt: 硬件设计指导6.png
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导7.png
+   :alt: 硬件设计指导7.png
+   :width: 100%
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导8.png
+   :alt: 硬件设计指导8.png
+   :width: 100%
+
+VDD_12V_MAIN 通过 3 个芯强微电子(Ecranic)的 EC2232E DCDC 电源芯片产生 3 路评估底板外设电源，网络名分别为：VDD_5V_MAIN、VDD_3V3_MAIN、VDD_1V8_MAIN，每路外设电源最大电流供给能力为 3A。
+
+VDD_5V_MAIN和VDD_1V8_MAIN电源使能由核心板VDD_3V3_SOM_OUT信号提供，VDD_3V3_MAIN 电源使能由核心板 VDD_3V3_ACODEC 信号提供，实现核心板电源上电早于外设电源上电的时序控制。
+
+设计注意事项：
+
+（1） 底板设计时，若无需输入级保护电路的部分或全部功能，可适当裁剪。
+
+（2） 底板电源设计可根据实际电路设计进行增减，建议参考我司上电时序进行底板电源的使能控制。
+
+（4） 为使 VDD_5V_MAIN、VDD_3V3_MAIN、VDD_1V8_MAIN 满足系统上电、掉电时序要求，需使用核心板输出的 VDD_3V3_SOM_OUT 信号来控制 VDD_5V_MAIN、VDD_1V8_MAIN 的电源使能，使用核心板输出的 VDD_3V3_ACODEC 信号来控制 VDD_3V3_MAIN 的电源使能（详情见评估底板推荐上电时序）。
+
+LED电路
+~~~~~~~
+
+评估底板提供电源指示灯及用户可编程指示灯，分别为 LED1~LED6。均采用 0603 封装的贴片 LED。
+
+LED6 为底板电源指示灯，LED3 为核心板电源指示灯，颜色为红色，默认上电时点亮；LED1、LED2、LED4和LED5 为用户可编程指示灯，颜色为绿色，分别对应GPIO4_B1_d、GPIO4_B7_d、GPIO0_A5_d、GPIO0_A6_d四个引脚，高电平点亮。
+
+.. raw:: html
+
+   <div style="display: flex; justify-content: space-around;">
+   <div style="text-align: center; width: 45%;">
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导9.png
+   :alt: 硬件设计指导9
+   :width: 100%
+
+.. raw:: html
+
+   </div>
+   <div style="text-align: center; width: 45%;">
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导10.png
+   :alt: 硬件设计指导10
+   :width: 100%
+
+.. raw:: html
+
+   </div>
+   </div>
+
+KEY电路
+~~~~~~~
+
+评估底板包含 1 个系统复位按键 RESETn(KEY1)，1 个 Maskrom 按键 Maskrom(KEY2)、1 个用户输入按键 USER1(KEY3)。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导11.png
+   :alt: 硬件设计指导11.png
+   :width: 100%
+
+KEY1 为评估板 RESET 复位按键，控制 CPU 和 PMIC 的复位引脚。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导12.png
+   :alt: 硬件设计指导12.png
+   :width: 100%
+
+设计注意事项：
+
+（1） 1P12/RESETn/PU/3V3 为核心板的复位输入引脚，核心板内部已上拉 10K 电阻，默认情况请悬空处理，以免影响上电时序。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导13.png
+   :alt: 硬件设计指导13.png
+   :width: 100%
+
+KEY2 为 Maskrom 按键，按键状态通过 SARADC0_BOOT 引脚输入至 CPU。
+
+设计注意事项：
+
+（1） 在 eMMC 未固化系统镜像的情况下上电启动，CPU 会引导进入 Maskrom 模式，通过 USB3.0 OTG 可以进行首次固化系统镜像或在开发调试过程中若遇到 Loader 无法正常启动的情况，也可以通过进入 Maskrom 模式固化系统。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导14.png
+   :alt: 硬件设计指导14.png
+   :width: 100%
+
+KEY3(USER1)为用户输入按键，KEY3 按键状态通过 SARADC0_IN1 引脚输入至 CPU。备注：KEY3(USER1)按键同时为系统的 Recovery 按键。
+
+调试串口电路
+~~~~~~~~~~~~
+
+评估底板板载 1 个串口，CON4 为 USB TO UART0 调试串口。
+
+评估底板通过沁恒微电子(WCH)的 CH340T 芯片将 UART0 转换为 Type-C 连接器(CON4)引出，作为系统调试串口使用。CH340T 使用来自 Type-C 数据线的 5V（网络名：VDD_5V_VBUS）外部供电，VDD_5V_VBUS 同时可以作为底板供电。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导15.png
+   :alt: 硬件设计指导15.png
+   :width: 100%
+
+设计注意事项：
+
+（1） 底板设计时，建议采用 RS0102YVS8(U9)电平转换隔离方案，以避免调试串口 RX端在底板上电前提前带电，向核心板引脚灌输电流，导致系统无法启动。
+
+（2） CPU 引脚 UART0_TX_M0、UART0_RX_M0 电平均为 3.3V，请勿使用 5V 电平接口的调试工具直接连接，否则将导致 CPU 损坏。
+
+（3） 注意 USB 信号需做 90ohm 差分阻抗匹配。
+
+（4） ESD 器件需靠近连接器 Type-C 接口布局，走线经过 ESD 后连接至 CH340T。
+
+Micro SD 接口电路
+~~~~~~~~~~~~~~~~~
+
+评估底板提供 1 路 Micro SD 接口(CON5)，使用外壳带压片的外焊式 Micro SD 连接器，位于评估底板正面。
+
+Micro SD 通过 CPU 的 SDMMC0 总线引出，采用 4bit 数据线模式。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导16.png
+   :alt: 硬件设计指导16.png
+   :width: 100%
+
+设计注意事项：
+
+（1） 底板设计时，需将 Micro SD 座子外壳的 SHIELD[1:4]引脚连接至数字地。
+
+（2） 建议使用核心板的输出电源 VDD_3V3_SOM_OUT 给 Micro SD(CON5)供电。不建议使用 VDD_3V3_MAIN 供电，否则将可能因该电源存在供电延迟，导致系统无法正确读取到 Micro SD 卡设备而启动失败。
+
+（3） SDMMC0 总线时钟最大频率为 100MHz，建议 D0~D3 相对 CLK 等长控制<50mil，单端 50ohm，核心板信号走线长度请查阅我司核心板硬件说明书。
+
+Ethernet 接口
+~~~~~~~~~~~~~
+
+评估板底板共引出 2 个网口，包含 1 个 ETH RGMII 千兆网口、1 个 ETH RMII 百兆网口。
+
+CPU 内部集成 1 个 GMAC 和 1 个 MAC 控制器，支持 1 路原生 RGMII 千兆网口和 1路原生 RMII 百兆网口。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导17.png
+   :alt: 硬件设计指导17.png
+   :width: 100%
+
+评估底板通过国产厂家裕太微电子(Motorcomm)公司的 YT8521SH-CA 集成以太网收发器方案，提供 1 路 10/100/1000Mbps 自适应以太网。采用内置隔离变压器的千兆 RJ45插座(CON8)，使用独立的 RGMII 总线、MDIO 总线实现 PHY 通信以及配置。
+
+YT8521SH-CA 符合 10BASE-Te、100BASE-TX 和 1000BASE-T IEEE 802.3 标准，提供交叉检测、自动校正、极性校正和自适应均衡等功能。
+
+设计注意事项：
+
+（1） ETH0 RGMII 的 PHY 使用 3.3V IO 电平。RGMII 电平选择使用 CFG_LDO[1:0]进行配置，对应电路的供电引脚为 DVDD_RGMII（YT8521SH-CA 芯片的 pin29）。
+
+（2） XTAL_I、XTAL_O 引脚接入 25MHz 无源晶振。如需使用 25MHz 有源晶振，可从XTAL_I 引脚接入，并将 XTAL_O 引脚悬空处理。
+
+（3） 评估底板采用的 YT8521SH-CA 方案，使用了内部产生的 1.2V 电压(VDD_1V2_ETH0L)进行核心逻辑供电，无需额外提供 1.2V 电压。VDD_1V2_ETH0L 请勿用于其它负载供电。
+
+（4） YT8521SH-CA 芯片要求在供电稳定后保持 100ms，再拉高复位信号；推荐使用 IO控制 PHY 芯片的复位。
+
+（5） 靠近 RJ45 连接器的 PESDALC10N5VU 为 10pin 封装的 ESD 器件，请注意并排的 2个引脚（如 IN1 和 NC4、IN2 和 NC3）在 ESD 器件内部并无连接，实际设计中应将对应引脚直接外部短接处理（如下图），即对应引脚的网络名需保持一致。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导18.png
+   :alt: 硬件设计指导18.png
+   :width: 100%
+
+（6） PCB 布局布线说明：
+
+a) ESD 器件注意放置在紧靠 RJ45 的位置；需 ESD 保护的信号线应直接穿过 ESD 引脚再连通后方电路。
+
+b) MDIx_P/N 信号注意按 100ohm 差分信号走线，晶振提供的时钟信号建议包地处理。
+
+c) RGMII 总线中的收发两组信号应分别做 50mil 以内等长处理，收发两组信号间做 100mil 以内等长处理，单端阻抗 50ohm。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导19.png
+   :alt: 硬件设计指导19.png
+   :width: 100%
+
+评估底板通过裕太微电子(Motorcomm)公司的 YT8512H 集成以太网收发器引出 1 路10/100Mbps 自适应以太网，使用独立的 RMII 总线、MDIO 总线实现 PHY 通信以及配置，采用内置隔离变压器的百兆 RJ45 插座(CON9)。
+
+YT8512H 符合 10BASE-Te 和 100BASE-TX EEE 802.3az，EEE 标准，提供极性检测和自动校正、自协商和自适应均衡等功能。
+
+设计注意事项：
+
+（1）XTAL_IN、XTAL_OUT 引脚接入 25MHz 无源晶振。如需使用 25MHz 有源晶振，可从XTAL_IN 引脚接入，XTAL_OUT 引脚悬空处理。
+
+（2）YT8512H 芯片要求在供电稳定后，保持 100ms 后再拉高复位信号。请参考评估底板的复位电路方案，使用 IO 控制网口复位。
+
+（3）靠近 RJ45 连接器的 PESDALC10N5VU 为 10pin 封装的 ESD 器件，请注意并排的 2 个引脚（如 IN1 和 NC4、IN2 和 NC3）在 ESD 器件内部并无连接，实际设计中应将对应引脚直接外部短接处理（如下图），即对应引脚的网络名需保持一致。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导20.png
+   :alt: 硬件设计指导20.png
+   :width: 100%
+
+（4）PCB 布局布线说明：
+
+a) ESD 器件需放置在紧靠 RJ45 的位置，信号线应直接穿过 ESD 引脚再连通至后方电路。
+
+b) ETH1_xP/N 信号需按 100ohm 差分信号走线。
+
+c) 晶振提供的时钟信号建议包地处理。
+
+d) RMII 总线中的收发两组信号应做±50mil 等长处理，单端阻抗 50ohm。
+
+MIPI LCD 接口电路
+~~~~~~~~~~~~~~~~~
+
+评估底板通过 30pin、间距 0.5mm 的 FFC 连接器引出 MIPI LCD 接口和电容触摸接口 J10，核心板使用 I2C1总线与电容触摸接口连接实现通信。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导21.png
+   :alt: 硬件设计指导21.png
+   :width: 100%
+
+设计注意事项：
+
+（1） MIPI LCD 接口与 LVDS LCD 接口的信号存在复用关系，同时它们的电容触摸屏接口也存在共用信号，并且 HDMI OUT 信号由 MIPI DSI 信号通过 LT8912B(U33)芯片转换引出，因此 MIPI LCD、LVDS LCD、HDMI OUT 接口仅能同时使用其中一个。
+
+（2） MIPI 座子的 Pin28-30 电压需保证在 4.8-5.3V 之间，管脚需放置 1uF 和 0.1uF 去耦电容，不得删减，布局时，靠近 MIPI 座子管脚放置。为了抑制电磁辐射，MIPI 的数据、时钟信号可以预留共模电感。
+
+（3） 建议 DSI 差分信号对内等长<5mil，对间等长<30mil，差分阻抗 100ohm。
+
+HDMI OUT 接口电路
+~~~~~~~~~~~~~~~~~
+
+评估底板采用帝奥微电子(Dioo)的十通道双掷 MIPI 开关 DIO1647WL36 和龙讯半导体(Lontium)的视频信号转换芯片 LT8912B 方案，通过 MIPI DSI 总线拓展引出 HDMIOUT(CON14)接口，采用标准 19pin HDMI 连接器。
+
+LT8912B 采用 1.8V 供电，符合 HDMI1.4，支持 1080p HDMI 输出，支持 7 位自动或手动输出摆幅校准和支持热插头检测等功能。
+
+DIO1647WL36 是一款 10 通道（4 对数据差分对和 1 对时钟差分对）的差分 MIPI 双掷开关芯片，速率高达 3.5Gbps，供电电压范围 1.65V~5V。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导22.png
+   :alt: 硬件设计指导22.png
+   :width: 100%
+
+设计注意事项：
+
+（1） 由于 HDMI OUT 信号由 MIPI DSI 信号通过 LT8912B(U33)芯片转换引出，同时 MIPI LCD 接口与 LVDS LCD 接口的信号存在复用关系，并且它们的电容触摸屏接口也存在共用信号，因此 MIPI LCD、LVDS LCD、HDMI OUT 接口仅能同时使用其中一个。
+
+（2） AF18/I2C1_SDA_M0/3V3 和 AE17/I2C1_SCL_M0/3V3 的 IO 电平为 3.3V，需转换为1.8V 电平后再连接至 LT8912B 芯片。
+
+（3） HDMI座的 HPLG信号需通过 NPN 三极管电平转换输出1.8V 信号才连接至LT8912B芯片。当外部设备接入时，会将此信号拉高。
+
+（4） 为防止核心板掉电时通过 HDMI 接口馈电，需参考评估底板电路添加 D19 器件。
+
+（5） 建议 HDMI 差分对内等长小于 5mil，对间等长要求小于 100mil，差分阻抗控制100ohm。
+
+LVDS LCD 接口电路
+~~~~~~~~~~~~~~~~~
+
+CON11 为单路 8bit LVDS LCD 接口，采用 2x 15pin 排针，间距为 2.0mm，包含 LVDS信号及供电电源。CON12 为 BACK LIGHT 背光控制接口，采用 6pin 白色端子座，间距为2.0mm。J3 为 RES TS 电阻触摸屏接口，采用 4pin 排针，间距为 2.54mm；J4 为 LVDS CAPTS 电容触摸屏接口，采用 6pin FFC 连接器，间距为 0.5mm，核心板使用 I2C1 总线与其连接实现通信。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导23.png
+   :alt: 硬件设计指导23.png
+   :width: 100%
+
+设计注意事项：
+
+（1） LVDS LCD 接口与 MIPI LCD 接口的信号存在复用关系，同时它们的电容触摸屏接口也存在共用信号，并且 HDMI OUT 信号由 MIPI DSI 信号通过 LT8912B(U33)芯片转换引出，因此 MIPI LCD、LVDS LCD、HDMI OUT 接口仅能同时使用其中一个。
+
+（2） 建议 LVDS 差分对内等长小于 5mil，对间等长要求小于 30mil，差分阻抗控制100ohm。
+
+USB2.0 HOST 接口电路
+~~~~~~~~~~~~~~~~~~~~
+
+评估底板采用 Type-A 连接器(CON7)直接将 USB20_HOST1 总线引出。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导24.png
+   :alt: 硬件设计指导24.png
+   :width: 100%
+
+USB3.0 OTG 接口电路
+~~~~~~~~~~~~~~~~~~~
+
+CON6 为 USB3.0 OTG 接口，采用 24pin Type-C 母座，由核心板通过 USB3_OTG0 总线引出。
+
+评估底板采用韦尔半导体(WILLSEMI)的 Type-C 控制芯片 WUSB3801Q-12/TR，实现通信角色的检测功能。
+
+由于 USB3.0 差分对信号速率高达 5Gbps，不能按 USB2.0 方式，直接分叉连接至 Type-C 接口正面和反面。为实现正反接功能，选用沁恒微电子(WCH)的 USB 切换开关芯片CH482D，该芯片支持 Super Speed+、PCIe Gen1/2/3、SATA/SAS 3Gbps/6Gbps、Display Port等 2 路差分信号的二选一切换。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导25.png
+   :alt: 硬件设计指导25.png
+   :width: 100%
+
+设计注意事项：
+
+（1） USB 信号最大速率 5Gbps，差分建议对内等长<5mil，差分阻抗 90Ω。
+
+（2） 若 U19 的 INT_N/OUT3 引脚需分配使用其他 GPIO，请使用 CPU 支持中断功能的GPIO 引脚（所有 GPIO 都支持 CPU 中断功能）。
+
+（3） WUSB3801Q-12/TR 芯片方案，Type-C 连接器的 CC1 和 CC2 状态通过该芯片内部状态机自动检测并在寄存器映射中更新，若检测到 CC 通道是作为 SRC 或 DRP 时，该芯片的 ID 引脚则输出低电平。如果两个板卡对接时，需要手动配置其中 1 个板卡的角色，才能使另外的板卡自动切换角色。
+
+AUDIO 接口电路
+~~~~~~~~~~~~~~
+
+评估底板通过核心板板载 PMIC 芯片引出 HEADPHONE OUT、SPK OUT、MIC IN 三路AUDIO 接口。CON10 为 HEADPHONE OUT 音频接口，采用 3.5mm 音频插座。J1 为 SPK OUT音频接口，J2 为 MIC IN 音频接口，两者均采用 2pin 白色端子插座，间距为 2.0mm。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导26.png
+   :alt: 硬件设计指导26.png
+   :width: 100%
+
+设计注意事项：
+
+（1） 对于 HEADPHONE OUT 设计，RK809_HP_SNS 应连接至音频插座的 GND。
+
+MIPI CSI0/MIPI CSI1 接口电路
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+评估底板通过两个间距 0.5mm 的 30pin FFC 连接器引出两个摄像头接口 MIPI CSI0(J5)和 MIPI CSI1(J6)，均放置在评估底板背面，支持 TL13850 摄像头模块（基于 OV13850摄像头模块设计），同时支持外接创龙科技配套的双路摄像头转接板 TL-MIPICSI-PinBoard-A1.0-000，将 1 个 4Lane MIPI CSI 接口拓展为 2 个 2Lane MIPI CSI 接口，可同时接入2 个不同的树莓派摄像头模块 CAM-MIPI9281RAW-V2（基于 OV9281 摄像头模块设计）和 Camera Module v2 模块（基于 IMX219 摄像头模块设计）。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导27.png
+   :alt: 硬件设计指导27.png
+   :width: 100%
+
+设计注意事项：
+
+（1） 由于 MIPI CSI 摄像头接口的信号电平为 1.8V，使用核心板输出的 3.3V 信号电平时，需进行电平转换后，再连接至 MIPI CSI 接口使用。为保证接口 CAM_CLK 时钟信号质量，建议时钟信号使用的分压电阻值与评估底板参考电路设计保持一致。
+
+（2） MIPI CSI 差分信号建议对内等长<5mil，对间等长<30mil，差分阻抗 100Ω。
+
+EXPORT 接口
+~~~~~~~~~~~
+
+评估底板通过 EXPORT0(J8)和 EXPORT1(J9)拓展接口引出 CPU 资源。EXPORT0 和 EXPORT1 均采用 2x 10pin 规格排母，间距为 2.54mm。
+
+EXPORT0 和 EXPORT1 接口引出的 CPU 资源如下所示。
+
+（1） 通信类接口：3 路 UART 串口，3 路 I2C，2 路 CAN(RK3562J)，1 路 SPI，1 路SDIO。
+
+（2） 音频类接口：1 路 I2S。
+
+（3） 系统复位：1 路 PWRON，可用于控制 PMIC 的开关机。
+
+（4） 信号检测：14 路 SARADC，ADC 采样率高达 1MSPS。
+
+备注：EXPORT0 和 EXPORT1 引出的信号电平并不一致，使用之前需确定所选用信号的电平标准。
+
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3562-EK200/硬件设计指导28.png
+   :alt: 硬件设计指导28.png
+   :width: 100%
+
+设计注意事项：
+
+（1） ADC 输入 SARADC0_IN2~7 和 SARADC1_IN0~7 的电压范围为 0~1.8V，底板设计时需注意输入信号，请勿超过电压要求范围，否则可能会损坏核心板。
+
+（2） ADC 输入引脚在无电压输入情况下，为减少 ADC 通道的串扰，建议参考我司的底板设计添加 1MΩ 的下拉电阻。
