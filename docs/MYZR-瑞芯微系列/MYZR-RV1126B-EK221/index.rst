@@ -1,10 +1,3 @@
-.. raw:: html
-
-   <style>
-   h1 {
-       color: green;
-   }
-   </style>
 
 MYZR-RV1126B-EK221
 ============
