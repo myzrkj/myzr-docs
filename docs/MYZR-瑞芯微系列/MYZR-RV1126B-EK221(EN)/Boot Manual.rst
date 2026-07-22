@@ -195,7 +195,7 @@ Kernel Messages:
 
 .. code-block:: shell
 
-   Linux version 6.1.118 (wanglk@myzr-u2204) (aarch64-none-linux-gnu-gcc (GNU
+   Linux version 6.1.11 (wanglk@myzr-u2204) (aarch64-none-linux-gnu-gcc (GNU
    Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1
    20210621, GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07
    (arm-10.29)) 2.36.1.20210621) #2 SMP Wed Oct 22 06:32:38 UTC 2025 [
@@ -204,7 +204,7 @@ Kernel Messages:
 
 The boot message contains:
 
-【Kernel Version】: Linux-6.1.118;
+【Kernel Version】: Linux-6.1.11;
 
 【GCC Version for Kernel Compilation】: 10.3.1;
 
