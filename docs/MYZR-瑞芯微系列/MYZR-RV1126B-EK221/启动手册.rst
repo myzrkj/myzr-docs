@@ -195,7 +195,7 @@ U-Boot信息:
 
 .. code-block:: shell
 
-   Linux version 6.1.118 (wanglk@myzr-u2204) (aarch64-none-linux-gnu-gcc (GNU
+   Linux version 6.1.11 (wanglk@myzr-u2204) (aarch64-none-linux-gnu-gcc (GNU
    Toolchain for the A-profile Architecture 10.3-2021.07 (arm-10.29)) 10.3.1
    20210621, GNU ld (GNU Toolchain for the A-profile Architecture 10.3-2021.07
    (arm-10.29)) 2.36.1.20210621) #2 SMP Wed Oct 22 06:32:38 UTC 2025 [
@@ -204,7 +204,7 @@ U-Boot信息:
 
 启动信息中包含以下信息:
 
-【内核版本】:Linux-6.1.118;
+【内核版本】:Linux-6.1.11;
 
 【编译内核的GCC版本】:10.3.1;
 
