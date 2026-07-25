@@ -161,6 +161,18 @@
    docs/MYZR-其他/其他/MYZR-SAMA5-EK200/index
    docs/MYZR-其他/其他/MYZR-SAMA5-EK200(EN)/index
 
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-IoT系列
+
+   docs/MYZR-IoT系列/MYZR-MOD-BT7L/index
+   docs/MYZR-IoT系列/MYZR-MOD-BT7L(EN)/index
+   docs/MYZR-IoT系列/MYZR-MOD-BTU/index
+   docs/MYZR-IoT系列/MYZR-MOD-BTU(EN)/index
+   docs/MYZR-IoT系列/MYZR-MOD-TB04/index
+   docs/MYZR-IoT系列/MYZR-MOD-TB04(EN)/index
+
+
 
 Indices and tables
 ==================
