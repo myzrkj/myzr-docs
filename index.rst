@@ -112,7 +112,7 @@
 
 .. toctree::
    :maxdepth: 1
-   :caption: MYZR-IoT系列
+   :caption: MYZR-IoT-蓝牙Mesh
 
    docs/MYZR-IoT系列/MYZR-MOD-BT7L/index
    docs/MYZR-IoT系列/MYZR-MOD-BT7L(EN)/index
