@@ -114,12 +114,12 @@
    :maxdepth: 1
    :caption: MYZR-IoT-蓝牙Mesh
 
-   docs/MYZR-IoT系列/MYZR-MOD-BT7L/index
-   docs/MYZR-IoT系列/MYZR-MOD-BT7L(EN)/index
-   docs/MYZR-IoT系列/MYZR-MOD-BTU/index
-   docs/MYZR-IoT系列/MYZR-MOD-BTU(EN)/index
-   docs/MYZR-IoT系列/MYZR-MOD-TB04/index
-   docs/MYZR-IoT系列/MYZR-MOD-TB04(EN)/index
+   docs/MYZR-IoT-蓝牙Mesh/MYZR-MOD-BT7L/index
+   docs/MYZR-IoT-蓝牙Mesh/MYZR-MOD-BT7L(EN)/index
+   docs/MYZR-IoT-蓝牙Mesh/MYZR-MOD-BTU/index
+   docs/MYZR-IoT-蓝牙Mesh/MYZR-MOD-BTU(EN)/index
+   docs/MYZR-IoT-蓝牙Mesh/MYZR-MOD-TB04/index
+   docs/MYZR-IoT-蓝牙Mesh/MYZR-MOD-TB04(EN)/index
 
 
 .. toctree::

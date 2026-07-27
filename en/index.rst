@@ -77,11 +77,11 @@ MYZR Documentation
 
 .. toctree::
    :maxdepth: 1
-   :caption: MYZR-IoT Series
+   :caption: MYZR-IoT Bluetooth Mesh
 
-   docs/MYZR-IoT系列/MYZR-MOD-BT7L(EN)/index
-   docs/MYZR-IoT系列/MYZR-MOD-BTU(EN)/index
-   docs/MYZR-IoT系列/MYZR-MOD-TB04(EN)/index
+   docs/MYZR-IoT-蓝牙Mesh/MYZR-MOD-BT7L(EN)/index
+   docs/MYZR-IoT-蓝牙Mesh/MYZR-MOD-BTU(EN)/index
+   docs/MYZR-IoT-蓝牙Mesh/MYZR-MOD-TB04(EN)/index
 
 
 .. toctree::
