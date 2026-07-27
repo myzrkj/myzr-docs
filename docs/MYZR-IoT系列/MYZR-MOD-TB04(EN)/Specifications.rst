@@ -163,7 +163,7 @@ Pin Function Definition Table
 +-----+------+-------------------------------------------------------------------+
 
 Key Parameters
---------
+~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -221,6 +221,7 @@ Electrical Parameters
 --------
 
 Absolute Maximum Ratings
+~~~~~~~~~~~~~~~
 
 Exceeding the following absolute maximum ratings may cause damage to the TLSR8258
 
@@ -259,6 +260,7 @@ Exceeding the following absolute maximum ratings may cause damage to the TLSR825
 +----------------------------+------+-----+------+------+
 
 Operating Conditions
+~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -299,6 +301,7 @@ Operating Conditions
 +-----------+-----------------------+---------+-----+---------+------+
 
 Power Consumption in Operating Mode
+~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -340,6 +343,7 @@ RF Parameters
 --------
 
 Basic RF Characteristics
+~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -376,6 +380,7 @@ Basic RF Characteristics
 +------------------------+---------------------+
 
 RF Transmit Power
+~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -406,6 +411,7 @@ RF Transmit Power
 +---------------+-----+-----+-----+------+
 
 RF Receive Sensitivity
+~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -436,6 +442,7 @@ RF Receive Sensitivity
 +---------------------+-----+-----+-----+------+
 
 Module Power-On Sequence Requirements
+~~~~~~~~~~~~~~~
 
 .. image:: ../../../image/MYZR-IoT系列/MYZR-MOD-TB04/规格书_6.png
    :alt: 规格书_6.png
@@ -450,11 +457,13 @@ The TLSR8258 chip has requirements for the power-on sequence. During power-on, t
 Antenna Information
 --------
 
-**Antenna Type**
+Antenna Type
+~~~~~~~~~~~~~~~
 
 BTU uses an onboard PCB antenna with antenna gain of 1.1dBi.
 
-**Reducing Antenna Interference**
+Reducing Antenna Interference
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To ensure optimal RF performance, it is recommended that the distance between the module antenna and other metal components be at least 15mm. If the antenna's surroundings in the usage environment are wrapped with metal materials, it will greatly attenuate the wireless signal and degrade RF performance. When designing the finished product, ensure sufficient space is reserved for the antenna area.
 
@@ -487,12 +496,14 @@ PCB dimensions: 20.3±0.35mm (L) × 15.8±0.35mm (W) × 1.0±0.1mm (H).
    :width: 100%
 
 Side View
+~~~~~~~~~~~~~~~
 
 .. image:: ../../../image/MYZR-IoT系列/MYZR-MOD-TB04/规格书_13.png
    :alt: 规格书_13.png
    :width: 100%
 
 PCB Package Diagram - SMT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ../../../image/MYZR-IoT系列/MYZR-MOD-TB04/规格书_14.png
    :alt: 规格书_14.png
@@ -502,16 +513,19 @@ Design Guidelines
 --------
 
 1. Application Circuit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ../../../image/MYZR-IoT系列/MYZR-MOD-TB04/规格书_15.png
    :alt: 规格书_15.png
    :width: 100%
 
 2. Antenna Layout Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Place the module at the edge of the main board. No metal components should be placed around the antenna. Keep away from high-frequency devices.
 
 3. Power Supply
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Recommended 3.3V voltage, peak current above 50mA
 
@@ -522,6 +536,7 @@ Place the module at the edge of the main board. No metal components should be pl
 *  It is recommended to add ESD components to the 3.3V power interface.
 
 4. PWM Dimming Design Description
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For lamps that require dimming function, simply connect the PWM pin of the corresponding color to the control terminal of the subsequent drive circuit; PWM independently outputs a 100-level adjustable duty cycle digital signal, and the subsequent circuit can be voltage-driven or current-driven.
 
@@ -532,6 +547,7 @@ Connection Diagram
    :width: 100%
 
 5. LED Driver Reference Design
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TB-04 module application only needs 3.3V power supply and simple drive circuit to realize smart light control. Taking MOS tube driving one channel of positive white light as an example, the design reference is shown in the figure below; CW_I is the PWM output pin for positive white light of the module, Q1 is MOS tube, WW is LED bead. The other 4 channels of LED drive circuit have the same design method as this channel.
 
@@ -540,6 +556,7 @@ TB-04 module application only needs 3.3V power supply and simple drive circuit t
    :width: 100%
 
 6. Reflow Soldering Profile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ../../../image/MYZR-IoT系列/MYZR-MOD-TB04/规格书_18.png
    :alt: 规格书_18.png
@@ -549,6 +566,7 @@ Production Guide
 --------
 
 1. Assembly Method
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The factory's surface-mount and through-hole packaged modules are selected for assembly method according to the customer's base board design. When the base board is designed for surface-mount package, SMT process is used for production. When the base board is designed for through-hole package, wave soldering process is used for production. After the module product is unpacked, it is recommended to complete welding within 24 hours. Otherwise, it must be placed in a drying cabinet with humidity not exceeding 10%RH, or re-vacuum packaged and the exposure time recorded. The total exposure time must not exceed 168 hours.
 
@@ -585,6 +603,7 @@ The factory's surface-mount and through-hole packaged modules are selected for a
 • Anti-static high-temperature gloves
 
 2. Factory module storage conditions are as follows:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 • Moisture barrier bags must be stored in an environment with temperature <40℃ and humidity <90%RH.
 
@@ -597,6 +616,7 @@ The factory's surface-mount and through-hole packaged modules are selected for a
    :width: 100%
 
 3. Baking is required when the factory module may have been exposed to moisture:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 • Vacuum packaging bag is found damaged before unpacking.
 
@@ -609,6 +629,7 @@ The factory's surface-mount and through-hole packaged modules are selected for a
 • More than 12 months from the date of first sealed packaging.
 
 4. Baking parameters are as follows:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 • Baking temperature: Reel packaging 40℃, less than or equal to 5%RH. Tray packaging 125℃, less than or equal to 5%RH (high-temperature resistant tray, not plastic tray).
 
@@ -619,10 +640,13 @@ The factory's surface-mount and through-hole packaged modules are selected for a
 • After cooling to below 36℃ under natural conditions, production can proceed.
 
 5. During the entire production process, please provide ESD protection for the module.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 6. To ensure product qualification rate, it is recommended to use SPI and AOI test equipment to monitor solder paste printing and mounting quality
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Recommended Temperature Profile
+----------------------------------
 
 Please select the appropriate soldering method according to the process. SMT refers to the reflow soldering temperature profile recommendation, and wave soldering process refers to the wave soldering temperature profile recommendation. There is a certain difference between the set furnace temperature and the measured furnace temperature. The temperatures shown in this article are all measured temperatures.
 

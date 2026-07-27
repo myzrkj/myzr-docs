@@ -134,6 +134,7 @@ Electrical Parameters
 --------
 
 Absolute Electrical Parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -170,6 +171,7 @@ Absolute Electrical Parameters
 +-----------------------------------------+----------------------------------------+------+-----+------+
 
 Operating Conditions
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -210,6 +212,7 @@ Operating Conditions
 +-----------+------------------------------+---------+-----+---------+------+
 
 Power Consumption in Operating Mode (To be tested)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -251,6 +254,7 @@ RF Parameters
 --------
 
 Basic RF Characteristics
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -287,6 +291,7 @@ Basic RF Characteristics
 +------------------------+---------------------+
 
 RF Output Power
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -321,6 +326,7 @@ RF Output Power
 +-----------------------------------------+-----+------+------+------+
 
 RF Receive Sensitivity
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -359,6 +365,7 @@ RF Receive Sensitivity
 +-----------------------------------+------+-----+-----+------+
 
 Module Power-On Sequence Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ../../../image/MYZR-IoT系列/MYZR-MOD-BT7L/规格书3.png
    :alt: 规格书3.png
@@ -373,11 +380,13 @@ The TLSR8258 chip has requirements for the power-on sequence. During power-on, t
 Antenna Information
 --------
 
-**Antenna Type**
+Antenna Type
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 BT7L uses an onboard PCB antenna.
 
-**Reducing Antenna Interference**
+Reducing Antenna Interference
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To ensure optimal RF performance, it is recommended that the distance between the module antenna and other metal components be at least 15mm. Do not route traces or even pour copper on the user's PCB board in the antenna area to avoid affecting antenna performance. Layout key points: Ensure that there is no substrate dielectric directly below or above the printed antenna. Ensure that the area around the printed antenna is away from metal copper to maximize the antenna's radiation effect.
 
@@ -404,12 +413,16 @@ Mechanical Dimensions and Bottom Pad Dimensions
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Front View
+~~~~~~~~~~~~~
+
 
 .. image:: ../../../image/MYZR-IoT系列/MYZR-MOD-BT7L/规格书9.png
    :alt: 规格书9.png
    :width: 100%
 
 Side View
+~~~~~~~~~~~~~
+
 
 .. image:: ../../../image/MYZR-IoT系列/MYZR-MOD-BT7L/规格书10.jpeg
    :alt: 规格书10.jpeg
@@ -425,12 +438,14 @@ Design Guidelines
 --------
 
 1.  Application Circuit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ../../../image/MYZR-IoT系列/MYZR-MOD-BT7L/规格书12.png
    :alt: 规格书12.png
    :width: 100%
 
 2.  Antenna Layout Requirements
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Place the module at the edge of the main board. No metal components should be placed around the antenna. Keep away from high-frequency devices.
 
@@ -445,6 +460,7 @@ Place the module at the edge of the main board. No metal components should be pl
 (4)、  It is recommended to add ESD components to the 3.3V power interface.
 
 4.  PWM Dimming Design Description
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For lamps that require dimming function, simply connect the PWM pin of the corresponding color to the control terminal of the subsequent drive circuit; PWM independently outputs a 100-level adjustable duty cycle digital signal, and the subsequent circuit can be voltage-driven or current-driven.
 
@@ -455,6 +471,7 @@ Connection Diagram
    :width: 100%
 
 5.  LED Driver Reference Design
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 TB-04 module application only needs 3.3V power supply and simple drive circuit to realize smart light control. Taking MOS tube driving one channel of positive white light as an example, the design reference is shown in the figure below; CW_I is the PWM output pin for positive white light of the module, Q1 is MOS tube, WW is LED bead. The other 4 channels of LED drive circuit have the same design method as this channel.
 
@@ -463,6 +480,7 @@ TB-04 module application only needs 3.3V power supply and simple drive circuit t
    :width: 100%
 
 6.  Reflow Soldering Profile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ../../../image/MYZR-IoT系列/MYZR-MOD-BT7L/规格书15.png
    :alt: 规格书15.png
@@ -472,6 +490,7 @@ Production Guide
 --------
 
 1.  Assembly Method
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The factory's surface-mount packaged module is recommended to use SMT machine placement. After unpacking, it is recommended to complete welding within 24 hours.
 
@@ -491,6 +510,7 @@ Baking equipment required:
 *  Anti-static high-temperature gloves
 
 2.  Factory module storage conditions are as follows:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Moisture barrier bags must be stored in an environment with temperature <40℃ and humidity <90%RH.
 
@@ -503,6 +523,7 @@ Baking equipment required:
    :width: 100%
 
 3.  Baking is required when the factory module may have been exposed to moisture:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Vacuum packaging bag is found damaged before unpacking.
 
@@ -515,6 +536,7 @@ Baking equipment required:
 *  More than 12 months from the date of first sealed packaging.
 
 4.  Baking parameters are as follows:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *  Baking temperature: Reel packaging 40℃, humidity less than or equal to 5%RH. Tray packaging 125℃, humidity less than or equal to 5%RH (high-temperature resistant tray, not plastic tray).
 
@@ -529,8 +551,10 @@ Baking equipment required:
 *  If the exposure time exceeds 168 hours without baking, reflow soldering process is not recommended for this batch of modules. As the module is a Level 3 moisture-sensitive device, exceeding the allowed exposure time may cause moisture absorption, which may lead to device failure or poor soldering during high-temperature soldering.
 
 5.  During the entire production process, please provide ESD protection for the module.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 6.  To ensure product qualification rate, it is recommended to use SPI and AOI test equipment to monitor solder paste printing and mounting quality
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Recommended Temperature Profile
 ------------
