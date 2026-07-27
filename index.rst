@@ -112,12 +112,28 @@
 
 .. toctree::
    :maxdepth: 1
-   :caption: MYZR-ST系列
+   :caption: MYZR-IoT系列
 
-   docs/MYZR-ST系列/MYZR-STM32MP13-EK200/index
-   docs/MYZR-ST系列/MYZR-STM32MP13-EK200(EN)/index
-   docs/MYZR-ST系列/MYZR-STM32MP15-EK152/index
-   docs/MYZR-ST系列/MYZR-STM32MP15-EK152(EN)/index
+   docs/MYZR-IoT系列/MYZR-MOD-BT7L/index
+   docs/MYZR-IoT系列/MYZR-MOD-BT7L(EN)/index
+   docs/MYZR-IoT系列/MYZR-MOD-BTU/index
+   docs/MYZR-IoT系列/MYZR-MOD-BTU(EN)/index
+   docs/MYZR-IoT系列/MYZR-MOD-TB04/index
+   docs/MYZR-IoT系列/MYZR-MOD-TB04(EN)/index
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: MYZR-网关
+
+   docs/MYZR-其他/网关/GW510/index
+   docs/MYZR-其他/网关/GW510(EN)/index
+   docs/MYZR-其他/网关/GW305/index
+   docs/MYZR-其他/网关/GW305(EN)/index
+   docs/MYZR-其他/网关/GW300/index
+   docs/MYZR-其他/网关/GW300(EN)/index
+   docs/MYZR-其他/网关/GW200/index
+   docs/MYZR-其他/网关/GW200(EN)/index
 
 
 .. toctree::
@@ -138,16 +154,12 @@
 
 .. toctree::
    :maxdepth: 1
-   :caption: MYZR-网关
+   :caption: MYZR-ST系列
 
-   docs/MYZR-其他/网关/GW510/index
-   docs/MYZR-其他/网关/GW510(EN)/index
-   docs/MYZR-其他/网关/GW305/index
-   docs/MYZR-其他/网关/GW305(EN)/index
-   docs/MYZR-其他/网关/GW300/index
-   docs/MYZR-其他/网关/GW300(EN)/index
-   docs/MYZR-其他/网关/GW200/index
-   docs/MYZR-其他/网关/GW200(EN)/index
+   docs/MYZR-ST系列/MYZR-STM32MP13-EK200/index
+   docs/MYZR-ST系列/MYZR-STM32MP13-EK200(EN)/index
+   docs/MYZR-ST系列/MYZR-STM32MP15-EK152/index
+   docs/MYZR-ST系列/MYZR-STM32MP15-EK152(EN)/index
 
 
 .. toctree::
@@ -160,18 +172,6 @@
    docs/MYZR-其他/其他/MYZR-LS1012A-EK200(EN)/index
    docs/MYZR-其他/其他/MYZR-SAMA5-EK200/index
    docs/MYZR-其他/其他/MYZR-SAMA5-EK200(EN)/index
-
-.. toctree::
-   :maxdepth: 1
-   :caption: MYZR-IoT系列
-
-   docs/MYZR-IoT系列/MYZR-MOD-BT7L/index
-   docs/MYZR-IoT系列/MYZR-MOD-BT7L(EN)/index
-   docs/MYZR-IoT系列/MYZR-MOD-BTU/index
-   docs/MYZR-IoT系列/MYZR-MOD-BTU(EN)/index
-   docs/MYZR-IoT系列/MYZR-MOD-TB04/index
-   docs/MYZR-IoT系列/MYZR-MOD-TB04(EN)/index
-
 
 
 Indices and tables
