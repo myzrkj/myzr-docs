@@ -207,113 +207,155 @@ debian12
 编译环境要求
 ~~~~~~~~~~~~~
 
-1. 编译主机需在linux环境中进行，推荐主机系统为Ubuntu 20.04
-2. 主机需可连接外网，因为编译系统过程需要下载某些文件。
+编译主机需在ubuntu系统中进行，笔者主机系统为Ubuntu 20.04
+
+注意：如果有代理需要把代理关掉
 
 下载源码包
-~~~~~~~~~~~
+~~~~~~~~~~~~~~
 
-1. 网盘目录下，下载源码包 MYZR-RK3588-EK360_Android12_20260108.tar.bz2(请将网盘内分卷文件下载后合并可以得到该压缩包)
-2. 创建编译目录：
+1.下载rk3588源码包，网盘路径路径为：3.软件资料-->3.1源码-->rk3588-linux-5.10.226.tar.gz.part-a\*
 
-.. code-block:: shell
+2.创建编译目录:
 
-    mkdir ~/my-work/rk3588/05_android -p
+.. code:: shell
 
-3. 把源码放到此目录中，并进行解压：
+   mkdir -p ~/my-work/RK3588/02_sources/
 
-.. code-block:: shell
+3.把源码放到刚创建的目录中，并进行合并：
 
-    tar xvf MYZR-RK3588-EK360_Android12_20260108.tar.bz2  -C ~/my-work/rk3588/05_android/
+.. code:: 
 
-配置编译环境
-~~~~~~~~~~~~~
+   cat rk3588-linux-5.10.226.tar.gz.part-* > rk3588-linux-5.10.226.tar.gz
 
-1. 每次打开一个新的终端，都需要进行一个环境配置
-2. 进入3588-android12目录
-3. 输入如下命令配置java环境：
+4.解压出\ ``rk3588-linux-5.10.226``\ 源码目录
 
-.. code-block:: shell
+.. code:: shell
 
-    source javaenv.sh
+   tar xvf rk3588-linux.tar.xz -C ~/my-work/RK3588/02_sources/
 
-4. 输入如下命令配置编译环境：
-
-.. code-block:: shell
-
-    source build/envsetup.sh
-
-5. 输入如下命令配置平台环境：
-
-.. code-block:: shell
-
-    lunch myzr_rk3588-userdebug
-
-整体编译
+依赖安装
 ~~~~~~~~~~
 
-1. 整体编译将整个android系统，包括kernel、uboot、android、recovery。
-2. 输入如下命令：
+更新系统
 
-.. code-block:: shell
+.. code:: 
 
-    ./build.sh -AUCKu
+   sudo apt update && apt upgrade -y
 
-3. 编译时间较长，本人使用16线程主机编译需要4个小时时间（仅作参考！）
-4. 成功编译后在rockdev/Image-myzr_rk3588/目录下可看到相关镜像，其中update.img是所有镜像的集合。
+首次编译可能需要安装某些依赖，下面给出主机可能需要安装的某些依赖:
 
-单独编译 uboot
-~~~~~~~~~~~~~~~~
+.. code:: shell
 
-1. 编译前可先清除生成文件
+   sudo apt-get install uuid uuid-dev zlib1g-dev liblz-dev liblzo2-2 liblzo2-dev lzop \
+   git curl u-boot-tools mtd-utils openjdk-8-jdk device-tree-compiler \
+   gdisk m4 zlib1g-dev git gnupg flex bison gperf libsdl1.2-dev libesd-java \
+   squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev pngcrush schedtool \
+   libxml2 libxml2-utils xsltproc lzop libc6-dev schedtool g++-multilib lib32z1-dev \
+   lib32ncurses-dev lib32readline-dev gcc-multilib libswitch-perl libssl-dev unzip \
+   zip liblz4-tool git ssh make gcc libssl-dev liblz4-tool vim expect \
+   g++ patchelf chrpath gawk texinfo chrpath diffstat binfmt-support \
+   qemu-user-static live-build bison flex fakeroot cmake gcc-multilib g++-multilib \
+   unzip device-tree-compiler python3-pip libncurses5-dev rsync subversion python-protobuf \
+   sed make binutils build-essential gcc g++ wget python-is-python2 libncurses5 bzr cvs git mercurial \
+   patch gzip bzip2 perl tar cpio unzip rsync file bc wget qemu-user-static live-build android-sdk-libsparse-utils android-sdk-ext4-utils -y libicu-dev
 
-.. code-block:: shell
+编译步骤
+~~~~~~~~~~~~~
 
-    cd u-boot/
-    make clean
+编译配置选择
+^^^^^^^^^^^^
 
-2. 回到SDK主目录，并进行uboot单独编译
+在\ ``rk3588-linux-5.10.226``\ 源码顶层目录下
 
-.. code-block:: shell
+.. code:: 
 
-    cd ../
-    ./build.sh -U
+   ./build.sh chip
 
-单独编译 Kernel
-~~~~~~~~~~~~~~~~
+输入\ ``3``\ 选择\ ``myzr_rk3588_ek360_defconfig``
 
-1. 编译前可先清除生成文件
+.. code:: 
 
-.. code-block:: shell
+   1. rockchip_defconfig
+   2. myzr_rk3588_ek360_amp_defconfig
+   3. myzr_rk3588_ek360_defconfig
+   4. myzr_rk3588_ek360_mcu_defconfig
+   5. rockchip_rk3588_evb1_lp4_v10_amp_defconfig
+   6. rockchip_rk3588_evb1_lp4_v10_defconfig
+   7. rockchip_rk3588_evb1_lp4_v10_mcu_defconfig
+   8. rockchip_rk3588_evb7_v11_defconfig
+   9. rockchip_rk3588_ipc_evb1_v10_defconfig
+   10. rockchip_rk3588_ipc_evb7_lp4_v11_defconfig
+   11. rockchip_rk3588_multi_ipc_evb1_v10_defconfig
+   12. rockchip_rk3588s_evb1_lp4x_v10_defconfig
+   Which would you like? [1]: 3
 
-    cd kernel/
-    make clean
+整体编译
+^^^^^^^^^^^^
 
-2. 回到SDK主目录，并进行kernel单独编译
+1.运行整体编译(编译时间较长)，输入如下命令:
 
-.. code-block:: shell
+**默认rootfs是buildroot**
 
-    cd ../
-    ./build.sh -CKA
+.. code:: shell
 
-单独编译 android
-~~~~~~~~~~~~~~~~~~
+   ./build.sh 
 
-1. 在SDK主目录下
+2.编译成功后在rockdev/目录下可看到相关镜像，其中update.img是所有镜像的集合
 
-.. code-block:: shell
+单独编译uboot
+^^^^^^^^^^^^
 
-    ./build.sh -A
+.. code:: shell
+
+   ./build.sh uboot
+
+单独编译Kernel
+^^^^^^^^^^^^
+
+.. code:: shell
+
+   ./build.sh kernel
+
+单独编译rootfs
+^^^^^^^^^^^^^^^^^^^^
+
+在SDK主目录下输入如下命令:
+
+**buildroot**
+
+.. code:: shell
+
+   ./build.sh buildroot
+
+**debian12**
+
+.. code:: plain
+
+   ./build.sh debian
+
+打包固件
+^^^^^^^^^^^^
+
+.. code:: shell
+
+   ./build.sh firmware
 
 打包update.img
-~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^
 
-1. 在rockdev将镜像打包成update.img
-2. 在SDK主目录下
+.. code:: shell
 
-.. code-block:: shell
+   ./build.sh updateimg
 
-    ./build.sh -u
+更多编译命令
+~~~~~~~~~~~~~
+
+.. code:: plain
+
+   ./build.sh help
+
+完成上述操作后可按照刷机手册重新刷机
 
 
 开发指导
