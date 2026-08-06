@@ -1,0 +1,679 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
+
+测试指导
+========
+
+网口测试
+--------
+
+系统登录
+~~~~~~~~
+
+.. code-block:: text
+
+   linaro
+   linaro
+   sudo -i
+   linaro
+
+网口0测试
+~~~~~~~~~
+
+【测试说明】：采用开发板向PC发送ICMP报文的方式进行测试
+
+【接口标识】：J12
+
+【系统设备】：eth0
+
+【测试操作】：
+
+1.网口0是配置了自动获取IP需要接上交换机或者路由器，输入以下命令
+
+.. code-block:: text
+
+   ping baidu.com -c 3
+
+2.输出信息如下
+
+.. code-block:: text
+
+   root@sophon:~$ ping baidu.com -c 3
+   PING baidu.com (124.237.177.164) 56(84) bytes of data.
+   64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=1 ttl=53 time=38.8 ms
+   64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=2 ttl=53 time=38.6 ms
+   64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=3 ttl=53 time=38.6 ms
+   
+   --- baidu.com ping statistics ---
+   3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+
+网口1测试
+~~~~~~~~~
+
+【测试说明】：采用开发板向PC发送ICMP报文的方式进行测试
+
+【接口标识】：J13
+
+【系统设备】：eth1
+
+【测试操作】：
+
+1.接上网口，输入以下命令
+
+.. code-block:: text
+
+   dhclient -r eth1
+   dhclient eth1
+   ping baidu.com -c 3
+
+2.输出信息如下
+
+.. code-block:: text
+
+   root@sophon:~$ ping baidu.com -c 3
+   PING baidu.com (124.237.177.164) 56(84) bytes of data.
+   64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=1 ttl=53 time=38.8 ms
+   64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=2 ttl=53 time=38.6 ms
+   64 bytes from 124.237.177.164 (124.237.177.164): icmp_seq=3 ttl=53 time=38.6 ms
+   
+   --- baidu.com ping statistics ---
+   3 packets transmitted, 3 received, 0% packet loss, time 2003ms
+
+SD卡测试
+--------
+
+【测试说明】：采用开发板向PC发送ICMP报文的方式进行测试
+
+【接口标识】：U11
+
+【系统设备】：/dev/mmcblk1p1
+
+【测试操作】：
+
+1.把SD卡插入卡槽，输入以下命令查看SD卡情况
+
+.. code-block:: text
+
+   fdisk-l
+
+2.输出信息如下
+
+.. code-block:: shell
+
+   Device            Start      End  Sectors  Size Type
+   /dev/mmcblk0p1     8192   270335   262144  128M Microsoft basic data
+   /dev/mmcblk0p2   270336   532479   262144  128M Microsoft basic data
+   /dev/mmcblk0p3   532480   552959    20480   10M Microsoft basic data
+   /dev/mmcblk0p4   552960  6844415  6291456    3G Microsoft basic data
+   /dev/mmcblk0p5  6844416 25427327 18582912  8.9G Microsoft basic data
+   /dev/mmcblk0p6 25427328 61063134 35635807   17G Microsoft basic data
+   
+   
+   Disk /dev/mmcblk1: 7.4 GiB, 7948206080 bytes, 15523840 sectors
+   Units: sectors of 1 * 512 = 512 bytes
+   Sector size (logical/physical): 512 bytes / 512 bytes
+   I/O size (minimum/optimal): 512 bytes / 512 bytes
+   Disklabel type: dos
+   Disk identifier: 0x22bac834
+   
+   Device         Boot Start     End Sectors  Size Id Type
+   /dev/mmcblk1p1      40960 4112383 4071424  1.9G  e W95 FAT16 (LBA)
+
+USB测试
+-------
+
+【测试说明】：采用U盘插拔方式进行测试
+
+【接口标识】: J5 J6
+
+【系统设备】：usb
+
+【测试操作】：
+
+1.输入一下指令
+
+.. code-block:: text
+
+   JavaScript
+   cvi_pinmux -r IIC5_SCL
+   cvi_pinmux -w IIC5_SCL/GPIO104
+   echo 392 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio392/direction
+   echo 1 > /sys/class/gpio/gpio392/value
+
+2.使用U盘设备插入设备，示例如下（注：J6的上面那个usb接口是下载接口，一般不使用）
+
+.. code-block:: text
+
+   root@sophon:/# lsusb
+   Bus 004 Device 002: ID 05e3:0620 Genesys Logic, Inc. USB3.0 Hub
+   Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+   Bus 002 Device 004: ID 14cd:1212 Super Top microSD card reader (SY-T18)
+   Bus 002 Device 002: ID 05e3:0610 Genesys Logic, Inc. Hub
+   Bus 002 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+   Bus 003 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+   Bus 001 Device 002: ID 0bda:d723 Realtek Semiconductor Corp. 802.11n WLAN Adapter
+   Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+   root@sophon:/#
+   可以看到我插入的usb设备ID 14cd:1212 Super Top microSD card reader (SY-T18)
+
+散热风扇测试
+------------
+
+【测试说明】：采用拉高引脚方式进行测试
+
+【接口标识】: J2
+
+【系统设备】：fan
+
+【测试操作】：
+
+.. code-block:: text
+
+   JavaScript
+   cvi_pinmux -r PWM0
+   cvi_pinmux -w PWM0/GPIO75
+   echo 427 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio427/direction
+   echo 1 > /sys/class/gpio/gpio427/value（开）
+   echo 0 > /sys/class/gpio/gpio427/value（关）
+
+LED1测试
+--------
+
+【测试说明】：采用拉高拉低引脚方式进行测试
+
+【接口标识】: LED1
+
+【系统设备】：
+
+【测试操作】：
+
+.. code-block:: text
+
+   cvi_pinmux -r GPIO2
+   echo 401 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio401/direction
+   echo 1 > /sys/class/gpio/gpio401/value(亮）
+   echo 0 > /sys/class/gpio/gpio401/value(灭）
+
+LED2测试
+--------
+
+【测试说明】：采用拉高拉低引脚方式进行测试
+
+【接口标识】: LED2
+
+【系统设备】：
+
+【测试操作】：
+
+.. code-block:: text
+
+   TypeScript
+   echo 402 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio402/direction
+   echo 1 > /sys/class/gpio/gpio402/value（亮）
+   echo 1 > /sys/class/gpio/gpio402/value（灭）
+
+ADC测试
+-------
+
+【测试说明】：采用读取电压方式进行测试
+
+【接口标识】: J1
+
+【系统设备】：
+
+【测试操作】：
+
+1.ADC1(第二个排针）接1.8v测试，输出如下
+
+.. code-block:: text
+
+   echo 1 > /sys/bus/iio/devices/iio:device0/in_voltage1_raw
+   cat /sys/bus/iio/devices/iio:device0/in_voltage1_raw
+   4095
+
+ADC1（第二个排针）接地测试，输出如下
+
+.. code-block:: text
+
+   cat /sys/bus/iio/devices/iio:device0/in_voltage1_raw
+   0（或者几十接近0）
+
+1.ADC2（第三个排针）接1.8v测试，输出如下
+
+.. code-block:: text
+
+   echo 1 > /sys/bus/iio/devices/iio:device0/in_voltage2_raw
+   cat /sys/bus/iio/devices/iio:device0/in_voltage2_raw
+   4095
+
+ADC2（第三个排针）接地测试，输出如下
+
+.. code-block:: text
+
+   cat /sys/bus/iio/devices/iio:device0/in_voltage2_raw
+   0（或者几十接近0）
+
+IO测试
+------
+
+【测试说明】：采用拉高引脚方式进行测试
+
+【接口标识】: U28
+
+【系统设备】：/sys/class/gpio/
+
+【测试操作】：
+
+.. code-block:: text
+
+   JavaScript
+   cvi_pinmux -w IIC2_SDA/GPIO99（IO2)
+   echo 387 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio387/direction
+   echo 1 > /sys/class/gpio/gpio387/value
+   cat /sys/class/gpio/gpio387/value
+   输出1
+   echo 0 > /sys/class/gpio/gpio387/value
+   cat /sys/class/gpio/gpio387/value
+   输出0
+   
+   cvi_pinmux -w IIC2_SCL/GPIO100(IO1)
+   echo 388 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio388/direction
+   echo 1 > /sys/class/gpio/gpio388/value
+   cat /sys/class/gpio/gpio388/value
+   输出1
+   echo 0 > /sys/class/gpio/gpio388/value
+   cat /sys/class/gpio/gpio388/value
+   输出0
+   
+   cvi_pinmux -w UART4_TX/GPIO91(IO4)
+   echo 443 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio443/direction
+   echo 1 > /sys/class/gpio/gpio443/value
+   cat /sys/class/gpio/gpio443/value
+   输出1
+   echo 0 > /sys/class/gpio/gpio443/value
+   cat /sys/class/gpio/gpio443/value
+   输出0
+   
+   cvi_pinmux -w UART4_RX/GPIO92
+   echo 444 > /sys/class/gpio/export
+   echo out > /sys/class/gpio/gpio444/direction
+   echo 1 > /sys/class/gpio/gpio444/value
+   cat /sys/class/gpio/gpio444/value
+   输出1
+   echo 0 > /sys/class/gpio/gpio444/value
+   cat /sys/class/gpio/gpio444/value
+   输出0
+
+UART2测试
+---------
+
+【测试说明】：采用短接TX RX方式进行测试
+
+【接口标识】: J3
+
+【系统设备】：/dev/ttyS2
+
+【测试操作】：
+
+1.短接J3的中间两个引脚，输入指令，收到输出信息
+
+.. code-block:: text
+
+   cvi_pinmux -w UART2_TX/UART2_TX
+   cvi_pinmux -w UART2_RX/UART2_RX
+   serial_test.out /dev/ttyS2 123
+
+RS232-2测试
+-----------
+
+【测试说明】：采用短接TX RX方式进行测试
+
+【接口标识】: CON3
+
+【系统设备】：/dev/ttyS5
+
+【测试操作】：
+
+1.用两头尖的杜邦线短接上排的第二第三这两个小孔，输入指令，收到输出信息
+
+.. code-block:: text
+
+   cvi_pinmux -w IIC4_SDA/UART5_TX
+   cvi_pinmux -w IIC4_SCL/UART5_RX
+   serial_test.out /dev/ttyS5 123
+
+RS232-1/RS485测试
+-----------------
+
+【测试说明】：采用短接TX RX方式进行测试231-1,采用485转usb模块测试485
+
+【接口标识】: CON2
+
+【系统设备】：/dev/ttyS7
+
+【测试操作】：
+
+找到旁边的U17拨码开关
+
+当1拨码ON，2拨码OFF时，SLE1高电平，切换到RS23-1
+
+当1拨码OFF，2拨码ON时，SLE1低电平，切换到RS485
+
+1.切换到RS23-1，用两头尖的杜邦线短接上排的第二第三这两个小孔，输入指令，收到输出信息
+
+.. code-block:: text
+
+   cvi_pinmux -w PAD_VIVO0_D15/UART7_TX
+   cvi_pinmux -w PAD_VIVO0_D16/UART7_RX
+   ./serial_test.out /dev/ttyS7 123
+
+2.切换到RS485，使用485转usb模块，485转usb模块的A接上排的第二个小孔，B接接上排的第三个小孔，开启485终端，在系统终端输入下面指令，485终端能接到信息，485终端输入123（不显示输入状态），系统可以接收到信息
+
+.. code-block:: text
+
+   cvi_pinmux -w PAD_VIVO0_D15/UART7_TX
+   cvi_pinmux -w PAD_VIVO0_D16/UART7_RX
+   ./serial_test.out /dev/ttyS7 123
+
+I2C4测试
+--------
+
+【测试说明】：采用读取i2c设备地址方式进行测试
+
+【接口标识】: U32
+
+【系统设备】：/dev/i2c-4
+
+【测试操作】：
+
+1.使用i2c设备的scl接左下1脚，sda接左下2脚,输出设备地址信息
+
+.. code-block:: text
+
+   cvi_pinmux -w PCIE0_L0_CLKREQ_IN_X/IIC4_SCL
+   cvi_pinmux -w PCIE0_L0_WAKEUP_X/IIC4_SDA
+   i2cdetect -y -r 4
+
+User 按键测试
+-------------
+
+【测试说明】：采用读取i2c设备地址方式进行测试
+
+【接口标识】: SW2
+
+【系统设备】：
+
+【测试操作】：
+
+1.输入指令，按需按钮，松开按钮可输出0，1信息
+
+.. code-block:: text
+
+   cvi_pinmux -w GPIO0/GPIO111
+   echo 399 > /sys/class/gpio/export
+   echo in > /sys/class/gpio/gpio399/direction
+   cat /sys/class/gpio/gpio399/value
+
+M2测试
+------
+
+【测试说明】：采用查看设备信息方式进行测试
+
+【接口标识】: J8
+
+【系统设备】：
+
+【测试操作】：
+
+.. code-block:: text
+
+   # 或者更直接地看分区、文件系统和大小
+   root@sophon:~# fdisk -l
+   可以看到设备 /dev/nvme0n1p1
+
+WIFI测试
+--------
+
+【测试说明】：WiFi连接成功后，开发板向外网发送ICMP报文来验证连接正常
+
+【接口标识】: U41
+
+【系统设备】：wlan0
+
+【测试操作】：
+
+1.U40接上天线
+
+.. code-block:: text
+
+   insmod /mnt/system/ko/8723du.ko
+   wpa_passphrase "iQOO" "12345678" > /etc/wpa_supplicant.conf
+   # 连接 WiFi
+   wpa_supplicant -B -i wlan0 -c /etc/wpa_supplicant.conf
+   # 获取 IP 地址
+   dhclient wlan0
+   #测试
+   ping -I wlan0 baidu.com -c 3
+
+蓝牙测试
+--------
+
+【测试说明】：蓝牙连接成功后，开发板向外网发送ICMP报文来验证连接正常
+
+【接口标识】: U41
+
+【系统设备】：wlan0
+
+【测试操作】：
+
+.. code-block:: text
+
+   insmod /mnt/system/ko/rtk_btusb.ko
+   hciconfig hci0 up
+   hcitool scan
+   Scanning ...
+   A8:13:06:20:06:54        iQOO Neo5
+   DC:0D:30:5C:4C:93        XP-236B-L
+   l2ping A8:13:06:20:06:54
+   Ping: A8:13:06:20:06:54 from 84:FC:14:4E:2D:3D (data size 44) ...
+   44 bytes from A8:13:06:20:06:54 id 0 time 40.02ms
+   44 bytes from A8:13:06:20:06:54 id 1 time 52.26ms
+   ^C2 sent, 2 received, 0% loss
+
+音频测试
+--------
+
+【测试说明】：播放音频文件来测试验证
+
+【接口标识】: J4
+
+【系统设备】：
+
+【测试操作】：
+
+1.接入耳机，输入一下指令播放音频
+
+.. code-block:: text
+
+   cd /mnt/system
+   tinyplay 16k_2ch32.wav -D 1 -d 0
+
+5G测试
+------
+
+【测试说明】：蓝牙连接成功后，开发板向外网发送ICMP报文来验证连接正常
+
+【接口标识】: U42
+
+【系统设备】：usb0
+
+【测试操作】：
+
+1.U43插入sim卡，4G模块必须要接天线
+
+.. code-block:: text
+
+   quectel-CM &
+   ping -I wwan0 www.baidu.com -c 4
+
+摄像头测试
+----------
+
+【测试说明】：采集摄像头画面来验证连接正常
+
+【接口标识】: J10，J11
+
+【系统设备】：stream0
+
+【测试操作】：
+
+电脑下载vlc软件
+
+1.接入J10(i2c0)，摄像头与板子座子1脚对1脚接
+
+.. code-block:: text
+
+   insmod v4l2_os04a10_j10.ko
+   /opt/sophon/sophon-soc-libisp_1.0.0/bin/CviIspTool.sh
+   输出rtsp://192.168.128.174:8554/stream0用vlc查看
+
+2.接入J11(i2c1)，摄像头与板子座子1脚对1脚接
+
+.. code-block:: text
+
+   insmod v4l2_os04a10_j11.ko
+   /opt/sophon/sophon-soc-libisp_1.0.0/bin/CviIspTool.sh
+   输出rtsp://192.168.128.174:8554/stream0用vlc查看
+
+HDMI测试
+--------
+
+【测试说明】：采集摄像头画面来验证连接正常
+
+【接口标识】: J9
+
+【系统设备】：
+
+【测试操作】：
+
+1.接入HDMI屏幕上电显示画面
+
+CAN测试
+-------
+
+【测试说明】：采集摄像头画面来验证连接正常
+
+【接口标识】: U32
+
+【系统设备】：
+
+【测试操作】：
+
+启动两个板子，板1U32左上角1接接板2U32左上角1，板1U32左上角2接接板2U32左上角2
+
+1.板1接收，板2发送
+
+板1配置如下
+
+.. code-block:: shell
+
+   busybox devmem 0x2810450c 32 0x3838
+   busybox devmem 0x27011004 32 0x800
+   busybox devmem 0x27011000 32 0x0
+   
+   ip link set can0 down
+   ip link set can0 type can bitrate 500000
+   ip link set can0 up
+   板1进入接收状态
+   candump can0
+
+板2配置如下
+
+.. code-block:: shell
+
+   busybox devmem 0x2810450c 32 0x3838
+   busybox devmem 0x27011004 32 0x800
+   busybox devmem 0x27011000 32 0x0
+   
+   ip link set can0 down
+   ip link set can0 type can bitrate 500000
+   ip link set can0 up
+   板2进入发送状态
+   cansend can0 -e -i 0x1F334455 0x11 0x22 0x33 0x44 0x55 0x66 0x77 0x88
+
+此时板1的终端会收到板2发送的数据
+
+.. code-block:: text
+
+   root@sophon:~# candump can0
+   interface = can0, family = 29, type = 3, proto = 1
+   
+   <0x1f334455> [8] 11 22 33 44 55 66 77 88
+
+2.板1发送板2接收
+
+板2配置接收
+
+.. code-block:: text
+
+   root@sophon:~# candump can0
+
+板1配置发送
+
+.. code-block:: text
+
+   cansend can0 -e -i 0x1F334455 0x11 0x22 0x33 0x44 0x55 0x66 0x77 0x88
+
+此时板2的终端会收到板1发送的数据
+
+.. code-block:: text
+
+   root@sophon:~# cansend can0 -e -i 0x1F334455 0x11 0x22 0x33 0x44 0x55 0x66 0x77 0x88
+   interface = can0, family = 29, type = 3, proto = 1
+   root@sophon:~# candump can0
+   interface = can0, family = 29, type = 3, proto = 1
+   <0x1f334455> [8] 11 22 33 44 55 66 77 88
+
+RTC测试
+-------
+
+【测试说明】：读取并设置时间，断电重启后检查时间是否正确
+
+【接口标识】：U13
+
+【系统设备】：/dev/rtc0
+
+【测试操作】：
+
+1.在U13安装上纽扣电池，输入以下指令
+
+.. code-block:: text
+
+   timedatectl set-ntp false
+   date -s "2025-5-14 10:30:00"
+   date
+   hwclock -w
+   hwclock -w
+   hwclock -r
+   hwclock -r
+
+2.板子断电一会，然后上电启动ck时间是否继续走
+
+.. code-block:: text
+
+   hwclock -r
+   date
+

@@ -1,0 +1,29 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
+
+启动手册
+========
+
+1.准备电源线，数据线，按下图方式接好
+------------------------------------
+
+.. image:: ../../../../image/MYZR-其他/网关/BM1688-BOX/启动手册1.png
+   :alt: 启动手册1.png
+   :width: 100%
+
+2.启动进入系统
+----------------
+
+.. code-block:: text
+
+   linaro
+   linaro
+   sudo -i
+   linaro
+   root@sophon:~#

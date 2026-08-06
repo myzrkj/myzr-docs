@@ -1,0 +1,46 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
+
+烧录手册
+========
+
+每次编译好之后会在/project/sophon/1688_v2.0_source/install/soc_edge_wevb_emmc/package_edge生成sdcard.tgz的SD卡镜像，把这个压缩包的文件解压到SD卡里面（解压出来有75个文件），然后把SD卡放到板子的卡槽（U11），然后接上串口（U6）上电就可以看到烧录日记提示在升级过程，升级完成会提示reboot，直接断电重启就可以。
+
+.. code-block:: shell
+
+   MMC write: dev # 0, block # 25628032, count 21232 ... 21232 blocks written: OK in 134 ms (77.4 MiB/s)
+   
+   fs reading: //boot_emmc-misc.scr
+   790 bytes read in 12 ms (63.5 KiB/s)
+   ## Executing script at 120000000
+   fs reading: //misc.1-of-1.gz
+   10220 bytes read in 9 ms (1.1 MiB/s)
+   
+   Uncompressed size: 10485760 = 0xA00000
+   
+   
+   MMC write: dev # 0, block # 532480, count 20480 ... 20480 blocks written: OK in 129 ms (77.5 MiB/s)
+   
+   emmc update done
+   bm savelog 813 bytes written in 3 ms (264.6 KiB/s)
+   all done
+   Please remove the installation medium, then reboot
+   Please remove the installation medium, then reboot
+   Please remove the installation medium, then reboot
+   Please remove the installation medium, then reboot
+   Please remove the installation medium, then reboot
+   Please remove the installation medium, then reboot
+   Please remove the installation medium, then reboot
+   Please remove the installation medium, then reboot
+   Please remove the installation medium, then reboot
+   Please remove the installation medium, then reboot
+   Please remove the installation medium, then reboot
+
+
+

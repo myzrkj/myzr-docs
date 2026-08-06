@@ -1,0 +1,77 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
+
+软件开发指导
+============
+
+编译手册
+--------
+
+下载与编译
+~~~~~~~~~~
+
+.. code-block:: text
+
+   0.下载虚拟机与sdk源码
+   https://developer.sophgo.com/site/index/material/96/all.html
+   BM1688官方SDK下载连接
+   https://doc.sophgo.com/bm1688_sdk-docs/v2.0/docs_latest_release/docs/BM1688_CV186AH_SophonSDK_doc/
+   SDK使用手册
+   https://doc.sophgo.com/bm1688_sdk-docs/v2.0/docs_latest_release/docs/athena2-img/
+   BSP开发手册
+   
+   1.导入docker，下官网获取，下载成功后改为bm1688_docker.tar再进行第2步操作
+   wget https://sophon-assets.sophon.cn/sophon-prod-s3/drive/25/06/11/18/docker.zip
+   
+   2.导入docker镜像，有导入过的可以不用操作
+   unzip docker.zip
+   sudo apt-get update
+   sudo apt-get install -y docker.io
+   sudo docker load -i bm1688_docker.tar
+   
+   3.vim ~/.bashrc
+   放置在文件末尾
+   function run_docker()
+   {
+   sudo docker run -e LOCAL_USER_ID=`id -u $USER_ID` --privileged -v /dev:/dev -itd -v $2:/project/$1 --name $1 bm1688_docker:latest /bin/bash
+   }
+   
+   保存退出后执行：source ~/.bashrc
+   
+   启动容器并挂载代码目录
+   run_docker sophon /home/myzx/1688
+   
+   4.进入容器
+   sudo docker start sophon
+   sudo docker exec -it sophon /bin/bash
+   输出：
+   yzx@u2004d:~/1688$ sudo docker exec -it sophon /bin/bash
+   root@248d22f9eec6:/project# ls
+   sophon
+   
+   5.退出docker容器
+   exit
+   
+   6.全编译,ubuntu编译，请在docker环境中执行
+   cd /project/sophon
+   source build/envsetup_soc.sh
+   
+   defconfig edge_wevb_emmc (注: 1.8版本及以前的版本是 bm1688_wevb_emmc)
+   
+   clean_edge_all  (清除旧的编译目标文件,1.8版本及以前是 clean_bm1688_all)
+   
+   build_edge_all  (边侧全编译,1.8版本及以前是build_bm1688_all)
+   
+   部分编译:
+   注：需要在全编译一次后才能支持部分编译打包
+   build_kernel && build_edge_rootfs   (只更新kernel)
+   build_uboot && build_edge_rootfs    (只更新uboot或者atf)
+   build_libsophon && build_edge_rootfs  (只更新libsophon)
+   build_sophon_media && build_edge_rootfs  (只更新sophon_media)
+   build_v4l2_isp && build_edge_rootfs  (只更新isp)

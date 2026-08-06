@@ -4,6 +4,8 @@
 .. toctree:: 
    :maxdepth: 1
 
+   BM1688-BOX/index
+   BM1688-BOX(EN)/index
    GW510/index
    GW510(EN)/index
    GW305/index
