@@ -126,6 +126,8 @@
    :maxdepth: 1
    :caption: MYZR-网关
 
+   docs/MYZR-其他/网关/BM1688-BOX/index
+   docs/MYZR-其他/网关/BM1688-BOX(EN)/index
    docs/MYZR-其他/网关/GW510/index
    docs/MYZR-其他/网关/GW510(EN)/index
    docs/MYZR-其他/网关/GW305/index
