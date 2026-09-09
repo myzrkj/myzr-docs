@@ -98,7 +98,7 @@ SD卡接口测试
 
 系统接口:eth0
 
-测试说明:采用开发板向PC发送ICM P报文的方式进行测试
+测试说明:采用开发板向PC发送ICMP报文的方式进行测试
 
 测试操作:
 
@@ -108,8 +108,7 @@ SD卡接口测试
 
 .. code-block:: shell
 
-   [  975.297225] rk_gmac-dwmac 21c70000.ethernet eth0: Link is Up - 100Mbps/Full
-   - flow control rx/tx
+   [  975.297225] rk_gmac-dwmac 21c70000.ethernet eth0: Link is Up - 100Mbps/Full - flow control rx/tx
    [  975.297294] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
 
 3. 默认自动获取IP地址,但测试是配置静态ip来测,具体配置指令如下:
@@ -129,13 +128,13 @@ SD卡接口测试
 
 .. code-block:: shell
 
-   PING 192.168.137.99  (192.168.137.99 ) from 192.168.137.17  eth0: 56(84) bytes  of
-   data.
-   64 bytes from 192.168.137.99 : icmp_seq= 1 ttl= 128 time= 1.28 ms
-   64 bytes from 192.168.137.99 : icmp_seq= 2 ttl= 128 time= 0.378  ms
-   --- 192.168.137.99  ping statistics ---
+   PING 192.168.137.99 (192.168.137.99) from 192.168.137.17 eth0: 56(84) bytes of data.
+   64 bytes from 192.168.137.99: icmp_seq=1 ttl=128 time=1.28 ms
+   64 bytes from 192.168.137.99: icmp_seq=2 ttl=128 time=0.378 ms
+   
+   --- 192.168.137.99 ping statistics ---
    2 packets transmitted, 2 received, 0% packet loss, time 1002ms
-   rtt min/avg/ max/mdev = 0.378 /0.829 /1.280 /0.451  ms
+   rtt min/avg/max/mdev = 0.378/0.829/1.280/0.451 ms
 
 网口二
 ~~~~~~~~~~~~~
@@ -144,7 +143,7 @@ SD卡接口测试
 
 系统接口:eth0
 
-测试说明:采用开发板向PC发送ICM P报文的方式进行测试
+测试说明:采用开发板向PC发送ICMP报文的方式进行测试
 
 测试操作:
 
@@ -154,8 +153,7 @@ SD卡接口测试
 
 .. code-block:: shell
 
-   [  975.297225] rk_gmac-dwmac 21c70000.ethernet eth0: Link is Up - 1Gbps/Full -
-   flow control rx/tx
+   [  975.297225] rk_gmac-dwmac 21c70000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
    [  975.297294] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
 
 3. 默认自动获取IP地址,但测试是配置静态ip来测,具体配置指令如下:
@@ -175,13 +173,13 @@ SD卡接口测试
 
 .. code-block:: shell
 
-   PING 192.168.137.99  (192.168.137.99 ) from 192.168.137.17  eth0: 56(84) bytes  of
-   data.
-   64 bytes from 192.168.137.99 : icmp_seq= 1 ttl= 128 time= 1.28 ms
-   64 bytes from 192.168.137.99 : icmp_seq= 2 ttl= 128 time= 0.378  ms
-   --- 192.168.137.99  ping statistics ---
+   PING 192.168.137.99 (192.168.137.99) from 192.168.137.17 eth0: 56(84) bytes of data.
+   64 bytes from 192.168.137.99: icmp_seq=1 ttl=128 time=1.28 ms
+   64 bytes from 192.168.137.99: icmp_seq=2 ttl=128 time=0.378 ms
+   
+   --- 192.168.137.99 ping statistics ---
    2 packets transmitted, 2 received, 0% packet loss, time 1002ms
-   rtt min/avg/ max/mdev = 0.378 /0.829 /1.280 /0.451  ms
+   rtt min/avg/max/mdev = 0.378/0.829/1.280/0.451 ms
 
 WIFI测试
 ------
