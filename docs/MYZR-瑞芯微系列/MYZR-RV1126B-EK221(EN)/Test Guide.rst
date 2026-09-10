@@ -108,8 +108,7 @@ Test Operations:
 
 .. code-block:: shell
 
-   [  975.297225] rk_gmac-dwmac 21c70000.ethernet eth0: Link is Up - 100Mbps/Full
-   - flow control rx/tx
+   [  975.297225] rk_gmac-dwmac 21c70000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
    [  975.297294] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
 
 3. By default, the IP address is obtained automatically, but for testing, configure a static IP using the following commands:
@@ -129,13 +128,13 @@ Test Operations:
 
 .. code-block:: shell
 
-   PING 192.168.137.99  (192.168.137.99 ) from 192.168.137.17  eth0: 56(84) bytes  of
-   data.
-   64 bytes from 192.168.137.99 : icmp_seq= 1 ttl= 128 time= 1.28 ms
-   64 bytes from 192.168.137.99 : icmp_seq= 2 ttl= 128 time= 0.378  ms
-   --- 192.168.137.99  ping statistics ---
+   PING 192.168.137.99 (192.168.137.99) from 192.168.137.17 eth0: 56(84) bytes of data.
+   64 bytes from 192.168.137.99: icmp_seq=1 ttl=128 time=1.28 ms
+   64 bytes from 192.168.137.99: icmp_seq=2 ttl=128 time=0.378 ms
+   
+   --- 192.168.137.99 ping statistics ---
    2 packets transmitted, 2 received, 0% packet loss, time 1002ms
-   rtt min/avg/ max/mdev = 0.378 /0.829 /1.280 /0.451  ms
+   rtt min/avg/max/mdev = 0.378/0.829/1.280/0.451 ms
 
 Ethernet Port 2
 ~~~~~~~~~~~~~~
@@ -154,8 +153,7 @@ Test Operations:
 
 .. code-block:: shell
 
-   [  975.297225] rk_gmac-dwmac 21c70000.ethernet eth0: Link is Up - 1Gbps/Full -
-   flow control rx/tx
+   [  975.297225] rk_gmac-dwmac 21c70000.ethernet eth0: Link is Up - 1Gbps/Full - flow control rx/tx
    [  975.297294] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
 
 3. By default, the IP address is obtained automatically, but for testing, configure a static IP using the following commands:
@@ -175,13 +173,14 @@ Test Operations:
 
 .. code-block:: shell
 
-   PING 192.168.137.99  (192.168.137.99 ) from 192.168.137.17  eth0: 56(84) bytes  of
-   data.
-   64 bytes from 192.168.137.99 : icmp_seq= 1 ttl= 128 time= 1.28 ms
-   64 bytes from 192.168.137.99 : icmp_seq= 2 ttl= 128 time= 0.378  ms
-   --- 192.168.137.99  ping statistics ---
+
+   PING 192.168.137.99 (192.168.137.99) from 192.168.137.17 eth0: 56(84) bytes of data.
+   64 bytes from 192.168.137.99: icmp_seq=1 ttl=128 time=1.28 ms
+   64 bytes from 192.168.137.99: icmp_seq=2 ttl=128 time=0.378 ms
+   
+   --- 192.168.137.99 ping statistics ---
    2 packets transmitted, 2 received, 0% packet loss, time 1002ms
-   rtt min/avg/ max/mdev = 0.378 /0.829 /1.280 /0.451  ms
+   rtt min/avg/max/mdev = 0.378/0.829/1.280/0.451 ms
 
 WIFI Test
 ---------
@@ -239,13 +238,13 @@ Output:
 
 .. code-block:: shell
 
-   PING www.baidu.com ( 183.2.172.177 ) from 192.168.66.26  wlan0: 56(84) bytes  of
+   PING www.baidu.com ( 183.2.172.177 ) from 192.168.66.26  wlan0: 56(84) bytes of
    data.
    64 bytes from 183.2.172.177 : icmp_seq= 1 ttl= 53 time= 224 ms
    64 bytes from 183.2.172.177 : icmp_seq= 2 ttl= 53 time= 217 ms
    --- www.baidu.com ping statistics ---
    2 packets transmitted, 2 received, 0% packet loss, time 1002ms
-   rtt min/avg/ max/mdev = 216.994 /220.289 /223.584 /3.295  ms
+   rtt min/avg/max/mdev = 216.994 /220.289 /223.584 /3.295  ms
 
 Bluetooth Test
 --------------
