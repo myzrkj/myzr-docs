@@ -9,9 +9,18 @@ build:
     - pip install -r requirements.txt
     - pip install .
 
-    # 构建中英文
-    - sphinx-build -b html -c ./ ./zh "${READTHEDOCS_OUTPUT}/html"
-    - sphinx-build -b html -c ./ ./en "${READTHEDOCS_OUTPUT}/html/en"
+    # 并行构建中英文，避免两个完整站点串行构建超过 Read the Docs 时限
+    - |
+      set +e
+      sphinx-build -j 1 -b html -c ./ ./zh "${READTHEDOCS_OUTPUT}/html" &
+      zh_pid=$!
+      sphinx-build -j 1 -b html -c ./ ./en "${READTHEDOCS_OUTPUT}/html/en" &
+      en_pid=$!
+      wait "$zh_pid"
+      zh_status=$?
+      wait "$en_pid"
+      en_status=$?
+      test "$zh_status" -eq 0 -a "$en_status" -eq 0
 
 sphinx:
   fail_on_warning: false
