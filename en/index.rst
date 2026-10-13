@@ -62,7 +62,7 @@ MYZR Documentation
    :maxdepth: 1
    :caption: MYZR-iMX9 Series
 
-   docs/MYZR-iMX9系列/MYZR-I.MX93(EN)/index
+   docs/MYZR-iMX9系列/MYZR-IMX93-PI200(EN)/index
 
 
 .. toctree::

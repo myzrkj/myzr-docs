@@ -367,11 +367,13 @@ SATA接口测试
 
     umount /sata
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试9.png
+.. figure:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试9.png
    :alt: 测试9.png
+   :width: 100%
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试10.png
+.. figure:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试10.png
    :alt: 测试10.png
+   :width: 100%
 
 M.2接口测试
 -------------
@@ -402,11 +404,13 @@ M.2接口测试
 
     umount /nvme
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试11.png
+.. figure:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试11.png
    :alt: 测试11.png
+   :width: 100%
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试12.png
+.. figure:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试12.png
    :alt: 测试12.png
+   :width: 100%
 
 can测试
 ---------
@@ -455,8 +459,9 @@ can测试
 
 |   rk3588可以收到"can0  123   [4]  DE AD BE EF"，按下"Ctrl + C"退出接收
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试13.png
+.. figure:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试13.png
    :alt: 测试13.png
+   :width: 100%
 
 |   操作过程中的输出符合预期即功能正常
 
@@ -748,8 +753,9 @@ HDMI_RX
 
     v4l2-ctl --list-devices
 
-.. figure:: /image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试18.png
+.. figure:: ../../../image/MYZR-瑞芯微系列/MYZR-RK3588-EK360/测试18.png
    :alt: 测试18.png
+   :width: 100%
 
 3. 输入如下命令
 
@@ -757,6 +763,20 @@ HDMI_RX
 
     gst-launch-1.0 v4l2src device=/dev/video20 ! videoconvert ! autovideosink
 
+| 输出：
+.. code-block:: shell
+
+    Setting pipeline to PAUSED ...
+    Using mplane plugin for capture 
+    Pipeline is live and does not need PREROLL ...
+    Pipeline is PREROLLED ...
+    Setting pipeline to PLAYING ...
+    New clock: GstSystemClock
+    [  159.986595] fdee0000.hdmirx-controller: hdmirx_start_streaming: delay_line:720
+    Redistribute latency...
+    [  160.622139] fdee0000.hdmirx-controller: rcv frames
+    0:00:47.3 / 99:99:99.
+    
 |   若显示主机的画面，表示测试通过。
 
 多路视频播放测试
@@ -783,12 +803,34 @@ GPU测试
 GPIO测试
 ----------
 
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+       width: 100%;
+       table-layout: auto;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+       text-align: center;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+       text-align: center;
+       word-wrap: break-word;
+   }
+   </style>
+
 +--------+----------+----------+----------+----------+----------+--------+
 | 丝印   | J23：1   | J23：2   | J23：3   | J23：4   | J23：5   | J23：6 |
 +--------+----------+----------+----------+----------+----------+--------+
 | GIPO   | GPIO3_B6 | GPIO3_A6 | GPIO4_C3 | GPIO2_C3 | GPIO2_C4 | GND    |
 +--------+----------+----------+----------+----------+----------+--------+
-| 高电平 | 3.3V     | 3.3V     | 1.8V     | 1.8V     | 1.8V     | -      |
+| 高电平 | 3.3V     | 3.3V     | 1.8V     | 1.8V     | 1.8V     |  -     |
 +--------+----------+----------+----------+----------+----------+--------+
 
 
