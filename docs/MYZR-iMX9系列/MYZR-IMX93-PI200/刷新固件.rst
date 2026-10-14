@@ -1,0 +1,90 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
+
+刷新固件
+========
+
+下载文件
+~~~~~~~~
+
+打开网盘,下载 i.MX93的升级包文件并解压。
+
+连接刷机线
+~~~~~~~~~~
+
+为开发板断电，用USB线连接开发板的刷机口和PC。
+
+拨码到刷机模式
+~~~~~~~~~~~~~~
+
+把开发板的"SW1"拨到刷机模式。
+
+.. raw:: html
+
+   <style>
+   table {
+       border-collapse: collapse;
+       background-color: #f5f5f5;
+       width: 100%;
+       table-layout: auto;
+   }
+   th {
+       background-color: #4CAF50;
+       color: white;
+       text-align: center;
+   }
+   td {
+       border: 1px solid #ddd;
+       padding: 8px;
+       text-align: center;
+       word-wrap: break-word;
+   }
+   </style>
+
++-------------+-------------+-------------+-------------+----------+
+| BOOT\_MODE3 | BOOT\_MODE2 | BOOT\_MODE1 | BOOT\_MODE0 | 描述     |
++=============+=============+=============+=============+==========+
+| 0           | 0           | 1           | 1           | 刷机模式 |
++-------------+-------------+-------------+-------------+----------+
+| 0           | 0           | 0           | 0           | 启动模式 |
++-------------+-------------+-------------+-------------+----------+
+
+执行刷机
+~~~~~~~~
+
+给开发板上电
+
+双击运行升级包中的"auto-myimx93ek200-2g.wic.bat"文件
+
+这时候 Windows 命令行窗口会看到类似如下信息：
+
+.. code-block:: text
+
+   uuu (Universal Update Utility) for nxp imx chips -- libuuu_1.4.243-0-ged48c51
+   Success 0    Failure 0
+   1:32    ......
+
+刷机完成
+~~~~~~~~
+
+刷机完成后，Windows命令行窗口显示类似如下信息如下：
+
+.. code-block:: text
+
+   uuu (Universal Update Utility) for nxp imx chips -- libuuu_1.4.243-0-ged48c51
+   Success 1    Failure 0
+   1:32    24/24 [Done                                  ] FBK: DONE
+   请按任意键继续. . .
+
+启动开发板
+~~~~~~~~~~
+
+把开发板断电，"SW1" 拨到启动模式，并为开发板上电，开发板即可正常启动
+
+

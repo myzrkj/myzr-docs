@@ -1,0 +1,95 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
+
+硬件开发指导
+============
+
+开发板原理图设计说明
+--------------------
+
+Debug电路
+---------
+
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/Debug电路.png
+   :alt: Debug电路.png
+   :width: 100%
+
+电源输入电路
+------------
+
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/电源输入电路.png
+   :alt: 电源输入电路.png
+   :width: 100%
+
+USB—HUB电路
+-----------
+
+1、
+
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/USB—HUB电路.png
+   :alt: USB—HUB电路.png
+   :width: 100%
+
+MIPI-CSI
+--------
+
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/MIPI-CSI.png
+   :alt: MIPI-CSI.png
+   :width: 100%
+
+MIPI-DSI
+--------
+
+LCD
+
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/LCD.png
+   :alt: LCD.png
+   :width: 100%
+
+ETH1
+----
+
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/ETH1.png
+   :alt: ETH1.png
+   :width: 100%
+
+ETH2
+----
+
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/ETH2.png
+   :alt: ETH2.png
+   :width: 100%
+
+MICRO-SD
+--------
+
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/MICRO-SD.png
+   :alt: MICRO-SD.png
+   :width: 100%
+
+RTC
+---
+
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/RTC.png
+   :alt: RTC.png
+   :width: 100%
+
+WIFI&BT
+-------
+
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/WIFI&BT.png
+   :alt: WIFI&BT.png
+   :width: 100%
+
+按键
+----
+
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/按键.png
+   :alt: 按键.png
+   :width: 100%

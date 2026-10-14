@@ -1,0 +1,164 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
+
+软件开发指导
+============
+
+编译手册
+--------
+
+准备编译环境
+~~~~~~~~~~~~
+
+安装依赖包
+
+.. code-block:: text
+
+   sudo apt install libssh-dev
+
+安装 gcc-linaro 交叉编译工具
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+准备交叉编译工具文件：
+
+#. 网盘下载方式：
+
+在网盘下载 "gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz" 后，把文件传输到 x86_64 Linux 主机中。
+
+执行安装
+
+.. code-block:: text
+
+   # 创建安装目录
+   mkdir ~/work/toolchain/gcc-linaro -p
+   
+   # 安装指令
+   tar xf gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz -C ~/work/toolchain/gcc-linaro
+
+#. 创建交叉编译工具配置文件
+
+.. code-block:: text
+
+   # 创建配置文件
+   cat << EOF > ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
+   #!/bin/sh
+   export PATH=${HOME}/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin:${PATH}
+   export ARCH=arm64
+   export CROSS_COMPILE=aarch64-linux-gnu-
+   EOF
+   
+   # 配置可执行权限
+   chmod +x ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
+
+#. 配置工具环境变量
+
+.. code-block:: text
+
+   source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
+
+#. 检查安装
+
+.. code-block:: text
+
+   ${CROSS_COMPILE}gcc -v
+
+#. 工具信息
+
+.. code-block:: text
+
+   使用内建 specs。
+   COLLECT_GCC=aarch64-linux-gnu-gcc
+   COLLECT_LTO_WRAPPER=/home/tangbin/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/../libexec/gcc/aarch64-linux-gnu/7.5.0/lto-wrapper
+   目标：aarch64-linux-gnu
+   配置为：'/home/tcwg-buildslave/workspace/tcwg-make-release_0/snapshots/gcc.git~linaro-7.5-2019.12/configure' SHELL=/bin/bash --with-mpc=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-mpfr=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gmp=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu --with-gnu-as --with-gnu-ld --disable-libmudflap --enable-lto --enable-shared --without-included-gettext --enable-nls --with-system-zlib --disable-sjlj-exceptions --enable-gnu-unique-object --enable-linker-build-id --disable-libstdcxx-pch --enable-c99 --enable-clocale=gnu --enable-libstdcxx-debug --enable-long-long --with-cloog=no --with-ppl=no --with-isl=no --disable-multilib --enable-fix-cortex-a53-835769 --enable-fix-cortex-a53-843419 --with-arch=armv8-a --enable-threads=posix --enable-multiarch --enable-libstdcxx-time=yes --enable-gnu-indirect-function --with-build-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/sysroots/aarch64-linux-gnu --with-sysroot=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu/aarch64-linux-gnu/libc --enable-checking=release --disable-bootstrap --enable-languages=c,c++,fortran,lto --build=x86_64-unknown-linux-gnu --host=x86_64-unknown-linux-gnu --target=aarch64-linux-gnu --prefix=/home/tcwg-buildslave/workspace/tcwg-make-release_0/_build/builds/destdir/x86_64-unknown-linux-gnu
+   线程模型：posix
+   gcc 版本 7.5.0 (Linaro GCC 7.5-2019.12)
+
+编译 U-Boot 文件
+~~~~~~~~~~~~~~~~
+
+#. 从网盘中下载 U-Boot 源码包文件并解压。
+
+#. 配置编译工具环境变量
+
+.. code-block:: text
+
+   source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
+
+#. 目标文件编译
+
+.. code-block:: text
+
+   cd ~/imx-uboot-6.6.52
+   make myzr_imx93-pi200_defconfig O=build
+   cd build
+   make -j24
+
+#. 目标文件说明
+
+u-boot-nodtb.bin, spl/u-boot-spl.bin,  arch/arm/dts/myzr-imx93-pi200.dtb 即目标文件，在下一步骤编译 Boot 文件时会依赖这些文件。
+
+编译 BOOT 文件
+~~~~~~~~~~~~~~
+
+#. 下载 Boot 编译工具并解压。
+
+#. 编译 Boot 文件
+
+.. code-block:: text
+
+   # 先复制目标文件到 mkimage
+   cp ../imx-mkimage-6.12.49/build/spl/u-boot-spl.bin iMX8M/u-boot-spl.bin
+   cp ../imx-mkimage-6.12.49/build/u-boot-nodtb.bin iMX8M/u-boot-nodtb.bin
+   cp ../imx-mkimage-6.12.49/build/arch/arm/dts/myimx8mpwfpd.dtb iMX8M/myimx8mpwfpd.dtb
+   
+   # 编译
+   cd ~/imx-mkimage-6.12.49
+   cp -f u-boot.bin u-boot.bin.orig
+   cat u-boot-nodtb.bin myzr-imx93-pi200.dtb > u-boot.bin
+   cd ..
+   make SOC=iMX9 V=1 flash_singleboot
+
+#. 目标文件说明
+
+最终生成文件为 [flash.bin]，在 imx-mkimage-6.12.49/iMX93 目录下，可以修改编译出来的目标文件替换烧录工具的需要使用的文件。
+
+编译 Linux 内核
+~~~~~~~~~~~~~~~
+
+#. 下载 Linux 源码包文件并解压。
+
+#. 配置编译工具环境变量：
+
+.. code-block:: text
+
+   source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
+
+#. Linux Image 文件编译：
+
+.. code-block:: text
+
+   cd ~/work/linux/imx-linux-6.6.52
+   make ARCH=arm64 myzr_imx_defconfig
+   make Image -j24
+
+#. Linux 设备树文件编译
+
+.. code-block:: text
+
+   make myzr/myzr-imx93-pi200.dts
+
+#. Linux 模块编译
+
+.. code-block:: text
+
+   make modules -j24
+   if [ -d modules ]; then rm -rf modules; fi; mkdir modules
+   make modules_install INSTALL_MOD_PATH=./modules
+   tar cjf kernel-modules.tar.bz2 -C modules lib
