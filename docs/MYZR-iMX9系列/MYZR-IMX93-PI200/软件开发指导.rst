@@ -27,7 +27,7 @@
 
 准备交叉编译工具文件：
 
-#. 网盘下载方式：
+网盘下载方式：
 
 在网盘下载 "gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz" 后，把文件传输到 x86_64 Linux 主机中。
 
@@ -41,7 +41,7 @@
    # 安装指令
    tar xf gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz -C ~/work/toolchain/gcc-linaro
 
-#. 创建交叉编译工具配置文件
+创建交叉编译工具配置文件
 
 .. code-block:: text
 
@@ -56,19 +56,19 @@
    # 配置可执行权限
    chmod +x ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
 
-#. 配置工具环境变量
+配置工具环境变量
 
 .. code-block:: text
 
    source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
 
-#. 检查安装
+检查安装
 
 .. code-block:: text
 
    ${CROSS_COMPILE}gcc -v
 
-#. 工具信息
+工具信息
 
 .. code-block:: text
 
@@ -83,15 +83,15 @@
 编译 U-Boot 文件
 ~~~~~~~~~~~~~~~~
 
-#. 从网盘中下载 U-Boot 源码包文件并解压。
+1.从网盘中下载 U-Boot 源码包文件并解压。
 
-#. 配置编译工具环境变量
+2.配置编译工具环境变量
 
 .. code-block:: text
 
    source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
 
-#. 目标文件编译
+3.目标文件编译
 
 .. code-block:: text
 
@@ -100,16 +100,16 @@
    cd build
    make -j24
 
-#. 目标文件说明
+4.目标文件说明
 
 u-boot-nodtb.bin, spl/u-boot-spl.bin,  arch/arm/dts/myzr-imx93-pi200.dtb 即目标文件，在下一步骤编译 Boot 文件时会依赖这些文件。
 
 编译 BOOT 文件
 ~~~~~~~~~~~~~~
 
-#. 下载 Boot 编译工具并解压。
+1.下载 Boot 编译工具并解压。
 
-#. 编译 Boot 文件
+2.编译 Boot 文件
 
 .. code-block:: text
 
@@ -125,22 +125,22 @@ u-boot-nodtb.bin, spl/u-boot-spl.bin,  arch/arm/dts/myzr-imx93-pi200.dtb 即目�
    cd ..
    make SOC=iMX9 V=1 flash_singleboot
 
-#. 目标文件说明
+3.目标文件说明
 
 最终生成文件为 [flash.bin]，在 imx-mkimage-6.12.49/iMX93 目录下，可以修改编译出来的目标文件替换烧录工具的需要使用的文件。
 
 编译 Linux 内核
 ~~~~~~~~~~~~~~~
 
-#. 下载 Linux 源码包文件并解压。
+1.下载 Linux 源码包文件并解压。
 
-#. 配置编译工具环境变量：
+2.配置编译工具环境变量：
 
 .. code-block:: text
 
    source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
 
-#. Linux Image 文件编译：
+3.Linux Image 文件编译：
 
 .. code-block:: text
 
@@ -148,13 +148,13 @@ u-boot-nodtb.bin, spl/u-boot-spl.bin,  arch/arm/dts/myzr-imx93-pi200.dtb 即目�
    make ARCH=arm64 myzr_imx_defconfig
    make Image -j24
 
-#. Linux 设备树文件编译
+4.Linux 设备树文件编译
 
 .. code-block:: text
 
    make myzr/myzr-imx93-pi200.dts
 
-#. Linux 模块编译
+5.Linux 模块编译
 
 .. code-block:: text
 

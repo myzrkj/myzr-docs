@@ -27,7 +27,7 @@ Install gcc-linaro cross-compilation tool
 
 To Prepare Cross-Compile Tool Files:
 
-#. Net disk download method:
+Net disk download method:
 
 Transfer the file to the x86_64 Linux host after downloading "gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz" on the network disk.
 
@@ -41,7 +41,7 @@ Performing the Installation
    # Installation Instructions
    tar xf gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.tar.xz -C ~/work/toolchain/gcc-linaro
 
-#. Create cross-compilation tool profile
+Create cross-compilation tool profile
 
 .. code-block:: text
 
@@ -56,19 +56,19 @@ Performing the Installation
    # Configure Executable Permissions
    chmod +x ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
 
-#. Configure Tool Environment Variables
+Configure Tool Environment Variables
 
 .. code-block:: text
 
    source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
 
-#. Check the installation
+Check the installation
 
 .. code-block:: text
 
    ${CROSS_COMPILE}gcc -v
 
-#. Extension Information
+Extension Information
 
 .. code-block:: text
 
@@ -83,15 +83,15 @@ Performing the Installation
 Compiling a U-Boot File
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Download the U-Boot source code package file from the net drive and extract it.
+1.Download the U-Boot source code package file from the net drive and extract it.
 
-#. Configure compiler environment variables
+2.Configure the compiler environment variables
 
 .. code-block:: text
 
    source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
 
-#. Target file compilation
+3.Target file compilation
 
 .. code-block:: text
 
@@ -100,16 +100,16 @@ Compiling a U-Boot File
    cd build
    make -j24
 
-#. Target Document Description
+4.Target Document Description
 
 u-boot-nodtb.bin, spl /u-boot-spl.bin, arch /arm/dts/myzr-imx93-pi200.dtb is the target file, which will be relied on when compiling the boot file in the next step.
 
 Compile BOOT file
 ~~~~~~~~~~~~~~~~~
 
-#. Download the Boot compiler and unzip it.
+1.Download the Boot compiler and unzip it.
 
-#. Compile Boot File
+2.Compile Boot File
 
 .. code-block:: text
 
@@ -125,22 +125,22 @@ Compile BOOT file
    cd ..
    make SOC=iMX9 V=1 flash_singleboot
 
-#. Target Document Description
+3.Target Document Description
 
 The final generated file is [flash.bin]. Under the imx-mkimage-6.12.49 /iMX93 directory, you can modify the compiled target file to replace the file that needs to be used by the burning tool.
 
 Compiling the Linux kernel
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Download the Linux source package file and extract it.
+1.Download the Linux source package file and extract it.
 
-#. To configure the compiler environment variables:
+2.To configure the compiler environment variables:
 
 .. code-block:: text
 
    source ~/work/toolchain/gcc-linaro/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu.env
 
-#. Linux Image File Compilation:
+3.Linux Image File Compilation:
 
 .. code-block:: text
 
@@ -148,13 +148,13 @@ Compiling the Linux kernel
    make ARCH=arm64 myzr_imx_defconfig
    make Image -j24
 
-#. Linux Device Tree File Compilation
+4.Linux Device Tree File Compilation
 
 .. code-block:: text
 
    make myzr/myzr-imx93-pi200.dts
 
-#. Linux Module Compilation
+5.Linux Module Compilation
 
 .. code-block:: text
 

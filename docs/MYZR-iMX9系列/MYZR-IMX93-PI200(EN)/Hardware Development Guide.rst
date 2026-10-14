@@ -30,7 +30,6 @@ Power Input Circuit
 USB — HUB Circuit
 -----------------
 
-1、
 
 .. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/USB—HUB电路.png
    :alt: USB—HUB电路.png
