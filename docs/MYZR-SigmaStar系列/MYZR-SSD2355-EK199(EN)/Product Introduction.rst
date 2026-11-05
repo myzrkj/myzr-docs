@@ -279,7 +279,7 @@ Whether fast start and fast start time are supported
 +---------+----------+------+
 
 Core Board patch / Installation Diagram
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2355-EK199/核心板贴片安装示意图.png
    :alt: 核心板贴片 安装示意图.png
