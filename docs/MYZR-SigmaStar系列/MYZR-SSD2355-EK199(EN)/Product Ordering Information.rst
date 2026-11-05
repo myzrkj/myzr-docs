@@ -16,4 +16,4 @@ Product Ordering Information
 
 .. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2355-EK199/产品订购信息.png
    :alt: Product Ordering Information.png
-   :width: 100%
+   :width: 50%
