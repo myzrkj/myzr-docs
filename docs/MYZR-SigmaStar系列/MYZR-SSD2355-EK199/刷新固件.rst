@@ -1,0 +1,62 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
+
+刷新固件
+========
+
+烧写工具：UsbFactoryTool_1.0.0.19.tar.gz
+----------------------------------------
+
+烧录手册
+~~~~~~~~
+
+usb接口下载
+^^^^^^^^^^^
+
+烧写模式拨码设置：
+
+.. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2355-EK199/烧写模式拨码设置_01.png
+   :alt: 烧写模式拨码设置_01.png
+   :width: 100%
+
+.. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2355-EK199/烧写模式拨码设置_02.png
+   :alt: 烧写模式拨码设置_02.png
+   :width: 100%
+
+烧写工具：UsbFactoryTool_1.0.0.19.tar.gz
+
+镜像文件：SstarUsbImage_202503050415.bin
+
+解压烧写工具
+^^^^^^^^^^^^
+
+右击解压到当前目录，我的电脑是64bit，所以选择工具USB_Factory_Tool_64_1.0.0.19.exe
+
+下载
+^^^^
+
+接上电源和USB线，电脑检测到”USB大容量存储设备”
+
+.. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2355-EK199/接上电源和USB线，电脑检测到”USB大容量存储设备”.png
+   :alt: 接上电源和USB线，电脑检测到”USB大容量存储设备”.png
+   :width: 100%
+
+双击烧录工具，USB_Factory_Tool_64_1.0.0.19.exe，如下：
+
+#. 可以看到检测到的设备
+
+#. 选择烧写的固件
+
+#. 点击绿色按键开始烧写
+
+#. 当进度100%时，点击红色停止按键结束
+
+.. image:: ../../../image/MYZR-SigmaStar系列/MYZR-SSD2355-EK199/当进度100%时，点击红色停止按键结束.png
+   :alt: 当进度100%时，点击红色停止按键结束.png
+   :width: 100%
