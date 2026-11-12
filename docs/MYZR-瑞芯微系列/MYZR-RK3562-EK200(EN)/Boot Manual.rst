@@ -105,7 +105,7 @@ Serial Port Parameter Settings
 | Baud    | Data   | Stop    | Parity   |
 | Rate    | Bits   | Bits    | Bit      |
 +=========+========+=========+==========+
-| 1500000 | 8      | 1       |          |
+| 115200  | 8      | 1       |          |
 +---------+--------+---------+----------+
 
 DIP Switch Settings and TTL Serial Module
