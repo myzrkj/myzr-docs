@@ -412,8 +412,8 @@ Core Board Pin Definition
  33                                GPIOA_19_GPIO                        GPIOA_19_GPIO                  3.3V
  34                                OUTP_RX0_CH2_FUART2_RX               UART2_RX                       3.3V
  35                                OUTN_RX0_CH2_FUART2_TX               UART2_TX                       3.3V
- 36                                OUTP_RX0_CH0_FUART1_TX               UART1_TX                       3.3V
- 37                                OUTN_RX0_CH0_FUART1_RX               UART1_RX                       3.3V
+ 36                                OUTP_RX0_CH0_FUART1_RX               UART1_RX                       3.3V
+ 37                                OUTP_RX0_CH0_FUART1_TX               UART1_TX                       3.3V
  38                                OUTP_RX0_CH3_FUART2_CTS              UART2_RX                       3.3V
  39                                OUTN_RX0_CH3_FUART2_RTS              UART2_RX                       3.3V
  40                                OUTP_RX0_CH1_FUART1_CTS              UART1_RX                       3.3V
@@ -467,9 +467,9 @@ Core Board Pin Definition
  88                                SPI_CK                               SPI_CLK                        3.3V
  89                                SPI_DI                               SPI_DI                         3.3V
  90                                GND                                  GND                            0V
- 91                                GND                                  GND                            0V
- 92                                GND                                  GND                            0V
- 93                                VCC3V3_CORE                          VCC3V3_CORE                    3.3V
+ 91                                VCC3V3 CORE                          VCC3V3_CORE                    3.3V
+ 92                                VCC3V3 CORE                          VCC3V3 CORE                    3.3v
+ 93                                GND                                  GND                            0V
  94                                GND                                  GND                            0V
  95                                GPIOE_01_SD_D[0]                     D[0]                           3.3V
  96                                GPIOE_00_SD_D[1]                     D[1]                           3.3V
