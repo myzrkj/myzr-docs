@@ -86,7 +86,7 @@ Core Board Specifications
 | 6                         | Boot Mode | SPI NOR, NAND, SD Card, eMMC, USB, UART multi-boot   |
 +---------------------------+-----------+------------------------------------------------------+
 
-Core Board Top/Bottom Views
+Core board diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
@@ -98,7 +98,7 @@ Core Board Top/Bottom Views
    :alt: MYZR-RV1126B Core Board Top View
    :width: 100%
 
-**MYZR-RV1126B Core Board Top View**
+**Front view of the core board for [RV1126B eMMC version]**
 
 .. raw:: html
 
@@ -109,7 +109,7 @@ Core Board Top/Bottom Views
    :alt: MYZR-RV1126B Core Board Bottom View
    :width: 100%
 
-**MYZR-RV1126B Core Board Bottom View**
+**Front view of the core board for [RV1126B eMCP version]**
 
 Core Board Dimensions
 ~~~~~~~~~~~~~~~~~~~~~

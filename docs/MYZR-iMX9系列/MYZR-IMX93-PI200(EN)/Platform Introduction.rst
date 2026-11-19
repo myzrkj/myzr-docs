@@ -136,8 +136,7 @@ Processor Features
    </style>
 
 +------+-----------+--------------------------------------------------------------------------+
-|      | SPECIFICA |                                                                          |
-|      | TIONS     |                                                                          |
+|      SPECIFICA TIONS                                                                        |
 +======+===========+==========================================================================+
 | 1    | Applicati | Arm Cortex- A55: 1-2 cores, frequency up to 1.7GHz, used to run rich     |
 |      | on        | operating systems such as Linux.                                         |

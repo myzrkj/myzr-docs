@@ -86,7 +86,7 @@ MYZR-RV1126B核心板基于RV1126B处理器开发,集成主控所需DDR内存、
 | 6  | 启动方式 | SPINOR、NAND、SD卡、eMMC、USB、UART多途径启动|
 +----+----------+----------------------------------------------+
 
-核心板正反图
+核心板图
 ~~~~~~
 
 .. raw:: html
@@ -95,21 +95,21 @@ MYZR-RV1126B核心板基于RV1126B处理器开发,集成主控所需DDR内存、
    <div style="text-align: center; width: 45%;">
 
 .. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/核心板正反图.png
-   :alt: MYZR-RV1126B核心板正面图
+   :alt: 核心板正反图
    :width: 100%
 
-**MYZR-RV1126B核心板正面图**
+**【RV1126B eMMC版本】核心板正图**
 
 .. raw:: html
 
    </div>
    <div style="text-align: center; width: 45%;">
 
-.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/核心板背面图.jpg
-   :alt: MYZR-RV1126B核心板反面图
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/EMCP核心板正面.jpg
+   :alt: EMCP核心板正面
    :width: 100%
 
-**MYZR-RV1126B核心板反面图**
+**【RV1126B eMCP版本】核心板正图**
 
 核心板尺寸图
 ~~~~~~
