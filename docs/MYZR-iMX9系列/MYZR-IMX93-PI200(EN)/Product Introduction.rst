@@ -62,24 +62,10 @@ Multimedia & Display Resources
 
 #. Audio interface: 7x I2S TDM (32-bit @ 768KHz), SPDIF Tx /Rx、8通道 PDM microphone input, MQS (medium quality sound output)
 
-PI board front and back diagram
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/PI板正反图_01.jpeg
-   :alt: PI板正反图_01.jpeg
-   :width: 100%
-
-.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/PI板正反图_02.jpeg
-   :alt: PI板正反图_02.jpeg
-   :width: 100%
-
 PI Board Interface Diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/PI板接口图_01.jpeg
-   :alt: PI板接口图_01.jpeg
+.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/PI板正反面接口图.jpg
+   :alt: PI板正反面接口图.jpg
    :width: 100%
 
-.. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/PI板接口图_02.jpeg
-   :alt: PI板接口图_02.jpeg
-   :width: 100%
