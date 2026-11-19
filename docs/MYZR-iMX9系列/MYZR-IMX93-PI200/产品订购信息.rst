@@ -16,4 +16,4 @@
 
 .. image:: ../../../image/MYZR-iMX9系列/MYZR-IMX93-PI200/产品订购信息.png
    :alt: 产品订购信息.png
-   :width: 100%
+   :width: 50%
