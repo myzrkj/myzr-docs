@@ -94,8 +94,8 @@ MYZR-RV1126B核心板基于RV1126B处理器开发,集成主控所需DDR内存、
    <div style="display: flex; justify-content: space-around;">
    <div style="text-align: center; width: 45%;">
 
-.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/核心板正反图.png
-   :alt: 核心板正反图
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/EMMC.jpg
+   :alt: EMMC
    :width: 100%
 
 **【RV1126B eMMC版本】核心板正图**
@@ -105,8 +105,8 @@ MYZR-RV1126B核心板基于RV1126B处理器开发,集成主控所需DDR内存、
    </div>
    <div style="text-align: center; width: 45%;">
 
-.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/EMCP核心板正面.jpg
-   :alt: EMCP核心板正面
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/eMCP.jpg
+   :alt: eMCP
    :width: 100%
 
 **【RV1126B eMCP版本】核心板正图**

@@ -94,8 +94,8 @@ Core board diagram
    <div style="display: flex; justify-content: space-around;">
    <div style="text-align: center; width: 45%;">
 
-.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/核心板正反图.png
-   :alt: MYZR-RV1126B Core Board Top View
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/EMMC.jpg
+   :alt: EMMC
    :width: 100%
 
 **Front view of the core board for [RV1126B eMMC version]**
@@ -105,8 +105,8 @@ Core board diagram
    </div>
    <div style="text-align: center; width: 45%;">
 
-.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/核心板背面图.jpg
-   :alt: MYZR-RV1126B Core Board Bottom View
+.. image:: ../../../image/MYZR-瑞芯微系列/MYZR-RV1126B-EK221/eMCP.jpg
+   :alt: eMCP
    :width: 100%
 
 **Front view of the core board for [RV1126B eMCP version]**
