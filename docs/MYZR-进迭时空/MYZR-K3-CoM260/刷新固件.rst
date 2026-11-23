@@ -1,0 +1,53 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
+
+刷机固件
+========
+
+进入刷机模式
+------------
+
+进入刷机模式前，请准备两个按键，分别用于短接 FC_REC 与 GND、SYS_RST 与 GND。
+
+1. 设备处于断电状态时
+
+- 按住 FC_REC 按键不松开。
+
+- 接入电源适配器，为设备上电。
+
+- 松开 FC_REC 按键。
+
+- 使用 Type-C 数据线连接开发板 Type-C 接口与上位机电脑。
+
+- 使用进迭时空刷机工具 Titan 或执行fastboot命令进行烧录。
+
+2. 设备已上电并处于开机状态时
+
+- 按住 FC_REC 按键不松开。
+
+- 短按 RST 按键。
+
+- 松开 FC_REC 按键。
+
+- 使用 Type-C 数据线连接开发板 Type-C 接口与上位机电脑。
+
+- 使用进迭时空刷机工具 Titan 或执行fastboot命令进行烧录。
+
+.. image:: ../../../image/MYZR-进迭时空/MYZR-K3-CoM260/按键输入.jpeg
+   :alt: 按键输入.jpeg
+   :width: 100%
+
+刷机流程请参考 `刷机工具使用手册 <https://www.spacemit.com/community/document/info?lang=zh&nodepath=tools/user_guide/flasher_user_guide.md>`_。
+
+固件下载和安装
+----------------
+
+Bianbu是进迭时空面向 RISC-V 架构处理器深度优化的操作系统。
+
+点击 `K3 Bianbu <https://spacemit.com/community/resources-download/Images%20Collects/K3/Bianbu>`_ 获取安装包。
