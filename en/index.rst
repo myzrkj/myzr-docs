@@ -7,6 +7,7 @@ MYZR Documentation
    :caption: MYZR-SpacemiT Series
 
    docs/MYZR-进迭时空/MYZR-K1-EK263(EN)/index
+   docs/MYZR-进迭时空/MYZR-K3-CoM260(EN)/index
 
 
 .. toctree::
