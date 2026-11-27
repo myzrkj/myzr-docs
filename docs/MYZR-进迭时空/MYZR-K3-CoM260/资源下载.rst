@@ -1,0 +1,36 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
+
+资源下载
+============
+- SDK下载链接：https://spacemit.com/community/resources-download/SDK/K3
+
+- 镜像下载链接：https://spacemit.com/community/resources-download/Images%20Collects/K3
+
+- 工具下载链接：https://spacemit.com/community/resources-download/Tools/Flashing%20tool
+
+底板原理图和 PCB
+----------------------------
+
+K3 CoM260 开发套件底板的完整硬件设计文件。
+
+#. `下载 原理图（PDF 格式） <https://cdn-resource.spacemit.com/file/product/K3/k3_com260_hw/k3-com260_kit_v02_20260306.pdf>`_
+#. `下载 底板工程文件（DSN 格式） <https://spacemit.com/community/document/info?lang=zh&nodepath=ecohardware/k3_series/k3_com260/com260_hw_resources.md>`_
+#. `下载 底板 PCB 文件（BRD 格式） <https://spacemit.com/community/document/info?lang=zh&nodepath=ecohardware/k3_series/k3_com260/com260_hw_resources.md>`_
+
+电源按键管理 MCU 固件烧录指南
+------------------------------------------
+
+本节提供 K3 CoM260 开发套件电源按键管理 MCU（EFM8SB10F2G）的固件烧录指南及所需资源。
+
+#. `下载件烧录指南（PDF） <https://cdn-resource.spacemit.com/file/product/K3/k3_com260_hw/k3-com260_EFM8SB10F2G_zh.pdf>`_
+
+#. `Silicon Laboratories Flash Utility 烧录工具 <https://spacemit.com/community/document/info?lang=zh&nodepath=ecohardware/k3_series/k3_com260/com260_hw_resources.md>`_
+
+#. `电源按键固件 <https://spacemit.com/community/document/info?lang=zh&nodepath=ecohardware/k3_series/k3_com260/com260_hw_resources.md>`_

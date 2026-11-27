@@ -7,6 +7,7 @@
    :caption: MYZR-进迭时空
 
    docs/MYZR-进迭时空/MYZR-K1-EK263/index
+   docs/MYZR-进迭时空/MYZR-K3-CoM260/index
 
 
 .. toctree::
