@@ -1,13 +1,14 @@
-
-MYZR-RZV2N-EK172
+MYZR-RZV2N-PI260
 ================
 
-.. include:: FS.产品简介.rst
+.. toctree::
+   :maxdepth: 4
 
-.. toctree:: 
-   :maxdepth: 1
-   :hidden:
-
-   QSG.快速开始
-   HM.硬件手册
-   SM.软件手册
+   产品订购信息
+   平台介绍
+   产品介绍
+   启动手册
+   测试指导
+   刷新固件
+   硬件开发指导
+   软件开发指导
