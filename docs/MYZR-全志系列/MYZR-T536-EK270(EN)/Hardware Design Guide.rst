@@ -1,3 +1,11 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
 Hardware Design Guide
 ========================
 
@@ -12,20 +20,20 @@ Preface
 
 | The backplane is powered by a 12V DC power supply. CON2 and CON3 are power input connectors. CON2 is a 3-pin green connector with a pitch of 3.81mm. CON3 is a DC-005 power interface, which can be connected to a power plug with an outer diameter of 5.5mm and an inner diameter of 2.1mm. SW1 is a power toggle switch; when in use, select according to the nearby "ON/OFF" silk screen.  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件1.jpg
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件1.jpg
    :alt: 硬件1.jpg
 
 | The power input end provides circuit protection functions such as overcurrent protection, overvoltage protection, reverse insertion prevention, and rapid power-down protection.
 
 **(1) Input Stage Power Supply Protection Circuit Design, as shown in the figure below.**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件2.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件2.png
    :alt: 硬件2.png
 
 | VDD_12V_MAIN is converted into power supplies for the core board and backplane peripherals through different power chips. The core board provides the backplane auxiliary power signal VDD_3V3_SOM_OUT, which is used to control the power-on sequence of each power supply on the evaluation backplane.
 | Recommended power-on sequence for the evaluation board: 12V DC power supply (VDD_12V_MAIN) -> Core board power supply (VDD_5V_SOM) -> Core board configures backplane auxiliary power (VDD_3V3_SOM_OUT) -> Backplane peripheral power supply -> System reset (AF27/RESETn/PU/1V8), as shown in the figure below.  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件3.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件3.png
    :alt: 硬件3.png
 
 1.1 Core Board Power Supply
@@ -35,7 +43,7 @@ Preface
 
 **(1) VDD_5V_SOM Power Supply Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件4.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件4.png
    :alt: 硬件4.png
 
 | **Note:** To ensure the long-term stable and reliable operation of the core board, supply power to the core board in accordance with the typical operating voltage (5.0V) provided by our company.  
@@ -48,22 +56,22 @@ Preface
 
 **(1) VDD_5V_MAIN Power Supply Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件5.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件5.png
    :alt: 硬件5.png
 
 **(2) VDD_3V3_MAIN Power Supply Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件6.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件6.png
    :alt: 硬件6.png
 
 **(3) VDD_3V3_PCIE Power Supply Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件7.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件7.png
    :alt: 硬件7.png
 
 **(4) VDD_1V8_MAIN Power Supply Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件8.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件8.png
    :alt: 硬件8.png
 
 **Design Considerations:**
@@ -77,12 +85,12 @@ Preface
 
 **(1) VDD_5V_ISO1 Power Supply Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件9.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件9.png
    :alt: 硬件9.png
 
 **(2) VDD_5V_ISO2 Power Supply Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件10.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件10.png
    :alt: 硬件10.png
 
 **Design Considerations:**
@@ -98,7 +106,7 @@ Preface
 
 | After the system is powered on, the boot code in the CPU's internal BootRom sequentially detects the SPL startup program from the SD card and eMMC FLASH, and starts from the first device containing the SPL startup program. After the SPL starts, it will first boot the U-Boot image from the SD system card (not a regular SD card); otherwise, it will boot the U-Boot image from the original startup device.  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件11.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件11.png
    :alt: 硬件11.png
 
 **Design Considerations:**
@@ -116,7 +124,7 @@ Preface
 
 **(1) Backplane Power Indicator Light Circuit Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件12.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件12.png
    :alt: 硬件12.png
 
 3.2 User-Programmable Indicator Lights
@@ -126,7 +134,7 @@ Preface
 
 **(1) Backplane Power Indicator Light Circuit Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件13.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件13.png
    :alt: 硬件13.png
 
 3.3 Module Status Indicator Light
@@ -134,7 +142,7 @@ Preface
 
 **(1) 4G/5G Module Status Indicator Light Circuit Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件14.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件14.png
    :alt: 硬件14.png
 
 4 KEY
@@ -150,7 +158,7 @@ Preface
 
 **(1) RESETn Button Circuit Design**   
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件15.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件15.png
    :alt: 硬件15.png
 
 **Design Considerations:**
@@ -165,7 +173,7 @@ Preface
 
 **(1) PWRON Button Circuit Design**    
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件16.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件16.png
    :alt: 硬件16.png
 
 **Design Considerations:**
@@ -180,7 +188,7 @@ Preface
 
 **(1) FEL Button Circuit Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件17.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件17.png
    :alt: 硬件17.png
 
 4.4 User Input Buttons
@@ -190,7 +198,7 @@ Preface
 
 **(1) User Input Button Circuit Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件18.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件18.png
    :alt: 硬件18.png
 
 **Design Considerations:**
@@ -210,7 +218,7 @@ Preface
 
 **(1) USB TO UART0 Circuit Design**  
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/硬件19.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/硬件19.png
    :alt: 硬件19.png
 
 **Design Considerations:**

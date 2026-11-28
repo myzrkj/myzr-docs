@@ -1,10 +1,18 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
 产品介绍
 =========
 
 核心板规格
 ------------
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/核心板资源表.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/核心板资源表.png
    :alt: 核心板资源表.png
    :width: 60%
 
@@ -13,19 +21,19 @@
 
 - 正面图
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/核心板正面图.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/核心板正面图.png
    :alt: 核心板正面图.png
    :width: 60%
 
 - 背面图
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/核心板背面图.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/核心板背面图.png
    :alt: 核心板背面图.png
    :width: 60%
 
 - 尺寸图
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/核心板尺寸图.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/核心板尺寸图.png
    :alt: 核心板尺寸图.png
    :width: 60%
 
@@ -35,18 +43,18 @@
 
 - 正面图
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/底板正面图.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/底板正面图.png
    :alt: 核心板尺寸图.png
    :width: 60%
 
 - 接口图
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/底板接口图.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/底板接口图.png
    :alt: 核心板接口图.png
    :width: 60%
 
 - 尺寸图
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/底板尺寸图.png
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/底板尺寸图.png
    :alt: 核心板尺寸图.png
    :width: 60%

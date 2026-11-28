@@ -1,10 +1,10 @@
-
 MYZR-T536-EK270(EN)
-======================
+====================
 
-.. toctree:: 
-   :maxdepth: 3
+.. toctree::
+   :maxdepth: 2
 
+   Product Ordering Information
    Platform Introduction
    Product Introduction
    Quick Start

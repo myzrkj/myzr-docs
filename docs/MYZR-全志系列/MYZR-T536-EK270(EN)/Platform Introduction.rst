@@ -1,3 +1,11 @@
+.. raw:: html
+
+   <style>
+   h1 {
+       color: #4CAF50;
+   }
+   </style>
+
 Platform Introduction
 ========================
 
@@ -35,7 +43,7 @@ Key Features
 Processor Block Diagram
 --------------------------
 
-.. figure:: /image/MYZR-全志系列/MYZR-T536-EK270/处理器框图.jpg
+.. figure:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/处理器框图.jpg
    :alt: 处理器框图.jpg
    :width: 90%
 

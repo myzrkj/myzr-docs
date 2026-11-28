@@ -14,6 +14,6 @@
 
 - 【商务及开发资料】联系您的明远智睿销售经理
 
-.. image:: /image/MYZR-全志系列/MYZR-T536-EK270/MYZR-SSD2351/天猫.png
+.. image:: ../../../image/MYZR-全志系列/MYZR-T536-EK270/天猫.png
    :alt: 天猫.png
    :width: 50% 
