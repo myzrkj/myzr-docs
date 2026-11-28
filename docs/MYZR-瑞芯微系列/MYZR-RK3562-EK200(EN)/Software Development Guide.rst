@@ -321,8 +321,7 @@ First-time compilation requires loading the SDK configuration file. Enter the rk
 
 .. code-block:: shell
 
-   ./build.sh myzr_rk3562_evb_defconfig
-   cd buildroot/
+   cd myzr-rk3562/buildroot/
    ./envsetup.sh rockchip_rk3562
 
 Full Compilation
@@ -332,15 +331,16 @@ Full Compilation
 
 .. code-block:: shell
 
-   #1. Select myzr_rk3562_defconfig board file
-   wanglk@myzr-u2004-ec50:~/my-work/rockchip/rk3562-clean/rk3562$./build.sh lunch
+   # 1. Select the myzr_rk3562_defconfig board configuration
+   cd ~/my-work/RK3562/02_sources/myzr-rk3562
+   ./build.sh lunch
    
    ###############RockchipLinuxSDK###############
    
    Manifest:rk3562_linux_release_v1.1.0_20231220.xml
    
    Logcolors:messagenoticewarningerrorfatal
-   Logsavedat/home/wanglk/my-work/rockchip/rk3562-clean/rk3562/output/sessions/2026-03-19_20-42-09
+   Logsavedat/home/wanglk/my-work/RK3562/02_sources/myzr-rk3562/output/sessions/2026-03-19_20-42-09
    Pickadefconfig:
    
    1.rockchip_defconfig
@@ -354,7 +354,7 @@ Full Compilation
    9.rockchip_rk3562_robot_evb2_ddr4_v10_defconfig
    Whichwouldyoulike?[1]:2
    
-   #2. Start full compilation
+   # 2. Start the full build
    ./build.sh
 
 2. After successful compilation, the relevant images can be found in the rockdev/ directory, where update.img is the collection of all images.
