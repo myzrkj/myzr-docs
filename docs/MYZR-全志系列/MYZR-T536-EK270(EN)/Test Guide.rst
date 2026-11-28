@@ -665,7 +665,7 @@ HDMI Test
    echo 202 > /sys/class/gpio/export
    echo out > /sys/class/gpio/gpio202/direction
    echo 0 > /sys/class/gpio/gpio202/value
-   ./lt8912_force_1080p
+   /test_app/lt8912_force_1080p
 
 4. After outputting this information
 
@@ -692,7 +692,7 @@ GPIO Test
 
 .. code-block:: shell
 
-   ./test_app/gpio_test.out GPIO1_B4 1
+   /test_app/gpio_test.out GPIO1_B4 1
 
 |  Output
 
@@ -706,7 +706,7 @@ GPIO Test
 
 .. code-block:: shell
 
-   ./test_app/gpio_test.out GPIO1_B4 0
+   /test_app/gpio_test.out GPIO1_B4 0
 
 |  Output
 
@@ -720,14 +720,14 @@ GPIO Test
 
 .. code-block:: shell
 
-   ./test_app/gpio_test.out GPIO1_B4 irq &
+   /test_app/gpio_test.out GPIO1_B4 irq &
 
 |  Pull up GPIO3_A6 and then pull it down to meet the falling edge trigger condition
 
 .. code-block:: shell
 
-   ./test_app/gpio_test.out GPIO1_B5 1
-   ./test_app/gpio_test.out GPIO1_B5 0
+   /test_app/gpio_test.out GPIO1_B5 1
+   /test_app/gpio_test.out GPIO1_B5 0
 
 |  Output
 
@@ -748,7 +748,7 @@ GPIO Test
 
 .. code-block:: shell
 
-   ./test_app/quectel-CM &
+   /test_app/quectel-CM &
 
 |  Output information:
 
@@ -818,7 +818,7 @@ GPIO Test
 
 .. code-block:: shell
 
-   ./test_app/quectel-CM &
+   /test_app/quectel-CM &
 
 |  Output information:
 

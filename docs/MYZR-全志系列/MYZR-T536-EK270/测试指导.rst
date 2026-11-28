@@ -665,7 +665,7 @@ HDMI测试
    echo 202 > /sys/class/gpio/export
    echo out > /sys/class/gpio/gpio202/direction
    echo 0 > /sys/class/gpio/gpio202/value
-   ./lt8912_force_1080p
+   /test_app/lt8912_force_1080p
 
 4. 输出该信息后
 
@@ -692,13 +692,13 @@ GPIO测试
 
 .. code-block:: shell
 
-   ./test_app/gpio_test.out GPIO1_B4 1
+   /test_app/gpio_test.out GPIO1_B4 1
 
 |  输出
 
 .. code-block:: shell
 
-   et GPIO44 HIGH
+   Set GPIO44 HIGH
 
 |  使用万用表测该管脚，3.3V表示测试成功。
 
@@ -706,7 +706,7 @@ GPIO测试
 
 .. code-block:: shell
 
-   ./test_app/gpio_test.out GPIO1_B4 0
+   /test_app/gpio_test.out GPIO1_B4 0
 
 |  输出
 
@@ -720,14 +720,14 @@ GPIO测试
 
 .. code-block:: shell
 
-   ./test_app/gpio_test.out GPIO1_B4 irq &
+   /test_app/gpio_test.out GPIO1_B4 irq &
 
 |  把GPIO3_A6拉高再拉低，以达到下降沿触发条件
 
 .. code-block:: shell
 
-   ./test_app/gpio_test.out GPIO1_B5 1
-   ./test_app/gpio_test.out GPIO1_B5 0
+   /test_app/gpio_test.out GPIO1_B5 1
+   /test_app/gpio_test.out GPIO1_B5 0
 
 |  输出
 
@@ -748,7 +748,7 @@ GPIO测试
 
 .. code-block:: shell
 
-   ./test_app/quectel-CM &
+   /test_app/quectel-CM &
 
 |  输出信息：
 
@@ -818,7 +818,7 @@ GPIO测试
 
 .. code-block:: shell
 
-   ./test_app/quectel-CM &
+   /test_app/quectel-CM &
 
 |  输出信息：
 
