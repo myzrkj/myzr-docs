@@ -1047,34 +1047,3 @@ Development Board Resources
 |      |                  | Interface 1          |                  |        |
 +------+------------------+----------------------+------------------+--------+
 
-Development Board Module Circuit Design Description
----------------------------------------------------
-
-1. Power Circuit
-~~~~~~~~~~~~~~~~~
-
-12V input, multi-channel DC/DC power supply.
-
-2. BOOT Configuration Circuit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-3. Reset Circuit
-~~~~~~~~~~~~~~~~~
-
-4. TF Card (SDIO) Circuit
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-5. RJ45 Ethernet Circuit
-~~~~~~~~~~~~~~~~~~~~~~~~~
-
-6. Type-C Flash USB
-~~~~~~~~~~~~~~~~~~~~
-
-7. USB HOST
-~~~~~~~~~~~~
-
-8. WIFI Module Circuit
-~~~~~~~~~~~~~~~~~~~~~~~
-
-9. Debug Port (J3)
-~~~~~~~~~~~~~~~~~~~
